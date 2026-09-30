@@ -1546,5 +1546,95 @@
   "proof": "keys trigger shape+sound (idle state like ref)",
   "demoNodes": 5,
   "errors": []
+ },
+ "origami-crease-fold-studio": {
+  "url": "http://localhost:4173/t/origami-crease-fold-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:50:23.726Z",
+  "http": 200,
+  "proof": "mesh folded 80%",
+  "demoNodes": 21,
+  "errors": []
+ },
+ "gltf-material-lighting-studio": {
+  "url": "http://localhost:4173/t/gltf-material-lighting-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:50:01.910Z",
+  "http": 200,
+  "proof": "empty viewport with drop target; Load sample shows PBR model",
+  "demoNodes": 44,
+  "errors": []
+ },
+ "voxel-model-editor-workspace": {
+  "url": "http://localhost:4173/t/voxel-model-editor-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:50:01.912Z",
+  "http": 200,
+  "proof": "start screen with 새 모델 → voxel editor",
+  "demoNodes": 64,
+  "errors": []
+ },
+ "parody-desktop-os-sandbox": {
+  "url": "http://localhost:4173/t/parody-desktop-os-sandbox/",
+  "ok": true,
+  "at": "2026-09-30T10:49:11.079Z",
+  "http": 200,
+  "proof": "BIOS boot screen; click boots desktop",
+  "demoNodes": 11,
+  "errors": []
+ },
+ "isometric-cutaway-room-studio": {
+  "url": "http://localhost:4173/t/isometric-cutaway-room-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:50:23.737Z",
+  "http": 200,
+  "proof": "room furniture sets swap",
+  "demoNodes": 31,
+  "errors": []
+ },
+ "winamp-skinned-player-chrome": {
+  "url": "http://localhost:4173/t/winamp-skinned-player-chrome/",
+  "ok": true,
+  "at": "2026-09-30T10:49:11.078Z",
+  "http": 200,
+  "proof": "Winamp chrome: transport, EQ, playlist, visualizer",
+  "demoNodes": 56,
+  "errors": []
+ },
+ "retro-media-player-chrome": {
+  "url": "http://localhost:4173/t/retro-media-player-chrome/",
+  "ok": true,
+  "at": "2026-09-30T10:49:13.055Z",
+  "http": 200,
+  "proof": "pink desktop with dock (click Player to open)",
+  "demoNodes": 22,
+  "errors": []
+ },
+ "3d-blob-param-mixer": {
+  "url": "http://localhost:4173/t/3d-blob-param-mixer/",
+  "ok": true,
+  "at": "2026-09-30T10:50:23.743Z",
+  "http": 200,
+  "proof": "blob displaced by noise params",
+  "demoNodes": 25,
+  "errors": []
+ },
+ "retro-boot-desktop-museum": {
+  "url": "http://localhost:4173/t/retro-boot-desktop-museum/",
+  "ok": true,
+  "at": "2026-09-30T10:49:13.003Z",
+  "http": 200,
+  "proof": "museum landing; ENTER opens Win95-style desktop",
+  "demoNodes": 45,
+  "errors": []
+ },
+ "3d-drivable-portfolio-world": {
+  "url": "http://localhost:4173/t/3d-drivable-portfolio-world/",
+  "ok": true,
+  "at": "2026-09-30T10:50:01.915Z",
+  "http": 200,
+  "proof": "car drove to x=0.4",
+  "demoNodes": 7,
+  "errors": []
  }
 }
