@@ -974,7 +974,7 @@
  "ritmo-simplex-wave-studio": {
   "url": "http://localhost:4173/t/ritmo-simplex-wave-studio/",
   "ok": true,
-  "at": "2026-09-30T10:20:45.651Z",
+  "at": "2026-09-30T10:26:55.747Z",
   "http": 200,
   "proof": "simplex-warped stripes animating",
   "demoNodes": 49,
@@ -983,7 +983,7 @@
  "tinkersynth-slopes-synth-desk": {
   "url": "http://localhost:4173/t/tinkersynth-slopes-synth-desk/",
   "ok": true,
-  "at": "2026-09-30T10:20:45.646Z",
+  "at": "2026-09-30T10:26:55.736Z",
   "http": 200,
   "proof": "slopes regenerated with higher peaks",
   "demoNodes": 42,
@@ -992,7 +992,7 @@
  "threelab-generative-pattern-deck": {
   "url": "http://localhost:4173/t/threelab-generative-pattern-deck/",
   "ok": true,
-  "at": "2026-09-30T10:20:45.652Z",
+  "at": "2026-09-30T10:26:55.747Z",
   "http": 200,
   "proof": "radial wave pattern shader live",
   "demoNodes": 24,
@@ -1001,7 +1001,7 @@
  "procedural-dungeon-theme-stage": {
   "url": "http://localhost:4173/t/procedural-dungeon-theme-stage/",
   "ok": true,
-  "at": "2026-09-30T10:20:45.651Z",
+  "at": "2026-09-30T10:26:55.747Z",
   "http": 200,
   "proof": "generated blueprint dungeon #11",
   "demoNodes": 92,
@@ -1010,16 +1010,16 @@
  "pattern-symmetry-playground": {
   "url": "http://localhost:4173/t/pattern-symmetry-playground/",
   "ok": true,
-  "at": "2026-09-30T10:20:45.655Z",
+  "at": "2026-09-30T10:26:57.613Z",
   "http": 200,
   "proof": "rhythmic line distribution curve 2.6",
-  "demoNodes": 77,
+  "demoNodes": 67,
   "errors": []
  },
  "canvas-fx-param-export": {
   "url": "http://localhost:4173/t/canvas-fx-param-export/",
   "ok": true,
-  "at": "2026-09-30T10:20:45.655Z",
+  "at": "2026-09-30T10:26:57.302Z",
   "http": 200,
   "proof": "scanlines fx applied, params code updated",
   "demoNodes": 28,
@@ -1028,7 +1028,7 @@
  "city-roads-lineart-explorer": {
   "url": "http://localhost:4173/t/city-roads-lineart-explorer/",
   "ok": true,
-  "at": "2026-09-30T10:20:47.268Z",
+  "at": "2026-09-30T10:26:59.895Z",
   "http": 200,
   "proof": "typed city → suggestions (landing state)",
   "demoNodes": 11,
@@ -1037,10 +1037,118 @@
  "fantasy-map-generator-workspace": {
   "url": "http://localhost:4173/t/fantasy-map-generator-workspace/",
   "ok": true,
-  "at": "2026-09-30T10:20:47.266Z",
+  "at": "2026-09-30T10:26:59.444Z",
   "http": 200,
   "proof": "generated heightmap + 9 political states",
   "demoNodes": 19,
+  "errors": []
+ },
+ "markdown-mindmap-dualpane": {
+  "url": "http://localhost:4173/t/markdown-mindmap-dualpane/",
+  "ok": true,
+  "at": "2026-09-30T10:27:38.630Z",
+  "http": 200,
+  "proof": "markdown edit re-rendered mindmap",
+  "demoNodes": 81,
+  "errors": []
+ },
+ "strudel-tidal-repl-stage": {
+  "url": "http://localhost:4173/t/strudel-tidal-repl-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:27:38.626Z",
+  "http": 200,
+  "proof": "mini-notation parsed; step visualizer advanced",
+  "demoNodes": 38,
+  "errors": []
+ },
+ "turtle-plotter-livecode": {
+  "url": "http://localhost:4173/t/turtle-plotter-livecode/",
+  "ok": true,
+  "at": "2026-09-30T10:27:38.640Z",
+  "http": 200,
+  "proof": "turtle program drew a star",
+  "demoNodes": 19,
+  "errors": []
+ },
+ "markdown-timeline-workspace": {
+  "url": "http://localhost:4173/t/markdown-timeline-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:27:38.648Z",
+  "http": 200,
+  "proof": "timeline re-rendered from markdown",
+  "demoNodes": 46,
+  "errors": []
+ },
+ "regex-visual-lab": {
+  "url": "http://localhost:4173/t/regex-visual-lab/",
+  "ok": true,
+  "at": "2026-09-30T10:27:38.633Z",
+  "http": 200,
+  "proof": "regex matched with live railroad diagram",
+  "demoNodes": 48,
+  "errors": []
+ },
+ "hydra-livecode-video-synth": {
+  "url": "http://localhost:4173/t/hydra-livecode-video-synth/",
+  "ok": true,
+  "at": "2026-09-30T10:27:38.639Z",
+  "http": 200,
+  "proof": "osc→rotate→kaleid chain compiled to shader (info panel shown)",
+  "demoNodes": 20,
+  "errors": []
+ },
+ "httpie-api-workspace": {
+  "url": "http://localhost:4173/t/httpie-api-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:27:40.195Z",
+  "http": 200,
+  "proof": "GET /users → 200 JSON response",
+  "demoNodes": 31,
+  "errors": []
+ },
+ "css-doodle-playground": {
+  "url": "http://localhost:4173/t/css-doodle-playground/",
+  "ok": true,
+  "at": "2026-09-30T10:27:40.576Z",
+  "http": 200,
+  "proof": "nested rotated squares rendered from doodle rules",
+  "demoNodes": 73,
+  "errors": []
+ },
+ "tweet-glsl-livecode-stage": {
+  "url": "http://localhost:4173/t/tweet-glsl-livecode-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:27:40.202Z",
+  "http": 200,
+  "proof": "GLSL compiled & rendering live",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "mermaid-dualpane-live-editor": {
+  "url": "http://localhost:4173/t/mermaid-dualpane-live-editor/",
+  "ok": true,
+  "at": "2026-09-30T10:27:40.723Z",
+  "http": 200,
+  "proof": "edited code → diagram re-rendered (promo modal shown)",
+  "demoNodes": 63,
+  "errors": []
+ },
+ "textmode-livecode-stage": {
+  "url": "http://localhost:4173/t/textmode-livecode-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:27:41.133Z",
+  "http": 200,
+  "proof": "ASCII field rendered from live function",
+  "demoNodes": 19,
+  "errors": []
+ },
+ "creative-code-ide": {
+  "url": "http://localhost:4173/t/creative-code-ide/",
+  "ok": true,
+  "at": "2026-09-30T10:27:40.792Z",
+  "http": 200,
+  "proof": "sketch running in sandboxed preview",
+  "demoNodes": 21,
   "errors": []
  }
 }
