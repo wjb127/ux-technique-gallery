@@ -1951,5 +1951,32 @@
   "proof": "scaffold controls → wireframe + prompt",
   "demoNodes": 47,
   "errors": []
+ },
+ "icones-icon-explorer-desk": {
+  "url": "http://127.0.0.1:4173/t/icones-icon-explorer-desk/",
+  "ok": true,
+  "at": "2026-09-30T11:49:46.864Z",
+  "http": 200,
+  "proof": "collection+filter(he)+detail home+copy+dark",
+  "demoNodes": 58,
+  "errors": []
+ },
+ "windy-weather-map-desk": {
+  "url": "http://127.0.0.1:4173/t/windy-weather-map-desk/",
+  "ok": true,
+  "at": "2026-09-30T11:49:46.852Z",
+  "http": 200,
+  "proof": "scrubbed to frame 16, toggled Temp→Wind, play exercised; spot 49°",
+  "demoNodes": 36,
+  "errors": []
+ },
+ "threejs-scene-editor-desk": {
+  "url": "http://127.0.0.1:4173/t/threejs-scene-editor-desk/",
+  "ok": true,
+  "at": "2026-09-30T11:49:48.700Z",
+  "http": 200,
+  "proof": "added 2 meshes; transform modes; color+fog+bg; play spin",
+  "demoNodes": 93,
+  "errors": []
  }
 }

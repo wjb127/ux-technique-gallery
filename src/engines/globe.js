@@ -129,4 +129,116 @@ V['gis-simplify-slider-workspace'] = (root, T) => {
   root.append(h('div.k-row', { style: { position: 'absolute', top: 0, left: 0, right: 0, height: '30px', background: '#1b8bd0', color: '#fff', padding: '0 10px', fontSize: '12px', gap: '14px' } }, h('b', {}, 'mapshaper-ish'), sl, info, h('span', { style: { flex: 1 } }), 'Simplify', 'Console', 'Export'), dlg);
   window.__demoProof = async () => { simplify(); return 'import dialog (sample loads → DP simplify slider)'; };
 };
+
+V['windy-weather-map-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0b1a28', fg: '#fff', ac: '#f5c518', dark: true });
+  const N = noise2(7);
+  let layer = 'Wind', frame = 9, playing = false, spot = { name: 'Wheaton', lon: -88.08, lat: 41.87, temp: 64, wind: 4 };
+  const cities = [['Chicago', -87.63, 41.88], ['Minneapolis', -93.27, 44.98], ['Denver', -104.99, 39.74], ['New York', -74.0, 40.71], ['Kansas City', -94.58, 39.1], ['Dallas', -96.8, 32.78], ['Atlanta', -84.39, 33.75], ['Seattle', -122.33, 47.61], ['Toronto', -79.38, 43.65], ['St. Louis', -90.2, 38.63]];
+  const days = ['Wednesday 30', 'Thursday 1', 'Friday 2', 'Saturday 3', 'Sunday 4'];
+  const frames = 24;
+  const valAt = (lon, lat, f, lyr) => {
+    const t = f / frames;
+    const n = N(lon / 28 + t * 1.4, lat / 22 - t * 0.7) * 0.65 + N(lon / 10 - t, lat / 12 + t * 0.5) * 0.35;
+    if (lyr === 'Temp') return clamp(35 + n * 50 + lat * -0.35, 0, 100);
+    if (lyr === 'Rain') return clamp((n - 0.45) * 120, 0, 40);
+    return clamp(n * 55, 0, 70);
+  };
+  const windColor = (v) => { const t = clamp(v / 60, 0, 1); const h = 210 - t * 160; return `hsla(${h},85%,${40 + t * 25}%,.72)`; };
+  const tempColor = (v) => { const t = clamp((v - 20) / 70, 0, 1); return `hsla(${250 - t * 250},80%,50%,.7)`; };
+  const rainColor = (v) => `hsla(${160 - v * 2},80%,40%,${clamp(v / 25, 0, 0.85)})`;
+  const colorFn = () => (layer === 'Temp' ? tempColor : layer === 'Rain' ? rainColor : windColor);
+  const ov = document.createElement('canvas'); ov.width = 360; ov.height = 180;
+  const bake = () => {
+    const g = ov.getContext('2d'), img = g.createImageData(360, 180), cf = colorFn();
+    for (let y = 0; y < 180; y++) for (let x = 0; x < 360; x++) {
+      const lon = x - 180, lat = 90 - y;
+      const v = valAt(lon, lat, frame, layer);
+      const c = cf(v); const m = c.match(/hsla?\((\d+),(\d+)%,(\d+)%,?([\d.]*)\)/);
+      if (!m) continue;
+      const [, hh, ss, ll, aa] = m.map(Number); const a = (aa || 1) * 255;
+      const s2 = ss / 100, l2 = ll / 100; const k = (n) => (n + hh / 30) % 12; const am = s2 * Math.min(l2, 1 - l2);
+      const f = (n) => l2 - am * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+      const i = (y * 360 + x) * 4; img.data[i] = f(0) * 255; img.data[i + 1] = f(8) * 255; img.data[i + 2] = f(4) * 255; img.data[i + 3] = a;
+    }
+    g.putImageData(img, 0, 0);
+  };
+  bake();
+  const M = mapView(root, { proj: geoEquirectangular(), draw: (g, proj, path, cv) => {
+    g.fillStyle = '#0a1624'; g.fillRect(0, 0, cv.W, cv.H);
+    g.beginPath(); path(LAND); g.fillStyle = '#1a2a38'; g.fill();
+    g.beginPath(); path(BORDERS); g.strokeStyle = '#ffffff28'; g.lineWidth = 0.6; g.stroke();
+    const [x0, y0] = proj([-180, 90]), [x1, y1] = proj([180, -90]);
+    g.globalAlpha = 0.85; g.drawImage(ov, x0, y0, x1 - x0, y1 - y0); g.globalAlpha = 1;
+    g.font = '11px Inter,sans-serif'; g.fillStyle = '#fff';
+    cities.forEach(([n, lon, lat]) => {
+      const p = proj([lon, lat]); if (!p) return;
+      const t = Math.round(valAt(lon, lat, frame, 'Temp'));
+      g.beginPath(); g.arc(p[0], p[1], 2.2, 0, 7); g.fill();
+      g.fillText(`${n} ${t}°`, p[0] + 5, p[1] - 4);
+    });
+  }});
+  M.k = 2.4; M.x = 80; M.y = 90;
+  const tip = h('div', { style: { position: 'absolute', bottom: '52px', left: '50%', transform: 'translateX(-50%)', background: '#f5c518', color: '#111', fontWeight: 800, fontSize: '12px', padding: '3px 10px', borderRadius: '4px', pointerEvents: 'none' } }, '9 PM');
+  const legend = h('div', { style: { position: 'absolute', bottom: '4px', left: '60px', right: '80px', height: '14px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '10px' } });
+  const legendBar = h('div', { style: { flex: 1, height: '8px', borderRadius: '2px', background: 'linear-gradient(90deg,#1c5cff,#1cc8a0,#9fe03a,#f5c518,#ff7a1a,#e03a3a)' } });
+  const legendUnit = h('span', {}, 'kt');
+  legend.append(h('span', {}, '0'), legendBar, h('span', {}, '5'), h('span', {}, '10'), h('span', {}, '20'), h('span', {}, '40'), h('span', {}, '60'), legendUnit);
+  const scrub = h('input', { type: 'range', min: 0, max: frames - 1, value: frame, style: { flex: 1, accentColor: '#f5c518' }, oninput: (e) => { frame = +e.target.value; tip.textContent = `${(6 + frame) % 24}:00`.replace(/^(\d):/, '0$1:'); bake(); updateSpot(); } });
+  const playBtn = h('button', { style: { background: 'none', border: 0, color: '#fff', fontSize: '16px', cursor: 'pointer', width: '28px' }, onclick: () => { playing = !playing; playBtn.textContent = playing ? '❚❚' : '▶'; } }, '▶');
+  setInterval(() => { if (!playing) return; frame = (frame + 1) % frames; scrub.value = frame; tip.textContent = `${(6 + frame) % 24}:00`.replace(/^(\d):/, '0$1:'); bake(); updateSpot(); }, 400);
+  const tempEl = h('b', { style: { fontSize: '42px', fontWeight: 300 } }, '64°');
+  const windEl = h('span', { style: { fontSize: '14px', opacity: .85 } }, '☁ 4 kt');
+  const search = h('input', { value: spot.name, style: { background: '#0008', border: '1px solid #ffffff33', color: '#fff', padding: '6px 12px', borderRadius: '6px', width: '180px' }, onchange: (e) => {
+    const q = e.target.value.toLowerCase();
+    const hit = cities.find((c) => c[0].toLowerCase().includes(q)) || ['Wheaton', -88.08, 41.87];
+    spot = { name: hit[0], lon: hit[1], lat: hit[2], temp: Math.round(valAt(hit[1], hit[2], frame, 'Temp')), wind: Math.round(valAt(hit[1], hit[2], frame, 'Wind')) };
+    search.value = spot.name; updateSpot();
+  }});
+  const updateSpot = () => {
+    spot.temp = Math.round(valAt(spot.lon, spot.lat, frame, 'Temp'));
+    spot.wind = Math.round(valAt(spot.lon, spot.lat, frame, 'Wind'));
+    tempEl.textContent = spot.temp + '°'; windEl.textContent = `☁ ${spot.wind} kt`;
+  };
+  M.cv.addEventListener('click', (e) => {
+    const r = M.cv.getBoundingClientRect();
+    const ll = M.proj.invert([(e.clientX - r.left), (e.clientY - r.top)]);
+    if (!ll) return;
+    spot = { name: 'Spot', lon: ll[0], lat: ll[1], temp: 0, wind: 0 };
+    search.value = `${ll[1].toFixed(1)}°, ${ll[0].toFixed(1)}°`;
+    updateSpot();
+  });
+  const forecast = h('div.k-row', { style: { gap: '18px', fontSize: '11px', opacity: .9 } },
+    ...['Wed 62°/66° 🌧', 'Thu 58°/70° ⛅', 'Fri 60°/72° ☀', 'Sat 61°/74° ☀'].map((t) => h('div', { style: { textAlign: 'center' } }, t)));
+  const layerPanel = h('div', { style: { position: 'absolute', right: '56px', bottom: '70px', background: '#1a2430f0', borderRadius: '10px', padding: '8px', display: 'none', gap: '4px', zIndex: 5 } });
+  const setLayer = (k) => {
+    layer = k; bake();
+    legendUnit.textContent = k === 'Temp' ? '°F' : k === 'Rain' ? 'mm' : 'kt';
+    legendBar.style.background = k === 'Temp'
+      ? 'linear-gradient(90deg,#3a5cff,#40d0ff,#9fe03a,#f5c518,#ff5a1a)'
+      : k === 'Rain' ? 'linear-gradient(90deg,#0a3a2a,#1cc8a0,#3a8cff,#6a3aff)'
+      : 'linear-gradient(90deg,#1c5cff,#1cc8a0,#9fe03a,#f5c518,#ff7a1a,#e03a3a)';
+    layerPanel.style.display = 'none';
+    layerPanel.querySelectorAll('button').forEach((b) => (b.style.background = b.dataset.k === k ? '#f5c518' : '#ffffff14'));
+  };
+  ['Wind', 'Temp', 'Rain'].forEach((k) => layerPanel.append(h('button', { 'data-k': k, style: { display: 'block', width: '100%', background: k === 'Wind' ? '#f5c518' : '#ffffff14', color: k === 'Wind' ? '#111' : '#fff', border: 0, padding: '8px 14px', borderRadius: '6px', cursor: 'pointer', fontWeight: 700 }, onclick: () => setLayer(k) }, k)));
+  const fab = h('button', { style: { position: 'absolute', right: '14px', bottom: '70px', width: '48px', height: '48px', borderRadius: '50%', background: '#e53935', color: '#fff', border: 0, fontSize: '20px', cursor: 'pointer', zIndex: 5, boxShadow: '0 4px 16px #0008' }, onclick: () => (layerPanel.style.display = layerPanel.style.display === 'none' ? 'grid' : 'none') }, '☰');
+  const rail = h('div', { style: { position: 'absolute', right: '18px', top: '120px', display: 'grid', gap: '14px', fontSize: '18px', opacity: .85, zIndex: 4 } }, '⌂', '🔍', '📍', '♡');
+  root.append(
+    h('div.k-row', { style: { position: 'absolute', top: '10px', left: '14px', right: '70px', gap: '20px', zIndex: 4, alignItems: 'flex-start' } },
+      h('div', { style: { display: 'grid', gap: '4px' } }, search, h('div.k-row', { style: { gap: '12px', alignItems: 'baseline' } }, tempEl, windEl)),
+      forecast),
+    h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, bottom: '18px', height: '34px', background: '#0d1520ee', padding: '0 10px', gap: '10px', zIndex: 4, fontSize: '11px' } },
+      playBtn,
+      ...days.map((d, i) => h('span', { style: { opacity: i === Math.floor(frame / 5) ? 1 : .45, minWidth: '70px' } }, d)),
+      scrub),
+    tip, legend, rail, layerPanel, fab);
+  window.__demoProof = async () => {
+    frame = 14; scrub.value = 14; bake(); updateSpot();
+    setLayer('Temp'); await sleep(200); setLayer('Wind');
+    playing = true; playBtn.textContent = '❚❚'; await sleep(500); playing = false;
+    return `scrubbed to frame ${frame}, toggled Temp→Wind, play exercised; spot ${spot.temp}°`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }

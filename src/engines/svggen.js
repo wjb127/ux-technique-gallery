@@ -185,4 +185,145 @@ V['social-meta-preview-studio'] = (root, T) => {
   draw();
   window.__demoProof = async () => { M.title = 'UX Technique Gallery — 217 interactive clones'; draw(); return 'title edited → all previews + meta HTML updated'; };
 };
+
+V['icones-icon-explorer-desk'] = (root, T) => {
+  theme(root, T, { bg: '#fafafa', fg: '#222', ac: '#111', dark: false });
+  const ICONS = {
+    lucide: {
+      name: 'Lucide', author: 'Lucide Contributors', license: 'ISC',
+      glyphs: {
+        home: 'M3 12l9-9 9 9M5 10v10h14V10', search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3', settings: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z',
+        heart: 'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z', star: 'M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z',
+        moon: 'M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z', sun: 'M12 4V2M12 22v-2M4.9 4.9L3.5 3.5M20.5 20.5l-1.4-1.4M4 12H2M22 12h-2M4.9 19.1L3.5 20.5M20.5 3.5l-1.4 1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+        copy: 'M8 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2M6 10h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z',
+        download: 'M12 3v12M7 10l5 5 5-5M5 21h14', user: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+        mail: 'M4 6h16v12H4zM4 6l8 7 8-7', bell: 'M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21a2 2 0 0 0 4 0',
+        check: 'M5 12l5 5L20 7', x: 'M6 6l12 12M18 6L6 18', plus: 'M12 5v14M5 12h14', trash: 'M4 7h16M9 7V5h6v2M7 7l1 14h8l1-14',
+        edit: 'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z', eye: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
+        lock: 'M7 11V8a5 5 0 0 1 10 0v3M6 11h12v10H6z', zap: 'M13 2L4 14h7l-1 8 9-12h-7l1-8z',
+        folder: 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z',
+        image: 'M4 5h16v14H4zM4 15l4-4 3 3 3-4 6 5', code: 'M8 8l-4 4 4 4M16 8l4 4-4 4',
+        globe: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20',
+        menu: 'M4 7h16M4 12h16M4 17h16', arrow: 'M5 12h14M13 6l6 6-6 6'
+      }
+    },
+    tabler: {
+      name: 'Tabler', author: 'Tabler', license: 'MIT',
+      glyphs: {
+        home: 'M5 12l7-7 7 7M9 21V12h6v9', search: 'M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-4-4',
+        settings: 'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM19.4 15l1 1.7-1.7 3-2-.4a7.5 7.5 0 0 1-1.7 1l-.4 2h-3.4l-.4-2a7.5 7.5 0 0 1-1.7-1l-2 .4-1.7-3 1-1.7a7.5 7.5 0 0 1 0-2l-1-1.7 1.7-3 2 .4a7.5 7.5 0 0 1 1.7-1l.4-2h3.4l.4 2a7.5 7.5 0 0 1 1.7 1l2-.4 1.7 3-1 1.7a7.5 7.5 0 0 1 0 2z',
+        heart: 'M12 20s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10z', star: 'M12 3l2.5 6.5H21l-5.2 4 2 6.5L12 16.5 6.2 20l2-6.5L3 9.5h6.5z',
+        moon: 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z', sun: 'M12 5V3M12 21v-2M5 12H3M21 12h-2M6.3 6.3L4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7L4.9 19.1M19.1 4.9l-1.4 1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+        copy: 'M8 8V6h10v10h-2M6 10h10v10H6z', download: 'M4 17v2h16v-2M12 3v12M8 11l4 4 4-4',
+        user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM6 21v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1',
+        mail: 'M3 7h18v12H3zM3 7l9 6 9-6', bell: 'M10 21h4M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9',
+        check: 'M5 13l4 4L19 7', x: 'M18 6L6 18M6 6l12 12', plus: 'M12 5v14M5 12h14',
+        trash: 'M4 7h16M10 11v6M14 11v6M6 7l1 14h10l1-14M9 7V4h6v3',
+        edit: 'M4 20h4l10-10-4-4L4 16v4zM14 6l4 4', eye: 'M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
+        lock: 'M8 11V8a4 4 0 0 1 8 0v3M6 11h12v10H6z', zap: 'M13 2L5 13h6l-1 9 9-12h-6z',
+        folder: 'M3 6h6l2 2h10v12H3z', image: 'M4 6h16v12H4zM4 14l4-3 3 2 4-4 5 5',
+        code: 'M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16', globe: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c3 3 3 15 0 18-3-3-3-15 0-18',
+        menu: 'M4 8h16M4 12h16M4 16h16', arrow: 'M5 12h14M15 6l6 6-6 6'
+      }
+    },
+    phosphor: {
+      name: 'Phosphor', author: 'Phosphor Icons', license: 'MIT',
+      glyphs: {
+        home: 'M4 12l8-8 8 8v9H4zM9 21v-7h6v7', search: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-3.5-3.5',
+        settings: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM4 12h2M18 12h2M12 4v2M12 18v2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4',
+        heart: 'M12 21S4 15.5 4 9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.5 12 21 12 21z',
+        star: 'M12 2.5l2.9 6.2 6.6.6-5 4.4 1.5 6.5L12 16.8 5.9 20.2l1.5-6.5-5-4.4 6.6-.6z',
+        moon: 'M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z', sun: 'M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5',
+        copy: 'M8 8V5h11v11h-3M5 8h11v11H5z', download: 'M12 3v12M7 11l5 5 5-5M4 19h16',
+        user: 'M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM5 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1',
+        mail: 'M3 6h18v12H3zM3 7l9 7 9-7', bell: 'M6 9a6 6 0 0 1 12 0c0 6 2 8 2 8H4s2-2 2-8M10 20a2 2 0 0 0 4 0',
+        check: 'M4 12l6 6L20 6', x: 'M6 6l12 12M18 6L6 18', plus: 'M12 4v16M4 12h16',
+        trash: 'M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13', edit: 'M4 20h4L18 10l-4-4L4 16v4z',
+        eye: 'M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
+        lock: 'M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z', zap: 'M13 2L4 13h7l-1 9 10-12h-7z',
+        folder: 'M3 7h6l2 2h10v11H3z', image: 'M3 5h18v14H3zM3 15l5-4 3 3 4-5 5 6',
+        code: 'M8 8L4 12l4 4M16 8l4 4-4 4', globe: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2a16 16 0 0 1 4 10 16 16 0 0 1-4 10 16 16 0 0 1-4-10A16 16 0 0 1 12 2z',
+        menu: 'M4 7h16M4 12h16M4 17h16', arrow: 'M4 12h16M14 6l6 6-6 6'
+      }
+    }
+  };
+  let dark = false, view = 'home', colKey = 'lucide', q = '', sel = null, size = 48, col = '#222';
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', transition: 'background .2s,color .2s' } });
+  root.append(shell);
+  const applyTheme = () => {
+    shell.style.background = dark ? '#121212' : '#fafafa';
+    shell.style.color = dark ? '#eee' : '#222';
+    col = dark ? '#eee' : '#222';
+    render();
+  };
+  const svgOf = (d, sz = 24, c = col) => s('svg', { viewBox: '0 0 24 24', width: sz, height: sz, fill: 'none', stroke: c, 'stroke-width': 1.75, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, s('path', { d }));
+  const fuzzy = (name, query) => { if (!query) return true; const n = name.toLowerCase(), qq = query.toLowerCase(); let i = 0; for (const ch of n) if (ch === qq[i]) i++; return i === qq.length || n.includes(qq); };
+  const header = () => h('div.k-row', { style: { height: '56px', padding: '0 24px', gap: '12px' } },
+    h('b', { style: { font: '400 28px/1 Georgia,serif', letterSpacing: '-.02em', cursor: 'pointer' }, onclick: () => { view = 'home'; sel = null; render(); } }, 'Icônes'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .55, cursor: 'pointer' } }, '⌥ GitHub'),
+    h('span', { style: { opacity: .55, cursor: 'pointer' } }, '⚙'),
+    h('span', { style: { cursor: 'pointer', fontSize: '18px' }, onclick: () => { dark = !dark; applyTheme(); } }, dark ? '☾' : '☀'));
+  const searchBar = (ph, on) => h('div', { style: { padding: '0 24px 16px' } },
+    h('div.k-row', { style: { background: dark ? '#1e1e1e' : '#fff', border: `1px solid ${dark ? '#333' : '#e5e5e5'}`, borderRadius: '10px', padding: '10px 14px', gap: '10px' } },
+      h('span', { style: { opacity: .45 } }, '🔍'),
+      h('input', { value: q, placeholder: ph, style: { flex: 1, border: 0, outline: 'none', background: 'transparent', color: 'inherit', fontSize: '15px' }, oninput: (e) => { q = e.target.value; on(); } })));
+  const card = (key, pack) => {
+    const names = Object.keys(pack.glyphs).slice(0, 9);
+    return h('div', { style: { background: dark ? '#1a1a1a' : '#fff', border: `1px solid ${dark ? '#2a2a2a' : '#e8e8e8'}`, borderRadius: '10px', padding: '14px 16px', display: 'grid', gridTemplateColumns: '1fr auto', gap: '10px', cursor: 'pointer' }, onclick: () => { view = 'collection'; colKey = key; q = ''; sel = null; render(); } },
+      h('div', {},
+        h('b', { style: { fontSize: '15px' } }, pack.name),
+        h('div', { style: { fontSize: '12px', opacity: .55, marginTop: '4px' } }, `${pack.author} · ${pack.license}`),
+        h('div', { style: { fontSize: '12px', opacity: .7, marginTop: '8px' } }, `${Object.keys(pack.glyphs).length} icons`)),
+      h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,22px)', gap: '4px' } }, ...names.map((n) => svgOf(pack.glyphs[n], 18, dark ? '#ccc' : '#444'))));
+  };
+  const drawer = () => {
+    if (!sel) return '';
+    const d = ICONS[colKey].glyphs[sel];
+    const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${col}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
+    const jsx = `<Icon name="${sel}" size={${size}} color="${col}" />`;
+    return h('div', { style: { width: '280px', borderLeft: `1px solid ${dark ? '#2a2a2a' : '#e8e8e8'}`, padding: '16px', display: 'grid', gap: '12px', alignContent: 'start', background: dark ? '#161616' : '#fff' } },
+      h('div.k-row', {}, h('b', {}, sel), h('span', { style: { flex: 1 } }), h('span', { style: { cursor: 'pointer' }, onclick: () => { sel = null; render(); } }, '✕')),
+      h('div', { style: { display: 'grid', placeItems: 'center', height: '140px', background: dark ? '#0e0e0e' : '#f5f5f5', borderRadius: '10px' } }, svgOf(d, size, col)),
+      h('div', {}, h('div', { style: { fontSize: '11px', opacity: .55 } }, 'Size'), h('input', { type: 'range', min: 16, max: 96, value: size, oninput: (e) => { size = +e.target.value; render(); } })),
+      h('div', {}, h('div', { style: { fontSize: '11px', opacity: .55 } }, 'Color'), h('input', { type: 'color', value: col.startsWith('#') && col.length === 7 ? col : '#222222', oninput: (e) => { col = e.target.value; render(); } })),
+      btn('Copy SVG', () => copy(svgStr, 'SVG'), 'pri'),
+      btn('Copy JSX', () => copy(jsx, 'JSX')),
+      btn('Download SVG', () => dl(sel + '.svg', svgStr)));
+  };
+  const collectionView = () => {
+    const pack = ICONS[colKey];
+    const names = Object.keys(pack.glyphs).filter((n) => fuzzy(n, q));
+    const side = h('div', { style: { width: '220px', borderRight: `1px solid ${dark ? '#2a2a2a' : '#e8e8e8'}`, padding: '12px', overflow: 'auto', fontSize: '13px' } },
+      h('div', { style: { opacity: .5, marginBottom: '8px' } }, 'Collections'),
+      ...Object.entries(ICONS).map(([k, p]) => h('div', { style: { padding: '8px 10px', borderRadius: '6px', cursor: 'pointer', background: k === colKey ? (dark ? '#2a2a2a' : '#eee') : 'transparent' }, onclick: () => { colKey = k; sel = null; q = ''; render(); } }, h('b', {}, p.name), h('span', { style: { float: 'right', opacity: .5 } }, Object.keys(p.glyphs).length))));
+    const grid = h('div', { style: { flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' } },
+      searchBar('Search icons…', () => render()),
+      h('div', { style: { padding: '0 16px 8px', fontSize: '13px', opacity: .6 } }, `${pack.name} · ${names.length} icons`),
+      h('div', { style: { flex: 1, overflow: 'auto', padding: '8px 16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(88px,1fr))', gap: '6px', alignContent: 'start' } },
+        ...names.map((n) => h('button', { title: n, style: { border: `1px solid ${sel === n ? (dark ? '#888' : '#111') : (dark ? '#2a2a2a' : '#eee')}`, background: dark ? '#1a1a1a' : '#fff', borderRadius: '8px', padding: '14px 8px', cursor: 'pointer', color: 'inherit', display: 'grid', gap: '8px', placeItems: 'center' }, onclick: () => { sel = n; render(); } }, svgOf(pack.glyphs[n], 28), h('span', { style: { fontSize: '10px', opacity: .65 } }, n)))),
+      h('div.k-row', { style: { padding: '10px 16px', gap: '8px' } }, btn('Load More', () => toast('All local icons loaded')), btn('Load All', () => toast('All loaded'))));
+    return h('div', { style: { flex: 1, display: 'flex', overflow: 'hidden' } }, side, grid, drawer());
+  };
+  const homeView = () => h('div', { style: { flex: 1, overflow: 'auto' } },
+    searchBar('Search category…', () => render()),
+    h('div', { style: { padding: '0 24px 24px' } },
+      h('div', { style: { fontSize: '12px', opacity: .5, margin: '8px 0' } }, 'UI 24px'),
+      h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: '12px' } },
+        ...Object.entries(ICONS).filter(([k, p]) => !q || fuzzy(p.name, q) || fuzzy(k, q)).map(([k, p]) => card(k, p)))));
+  function render() {
+    shell.replaceChildren(header(), view === 'home' ? homeView() : collectionView());
+  }
+  applyTheme();
+  window.__demoProof = async () => {
+    view = 'collection'; colKey = 'lucide'; q = 'he'; render();
+    await sleep(100);
+    sel = Object.keys(ICONS.lucide.glyphs).find((n) => fuzzy(n, 'he')) || 'heart';
+    render();
+    await copy(`<svg><path d="${ICONS.lucide.glyphs[sel]}"/></svg>`, 'SVG');
+    dark = true; applyTheme();
+    return `collection+filter(${q})+detail ${sel}+copy+dark`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

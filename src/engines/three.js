@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { h, drag, clamp, toast, sleep, noise2 } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
@@ -103,4 +104,116 @@ V['isometric-cutaway-room-studio'] = (root, T) => {
   root.append(h('div', { style: { position: 'absolute', left: '20px', top: '16px', fontSize: '12px', opacity: .7, zIndex: 2 } }, 'Room Studio-ish'), h('div', { style: { position: 'absolute', right: '30px', top: '130px', width: '230px', background: '#1a1a1a', borderRadius: '10px', padding: '14px', display: 'grid', gap: '10px', fontSize: '12px', zIndex: 2 } }, h('div.k-row', {}, h('b', {}, 'Theme'), h('span', { style: { flex: 1 } }), h('span', { style: { background: '#e8751a', padding: '2px 8px', borderRadius: '99px' } }, 'Night')), sw(['#1a1a1a', '#555', '#999', '#ddd', '#fff'], (c) => (S.scene.background = new THREE.Color(c))), 'Walls', sw(['#4a3020', '#8a6a4a', '#d8d0c0', '#2e3e5a', '#6a2a2a'], (c) => W.wall.color.set(c)), 'Floor', sw(['#6b4a2e', '#a07850', '#444', '#ccc'], (c) => W.floor.color.set(c)), 'Furniture', seg([['cozy', 'Cozy'], ['office', 'Office'], ['empty', 'Empty']], 'cozy', set), 'Lamp', h('input', { type: 'range', min: 0, max: 60, value: 30, oninput: (e) => (lamp.intensity = +e.target.value) }), btn('Toggle day / night', () => { const n = lamp.intensity > 0; lamp.intensity = n ? 0 : 30; d.intensity = n ? 1.6 : 0.4; }, 'pri')));
   window.__demoProof = async () => { set('office'); await sleep(100); set('cozy'); return 'room furniture sets swap'; };
 };
+
+V['threejs-scene-editor-desk'] = (root, T) => {
+  theme(root, T, { bg: '#c0c0c0', fg: '#222', ac: '#3d7eff', dark: false });
+  root.style.display = 'grid'; root.style.gridTemplateRows = '28px 1fr 28px'; root.style.background = '#c0c0c0';
+  let mode = 'translate', playing = false, tab = 'SCENE', fogOn = false, bgMode = 'DEFAULT';
+  const objs = []; let selected = null; let tc = null;
+  const addMenu = h('div', { style: { display: 'none', position: 'absolute', top: '24px', left: 0, background: '#eee', border: '1px solid #aaa', minWidth: '140px', zIndex: 20 } },
+    ...[['Box', 'box'], ['Sphere', 'sphere'], ['Plane', 'plane'], ['DirectionalLight', 'light']].map(([lab, k]) => h('div', { style: { padding: '6px 12px', cursor: 'pointer' }, onmouseenter: (e) => (e.currentTarget.style.background = '#cde'), onmouseleave: (e) => (e.currentTarget.style.background = ''), onclick: () => addObj(k) }, lab)));
+  const menu = h('div.k-row', { style: { height: '28px', background: '#ddd', fontSize: '12px', padding: '0 10px', gap: '14px', borderBottom: '1px solid #bbb' } },
+    h('span', { style: { cursor: 'pointer' } }, 'File'), h('span', {}, 'Edit'),
+    h('span', { style: { cursor: 'pointer', position: 'relative' }, onmouseenter: () => (addMenu.style.display = 'block'), onmouseleave: () => (addMenu.style.display = 'none') }, 'Add ▾', addMenu),
+    h('span', {}, 'View'), h('span', {}, 'Help'),
+    h('span', { style: { flex: 1 } }),
+    h('label.k-row', { style: { gap: '4px', fontSize: '11px' } }, h('input', { type: 'checkbox', checked: true }), 'autosave'),
+    h('span', { style: { opacity: .55, fontSize: '11px' } }, 'r186'));
+  const body = h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 300px', minHeight: 0, position: 'relative' } });
+  const vp = h('div', { style: { position: 'relative', background: '#aaa', overflow: 'hidden' } });
+  const S = stage(vp, { bg: '#aaaaaa' }); lights(S.scene, 0.85); S.cam.position.set(5, 4, 7); S.cam.lookAt(0, 0, 0);
+  const oc = new OrbitControls(S.cam, S.r.domElement); oc.enableDamping = true;
+  S.scene.add(new THREE.GridHelper(30, 30, 0x666666, 0x888888));
+  const axes = new THREE.AxesHelper(1.2); axes.position.set(0, 0.01, 0); // world hint only
+  // viewport chrome
+  const stats = h('div', { style: { position: 'absolute', left: '8px', bottom: '8px', fontSize: '11px', color: '#fff', textShadow: '0 1px 2px #0008', lineHeight: 1.5, zIndex: 3, pointerEvents: 'none' } }, '0 objects', h('br'), '0 vertices', h('br'), '0 triangles');
+  const updStats = () => {
+    let v = 0, t = 0; objs.forEach((o) => { const g = o.geometry; if (!g) return; v += g.attributes.position?.count || 0; t += (g.index ? g.index.count : (g.attributes.position?.count || 0)) / 3; });
+    stats.replaceChildren(`${objs.length} objects`, h('br'), `${v} vertices`, h('br'), `${Math.round(t)} triangles`);
+  };
+  const gizmoBar = h('div.k-row', { style: { position: 'absolute', left: '50%', bottom: '16px', transform: 'translateX(-50%)', gap: '4px', zIndex: 4 } });
+  const setMode = (m) => {
+    mode = m;
+    if (tc) tc.setMode(m);
+    [...gizmoBar.children].forEach((b) => (b.style.background = b.dataset.m === m ? '#3d7eff' : '#ddd'));
+  };
+  [['translate', '✥'], ['rotate', '↻'], ['scale', '⤢']].forEach(([m, ic]) => gizmoBar.append(h('button', { 'data-m': m, style: { width: '36px', height: '36px', border: '1px solid #999', background: m === 'translate' ? '#3d7eff' : '#ddd', cursor: 'pointer', fontSize: '16px', color: m === 'translate' ? '#fff' : '#222' }, onclick: () => setMode(m) }, ic)));
+  vp.append(h('div.k-row', { style: { position: 'absolute', right: '10px', top: '8px', gap: '6px', zIndex: 3, fontSize: '11px' } },
+    h('span', { style: { background: '#ddd', padding: '4px 8px', border: '1px solid #999' } }, 'CAMERA ▾'),
+    h('span', { style: { background: '#ddd', padding: '4px 8px', border: '1px solid #999' } }, 'SOLID ▾'),
+    h('span', { style: { color: '#e33', marginLeft: '6px' } }, 'X'), h('span', { style: { color: '#3a3' } }, 'Y'), h('span', { style: { color: '#36f' } }, 'Z')), stats, gizmoBar);
+  tc = new TransformControls(S.cam, S.r.domElement);
+  tc.addEventListener('dragging-changed', (e) => { oc.enabled = !e.value; });
+  try { S.scene.add(tc.getHelper ? tc.getHelper() : tc); } catch { S.scene.add(tc); }
+  const selectObj = (o) => {
+    selected = o;
+    if (tc) { if (o) { tc.attach(o); tc.setMode(mode); } else tc.detach(); }
+    renderSide();
+  };
+  const ray = new THREE.Raycaster();
+  S.r.domElement.addEventListener('pointerdown', (e) => {
+    if (tc && tc.dragging) return;
+    const b = S.r.domElement.getBoundingClientRect();
+    ray.setFromCamera({ x: ((e.clientX - b.left) / b.width) * 2 - 1, y: -((e.clientY - b.top) / b.height) * 2 + 1 }, S.cam);
+    const hit = ray.intersectObjects(objs, false)[0];
+    selectObj(hit ? hit.object : null);
+  });
+  function addObj(kind) {
+    let mesh;
+    if (kind === 'box') mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
+    else if (kind === 'sphere') mesh = new THREE.Mesh(new THREE.SphereGeometry(0.6, 32, 16), new THREE.MeshStandardMaterial({ color: 0xaaccee }));
+    else if (kind === 'plane') mesh = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), new THREE.MeshStandardMaterial({ color: 0x888888, side: THREE.DoubleSide }));
+    else { const l = new THREE.DirectionalLight(0xffffff, 1.2); l.position.set(3, 5, 2); S.scene.add(l); toast('DirectionalLight added'); return; }
+    mesh.position.set((Math.random() - 0.5) * 2, 0.5, (Math.random() - 0.5) * 2);
+    mesh.name = kind[0].toUpperCase() + kind.slice(1) + objs.filter((o) => o.userData.kind === kind).length;
+    mesh.userData.kind = kind;
+    S.scene.add(mesh); objs.push(mesh); selectObj(mesh); updStats();
+  }
+  const side = h('div', { style: { background: '#ddd', borderLeft: '1px solid #bbb', display: 'flex', flexDirection: 'column', fontSize: '12px', overflow: 'auto' } });
+  function renderSide() {
+    const tabs = h('div.k-row', { style: { borderBottom: '1px solid #bbb' } },
+      ...['SCENE', 'PROJECT', 'SETTINGS'].map((t) => h('span', { style: { padding: '8px 12px', cursor: 'pointer', background: tab === t ? '#eee' : 'transparent', fontWeight: tab === t ? 700 : 400 }, onclick: () => { tab = t; renderSide(); } }, t)));
+    const tree = h('div', { style: { background: '#fff', margin: '8px', border: '1px solid #bbb', padding: '6px', minHeight: '100px' } },
+      h('div', { style: { padding: '3px 4px' } }, h('span', { style: { color: '#e33' } }, '● '), 'Camera'),
+      h('div', { style: { padding: '3px 4px' } }, h('span', { style: { color: '#36f' } }, '● '), 'Scene'),
+      ...objs.map((o) => h('div', { style: { padding: '3px 14px', cursor: 'pointer', background: selected === o ? '#cde' : 'transparent' }, onclick: () => selectObj(o) }, '◻ ' + o.name)));
+    const fields = h('div', { style: { padding: '8px 12px', display: 'grid', gap: '8px' } },
+      h('div.k-row', {}, h('span', { style: { width: '90px' } }, 'Background'), select(['DEFAULT', 'Color', 'Texture'], bgMode, (v) => { bgMode = v; S.scene.background = new THREE.Color(v === 'Color' ? 0x334455 : 0xaaaaaa); })),
+      h('div.k-row', {}, h('span', { style: { width: '90px' } }, 'Environment'), select(['DEFAULT', 'None'], 'DEFAULT', () => {})),
+      h('div.k-row', {}, h('span', { style: { width: '90px' } }, 'Fog'), select(['NONE', 'Linear', 'Exponential'], fogOn ? 'Linear' : 'NONE', (v) => { fogOn = v !== 'NONE'; S.scene.fog = fogOn ? new THREE.Fog(0xaaaaaa, 8, 40) : null; })));
+    if (selected && selected.isMesh) {
+      const p = selected.position, r = selected.rotation, sc = selected.scale;
+      const num = (label, obj, key, step = 0.1) => h('div.k-row', {}, h('span', { style: { width: '70px' } }, label), h('input', { type: 'number', step, value: +obj[key].toFixed(2), style: { width: '70px' }, oninput: (e) => { obj[key] = +e.target.value; } }));
+      fields.append(h('b', { style: { marginTop: '8px' } }, selected.name),
+        num('pos.x', p, 'x'), num('pos.y', p, 'y'), num('pos.z', p, 'z'),
+        num('rot.x', r, 'x'), num('rot.y', r, 'y'), num('rot.z', r, 'z'),
+        num('scl.x', sc, 'x'),
+        h('div.k-row', {}, h('span', { style: { width: '70px' } }, 'color'), h('input', { type: 'color', value: '#' + selected.material.color.getHexString(), oninput: (e) => selected.material.color.set(e.target.value) })));
+    }
+    side.replaceChildren(tabs, tree, fields);
+  }
+  renderSide();
+  const playbar = h('div.k-row', { style: { height: '28px', background: '#333', color: '#ddd', fontSize: '12px', padding: '0 12px', gap: '12px' } },
+    h('span', { style: { cursor: 'pointer' }, onclick: () => { playing = true; } }, '▶'),
+    h('span', { style: { cursor: 'pointer' }, onclick: () => { playing = false; } }, '❚❚'),
+    h('span', { style: { cursor: 'pointer' }, onclick: () => { playing = false; if (selected) selected.rotation.set(0, 0, 0); } }, '■'),
+    h('span', {}, '0.00 / 0.00'), h('span', { style: { flex: 1 } }), h('span', {}, 'Time Scale 1.00'));
+  S.on(() => { oc.update(); if (playing && selected) selected.rotation.y += 0.02; });
+  body.append(vp, side);
+  root.append(menu, body, playbar);
+  // expose for proof
+  window.__addBox = () => addObj('box');
+  window.__demoProof = async () => {
+    addObj('box'); addObj('sphere');
+    await sleep(100);
+    setMode('rotate'); await sleep(80); setMode('scale'); await sleep(80); setMode('translate');
+    if (selected) selected.material.color.set('#ff6644');
+    S.scene.background = new THREE.Color(0x445566); bgMode = 'Color';
+    S.scene.fog = new THREE.Fog(0x445566, 10, 40); fogOn = true;
+    playing = true; await sleep(300); playing = false;
+    renderSide(); updStats();
+    return `added ${objs.length} meshes; transform modes; color+fog+bg; play spin`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }
