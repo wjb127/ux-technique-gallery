@@ -1,0 +1,26 @@
+@import '@fontsource-variable/inter';
+:root { --tg-h: 38px; color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font-family: 'Inter Variable', system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+.tg-bar { position: fixed; inset: 0 0 auto 0; height: var(--tg-h); z-index: 9999; display: flex; align-items: center; gap: 12px; padding: 0 12px;
+  background: rgba(14, 14, 16, .92); color: #eee; font: 500 12px/1 'Inter Variable', system-ui, sans-serif; backdrop-filter: blur(8px); border-bottom: 1px solid #ffffff1a; }
+.tg-bar a { color: inherit; text-decoration: none; }
+.tg-bar .tg-home { font-weight: 800; letter-spacing: -.02em; padding: 5px 8px; border-radius: 6px; background: #ffffff14; }
+.tg-bar .tg-name { font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
+.tg-bar .tg-ko { opacity: .7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20vw; }
+.tg-bar .tg-meta { opacity: .75; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tg-bar .tg-ref { color: #9fd3ff; white-space: nowrap; }
+.tg-bar .tg-sp { flex: 1; }
+.tg-bar button { font: inherit; color: #111; background: #d9f99d; border: 0; border-radius: 999px; padding: 5px 10px; cursor: pointer; font-weight: 700; }
+.tg-cp { position: fixed; top: calc(var(--tg-h) + 6px); right: 10px; z-index: 9999; width: 380px; max-height: 70vh; overflow: auto; background: #111214f2; color: #eee; border-radius: 12px; padding: 14px 16px;
+  font: 13px/1.45 'Inter Variable', system-ui, sans-serif; box-shadow: 0 20px 60px #0008; display: none; }
+.tg-cp.on { display: block; }
+.tg-cp h4 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; opacity: .7; }
+.tg-cp ol { margin: 0; padding-left: 18px; } .tg-cp li { margin: 4px 0; } .tg-cp li::marker { color: #a3e635; }
+.tg-cp .src { opacity: .55; font-size: 11px; margin-top: 8px; }
+#demo { position: fixed; inset: var(--tg-h) 0 0 0; overflow: hidden; }
+#demo.scroll { overflow: auto; }
+.tg-toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); opacity: 0; transition: .25s; z-index: 10000; background: #111; color: #fff; padding: 10px 16px; border-radius: 999px; font: 600 13px system-ui; pointer-events: none; box-shadow: 0 8px 30px #0006; }
+.tg-toast.on { opacity: 1; transform: translate(-50%, 0); }
+.tg-fail { padding: 40px; font: 16px system-ui; color: #b91c1c; }

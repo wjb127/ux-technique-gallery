@@ -1,0 +1,87 @@
+import { h, s, css, blip, drum, midi, SCALE, audio, toast, sleep, clamp } from '../lib.js';
+import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
+css(`.sq-cell{cursor:pointer;transition:background .08s, box-shadow .08s}.sq-play{box-shadow:inset 0 0 0 999px #ffffff22}`);
+function core({ rows, steps, bpm = 110, onstep, sound }) {
+  const g = Array.from({ length: rows }, () => Array(steps).fill(0)); let pos = -1, tid = null, tempo = bpm;
+  const tick = () => { pos = (pos + 1) % steps; for (let r = 0; r < rows; r++) if (g[r][pos]) sound(r, g[r][pos]); onstep?.(pos); };
+  const play = () => { audio(); if (tid) return; tid = setInterval(tick, 60000 / tempo / 4); };
+  const stop = () => { clearInterval(tid); tid = null; };
+  return { g, play, stop, toggle: () => (tid ? stop() : play(), !!tid), get playing() { return !!tid; }, setTempo: (t) => { tempo = t; if (tid) { stop(); play(); } }, get pos() { return pos; }, tick };
+}
+const V = {};
+V['music-grid-sequencer'] = (root, T) => {
+  theme(root, T, { bg: '#fff', fg: '#333', ac: '#1d8af8', dark: false });
+  const R = 14, S = 32; const cols = ['#e33059', '#f95c3c', '#fc8a28', '#fdb827', '#9ecb3f', '#2cc36b', '#15b7a8', '#1d8af8', '#5d5cf5', '#8e4cf0', '#c847d8', '#e33059', '#f95c3c', '#fc8a28'];
+  const sq = core({ rows: R + 2, steps: S, sound: (r) => (r < R ? blip(midi(60 + SCALE[R - 1 - r]), 0.3, 'triangle', 0.12) : drum(r === R ? 'snare' : 'kick')), onstep: (p) => cells.forEach((row, r) => row.forEach((c, i) => c.classList.toggle('sq-play', i === p))) });
+  const gridEl = h('div', { style: { position: 'absolute', inset: '52px 0 78px 0', display: 'grid', gridTemplateColumns: `repeat(${S},1fr)`, gridTemplateRows: `repeat(${R},1fr) 6px repeat(2,1.4fr)` } });
+  const cells = [];
+  for (let r = 0; r < R + 2; r++) { if (r === R) for (let i = 0; i < S; i++) gridEl.append(h('div', { style: { background: '#fff' } })); cells[r] = []; for (let i = 0; i < S; i++) { const c = h('div.sq-cell', { style: { border: '1px solid #cfe3f7', borderLeft: i % 4 === 0 ? '1.5px solid #9cc7ee' : '', background: Math.floor(i / 8) % 2 ? '#f3f9ff' : '#fff' } }); c.onclick = () => { sq.g[r][i] ^= 1; paint(r, i); if (sq.g[r][i]) sq.tick === 0 || (r < R ? blip(midi(60 + SCALE[R - 1 - r]), 0.25, 'triangle') : drum(r === R ? 'snare' : 'kick')); }; cells[r][i] = c; gridEl.append(c); } }
+  const paint = (r, i) => (cells[r][i].style.background = sq.g[r][i] ? (r < R ? cols[r] : '#3c3c4a') : Math.floor(i / 8) % 2 ? '#f3f9ff' : '#fff');
+  const playB = h('button', { style: { width: '58px', height: '58px', borderRadius: '50%', border: 0, background: '#1d8af8', color: '#fff', fontSize: '22px' }, onclick: () => { sq.toggle(); playB.textContent = sq.playing ? '■' : '▶'; } }, '▶');
+  root.append(h('div', { style: { position: 'absolute', top: 0, left: 0, right: 0, height: '52px', display: 'flex', alignItems: 'center', padding: '0 18px', gap: '14px', borderBottom: '1px solid #eee' } }, '←', '↻', h('b', { style: { flex: 1, textAlign: 'center', letterSpacing: '.18em', fontSize: '13px' } }, 'SONG MAKER'), h('span', { style: { color: '#1d8af8' } }, '● Restart'), '● About'), gridEl,
+    h('div', { style: { position: 'absolute', bottom: 0, left: 0, right: 0, height: '78px', display: 'flex', alignItems: 'center', gap: '26px', padding: '0 22px', borderTop: '1px solid #eee' } }, playB, select(['Marimba', 'Piano', 'Strings', 'Woodwind', 'Synth'], 'Marimba', () => {}), select(['Electronic', 'Blocks', 'Kit', 'Conga'], 'Electronic', () => {}), h('div', { style: { width: '220px' } }, slider('Tempo', 60, 200, 110, 1, (v) => sq.setTempo(v))), h('span', { style: { flex: 1 } }), btn('⚙ Settings', () => {}), btn('↶ Undo', () => {}), btn('✓ Save', () => toast('Song link copied'), 'pri')));
+  window.__demoProof = async () => { const mel = [0, 2, 4, 5, 4, 2, 7, 9, 7, 4, 2, 0, 4, 7, 11, 13]; mel.forEach((n, i) => { const r = R - 1 - n % R; sq.g[r][i * 2] = 1; paint(r, i * 2); }); for (let i = 0; i < S; i += 4) { sq.g[R + 1][i] = 1; paint(R + 1, i); sq.g[R][i + 2] = 1; paint(R, i + 2); } sq.play(); await sleep(700); sq.stop(); return 'composed melody + beat, playhead advanced to ' + sq.pos; };
+};
+V['tonematrix-click-grid'] = (root, T) => {
+  theme(root, T, { bg: '#0b0b0b', fg: '#bbb', dark: true });
+  const N = 16; const sq = core({ rows: N, steps: N, bpm: 120, sound: (r) => blip(midi(48 + SCALE[N - 1 - r]), 0.5, 'sine', 0.09), onstep: (p) => draw(p) });
+  const box = h('div', { style: { position: 'absolute', left: '50%', top: '46%', transform: 'translate(-50%,-50%)', width: '560px', height: '560px', display: 'grid', gridTemplateColumns: `repeat(${N},1fr)`, gap: '4px', padding: '14px', background: '#171717', borderRadius: '6px', boxShadow: '0 0 0 1px #2a2a2a' } });
+  const cells = []; let down = null;
+  for (let r = 0; r < N; r++) for (let i = 0; i < N; i++) { const c = h('div.sq-cell', { style: { background: '#2b2b2b', borderRadius: '2px' } }); c.onpointerdown = () => { down = sq.g[r][i] ? 0 : 1; sq.g[r][i] = down; draw(sq.pos); }; c.onpointerenter = () => { if (down != null) { sq.g[r][i] = down; draw(sq.pos); } }; cells.push(c); box.append(c); }
+  window.addEventListener('pointerup', () => (down = null));
+  function draw(p) { cells.forEach((c, k) => { const r = Math.floor(k / N), i = k % N; const on = sq.g[r][i]; const hit = on && i === p; c.style.background = hit ? '#fff' : on ? '#d9d9d9' : i === p ? '#3a3a3a' : '#2b2b2b'; c.style.boxShadow = hit ? '0 0 18px #fff' : on ? '0 0 6px #ffffff66' : ''; }); }
+  root.append(box, h('div', { style: { position: 'absolute', bottom: '46px', width: '100%', textAlign: 'center', fontSize: '12px', lineHeight: 1.7 } }, h('div', {}, 'The ToneMatrix-ish is a click grid · Click cells to add notes'), h('div.k-row', { style: { justifyContent: 'center', marginTop: '10px' } }, btn('▶ Play', () => sq.play(), 'pri'), btn('■ Stop', () => sq.stop()), btn('Clear', () => { sq.g.forEach((r) => r.fill(0)); draw(-1); }), btn('Share', () => toast('Pattern URL copied')))));
+  root.style.setProperty('--ac', '#555');
+  window.__demoProof = async () => { for (let i = 0; i < N; i++) { sq.g[(i * 5) % N][i] = 1; sq.g[(i * 3 + 7) % N][i] = 1; } sq.play(); await sleep(600); sq.stop(); draw(sq.pos); return 'drew diagonal pattern, playhead lit'; };
+};
+V['beepbox-piano-roll'] = (root, T) => {
+  theme(root, T, { bg: '#000', fg: '#ccc', panel: '#000', ac: '#74f', dark: true });
+  const R = 12, S = 32; const sq = core({ rows: R, steps: S, bpm: 150, sound: (r) => blip(midi(60 + (R - 1 - r)), 0.18, 'square', 0.05), onstep: (p) => (head.style.left = (p / S) * 100 + '%') });
+  const roll = h('div', { style: { position: 'relative', display: 'grid', gridTemplateColumns: `repeat(${S},1fr)`, gridTemplateRows: `repeat(${R},1fr)`, gap: '1px', background: '#111', height: '100%' } });
+  const head = h('div', { style: { position: 'absolute', top: 0, bottom: 0, width: '2px', background: '#fff', left: 0, pointerEvents: 'none' } });
+  const cells = [];
+  for (let r = 0; r < R; r++) for (let i = 0; i < S; i++) { const black = [1, 3, 6, 8, 10].includes((R - 1 - r) % 12); const c = h('div.sq-cell', { style: { background: black ? '#1b1b1b' : '#262626' } }); c.onclick = () => { sq.g[r][i] ^= 1; c.style.background = sq.g[r][i] ? '#9d5cff' : black ? '#1b1b1b' : '#262626'; c.style.boxShadow = sq.g[r][i] ? 'inset 0 0 0 1px #c9a3ff' : ''; }; cells.push(c); roll.append(c); }
+  roll.append(head);
+  const chans = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(16,1fr)', gap: '2px', padding: '6px' } });
+  ['#25f3ff', '#ffff25', '#ff9752', '#ff90ff', '#aaaaaa'].forEach((c, k) => { for (let b = 0; b < 16; b++) chans.append(h('div', { style: { height: '22px', background: b < 4 || (k === 0 && b < 8) ? c + '66' : '#222', color: '#000', fontSize: '11px', display: 'grid', placeItems: 'center', border: b === 0 && k === 0 ? '2px solid #fff' : '' } }, b < 4 ? (b % 2) + 1 : '')); });
+  const side = panel(null, h('div', { style: { fontSize: '12px' } }, 'BeepBox-ish 4.1'), select(['File ▾'], 'File ▾', () => {}), select(['Edit ▾'], 'Edit ▾', () => {}), h('div.k-h', {}, 'Song Settings'), select(['C Major', 'A Minor', 'D Dorian'], 'C Major', () => {}), slider('Tempo', 30, 300, 150, 1, (v) => sq.setTempo(v)), slider('Reverb', 0, 100, 30, 1, () => {}), h('div.k-h', {}, 'Instrument'), select(['chip wave', 'FM', 'noise', 'spectrum'], 'chip wave', () => {}), select(['square', 'triangle', 'sawtooth'], 'square', () => {}), slider('Volume', 0, 100, 70, 1, () => {}));
+  Object.assign(side.style, { border: '0', background: '#000' });
+  const playB = btn('▶ Play', () => { sq.toggle(); playB.textContent = sq.playing ? '❚❚ Pause' : '▶ Play'; }, 'pri');
+  root.style.display = 'grid'; root.style.gridTemplateColumns = '1fr 230px'; root.style.gridTemplateRows = '1fr auto'; root.style.gap = '6px'; root.style.padding = '8px 8px 0';
+  root.append(h('div', { style: { display: 'grid', gridTemplateRows: 'auto 1fr', gap: '4px' } }, h('div.k-row', {}, playB, btn('⏮', () => {}), btn('⏭', () => {}), h('span', { style: { opacity: .6 } }, 'Channel 1 · Pattern 1')), roll), side, h('div', { style: { gridColumn: '1/-1' } }, chans, h('div', { style: { textAlign: 'center', padding: '10px', fontWeight: 800, fontSize: '22px' } }, 'BeepBox-ish'), h('p', { style: { textAlign: 'center', opacity: .6, margin: '0 0 8px', fontSize: '12px' } }, 'All song data is contained in the URL — share it to share your song.')));
+  window.__demoProof = async () => { const mel = [0, 4, 7, 11, 7, 4, 2, 5, 9, 5, 2, 0, 4, 7, 4, 0]; mel.forEach((n, i) => cells[(R - 1 - n) * S + i * 2].click()); sq.play(); await sleep(500); sq.stop(); return 'wrote arpeggio in piano roll'; };
+};
+V['ableton-beat-grid-lesson'] = (root, T) => {
+  theme(root, T, { bg: '#1a1a1a', fg: '#fff', ac: '#ffd200', acfg: '#000', dark: true });
+  const ROWS = ['Kick', 'Snare', 'Hat', 'Open Hat', 'Clap', 'Cymbal'], S = 16;
+  const sq = core({ rows: ROWS.length, steps: S, bpm: 118, sound: (r) => drum(['kick', 'snare', 'hat', 'hat', 'snare', 'hat'][r]), onstep: (p) => cells.forEach((c, k) => (c.style.outline = k % S === p ? '2px solid #fff' : '')) });
+  const g = h('div', { style: { display: 'grid', gridTemplateColumns: `90px repeat(${S},1fr)`, gap: '6px' } }); const cells = [];
+  ROWS.forEach((n, r) => { g.append(h('div', { style: { fontSize: '13px', alignSelf: 'center', opacity: .8 } }, n)); for (let i = 0; i < S; i++) { const c = h('div.sq-cell', { style: { aspectRatio: '1', background: i % 4 === 0 ? '#4a4a4a' : '#3a3a3a' } }); c.onclick = () => { sq.g[r][i] ^= 1; c.style.background = sq.g[r][i] ? '#ffd200' : i % 4 === 0 ? '#4a4a4a' : '#3a3a3a'; if (sq.g[r][i]) drum(['kick', 'snare', 'hat', 'hat', 'snare', 'hat'][r]); }; cells.push(c); g.append(c); } });
+  root.append(h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '430px 1fr', gap: '50px', padding: '70px 60px' } },
+    h('div', {}, h('div', { style: { fontSize: '13px', opacity: .6 } }, '1 / 6 · beats'), h('h1', { style: { fontSize: '44px', margin: '12px 0' } }, 'Make beats'), h('p', { style: { lineHeight: 1.6, opacity: .85 } }, 'The grid above is the “beats” of a musical pattern. Click the cells to add sounds; press Play to hear your drum loop. Try the kick on every quarter note.'), h('div.k-row', { style: { marginTop: '24px' } }, btn('▶ Play', (e) => { sq.toggle(); e.target.textContent = sq.playing ? '■ Stop' : '▶ Play'; }, 'pri'), btn('Clear', () => { sq.g.forEach((r) => r.fill(0)); cells.forEach((c, k) => (c.style.background = (k % S) % 4 === 0 ? '#4a4a4a' : '#3a3a3a')); }), btn('Export to Live', () => toast('Exported .als (demo)')), btn('Next →', () => toast('Lesson 2: Chords')))),
+    h('div', { style: { alignSelf: 'center' } }, g, slider('Tempo', 60, 180, 118, 1, (v) => sq.setTempo(v)))));
+  window.__demoProof = async () => { [0, 4, 8, 12].forEach((i) => cells[i].click()); [4, 12].forEach((i) => cells[S + i].click()); for (let i = 0; i < S; i += 2) cells[2 * S + i].click(); sq.play(); await sleep(500); sq.stop(); return 'four-on-floor beat programmed'; };
+};
+V['euclidean-pulse-necklace'] = (root, T) => {
+  theme(root, T, { bg: '#0b1628', fg: '#e6edf7', panel: '#12213a', ac: '#2f7bff', dark: true });
+  const TR = [{ n: 'kick', k: 4, s: 16, r: 0, c: '#ff8a3d' }, { n: 'snare', k: 3, s: 8, r: 2, c: '#3dd6ff' }, { n: 'hat', k: 7, s: 12, r: 0, c: '#b58cff' }, { n: 'perc', k: 5, s: 13, r: 1, c: '#7cf29a' }];
+  const E = (k, n, r) => { const out = []; for (let i = 0; i < n; i++) out.push(Math.floor(((i + r) * k) / n) !== Math.floor(((i + r - 1) * k) / n) ? 1 : 0); return out; };
+  let step = -1, tid;
+  const svg = s('svg', { viewBox: '-220 -220 440 440', width: 440, height: 440 });
+  const rowsEl = h('div', { style: { display: 'grid', gap: '10px' } });
+  function draw() {
+    svg.replaceChildren(); rowsEl.replaceChildren();
+    TR.forEach((t, j) => { const pat = E(t.k, t.s, t.r); const R = 190 - j * 40;
+      svg.append(s('circle', { r: R, fill: 'none', stroke: '#ffffff18' }));
+      pat.forEach((on, i) => { const a = (i / t.s) * 2 * Math.PI - Math.PI / 2; const cur = step >= 0 && step % t.s === i; svg.append(s('circle', { cx: Math.cos(a) * R, cy: Math.sin(a) * R, r: on ? (cur ? 11 : 8) : 3, fill: on ? t.c : '#ffffff40', opacity: cur || !on ? 1 : 0.8 })); });
+      rowsEl.append(h('div', { style: { display: 'grid', gridTemplateColumns: '60px 1fr 200px', gap: '10px', alignItems: 'center' } }, h('b', { style: { color: t.c } }, t.n), h('div', { style: { display: 'grid', gridTemplateColumns: `repeat(${t.s},1fr)`, gap: '3px' } }, pat.map((on, i) => h('div', { style: { height: '20px', borderRadius: '50%', background: on ? t.c : '#ffffff14', outline: step >= 0 && step % t.s === i ? '2px solid #fff' : '' } }))), h('div.k-row', {}, slider('k', 0, t.s, t.k, 1, (v) => { t.k = v; draw(); }), slider('n', 2, 16, t.s, 1, (v) => { t.s = v; t.k = Math.min(t.k, v); draw(); }), slider('rot', 0, 15, t.r, 1, (v) => { t.r = v; draw(); })))); });
+    svg.append(s('text', { 'text-anchor': 'middle', y: 6, fill: '#e6edf7', 'font-size': 16, 'font-weight': 700 }, `E(${TR[0].k},${TR[0].s})`));
+  }
+  const play = () => { audio(); if (tid) { clearInterval(tid); tid = null; return; } tid = setInterval(() => { step++; TR.forEach((t) => { if (E(t.k, t.s, t.r)[step % t.s]) drum(t.n === 'kick' ? 'kick' : t.n === 'snare' ? 'snare' : 'hat'); }); draw(); }, 130); };
+  root.append(h('div', { style: { position: 'absolute', inset: 0, padding: '22px 30px', display: 'grid', gridTemplateRows: 'auto 1fr', gap: '18px' } },
+    h('div', { style: { textAlign: 'center' } }, h('div', { style: { font: '700 28px Georgia,serif' } }, 'Pulses & Drum Tracks Lab'), h('div', { style: { opacity: .6, fontSize: '13px' } }, 'Euclidean rhythms: distribute k onsets as evenly as possible over n steps')),
+    h('div', { style: { display: 'grid', gridTemplateColumns: '460px 1fr', gap: '24px' } }, h('div.k-panel', { style: { alignItems: 'center' } }, svg), panel('Tracks · step grid', rowsEl, h('div.k-row', {}, btn('▶ Play / Stop', play, 'pri'), btn('Generate', () => { TR.forEach((t) => { t.k = 1 + Math.floor(Math.random() * t.s * 0.7); t.r = Math.floor(Math.random() * 4); }); draw(); }), btn('Rotate ↻', () => { TR.forEach((t) => (t.r = (t.r + 1) % t.s)); draw(); })), h('div.k-h', {}, 'ADSR / Delay'), h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '8px' } }, ['A', 'D', 'S', 'R', 'Delay'].map((n) => slider(n, 0, 100, 30, 1, () => {})))))));
+  draw();
+  window.__demoProof = async () => { TR[0].k = 5; draw(); play(); await sleep(700); play(); return 'E(5,16) kick + playback step ' + step; };
+};
+export function mount(root, variant, opts, T) { (V[variant] || V['music-grid-sequencer'])(root, T); }

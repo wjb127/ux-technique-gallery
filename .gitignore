@@ -1,0 +1,5 @@
+node_modules
+dist
+t/
+.vercel
+report/ref-status.json

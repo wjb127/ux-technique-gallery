@@ -1,0 +1,1049 @@
+{
+ "mesh-gradient-webgl-sculptor": {
+  "url": "http://localhost:4173/t/mesh-gradient-webgl-sculptor/",
+  "ok": true,
+  "at": "2026-09-30T09:34:21.751Z",
+  "http": 200,
+  "proof": "dragged center lattice point",
+  "demoNodes": 54,
+  "errors": []
+ },
+ "multi-kind-gradient-studio": {
+  "url": "http://localhost:4173/t/multi-kind-gradient-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:34:21.753Z",
+  "http": 200,
+  "proof": "switched to mesh + dragged stop",
+  "demoNodes": 31,
+  "errors": []
+ },
+ "shader-gradient-playground": {
+  "url": "http://localhost:4173/t/shader-gradient-playground/",
+  "ok": true,
+  "at": "2026-09-30T09:34:21.753Z",
+  "http": 200,
+  "proof": "preset → Mint",
+  "demoNodes": 27,
+  "errors": []
+ },
+ "hdr-oklch-gradient-sculptor": {
+  "url": "http://localhost:4173/t/hdr-oklch-gradient-sculptor/",
+  "ok": true,
+  "at": "2026-09-30T09:34:21.744Z",
+  "http": 200,
+  "proof": "dragged stop 2 + added random stop: linear-gradient(90deg in oklab, oklch(70.2% 0.322 328.4) 0%, oklch(90.5% 0.155 1",
+  "demoNodes": 123,
+  "errors": []
+ },
+ "heraldic-flag-canvas-desk": {
+  "url": "http://localhost:4173/t/heraldic-flag-canvas-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:44:15.712Z",
+  "http": 200,
+  "proof": "nordic cross + star charge selected",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "kleki-layered-paint-desk": {
+  "url": "http://localhost:4173/t/kleki-layered-paint-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:44:13.833Z",
+  "http": 200,
+  "proof": "painted 2 strokes + added layer",
+  "demoNodes": 35,
+  "errors": []
+ },
+ "frame-timeline-animation-studio": {
+  "url": "http://localhost:4173/t/frame-timeline-animation-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:44:15.671Z",
+  "http": 200,
+  "proof": "drew 3 frames, onion skin visible on frame 3",
+  "demoNodes": 53,
+  "errors": []
+ },
+ "jspaint-classic-paint-desk": {
+  "url": "http://localhost:4173/t/jspaint-classic-paint-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:44:13.839Z",
+  "http": 200,
+  "proof": "rect + bucket fill + brush",
+  "demoNodes": 69,
+  "errors": []
+ },
+ "quick-draw-guess-stage": {
+  "url": "http://localhost:4173/t/quick-draw-guess-stage/",
+  "ok": true,
+  "at": "2026-09-30T09:44:13.834Z",
+  "http": 200,
+  "proof": "round 1 with 2 strokes, guess bubble live",
+  "demoNodes": 8,
+  "errors": []
+ },
+ "memory-connect-drawing-desk": {
+  "url": "http://localhost:4173/t/memory-connect-drawing-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:44:15.566Z",
+  "http": 200,
+  "proof": "thread bloom stroke with 8x symmetry",
+  "demoNodes": 20,
+  "errors": []
+ },
+ "freehand-stroke-param-studio": {
+  "url": "http://localhost:4173/t/freehand-stroke-param-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:44:17.415Z",
+  "http": 200,
+  "proof": "variable-width strokes",
+  "demoNodes": 41,
+  "errors": []
+ },
+ "ai-sketch-suggest-replace": {
+  "url": "http://localhost:4173/t/ai-sketch-suggest-replace/",
+  "ok": true,
+  "at": "2026-09-30T09:44:18.880Z",
+  "http": 200,
+  "proof": "stroke→suggest→replaced with icon, second stroke suggestions",
+  "demoNodes": 39,
+  "errors": []
+ },
+ "polished-whiteboard-canvas": {
+  "url": "http://localhost:4173/t/polished-whiteboard-canvas/",
+  "ok": true,
+  "at": "2026-09-30T09:44:20.131Z",
+  "http": 200,
+  "proof": "rect + ellipse + arrow, ellipse selected with transform handles",
+  "demoNodes": 59,
+  "errors": []
+ },
+ "photo-editor-workspace": {
+  "url": "http://localhost:4173/t/photo-editor-workspace/",
+  "ok": true,
+  "at": "2026-09-30T09:44:19.235Z",
+  "http": 200,
+  "proof": "brush + ellipse + layer",
+  "demoNodes": 49,
+  "errors": []
+ },
+ "infinite-canvas-toolbar": {
+  "url": "http://localhost:4173/t/infinite-canvas-toolbar/",
+  "ok": true,
+  "at": "2026-09-30T09:44:20.722Z",
+  "http": 200,
+  "proof": "rough rect/diamond/arrow/text + properties panel for selection",
+  "demoNodes": 65,
+  "errors": []
+ },
+ "ai-inpaint-brush-studio": {
+  "url": "http://localhost:4173/t/ai-inpaint-brush-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:44:20.742Z",
+  "http": 200,
+  "proof": "mask brushed over object → Clean → inpainted",
+  "demoNodes": 33,
+  "errors": []
+ },
+ "symmetric-silk-canvas": {
+  "url": "http://localhost:4173/t/symmetric-silk-canvas/",
+  "ok": true,
+  "at": "2026-09-30T09:44:20.691Z",
+  "http": 200,
+  "proof": "painted 3 symmetric strokes",
+  "demoNodes": 21,
+  "errors": []
+ },
+ "noisecraft-node-audio-graph": {
+  "url": "http://localhost:4173/t/noisecraft-node-audio-graph/",
+  "ok": true,
+  "at": "2026-09-30T09:44:13.827Z",
+  "http": 200,
+  "proof": "Dual-saw patch: 9 nodes, 11 wires",
+  "demoNodes": 200,
+  "errors": []
+ },
+ "neon-patcher-cable-synth": {
+  "url": "http://localhost:4173/t/neon-patcher-cable-synth/",
+  "ok": true,
+  "at": "2026-09-30T09:44:13.839Z",
+  "http": 200,
+  "proof": "METRO→VCO→VCA→DELAY→DAC patched",
+  "demoNodes": 136,
+  "errors": []
+ },
+ "euclidean-pulse-necklace": {
+  "url": "http://localhost:4173/t/euclidean-pulse-necklace/",
+  "ok": true,
+  "at": "2026-09-30T09:44:13.834Z",
+  "http": 200,
+  "proof": "E(5,16) kick + playback step 4",
+  "demoNodes": 203,
+  "errors": []
+ },
+ "er-schema-canvas": {
+  "url": "http://localhost:4173/t/er-schema-canvas/",
+  "ok": true,
+  "at": "2026-09-30T09:44:15.905Z",
+  "http": 200,
+  "proof": "added reviews table + FK edge",
+  "demoNodes": 129,
+  "errors": []
+ },
+ "nand-logic-build-game": {
+  "url": "http://localhost:4173/t/nand-logic-build-game/",
+  "ok": true,
+  "at": "2026-09-30T09:44:16.395Z",
+  "http": 200,
+  "proof": "AND from 2 NANDs, truth table all green",
+  "demoNodes": 103,
+  "errors": []
+ },
+ "beepbox-piano-roll": {
+  "url": "http://localhost:4173/t/beepbox-piano-roll/",
+  "ok": true,
+  "at": "2026-09-30T09:44:15.995Z",
+  "http": 200,
+  "proof": "wrote arpeggio in piano roll",
+  "demoNodes": 509,
+  "errors": []
+ },
+ "circuit-construction-sandbox": {
+  "url": "http://localhost:4173/t/circuit-construction-sandbox/",
+  "ok": true,
+  "at": "2026-09-30T09:44:17.357Z",
+  "http": 200,
+  "proof": "closed loop → bulb lit, ammeter 0.90 A",
+  "demoNodes": 63,
+  "errors": []
+ },
+ "cables-node-patch": {
+  "url": "http://localhost:4173/t/cables-node-patch/",
+  "ok": true,
+  "at": "2026-09-30T09:44:17.578Z",
+  "http": 200,
+  "proof": "ops patched, params changed → preview updated",
+  "demoNodes": 119,
+  "errors": []
+ },
+ "neural-net-playground": {
+  "url": "http://localhost:4173/t/neural-net-playground/",
+  "ok": true,
+  "at": "2026-09-30T09:44:17.667Z",
+  "http": 200,
+  "proof": "trained 150 epochs on circle dataset",
+  "demoNodes": 93,
+  "errors": []
+ },
+ "ableton-beat-grid-lesson": {
+  "url": "http://localhost:4173/t/ableton-beat-grid-lesson/",
+  "ok": true,
+  "at": "2026-09-30T09:44:18.011Z",
+  "http": 200,
+  "proof": "four-on-floor beat programmed",
+  "demoNodes": 118,
+  "errors": []
+ },
+ "tonematrix-click-grid": {
+  "url": "http://localhost:4173/t/tonematrix-click-grid/",
+  "ok": true,
+  "at": "2026-09-30T09:44:18.052Z",
+  "http": 200,
+  "proof": "drew diagonal pattern, playhead lit",
+  "demoNodes": 264,
+  "errors": []
+ },
+ "json-graph-explorer": {
+  "url": "http://localhost:4173/t/json-graph-explorer/",
+  "ok": true,
+  "at": "2026-09-30T09:44:19.161Z",
+  "http": 200,
+  "proof": "edited JSON → graph rebuilt with Cherry node",
+  "demoNodes": 169,
+  "errors": []
+ },
+ "procedural-vector-node-editor": {
+  "url": "http://localhost:4173/t/procedural-vector-node-editor/",
+  "ok": true,
+  "at": "2026-09-30T09:47:50.163Z",
+  "http": 200,
+  "proof": "procedural polygon → transform → repeat graph",
+  "demoNodes": 98,
+  "errors": []
+ },
+ "music-grid-sequencer": {
+  "url": "http://localhost:4173/t/music-grid-sequencer/",
+  "ok": true,
+  "at": "2026-09-30T09:44:20.012Z",
+  "http": 200,
+  "proof": "composed melody + beat, playhead advanced to 4",
+  "demoNodes": 570,
+  "errors": []
+ },
+ "uicolors-tailwind-scale-studio": {
+  "url": "http://localhost:4173/t/uicolors-tailwind-scale-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:47:48.316Z",
+  "http": 200,
+  "proof": "base hue changed → scale + gallery re-themed, URL synced",
+  "demoNodes": 66,
+  "errors": []
+ },
+ "oklch-palette-preview-desk": {
+  "url": "http://localhost:4173/t/oklch-palette-preview-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:47:48.317Z",
+  "http": 200,
+  "proof": "seed hex changed → ramp/contrast/preview/tokens updated",
+  "demoNodes": 55,
+  "errors": []
+ },
+ "huemint-contextual-color-mock": {
+  "url": "http://localhost:4173/t/huemint-contextual-color-mock/",
+  "ok": true,
+  "at": "2026-09-30T09:47:48.313Z",
+  "http": 200,
+  "proof": "locked accent, vibrant preset regenerated",
+  "demoNodes": 51,
+  "errors": []
+ },
+ "happy-hues-palette-context": {
+  "url": "http://localhost:4173/t/happy-hues-palette-context/",
+  "ok": true,
+  "at": "2026-09-30T09:47:48.316Z",
+  "http": 200,
+  "proof": "switched palette 5 → page recolored",
+  "demoNodes": 84,
+  "errors": []
+ },
+ "huetone-tone-ramp": {
+  "url": "http://localhost:4173/t/huetone-tone-ramp/",
+  "ok": true,
+  "at": "2026-09-30T09:47:48.317Z",
+  "http": 200,
+  "proof": "selected Red 600, boosted chroma",
+  "demoNodes": 130,
+  "errors": []
+ },
+ "livetheme-realtime-theme-desk": {
+  "url": "http://localhost:4173/t/livetheme-realtime-theme-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:47:48.309Z",
+  "http": 200,
+  "proof": "recolored + tablet device frame",
+  "demoNodes": 72,
+  "errors": []
+ },
+ "oklch-perceptual-color-lab": {
+  "url": "http://localhost:4173/t/oklch-perceptual-color-lab/",
+  "ok": true,
+  "at": "2026-09-30T09:47:49.896Z",
+  "http": 200,
+  "proof": "pushed chroma out of sRGB → fallback warning",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "vision-contrast-sim-cards": {
+  "url": "http://localhost:4173/t/vision-contrast-sim-cards/",
+  "ok": true,
+  "at": "2026-09-30T09:47:49.901Z",
+  "http": 200,
+  "proof": "low-contrast pair → failures flagged per impairment",
+  "demoNodes": 59,
+  "errors": []
+ },
+ "palette-lock-export": {
+  "url": "http://localhost:4173/t/palette-lock-export/",
+  "ok": true,
+  "at": "2026-09-30T09:47:50.265Z",
+  "http": 200,
+  "proof": "locked 2 swatches, spacebar-generate kept them",
+  "demoNodes": 44,
+  "errors": []
+ },
+ "live-theme-site-preview": {
+  "url": "http://localhost:4173/t/live-theme-site-preview/",
+  "ok": true,
+  "at": "2026-09-30T09:47:50.317Z",
+  "http": 200,
+  "proof": "remapped primary/accent/secondary + font",
+  "demoNodes": 43,
+  "errors": []
+ },
+ "claymorph-component-studio": {
+  "url": "http://localhost:4173/t/claymorph-component-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:51:41.067Z",
+  "http": 200,
+  "proof": "picked Toggle, depth 12",
+  "demoNodes": 42,
+  "errors": []
+ },
+ "glassmorphism-live-css-studio": {
+  "url": "http://localhost:4173/t/glassmorphism-live-css-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:51:41.060Z",
+  "http": 200,
+  "proof": "depth/blur adjusted + copy toast",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "fancy-border-radius-blob": {
+  "url": "http://localhost:4173/t/fancy-border-radius-blob/",
+  "ok": true,
+  "at": "2026-09-30T09:51:41.072Z",
+  "http": 200,
+  "proof": "reshaped via handles, CSS chip updated",
+  "demoNodes": 16,
+  "errors": []
+ },
+ "css-clippath-transition-gallery": {
+  "url": "http://localhost:4173/t/css-clippath-transition-gallery/",
+  "ok": true,
+  "at": "2026-09-30T09:58:29.689Z",
+  "http": 200,
+  "proof": "hash-routed in:circle:center replayed",
+  "demoNodes": 49,
+  "errors": []
+ },
+ "composable-css-anim-playground": {
+  "url": "http://localhost:4173/t/composable-css-anim-playground/",
+  "ok": true,
+  "at": "2026-09-30T09:51:41.071Z",
+  "http": 200,
+  "proof": "added rotate-right utility, stagger replay",
+  "demoNodes": 34,
+  "errors": []
+ },
+ "svgartista-stroke-draw": {
+  "url": "http://localhost:4173/t/svgartista-stroke-draw/",
+  "ok": true,
+  "at": "2026-09-30T09:51:41.072Z",
+  "http": 200,
+  "proof": "stroke-draw replayed and filled",
+  "demoNodes": 30,
+  "errors": []
+ },
+ "css-keyframe-timeline-studio": {
+  "url": "http://localhost:4173/t/css-keyframe-timeline-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:51:42.923Z",
+  "http": 200,
+  "proof": "scrubbed playhead to 62%",
+  "demoNodes": 36,
+  "errors": []
+ },
+ "css-shadow-palette-studio": {
+  "url": "http://localhost:4173/t/css-shadow-palette-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:51:43.328Z",
+  "http": 200,
+  "proof": "moved light + oomph .8",
+  "demoNodes": 30,
+  "errors": []
+ },
+ "glassmorphism-css-studio": {
+  "url": "http://localhost:4173/t/glassmorphism-css-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:51:43.407Z",
+  "http": 200,
+  "proof": "blur 12px, alpha .28 applied live",
+  "demoNodes": 23,
+  "errors": []
+ },
+ "easing-curve-motion-catalog": {
+  "url": "http://localhost:4173/t/easing-curve-motion-catalog/",
+  "ok": true,
+  "at": "2026-09-30T09:51:42.584Z",
+  "http": 200,
+  "proof": "hover-played all curves",
+  "demoNodes": 128,
+  "errors": []
+ },
+ "neumorph-softui-generator": {
+  "url": "http://localhost:4173/t/neumorph-softui-generator/",
+  "ok": true,
+  "at": "2026-09-30T09:58:32.691Z",
+  "http": 200,
+  "proof": "convex shape, distance 26",
+  "demoNodes": 41,
+  "errors": []
+ },
+ "clippath-shape-studio": {
+  "url": "http://localhost:4173/t/clippath-shape-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:51:44.841Z",
+  "http": 200,
+  "proof": "dragged polygon handles",
+  "demoNodes": 34,
+  "errors": []
+ },
+ "css-anim-preset-lab": {
+  "url": "http://localhost:4173/t/css-anim-preset-lab/",
+  "ok": true,
+  "at": "2026-09-30T09:51:44.416Z",
+  "http": 200,
+  "proof": "selected entrances/bounce-in-top, playing",
+  "demoNodes": 30,
+  "errors": []
+ },
+ "bezier-timing-curve-lab": {
+  "url": "http://localhost:4173/t/bezier-timing-curve-lab/",
+  "ok": true,
+  "at": "2026-09-30T09:51:44.441Z",
+  "http": 200,
+  "proof": "curve set, dual preview animated",
+  "demoNodes": 45,
+  "errors": []
+ },
+ "svg-wave-floating-control-bar": {
+  "url": "http://localhost:4173/t/svg-wave-floating-control-bar/",
+  "ok": true,
+  "at": "2026-09-30T09:58:29.682Z",
+  "http": 200,
+  "proof": "randomized 2-layer wave, complexity 12",
+  "demoNodes": 27,
+  "errors": []
+ },
+ "shapedivider-preview-export": {
+  "url": "http://localhost:4173/t/shapedivider-preview-export/",
+  "ok": true,
+  "at": "2026-09-30T09:58:29.679Z",
+  "http": 200,
+  "proof": "Curve divider, flipped, height 180, code shown",
+  "demoNodes": 62,
+  "errors": []
+ },
+ "fffuel-organic-leaf-svg": {
+  "url": "http://localhost:4173/t/fffuel-organic-leaf-svg/",
+  "ok": true,
+  "at": "2026-09-30T09:58:29.690Z",
+  "http": 200,
+  "proof": "gradient fill leaves re-seeded",
+  "demoNodes": 205,
+  "errors": []
+ },
+ "personas-svg-avatar-composer": {
+  "url": "http://localhost:4173/t/personas-svg-avatar-composer/",
+  "ok": true,
+  "at": "2026-09-30T09:58:29.678Z",
+  "http": 200,
+  "proof": "hair→bun, glasses, bg chip; URL synced",
+  "demoNodes": 63,
+  "errors": []
+ },
+ "blobmaker-organic-svg-desk": {
+  "url": "http://localhost:4173/t/blobmaker-organic-svg-desk/",
+  "ok": true,
+  "at": "2026-09-30T09:58:29.684Z",
+  "http": 200,
+  "proof": "dice re-roll, complexity 8",
+  "demoNodes": 23,
+  "errors": []
+ },
+ "svg-path-command-studio": {
+  "url": "http://localhost:4173/t/svg-path-command-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:58:31.206Z",
+  "http": 200,
+  "proof": "dragged tip point → d-string updated",
+  "demoNodes": 72,
+  "errors": []
+ },
+ "social-meta-preview-studio": {
+  "url": "http://localhost:4173/t/social-meta-preview-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:58:31.571Z",
+  "http": 200,
+  "proof": "title edited → all previews + meta HTML updated",
+  "demoNodes": 35,
+  "errors": []
+ },
+ "maskable-pwa-icon-studio": {
+  "url": "http://localhost:4173/t/maskable-pwa-icon-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:58:31.663Z",
+  "http": 200,
+  "proof": "squircle mask + safe-zone overlay, padding 18%",
+  "demoNodes": 41,
+  "errors": []
+ },
+ "styled-qr-param-studio": {
+  "url": "http://localhost:4173/t/styled-qr-param-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:58:31.509Z",
+  "http": 200,
+  "proof": "dot style + data change → QR re-rendered",
+  "demoNodes": 375,
+  "errors": []
+ },
+ "svg-optimize-toggle-studio": {
+  "url": "http://localhost:4173/t/svg-optimize-toggle-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:58:31.752Z",
+  "http": 200,
+  "proof": "toggled plugins, precision 1 → size delta",
+  "demoNodes": 56,
+  "errors": []
+ },
+ "seamless-pattern-generator": {
+  "url": "http://localhost:4173/t/seamless-pattern-generator/",
+  "ok": true,
+  "at": "2026-09-30T09:58:32.257Z",
+  "http": 200,
+  "proof": "rotated squiggle tile 45°",
+  "demoNodes": 46,
+  "errors": []
+ },
+ "avatar-part-composer": {
+  "url": "http://localhost:4173/t/avatar-part-composer/",
+  "ok": true,
+  "at": "2026-09-30T09:58:33.134Z",
+  "http": 200,
+  "proof": "accessory + eyes changed → live SVG",
+  "demoNodes": 64,
+  "errors": []
+ },
+ "svg-generator-studio": {
+  "url": "http://localhost:4173/t/svg-generator-studio/",
+  "ok": true,
+  "at": "2026-09-30T09:58:33.155Z",
+  "http": 200,
+  "proof": "regenerated 6 layered waves",
+  "demoNodes": 38,
+  "errors": []
+ },
+ "device-mockup-studio": {
+  "url": "http://localhost:4173/t/device-mockup-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:01:32.899Z",
+  "http": 200,
+  "proof": "tilted device 18°",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "carbon-code-image-studio": {
+  "url": "http://localhost:4173/t/carbon-code-image-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:01:32.890Z",
+  "http": 200,
+  "proof": "Seti theme with window chrome",
+  "demoNodes": 49,
+  "errors": []
+ },
+ "video-framegrid-contact-sheet": {
+  "url": "http://localhost:4173/t/video-framegrid-contact-sheet/",
+  "ok": true,
+  "at": "2026-09-30T10:01:32.899Z",
+  "http": 200,
+  "proof": "sample clip → 5×4 timecoded contact sheet",
+  "demoNodes": 83,
+  "errors": []
+ },
+ "duotone-photo-studio": {
+  "url": "http://localhost:4173/t/duotone-photo-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:01:32.905Z",
+  "http": 200,
+  "proof": "duotone remap applied to 6 photos",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "photo-grout-mosaic-composer": {
+  "url": "http://localhost:4173/t/photo-grout-mosaic-composer/",
+  "ok": true,
+  "at": "2026-09-30T10:01:32.893Z",
+  "http": 200,
+  "proof": "circle tiles, size 20",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "photo-relight-light-stage": {
+  "url": "http://localhost:4173/t/photo-relight-light-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:01:32.899Z",
+  "http": 200,
+  "proof": "dragged light orb",
+  "demoNodes": 31,
+  "errors": []
+ },
+ "code-snippet-image-studio": {
+  "url": "http://localhost:4173/t/code-snippet-image-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:01:34.914Z",
+  "http": 200,
+  "proof": "theme Candy, padding 64",
+  "demoNodes": 56,
+  "errors": []
+ },
+ "dither-param-studio": {
+  "url": "http://localhost:4173/t/dither-param-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:01:35.027Z",
+  "http": 200,
+  "proof": "FS dither with terracotta palette",
+  "demoNodes": 31,
+  "errors": []
+ },
+ "compare-slider-inspector": {
+  "url": "http://localhost:4173/t/compare-slider-inspector/",
+  "ok": true,
+  "at": "2026-09-30T10:01:35.097Z",
+  "http": 200,
+  "proof": "dragged compare handle + quality 22",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "beautify-studio-inspector": {
+  "url": "http://localhost:4173/t/beautify-studio-inspector/",
+  "ok": true,
+  "at": "2026-09-30T10:01:35.094Z",
+  "http": 200,
+  "proof": "demo image loaded, padding/roundness applied",
+  "demoNodes": 46,
+  "errors": []
+ },
+ "metaflop-metafont-modulator": {
+  "url": "http://localhost:4173/t/metaflop-metafont-modulator/",
+  "ok": true,
+  "at": "2026-09-30T10:09:14.240Z",
+  "http": 200,
+  "proof": "pen width 38, slant 8 → glyphs regenerated",
+  "demoNodes": 133,
+  "errors": []
+ },
+ "axis-praxis-specimen-desk": {
+  "url": "http://localhost:4173/t/axis-praxis-specimen-desk/",
+  "ok": true,
+  "at": "2026-09-30T10:09:12.292Z",
+  "http": 200,
+  "proof": "wght 900 / opsz 144 on editable specimen",
+  "demoNodes": 53,
+  "errors": []
+ },
+ "dom-text-surface-wrap": {
+  "url": "http://localhost:4173/t/dom-text-surface-wrap/",
+  "ok": true,
+  "at": "2026-09-30T10:09:15.940Z",
+  "http": 200,
+  "proof": "sphere wrap with orbit",
+  "demoNodes": 176,
+  "errors": []
+ },
+ "cursor-magnet-variable-font-field": {
+  "url": "http://localhost:4173/t/cursor-magnet-variable-font-field/",
+  "ok": true,
+  "at": "2026-09-30T10:09:14.486Z",
+  "http": 200,
+  "proof": "cursor at \"axis\" → local weight/width bloom",
+  "demoNodes": 45,
+  "errors": []
+ },
+ "pretext-dragon-chase-reflow": {
+  "url": "http://localhost:4173/t/pretext-dragon-chase-reflow/",
+  "ok": true,
+  "at": "2026-09-30T10:09:12.282Z",
+  "http": 200,
+  "proof": "orb chain displacing lines live",
+  "demoNodes": 41,
+  "errors": []
+ },
+ "liquid-type-motion-toy": {
+  "url": "http://localhost:4173/t/liquid-type-motion-toy/",
+  "ok": true,
+  "at": "2026-09-30T10:09:13.834Z",
+  "http": 200,
+  "proof": "stirred the word with cursor",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "kerning-skill-game": {
+  "url": "http://localhost:4173/t/kerning-skill-game/",
+  "ok": true,
+  "at": "2026-09-30T10:09:16.479Z",
+  "http": 200,
+  "proof": "adjusted kerning → score revealed with ghost",
+  "demoNodes": 17,
+  "errors": []
+ },
+ "modular-typescale-studio": {
+  "url": "http://localhost:4173/t/modular-typescale-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:09:16.521Z",
+  "http": 200,
+  "proof": "Major Third scale, weight 700",
+  "demoNodes": 64,
+  "errors": []
+ },
+ "variable-font-axis-playground": {
+  "url": "http://localhost:4173/t/variable-font-axis-playground/",
+  "ok": true,
+  "at": "2026-09-30T10:09:17.916Z",
+  "http": 200,
+  "proof": "wght 820 / wdth 130 applied",
+  "demoNodes": 67,
+  "errors": []
+ },
+ "font-pair-studio": {
+  "url": "http://localhost:4173/t/font-pair-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:09:17.968Z",
+  "http": 200,
+  "proof": "locked heading, regenerated body pair",
+  "demoNodes": 27,
+  "errors": []
+ },
+ "variable-font-physics-stage": {
+  "url": "http://localhost:4173/t/variable-font-physics-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:09:16.016Z",
+  "http": 200,
+  "proof": "letters fell under gravity with axis-by-speed",
+  "demoNodes": 30,
+  "errors": []
+ },
+ "knot-mosaic-tile-composer": {
+  "url": "http://localhost:4173/t/knot-mosaic-tile-composer/",
+  "ok": true,
+  "at": "2026-09-30T10:09:12.292Z",
+  "http": 200,
+  "proof": "trefoil 3_1 rendered as knot mosaic",
+  "demoNodes": 430,
+  "errors": []
+ },
+ "modular-glyph-grid-editor": {
+  "url": "http://localhost:4173/t/modular-glyph-grid-editor/",
+  "ok": true,
+  "at": "2026-09-30T10:09:12.291Z",
+  "http": 200,
+  "proof": "built glyph \"A\" from modules",
+  "demoNodes": 310,
+  "errors": []
+ },
+ "tesselchet-truchet-plate": {
+  "url": "http://localhost:4173/t/tesselchet-truchet-plate/",
+  "ok": true,
+  "at": "2026-09-30T10:09:12.292Z",
+  "http": 200,
+  "proof": "zigzag truchet plate, 4 lines per tile",
+  "demoNodes": 1015,
+  "errors": []
+ },
+ "isometric-island-hotbar-builder": {
+  "url": "http://localhost:4173/t/isometric-island-hotbar-builder/",
+  "ok": true,
+  "at": "2026-09-30T10:09:12.299Z",
+  "http": 200,
+  "proof": "stacked blocks on island (welcome panel visible)",
+  "demoNodes": 460,
+  "errors": []
+ },
+ "image-weave-loom-desk": {
+  "url": "http://localhost:4173/t/image-weave-loom-desk/",
+  "ok": true,
+  "at": "2026-09-30T10:09:14.454Z",
+  "http": 200,
+  "proof": "twill 90 threads woven from image",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "hardware-keymap-layer-configurator": {
+  "url": "http://localhost:4173/t/hardware-keymap-layer-configurator/",
+  "ok": true,
+  "at": "2026-09-30T10:09:14.533Z",
+  "http": 200,
+  "proof": "switched to Symbols layer",
+  "demoNodes": 48,
+  "errors": []
+ },
+ "pixel-favicon-grid-studio": {
+  "url": "http://localhost:4173/t/pixel-favicon-grid-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:09:14.851Z",
+  "http": 200,
+  "proof": "drew heart favicon, 16/32/64 previews",
+  "demoNodes": 49,
+  "errors": []
+ },
+ "keycap-layout-canvas": {
+  "url": "http://localhost:4173/t/keycap-layout-canvas/",
+  "ok": true,
+  "at": "2026-09-30T10:09:16.176Z",
+  "http": 200,
+  "proof": "selected Esc, recolored keycap via properties",
+  "demoNodes": 103,
+  "errors": []
+ },
+ "ascii-diagram-canvas": {
+  "url": "http://localhost:4173/t/ascii-diagram-canvas/",
+  "ok": true,
+  "at": "2026-09-30T10:09:16.255Z",
+  "http": 200,
+  "proof": "drew 3 boxes + arrows as ASCII",
+  "demoNodes": 13,
+  "errors": []
+ },
+ "pixel-sprite-editor-workspace": {
+  "url": "http://localhost:4173/t/pixel-sprite-editor-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:09:17.488Z",
+  "http": 200,
+  "proof": "drew slime sprite + 2 frames animating",
+  "demoNodes": 41,
+  "errors": []
+ },
+ "math-pixel-codegolf-stage": {
+  "url": "http://localhost:4173/t/math-pixel-codegolf-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:09:17.732Z",
+  "http": 200,
+  "proof": "expression evaluated live over 16×16 dots",
+  "demoNodes": 271,
+  "errors": []
+ },
+ "neato-marble-shader-desk": {
+  "url": "http://localhost:4173/t/neato-marble-shader-desk/",
+  "ok": true,
+  "at": "2026-09-30T10:15:55.153Z",
+  "http": 200,
+  "proof": "domain-warped marble shader live",
+  "demoNodes": 40,
+  "errors": []
+ },
+ "constellation-signal-garden": {
+  "url": "http://localhost:4173/t/constellation-signal-garden/",
+  "ok": true,
+  "at": "2026-09-30T10:15:56.723Z",
+  "http": 200,
+  "proof": "constellation live with lines/twinkle",
+  "demoNodes": 42,
+  "errors": []
+ },
+ "reaction-diffusion-playground": {
+  "url": "http://localhost:4173/t/reaction-diffusion-playground/",
+  "ok": true,
+  "at": "2026-09-30T10:15:55.153Z",
+  "http": 200,
+  "proof": "six Gray-Scott tiles evolving live",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "mondrian-partition-canvas": {
+  "url": "http://localhost:4173/t/mondrian-partition-canvas/",
+  "ok": true,
+  "at": "2026-09-30T10:15:55.150Z",
+  "http": 200,
+  "proof": "blank canvas awaiting click-to-split (initial state)",
+  "demoNodes": 13,
+  "errors": []
+ },
+ "handdrawn-physics-sandbox": {
+  "url": "http://localhost:4173/t/handdrawn-physics-sandbox/",
+  "ok": true,
+  "at": "2026-09-30T10:15:57.132Z",
+  "http": 200,
+  "proof": "balls rolling on sketched ramps",
+  "demoNodes": 25,
+  "errors": []
+ },
+ "webgl-fluid-paint-stage": {
+  "url": "http://localhost:4173/t/webgl-fluid-paint-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:15:57.723Z",
+  "http": 200,
+  "proof": "random splats advected with vorticity",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "falling-sand-particle-sandbox": {
+  "url": "http://localhost:4173/t/falling-sand-particle-sandbox/",
+  "ok": true,
+  "at": "2026-09-30T10:15:59.242Z",
+  "http": 200,
+  "proof": "sand + water + wall + plant simulated 80 steps",
+  "demoNodes": 38,
+  "errors": []
+ },
+ "orb-farm-ecosystem-terrarium": {
+  "url": "http://localhost:4173/t/orb-farm-ecosystem-terrarium/",
+  "ok": true,
+  "at": "2026-09-30T10:15:59.213Z",
+  "http": 200,
+  "proof": "tank running with daphnia grazing (onboarding 1/4)",
+  "demoNodes": 21,
+  "errors": []
+ },
+ "ritmo-simplex-wave-studio": {
+  "url": "http://localhost:4173/t/ritmo-simplex-wave-studio/",
+  "ok": false,
+  "at": "2026-09-30T10:15:55.156Z",
+  "http": 200,
+  "proof": "no-proof-hook",
+  "demoNodes": 50,
+  "errors": [
+   "Cannot read properties of undefined (reading '0')"
+  ]
+ },
+ "tinkersynth-slopes-synth-desk": {
+  "url": "http://localhost:4173/t/tinkersynth-slopes-synth-desk/",
+  "ok": true,
+  "at": "2026-09-30T10:15:55.146Z",
+  "http": 200,
+  "proof": "slopes regenerated with higher peaks",
+  "demoNodes": 42,
+  "errors": []
+ },
+ "threelab-generative-pattern-deck": {
+  "url": "http://localhost:4173/t/threelab-generative-pattern-deck/",
+  "ok": true,
+  "at": "2026-09-30T10:15:55.153Z",
+  "http": 200,
+  "proof": "radial wave pattern shader live",
+  "demoNodes": 24,
+  "errors": []
+ },
+ "procedural-dungeon-theme-stage": {
+  "url": "http://localhost:4173/t/procedural-dungeon-theme-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:15:57.086Z",
+  "http": 200,
+  "proof": "generated blueprint dungeon #11",
+  "demoNodes": 92,
+  "errors": []
+ },
+ "pattern-symmetry-playground": {
+  "url": "http://localhost:4173/t/pattern-symmetry-playground/",
+  "ok": true,
+  "at": "2026-09-30T10:15:57.594Z",
+  "http": 200,
+  "proof": "rhythmic line distribution curve 2.6",
+  "demoNodes": 77,
+  "errors": []
+ },
+ "canvas-fx-param-export": {
+  "url": "http://localhost:4173/t/canvas-fx-param-export/",
+  "ok": true,
+  "at": "2026-09-30T10:15:57.584Z",
+  "http": 200,
+  "proof": "scanlines fx applied, params code updated",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "city-roads-lineart-explorer": {
+  "url": "http://localhost:4173/t/city-roads-lineart-explorer/",
+  "ok": true,
+  "at": "2026-09-30T10:15:58.682Z",
+  "http": 200,
+  "proof": "typed city → suggestions (landing state)",
+  "demoNodes": 11,
+  "errors": []
+ },
+ "fantasy-map-generator-workspace": {
+  "url": "http://localhost:4173/t/fantasy-map-generator-workspace/",
+  "ok": false,
+  "at": "2026-09-30T10:15:58.591Z",
+  "navError": "page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"http://localhost:4173/t/fantasy-map-generator-workspace/\", waiting until \"load\"\n",
+  "http": null,
+  "proof": "proof-error: page.evaluate: Target page, context or browser has been closed",
+  "error": "page.waitForTimeout: Target page, context or browser has been closed",
+  "errors": []
+ }
+}
