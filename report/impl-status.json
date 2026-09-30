@@ -1312,5 +1312,95 @@
   "proof": "scrubbed timeline; all zones updated",
   "demoNodes": 447,
   "errors": []
+ },
+ "css-grid-garden-puzzle": {
+  "url": "http://localhost:4173/t/css-grid-garden-puzzle/",
+  "ok": true,
+  "at": "2026-09-30T10:39:55.851Z",
+  "http": 200,
+  "proof": "answered level 1 → water covers carrot, 다음 enabled",
+  "demoNodes": 21,
+  "errors": []
+ },
+ "git-branching-graph-terminal": {
+  "url": "http://localhost:4173/t/git-branching-graph-terminal/",
+  "ok": true,
+  "at": "2026-09-30T10:39:09.564Z",
+  "http": 200,
+  "proof": "branch+merge graph built (intro modal shown)",
+  "demoNodes": 55,
+  "errors": []
+ },
+ "voxel-sculpture-merge-puzzle": {
+  "url": "http://localhost:4173/t/voxel-sculpture-merge-puzzle/",
+  "ok": true,
+  "at": "2026-09-30T10:39:09.564Z",
+  "http": 200,
+  "proof": "merged cubelets leftward",
+  "demoNodes": 44,
+  "errors": []
+ },
+ "design-qa-dual-choice-game": {
+  "url": "http://localhost:4173/t/design-qa-dual-choice-game/",
+  "ok": true,
+  "at": "2026-09-30T10:39:09.564Z",
+  "http": 200,
+  "proof": "dual-choice question ready",
+  "demoNodes": 23,
+  "errors": []
+ },
+ "math-manipulatives-playground": {
+  "url": "http://localhost:4173/t/math-manipulatives-playground/",
+  "ok": true,
+  "at": "2026-09-30T10:39:09.563Z",
+  "http": 200,
+  "proof": "manipulatives placed on grid (welcome modal)",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "cssbattle-daily-targets-desk": {
+  "url": "http://localhost:4173/t/cssbattle-daily-targets-desk/",
+  "ok": true,
+  "at": "2026-09-30T10:39:09.560Z",
+  "http": 200,
+  "proof": "wrote CSS → match score computed vs target",
+  "demoNodes": 68,
+  "errors": []
+ },
+ "flexbox-pond-level-puzzle": {
+  "url": "http://localhost:4173/t/flexbox-pond-level-puzzle/",
+  "ok": true,
+  "at": "2026-09-30T10:39:55.863Z",
+  "http": 200,
+  "proof": "frog moved to lilypad via justify-content",
+  "demoNodes": 42,
+  "errors": []
+ },
+ "interactive-trust-explainer-game": {
+  "url": "http://localhost:4173/t/interactive-trust-explainer-game/",
+  "ok": true,
+  "at": "2026-09-30T10:39:11.301Z",
+  "http": 200,
+  "proof": "title screen; PLAY opens iterated prisoner’s dilemma",
+  "demoNodes": 248,
+  "errors": []
+ },
+ "typing-ritual-live-wpm": {
+  "url": "http://localhost:4173/t/typing-ritual-live-wpm/",
+  "ok": true,
+  "at": "2026-09-30T10:39:11.303Z",
+  "http": 200,
+  "proof": "typed 22 chars → live wpm/accuracy",
+  "demoNodes": 238,
+  "errors": []
+ },
+ "alchemy-combine-discovery": {
+  "url": "http://localhost:4173/t/alchemy-combine-discovery/",
+  "ok": true,
+  "at": "2026-09-30T10:39:35.617Z",
+  "http": 200,
+  "proof": "combined earth+water → mud (splash shown)",
+  "demoNodes": 28,
+  "errors": []
  }
 }

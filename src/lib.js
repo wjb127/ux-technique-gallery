@@ -42,7 +42,7 @@ export function drag(el, { start, move, end } = {}) {
   el.addEventListener('pointerdown', (e) => {
     if (e.button && e.button !== 0) return;
     const r = start?.(e); if (r === false) return;
-    el.setPointerCapture?.(e.pointerId);
+    try { el.setPointerCapture?.(e.pointerId); } catch {}
     const mv = (ev) => move?.(ev, e); const up = (ev) => { el.removeEventListener('pointermove', mv); el.removeEventListener('pointerup', up); end?.(ev); };
     el.addEventListener('pointermove', mv); el.addEventListener('pointerup', up);
   });
