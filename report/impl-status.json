@@ -1402,5 +1402,149 @@
   "proof": "combined earth+water → mud (splash shown)",
   "demoNodes": 28,
   "errors": []
+ },
+ "typedrummer-ascii-drum-desk": {
+  "url": "http://localhost:4173/t/typedrummer-ascii-drum-desk/",
+  "ok": true,
+  "at": "2026-09-30T10:44:36.427Z",
+  "http": 200,
+  "proof": "ascii keyboard + beat box ready (type to loop)",
+  "demoNodes": 9,
+  "errors": []
+ },
+ "drawing-garden-sound-canvas": {
+  "url": "http://localhost:4173/t/drawing-garden-sound-canvas/",
+  "ok": true,
+  "at": "2026-09-30T10:44:36.426Z",
+  "http": 200,
+  "proof": "drew a singing plant stroke",
+  "demoNodes": 4,
+  "errors": []
+ },
+ "ear-training-melody-ritual": {
+  "url": "http://localhost:4173/t/ear-training-melody-ritual/",
+  "ok": true,
+  "at": "2026-09-30T10:44:36.431Z",
+  "http": 200,
+  "proof": "answered interval → feedback + streak (\"What’s New\" modal)",
+  "demoNodes": 33,
+  "errors": []
+ },
+ "circle-of-fifths-instrument": {
+  "url": "http://localhost:4173/t/circle-of-fifths-instrument/",
+  "ok": true,
+  "at": "2026-09-30T10:44:36.431Z",
+  "http": 200,
+  "proof": "colour circle of fifths; segments play chords",
+  "demoNodes": 63,
+  "errors": []
+ },
+ "math-theorem-voice-instrument": {
+  "url": "http://localhost:4173/t/math-theorem-voice-instrument/",
+  "ok": true,
+  "at": "2026-09-30T10:44:36.432Z",
+  "http": 200,
+  "proof": "tone generator at 523 Hz with scope",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "3d-ambient-sound-garden": {
+  "url": "http://localhost:4173/t/3d-ambient-sound-garden/",
+  "ok": true,
+  "at": "2026-09-30T10:44:36.433Z",
+  "http": 200,
+  "proof": "walkable singing landscape (intro dialog)",
+  "demoNodes": 12,
+  "errors": []
+ },
+ "year-vault-dial-player": {
+  "url": "http://localhost:4173/t/year-vault-dial-player/",
+  "ok": true,
+  "at": "2026-09-30T10:44:38.282Z",
+  "http": 200,
+  "proof": "year dial at 2004; ENGAGE plays era chords",
+  "demoNodes": 19,
+  "errors": []
+ },
+ "animal-percussion-pad": {
+  "url": "http://localhost:4173/t/animal-percussion-pad/",
+  "ok": true,
+  "at": "2026-09-30T10:44:38.586Z",
+  "http": 200,
+  "proof": "A key → left paw hits bongo",
+  "demoNodes": 37,
+  "errors": []
+ },
+ "beatbox-avatar-mix-stage": {
+  "url": "http://localhost:4173/t/beatbox-avatar-mix-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:44:38.491Z",
+  "http": 200,
+  "proof": "version picker; click opens drag-to-mix stage",
+  "demoNodes": 97,
+  "errors": []
+ },
+ "engine-sound-instrument-cluster": {
+  "url": "http://localhost:4173/t/engine-sound-instrument-cluster/",
+  "ok": true,
+  "at": "2026-09-30T10:44:38.500Z",
+  "http": 200,
+  "proof": "engine rev: RPM tach + synth tied to throttle",
+  "demoNodes": 35,
+  "errors": []
+ },
+ "webcam-class-train-studio": {
+  "url": "http://localhost:4173/t/webcam-class-train-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:44:38.466Z",
+  "http": 200,
+  "proof": "trained 2 classes (circle vs X) → live prediction",
+  "demoNodes": 37,
+  "errors": []
+ },
+ "rhythm-tap-performance-stage": {
+  "url": "http://localhost:4173/t/rhythm-tap-performance-stage/",
+  "ok": true,
+  "at": "2026-09-30T10:44:38.589Z",
+  "http": 200,
+  "proof": "tapped 6 notes → melody advances with glow dots",
+  "demoNodes": 11,
+  "errors": []
+ },
+ "calm-window-view-swap": {
+  "url": "http://localhost:4173/t/calm-window-view-swap/",
+  "ok": true,
+  "at": "2026-09-30T10:44:40.110Z",
+  "http": 200,
+  "proof": "blurred window view; button swaps location",
+  "demoNodes": 8,
+  "errors": []
+ },
+ "ambient-mixer-deck": {
+  "url": "http://localhost:4173/t/ambient-mixer-deck/",
+  "ok": true,
+  "at": "2026-09-30T10:44:40.121Z",
+  "http": 200,
+  "proof": "mixer ready with rain+wind preset (press ▶)",
+  "demoNodes": 54,
+  "errors": []
+ },
+ "synth-visualizer-control-deck": {
+  "url": "http://localhost:4173/t/synth-visualizer-control-deck/",
+  "ok": true,
+  "at": "2026-09-30T10:44:40.037Z",
+  "http": 200,
+  "proof": "played C major; notes rise from keys",
+  "demoNodes": 35,
+  "errors": []
+ },
+ "key-av-instrument": {
+  "url": "http://localhost:4173/t/key-av-instrument/",
+  "ok": true,
+  "at": "2026-09-30T10:44:40.125Z",
+  "http": 200,
+  "proof": "keys trigger shape+sound (idle state like ref)",
+  "demoNodes": 5,
+  "errors": []
  }
 }
