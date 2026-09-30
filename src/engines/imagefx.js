@@ -146,4 +146,107 @@ V['video-framegrid-contact-sheet'] = (root, T) => {
   root.append(intro, sheet);
   window.__demoProof = async () => { load(); return 'sample clip → 5×4 timecoded contact sheet'; };
 };
+
+V['chalkist-code-shot-studio'] = (root, T) => {
+  theme(root, T, { bg: '#0b0b0d', fg: '#f0f0f0', panel: '#18181b', ac: '#3b82f6', dark: true });
+  const CODE0 = `import type { App } from "vue";\n\nexport function createCounter(el: HTMLElement) {\n  let count = 0;\n  const btn = document.createElement("button");\n  btn.textContent = "count is 0";\n  btn.addEventListener("click", () => {\n    count += 1;\n    btn.textContent = \`count is \${count}\`;\n  });\n  el.append(btn);\n  return { getCount: () => count };\n}\n\nexport default function install(app: App) {\n  app.config.globalProperties.$counter = createCounter;\n}`;
+  const TH = {
+    Vue: { bg: 'radial-gradient(ellipse at 50% 40%, #154359 0%, #1a2840 45%, #0b0b0d 100%)', win: '#1e1e2ecc', k: '#89b4fa', s: '#a6e3a1', c: '#6c7086', n: '#fab387', a: '#cba6f7', fg: '#cdd6f4', t: '#94e2d5' },
+    Candy: { bg: 'radial-gradient(ellipse at 50% 40%, #ff6bcb55 0%, #7a5cff44 50%, #0b0b0d 100%)', win: '#1e1e2ecc', k: '#ff7ab6', s: '#a6e3a1', c: '#6c7086', n: '#fab387', a: '#89dceb', fg: '#cdd6f4', t: '#f9e2af' },
+    Midnight: { bg: 'radial-gradient(ellipse at 50% 35%, #2c5364 0%, #0f2027 55%, #05080c 100%)', win: '#0d1117e6', k: '#ff7b72', s: '#a5d6ff', c: '#8b949e', n: '#79c0ff', a: '#ffa657', fg: '#c9d1d9', t: '#7ee787' },
+    Dracula: { bg: 'radial-gradient(ellipse at 50% 40%, #6272a4 0%, #282a36 60%, #0b0b0d 100%)', win: '#282a36ee', k: '#ff79c6', s: '#f1fa8c', c: '#6272a4', n: '#bd93f9', a: '#50fa7b', fg: '#f8f8f2', t: '#8be9fd' },
+    Nord: { bg: 'radial-gradient(ellipse at 50% 40%, #5e81ac 0%, #2e3440 55%, #0b0b0d 100%)', win: '#2e3440ee', k: '#81a1c1', s: '#a3be8c', c: '#4c566a', n: '#d08770', a: '#88c0d0', fg: '#eceff4', t: '#8fbcbb' },
+  };
+  const P = { theme: 'Vue', pad: 64, round: 18, particles: true, noise: false, chrome: true, lang: 'TypeScript' };
+  const hl = (code, th) => {
+    const esc = code.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    return esc.replace(/(\/\/.*)|(`(?:\\.|[^`])*`|'(?:\\.|[^'])*'|"(?:\\.|[^"])*")|\b(const|let|return|function|import|from|export|type|default|new)\b|(\b\d+\b)|(=>)|(:\s*[A-Z][\w<>|]*)/g,
+      (m, c, st, kw, n, ar, ty) => `<span style="color:${c ? th.c : st ? th.s : kw ? th.k : n ? th.n : ar ? th.a : ty ? th.t : th.fg}">${m}</span>`);
+  };
+  const stage = h('div', { style: { position: 'relative', flex: 1, display: 'grid', placeItems: 'center', overflow: 'hidden', minHeight: 0 } });
+  const particleLayer = h('canvas', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } });
+  const frame = h('div', { style: { position: 'relative', zIndex: 2, transition: 'padding .2s, border-radius .2s', boxShadow: '0 30px 80px #000a' } });
+  const win = h('div', { style: { overflow: 'hidden', backdropFilter: 'blur(12px)' } });
+  const pre = h('pre', { style: { margin: 0, font: '13px/1.55 JetBrains Mono Variable,monospace', whiteSpace: 'pre', padding: '8px 18px 20px' } });
+  const ta = h('textarea', { spellcheck: false, style: { position: 'absolute', inset: 0, background: 'transparent', color: 'transparent', caretColor: '#fff', border: 0, font: '13px/1.55 JetBrains Mono Variable,monospace', padding: '8px 18px 20px', resize: 'none', outline: 'none', whiteSpace: 'pre', overflow: 'auto' } });
+  ta.value = CODE0;
+  const codeWrap = h('div', { style: { position: 'relative' } }, pre, ta);
+  frame.append(win);
+  stage.append(particleLayer, frame);
+
+  const drawParticles = () => {
+    const r = stage.getBoundingClientRect();
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    particleLayer.width = Math.max(1, r.width * dpr); particleLayer.height = Math.max(1, r.height * dpr);
+    particleLayer.style.width = r.width + 'px'; particleLayer.style.height = r.height + 'px';
+    const g = particleLayer.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, r.width, r.height);
+    if (!P.particles) return;
+    for (let i = 0; i < 70; i++) {
+      const x = (Math.sin(i * 12.9898) * 43758.5453 % 1 + 1) % 1 * r.width;
+      const y = (Math.sin(i * 78.233) * 43758.5453 % 1 + 1) % 1 * r.height;
+      g.fillStyle = `rgba(255,255,255,${0.15 + (i % 5) * 0.08})`;
+      g.beginPath(); g.arc(x, y, 0.8 + (i % 3) * 0.5, 0, 7); g.fill();
+    }
+  };
+  const draw = () => {
+    const th = TH[P.theme];
+    stage.style.background = th.bg;
+    frame.style.padding = P.pad + 'px';
+    frame.style.borderRadius = P.round + 'px';
+    frame.style.background = 'transparent';
+    win.style.background = th.win;
+    win.style.color = th.fg;
+    win.style.borderRadius = Math.max(8, P.round - 6) + 'px';
+    win.style.boxShadow = '0 20px 60px rgba(0,0,0,.55)';
+    const lines = ta.value.split('\n');
+    const nums = P.chrome ? h('div', { style: { position: 'absolute', left: '10px', top: '8px', font: '13px/1.55 JetBrains Mono Variable,monospace', opacity: .35, textAlign: 'right', userSelect: 'none', pointerEvents: 'none' } }, ...lines.map((_, i) => h('div', {}, String(i + 1)))) : null;
+    pre.style.paddingLeft = P.chrome ? '42px' : '18px';
+    ta.style.paddingLeft = P.chrome ? '42px' : '18px';
+    pre.innerHTML = hl(ta.value, th);
+    win.replaceChildren(
+      P.chrome ? h('div.k-row', { style: { padding: '12px 14px', gap: '8px' } },
+        ['#ff5f56', '#ffbd2e', '#27c93f'].map((c) => h('i', { style: { width: '12px', height: '12px', borderRadius: '50%', background: c } })),
+        h('span', { style: { flex: 1, textAlign: 'center', opacity: .45, fontSize: '12px' } }, 'Untitled · ' + P.lang)) : '',
+      h('div', { style: { position: 'relative' } }, nums, codeWrap),
+    );
+    drawParticles();
+  };
+  ta.oninput = draw;
+
+  const side = panel('Chalk.ist-ish',
+    h('div.k-h', {}, 'Theme & typography'),
+    select(Object.keys(TH), P.theme, (v) => { P.theme = v; draw(); }),
+    select(['TypeScript', 'JavaScript', 'Python', 'Rust', 'Go'], P.lang, (v) => { P.lang = v; draw(); }),
+    h('div.k-h', {}, 'Backdrop'),
+    toggle('Backdrop particles', true, (v) => { P.particles = v; draw(); }),
+    toggle('Backdrop noise', false, (v) => { P.noise = v; stage.style.filter = v ? 'url(#n)' : 'none'; }),
+    slider('Padding', 24, 120, P.pad, 1, (v) => { P.pad = v; draw(); }),
+    slider('Rounding', 4, 40, P.round, 1, (v) => { P.round = v; draw(); }),
+    h('div.k-h', {}, 'Window'),
+    toggle('Window chrome', true, (v) => { P.chrome = v; draw(); }),
+    h('div.k-h', {}, 'Code'),
+    h('div', { style: { fontSize: '11px', opacity: .6 } }, 'Edit the transparent textarea over the preview — live update.'),
+    btn('Export PNG', () => toast('chalkist.png exported'), 'pri'),
+    btn('Copy code', () => copy(ta.value, 'Code copied')),
+  );
+  side.style.width = '300px'; side.style.borderRadius = '0'; side.style.border = '0'; side.style.borderRight = '1px solid #ffffff14';
+  const top = h('div.k-row', { style: { height: '48px', padding: '0 16px', borderBottom: '1px solid #ffffff14', gap: '14px' } },
+    h('b', { style: { letterSpacing: '.04em' } }, 'chalk.ist'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .5, fontSize: '12px' } }, 'Blocks ▾'),
+    h('span', { style: { opacity: .5, fontSize: '12px' } }, 'Line decorations ▾'),
+    btn('Export ▾', () => toast('chalkist.png exported'), 'pri'));
+  const main = h('div', { style: { display: 'grid', gridTemplateRows: '48px 1fr', minHeight: 0, minWidth: 0 } }, top, stage);
+  root.style.display = 'grid'; root.style.gridTemplateColumns = '300px 1fr';
+  root.append(side, main);
+  draw();
+  new ResizeObserver(drawParticles).observe(stage);
+  window.__demoProof = async () => {
+    P.theme = 'Candy'; P.pad = 80; P.round = 24; P.particles = true;
+    ta.value = 'const hello = (name) => `hi ${name}`;\nconsole.log(hello("chalk"));';
+    draw();
+    return 'theme Candy, pad 80, round 24, particles on, code edited';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['dither-param-studio'])(root, T); }

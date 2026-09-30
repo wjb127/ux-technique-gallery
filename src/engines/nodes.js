@@ -211,4 +211,87 @@ V['neural-net-playground'] = (root, T) => {
       h('div', {}, h('div.k-h', {}, 'Output'), out)));
   window.__demoProof = async () => { for (let i = 0; i < 150; i++) train(); draw(); return 'trained 150 epochs on circle dataset'; };
 };
+
+V['webaudio-studio-graph-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0a0d10', fg: '#e8eef4', panel: '#1a2128', ac: '#ffb300', dark: true });
+  root.style.setProperty('--node', '#1a2128');
+  root.style.setProperty('--nhead', '#243039');
+  root.style.setProperty('--nline', '#3a4652');
+  root.style.setProperty('--port', '#ffb300');
+  root.style.setProperty('--nr', '8px');
+  root.style.setProperty('--pr', '50%');
+  root.style.backgroundImage = 'radial-gradient(#ffffff14 1px, transparent 1px)';
+  root.style.backgroundSize = '18px 18px';
+
+  let oscNode = null, gainNode = null, playing = false;
+  const host = h('div', { style: { position: 'absolute', inset: '44px 0 0 0' } });
+  const g = graph(host, { wireW: 2.5, glow: true, wireColor: () => '#ffb300' });
+
+  const freqLab = h('span', { style: { fontFamily: 'monospace', fontSize: '11px', opacity: .85 } }, '440 Hz');
+  const gainLab = h('span', { style: { fontFamily: 'monospace', fontSize: '11px', opacity: .85 } }, '0.20');
+  const applyAudio = () => {
+    if (!oscNode || !gainNode) return;
+    oscNode.frequency.setTargetAtTime(P.freq, audio().currentTime, 0.02);
+    gainNode.gain.setTargetAtTime(P.gain, audio().currentTime, 0.02);
+    oscNode.type = P.wave;
+  };
+  const P = { freq: 440, gain: 0.2, wave: 'sine' };
+
+  const oscBody = (n) => h('div', { style: { display: 'grid', gap: '6px', minWidth: '160px' } },
+    select([['sine', 'sine'], ['square', 'square'], ['sawtooth', 'saw'], ['triangle', 'tri']], P.wave, (v) => { P.wave = v; n.v.wave = v; applyAudio(); }),
+    slider('Freq', 80, 1200, P.freq, 1, (v) => { P.freq = v; n.v.freq = v; freqLab.textContent = v + ' Hz'; applyAudio(); }, (v) => v + ' Hz'),
+    freqLab,
+  );
+  const gainBody = (n) => h('div', { style: { display: 'grid', gap: '6px', minWidth: '140px' } },
+    slider('Gain', 0, 1, P.gain, 0.01, (v) => { P.gain = v; n.v.gain = v; gainLab.textContent = v.toFixed(2); applyAudio(); }, (v) => (+v).toFixed(2)),
+    gainLab,
+  );
+
+  const osc = g.add({ title: 'Oscillator', outs: ['out'], v: { freq: 440, wave: 'sine' }, body: oscBody, style: { minWidth: '200px' } }, 120, 160);
+  const gain = g.add({ title: 'Gain', ins: ['in'], outs: ['out'], v: { gain: 0.2 }, body: gainBody, style: { minWidth: '180px' } }, 420, 200);
+  const dest = g.add({ title: 'Destination', ins: ['in'], badge: '🔊', style: { minWidth: '140px', borderColor: '#ffb30066' } }, 720, 240);
+  setTimeout(() => { g.connect(osc, 0, gain, 0); g.connect(gain, 0, dest, 0); }, 40);
+
+  const stop = () => {
+    try { oscNode?.stop(); } catch {}
+    try { gainNode?.disconnect(); } catch {}
+    oscNode = null; gainNode = null; playing = false;
+    playBtn.textContent = '▶ Play'; playBtn.style.background = '#ffb300'; playBtn.style.color = '#111';
+  };
+  const play = () => {
+    if (playing) { stop(); return; }
+    const ac = audio(); if (!ac) return;
+    oscNode = ac.createOscillator();
+    gainNode = ac.createGain();
+    oscNode.type = P.wave;
+    oscNode.frequency.value = P.freq;
+    gainNode.gain.value = P.gain;
+    oscNode.connect(gainNode).connect(ac.destination);
+    oscNode.start();
+    playing = true;
+    playBtn.textContent = '■ Stop'; playBtn.style.background = '#e53935'; playBtn.style.color = '#fff';
+  };
+  const playBtn = h('button', { style: { background: '#ffb300', color: '#111', border: 0, fontWeight: 800, padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }, onclick: play }, '▶ Play');
+
+  root.append(
+    h('div.k-row', { style: { position: 'absolute', top: 0, left: 0, right: 0, height: '44px', background: '#12171c', borderBottom: '1px solid #2a333c', padding: '0 14px', zIndex: 4, gap: '14px' } },
+      h('b', { style: { color: '#ffb300', font: '800 15px ui-monospace,monospace', letterSpacing: '.02em' } }, 'Web Audio Studio'),
+      h('span', { style: { fontSize: '11px', opacity: .45 } }, 'live node-graph desk'),
+      h('span', { style: { flex: 1 } }),
+      btn('Load example', () => { P.freq = 330; P.gain = 0.25; P.wave = 'sawtooth'; osc.v.freq = 330; gain.v.gain = 0.25; g.drawWires(); toast('example graph loaded'); }, ''),
+      playBtn,
+      btn('Stop', () => playing && stop()),
+    ),
+    host,
+    h('div', { style: { position: 'absolute', bottom: '14px', left: '50%', transform: 'translateX(-50%)', background: '#1a2128cc', border: '1px solid #3a4652', borderRadius: '8px', padding: '6px 10px', zIndex: 4, fontSize: '12px', opacity: .85 } }, 'Oscillator → Gain → Destination · drag nodes · tune freq/gain'),
+  );
+  window.__demoProof = async () => {
+    g.sel?.el.classList.remove('sel'); g.sel = osc; osc.el.classList.add('sel');
+    P.freq = 520; P.gain = 0.15; P.wave = 'triangle';
+    freqLab.textContent = '520 Hz'; gainLab.textContent = '0.15';
+    play(); await sleep(350); stop();
+    return 'Osc selected; freq 520 / gain 0.15; Play→Stop exercised; cables visible';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['noisecraft-node-audio-graph'])(root, T); }

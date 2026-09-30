@@ -2005,5 +2005,32 @@
   "proof": "played France 1980: Je t'aime; moods SLOW/FAST",
   "demoNodes": 80,
   "errors": []
+ },
+ "chalkist-code-shot-studio": {
+  "url": "http://127.0.0.1:4173/t/chalkist-code-shot-studio/",
+  "ok": true,
+  "at": "2026-09-30T19:53:43.065Z",
+  "http": 200,
+  "proof": "theme Candy, pad 80, round 24, particles on, code edited",
+  "demoNodes": 62,
+  "errors": []
+ },
+ "webaudio-studio-graph-desk": {
+  "url": "http://127.0.0.1:4173/t/webaudio-studio-graph-desk/",
+  "ok": true,
+  "at": "2026-09-30T19:53:43.078Z",
+  "http": 200,
+  "proof": "Osc selected; freq 520 / gain 0.15; Play→Stop exercised; cables visible",
+  "demoNodes": 60,
+  "errors": []
+ },
+ "sfxr-8bit-sound-desk": {
+  "url": "http://127.0.0.1:4173/t/sfxr-8bit-sound-desk/",
+  "ok": true,
+  "at": "2026-09-30T19:53:43.075Z",
+  "http": 200,
+  "proof": "presets + mutate + play; wave square; WAV export available",
+  "demoNodes": 86,
+  "errors": []
  }
 }

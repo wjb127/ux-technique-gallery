@@ -410,4 +410,167 @@ V['generative-fm-ambient-player'] = (root, T) => {
   };
 };
 
+
+V['sfxr-8bit-sound-desk'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#333', panel: '#f5f5f4', ac: '#e67e22', dark: false, line: '#d0d0cc', btn: '#4a4a4a' });
+  const PRESETS = {
+    'Pickup/coin': { wave: 'square', attack: 0, sustain: 0.07, punch: 0.3, decay: 0.35, freq: 0.55, slide: 0.2, vibrato: 0, vibSpeed: 0, duty: 0.4, gain: 0.35 },
+    'Laser/shoot': { wave: 'sawtooth', attack: 0, sustain: 0.1, punch: 0, decay: 0.3, freq: 0.7, slide: -0.45, vibrato: 0, vibSpeed: 0, duty: 0.5, gain: 0.3 },
+    'Explosion': { wave: 'noise', attack: 0, sustain: 0.2, punch: 0.4, decay: 0.55, freq: 0.25, slide: -0.15, vibrato: 0, vibSpeed: 0, duty: 0.5, gain: 0.4 },
+    'Powerup': { wave: 'square', attack: 0, sustain: 0.15, punch: 0, decay: 0.35, freq: 0.35, slide: 0.35, vibrato: 0.2, vibSpeed: 0.4, duty: 0.5, gain: 0.32 },
+    'Hit/hurt': { wave: 'noise', attack: 0, sustain: 0.05, punch: 0.2, decay: 0.2, freq: 0.45, slide: -0.3, vibrato: 0, vibSpeed: 0, duty: 0.5, gain: 0.35 },
+    'Jump': { wave: 'square', attack: 0, sustain: 0.1, punch: 0, decay: 0.25, freq: 0.4, slide: 0.25, vibrato: 0, vibSpeed: 0, duty: 0.55, gain: 0.3 },
+    'Blip/select': { wave: 'square', attack: 0, sustain: 0.04, punch: 0, decay: 0.08, freq: 0.6, slide: 0, vibrato: 0, vibSpeed: 0, duty: 0.5, gain: 0.28 },
+    'Click': { wave: 'noise', attack: 0, sustain: 0.01, punch: 0, decay: 0.04, freq: 0.8, slide: -0.5, vibrato: 0, vibSpeed: 0, duty: 0.5, gain: 0.25 },
+  };
+  let name = 'Pickup/coin';
+  const P = { ...PRESETS[name] };
+  const waveSeg = seg([['square', 'Square'], ['sawtooth', 'Sawtooth'], ['sine', 'Sine'], ['noise', 'Noise']], P.wave, (v) => { P.wave = v; paintWave(); });
+  const vals = {};
+  const mkSl = (key, label, min, max, step) => {
+    const sl = slider(label, min, max, P[key], step, (v) => { P[key] = v; vals[key].textContent = (+v).toFixed(2); }, (v) => (+v).toFixed(2));
+    vals[key] = sl.querySelector('output');
+    return sl;
+  };
+  const paintWave = () => {
+    waveSeg.buttons.forEach((b) => b.classList.toggle('on', b.textContent.toLowerCase().startsWith(P.wave.slice(0, 3)) || (P.wave === 'sawtooth' && b.textContent === 'Sawtooth') || (P.wave === 'noise' && b.textContent === 'Noise') || (P.wave === 'sine' && b.textContent === 'Sine') || (P.wave === 'square' && b.textContent === 'Square')));
+  };
+  const applyPreset = (n) => {
+    name = n; Object.assign(P, PRESETS[n]);
+    Object.keys(vals).forEach((k) => { if (P[k] != null && vals[k]) { vals[k].textContent = (+P[k]).toFixed(2); const inp = vals[k].parentNode.querySelector('input'); if (inp) inp.value = P[k]; } });
+    paintWave();
+    drawWave();
+    presetCol.querySelectorAll('button[data-p]').forEach((b) => { b.style.background = b.dataset.p === name ? '#e67e22' : '#4a4a4a'; b.style.color = '#fff'; });
+  };
+  const playSfx = () => {
+    const ac = audio(); if (!ac) return;
+    const dur = Math.max(0.05, P.attack + P.sustain + P.decay);
+    const t0 = ac.currentTime;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.linearRampToValueAtTime(P.gain * (1 + P.punch), t0 + Math.max(0.005, P.attack));
+    g.gain.linearRampToValueAtTime(P.gain * 0.7, t0 + P.attack + P.sustain);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    g.connect(ac.destination);
+    if (P.wave === 'noise') {
+      const len = Math.floor(ac.sampleRate * dur);
+      const buf = ac.createBuffer(1, len, ac.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+      const src = ac.createBufferSource(); src.buffer = buf; src.connect(g); src.start(t0); src.stop(t0 + dur + 0.02);
+    } else {
+      const o = ac.createOscillator(); o.type = P.wave === 'sawtooth' ? 'sawtooth' : P.wave;
+      const f0 = 80 + P.freq * 1400;
+      const f1 = Math.max(40, f0 * (1 + P.slide));
+      o.frequency.setValueAtTime(f0, t0);
+      o.frequency.linearRampToValueAtTime(f1, t0 + dur);
+      if (P.vibrato > 0) {
+        const lfo = ac.createOscillator(); const lg = ac.createGain();
+        lfo.frequency.value = 2 + P.vibSpeed * 20; lg.gain.value = P.vibrato * 40;
+        lfo.connect(lg).connect(o.frequency); lfo.start(t0); lfo.stop(t0 + dur + 0.02);
+      }
+      o.connect(g); o.start(t0); o.stop(t0 + dur + 0.02);
+    }
+    drawWave();
+  };
+  const mutate = () => {
+    ['attack', 'sustain', 'decay', 'freq', 'slide', 'vibrato', 'vibSpeed', 'duty', 'punch'].forEach((k) => {
+      if (P[k] == null) return;
+      P[k] = clamp(P[k] + (Math.random() - 0.5) * 0.18, k === 'slide' ? -1 : 0, k === 'slide' ? 1 : 1);
+    });
+    Object.keys(vals).forEach((k) => { if (P[k] != null && vals[k]) { vals[k].textContent = (+P[k]).toFixed(2); const inp = vals[k].parentNode.querySelector('input'); if (inp) inp.value = P[k]; } });
+    drawWave(); toast('mutated');
+  };
+  const randomize = () => {
+    const keys = Object.keys(PRESETS);
+    applyPreset(keys[Math.floor(Math.random() * keys.length)]);
+    mutate();
+    name = 'Random';
+    toast('randomized');
+  };
+  const exportWav = () => {
+    // tiny stub WAV (silent header + placeholder) for demo download
+    const sr = 22050, n = 1392;
+    const data = new ArrayBuffer(44 + n * 2); const v = new DataView(data);
+    const w = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+    w(0, 'RIFF'); v.setUint32(4, 36 + n * 2, true); w(8, 'WAVE'); w(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true); v.setUint32(24, sr, true); v.setUint32(28, sr * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); w(36, 'data'); v.setUint32(40, n * 2, true);
+    for (let i = 0; i < n; i++) { const t = i / n; const env = t < 0.1 ? t / 0.1 : 1 - (t - 0.1) / 0.9; const s = Math.sin(2 * Math.PI * (200 + P.freq * 800) * t) * env * 0.4; v.setInt16(44 + i * 2, s * 32767, true); }
+    const blob = new Blob([data], { type: 'audio/wav' });
+    const a = h('a', { href: URL.createObjectURL(blob), download: (name.replace(/\W+/g, '_') || 'sfx') + '.wav' });
+    document.body.append(a); a.click(); a.remove();
+    toast('WAV exported');
+  };
+  const waveCv = h('canvas', { width: 260, height: 64, style: { width: '100%', height: '64px', background: '#eee', border: '1px solid #ccc', borderRadius: '4px' } });
+  const drawWave = () => {
+    const g = waveCv.getContext('2d'); const W = waveCv.width, H = waveCv.height;
+    g.fillStyle = '#f0f0ee'; g.fillRect(0, 0, W, H);
+    g.strokeStyle = '#e67e22'; g.lineWidth = 1.5; g.beginPath();
+    for (let x = 0; x < W; x++) {
+      const t = x / W;
+      const env = t < P.attack ? t / Math.max(0.001, P.attack) : t < P.attack + P.sustain ? 1 : Math.max(0, 1 - (t - P.attack - P.sustain) / Math.max(0.001, P.decay));
+      const y = H / 2 - Math.sin(t * Math.PI * 2 * (6 + P.freq * 10)) * env * (H * 0.4) * (P.wave === 'noise' ? (Math.random() * 2 - 1) : 1);
+      x ? g.lineTo(x, y) : g.moveTo(x, y);
+    }
+    g.stroke();
+  };
+
+  const presetCol = h('div', { style: { display: 'grid', gap: '6px', alignContent: 'start' } },
+    h('div.k-h', {}, 'Generator'),
+    btn('Random', randomize),
+    ...Object.keys(PRESETS).map((n) => h('button.k-btn', { 'data-p': n, style: { background: n === name ? '#e67e22' : '#4a4a4a', color: '#fff', border: 0, textAlign: 'left' }, onclick: () => { applyPreset(n); playSfx(); } }, n)),
+    btn('Mutate', mutate),
+    h('button.k-btn.pri', { style: { background: '#508f49', color: '#fff', border: 0, fontWeight: 800, padding: '12px' }, onclick: playSfx }, 'Play'),
+  );
+  // style grey buttons
+  presetCol.querySelectorAll('.k-btn').forEach((b) => { if (!b.classList.contains('pri') && !b.dataset.p) { b.style.background = '#4a4a4a'; b.style.color = '#fff'; b.style.border = '0'; } });
+
+  const mid = h('div', { style: { display: 'grid', gap: '8px', overflow: 'auto', paddingRight: '6px' } },
+    h('div.k-h', {}, 'Manual settings'),
+    h('div.k-h', {}, 'Waveform'), waveSeg,
+    h('div.k-h', {}, 'Envelope'),
+    mkSl('attack', 'Attack time', 0, 1, 0.01),
+    mkSl('sustain', 'Sustain time', 0, 1, 0.01),
+    mkSl('punch', 'Sustain punch', 0, 1, 0.01),
+    mkSl('decay', 'Decay time', 0, 1, 0.01),
+    h('div.k-h', {}, 'Frequency'),
+    mkSl('freq', 'Start frequency', 0, 1, 0.01),
+    mkSl('slide', 'Slide', -1, 1, 0.01),
+    h('div.k-h', {}, 'Vibrato'),
+    mkSl('vibrato', 'Depth', 0, 1, 0.01),
+    mkSl('vibSpeed', 'Speed', 0, 1, 0.01),
+    h('div.k-h', {}, 'Duty'),
+    mkSl('duty', 'Duty cycle', 0, 1, 0.01),
+    mkSl('gain', 'Gain', 0, 1, 0.01),
+  );
+
+  const right = h('div', { style: { display: 'grid', gap: '10px', alignContent: 'start' } },
+    h('div.k-h', {}, 'Sound'),
+    h('button.k-btn.pri', { style: { background: '#508f49', color: '#fff', border: 0, fontWeight: 800, padding: '14px', fontSize: '16px' }, onclick: playSfx }, 'Play'),
+    h('a', { href: '#', style: { color: '#2980b9', fontWeight: 600 }, onclick: (e) => { e.preventDefault(); exportWav(); } }, 'Download: pickupCoin.wav'),
+    h('div', { style: { fontSize: '12px', opacity: .7 } }, 'File size: 1kB · Samples: 1392 · 8 bit'),
+    seg([['44k', '44k'], ['22k', '22k'], ['11k', '11k'], ['8k', '8k']], '22k', () => {}),
+    seg([['16', '16 bit'], ['8', '8 bit']], '8', () => {}),
+    btn('Export WAV', exportWav, 'pri'),
+    btn('Copy code', () => copy(JSON.stringify(P, null, 2), 'params copied')),
+    waveCv,
+  );
+
+  root.append(
+    h('div.k-row', { style: { height: '52px', padding: '0 18px', borderBottom: '1px solid #ddd', gap: '12px' } },
+      h('b', { style: { font: '900 22px ui-rounded,system-ui', color: '#e67e22', letterSpacing: '-.02em' } }, 'jsfxr'),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { background: '#508f49', color: '#fff', padding: '6px 12px', borderRadius: '6px', fontWeight: 700, fontSize: '12px' } }, 'Try Pro for free')),
+    h('div', { style: { position: 'absolute', inset: '52px 0 0 0', display: 'grid', gridTemplateColumns: '200px 1fr 260px', gap: '16px', padding: '16px 18px', overflow: 'hidden' } },
+      presetCol, mid, right),
+  );
+  applyPreset('Pickup/coin');
+  drawWave();
+  window.__demoProof = async () => {
+    applyPreset('Laser/shoot'); playSfx(); await sleep(200);
+    mutate(); playSfx(); await sleep(200);
+    P.wave = 'square'; paintWave();
+    return 'presets + mutate + play; wave square; WAV export available';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }
