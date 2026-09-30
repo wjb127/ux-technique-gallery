@@ -84,4 +84,124 @@ V['euclidean-pulse-necklace'] = (root, T) => {
   draw();
   window.__demoProof = async () => { TR[0].k = 5; draw(); play(); await sleep(700); play(); return 'E(5,16) kick + playback step ' + step; };
 };
+V['online-sequencer-piano-roll'] = (root, T) => {
+  theme(root, T, { bg: '#e8e8ea', fg: '#222', panel: '#f4f4f5', ac: '#f08a24', dark: false });
+  const NOTES = 24, STEPS = 64;
+  const NOTE_NAMES = [];
+  for (let i = NOTES - 1; i >= 0; i--) {
+    const midiN = 48 + i; // C3..
+    const names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    NOTE_NAMES.push({ midi: midiN, name: names[midiN % 12] + Math.floor(midiN / 12 - 1), black: names[midiN % 12].includes('#') });
+  }
+  const INST = [
+    { id: 'ep', label: 'Electric Piano', color: '#f08a24', wave: 'triangle' },
+    { id: 'synth', label: 'Synth', color: '#3b82f6', wave: 'sawtooth' },
+    { id: 'bass', label: 'Bass', color: '#22c55e', wave: 'square' },
+    { id: 'pluck', label: 'Pluck', color: '#a855f7', wave: 'sine' },
+    { id: 'bell', label: 'Bell', color: '#ef4444', wave: 'sine' },
+  ];
+  let inst = INST[0], tool = 'draw', bpm = 120;
+  // grid[row][step] = 0 | instrument color key
+  const g = Array.from({ length: NOTES }, () => Array(STEPS).fill(0));
+  let pos = -1, tid = null;
+  const cellW = 18, cellH = 16;
+  const keys = h('div', { style: { width: '56px', flexShrink: 0, borderRight: '1px solid #bbb', background: '#ddd' } });
+  const gridWrap = h('div', { style: { overflow: 'auto', flex: 1, position: 'relative', background: '#cfd0d4' } });
+  const gridEl = h('div', { style: { position: 'relative', width: STEPS * cellW + 'px', height: NOTES * cellH + 'px' } });
+  const head = h('div', { style: { position: 'absolute', top: 0, bottom: 0, width: '2px', background: '#e11', left: 0, zIndex: 3, pointerEvents: 'none', display: 'none' } });
+  const cells = [];
+  for (let r = 0; r < NOTES; r++) {
+    const n = NOTE_NAMES[r];
+    keys.append(h('div', {
+      style: {
+        height: cellH + 'px', boxSizing: 'border-box', borderBottom: '1px solid #bbb',
+        background: n.black ? '#2a2a2a' : '#fafafa', color: n.black ? '#eee' : '#333',
+        font: '10px/16px system-ui', paddingLeft: n.black ? '18px' : '6px', userSelect: 'none',
+      },
+    }, n.name));
+    cells[r] = [];
+    for (let i = 0; i < STEPS; i++) {
+      const bar = Math.floor(i / 4) % 2;
+      const c = h('div', {
+        style: {
+          position: 'absolute', left: i * cellW + 'px', top: r * cellH + 'px', width: cellW + 'px', height: cellH + 'px',
+          boxSizing: 'border-box', borderRight: i % 4 === 0 ? '1px solid #9a9a9e' : '1px solid #b8b8bc',
+          borderBottom: '1px solid #b8b8bc', background: n.black ? (bar ? '#b0b1b6' : '#babbbf') : (bar ? '#d5d6da' : '#dde0e4'),
+          cursor: 'pointer',
+        },
+      });
+      c.onpointerdown = (e) => {
+        e.preventDefault();
+        if (tool === 'erase' || (tool === 'draw' && g[r][i] && e.shiftKey)) {
+          g[r][i] = 0; paint(r, i);
+        } else if (tool === 'erase') {
+          g[r][i] = 0; paint(r, i);
+        } else {
+          const on = g[r][i] ? 0 : inst.color;
+          g[r][i] = on; paint(r, i);
+          if (on) blip(midi(NOTE_NAMES[r].midi), 0.22, inst.wave, 0.08);
+        }
+      };
+      cells[r][i] = c; gridEl.append(c);
+    }
+  }
+  gridEl.append(head); gridWrap.append(gridEl);
+  const paint = (r, i) => {
+    const n = NOTE_NAMES[r]; const bar = Math.floor(i / 4) % 2;
+    const off = n.black ? (bar ? '#b0b1b6' : '#babbbf') : (bar ? '#d5d6da' : '#dde0e4');
+    cells[r][i].style.background = g[r][i] || off;
+    cells[r][i].style.boxShadow = g[r][i] ? 'inset 0 0 0 1px #0004' : '';
+  };
+  const soundAt = (p) => {
+    for (let r = 0; r < NOTES; r++) if (g[r][p]) {
+      const col = g[r][p];
+      const ins = INST.find((x) => x.color === col) || inst;
+      blip(midi(NOTE_NAMES[r].midi), 0.2, ins.wave, 0.07);
+    }
+  };
+  const stop = () => { clearInterval(tid); tid = null; head.style.display = 'none'; playB.textContent = '▶ Play'; };
+  const play = () => {
+    audio(); if (tid) return;
+    head.style.display = '';
+    tid = setInterval(() => {
+      pos = (pos + 1) % STEPS;
+      head.style.left = pos * cellW + 'px';
+      soundAt(pos);
+      // autoscroll playhead into view
+      const left = gridWrap.scrollLeft, view = gridWrap.clientWidth;
+      const x = pos * cellW;
+      if (x < left || x > left + view - 40) gridWrap.scrollLeft = Math.max(0, x - 80);
+    }, 60000 / bpm / 4);
+    playB.textContent = '■ Stop';
+  };
+  const playB = btn('▶ Play', () => (tid ? stop() : play()), 'pri');
+  const toolSeg = seg([['draw', 'Draw'], ['erase', 'Erase']], tool, (v) => (tool = v));
+  const top = h('div.k-row', {
+    style: {
+      height: '48px', padding: '0 12px', gap: '10px', background: 'linear-gradient(#f7f7f8,#e4e4e6)',
+      borderBottom: '1px solid #b0b0b4', flexShrink: 0, fontSize: '13px',
+    },
+  },
+    h('b', { style: { letterSpacing: '.02em' } }, 'Online Sequencer-ish'),
+    playB,
+    h('div', { style: { width: '160px' } }, slider('BPM', 60, 200, bpm, 1, (v) => { bpm = v; if (tid) { stop(); play(); } })),
+    select(INST.map((x) => [x.id, x.label]), inst.id, (v) => { inst = INST.find((x) => x.id === v) || INST[0]; }),
+    toolSeg,
+    btn('Clear', () => { g.forEach((row, r) => row.forEach((_, i) => { g[r][i] = 0; paint(r, i); })); }),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .55, fontSize: '12px' } }, 'click grid · Shift+click erase'),
+  );
+  const body = h('div', { style: { display: 'flex', flex: 1, minHeight: 0, borderTop: '1px solid #ccc' } }, keys, gridWrap);
+  root.style.display = 'flex'; root.style.flexDirection = 'column';
+  root.append(top, body);
+  // seed a short motif
+  const seed = [[0, 0], [4, 4], [7, 8], [12, 12], [7, 16], [4, 20], [0, 24], [4, 28]];
+  seed.forEach(([n, s]) => { const r = NOTES - 1 - n; g[r][s] = INST[0].color; paint(r, s); });
+  window.__demoProof = async () => {
+    inst = INST[1];
+    [[2, 2], [5, 6], [9, 10], [14, 14]].forEach(([n, s]) => { const r = NOTES - 1 - n; g[r][s] = inst.color; paint(r, s); });
+    play(); await sleep(700); stop();
+    return 'synth notes placed · playhead advanced to ' + pos;
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['music-grid-sequencer'])(root, T); }

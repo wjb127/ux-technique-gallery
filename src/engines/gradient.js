@@ -151,4 +151,102 @@ V['shader-gradient-playground'] = (root, T) => {
   root.append(title, bar, drawer);
   window.__demoProof = async () => { go(1); go(1); await sleep(400); drawer.style.display = ''; return 'preset → ' + names[idx]; };
 };
+V['whatamesh-gradient-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0f0f12', fg: '#f5f5f7', panel: '#ffffffee', ac: '#ff8fab', dark: true });
+  const PRE = [
+    ['#ff9a9e', '#fad0c4', '#a18cd1', '#fbc2eb', '#84fab0', '#8fd3f4'],
+    ['#a1c4fd', '#c2e9fb', '#d4fc79', '#96e6a1', '#fbc2eb', '#a6c1ee'],
+    ['#f6d365', '#fda085', '#fbc2eb', '#a18cd1', '#89f7fe', '#66a6ff'],
+    ['#ffecd2', '#fcb69f', '#ff9a9e', '#fecfef', '#a1c4fd', '#c2e9fb'],
+  ];
+  let pts = [], play = true, speed = 0.55, t0 = performance.now();
+  const setPreset = (p) => {
+    pts = [];
+    for (let j = 0; j < 3; j++) for (let i = 0; i < 3; i++)
+      pts.push({ x: 0.1 + i * 0.4, y: 0.12 + j * 0.38, bx: 0.1 + i * 0.4, by: 0.12 + j * 0.38, c: p[(i + j * 2) % p.length] });
+  };
+  setPreset(PRE[0]);
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, width: '100%', height: '100%', filter: 'blur(28px)', transform: 'scale(1.12)' } });
+  root.append(cv);
+  const W = 72, H = 48; cv.width = W; cv.height = H;
+  const g = cv.getContext('2d');
+  const rgb = (c) => hexToRgb(c);
+  const meshCss = () => pts.map((p) => `radial-gradient(at ${Math.round(p.x * 100)}% ${Math.round(p.y * 100)}%, ${p.c} 0px, transparent 55%)`).join(', ') + `, ${pts[4]?.c || '#fbc2eb'}`;
+  const render = () => {
+    pts.forEach((p) => (p.rgb = rgb(p.c)));
+    const img = g.createImageData(W, H);
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      let sw = 0, r = 0, gg = 0, b = 0;
+      for (const p of pts) {
+        const d = (x / (W - 1) - p.x) ** 2 + (y / (H - 1) - p.y) ** 2 + 0.004;
+        const w = 1 / (d * d);
+        const [R, G, B] = p.rgb; r += R * w; gg += G * w; b += B * w; sw += w;
+      }
+      const k = (y * W + x) * 4;
+      img.data[k] = r / sw; img.data[k + 1] = gg / sw; img.data[k + 2] = b / sw; img.data[k + 3] = 255;
+    }
+    g.putImageData(img, 0, 0);
+  };
+  const tick = (t) => {
+    if (play) {
+      const tt = (t - t0) / 1000 * speed;
+      pts.forEach((p, i) => {
+        p.x = clamp(p.bx + Math.sin(tt * 1.1 + i * 0.9) * 0.07, 0, 1);
+        p.y = clamp(p.by + Math.cos(tt * 0.9 + i * 1.3) * 0.07, 0, 1);
+      });
+      render();
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick); render();
+  const colors = h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px' } });
+  const syncColors = () => {
+    colors.replaceChildren(...pts.slice(0, 6).map((p, i) => h('input', {
+      type: 'color', value: p.c,
+      oninput: (e) => { pts[i].c = e.target.value; if (pts[i + 6]) pts[i + 6].c = e.target.value; render(); },
+      style: { width: '34px', height: '28px', border: 0, background: 'none', cursor: 'pointer' },
+    })));
+  };
+  syncColors();
+  const playBtn = btn('❚❚ Pause', (e) => { play = !play; e.target.textContent = play ? '❚❚ Pause' : '▶ Play'; }, 'pri');
+  const presets = h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px' } }, PRE.map((p, i) => h('button', {
+    style: { width: '36px', height: '28px', border: '2px solid #fff', borderRadius: '8px', cursor: 'pointer', background: `radial-gradient(at 30% 30%,${p[0]},transparent 55%), radial-gradient(at 70% 60%,${p[2]},transparent 55%), ${p[1]}` },
+    onclick: () => { setPreset(p); syncColors(); render(); },
+    title: 'Preset ' + (i + 1),
+  }, '')));
+  const float = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '36px', transform: 'translateX(-50%)',
+      background: '#fffffff2', color: '#1b1b1f', padding: '16px 18px', borderRadius: '18px',
+      boxShadow: '0 20px 60px #0004', display: 'grid', gap: '10px', width: 'min(420px,92vw)', backdropFilter: 'blur(10px)',
+    },
+  },
+    h('div.k-row', {}, h('b', { style: { font: '700 18px Inter Variable,system-ui', letterSpacing: '-.02em' } }, 'whatamesh'), h('span', { style: { flex: 1 } }), playBtn),
+    h('div', { style: { fontSize: '12px', opacity: .55 } }, 'Soft pastel mesh · craft landing desk'),
+    h('div.k-h', {}, 'Colors'), colors,
+    h('div.k-h', {}, 'Presets'), presets,
+    slider('Speed', 0, 2, speed, 0.05, (v) => (speed = v)),
+    h('div.k-row', {},
+      btn('Randomize', () => {
+        pts.forEach((p) => {
+          p.bx = p.x = Math.random(); p.by = p.y = Math.random();
+          p.c = PRE[Math.floor(Math.random() * PRE.length)][Math.floor(Math.random() * 6)];
+        });
+        syncColors(); render();
+      }),
+      btn('Copy CSS', () => copy(`background: ${meshCss()};`, 'Mesh CSS copied'), 'pri'),
+    ),
+  );
+  const title = h('div', { style: { position: 'absolute', top: '18%', width: '100%', textAlign: 'center', pointerEvents: 'none' } },
+    h('div', { style: { font: '300 56px/1 Inter Variable,system-ui', letterSpacing: '-.03em', color: '#fff', textShadow: '0 8px 40px #0005' } }, 'whatamesh'),
+    h('div', { style: { marginTop: '10px', opacity: .85, color: '#fff', fontSize: '14px' } }, 'animated CSS mesh gradients'),
+  );
+  root.append(title, float);
+  window.__demoProof = async () => {
+    play = true; speed = 1.2; setPreset(PRE[2]); syncColors(); render();
+    await sleep(400);
+    copy(meshCss());
+    return 'preset 3 playing @1.2 · CSS copied';
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['hdr-oklch-gradient-sculptor'])(root, T); }

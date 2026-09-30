@@ -155,4 +155,98 @@ V['font-pair-studio'] = (root, T) => {
   draw();
   window.__demoProof = async () => { roles[0].lock = true; gen(); return 'locked heading, regenerated body pair'; };
 };
+V['pretextjs-reflow-playground'] = (root, T) => {
+  theme(root, T, { bg: '#faf8ff', fg: '#1e1b2e', panel: '#ffffff', ac: '#7c3aed', dark: false });
+  const SAMPLE = 'Pretext measures how text will wrap before the browser paints it. Drag the width, change the font size, and watch lineCount and height update as the paragraph reflows. In variable-width mode an obstacle steals space and every line bends around it in real time — the same idea as computing line breaks in JavaScript instead of waiting on layout.';
+  const P = { text: SAMPLE, size: 17, width: 520, mode: 'uniform', prep: 0 };
+  const obs = { x: 220, y: 90, r: 70 };
+  const mctx = document.createElement('canvas').getContext('2d');
+  const preview = h('div', { style: { position: 'relative', background: '#fff', border: '1px solid #e8e0f5', borderRadius: '12px', minHeight: '360px', overflow: 'hidden', boxShadow: '0 8px 28px #7c3aed12' } });
+  const linesEl = h('div', { style: { position: 'absolute', left: '20px', top: '20px' } });
+  const hud = h('div', { style: { position: 'absolute', right: '14px', top: '14px', font: '12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace', background: '#1e1b2eee', color: '#e9e5ff', padding: '10px 12px', borderRadius: '10px', minWidth: '160px', boxShadow: '0 8px 24px #0003' } });
+  const obstacle = h('div', { style: { position: 'absolute', width: obs.r * 2 + 'px', height: obs.r * 2 + 'px', margin: -obs.r + 'px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 30%,#c4b5fd,#7c3aed)', boxShadow: '0 10px 30px #7c3aed55', cursor: 'grab', touchAction: 'none', display: 'none', zIndex: 2 } });
+  preview.append(linesEl, obstacle, hud);
+  drag(obstacle, { move: (e) => { const q = localPos(e, preview); obs.x = clamp(q.x, 40, Math.max(80, P.width - 20)); obs.y = clamp(q.y, 40, 320); layout(); } });
+  const ta = h('textarea', { value: P.text, rows: 6, style: { width: '100%', padding: '10px', border: '1px solid #e0d8f0', borderRadius: '8px', font: '13px/1.5 Georgia,serif', resize: 'vertical', background: '#faf8ff' } });
+  ta.oninput = () => { P.text = ta.value; layout(); };
+  const metrics = { lines: 0, height: 0 };
+  const layout = () => {
+    const t0 = performance.now();
+    mctx.font = `${P.size}px Georgia`;
+    const words = (P.text || ' ').split(/\s+/);
+    const lh = P.size * 1.55;
+    const maxW = P.width;
+    const lines = [];
+    let i = 0, y = 0;
+    const band = (cy) => {
+      if (P.mode !== 'variable') return [0, maxW];
+      const dy = Math.abs(cy - obs.y);
+      if (dy >= obs.r + 8) return [0, maxW];
+      const half = Math.sqrt(Math.max(0, (obs.r + 8) ** 2 - dy ** 2));
+      const L = obs.x - half, R = obs.x + half;
+      // prefer keeping left band if obstacle is on the right half
+      if (L > maxW * 0.35) return [0, Math.max(40, L - 8)];
+      return [Math.min(maxW - 40, R + 8), maxW];
+    };
+    while (i < words.length && y < 520) {
+      const cy = 20 + y + lh / 2;
+      let [x0, x1] = band(cy);
+      if (P.mode === 'ranges') {
+        // alternating width bands for "line ranges" demo
+        const bandW = maxW * (0.55 + 0.35 * ((Math.floor(y / lh) % 3) / 2));
+        x0 = 0; x1 = bandW;
+      }
+      let line = '', w = 0;
+      while (i < words.length) {
+        const ww = mctx.measureText(words[i] + ' ').width;
+        if (w + ww > Math.max(20, x1 - x0) && line) break;
+        line += words[i] + ' '; w += ww; i++;
+      }
+      if (!line && i < words.length) { line = words[i++] + ' '; }
+      const muted = P.mode === 'ranges' && (Math.floor(y / lh) % 3) === 2;
+      lines.push(h('div', { style: { position: 'absolute', left: (20 + x0) + 'px', top: (20 + y) + 'px', whiteSpace: 'nowrap', font: `${P.size}px/${lh}px Georgia,serif`, color: muted ? '#7c3aed99' : '#1e1b2e', maxWidth: (x1 - x0) + 'px' } }, line.trimEnd()));
+      y += lh;
+    }
+    linesEl.replaceChildren(...lines);
+    Object.assign(obstacle.style, { display: P.mode === 'variable' ? '' : 'none', left: obs.x + 'px', top: obs.y + 'px', width: obs.r * 2 + 'px', height: obs.r * 2 + 'px', margin: -obs.r + 'px' });
+    preview.style.width = (maxW + 40) + 'px';
+    metrics.lines = lines.length; metrics.height = Math.round(y);
+    P.prep = Math.max(0.1, performance.now() - t0);
+    hud.replaceChildren(
+      h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.08em' } }, 'PRETEXT · MEASURE'),
+      h('div', {}, 'lineCount  ', h('b', { style: { color: '#c4b5fd' } }, String(metrics.lines))),
+      h('div', {}, 'height     ', h('b', { style: { color: '#c4b5fd' } }, metrics.height + 'px')),
+      h('div', {}, 'prepare    ', h('b', { style: { color: '#c4b5fd' } }, P.prep.toFixed(2) + 'ms')),
+      h('div', {}, 'width      ', h('b', { style: { color: '#c4b5fd' } }, maxW + 'px')),
+      h('div', {}, 'font-size  ', h('b', { style: { color: '#c4b5fd' } }, P.size + 'px')),
+    );
+  };
+  const modeSeg = seg([['uniform', 'Uniform'], ['variable', 'Variable-width'], ['ranges', 'Line ranges']], P.mode, (v) => { P.mode = v; layout(); });
+  const left = panel(null,
+    h('b', { style: { fontSize: '18px' } }, 'Pretext.js-ish'),
+    h('div', { style: { fontSize: '12px', opacity: .6, marginBottom: '6px' } }, 'Text reflow measurement playground'),
+    h('div.k-h', {}, 'Sample text'), ta,
+    h('div.k-h', {}, 'Mode'), modeSeg,
+    slider('Font size', 11, 28, P.size, 1, (v) => { P.size = v; layout(); }, (v) => v + 'px'),
+    slider('Container width', 240, 720, P.width, 10, (v) => { P.width = v; layout(); }, (v) => v + 'px'),
+    slider('Obstacle radius', 40, 120, obs.r, 2, (v) => { obs.r = v; layout(); }, (v) => v + 'px'),
+    btn('Reset sample', () => { ta.value = SAMPLE; P.text = SAMPLE; layout(); }),
+  );
+  Object.assign(left.style, { borderRadius: '0', border: '0', borderRight: '1px solid #e8e0f5', width: '300px' });
+  root.style.display = 'grid'; root.style.gridTemplateColumns = '300px 1fr';
+  root.append(left, h('div', { style: { padding: '28px 32px', overflow: 'auto', background: 'linear-gradient(180deg,#faf8ff,#f3efff)' } },
+    h('div.k-row', { style: { marginBottom: '16px', gap: '12px' } },
+      h('div', { style: { font: '700 22px Georgia,serif' } }, 'playground'),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { font: '12px ui-monospace,monospace', opacity: .5 } }, 'measure → reflow → paint')),
+    preview));
+  layout();
+  window.__demoProof = async () => {
+    P.mode = 'variable'; P.size = 18; P.width = 480; obs.x = 260; obs.y = 120;
+    modeSeg.buttons?.[1]?.click?.();
+    layout();
+    await sleep(200);
+    return `variable mode · lines ${metrics.lines} · height ${metrics.height}px`;
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
