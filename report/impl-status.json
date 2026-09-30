@@ -1780,5 +1780,176 @@
   "proof": "depth meter 889m",
   "demoNodes": 35,
   "errors": []
+ },
+ "toast-channel-by-severity": {
+  "url": "http://localhost:4173/t/toast-channel-by-severity/",
+  "ok": true,
+  "at": "2026-09-30T11:01:23.081Z",
+  "http": 200,
+  "proof": "severity → channel (toast/banner/modal)",
+  "demoNodes": 61,
+  "errors": []
+ },
+ "undo-toast-plus-trash": {
+  "url": "http://localhost:4173/t/undo-toast-plus-trash/",
+  "ok": true,
+  "at": "2026-09-30T11:01:23.085Z",
+  "http": 200,
+  "proof": "delete → undo toast (5s) → trash restore",
+  "demoNodes": 38,
+  "errors": []
+ },
+ "density-mode-contract": {
+  "url": "http://localhost:4173/t/density-mode-contract/",
+  "ok": true,
+  "at": "2026-09-30T11:01:23.084Z",
+  "http": 200,
+  "proof": "density switch retunes size/spacing tokens",
+  "demoNodes": 64,
+  "errors": []
+ },
+ "risk-tiered-save": {
+  "url": "http://localhost:4173/t/risk-tiered-save/",
+  "ok": true,
+  "at": "2026-09-30T11:01:23.084Z",
+  "http": 200,
+  "proof": "3 tiers: autosave / explicit save / typed confirm",
+  "demoNodes": 69,
+  "errors": []
+ },
+ "common-first-disclosure": {
+  "url": "http://localhost:4173/t/common-first-disclosure/",
+  "ok": true,
+  "at": "2026-09-30T11:01:23.078Z",
+  "http": 200,
+  "proof": "common settings first, advanced behind disclosure",
+  "demoNodes": 34,
+  "errors": []
+ },
+ "active-filter-truth": {
+  "url": "http://localhost:4173/t/active-filter-truth/",
+  "ok": true,
+  "at": "2026-09-30T11:01:23.088Z",
+  "http": 200,
+  "proof": "filter chips truthful: 8 of 24 results",
+  "demoNodes": 225,
+  "errors": []
+ },
+ "5-state-gate": {
+  "url": "http://localhost:4173/t/5-state-gate/",
+  "ok": true,
+  "at": "2026-09-30T11:01:24.601Z",
+  "http": 200,
+  "proof": "✅ Gate passed — all 5 states designed",
+  "demoNodes": 34,
+  "errors": []
+ },
+ "component-first": {
+  "url": "http://localhost:4173/t/component-first/",
+  "ok": true,
+  "at": "2026-09-30T11:01:24.621Z",
+  "http": 200,
+  "proof": "one-off vs component toggle with lint count",
+  "demoNodes": 30,
+  "errors": []
+ },
+ "empty-state-trinity": {
+  "url": "http://localhost:4173/t/empty-state-trinity/",
+  "ok": true,
+  "at": "2026-09-30T11:01:25.055Z",
+  "http": 200,
+  "proof": "3 empty types each with trinity",
+  "demoNodes": 34,
+  "errors": []
+ },
+ "semantic-tokens-only": {
+  "url": "http://localhost:4173/t/semantic-tokens-only/",
+  "ok": true,
+  "at": "2026-09-30T11:01:24.970Z",
+  "http": 200,
+  "proof": "theme swap via tokens; raw hex flagged",
+  "demoNodes": 51,
+  "errors": []
+ },
+ "ai-ui-quality-loop": {
+  "url": "http://localhost:4173/t/ai-ui-quality-loop/",
+  "ok": true,
+  "at": "2026-09-30T11:01:24.993Z",
+  "http": 200,
+  "proof": "loop reaches 6/6",
+  "demoNodes": 38,
+  "errors": []
+ },
+ "form-validation-contract": {
+  "url": "http://localhost:4173/t/form-validation-contract/",
+  "ok": true,
+  "at": "2026-09-30T11:01:24.970Z",
+  "http": 200,
+  "proof": "empty submit → 3 inline errors",
+  "demoNodes": 33,
+  "errors": []
+ },
+ "loading-neq-empty": {
+  "url": "http://localhost:4173/t/loading-neq-empty/",
+  "ok": true,
+  "at": "2026-09-30T11:01:26.100Z",
+  "http": 200,
+  "proof": "fetch shows skeleton, then data/empty",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "value-first-onboarding": {
+  "url": "http://localhost:4173/t/value-first-onboarding/",
+  "ok": true,
+  "at": "2026-09-30T11:01:26.126Z",
+  "http": 200,
+  "proof": "try → value → optional sign-up",
+  "demoNodes": 27,
+  "errors": []
+ },
+ "one-mental-model-nav": {
+  "url": "http://localhost:4173/t/one-mental-model-nav/",
+  "ok": true,
+  "at": "2026-09-30T11:01:26.541Z",
+  "http": 200,
+  "proof": "sidebar selection ⇄ breadcrumb sync",
+  "demoNodes": 53,
+  "errors": []
+ },
+ "change-aversion-guardrails": {
+  "url": "http://localhost:4173/t/change-aversion-guardrails/",
+  "ok": true,
+  "at": "2026-09-30T11:01:26.638Z",
+  "http": 200,
+  "proof": "opt-in, tour, revert, feedback",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "microfeedback-doherty": {
+  "url": "http://localhost:4173/t/microfeedback-doherty/",
+  "ok": true,
+  "at": "2026-09-30T11:01:26.712Z",
+  "http": 200,
+  "proof": "optimistic like + progress save",
+  "demoNodes": 33,
+  "errors": []
+ },
+ "a11y-baseline": {
+  "url": "http://localhost:4173/t/a11y-baseline/",
+  "ok": true,
+  "at": "2026-09-30T11:01:26.710Z",
+  "http": 200,
+  "proof": "Audit: 6/6 pass",
+  "demoNodes": 42,
+  "errors": []
+ },
+ "layout-scaffold-prompt": {
+  "url": "http://localhost:4173/t/layout-scaffold-prompt/",
+  "ok": true,
+  "at": "2026-09-30T11:01:27.856Z",
+  "http": 200,
+  "proof": "scaffold controls → wireframe + prompt",
+  "demoNodes": 47,
+  "errors": []
  }
 }
