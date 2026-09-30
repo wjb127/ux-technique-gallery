@@ -1636,5 +1636,149 @@
   "proof": "car drove to x=0.4",
   "demoNodes": 7,
   "errors": []
+ },
+ "visual-mosaic-discover": {
+  "url": "http://localhost:4173/t/visual-mosaic-discover/",
+  "ok": true,
+  "at": "2026-09-30T10:55:50.818Z",
+  "http": 200,
+  "proof": "category chips re-shuffle masonry; click saves",
+  "demoNodes": 138,
+  "errors": []
+ },
+ "drifting-art-attic-canvas": {
+  "url": "http://localhost:4173/t/drifting-art-attic-canvas/",
+  "ok": true,
+  "at": "2026-09-30T10:55:50.807Z",
+  "http": 200,
+  "proof": "drifting draggable art cards; hang/stir",
+  "demoNodes": 22,
+  "errors": []
+ },
+ "visual-similarity-mosaic-search": {
+  "url": "http://localhost:4173/t/visual-similarity-mosaic-search/",
+  "ok": true,
+  "at": "2026-09-30T10:55:50.814Z",
+  "http": 200,
+  "proof": "click image → mosaic re-sorted by similarity",
+  "demoNodes": 91,
+  "errors": []
+ },
+ "transformer-attention-explainer": {
+  "url": "http://localhost:4173/t/transformer-attention-explainer/",
+  "ok": true,
+  "at": "2026-09-30T10:55:50.817Z",
+  "http": 200,
+  "proof": "click-token attention heatmap with head switch",
+  "demoNodes": 154,
+  "errors": []
+ },
+ "spatial-sticky-card-canvas": {
+  "url": "http://localhost:4173/t/spatial-sticky-card-canvas/",
+  "ok": true,
+  "at": "2026-09-30T10:55:50.818Z",
+  "http": 200,
+  "proof": "draggable cards with connections, dblclick adds",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "mechanical-watch-explainer": {
+  "url": "http://localhost:4173/t/mechanical-watch-explainer/",
+  "ok": true,
+  "at": "2026-09-30T10:55:50.814Z",
+  "http": 200,
+  "proof": "interactive gear train + balance wheel with slider",
+  "demoNodes": 21,
+  "errors": []
+ },
+ "slide-deck-workspace": {
+  "url": "http://localhost:4173/t/slide-deck-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:55:52.323Z",
+  "http": 200,
+  "proof": "prompt → 8 slide thumbnails",
+  "demoNodes": 38,
+  "errors": []
+ },
+ "elegant-doc-blocks": {
+  "url": "http://localhost:4173/t/elegant-doc-blocks/",
+  "ok": true,
+  "at": "2026-09-30T10:55:52.439Z",
+  "http": 200,
+  "proof": "editable doc blocks (Enter adds, / inserts card)",
+  "demoNodes": 40,
+  "errors": []
+ },
+ "cmd-palette-launcher": {
+  "url": "http://localhost:4173/t/cmd-palette-launcher/",
+  "ok": true,
+  "at": "2026-09-30T10:55:52.750Z",
+  "http": 200,
+  "proof": "Ctrl/⌘K palette with fuzzy filter + arrows",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "booking-calendar-slots": {
+  "url": "http://localhost:4173/t/booking-calendar-slots/",
+  "ok": true,
+  "at": "2026-09-30T10:55:53.008Z",
+  "http": 200,
+  "proof": "pick date → slots → confirm",
+  "demoNodes": 73,
+  "errors": []
+ },
+ "branded-wallet-flow": {
+  "url": "http://localhost:4173/t/branded-wallet-flow/",
+  "ok": true,
+  "at": "2026-09-30T10:55:53.006Z",
+  "http": 200,
+  "proof": "wallet send flow steps",
+  "demoNodes": 35,
+  "errors": []
+ },
+ "pricing-tier-cards": {
+  "url": "http://localhost:4173/t/pricing-tier-cards/",
+  "ok": true,
+  "at": "2026-09-30T10:55:53.034Z",
+  "http": 200,
+  "proof": "yearly/monthly toggle recomputes prices",
+  "demoNodes": 84,
+  "errors": []
+ },
+ "pricing-feature-matrix": {
+  "url": "http://localhost:4173/t/pricing-feature-matrix/",
+  "ok": true,
+  "at": "2026-09-30T10:55:54.000Z",
+  "http": 200,
+  "proof": "tier cards + comparison matrix with row highlight",
+  "demoNodes": 122,
+  "errors": []
+ },
+ "pricing-volume-ladder": {
+  "url": "http://localhost:4173/t/pricing-volume-ladder/",
+  "ok": true,
+  "at": "2026-09-30T10:55:54.290Z",
+  "http": 200,
+  "proof": "volume slider re-prices tiers true",
+  "demoNodes": 92,
+  "errors": []
+ },
+ "elegant-checkout-mock": {
+  "url": "http://localhost:4173/t/elegant-checkout-mock/",
+  "ok": true,
+  "at": "2026-09-30T10:55:54.591Z",
+  "http": 200,
+  "proof": "choose Full page / Elements → mock checkout with card validation",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "scroll-depth-explorer": {
+  "url": "http://localhost:4173/t/scroll-depth-explorer/",
+  "ok": true,
+  "at": "2026-09-30T10:55:54.490Z",
+  "http": 200,
+  "proof": "depth meter 889m",
+  "demoNodes": 35,
+  "errors": []
  }
 }
