@@ -1046,7 +1046,7 @@
  "markdown-mindmap-dualpane": {
   "url": "http://localhost:4173/t/markdown-mindmap-dualpane/",
   "ok": true,
-  "at": "2026-09-30T10:27:38.630Z",
+  "at": "2026-09-30T10:31:41.050Z",
   "http": 200,
   "proof": "markdown edit re-rendered mindmap",
   "demoNodes": 81,
@@ -1055,7 +1055,7 @@
  "strudel-tidal-repl-stage": {
   "url": "http://localhost:4173/t/strudel-tidal-repl-stage/",
   "ok": true,
-  "at": "2026-09-30T10:27:38.626Z",
+  "at": "2026-09-30T10:31:41.046Z",
   "http": 200,
   "proof": "mini-notation parsed; step visualizer advanced",
   "demoNodes": 38,
@@ -1064,7 +1064,7 @@
  "turtle-plotter-livecode": {
   "url": "http://localhost:4173/t/turtle-plotter-livecode/",
   "ok": true,
-  "at": "2026-09-30T10:27:38.640Z",
+  "at": "2026-09-30T10:31:41.050Z",
   "http": 200,
   "proof": "turtle program drew a star",
   "demoNodes": 19,
@@ -1073,7 +1073,7 @@
  "markdown-timeline-workspace": {
   "url": "http://localhost:4173/t/markdown-timeline-workspace/",
   "ok": true,
-  "at": "2026-09-30T10:27:38.648Z",
+  "at": "2026-09-30T10:31:41.056Z",
   "http": 200,
   "proof": "timeline re-rendered from markdown",
   "demoNodes": 46,
@@ -1082,7 +1082,7 @@
  "regex-visual-lab": {
   "url": "http://localhost:4173/t/regex-visual-lab/",
   "ok": true,
-  "at": "2026-09-30T10:27:38.633Z",
+  "at": "2026-09-30T10:31:42.590Z",
   "http": 200,
   "proof": "regex matched with live railroad diagram",
   "demoNodes": 48,
@@ -1091,7 +1091,7 @@
  "hydra-livecode-video-synth": {
   "url": "http://localhost:4173/t/hydra-livecode-video-synth/",
   "ok": true,
-  "at": "2026-09-30T10:27:38.639Z",
+  "at": "2026-09-30T10:31:41.052Z",
   "http": 200,
   "proof": "osc→rotate→kaleid chain compiled to shader (info panel shown)",
   "demoNodes": 20,
@@ -1100,7 +1100,7 @@
  "httpie-api-workspace": {
   "url": "http://localhost:4173/t/httpie-api-workspace/",
   "ok": true,
-  "at": "2026-09-30T10:27:40.195Z",
+  "at": "2026-09-30T10:31:43.110Z",
   "http": 200,
   "proof": "GET /users → 200 JSON response",
   "demoNodes": 31,
@@ -1109,7 +1109,7 @@
  "css-doodle-playground": {
   "url": "http://localhost:4173/t/css-doodle-playground/",
   "ok": true,
-  "at": "2026-09-30T10:27:40.576Z",
+  "at": "2026-09-30T10:31:44.882Z",
   "http": 200,
   "proof": "nested rotated squares rendered from doodle rules",
   "demoNodes": 73,
@@ -1118,7 +1118,7 @@
  "tweet-glsl-livecode-stage": {
   "url": "http://localhost:4173/t/tweet-glsl-livecode-stage/",
   "ok": true,
-  "at": "2026-09-30T10:27:40.202Z",
+  "at": "2026-09-30T10:31:44.229Z",
   "http": 200,
   "proof": "GLSL compiled & rendering live",
   "demoNodes": 26,
@@ -1127,7 +1127,7 @@
  "mermaid-dualpane-live-editor": {
   "url": "http://localhost:4173/t/mermaid-dualpane-live-editor/",
   "ok": true,
-  "at": "2026-09-30T10:27:40.723Z",
+  "at": "2026-09-30T10:31:45.014Z",
   "http": 200,
   "proof": "edited code → diagram re-rendered (promo modal shown)",
   "demoNodes": 63,
@@ -1136,7 +1136,7 @@
  "textmode-livecode-stage": {
   "url": "http://localhost:4173/t/textmode-livecode-stage/",
   "ok": true,
-  "at": "2026-09-30T10:27:41.133Z",
+  "at": "2026-09-30T10:31:45.489Z",
   "http": 200,
   "proof": "ASCII field rendered from live function",
   "demoNodes": 19,
@@ -1145,10 +1145,109 @@
  "creative-code-ide": {
   "url": "http://localhost:4173/t/creative-code-ide/",
   "ok": true,
-  "at": "2026-09-30T10:27:40.792Z",
+  "at": "2026-09-30T10:31:45.102Z",
   "http": 200,
   "proof": "sketch running in sandboxed preview",
   "demoNodes": 21,
+  "errors": []
+ },
+ "orbital-hierarchy-scene-studio": {
+  "url": "http://localhost:4173/t/orbital-hierarchy-scene-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:32:08.929Z",
+  "http": 200,
+  "proof": "nested orbits animating",
+  "demoNodes": 13,
+  "errors": []
+ },
+ "satellite-weather-map-hud": {
+  "url": "http://localhost:4173/t/satellite-weather-map-hud/",
+  "ok": true,
+  "at": "2026-09-30T10:31:43.116Z",
+  "http": 200,
+  "proof": "satellite cloud layer over map; layer switcher (welcome dialog)",
+  "demoNodes": 40,
+  "errors": []
+ },
+ "climate-strategy-map-hud": {
+  "url": "http://localhost:4173/t/climate-strategy-map-hud/",
+  "ok": true,
+  "at": "2026-09-30T10:32:35.314Z",
+  "http": 200,
+  "proof": "splash over dim warming map (Play starts sim)",
+  "demoNodes": 11,
+  "errors": []
+ },
+ "gis-simplify-slider-workspace": {
+  "url": "http://localhost:4173/t/gis-simplify-slider-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:31:43.210Z",
+  "http": 200,
+  "proof": "import dialog (sample loads → DP simplify slider)",
+  "demoNodes": 21,
+  "errors": []
+ },
+ "solar-system-explorer-hud": {
+  "url": "http://localhost:4173/t/solar-system-explorer-hud/",
+  "ok": true,
+  "at": "2026-09-30T10:31:43.187Z",
+  "http": 200,
+  "proof": "orbits animating; time-rate slider live",
+  "demoNodes": 35,
+  "errors": []
+ },
+ "geojson-dual-pane": {
+  "url": "http://localhost:4173/t/geojson-dual-pane/",
+  "ok": true,
+  "at": "2026-09-30T10:31:45.000Z",
+  "http": 200,
+  "proof": "features drawn on map ↔ JSON pane synced",
+  "demoNodes": 16,
+  "errors": []
+ },
+ "3d-sunlight-shadow-explorer": {
+  "url": "http://localhost:4173/t/3d-sunlight-shadow-explorer/",
+  "ok": true,
+  "at": "2026-09-30T10:31:46.273Z",
+  "http": 200,
+  "proof": "time slider → building shadows recomputed",
+  "demoNodes": 22,
+  "errors": []
+ },
+ "star-map-explorer": {
+  "url": "http://localhost:4173/t/star-map-explorer/",
+  "ok": true,
+  "at": "2026-09-30T10:31:46.668Z",
+  "http": 200,
+  "proof": "panned sky to Orion with constellation lines",
+  "demoNodes": 19,
+  "errors": []
+ },
+ "globe-radio-discover": {
+  "url": "http://localhost:4173/t/globe-radio-discover/",
+  "ok": true,
+  "at": "2026-09-30T10:31:46.935Z",
+  "http": 200,
+  "proof": "rotated globe → tuned to Tokyo",
+  "demoNodes": 12,
+  "errors": []
+ },
+ "map-explore-side-panel": {
+  "url": "http://localhost:4173/t/map-explore-side-panel/",
+  "ok": true,
+  "at": "2026-09-30T10:31:47.168Z",
+  "http": 200,
+  "proof": "flow map filtered by min-flow slider",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "weather-particle-globe": {
+  "url": "http://localhost:4173/t/weather-particle-globe/",
+  "ok": true,
+  "at": "2026-09-30T10:32:35.326Z",
+  "http": 200,
+  "proof": "wind particles advecting on orthographic globe",
+  "demoNodes": 13,
   "errors": []
  }
 }
