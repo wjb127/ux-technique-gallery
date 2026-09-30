@@ -902,7 +902,7 @@
  "neato-marble-shader-desk": {
   "url": "http://localhost:4173/t/neato-marble-shader-desk/",
   "ok": true,
-  "at": "2026-09-30T10:15:55.153Z",
+  "at": "2026-09-30T10:20:12.526Z",
   "http": 200,
   "proof": "domain-warped marble shader live",
   "demoNodes": 40,
@@ -911,7 +911,7 @@
  "constellation-signal-garden": {
   "url": "http://localhost:4173/t/constellation-signal-garden/",
   "ok": true,
-  "at": "2026-09-30T10:15:56.723Z",
+  "at": "2026-09-30T10:20:14.598Z",
   "http": 200,
   "proof": "constellation live with lines/twinkle",
   "demoNodes": 42,
@@ -920,7 +920,7 @@
  "reaction-diffusion-playground": {
   "url": "http://localhost:4173/t/reaction-diffusion-playground/",
   "ok": true,
-  "at": "2026-09-30T10:15:55.153Z",
+  "at": "2026-09-30T10:20:12.528Z",
   "http": 200,
   "proof": "six Gray-Scott tiles evolving live",
   "demoNodes": 26,
@@ -929,7 +929,7 @@
  "mondrian-partition-canvas": {
   "url": "http://localhost:4173/t/mondrian-partition-canvas/",
   "ok": true,
-  "at": "2026-09-30T10:15:55.150Z",
+  "at": "2026-09-30T10:20:12.526Z",
   "http": 200,
   "proof": "blank canvas awaiting click-to-split (initial state)",
   "demoNodes": 13,
@@ -938,7 +938,7 @@
  "handdrawn-physics-sandbox": {
   "url": "http://localhost:4173/t/handdrawn-physics-sandbox/",
   "ok": true,
-  "at": "2026-09-30T10:15:57.132Z",
+  "at": "2026-09-30T10:20:14.719Z",
   "http": 200,
   "proof": "balls rolling on sketched ramps",
   "demoNodes": 25,
@@ -947,7 +947,7 @@
  "webgl-fluid-paint-stage": {
   "url": "http://localhost:4173/t/webgl-fluid-paint-stage/",
   "ok": true,
-  "at": "2026-09-30T10:15:57.723Z",
+  "at": "2026-09-30T10:20:15.439Z",
   "http": 200,
   "proof": "random splats advected with vorticity",
   "demoNodes": 26,
@@ -956,7 +956,7 @@
  "falling-sand-particle-sandbox": {
   "url": "http://localhost:4173/t/falling-sand-particle-sandbox/",
   "ok": true,
-  "at": "2026-09-30T10:15:59.242Z",
+  "at": "2026-09-30T10:20:16.942Z",
   "http": 200,
   "proof": "sand + water + wall + plant simulated 80 steps",
   "demoNodes": 38,
@@ -965,7 +965,7 @@
  "orb-farm-ecosystem-terrarium": {
   "url": "http://localhost:4173/t/orb-farm-ecosystem-terrarium/",
   "ok": true,
-  "at": "2026-09-30T10:15:59.213Z",
+  "at": "2026-09-30T10:20:16.763Z",
   "http": 200,
   "proof": "tank running with daphnia grazing (onboarding 1/4)",
   "demoNodes": 21,
@@ -973,19 +973,17 @@
  },
  "ritmo-simplex-wave-studio": {
   "url": "http://localhost:4173/t/ritmo-simplex-wave-studio/",
-  "ok": false,
-  "at": "2026-09-30T10:15:55.156Z",
+  "ok": true,
+  "at": "2026-09-30T10:20:45.651Z",
   "http": 200,
-  "proof": "no-proof-hook",
-  "demoNodes": 50,
-  "errors": [
-   "Cannot read properties of undefined (reading '0')"
-  ]
+  "proof": "simplex-warped stripes animating",
+  "demoNodes": 49,
+  "errors": []
  },
  "tinkersynth-slopes-synth-desk": {
   "url": "http://localhost:4173/t/tinkersynth-slopes-synth-desk/",
   "ok": true,
-  "at": "2026-09-30T10:15:55.146Z",
+  "at": "2026-09-30T10:20:45.646Z",
   "http": 200,
   "proof": "slopes regenerated with higher peaks",
   "demoNodes": 42,
@@ -994,7 +992,7 @@
  "threelab-generative-pattern-deck": {
   "url": "http://localhost:4173/t/threelab-generative-pattern-deck/",
   "ok": true,
-  "at": "2026-09-30T10:15:55.153Z",
+  "at": "2026-09-30T10:20:45.652Z",
   "http": 200,
   "proof": "radial wave pattern shader live",
   "demoNodes": 24,
@@ -1003,7 +1001,7 @@
  "procedural-dungeon-theme-stage": {
   "url": "http://localhost:4173/t/procedural-dungeon-theme-stage/",
   "ok": true,
-  "at": "2026-09-30T10:15:57.086Z",
+  "at": "2026-09-30T10:20:45.651Z",
   "http": 200,
   "proof": "generated blueprint dungeon #11",
   "demoNodes": 92,
@@ -1012,7 +1010,7 @@
  "pattern-symmetry-playground": {
   "url": "http://localhost:4173/t/pattern-symmetry-playground/",
   "ok": true,
-  "at": "2026-09-30T10:15:57.594Z",
+  "at": "2026-09-30T10:20:45.655Z",
   "http": 200,
   "proof": "rhythmic line distribution curve 2.6",
   "demoNodes": 77,
@@ -1021,7 +1019,7 @@
  "canvas-fx-param-export": {
   "url": "http://localhost:4173/t/canvas-fx-param-export/",
   "ok": true,
-  "at": "2026-09-30T10:15:57.584Z",
+  "at": "2026-09-30T10:20:45.655Z",
   "http": 200,
   "proof": "scanlines fx applied, params code updated",
   "demoNodes": 28,
@@ -1030,7 +1028,7 @@
  "city-roads-lineart-explorer": {
   "url": "http://localhost:4173/t/city-roads-lineart-explorer/",
   "ok": true,
-  "at": "2026-09-30T10:15:58.682Z",
+  "at": "2026-09-30T10:20:47.268Z",
   "http": 200,
   "proof": "typed city → suggestions (landing state)",
   "demoNodes": 11,
@@ -1038,12 +1036,11 @@
  },
  "fantasy-map-generator-workspace": {
   "url": "http://localhost:4173/t/fantasy-map-generator-workspace/",
-  "ok": false,
-  "at": "2026-09-30T10:15:58.591Z",
-  "navError": "page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"http://localhost:4173/t/fantasy-map-generator-workspace/\", waiting until \"load\"\n",
-  "http": null,
-  "proof": "proof-error: page.evaluate: Target page, context or browser has been closed",
-  "error": "page.waitForTimeout: Target page, context or browser has been closed",
+  "ok": true,
+  "at": "2026-09-30T10:20:47.266Z",
+  "http": 200,
+  "proof": "generated heightmap + 9 political states",
+  "demoNodes": 19,
   "errors": []
  }
 }
