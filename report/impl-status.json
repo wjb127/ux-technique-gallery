@@ -1978,5 +1978,32 @@
   "proof": "added 2 meshes; transform modes; color+fog+bg; play spin",
   "demoNodes": 93,
   "errors": []
+ },
+ "khroma-ai-color-pair-studio": {
+  "url": "http://127.0.0.1:4173/t/khroma-ai-color-pair-studio/",
+  "ok": true,
+  "at": "2026-09-30T15:56:18.342Z",
+  "http": 200,
+  "proof": "trained 12 likes → generator; bias Warm; opened pair + copied hex",
+  "demoNodes": 201,
+  "errors": []
+ },
+ "generative-fm-ambient-player": {
+  "url": "http://127.0.0.1:4173/t/generative-fm-ambient-player/",
+  "ok": true,
+  "at": "2026-09-30T15:56:18.343Z",
+  "http": 200,
+  "proof": "played Moss Garden; shuffle/loop on; transport exercised",
+  "demoNodes": 29,
+  "errors": []
+ },
+ "radiooooo-decade-country-radio": {
+  "url": "http://127.0.0.1:4173/t/radiooooo-decade-country-radio/",
+  "ok": true,
+  "at": "2026-09-30T15:56:18.331Z",
+  "http": 200,
+  "proof": "played France 1980: Je t'aime; moods SLOW/FAST",
+  "demoNodes": 80,
+  "errors": []
  }
 }

@@ -48,7 +48,8 @@
   "live-theme-site-preview",
   "livetheme-realtime-theme-desk",
   "oklch-perceptual-color-lab",
-  "vision-contrast-sim-cards"
+  "vision-contrast-sim-cards",
+  "khroma-ai-color-pair-studio"
  ],
  "cssfx": [
   "neumorph-softui-generator",
@@ -205,7 +206,9 @@
   "year-vault-dial-player",
   "math-theorem-voice-instrument",
   "webcam-class-train-studio",
-  "calm-window-view-swap"
+  "calm-window-view-swap",
+  "radiooooo-decade-country-radio",
+  "generative-fm-ambient-player"
  ],
  "desk": [
   "parody-desktop-os-sandbox",

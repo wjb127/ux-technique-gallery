@@ -179,4 +179,235 @@ V['calm-window-view-swap'] = (root, T) => {
   show();
   window.__demoProof = async () => 'blurred window view; button swaps location';
 };
+
+V['radiooooo-decade-country-radio'] = (root, T) => {
+  theme(root, T, { bg: '#c8e8ea', fg: '#1a2b44', ac: '#e8c547', dark: false });
+  const DECADES = [1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 'NOW', 2070];
+  const COUNTRIES = [
+    { n: 'France', x: 0.48, y: 0.38, tracks: ['La Vie en Rose', 'Je t\'aime', 'Paris Nights'] },
+    { n: 'United Kingdom', x: 0.45, y: 0.32, tracks: ['The Light', 'Midnight Bus', 'Foghorn'] },
+    { n: 'United States', x: 0.22, y: 0.4, tracks: ['Route 66', 'Neon Motel', 'Coast Highway'] },
+    { n: 'Brazil', x: 0.32, y: 0.62, tracks: ['Bossa Nova', 'Samba Rain', 'Ipanema'] },
+    { n: 'Japan', x: 0.82, y: 0.4, tracks: ['Tokyo Drifted', 'Shibuya Signal', 'Kyoto Dust'] },
+    { n: 'India', x: 0.68, y: 0.48, tracks: ['Raga Road', 'Monsoon FM', 'Spice Wave'] },
+    { n: 'Egypt', x: 0.54, y: 0.48, tracks: ['Nile Radio', 'Cairo Pulse', 'Desert Dial'] },
+    { n: 'Australia', x: 0.84, y: 0.7, tracks: ['Outback AM', 'Coral Coast', 'Sydney Static'] },
+  ];
+  const ARTISTS = ['Metronomy', 'The Echoes', 'Radio Ghost', 'Velvet Antenna', 'Oriana Ferst'];
+  let decade = 'NOW', country = COUNTRIES[1], moods = { SLOW: true, FAST: true, WEIRD: true };
+  let playing = false, trackIdx = 0, tmr = null;
+  const label = () => `${country.n.toUpperCase()} ${decade}`;
+  const trackName = () => country.tracks[trackIdx % country.tracks.length];
+  const badge = h('div', { style: { position: 'absolute', left: '18px', top: '58px', background: '#e8c547', color: '#1a2b44', fontWeight: 800, fontSize: '12px', padding: '6px 12px', borderRadius: '4px', zIndex: 5, letterSpacing: '.04em' } }, label());
+  const titleEl = h('div', { style: { fontWeight: 700, fontSize: '15px', textAlign: 'center' } });
+  const metaEl = h('div', { style: { fontSize: '11px', opacity: .75, textAlign: 'center' } });
+  const playBtn = h('button', { style: { width: '48px', height: '48px', borderRadius: '50%', background: '#e53935', color: '#fff', border: 0, fontSize: '18px', cursor: 'pointer', boxShadow: '0 2px 10px #0006' } }, '▶');
+  const refresh = () => {
+    badge.textContent = label();
+    titleEl.textContent = `${trackName()} — ${ARTISTS[trackIdx % ARTISTS.length]}`;
+    metaEl.textContent = `${country.n} · ${decade} · ${Object.entries(moods).filter(([, v]) => v).map(([k]) => k).join('/') || 'ALL'}`;
+  };
+  const playBlip = () => {
+    const base = decade === 'NOW' ? 64 : decade === 2070 ? 72 : 48 + (typeof decade === 'number' ? (decade - 1900) / 10 : 10);
+    const scale = moods.WEIRD ? [0, 1, 4, 6, 7, 10] : moods.FAST ? [0, 2, 4, 7, 9] : [0, 3, 5, 7];
+    const rate = moods.FAST && !moods.SLOW ? 0.18 : moods.SLOW && !moods.FAST ? 0.42 : 0.28;
+    for (let i = 0; i < 6; i++) blip(midi(base + scale[i % scale.length]), rate * 1.4, moods.WEIRD ? 'square' : 'triangle', 0.07, i * rate);
+  };
+  const setPlaying = (on) => {
+    playing = on; playBtn.textContent = on ? '❚❚' : '▶';
+    clearInterval(tmr);
+    if (on) { playBlip(); tmr = setInterval(playBlip, moods.FAST && !moods.SLOW ? 1100 : 1800); }
+  };
+  playBtn.onclick = () => setPlaying(!playing);
+  const skip = () => { trackIdx++; refresh(); if (playing) playBlip(); };
+  // illustrated map stage
+  const map = h('div', { style: { position: 'absolute', inset: '44px 0 150px 0', background: 'linear-gradient(180deg,#9ed9dc 0%,#7ec8cc 40%,#6ab8c0 100%)', overflow: 'hidden' } });
+  const svg = s('svg', { viewBox: '0 0 1000 500', preserveAspectRatio: 'xMidYMid slice', style: 'position:absolute;inset:0;width:100%;height:100%' });
+  const lands = [
+    'M80 180 Q140 120 220 160 L280 200 Q240 280 160 300 Q90 260 80 180Z',
+    'M260 140 Q340 100 420 150 L480 220 Q400 280 320 250 Q250 200 260 140Z',
+    'M500 160 Q560 120 620 170 L640 240 Q580 280 520 250 Q480 200 500 160Z',
+    'M700 180 Q780 140 860 190 L900 260 Q820 320 740 280 Q680 230 700 180Z',
+    'M300 340 Q380 300 460 360 L420 420 Q340 430 300 340Z',
+    'M780 340 Q860 300 920 360 L900 430 Q820 440 780 340Z',
+  ];
+  svg.append(s('rect', { width: 1000, height: 500, fill: '#7ec8cc' }));
+  // wave lines
+  for (let y = 40; y < 500; y += 28) {
+    const d = `M0 ${y} Q50 ${y - 6} 100 ${y} T200 ${y} T300 ${y} T400 ${y} T500 ${y} T600 ${y} T700 ${y} T800 ${y} T900 ${y} T1000 ${y}`;
+    svg.append(s('path', { d, fill: 'none', stroke: '#ffffff44', 'stroke-width': 1.2 }));
+  }
+  lands.forEach((d, i) => svg.append(s('path', { d, fill: ['#e8d9a8', '#dfd3a3', '#f0e2b4', '#e2d49a', '#ebe0b0', '#d9c98e'][i], stroke: '#c4b37a', 'stroke-width': 2 })));
+  const pins = h('div', { style: { position: 'absolute', inset: 0 } });
+  const drawPins = () => {
+    pins.replaceChildren(...COUNTRIES.map((c) => h('button', {
+      style: {
+        position: 'absolute', left: c.x * 100 + '%', top: c.y * 100 + '%', transform: 'translate(-50%,-50%)',
+        width: country === c ? '18px' : '12px', height: country === c ? '18px' : '12px', borderRadius: '50%',
+        background: country === c ? '#e53935' : '#1a2b44', border: '2px solid #fff', cursor: 'pointer',
+        boxShadow: country === c ? '0 0 0 4px #e5393544' : '0 1px 4px #0004', zIndex: 3,
+      },
+      title: c.n,
+      onclick: () => { country = c; trackIdx = 0; refresh(); if (playing) playBlip(); },
+    })));
+  };
+  const shuffleCard = h('div', { style: { position: 'absolute', left: '50%', top: '42%', transform: 'translate(-50%,-50%)', background: '#1a2b44ee', color: '#fff', padding: '22px 36px', borderRadius: '8px', textAlign: 'center', zIndex: 4, boxShadow: '0 12px 40px #0005', pointerEvents: 'none' } },
+    h('div', { style: { fontSize: '11px', letterSpacing: '.2em', opacity: .7, marginBottom: '6px' } }, 'SHUFFLE MODE'),
+    h('div', { style: { fontWeight: 800, fontSize: '18px' } }, "THE CURATOR'S CHOICE"));
+  map.append(svg, pins, shuffleCard, badge,
+    h('button', { style: { position: 'absolute', left: '18px', top: '96px', background: '#3a7bd5', color: '#fff', border: 0, padding: '6px 14px', borderRadius: '4px', fontWeight: 700, fontSize: '12px', cursor: 'pointer', zIndex: 5 }, onclick: () => { country = pick(COUNTRIES); decade = pick(DECADES); trackIdx = 0; refresh(); drawPins(); drawDecades(); if (playing) playBlip(); } }, 'SHUFFLE'));
+  // top bar
+  const moodRow = h('div.k-row', { style: { gap: '18px' } });
+  ['SLOW', 'FAST', 'WEIRD'].forEach((m) => {
+    const lamp = h('span', { style: { width: '10px', height: '10px', borderRadius: '50%', background: moods[m] ? (m === 'WEIRD' ? '#7fd8ff' : '#e53935') : '#334', display: 'inline-block', boxShadow: moods[m] ? '0 0 8px currentColor' : 'none' } });
+    const btnEl = h('button', { style: { background: 'none', border: 0, color: '#e8c547', fontWeight: 800, fontSize: '12px', letterSpacing: '.12em', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }, onclick: () => { moods[m] = !moods[m]; lamp.style.background = moods[m] ? (m === 'WEIRD' ? '#7fd8ff' : '#e53935') : '#334'; refresh(); if (playing) { clearInterval(tmr); tmr = setInterval(playBlip, moods.FAST && !moods.SLOW ? 1100 : 1800); playBlip(); } } }, lamp, m);
+    moodRow.append(btnEl);
+  });
+  const top = h('div.k-row', { style: { position: 'absolute', top: 0, left: 0, right: 0, height: '44px', background: '#1a2b44', color: '#e8c547', padding: '0 16px', zIndex: 6, gap: '20px', fontSize: '12px' } },
+    h('b', { style: { font: "italic 900 20px Georgia,serif", letterSpacing: '.06em', color: '#e8c547' } }, 'RADIOOOOO'),
+    h('span', { style: { flex: 1 } }), moodRow,
+    h('span', { style: { color: '#9ab', marginLeft: '20px' } }, 'EN ▾'),
+    h('span', { style: { background: '#3cb371', color: '#fff', padding: '4px 10px', borderRadius: '4px', fontWeight: 700 } }, 'Sign up'),
+    h('span', { style: { background: '#3a7bd5', color: '#fff', padding: '4px 10px', borderRadius: '4px', fontWeight: 700 } }, 'Log In'));
+  // decade rail
+  const decadeRow = h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, bottom: '88px', height: '54px', justifyContent: 'center', gap: '8px', zIndex: 6, background: 'linear-gradient(180deg,transparent,#1a2b4422)' } });
+  const drawDecades = () => {
+    decadeRow.replaceChildren(...DECADES.map((d) => {
+      const on = d === decade;
+      return h('button', {
+        style: { width: '44px', height: '44px', borderRadius: '50%', background: '#fff', border: on ? '3px solid #e53935' : '2px solid #1a2b44', color: '#1a2b44', fontWeight: 800, fontSize: d === 'NOW' || d === 2070 ? '10px' : '11px', cursor: 'pointer', boxShadow: on ? '0 0 0 3px #e5393533' : '0 2px 6px #0002', position: 'relative' },
+        onclick: () => { decade = d; refresh(); drawDecades(); if (playing) playBlip(); },
+      }, d === 'NOW' || d === 2070 ? String(d) : String(d).slice(2),
+        on ? h('span', { style: { position: 'absolute', left: '50%', bottom: '6px', transform: 'translateX(-50%)', width: '8px', height: '8px', borderRadius: '50%', background: '#e53935' } }) : null);
+    }));
+  };
+  // player bar
+  const player = h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, bottom: 0, height: '88px', background: '#1a2b44', color: '#fff', padding: '0 20px', zIndex: 7, gap: '18px' } },
+    h('div', { style: { width: '56px', height: '56px', background: 'linear-gradient(135deg,#3a7bd5,#e53935)', borderRadius: '6px', flexShrink: 0 } }),
+    h('div.k-row', { style: { gap: '10px', fontSize: '16px', opacity: .85 } }, '♥', '↗', '+'),
+    h('div', { style: { flex: 1, display: 'grid', gap: '4px', justifyItems: 'center' } }, titleEl, metaEl,
+      h('div.k-row', { style: { gap: '16px', alignItems: 'center' } },
+        playBtn,
+        h('button', { style: { background: 'none', border: 0, color: '#fff', fontSize: '20px', cursor: 'pointer' }, onclick: skip }, '⏭'))),
+    h('div', { style: { fontSize: '11px', opacity: .7, textAlign: 'right', minWidth: '160px' } }, 'Discovered by Curator', h('div', {}, 'Volume ▬▬▬▬○')));
+  root.append(top, map, decadeRow, player);
+  drawPins(); drawDecades(); refresh();
+  window.__demoProof = async () => {
+    decade = 1980; country = COUNTRIES[0]; trackIdx = 0; moods.WEIRD = false;
+    refresh(); drawPins(); drawDecades();
+    setPlaying(true); await sleep(400); skip(); await sleep(200); setPlaying(false);
+    return `played ${country.n} ${decade}: ${trackName()}; moods SLOW/FAST`;
+  };
+};
+
+V['generative-fm-ambient-player'] = (root, T) => {
+  theme(root, T, { bg: '#121212', fg: '#e8e8e8', ac: '#ffc83d', dark: true });
+  const PIECES = [
+    { n: 'Oxalis 1', tags: 'acoustic/calm', geo: ['#000', '#f2bd76', '#aabe9b'], base: 196 },
+    { n: 'Moss Garden', tags: 'drone/soft', geo: ['#1a1a1a', '#7eb8a8', '#d4a574'], base: 174 },
+    { n: 'Night Ferry', tags: 'ambient/deep', geo: ['#0d0d0d', '#6a8caf', '#c4b7a6'], base: 130 },
+    { n: 'Paper Lantern', tags: 'warm/pad', geo: ['#111', '#e8a87c', '#8fbc8f'], base: 220 },
+  ];
+  let idx = 0, playing = false, shuffle = false, loop = true, queue = false, vol = 0.35;
+  let nodes = null, anim = 0;
+  const cover = h('canvas', { width: 420, height: 420, style: { width: '360px', height: '360px', background: '#000', flexShrink: 0 } });
+  const title = h('div', { style: { font: "700 42px/1.1 'Inter Variable'", color: '#fff' } });
+  const meta = h('div', { style: { fontSize: '13px', color: '#9a9a9a', lineHeight: 1.7 } });
+  const playBtn = h('button', { style: { background: '#ffc83d', color: '#111', border: 0, padding: '14px 28px', fontWeight: 800, fontSize: '15px', letterSpacing: '.08em', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '10px' } }, '▶  PLAY');
+  const dockBtn = (label, activeFn, onClick) => {
+    const el = h('button', { style: { background: 'none', border: 0, color: '#888', fontSize: '13px', cursor: 'pointer', padding: '8px 12px', letterSpacing: '.06em' }, onclick: () => { onClick(); paintDock(); } }, label);
+    el._activeFn = activeFn; return el;
+  };
+  const shuffleEl = dockBtn('⇄ SHUFFLE', () => shuffle, () => (shuffle = !shuffle));
+  const loopEl = dockBtn('↻ LOOP', () => loop, () => (loop = !loop));
+  const queueEl = dockBtn('☰ QUEUE', () => queue, () => (queue = !queue));
+  const volEl = h('input', { type: 'range', min: 0, max: 1, step: 0.01, value: vol, style: { width: '100px', accentColor: '#ffc83d' }, oninput: (e) => { vol = +e.target.value; if (nodes) nodes.g.gain.value = vol * 0.08; } });
+  const paintDock = () => {
+    [shuffleEl, loopEl, queueEl].forEach((el) => { const on = el._activeFn(); el.style.color = on ? '#ffc83d' : '#666'; el.style.fontWeight = on ? 800 : 500; });
+  };
+  const drawCover = () => {
+    const p = PIECES[idx], g = cover.getContext('2d'), W = cover.width, H = cover.height;
+    g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+    const pulse = playing ? 0.5 + 0.5 * Math.sin(anim / 20) : 0;
+    const pad = 48 - pulse * 6;
+    g.strokeStyle = '#fff'; g.lineWidth = 3; g.strokeRect(pad, pad, W - pad * 2, H - pad * 2);
+    g.fillStyle = p.geo[0]; g.fillRect(pad + 4, pad + 4, (W - pad * 2) / 2 - 4, H - pad * 2 - 8);
+    g.fillStyle = p.geo[1]; g.fillRect(W / 2, pad + 4, (W - pad * 2) / 2 - 4, (H - pad * 2) / 2 - 6);
+    g.fillStyle = p.geo[2]; g.fillRect(W / 2, H / 2 + 2, (W - pad * 2) / 2 - 4, (H - pad * 2) / 2 - 6);
+    if (playing) {
+      g.globalAlpha = 0.15 + pulse * 0.1;
+      g.fillStyle = '#ffc83d';
+      g.beginPath(); g.arc(W / 2, H / 2, 40 + pulse * 30, 0, 7); g.fill();
+      g.globalAlpha = 1;
+    }
+  };
+  const refresh = () => {
+    const p = PIECES[idx];
+    title.textContent = p.n;
+    meta.replaceChildren(
+      h('div', {}, 'released March 31, 2020'),
+      h('div', {}, p.tags),
+      h('div', {}, playing ? 'playing now' : 'never played by you'),
+      h('div', {}, 'played for 26K hours total'),
+      h('div', {}, 'version 5.2.0'),
+    );
+    playBtn.textContent = playing ? '❚❚  STOP' : '▶  PLAY';
+    drawCover();
+  };
+  const stopAudio = () => { try { nodes?.o1.stop(); nodes?.o2.stop(); nodes?.n?.stop(); } catch {} nodes = null; };
+  const startAudio = () => {
+    const ac = audio(); if (!ac) return;
+    stopAudio();
+    const p = PIECES[idx];
+    const o1 = ac.createOscillator(); o1.type = 'sine'; o1.frequency.value = p.base;
+    const o2 = ac.createOscillator(); o2.type = 'triangle'; o2.frequency.value = p.base * 1.5;
+    const g = ac.createGain(); g.gain.value = vol * 0.08;
+    const f = ac.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 800;
+    const lfo = ac.createOscillator(); lfo.frequency.value = 0.08;
+    const lg = ac.createGain(); lg.gain.value = 40;
+    lfo.connect(lg).connect(o1.frequency);
+    o1.connect(f); o2.connect(f); f.connect(g).connect(ac.destination);
+    o1.start(); o2.start(); lfo.start();
+    nodes = { o1, o2, g, n: lfo };
+  };
+  const setPlaying = (on) => {
+    playing = on;
+    if (on) startAudio(); else stopAudio();
+    refresh();
+  };
+  playBtn.onclick = () => setPlaying(!playing);
+  const next = () => { idx = shuffle ? Math.floor(Math.random() * PIECES.length) : (idx + 1) % PIECES.length; if (playing) startAudio(); refresh(); };
+  const prev = () => { idx = (idx - 1 + PIECES.length) % PIECES.length; if (playing) startAudio(); refresh(); };
+  const loopDraw = () => { if (playing) { anim++; drawCover(); } requestAnimationFrame(loopDraw); };
+  loopDraw();
+  const dock = h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, bottom: 0, height: '56px', background: '#0a0a0a', borderTop: '1px solid #222', padding: '0 24px', gap: '8px', zIndex: 5, justifyContent: 'center' } },
+    shuffleEl,
+    h('button', { style: { background: 'none', border: 0, color: '#ccc', fontSize: '18px', cursor: 'pointer', padding: '8px 14px' }, onclick: prev }, '⏮'),
+    h('button', { style: { background: '#ffc83d', color: '#111', border: 0, width: '44px', height: '36px', fontWeight: 800, cursor: 'pointer' }, onclick: () => setPlaying(!playing) }, '▶'),
+    h('button', { style: { background: 'none', border: 0, color: '#ccc', fontSize: '18px', cursor: 'pointer', padding: '8px 14px' }, onclick: next }, '⏭'),
+    loopEl, queueEl,
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '11px', color: '#666' } }, 'VOL'), volEl);
+  root.append(
+    h('div.k-row', { style: { height: '48px', padding: '0 20px', borderBottom: '1px solid #222', fontSize: '13px', color: '#aaa', gap: '18px' } },
+      h('b', { style: { color: '#fff' } }, 'Generative.fm'), 'Play', 'Browse', 'Library',
+      h('span', { style: { flex: 1 } }), '⌕', '⋮',
+      h('span', { style: { background: '#ffc83d', color: '#111', padding: '6px 12px', fontWeight: 800, fontSize: '12px' } }, 'SIGN IN')),
+    h('div', { style: { position: 'absolute', inset: '48px 0 56px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '56px', padding: '40px' } },
+      cover,
+      h('div', { style: { display: 'grid', gap: '18px', maxWidth: '360px' } }, title,
+        h('div.k-row', { style: { gap: '12px', alignItems: 'center' } }, playBtn,
+          h('span', { style: { color: '#666', fontSize: '18px' } }, '👎'), h('span', { style: { color: '#666', fontSize: '18px' } }, '👍'), h('span', { style: { color: '#666', fontSize: '18px' } }, '⋮')),
+        meta)),
+    dock);
+  paintDock(); refresh();
+  window.__demoProof = async () => {
+    setPlaying(true); shuffle = true; loop = true; paintDock();
+    await sleep(400); next(); await sleep(200); vol = 0.5; volEl.value = 0.5;
+    if (nodes) nodes.g.gain.value = vol * 0.08;
+    setPlaying(false);
+    return `played ${PIECES[idx].n}; shuffle/loop on; transport exercised`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

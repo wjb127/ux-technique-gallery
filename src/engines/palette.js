@@ -170,4 +170,115 @@ V['vision-contrast-sim-cards'] = (root, T) => {
   draw();
   window.__demoProof = async () => { fg = '#ffcc00'; bg = '#ff5500'; draw(); return 'low-contrast pair → failures flagged per impairment'; };
 };
+
+V['khroma-ai-color-pair-studio'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#111', ac: '#f9ed79', dark: false });
+  const NAMES = ['PALE', 'MUTED', 'RICH', 'NEUTRAL', 'VIVID', 'DUSTY', 'SOFT', 'DEEP'];
+  const HUES = ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'TEAL', 'BLUE', 'VIOLET', 'MAGENTA', 'BROWN', 'GRAY'];
+  const VALUES = ['LIGHT', 'MIDTONE', 'DARK'];
+  const randCol = () => {
+    const hx = oklchToHex(0.35 + Math.random() * 0.5, 0.04 + Math.random() * 0.16, Math.random() * 360);
+    const name = `${pick(NAMES)} ${pick(VALUES)} ${pick(HUES)}`;
+    return { hx, name };
+  };
+  const NEED = 12;
+  let likes = [];
+  let phase = 'train'; // train | generator
+  let bias = 'Balanced';
+  let query = '';
+  let pairs = [];
+  let selected = null;
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '52px 1fr', background: '#fff' } });
+  const header = h('div.k-row', { style: { padding: '0 20px', borderBottom: '1px solid #eee', gap: '12px' } },
+    h('b', { style: { fontSize: '22px', fontFamily: 'Georgia,serif' } }, 'K', h('span', { style: { background: '#ff6b9d', color: '#fff', fontSize: '9px', padding: '2px 6px', borderRadius: '3px', marginLeft: '6px', fontFamily: 'Inter,sans-serif', verticalAlign: 'super' } }, 'BETA')),
+    h('span', { style: { flex: 1 } }),
+    h('span', { id: 'kh-counter', style: { fontSize: '13px', color: '#666' } }, `${NEED} likes to go`));
+  const body = h('div', { style: { overflow: 'auto', padding: '28px 40px' } });
+  const mkPairs = (n = 24) => {
+    const baseHue = likes.length ? hexToOklch(likes[0].hx)[2] : Math.random() * 360;
+    const biasShift = bias === 'Warm' ? 30 : bias === 'Cool' ? -40 : bias === 'Pastel' ? 0 : 0;
+    const biasC = bias === 'Pastel' ? 0.06 : bias === 'Vivid' ? 0.18 : 0.12;
+    const biasL = bias === 'Pastel' ? 0.82 : bias === 'Vivid' ? 0.55 : 0.62;
+    pairs = Array.from({ length: n }, (_, i) => {
+      const h1 = (baseHue + biasShift + i * 17 + Math.random() * 40) % 360;
+      const h2 = (h1 + 40 + Math.random() * 140) % 360;
+      const a = oklchToHex(biasL + (Math.random() - 0.5) * 0.2, biasC + Math.random() * 0.06, h1);
+      const b = oklchToHex(1 - biasL + (Math.random() - 0.5) * 0.15, biasC * 0.9, h2);
+      return { a, b, id: i + '-' + Math.random().toString(36).slice(2, 6) };
+    });
+  };
+  const filtered = () => {
+    if (!query.trim()) return pairs;
+    const q = query.trim().toLowerCase().replace('#', '');
+    return pairs.filter((p) => p.a.toLowerCase().includes(q) || p.b.toLowerCase().includes(q));
+  };
+  const drawTrain = () => {
+    header.querySelector('#kh-counter').textContent = `${Math.max(0, NEED - likes.length)} likes to go`;
+    const gridColors = Array.from({ length: 18 }, randCol);
+    body.replaceChildren(
+      h('div', { style: { display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '40px', marginBottom: '28px' } },
+        h('div', {},
+          h('h1', { style: { fontSize: '42px', margin: '0 0 12px', fontWeight: 800 } }, `Choose ${NEED} colors`),
+          h('p', { style: { color: '#555', maxWidth: '480px', lineHeight: 1.6 } }, 'These colors train a generator personalized to you. Pick a wide variety of hues, values, and saturations.'),
+          h('div', { style: { background: '#f9ed79', padding: '12px 16px', marginTop: '16px', fontSize: '13px', borderRadius: '4px' } }, 'Note: For this demo, likes are saved in-session only (localStorage stub).')),
+        h('div', {}, h('h3', { style: { marginTop: 0, color: '#7a8a9a' } }, 'Why so many?'), h('p', { style: { color: '#8a9aaa', fontSize: '14px', lineHeight: 1.6 } }, 'More likes help the model learn your taste across the spectrum — not just your favorite hue.'))),
+      h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: '16px' } },
+        ...gridColors.map((c) => h('button', {
+          style: { border: likes.some((l) => l.hx === c.hx) ? '3px solid #111' : '1px solid #eee', background: '#fff', padding: '0 0 10px', cursor: 'pointer', borderRadius: '4px' },
+          onclick: () => {
+            if (likes.some((l) => l.hx === c.hx)) return;
+            likes.push(c);
+            if (likes.length >= NEED) { phase = 'generator'; mkPairs(30); drawGen(); }
+            else drawTrain();
+          },
+        }, h('div', { style: { height: '110px', background: c.hx } }), h('div', { style: { fontSize: '10px', color: '#4a6fa5', letterSpacing: '.06em', marginTop: '8px', fontWeight: 700 } }, c.name)))));
+  };
+  const drawGen = () => {
+    header.querySelector('#kh-counter').textContent = `${likes.length} trained · ${pairs.length} pairs`;
+    const list = filtered();
+    const preview = selected ? h('div', { style: { position: 'sticky', top: '10px', border: '1px solid #eee', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 30px #0001' } },
+      h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', height: '120px' } },
+        h('div', { style: { background: selected.a, display: 'grid', placeItems: 'end start', padding: '10px', color: fgOn(selected.a), fontFamily: 'monospace', fontWeight: 700 } }, selected.a),
+        h('div', { style: { background: selected.b, display: 'grid', placeItems: 'end end', padding: '10px', color: fgOn(selected.b), fontFamily: 'monospace', fontWeight: 700 } }, selected.b)),
+      h('div', { style: { padding: '20px', background: selected.a, color: selected.b } },
+        h('div', { style: { font: "700 32px/1.1 Georgia,serif" } }, 'Typography preview'),
+        h('p', { style: { opacity: .9, lineHeight: 1.6 } }, 'The quick brown fox jumps over the lazy dog. Pair cards become real layouts.'),
+        h('button', { style: { marginTop: '10px', background: selected.b, color: selected.a, border: 0, padding: '10px 16px', fontWeight: 700, borderRadius: '6px' } }, 'Primary action')),
+      h('div.k-row', { style: { padding: '12px 16px', gap: '8px', background: '#fafafa' } },
+        btn('Copy A', () => copy(selected.a, 'Hex A')),
+        btn('Copy B', () => copy(selected.b, 'Hex B')),
+        btn('Close', () => { selected = null; drawGen(); })))
+      : h('div', { style: { color: '#99a', fontSize: '14px', padding: '40px 10px' } }, 'Click a pair card to open typography / template layout.');
+    body.replaceChildren(
+      h('div.k-row', { style: { gap: '12px', marginBottom: '20px', flexWrap: 'wrap' } },
+        h('b', { style: { fontSize: '28px' } }, 'Your color pairs'),
+        h('span', { style: { flex: 1 } }),
+        h('input', { placeholder: 'Search hex…', value: query, style: { padding: '8px 12px', border: '1px solid #ddd', borderRadius: '6px', width: '160px' }, oninput: (e) => { query = e.target.value; drawGen(); } }),
+        seg(['Balanced', 'Warm', 'Cool', 'Pastel', 'Vivid'], bias, (v) => { bias = v; mkPairs(30); selected = null; drawGen(); }),
+        btn('Regenerate', () => { mkPairs(30); selected = null; drawGen(); toast('New pairs'); }, 'pri'),
+        btn('Retrain', () => { phase = 'train'; likes = []; selected = null; drawTrain(); })),
+      h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 320px', gap: '24px' } },
+        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(160px,1fr))', gap: '14px' } },
+          ...list.map((p) => h('button', {
+            style: { border: selected?.id === p.id ? '2px solid #111' : '1px solid #eee', borderRadius: '10px', overflow: 'hidden', padding: 0, cursor: 'pointer', background: '#fff', textAlign: 'left' },
+            onclick: () => { selected = p; drawGen(); },
+          }, h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', height: '100px' } },
+            h('div', { style: { background: p.a } }), h('div', { style: { background: p.b } })),
+            h('div.k-row', { style: { padding: '8px 10px', fontSize: '11px', fontFamily: 'monospace', justifyContent: 'space-between' } },
+              h('span', {}, p.a), h('span', {}, p.b))))),
+        preview));
+  };
+  shell.append(header, body);
+  root.append(shell);
+  drawTrain();
+  window.__demoProof = async () => {
+    likes = Array.from({ length: NEED }, randCol);
+    phase = 'generator'; mkPairs(24); bias = 'Warm';
+    selected = pairs[0]; drawGen();
+    await copy(selected.a, 'Hex');
+    mkPairs(24); selected = pairs[1]; drawGen();
+    return `trained ${NEED} likes → generator; bias Warm; opened pair + copied hex`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['palette-lock-export'])(root, T); }

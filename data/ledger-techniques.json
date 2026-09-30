@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-radiooooo-decade-country-radio",
+  "slug": "radiooooo-decade-country-radio",
+  "name": "Clone Radiooooo-style decade×country time-machine radio: illustrated map stage + decade rail + mood toggles + navy player bar",
+  "date": "2026-10-01",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://app.radiooooo.com/",
+  "domain": "app.radiooooo.com",
+  "product": "Radiooooo",
+  "checkpoints": [
+   "decade rail이 시대를 선택한다",
+   "맵에서 country/region을 선택한다",
+   "mood 토글이 필터를 바꾼다",
+   "play가 네이비 바에서 트랙을 시작한다",
+   "skip/next가 다음 트랙으로 진행한다",
+   "맵+decade 상태가 플레이어 라벨에 반영된다"
+  ],
+  "checkpoint_source": "briefing:2026-10-01-00.md",
+  "prompt": "Build a Radiooooo-inspired decade×country time-machine radio. Full-bleed illustrated world/map stage (stylized SVG continents OK). Decade button rail (1900s–2020s). Mood toggles (Slow, Fast, Weird, Local…). Navy bottom player bar with play/pause, track title, country, decade label, and skip/next. Selecting a country on the map and a decade updates the player label; play starts a short Web Audio blip “track”. No login. Aesthetic: illustrated travel-radio craft, warm map colors, dense but playful chrome, navy transport bar."
+ },
+ {
+  "id": "clone-generative-fm-ambient-player",
+  "slug": "generative-fm-ambient-player",
+  "name": "Clone Generative.fm-style ambient generator player: dark shell + geometric cover + yellow Play + transport dock (shuffle/loop/queue)",
+  "date": "2026-10-01",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://generative.fm/",
+  "domain": "generative.fm",
+  "product": "Generative.fm",
+  "checkpoints": [
+   "yellow Play가 ambient를 시작한다",
+   "transport dock의 shuffle/loop/queue 토글이 동작한다",
+   "재생 중 cover/geometry가 미세 애니메이트한다",
+   "volume 또는 next가 동작한다",
+   "dark shell chrome이 유지된다",
+   "stop이 idle 상태로 복원한다"
+  ],
+  "checkpoint_source": "briefing:2026-10-01-00.md",
+  "prompt": "Clone a Generative.fm-style ambient generator player. Dark minimal full-bleed shell. Large geometric/abstract cover art that subtly animates while playing. Prominent yellow Play button. Bottom transport dock: shuffle, previous, play/pause, next, loop, queue (toggle active states). Web Audio ambient pad (oscillators/noise) as stub. Volume control. Stop restores idle cover. No login. Aesthetic: dark streaming player, yellow accent only, quiet typography, generative geometry as hero."
+ },
+ {
+  "id": "clone-khroma-ai-color-pair-studio",
+  "slug": "khroma-ai-color-pair-studio",
+  "name": "Clone Khroma-style AI color-pair studio: train-onboarding + infinite pair cards + bias/search + typography/template layouts",
+  "date": "2026-10-01",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.khroma.co/generator",
+  "domain": "khroma.co",
+  "product": "Khroma",
+  "checkpoints": [
+   "train/onboarding에서 liked colors를 고른다",
+   "generator가 infinite color-pair cards를 보여준다",
+   "bias/search가 pairs를 필터한다",
+   "카드 클릭이 typography/template 레이아웃을 연다",
+   "hex를 복사한다",
+   "regenerate가 더 많은 pairs를 만든다"
+  ],
+  "checkpoint_source": "briefing:2026-10-01-00.md",
+  "prompt": "Clone a Khroma-style AI color-pair studio. Light clean chrome. Onboarding: grid of color swatches to like/dislike until enough samples, then enter generator. Generator: infinite scroll/grid of two-color pair cards; bias controls + search filter. Click a card → typography/template layout preview using that pair. Copy hex buttons. Regenerate more pairs. No login. Aesthetic: airy whitespace, bold hex type, pair cards as the craft, soft AI-tool neutrals."
+ },
+ {
   "id": "clone-windy-weather-map-desk",
   "slug": "windy-weather-map-desk",
   "name": "Clone Windy-style weather map desk: full-bleed animated overlay map + layer/overlay picker + time scrubber + spot forecast chrome",
