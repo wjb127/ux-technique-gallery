@@ -1249,5 +1249,68 @@
   "proof": "wind particles advecting on orthographic globe",
   "demoNodes": 13,
   "errors": []
+ },
+ "alg0-step-visualizer": {
+  "url": "http://localhost:4173/t/alg0-step-visualizer/",
+  "ok": true,
+  "at": "2026-09-30T10:35:36.391Z",
+  "http": 200,
+  "proof": "stepped to step 8 (compare/swap highlighted)",
+  "demoNodes": 58,
+  "errors": []
+ },
+ "data-chart-mapping-studio": {
+  "url": "http://localhost:4173/t/data-chart-mapping-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:35:36.392Z",
+  "http": 200,
+  "proof": "sample mapped to bubble chart (step 4); step 1 textarea shown",
+  "demoNodes": 73,
+  "errors": []
+ },
+ "ladybug-effects-studio": {
+  "url": "http://localhost:4173/t/ladybug-effects-studio/",
+  "ok": true,
+  "at": "2026-09-30T10:35:36.381Z",
+  "http": 200,
+  "proof": "halftone effect tuned live",
+  "demoNodes": 51,
+  "errors": []
+ },
+ "waveform-audio-editor": {
+  "url": "http://localhost:4173/t/waveform-audio-editor/",
+  "ok": true,
+  "at": "2026-09-30T10:35:36.385Z",
+  "http": 200,
+  "proof": "selected region + fade out applied (welcome modal)",
+  "demoNodes": 23,
+  "errors": []
+ },
+ "graphing-calc-workspace": {
+  "url": "http://localhost:4173/t/graphing-calc-workspace/",
+  "ok": true,
+  "at": "2026-09-30T10:35:36.392Z",
+  "http": 200,
+  "proof": "graph ready (type y=… to plot; blank like reference)",
+  "demoNodes": 12,
+  "errors": []
+ },
+ "bubble-chart-time-scrubber": {
+  "url": "http://localhost:4173/t/bubble-chart-time-scrubber/",
+  "ok": true,
+  "at": "2026-09-30T10:35:36.391Z",
+  "http": 200,
+  "proof": "scrubbed to 2025; play animates 1800→2025",
+  "demoNodes": 213,
+  "errors": []
+ },
+ "timezone-timeline-scrubber": {
+  "url": "http://localhost:4173/t/timezone-timeline-scrubber/",
+  "ok": true,
+  "at": "2026-09-30T10:35:37.939Z",
+  "http": 200,
+  "proof": "scrubbed timeline; all zones updated",
+  "demoNodes": 447,
+  "errors": []
  }
 }
