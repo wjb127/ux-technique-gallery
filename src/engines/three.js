@@ -216,4 +216,176 @@ V['threejs-scene-editor-desk'] = (root, T) => {
   };
 };
 
+V['donmccurdy-gltf-drop-viewer'] = (root, T) => {
+  theme(root, T, { bg: '#191919', fg: '#f0f0f0', panel: '#252525', ac: '#7c5cff', dark: true });
+  root.style.overflow = 'hidden';
+  const vp = h('div', { style: { position: 'absolute', inset: 0 } });
+  const S = stage(vp, { bg: '#191919' });
+  lights(S.scene, 1.1);
+  S.cam.position.set(2.6, 1.8, 3.4);
+  const oc = new OrbitControls(S.cam, S.r.domElement);
+  oc.enableDamping = true;
+  oc.autoRotate = false;
+  oc.autoRotateSpeed = 1.4;
+  S.on(() => oc.update());
+
+  let model = null;
+  let wire = false;
+  let env = 'dark';
+  let info = { name: '—', tris: 0 };
+  const mats = [];
+
+  const empty = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '46%', transform: 'translate(-50%,-50%)',
+      width: 'min(420px,86vw)', zIndex: 4, textAlign: 'center', pointerEvents: 'none',
+    },
+  },
+    h('div', {
+      style: {
+        border: '1px dashed #ffffff28', borderRadius: '14px', padding: '48px 28px',
+        background: '#111111cc', color: '#ddd', fontSize: '15px', marginBottom: '14px',
+      },
+    }, 'Drag glTF 2.0 file or folder here'),
+    h('div', { style: { pointerEvents: 'auto' } },
+      btn('Choose sample model', () => loadSample(), 'pri')),
+  );
+  empty.querySelector('.k-btn') && Object.assign(empty.querySelector('.k-btn').style, {
+    background: '#2a2a2a', color: '#eee', border: '1px solid #ffffff22',
+  });
+
+  const badge = h('div', {
+    style: {
+      position: 'absolute', left: '14px', bottom: '14px', zIndex: 5,
+      background: '#000a', border: '1px solid #ffffff18', borderRadius: '10px',
+      padding: '10px 12px', fontSize: '11px', fontFamily: 'ui-monospace,monospace',
+      lineHeight: 1.55, display: 'none', minWidth: '160px',
+    },
+  });
+  const header = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, top: 0, height: '40px', zIndex: 6,
+      padding: '0 14px', background: '#222', borderBottom: '1px solid #ffffff10', gap: '12px',
+    },
+  },
+    h('b', { style: { fontSize: '13px', fontWeight: 600 } }, 'glTF Viewer'),
+    h('span', { style: { flex: 1 } }),
+  );
+  const chrome = h('div.k-row', {
+    style: {
+      position: 'absolute', right: '14px', top: '52px', zIndex: 5, gap: '8px', flexWrap: 'wrap',
+      justifyContent: 'flex-end', maxWidth: '320px',
+    },
+  });
+
+  const countTris = (obj) => {
+    let t = 0;
+    obj.traverse((o) => {
+      if (!o.isMesh || !o.geometry) return;
+      const g = o.geometry;
+      t += (g.index ? g.index.count : (g.attributes.position?.count || 0)) / 3;
+    });
+    return Math.round(t);
+  };
+  const setWire = (on) => {
+    wire = on;
+    mats.forEach((m) => { m.wireframe = on; });
+  };
+  const setEnv = (k) => {
+    env = k;
+    const map = { dark: 0x191919, studio: 0x2a3140, warm: 0x2a2218 };
+    S.scene.background = new THREE.Color(map[k] || 0x191919);
+  };
+  const updBadge = () => {
+    badge.style.display = model ? 'block' : 'none';
+    badge.replaceChildren(
+      h('div', {}, h('span', { style: { opacity: .55 } }, 'name '), info.name),
+      h('div', {}, h('span', { style: { opacity: .55 } }, 'triangles '), String(info.tris)),
+      h('div', {}, h('span', { style: { opacity: .55 } }, 'env '), env),
+    );
+  };
+  const clearModel = () => {
+    if (model) { S.scene.remove(model); model = null; }
+    mats.length = 0;
+  };
+  const setModel = (group, name) => {
+    clearModel();
+    model = group;
+    S.scene.add(model);
+    mats.length = 0;
+    model.traverse((o) => {
+      if (o.isMesh) {
+        if (!Array.isArray(o.material)) mats.push(o.material);
+        else mats.push(...o.material);
+      }
+    });
+    setWire(wire);
+    info = { name, tris: countTris(model) };
+    empty.style.display = 'none';
+    updBadge();
+  };
+  const loadSample = () => {
+    const g = new THREE.Group();
+    const gold = new THREE.MeshStandardMaterial({ color: 0xc4a46a, metalness: 0.55, roughness: 0.28 });
+    const accent = new THREE.MeshStandardMaterial({ color: 0x5b7cff, metalness: 0.2, roughness: 0.45 });
+    const box = new THREE.Mesh(new THREE.BoxGeometry(1.1, 1.1, 1.1), gold);
+    box.position.set(-0.85, 0.55, 0);
+    const sph = new THREE.Mesh(new THREE.SphereGeometry(0.55, 48, 32), accent);
+    sph.position.set(0.7, 0.55, 0.2);
+    const tor = new THREE.Mesh(new THREE.TorusKnotGeometry(0.42, 0.14, 128, 24), gold);
+    tor.position.set(0.1, 1.35, -0.3);
+    g.add(box, sph, tor);
+    const floor = new THREE.Mesh(
+      new THREE.CircleGeometry(3.2, 64),
+      new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.9, metalness: 0.05 }),
+    );
+    floor.rotation.x = -Math.PI / 2;
+    g.add(floor);
+    setModel(g, 'sample-primitives.glb');
+    toast('Sample model loaded');
+  };
+
+  // controls
+  chrome.append(
+    toggle('Auto-rotate', false, (v) => { oc.autoRotate = v; }),
+    toggle('Wireframe', false, (v) => { setWire(v); updBadge(); }),
+    seg([['dark', 'Dark'], ['studio', 'Studio'], ['warm', 'Warm']], 'dark', (v) => { setEnv(v); updBadge(); }),
+    btn('Sample', loadSample, 'pri'),
+  );
+
+  const foot = h('div', {
+    style: {
+      position: 'absolute', right: '14px', bottom: '12px', zIndex: 5,
+      fontSize: '11px', opacity: .45, fontFamily: 'ui-monospace,monospace',
+    },
+  }, 'three.js · help & feedback · github');
+
+  vp.addEventListener('dragover', (e) => e.preventDefault());
+  vp.addEventListener('drop', (e) => {
+    e.preventDefault();
+    // Real GLB optional; fall back to sample on any drop
+    const f = e.dataTransfer?.files?.[0];
+    if (f && /\.glb?$/i.test(f.name)) {
+      try {
+        new GLTFLoader().load(URL.createObjectURL(f), (gltf) => {
+          setModel(gltf.scene, f.name);
+          toast('Loaded ' + f.name);
+        }, undefined, () => { loadSample(); toast('Parse failed → sample'); });
+      } catch { loadSample(); }
+    } else loadSample();
+  });
+
+  root.append(vp, header, empty, chrome, badge, foot);
+  window.__demoProof = async () => {
+    loadSample(); await sleep(120);
+    oc.autoRotate = true; await sleep(200);
+    setWire(true); await sleep(80);
+    setEnv('studio'); await sleep(60);
+    setWire(false); setEnv('dark');
+    oc.autoRotate = false;
+    updBadge();
+    return `model ${info.name}; tris ${info.tris}; orbit+wire+env exercised`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }

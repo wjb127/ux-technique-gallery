@@ -2086,5 +2086,32 @@
   "proof": "loaded SF sample; filter≥40; layers 2; blend additive; reorder+visibility exercised",
   "demoNodes": 74,
   "errors": []
+ },
+ "boxy-svg-craft-editor": {
+  "url": "http://127.0.0.1:4173/t/boxy-svg-craft-editor/",
+  "ok": true,
+  "at": "2026-10-01T11:57:50.743Z",
+  "http": 200,
+  "proof": "layers 4; rect/ellipse/line/text; fill edit; copy SVG",
+  "demoNodes": 98,
+  "errors": []
+ },
+ "wakamai-fondue-opentype-desk": {
+  "url": "http://127.0.0.1:4173/t/wakamai-fondue-opentype-desk/",
+  "ok": true,
+  "at": "2026-10-01T11:57:50.732Z",
+  "http": 200,
+  "proof": "loaded Roboto Flex Variable; feats liga,kern,smcp,onum; wght 820",
+  "demoNodes": 107,
+  "errors": []
+ },
+ "donmccurdy-gltf-drop-viewer": {
+  "url": "http://127.0.0.1:4173/t/donmccurdy-gltf-drop-viewer/",
+  "ok": true,
+  "at": "2026-10-01T11:57:50.743Z",
+  "http": 200,
+  "proof": "model sample-primitives.glb; tris 9196; orbit+wire+env exercised",
+  "demoNodes": 27,
+  "errors": []
  }
 }

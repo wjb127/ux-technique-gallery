@@ -468,4 +468,394 @@ V['svgomg-optimize-toggle-desk'] = (root, T) => {
   };
 };
 
+V['boxy-svg-craft-editor'] = (root, T) => {
+  theme(root, T, { bg: '#e8e8e8', fg: '#333', panel: '#f5f5f5', ac: '#5e7c9e', dark: false });
+  root.style.overflow = 'hidden';
+  root.style.display = 'grid';
+  root.style.gridTemplateRows = '28px 36px 1fr 28px';
+  root.style.background = '#e8e8e8';
+
+  const TOOLS = [
+    ['select', '↖'], ['rect', '▭'], ['ellipse', '◯'],
+    ['line', '╱'], ['pen', '✎'], ['text', 'A'],
+  ];
+  let tool = 'select';
+  let fill = '#5e7c9e';
+  let stroke = '#222222';
+  let strokeW = 2;
+  let opacity = 1;
+  const layers = [];
+  let selected = null;
+  let dragState = null;
+  let penPts = null;
+  let idSeq = 1;
+
+  const menu = h('div.k-row', {
+    style: {
+      height: '28px', background: '#f0f0f0', borderBottom: '1px solid #ccc',
+      padding: '0 10px', gap: '14px', fontSize: '12px',
+    },
+  },
+    ...['File', 'Edit', 'View', 'Object', 'Shape', 'Text', 'Tools', 'Help'].map((m) =>
+      h('span', { style: { cursor: 'default', opacity: .8 } }, m)),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '11px', opacity: .5 } }, 'Boxy SVG-ish'),
+  );
+
+  const ctx = h('div.k-row', {
+    style: {
+      height: '36px', background: '#f7f7f7', borderBottom: '1px solid #ddd',
+      padding: '0 10px', gap: '8px', fontSize: '12px',
+    },
+  },
+    btn('Undo', () => toast('Nothing to undo')),
+    btn('Redo', () => {}),
+    h('span', { style: { width: '1px', height: '18px', background: '#ccc', margin: '0 4px' } }),
+    btn('Copy SVG', () => copy(serialize(), 'SVG copied'), 'pri'),
+    btn('Download', () => {
+      const a = h('a', { download: 'boxy-craft.svg', href: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(serialize()) });
+      a.click(); toast('boxy-craft.svg downloaded');
+    }),
+    h('span', { style: { flex: 1 } }),
+  );
+  const layerCountLab = h('span', { style: { fontSize: '11px', opacity: .55 } }, '0 layers');
+  ctx.append(layerCountLab);
+
+  const body = h('div', {
+    style: { display: 'grid', gridTemplateColumns: '48px 1fr 240px', minHeight: 0, position: 'relative' },
+  });
+
+  const toolRail = h('div', {
+    style: {
+      background: '#f5f5f5', borderRight: '1px solid #ddd', display: 'grid',
+      gap: '4px', padding: '8px 6px', alignContent: 'start',
+    },
+  });
+  const toolBtns = {};
+  const setTool = (t) => {
+    tool = t;
+    Object.entries(toolBtns).forEach(([k, b]) => {
+      b.style.background = k === t ? '#5e7c9e' : 'transparent';
+      b.style.color = k === t ? '#fff' : '#333';
+    });
+  };
+  TOOLS.forEach(([id, ic]) => {
+    const b = h('button', {
+      title: id,
+      style: {
+        width: '36px', height: '36px', border: '1px solid #ddd', borderRadius: '6px',
+        background: id === 'select' ? '#5e7c9e' : 'transparent',
+        color: id === 'select' ? '#fff' : '#333', cursor: 'pointer', fontSize: '16px',
+      },
+      onclick: () => setTool(id),
+    }, ic);
+    toolBtns[id] = b;
+    toolRail.append(b);
+  });
+  toolRail.append(h('div', {
+    style: {
+      marginTop: '8px', background: '#3b82f6', color: '#fff', fontSize: '10px',
+      fontWeight: 800, textAlign: 'center', borderRadius: '4px', padding: '4px 0',
+    },
+  }, 'SVG'));
+
+  const boardWrap = h('div', {
+    style: {
+      position: 'relative', background: '#d8d8d8', overflow: 'hidden',
+      backgroundImage: 'linear-gradient(#ccc 1px,transparent 1px),linear-gradient(90deg,#ccc 1px,transparent 1px)',
+      backgroundSize: '20px 20px',
+    },
+  });
+  const art = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '50%', width: '520px', height: '360px',
+      marginLeft: '-260px', marginTop: '-180px', background: '#fff',
+      boxShadow: '0 8px 32px #0002', border: '1px solid #bbb', overflow: 'hidden', cursor: 'crosshair',
+    },
+  });
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('viewBox', '0 0 520 360');
+  svg.setAttribute('width', '520');
+  svg.setAttribute('height', '360');
+  Object.assign(svg.style, { position: 'absolute', inset: 0, width: '100%', height: '100%' });
+  // grid inside artboard
+  const gridG = document.createElementNS(svgNS, 'g');
+  gridG.setAttribute('stroke', '#eee');
+  gridG.setAttribute('stroke-width', '1');
+  for (let x = 40; x < 520; x += 40) {
+    const l = document.createElementNS(svgNS, 'line');
+    l.setAttribute('x1', x); l.setAttribute('x2', x); l.setAttribute('y1', 0); l.setAttribute('y2', 360);
+    gridG.appendChild(l);
+  }
+  for (let y = 40; y < 360; y += 40) {
+    const l = document.createElementNS(svgNS, 'line');
+    l.setAttribute('x1', 0); l.setAttribute('x2', 520); l.setAttribute('y1', y); l.setAttribute('y2', y);
+    gridG.appendChild(l);
+  }
+  svg.appendChild(gridG);
+  const drawG = document.createElementNS(svgNS, 'g');
+  svg.appendChild(drawG);
+  art.append(svg);
+  boardWrap.append(art);
+
+  const side = h('div', {
+    style: {
+      background: '#f5f5f5', borderLeft: '1px solid #ddd', display: 'grid',
+      gridTemplateRows: 'auto 1fr', fontSize: '12px', minHeight: 0,
+    },
+  });
+  const insp = h('div', { style: { padding: '12px', display: 'grid', gap: '10px', borderBottom: '1px solid #ddd' } },
+    h('b', {}, 'Inspector'),
+    h('div.k-row', {}, h('span', { style: { width: '56px' } }, 'Fill'),
+      h('input', { type: 'color', value: fill, oninput: (e) => { fill = e.target.value; applyStyle(); } })),
+    h('div.k-row', {}, h('span', { style: { width: '56px' } }, 'Stroke'),
+      h('input', { type: 'color', value: stroke, oninput: (e) => { stroke = e.target.value; applyStyle(); } })),
+    slider('Stroke W', 0, 12, strokeW, 1, (v) => { strokeW = v; applyStyle(); }),
+    slider('Opacity', 0.1, 1, opacity, 0.05, (v) => { opacity = v; applyStyle(); }, (v) => Math.round(v * 100) + '%'),
+    btn('Delete selected', () => { if (selected) removeLayer(selected); }, ''),
+  );
+  const layerList = h('div', { style: { padding: '10px 12px', overflow: 'auto', display: 'grid', gap: '4px', alignContent: 'start' } },
+    h('b', { style: { marginBottom: '4px' } }, 'Layers'));
+  side.append(insp, layerList);
+
+  function serialize() {
+    const clone = svg.cloneNode(true);
+    const g0 = clone.querySelector('g');
+    if (g0) g0.remove(); // drop grid
+    return '<?xml version="1.0"?>\n' + new XMLSerializer().serializeToString(clone);
+  }
+  function applyStyle() {
+    if (!selected) return;
+    const el = selected.el;
+    if (el.tagName === 'text') {
+      el.setAttribute('fill', fill);
+      el.setAttribute('opacity', opacity);
+    } else {
+      el.setAttribute('fill', el.tagName === 'line' || el.tagName === 'polyline' ? 'none' : fill);
+      el.setAttribute('stroke', stroke);
+      el.setAttribute('stroke-width', strokeW);
+      el.setAttribute('opacity', opacity);
+    }
+    selected.fill = fill; selected.stroke = stroke; selected.strokeW = strokeW; selected.opacity = opacity;
+  }
+  function selectLayer(L) {
+    selected = L;
+    layers.forEach((x) => x.el.setAttribute('stroke-dasharray', x === L ? '4 3' : null));
+    if (L && L.el.tagName !== 'line' && L.el.tagName !== 'polyline') {
+      // keep dash only as selection hint on stroke
+    }
+    renderLayers();
+    if (L) {
+      fill = L.fill || fill; stroke = L.stroke || stroke;
+      strokeW = L.strokeW ?? strokeW; opacity = L.opacity ?? opacity;
+      insp.querySelectorAll('input[type=color]')[0].value = fill;
+      insp.querySelectorAll('input[type=color]')[1].value = stroke;
+    }
+  }
+  function renderLayers() {
+    layerCountLab.textContent = `${layers.length} layers`;
+    const rows = layers.slice().reverse().map((L) => h('div.k-row', {
+      style: {
+        padding: '6px 8px', borderRadius: '6px', gap: '8px', cursor: 'pointer',
+        background: selected === L ? '#dbe4f0' : '#fff', border: '1px solid #e0e0e0',
+      },
+      onclick: () => selectLayer(L),
+    },
+      h('input', {
+        type: 'checkbox', checked: L.visible !== false,
+        onclick: (e) => e.stopPropagation(),
+        onchange: (e) => {
+          L.visible = e.target.checked;
+          L.el.setAttribute('display', L.visible ? 'inline' : 'none');
+        },
+      }),
+      h('span', { style: { flex: 1, fontWeight: selected === L ? 700 : 400 } }, L.name),
+      h('span', {
+        style: { opacity: .45, cursor: 'pointer' },
+        onclick: (e) => { e.stopPropagation(); removeLayer(L); },
+      }, '✕'),
+    ));
+    layerList.replaceChildren(h('b', { style: { marginBottom: '4px' } }, 'Layers'), ...rows);
+  }
+  function removeLayer(L) {
+    drawG.removeChild(L.el);
+    const i = layers.indexOf(L);
+    if (i >= 0) layers.splice(i, 1);
+    if (selected === L) selected = null;
+    renderLayers();
+  }
+  function addLayer(el, kind) {
+    const L = {
+      id: idSeq++, name: kind[0].toUpperCase() + kind.slice(1) + ' ' + idSeq,
+      el, kind, fill, stroke, strokeW, opacity, visible: true,
+    };
+    layers.push(L);
+    selectLayer(L);
+    renderLayers();
+    return L;
+  }
+  function localXY(e) {
+    const r = art.getBoundingClientRect();
+    return {
+      x: ((e.clientX - r.left) / r.width) * 520,
+      y: ((e.clientY - r.top) / r.height) * 360,
+    };
+  }
+
+  art.addEventListener('pointerdown', (e) => {
+    const p = localXY(e);
+    if (tool === 'select') {
+      let hit = null;
+      for (let i = layers.length - 1; i >= 0; i--) {
+        const L = layers[i];
+        if (L.visible === false) continue;
+        const bb = L.el.getBBox?.();
+        if (!bb) continue;
+        if (p.x >= bb.x && p.x <= bb.x + bb.width && p.y >= bb.y && p.y <= bb.y + bb.height) {
+          hit = L; break;
+        }
+        // lines: proximity
+        if (L.el.tagName === 'line') {
+          const x1 = +L.el.getAttribute('x1'), y1 = +L.el.getAttribute('y1');
+          const x2 = +L.el.getAttribute('x2'), y2 = +L.el.getAttribute('y2');
+          const d = Math.abs((y2 - y1) * p.x - (x2 - x1) * p.y + x2 * y1 - y2 * x1) /
+            (Math.hypot(y2 - y1, x2 - x1) || 1);
+          if (d < 8) { hit = L; break; }
+        }
+      }
+      selectLayer(hit);
+      if (hit) {
+        dragState = { L: hit, x0: p.x, y0: p.y, ox: 0, oy: 0 };
+        const t = hit.el.getAttribute('transform') || '';
+        const m = /translate\(([-\d.]+),\s*([-\d.]+)\)/.exec(t);
+        if (m) { dragState.ox = +m[1]; dragState.oy = +m[2]; }
+      }
+      return;
+    }
+    if (tool === 'rect') {
+      const el = document.createElementNS(svgNS, 'rect');
+      el.setAttribute('x', p.x); el.setAttribute('y', p.y);
+      el.setAttribute('width', 1); el.setAttribute('height', 1);
+      el.setAttribute('fill', fill); el.setAttribute('stroke', stroke);
+      el.setAttribute('stroke-width', strokeW); el.setAttribute('opacity', opacity);
+      drawG.appendChild(el);
+      const L = addLayer(el, 'rect');
+      dragState = { create: 'rect', L, x0: p.x, y0: p.y };
+    } else if (tool === 'ellipse') {
+      const el = document.createElementNS(svgNS, 'ellipse');
+      el.setAttribute('cx', p.x); el.setAttribute('cy', p.y);
+      el.setAttribute('rx', 1); el.setAttribute('ry', 1);
+      el.setAttribute('fill', fill); el.setAttribute('stroke', stroke);
+      el.setAttribute('stroke-width', strokeW); el.setAttribute('opacity', opacity);
+      drawG.appendChild(el);
+      const L = addLayer(el, 'ellipse');
+      dragState = { create: 'ellipse', L, x0: p.x, y0: p.y };
+    } else if (tool === 'line') {
+      const el = document.createElementNS(svgNS, 'line');
+      el.setAttribute('x1', p.x); el.setAttribute('y1', p.y);
+      el.setAttribute('x2', p.x); el.setAttribute('y2', p.y);
+      el.setAttribute('stroke', stroke); el.setAttribute('stroke-width', strokeW);
+      el.setAttribute('opacity', opacity); el.setAttribute('fill', 'none');
+      drawG.appendChild(el);
+      const L = addLayer(el, 'line');
+      dragState = { create: 'line', L, x0: p.x, y0: p.y };
+    } else if (tool === 'pen') {
+      penPts = [p];
+      const el = document.createElementNS(svgNS, 'polyline');
+      el.setAttribute('points', `${p.x},${p.y}`);
+      el.setAttribute('fill', 'none'); el.setAttribute('stroke', stroke);
+      el.setAttribute('stroke-width', strokeW); el.setAttribute('opacity', opacity);
+      el.setAttribute('stroke-linecap', 'round'); el.setAttribute('stroke-linejoin', 'round');
+      drawG.appendChild(el);
+      const L = addLayer(el, 'pen');
+      dragState = { create: 'pen', L };
+    } else if (tool === 'text') {
+      const el = document.createElementNS(svgNS, 'text');
+      el.setAttribute('x', p.x); el.setAttribute('y', p.y);
+      el.setAttribute('fill', fill); el.setAttribute('opacity', opacity);
+      el.setAttribute('font-size', '28'); el.setAttribute('font-family', 'system-ui,sans-serif');
+      el.textContent = 'Text';
+      drawG.appendChild(el);
+      addLayer(el, 'text');
+      setTool('select');
+    }
+  });
+  art.addEventListener('pointermove', (e) => {
+    if (!dragState) return;
+    const p = localXY(e);
+    if (dragState.L && tool === 'select' && !dragState.create) {
+      const dx = p.x - dragState.x0, dy = p.y - dragState.y0;
+      dragState.L.el.setAttribute('transform', `translate(${dragState.ox + dx},${dragState.oy + dy})`);
+      return;
+    }
+    const el = dragState.L?.el;
+    if (!el) return;
+    if (dragState.create === 'rect') {
+      const x = Math.min(dragState.x0, p.x), y = Math.min(dragState.y0, p.y);
+      el.setAttribute('x', x); el.setAttribute('y', y);
+      el.setAttribute('width', Math.max(1, Math.abs(p.x - dragState.x0)));
+      el.setAttribute('height', Math.max(1, Math.abs(p.y - dragState.y0)));
+    } else if (dragState.create === 'ellipse') {
+      el.setAttribute('cx', (dragState.x0 + p.x) / 2);
+      el.setAttribute('cy', (dragState.y0 + p.y) / 2);
+      el.setAttribute('rx', Math.max(1, Math.abs(p.x - dragState.x0) / 2));
+      el.setAttribute('ry', Math.max(1, Math.abs(p.y - dragState.y0) / 2));
+    } else if (dragState.create === 'line') {
+      el.setAttribute('x2', p.x); el.setAttribute('y2', p.y);
+    } else if (dragState.create === 'pen') {
+      penPts.push(p);
+      el.setAttribute('points', penPts.map((q) => `${q.x},${q.y}`).join(' '));
+    }
+  });
+  const endDrag = () => { dragState = null; penPts = null; };
+  art.addEventListener('pointerup', endDrag);
+  art.addEventListener('pointerleave', endDrag);
+
+  const status = h('div.k-row', {
+    style: {
+      height: '28px', background: '#eee', borderTop: '1px solid #ccc',
+      padding: '0 12px', fontSize: '11px', gap: '16px', color: '#555',
+    },
+  },
+    h('span', {}, 'Elements'),
+    h('span', { style: { opacity: .45 } }, 'Animation'),
+    h('span', { style: { flex: 1 } }),
+    h('span', {}, 'Artboard 520×360'),
+  );
+
+  body.append(toolRail, boardWrap, side);
+  root.append(menu, ctx, body, status);
+  renderLayers();
+
+  window.__demoProof = async () => {
+    setTool('rect');
+    // synthesize shapes
+    const mk = (tag, attrs, kind) => {
+      const el = document.createElementNS(svgNS, tag);
+      Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+      drawG.appendChild(el);
+      return addLayer(el, kind);
+    };
+    fill = '#5e7c9e'; stroke = '#222'; strokeW = 2;
+    mk('rect', { x: 60, y: 50, width: 160, height: 100, fill, stroke, 'stroke-width': strokeW, opacity: 1 }, 'rect');
+    fill = '#ff5c8a';
+    mk('ellipse', { cx: 320, cy: 140, rx: 70, ry: 50, fill, stroke, 'stroke-width': strokeW, opacity: 1 }, 'ellipse');
+    stroke = '#333';
+    mk('line', { x1: 80, y1: 240, x2: 280, y2: 300, stroke, 'stroke-width': 3, fill: 'none', opacity: 1 }, 'line');
+    fill = '#222';
+    const te = document.createElementNS(svgNS, 'text');
+    te.setAttribute('x', 340); te.setAttribute('y', 280);
+    te.setAttribute('fill', fill); te.setAttribute('font-size', '28');
+    te.setAttribute('font-family', 'system-ui,sans-serif'); te.textContent = 'Boxy';
+    drawG.appendChild(te); addLayer(te, 'text');
+    selectLayer(layers[0]);
+    fill = '#ffc83d'; applyStyle();
+    setTool('select');
+    await sleep(80);
+    copy(serialize());
+    return `layers ${layers.length}; rect/ellipse/line/text; fill edit; copy SVG`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

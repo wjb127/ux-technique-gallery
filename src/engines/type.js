@@ -372,4 +372,186 @@ V['alphazet-3d-type-specimen-desk'] = (root, T) => {
     return `weight ${P.weight}; mock cards dragged; test typed; examine glyph g; talk level drove weight/tracking`;
   };
 };
+V['wakamai-fondue-opentype-desk'] = (root, T) => {
+  theme(root, T, { bg: '#dfd6b3', fg: '#3e3533', panel: '#f4efe0', ac: '#5a7a4a', dark: false });
+  const FEATS = [
+    ['liga', 'Ligatures'], ['smcp', 'Small Caps'], ['onum', 'Oldstyle Figs'],
+    ['tnum', 'Tabular Figs'], ['ss01', 'Stylistic Set 1'], ['kern', 'Kerning'],
+  ];
+  const AXES = { wght: [100, 1000, 450], wdth: [75, 125, 100], opsz: [8, 144, 72] };
+  const state = {
+    fontName: '',
+    fam: RF,
+    feats: new Set(['liga', 'kern']),
+    axes: Object.fromEntries(Object.entries(AXES).map(([k, v]) => [k, v[2]])),
+    text: 'The quick brown fondue dips over the lazy baguette',
+    loaded: false,
+  };
+  const ffs = () => [...state.feats].map((f) => `"${f}" 1`).join(', ') || 'normal';
+  const apply = () => {
+    const fvs = Object.entries(state.axes).map(([k, v]) => `"${k}" ${Math.round(v)}`).join(', ');
+    [spec, nameLab, glyphGrid].forEach((el) => {
+      if (!el) return;
+      el.style.fontFamily = state.fam;
+      el.style.fontFeatureSettings = ffs();
+      el.style.fontVariationSettings = fvs;
+    });
+    if (glyphGrid) glyphGrid.querySelectorAll('span').forEach((sp) => {
+      sp.style.fontFamily = state.fam;
+      sp.style.fontFeatureSettings = ffs();
+      sp.style.fontVariationSettings = fvs;
+    });
+    chipHost?.querySelectorAll('[data-f]').forEach((b) => {
+      const on = state.feats.has(b.dataset.f);
+      b.style.background = on ? '#5a7a4a' : '#fff';
+      b.style.color = on ? '#fff' : '#3e3533';
+      b.style.borderColor = on ? '#5a7a4a' : '#c4b690';
+    });
+  };
+  const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let chipHost, glyphGrid, spec, nameLab, desk, land;
+  const buildDesk = () => {
+    nameLab = h('b', { style: { fontSize: '18px', letterSpacing: '.02em' } }, state.fontName || 'Sample Variable');
+    spec = h('div', {
+      contentEditable: true, spellcheck: 'false',
+      style: {
+        outline: 'none', fontSize: 'clamp(36px,6vw,72px)', lineHeight: 1.15, fontWeight: 450,
+        padding: '28px 8px', minHeight: '120px', letterSpacing: '-.01em',
+      },
+    }, state.text);
+    spec.oninput = () => { state.text = spec.textContent || ''; };
+    chipHost = h('div.k-row', { style: { gap: '8px', flexWrap: 'wrap' } },
+      ...FEATS.map(([id, lab]) => h('button', {
+        'data-f': id,
+        style: {
+          border: '1.5px solid #c4b690', borderRadius: '999px', padding: '7px 14px',
+          fontSize: '12px', fontWeight: 600, cursor: 'pointer', background: '#fff', color: '#3e3533',
+        },
+        onclick: () => {
+          if (state.feats.has(id)) state.feats.delete(id); else state.feats.add(id);
+          apply();
+        },
+      }, lab)));
+    const axisPanel = h('div', { style: { display: 'grid', gap: '10px' } },
+      ...Object.entries(AXES).map(([k, [mn, mx, d]]) =>
+        slider(k, mn, mx, state.axes[k] ?? d, 1, (v) => { state.axes[k] = v; apply(); })));
+    glyphGrid = h('div', {
+      style: {
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(52px,1fr))', gap: '6px',
+        maxHeight: '220px', overflow: 'auto', padding: '4px',
+      },
+    }, ...[...glyphs].map((g) => h('span', {
+      style: {
+        aspectRatio: '1', display: 'grid', placeItems: 'center', background: '#fff',
+        border: '1px solid #ddd4b8', borderRadius: '8px', fontSize: '22px', cursor: 'pointer',
+      },
+      onclick: () => { spec.textContent = (spec.textContent || '') + g; state.text = spec.textContent; },
+    }, g)));
+    desk = h('div', {
+      style: {
+        position: 'absolute', inset: 0, display: 'grid',
+        gridTemplateColumns: '1fr 280px', gridTemplateRows: '52px 1fr', background: '#f7f2e4',
+      },
+    },
+      h('div.k-row', {
+        style: {
+          gridColumn: '1/-1', padding: '0 18px', gap: '14px',
+          borderBottom: '1px solid #ddd4b8', background: '#efe9d4',
+        },
+      },
+        h('span', { style: { fontSize: '20px' } }, '🧀'),
+        nameLab,
+        h('span', { style: { fontSize: '12px', opacity: .55 } }, 'OpenType · Variable'),
+        h('span', { style: { flex: 1 } }),
+        btn('Change font', () => { state.loaded = false; land.style.display = 'grid'; desk.style.display = 'none'; }, ''),
+      ),
+      h('div', { style: { padding: '22px 28px', overflow: 'auto', display: 'grid', gap: '18px', alignContent: 'start' } },
+        h('div', { style: { fontSize: '11px', letterSpacing: '.12em', opacity: .5, fontWeight: 700 } }, 'SPECIMEN'),
+        h('div', { style: { background: '#fff', borderRadius: '16px', border: '1px solid #ddd4b8', boxShadow: '0 10px 40px #834f4114', padding: '8px 22px' } }, spec),
+        h('div', { style: { fontSize: '11px', letterSpacing: '.12em', opacity: .5, fontWeight: 700 } }, 'OPENTYPE FEATURES'),
+        chipHost,
+        h('div', { style: { fontSize: '11px', letterSpacing: '.12em', opacity: .5, fontWeight: 700 } }, 'GLYPH GRID'),
+        glyphGrid),
+      h('div', {
+        style: {
+          borderLeft: '1px solid #ddd4b8', background: '#f4efe0', padding: '18px 16px',
+          display: 'grid', gap: '14px', alignContent: 'start', overflow: 'auto',
+        },
+      },
+        h('b', { style: { fontSize: '13px' } }, 'Variable axes'),
+        axisPanel,
+        h('div', { style: { fontSize: '11px', opacity: .5, lineHeight: 1.5 } },
+          'font-feature-settings + font-variation-settings applied live to specimen & glyphs.'),
+        btn('Reset axes', () => {
+          Object.entries(AXES).forEach(([k, v]) => { state.axes[k] = v[2]; });
+          desk.querySelectorAll('input[type=range]').forEach((inp, i) => {
+            const keys = Object.keys(AXES); if (keys[i]) inp.value = AXES[keys[i]][2];
+          });
+          apply();
+        }, 'pri'),
+      ),
+    );
+    root.append(desk);
+    apply();
+  };
+  const loadSample = () => {
+    state.loaded = true;
+    state.fontName = 'Roboto Flex Variable';
+    state.fam = RF;
+    state.feats = new Set(['liga', 'kern']);
+    Object.entries(AXES).forEach(([k, v]) => { state.axes[k] = v[2]; });
+    if (!desk) buildDesk();
+    else { nameLab.textContent = state.fontName; apply(); desk.style.display = 'grid'; }
+    land.style.display = 'none';
+    toast('Sample font loaded');
+  };
+  // Landing — fondue drop circle
+  const ring = h('div', {
+    style: {
+      width: 'min(420px,78vw)', aspectRatio: '1', borderRadius: '50%', background: '#e8dfc0',
+      boxShadow: '0 24px 80px #3e353355, inset 0 0 0 14px #dfd6b3, inset 0 0 0 18px #bb7e5c55',
+      display: 'grid', placeItems: 'center', textAlign: 'center', gap: '10px', padding: '40px',
+      position: 'relative',
+    },
+  },
+    h('div', {
+      style: {
+        position: 'absolute', inset: '-8px', borderRadius: '50%', pointerEvents: 'none',
+        background: 'conic-gradient(from 0deg,#834f41 0 33%,#bb7e5c 0 66%,#5a7a4a 0)',
+        WebkitMask: 'radial-gradient(farthest-side,transparent calc(100% - 22px),#000 calc(100% - 21px))',
+        mask: 'radial-gradient(farthest-side,transparent calc(100% - 22px),#000 calc(100% - 21px))',
+        opacity: .85,
+      },
+    }),
+    h('div', { style: { fontSize: '11px', letterSpacing: '.28em', fontWeight: 800, color: '#834f41', zIndex: 1 } }, 'WAKAMAI FONDUE'),
+    h('div', { style: { fontSize: '28px', fontWeight: 800, zIndex: 1 } }, 'Drop a font!'),
+    btn('Try with Roboto Flex', loadSample, 'pri'),
+    h('div', { style: { fontSize: '12px', opacity: .6, zIndex: 1 } }, 'Or pick a sample · no upload needed'),
+  );
+  ring.querySelector('.k-btn') && Object.assign(ring.querySelector('.k-btn').style, {
+    background: '#5a7a4a', color: '#fff', border: 'none', borderRadius: '10px', padding: '12px 18px', fontWeight: 700,
+  });
+  land = h('div', {
+    style: {
+      position: 'absolute', inset: 0, display: 'grid', placeItems: 'center',
+      background: 'radial-gradient(120% 80% at 50% 30%,#c9b896,#8a6a4a 55%,#5c4030)',
+    },
+  }, ring);
+  land.addEventListener('dragover', (e) => e.preventDefault());
+  land.addEventListener('drop', (e) => { e.preventDefault(); loadSample(); });
+  root.append(land);
+  window.__demoProof = async () => {
+    loadSample(); await sleep(80);
+    state.feats.add('smcp'); state.feats.add('onum'); apply(); await sleep(60);
+    state.axes.wght = 820; state.axes.wdth = 110; state.axes.opsz = 96; apply();
+    desk.querySelectorAll('input[type=range]').forEach((inp, i) => {
+      const vals = [820, 110, 96]; if (vals[i] != null) inp.value = vals[i];
+    });
+    spec.textContent = 'Fondue typography lab — liga · smcp · axes';
+    state.text = spec.textContent;
+    await sleep(80);
+    return `loaded ${state.fontName}; feats ${[...state.feats].join(',')}; wght ${state.axes.wght}`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }

@@ -86,7 +86,8 @@
   "avatar-part-composer",
   "social-meta-preview-studio",
   "icones-icon-explorer-desk",
-  "svgomg-optimize-toggle-desk"
+  "svgomg-optimize-toggle-desk",
+  "boxy-svg-craft-editor"
  ],
  "imagefx": [
   "duotone-photo-studio",
@@ -114,7 +115,8 @@
   "pretext-dragon-chase-reflow",
   "font-pair-studio",
   "pretextjs-reflow-playground",
-  "alphazet-3d-type-specimen-desk"
+  "alphazet-3d-type-specimen-desk",
+  "wakamai-fondue-opentype-desk"
  ],
  "pixel": [
   "pixel-sprite-editor-workspace",
@@ -235,7 +237,8 @@
   "gltf-material-lighting-studio",
   "origami-crease-fold-studio",
   "isometric-cutaway-room-studio",
-  "threejs-scene-editor-desk"
+  "threejs-scene-editor-desk",
+  "donmccurdy-gltf-drop-viewer"
  ],
  "saas": [
   "pricing-tier-cards",
