@@ -554,4 +554,128 @@ V['kepler-gl-geospatial-layer-desk'] = (root, T) => {
   };
 };
 
+V['maputnik-map-style-editor'] = (root, T) => {
+  theme(root, T, { bg: '#1c1e24', fg: '#e8eaed', panel: '#2b2d33', ac: '#3b82f6', dark: true });
+  const layers = [
+    { id: 'background', type: 'background', visible: true, color: '#eff0ef', opacity: 1, width: 1 },
+    { id: 'water', type: 'fill', visible: true, color: '#9ebdff', opacity: 1, width: 1 },
+    { id: 'landcover', type: 'fill', visible: true, color: '#d8e0c8', opacity: 0.9, width: 1 },
+    { id: 'park', type: 'fill', visible: true, color: '#a8d08d', opacity: 0.55, width: 1 },
+    { id: 'road', type: 'line', visible: true, color: '#ffffff', opacity: 0.9, width: 2.2 },
+    { id: 'boundary', type: 'line', visible: true, color: '#888888', opacity: 0.55, width: 1 },
+  ];
+  let sel = 0;
+  const layerList = h('div', { style: { overflow: 'auto', flex: 1 } });
+  const inspTitle = h('div', { style: { fontWeight: 700, fontSize: '13px', padding: '10px 12px', borderBottom: '1px solid #ffffff14' } });
+  const idEl = h('b', { style: { fontFamily: 'ui-monospace,monospace' } });
+  const typeEl = h('b', { style: { fontFamily: 'ui-monospace,monospace' } });
+  const jsonPre = h('pre', { style: { background: '#15171c', border: '1px solid #ffffff14', borderRadius: '6px', padding: '8px', fontSize: '11px', color: '#9fd3ff', margin: 0, whiteSpace: 'pre-wrap' } });
+  const zoomEl = h('div', { style: { background: '#1c1e24cc', border: '1px solid #ffffff22', borderRadius: '4px', padding: '4px 8px', fontSize: '11px' } }, 'Zoom: 1.20');
+  const colorInp = h('input', { type: 'color', value: '#eff0ef' });
+  const opSl = slider('Opacity', 0, 1, 1, 0.01, (v) => { layers[sel].opacity = v; syncJson(); }, (v) => (+v).toFixed(2));
+  const wSl = slider('Line width', 0.5, 8, 2, 0.1, (v) => { layers[sel].width = v; syncJson(); }, (v) => (+v).toFixed(1));
+
+  const paintOf = (L) => {
+    if (L.type === 'background') return { 'background-color': L.color, 'background-opacity': L.opacity };
+    if (L.type === 'fill') return { 'fill-color': L.color, 'fill-opacity': L.opacity };
+    return { 'line-color': L.color, 'line-opacity': L.opacity, 'line-width': L.width };
+  };
+  const syncJson = () => {
+    const L = layers[sel];
+    jsonPre.textContent = JSON.stringify({ id: L.id, type: L.type, paint: paintOf(L) }, null, 2);
+  };
+  const renderList = () => {
+    layerList.replaceChildren(...layers.map((L, i) => {
+      const on = i === sel;
+      return h('div', {
+        style: { display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 10px', cursor: 'pointer', background: on ? '#3a3d46' : 'transparent', borderLeft: on ? '3px solid #3b82f6' : '3px solid transparent', fontSize: '12px' },
+        onclick: () => { sel = i; renderList(); renderInsp(); },
+      },
+        h('span', { style: { width: '8px', height: '8px', borderRadius: L.type === 'line' ? '1px' : '2px', background: L.color, border: '1px solid #fff3' } }),
+        h('span', { style: { flex: 1, fontFamily: 'ui-monospace,monospace' } }, L.id),
+        h('span', { style: { fontSize: '10px', opacity: .45 } }, L.type),
+        h('button', { title: 'visibility', style: { background: 'none', border: 0, color: L.visible ? '#9ebdff' : '#666', cursor: 'pointer' }, onclick: (e) => { e.stopPropagation(); L.visible = !L.visible; renderList(); } }, L.visible ? '👁' : '👁‍🗨'));
+    }));
+  };
+  const renderInsp = () => {
+    const L = layers[sel];
+    inspTitle.textContent = `Layer: '${L.id}'`;
+    idEl.textContent = L.id;
+    typeEl.textContent = L.type;
+    colorInp.value = L.color.startsWith('#') ? L.color : '#9ebdff';
+    opSl.set(L.opacity);
+    wSl.style.display = L.type === 'line' ? '' : 'none';
+    if (L.type === 'line') wSl.set(L.width);
+    syncJson();
+  };
+  colorInp.oninput = (e) => { layers[sel].color = e.target.value; syncJson(); renderList(); };
+
+  const M = mapView(root, { proj: geoMercator(), draw: (g, proj, path, cv) => {
+    const bg = layers.find((l) => l.id === 'background');
+    g.fillStyle = bg?.visible ? bg.color : '#1a1a1a';
+    g.globalAlpha = bg ? bg.opacity : 1;
+    g.fillRect(0, 0, cv.W, cv.H);
+    g.globalAlpha = 1;
+    const water = layers.find((l) => l.id === 'water');
+    if (water?.visible) { g.beginPath(); path({ type: 'Sphere' }); g.fillStyle = water.color; g.globalAlpha = water.opacity; g.fill(); g.globalAlpha = 1; }
+    const land = layers.find((l) => l.id === 'landcover');
+    if (land?.visible) { g.beginPath(); path(LAND); g.fillStyle = land.color; g.globalAlpha = land.opacity; g.fill(); g.globalAlpha = 1; }
+    const park = layers.find((l) => l.id === 'park');
+    if (park?.visible) { g.beginPath(); path(LAND); g.fillStyle = park.color; g.globalAlpha = park.opacity * 0.4; g.fill(); g.globalAlpha = 1; }
+    const road = layers.find((l) => l.id === 'road');
+    if (road?.visible) { g.beginPath(); path(BORDERS); g.strokeStyle = road.color; g.globalAlpha = road.opacity; g.lineWidth = road.width; g.stroke(); g.globalAlpha = 1; }
+    const bound = layers.find((l) => l.id === 'boundary');
+    if (bound?.visible) { g.beginPath(); path(BORDERS); g.strokeStyle = bound.color; g.globalAlpha = bound.opacity; g.lineWidth = bound.width; g.setLineDash([4, 3]); g.stroke(); g.setLineDash([]); g.globalAlpha = 1; }
+    zoomEl.textContent = `Zoom: ${M.k.toFixed(2)}`;
+  }});
+  M.k = 1.2; M.x = 0; M.y = 10;
+
+  const addLayer = () => {
+    const n = layers.length + 1;
+    layers.push({ id: 'layer-' + n, type: pick(['fill', 'line']), visible: true, color: pick(['#f7b500', '#ff6b6b', '#7ee787', '#c084fc']), opacity: 0.85, width: 2 });
+    sel = layers.length - 1;
+    renderList(); renderInsp();
+  };
+
+  const inspBody = h('div', { style: { padding: '10px 12px', display: 'grid', gap: '10px', overflow: 'auto', flex: 1 } },
+    h('div', { style: { fontSize: '11px', opacity: .55, letterSpacing: '.06em' } }, 'LAYER'),
+    h('div.k-row', { style: { gap: '8px', fontSize: '12px' } }, h('span', { style: { opacity: .6 } }, 'ID'), idEl, h('span', { style: { opacity: .4 } }, '·'), h('span', { style: { opacity: .6 } }, 'Type'), typeEl),
+    h('div', { style: { fontSize: '11px', opacity: .55, letterSpacing: '.06em', marginTop: '4px' } }, 'PAINT PROPERTIES'),
+    h('div.k-row', { style: { gap: '8px' } }, h('span', { style: { fontSize: '12px', opacity: .7, width: '70px' } }, 'Color'), colorInp),
+    opSl, wSl,
+    h('div', { style: { fontSize: '11px', opacity: .55, letterSpacing: '.06em', marginTop: '4px' } }, 'JSON EDITOR'),
+    jsonPre);
+
+  root.append(
+    h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, top: 0, height: '40px', background: '#1c1e24', borderBottom: '1px solid #000a', zIndex: 6, padding: '0 14px', gap: '16px', fontSize: '12px' } },
+      h('b', {}, '⬡ Maputnik'), h('span', { style: { opacity: .45 } }, 'v1.7'),
+      h('span', { style: { opacity: .7 } }, 'Open'), h('span', { style: { opacity: .7 } }, 'Export'), h('span', { style: { opacity: .7 } }, 'Data Sources'), h('span', { style: { opacity: .7 } }, 'Style Settings'),
+      h('span', { style: { flex: 1 } }), h('span', { style: { background: '#3a3d46', padding: '4px 10px', borderRadius: '4px' } }, 'Map ▾')),
+    h('div', { style: { position: 'absolute', left: 0, top: 40, bottom: 0, width: '220px', background: '#2b2d33', borderRight: '1px solid #0008', zIndex: 5, display: 'flex', flexDirection: 'column' } },
+      h('div.k-row', { style: { padding: '10px 12px', borderBottom: '1px solid #ffffff14', fontSize: '12px', fontWeight: 700 } }, 'Layers', h('span', { style: { flex: 1 } }),
+        h('button', { style: { background: 'none', border: 0, color: '#3b82f6', cursor: 'pointer', fontSize: '12px', fontWeight: 700 }, onclick: addLayer }, '＋ Add Layer')),
+      layerList),
+    h('div', { style: { position: 'absolute', left: '220px', top: 40, bottom: 0, width: '280px', background: '#25272d', borderRight: '1px solid #0008', zIndex: 5, display: 'flex', flexDirection: 'column' } },
+      inspTitle, inspBody),
+    h('div', { style: { position: 'absolute', right: '14px', top: '54px', zIndex: 4, display: 'grid', gap: '6px', justifyItems: 'end' } }, zoomEl,
+      h('div.k-row', { style: { gap: '4px' } },
+        h('button', { style: { width: '28px', height: '28px', background: '#1c1e24cc', border: '1px solid #ffffff22', color: '#fff', borderRadius: '4px', cursor: 'pointer' }, onclick: () => { M.k = clamp(M.k * 1.15, 0.5, 8); } }, '+'),
+        h('button', { style: { width: '28px', height: '28px', background: '#1c1e24cc', border: '1px solid #ffffff22', color: '#fff', borderRadius: '4px', cursor: 'pointer' }, onclick: () => { M.k = clamp(M.k * 0.87, 0.5, 8); } }, '−'))),
+    h('div', { style: { position: 'absolute', right: '14px', bottom: '10px', zIndex: 4, fontSize: '10px', opacity: .45 } }, '© MapTiler · OpenStreetMap (demo)'),
+  );
+
+  renderList(); renderInsp();
+
+  window.__demoProof = async () => {
+    sel = layers.findIndex((l) => l.id === 'water'); renderList(); renderInsp();
+    layers[sel].color = '#4a90e2'; colorInp.value = '#4a90e2'; syncJson(); await sleep(80);
+    layers[sel].opacity = 0.7; opSl.set(0.7); await sleep(60);
+    addLayer();
+    const road = layers.find((l) => l.id === 'road');
+    if (road) { sel = layers.indexOf(road); renderList(); renderInsp(); road.width = 4; wSl.set(4); syncJson(); }
+    M.k = 1.8; await sleep(60);
+    return `selected water; color+opacity; added layer; road width 4; zoom ${M.k}`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }

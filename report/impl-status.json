@@ -2113,5 +2113,32 @@
   "proof": "model sample-primitives.glb; tris 9196; orbit+wire+env exercised",
   "demoNodes": 27,
   "errors": []
+ },
+ "pattern-monster-svg-pattern-desk": {
+  "url": "http://127.0.0.1:4173/t/pattern-monster-svg-pattern-desk/",
+  "ok": true,
+  "at": "2026-10-01T23:55:18.217Z",
+  "http": 200,
+  "proof": "motif stars; fg/bg/scale/spacing set; SVG copied",
+  "demoNodes": 44,
+  "errors": []
+ },
+ "maputnik-map-style-editor": {
+  "url": "http://127.0.0.1:4173/t/maputnik-map-style-editor/",
+  "ok": true,
+  "at": "2026-10-01T23:55:18.203Z",
+  "http": 200,
+  "proof": "selected water; color+opacity; added layer; road width 4; zoom 1.8",
+  "demoNodes": 80,
+  "errors": []
+ },
+ "matterjs-physics-demo-desk": {
+  "url": "http://127.0.0.1:4173/t/matterjs-physics-demo-desk/",
+  "ok": true,
+  "at": "2026-10-01T23:55:18.215Z",
+  "http": 200,
+  "proof": "scenes Avalanche→Mixed; gravity 0.7; spawned bodies; world 14",
+  "demoNodes": 55,
+  "errors": []
  }
 }

@@ -135,4 +135,193 @@ V['mondrian-partition-canvas'] = (root, T) => {
   root.append(board, bar); draw();
   window.__demoProof = async () => { rects = [{ x: 0, y: 0, w: 1, h: 1, c: 0 }]; draw(); return 'blank canvas awaiting click-to-split (initial state)'; };
 };
+V['matterjs-physics-demo-desk'] = (root, T) => {
+  theme(root, T, { bg: '#14151f', fg: '#f0f0f0', panel: '#191921', ac: '#7c5cff', dark: true });
+  const SCENES = ['Mixed Shapes', 'Avalanche', 'Ball Pool', 'Stack'];
+  let scene = 'Mixed Shapes';
+  let gravity = 0.45;
+  let bodies = [];
+  let walls = [];
+  let dragging = null;
+  const W = 720, H = 520;
+  const cv = h('canvas', { width: W, height: H, style: { width: '100%', height: '100%', display: 'block', background: '#0e0f16', cursor: 'crosshair' } });
+  const ctx = cv.getContext('2d');
+  const sceneSel = select(SCENES.map((s) => [s, s]), scene, (v) => { scene = v; reset(); });
+  Object.assign(sceneSel.style, { background: '#191921', color: '#f0f0f0', border: '1px solid #ffffff22', padding: '6px 10px', borderRadius: '6px' });
+  const countEl = h('div', { style: { fontSize: '11px', opacity: .55, padding: '8px 10px' } });
+  const bodyList = h('div', { style: { overflow: 'auto', flex: 1, fontSize: '11px', fontFamily: 'ui-monospace,monospace' } });
+
+  const mk = (type, x, y, opts = {}) => {
+    const b = { type, x, y, vx: opts.vx || 0, vy: opts.vy || 0, r: opts.r || 18, w: opts.w || 36, h: opts.h || 36, a: opts.a || 0, static: !!opts.static, color: opts.color || '#ffffff', id: bodies.length + walls.length + 1 };
+    return b;
+  };
+  const reset = () => {
+    bodies = []; walls = [];
+    walls.push(mk('rect', W / 2, H - 8, { w: W - 20, h: 16, static: true }), mk('rect', 8, H / 2, { w: 16, h: H - 20, static: true }), mk('rect', W - 8, H / 2, { w: 16, h: H - 20, static: true }));
+    if (scene === 'Mixed Shapes') {
+      for (let i = 0; i < 10; i++) bodies.push(mk(i % 2 ? 'circle' : 'rect', 80 + i * 55, 40 + (i % 3) * 30, { r: 14 + (i % 4) * 4, w: 28 + (i % 3) * 8, h: 24 + (i % 2) * 10, vx: (i % 5) - 2 }));
+      for (let i = 0; i < 4; i++) bodies.push(mk('poly', 200 + i * 70, 20, { r: 20 + i * 2 }));
+    } else if (scene === 'Avalanche') {
+      for (let row = 0; row < 8; row++) for (let col = 0; col < 8 - row; col++) bodies.push(mk('circle', 220 + col * 36 + row * 18, 30 + row * 32, { r: 14 }));
+      bodies.push(mk('rect', 360, 200, { w: 200, h: 14, a: 0.35, static: true }));
+      walls.push(bodies.pop());
+    } else if (scene === 'Ball Pool') {
+      for (let i = 0; i < 40; i++) bodies.push(mk('circle', 60 + (i % 10) * 60, 40 + Math.floor(i / 10) * 50, { r: 12 + (i % 5) * 2, color: pick(['#fff', '#ff5c8a', '#7c5cff', '#ffc83d', '#5cffb0']) }));
+    } else {
+      for (let row = 0; row < 6; row++) for (let col = 0; col < 5; col++) bodies.push(mk('rect', 260 + col * 40, 80 + row * 38, { w: 34, h: 32 }));
+    }
+    syncList();
+  };
+  const syncList = () => {
+    countEl.textContent = `World · ${bodies.length} bodies`;
+    bodyList.replaceChildren(
+      h('div', { style: { padding: '6px 10px', opacity: .5 } }, `World ${bodies.length + walls.length}`),
+      ...bodies.slice(0, 24).map((b) => h('div', { style: { padding: '4px 10px', borderLeft: '2px solid #7c5cff44' } }, `${b.type === 'circle' ? 'Circle' : b.type === 'poly' ? 'Polygon' : 'Rectangle'} Body ${b.id}`)),
+      bodies.length > 24 ? h('div', { style: { padding: '4px 10px', opacity: .4 } }, `… +${bodies.length - 24} more`) : null,
+    );
+  };
+
+  const collide = (a, b) => {
+    if (a.type === 'circle' && b.type === 'circle') {
+      const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1, min = a.r + b.r;
+      if (d < min) {
+        const nx = dx / d, ny = dy / d, overlap = min - d;
+        if (!a.static && !b.static) { a.x -= nx * overlap / 2; a.y -= ny * overlap / 2; b.x += nx * overlap / 2; b.y += ny * overlap / 2; }
+        else if (!a.static) { a.x -= nx * overlap; a.y -= ny * overlap; }
+        else if (!b.static) { b.x += nx * overlap; b.y += ny * overlap; }
+        const rvx = b.vx - a.vx, rvy = b.vy - a.vy, vn = rvx * nx + rvy * ny;
+        if (vn < 0) {
+          const j = -(1.4) * vn / ((a.static || b.static) ? 1 : 2);
+          if (!a.static) { a.vx -= j * nx; a.vy -= j * ny; }
+          if (!b.static) { b.vx += j * nx; b.vy += j * ny; }
+        }
+      }
+      return;
+    }
+    // circle vs AABB (approx)
+    const box = a.type === 'circle' ? b : a, cir = a.type === 'circle' ? a : b;
+    if (cir.type !== 'circle') return;
+    const hw = (box.w || 36) / 2, hh = (box.h || 36) / 2;
+    const cx = clamp(cir.x, box.x - hw, box.x + hw), cy = clamp(cir.y, box.y - hh, box.y + hh);
+    const dx = cir.x - cx, dy = cir.y - cy, d = Math.hypot(dx, dy);
+    if (d < cir.r && d > 0) {
+      const nx = dx / d, ny = dy / d, overlap = cir.r - d;
+      if (!cir.static) { cir.x += nx * overlap; cir.y += ny * overlap; }
+      const vn = cir.vx * nx + cir.vy * ny;
+      if (vn < 0 && !cir.static) { cir.vx -= 1.5 * vn * nx; cir.vy -= 1.5 * vn * ny; }
+    } else if (d === 0) {
+      if (!cir.static) { cir.y -= cir.r; cir.vy = -Math.abs(cir.vy) * 0.6; }
+    }
+    // rect-rect light separation
+    if (a.type !== 'circle' && b.type !== 'circle' && !a.static && !b.static) {
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const ox = (a.w + b.w) / 2 - Math.abs(dx), oy = (a.h + b.h) / 2 - Math.abs(dy);
+      if (ox > 0 && oy > 0) {
+        if (ox < oy) { const s = Math.sign(dx) || 1; a.x -= s * ox / 2; b.x += s * ox / 2; a.vx *= -0.4; b.vx *= -0.4; }
+        else { const s = Math.sign(dy) || 1; a.y -= s * oy / 2; b.y += s * oy / 2; a.vy *= -0.4; b.vy *= -0.4; }
+      }
+    }
+  };
+
+  const step = () => {
+    const all = [...bodies, ...walls];
+    for (const b of bodies) {
+      if (b === dragging) continue;
+      b.vy += gravity;
+      b.vx *= 0.995; b.vy *= 0.995;
+      b.x += b.vx; b.y += b.vy;
+      b.a += b.vx * 0.02;
+    }
+    for (let i = 0; i < all.length; i++) for (let j = i + 1; j < all.length; j++) collide(all[i], all[j]);
+    for (const b of bodies) {
+      if (b.y > H + 80) { b.y = 40; b.x = 80 + Math.random() * (W - 160); b.vx = 0; b.vy = 0; }
+    }
+  };
+  const drawBody = (b, wire = true) => {
+    ctx.save();
+    ctx.translate(b.x, b.y);
+    ctx.rotate(b.a || 0);
+    ctx.strokeStyle = b.color || '#fff';
+    ctx.fillStyle = wire ? 'transparent' : (b.color + '33');
+    ctx.lineWidth = 1.5;
+    if (b.type === 'circle') {
+      ctx.beginPath(); ctx.arc(0, 0, b.r, 0, 7); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(b.r, 0); ctx.strokeStyle = '#ff5c8a'; ctx.stroke();
+    } else if (b.type === 'poly') {
+      const n = 5, R = b.r;
+      ctx.beginPath();
+      for (let i = 0; i < n; i++) { const a = -Math.PI / 2 + i * Math.PI * 2 / n; ctx[i ? 'lineTo' : 'moveTo'](Math.cos(a) * R, Math.sin(a) * R); }
+      ctx.closePath(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(R, 0); ctx.strokeStyle = '#ff5c8a'; ctx.stroke();
+    } else {
+      ctx.strokeRect(-b.w / 2, -b.h / 2, b.w, b.h);
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(b.w / 2, 0); ctx.strokeStyle = '#ff5c8a'; ctx.stroke();
+    }
+    ctx.restore();
+  };
+  const loop = () => {
+    step(); step();
+    ctx.clearRect(0, 0, W, H);
+    ctx.strokeStyle = '#ffffff22'; ctx.strokeRect(16, 16, W - 32, H - 32);
+    for (const w of walls) drawBody(w);
+    for (const b of bodies) drawBody(b);
+    requestAnimationFrame(loop);
+  };
+
+  const at = (e) => {
+    const r = cv.getBoundingClientRect();
+    return { x: ((e.clientX - r.left) / r.width) * W, y: ((e.clientY - r.top) / r.height) * H };
+  };
+  cv.addEventListener('pointerdown', (e) => {
+    const p = at(e);
+    let hit = bodies.find((b) => Math.hypot(b.x - p.x, b.y - p.y) < (b.r || Math.max(b.w, b.h) / 2) + 4);
+    if (!hit) {
+      hit = mk(pick(['circle', 'rect', 'poly']), p.x, p.y, { r: 16 + Math.random() * 10, w: 30, h: 28, color: pick(['#fff', '#ffc83d', '#7c5cff']) });
+      bodies.push(hit); syncList();
+    }
+    dragging = hit; cv.setPointerCapture(e.pointerId);
+  });
+  cv.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const p = at(e);
+    dragging.x = p.x; dragging.y = p.y; dragging.vx = e.movementX * 0.4; dragging.vy = e.movementY * 0.4;
+  });
+  cv.addEventListener('pointerup', () => { dragging = null; });
+
+  const gSl = slider('Gravity', 0, 1.2, gravity, 0.01, (v) => { gravity = v; }, (v) => (+v).toFixed(2));
+  const addAmt = { n: 3 };
+  const amtSl = slider('amount', 1, 12, 3, 1, (v) => { addAmt.n = v; });
+
+  root.append(
+    h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '44px 1fr', background: '#14151f' } },
+      h('div.k-row', { style: { padding: '0 14px', gap: '12px', borderBottom: '1px solid #ffffff12', fontSize: '13px' } },
+        h('b', {}, 'matter-js'), h('span', { style: { opacity: .4 } }, '↗'),
+        h('span', { style: { flex: 1 } }), sceneSel,
+        h('button', { title: 'reset', style: { background: '#191921', border: '1px solid #ffffff22', color: '#fff', borderRadius: '6px', padding: '6px 10px', cursor: 'pointer' }, onclick: reset }, '↻'),
+        h('span', { style: { opacity: .5 } }, '{ }'), h('span', { style: { opacity: .5 } }, '⚙')),
+      h('div', { style: { display: 'grid', gridTemplateColumns: '200px 1fr 240px', minHeight: 0 } },
+        h('div', { style: { borderRight: '1px solid #ffffff12', display: 'flex', flexDirection: 'column', background: '#16171f' } },
+          h('div', { style: { padding: '10px', fontSize: '11px', opacity: .5 } }, 'search'),
+          countEl, bodyList),
+        h('div', { style: { position: 'relative', minHeight: 0 } }, cv),
+        h('div', { style: { borderLeft: '1px solid #ffffff12', padding: '12px', display: 'grid', gap: '12px', alignContent: 'start', background: '#16171f', overflow: 'auto', fontSize: '12px' } },
+          h('b', {}, 'Add Body'), amtSl,
+          btn('addBody', () => { for (let i = 0; i < addAmt.n; i++) bodies.push(mk(pick(['circle', 'rect', 'poly']), 100 + Math.random() * (W - 200), 40 + Math.random() * 60, { r: 14 + Math.random() * 12, w: 28 + Math.random() * 16, h: 24 + Math.random() * 14 })); syncList(); }, 'pri'),
+          h('b', {}, 'World'),
+          h('div.k-row', { style: { gap: '6px' } }, btn('clear', () => { bodies = []; syncList(); }), btn('reset', reset)),
+          h('b', {}, 'Gravity'), gSl,
+          h('b', {}, 'Render'),
+          h('div', { style: { fontSize: '11px', opacity: .55, lineHeight: 1.7 } }, '✓ wireframes', h('br'), '✓ showAngleIndicator', h('br'), '○ showVelocity')))));
+
+  reset();
+  loop();
+  window.__demoProof = async () => {
+    scene = 'Avalanche'; sceneSel.value = 'Avalanche'; reset(); await sleep(200);
+    gravity = 0.7; gSl.set(0.7); await sleep(200);
+    for (let i = 0; i < 5; i++) bodies.push(mk('circle', 120 + i * 40, 50, { r: 16 })); syncList();
+    scene = 'Mixed Shapes'; sceneSel.value = 'Mixed Shapes'; reset(); await sleep(120);
+    return `scenes Avalanche→Mixed; gravity 0.7; spawned bodies; world ${bodies.length}`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }

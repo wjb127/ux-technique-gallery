@@ -90,7 +90,8 @@
   "social-meta-preview-studio",
   "icones-icon-explorer-desk",
   "svgomg-optimize-toggle-desk",
-  "boxy-svg-craft-editor"
+  "boxy-svg-craft-editor",
+  "pattern-monster-svg-pattern-desk"
  ],
  "imagefx": [
   "duotone-photo-studio",
@@ -143,7 +144,8 @@
   "neato-marble-shader-desk",
   "constellation-signal-garden",
   "handdrawn-physics-sandbox",
-  "mondrian-partition-canvas"
+  "mondrian-partition-canvas",
+  "matterjs-physics-demo-desk"
  ],
  "gen": [
   "tinkersynth-slopes-synth-desk",
@@ -183,7 +185,8 @@
   "gis-simplify-slider-workspace",
   "windy-weather-map-desk",
   "ancient-earth-deep-time-globe",
-  "kepler-gl-geospatial-layer-desk"
+  "kepler-gl-geospatial-layer-desk",
+  "maputnik-map-style-editor"
  ],
  "chart": [
   "bubble-chart-time-scrubber",

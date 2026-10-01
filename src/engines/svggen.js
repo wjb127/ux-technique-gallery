@@ -858,4 +858,90 @@ V['boxy-svg-craft-editor'] = (root, T) => {
   };
 };
 
+V['pattern-monster-svg-pattern-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0f1115', fg: '#f0f0f0', panel: '#1a1d24', ac: '#ffc83d', ac2: '#ff5c8a', dark: true });
+  const MOTIFS = {
+    waves: (c, s) => `<path d="M0 ${s / 2} Q ${s / 4} 0 ${s / 2} ${s / 2} T ${s} ${s / 2}" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/>`,
+    dots: (c, s) => `<circle cx="${s / 2}" cy="${s / 2}" r="${s * 0.18}" fill="${c}"/>`,
+    chevron: (c, s) => `<path d="M${s * 0.15} ${s * 0.7} L${s / 2} ${s * 0.3} L${s * 0.85} ${s * 0.7}" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+    grid: (c, s) => `<path d="M0 ${s / 2}H${s}M${s / 2} 0V${s}" stroke="${c}" stroke-width="2"/>`,
+    crosses: (c, s) => `<path d="M${s / 2 - 8} ${s / 2}H${s / 2 + 8}M${s / 2} ${s / 2 - 8}V${s / 2 + 8}" stroke="${c}" stroke-width="3" stroke-linecap="round"/>`,
+    diamonds: (c, s) => `<path d="M${s / 2} ${s * 0.2} L${s * 0.8} ${s / 2} L${s / 2} ${s * 0.8} L${s * 0.2} ${s / 2}Z" fill="none" stroke="${c}" stroke-width="2.5"/>`,
+    stripes: (c, s) => `<path d="M0 0L${s} ${s}M${-s / 3} 0L${s} ${s * 4 / 3}M0 ${-s / 3}L${s * 4 / 3} ${s}" stroke="${c}" stroke-width="3"/>`,
+    stars: (c, s) => { const cx = s / 2, cy = s / 2, R = s * 0.28, r = s * 0.12; let d = ''; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5; const rr = i % 2 ? r : R; d += `${i ? 'L' : 'M'}${cx + Math.cos(a) * rr} ${cy + Math.sin(a) * rr}`; } return `<path d="${d}Z" fill="${c}"/>`; },
+  };
+  const P = { motif: 'waves', fg: '#ffc83d', bg: '#1a2434', scale: 48, spacing: 8 };
+  const preview = h('div', { style: { flex: 1, borderRadius: '16px', border: '1px solid #ffffff18', minHeight: '360px', boxShadow: 'inset 0 0 0 1px #0004' } });
+  const code = h('pre', { style: { background: '#0c0e12', border: '1px solid #ffffff14', borderRadius: '10px', padding: '12px', fontSize: '11px', color: '#9fd3ff', margin: 0, maxHeight: '120px', overflow: 'auto', whiteSpace: 'pre-wrap' } });
+  const motifGrid = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '8px' } });
+
+  const tileSvg = () => {
+    const t = P.scale + P.spacing;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${t}" height="${t}" viewBox="0 0 ${t} ${t}"><rect width="100%" height="100%" fill="${P.bg}"/>${MOTIFS[P.motif](P.fg, P.scale)}</svg>`;
+  };
+  const draw = () => {
+    const sv = tileSvg();
+    const url = `url("data:image/svg+xml,${encodeURIComponent(sv)}")`;
+    preview.style.background = `${P.bg} ${url}`;
+    preview.style.backgroundSize = `${P.scale + P.spacing}px ${P.scale + P.spacing}px`;
+    code.textContent = sv;
+    motifGrid.querySelectorAll('[data-m]').forEach((b) => {
+      b.style.outline = b.dataset.m === P.motif ? '2px solid #ffc83d' : '1px solid #ffffff18';
+    });
+  };
+
+  Object.keys(MOTIFS).forEach((k) => {
+    const thumb = h('button', {
+      'data-m': k,
+      style: { height: '64px', borderRadius: '10px', border: '1px solid #ffffff18', cursor: 'pointer', background: '#1a2434', padding: 0, overflow: 'hidden' },
+      onclick: () => { P.motif = k; draw(); },
+    });
+    const t = 40;
+    const mini = `<svg xmlns="http://www.w3.org/2000/svg" width="${t}" height="${t}"><rect width="100%" height="100%" fill="#1a2434"/>${MOTIFS[k]('#ffc83d', t)}</svg>`;
+    thumb.style.backgroundImage = `url("data:image/svg+xml,${encodeURIComponent(mini)}")`;
+    thumb.style.backgroundSize = 'cover';
+    motifGrid.append(thumb);
+  });
+
+  const exportSvg = () => {
+    const a = h('a', { download: `pattern-monster-${P.motif}.svg`, href: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(tileSvg()) });
+    a.click();
+    toast('SVG exported');
+  };
+
+  root.append(
+    h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '56px 1fr', background: '#0f1115' } },
+      h('div.k-row', { style: { padding: '0 20px', gap: '14px', borderBottom: '1px solid #ffffff12', fontSize: '12px' } },
+        h('b', { style: { fontSize: '14px', letterSpacing: '.08em' } }, '👾 PATTERN MONSTER'),
+        h('span', { style: { flex: 1 } }),
+        h('span', { style: { border: '1px solid #ffc83d66', color: '#ffc83d', padding: '5px 10px', borderRadius: '8px' } }, 'Upgrade to Pro'),
+        h('span', { style: { background: '#7c5cff', padding: '5px 10px', borderRadius: '8px' } }, 'Buy me a coffee')),
+      h('div', { style: { display: 'grid', gridTemplateColumns: '340px 1fr', gap: '20px', padding: '20px', minHeight: 0 } },
+        h('div', { style: { display: 'grid', gap: '14px', alignContent: 'start', overflow: 'auto' } },
+          h('div', { style: { fontSize: '22px', fontWeight: 800, lineHeight: 1.25 } }, 'Customizable ', h('span', { style: { color: '#ffc83d' } }, 'SVG patterns'), ' for your projects'),
+          h('div', { style: { fontSize: '12px', opacity: .65 } }, 'Pick a motif · tune colors & scale · export seamless SVG'),
+          h('div', { style: { fontSize: '11px', opacity: .5, letterSpacing: '.08em' } }, 'MOTIF'),
+          motifGrid,
+          h('div', { style: { fontSize: '11px', opacity: .5, letterSpacing: '.08em' } }, 'COLORS'),
+          h('div.k-row', { style: { gap: '10px' } },
+            h('label.k-row', { style: { gap: '6px', fontSize: '12px' } }, 'FG', h('input', { type: 'color', value: P.fg, oninput: (e) => { P.fg = e.target.value; draw(); } })),
+            h('label.k-row', { style: { gap: '6px', fontSize: '12px' } }, 'BG', h('input', { type: 'color', value: P.bg, oninput: (e) => { P.bg = e.target.value; draw(); } })),
+            btn('🎲', () => { P.fg = randHex(); P.bg = randHex(); draw(); })),
+          slider('Scale', 24, 120, P.scale, 1, (v) => { P.scale = v; draw(); }),
+          slider('Spacing', 0, 48, P.spacing, 1, (v) => { P.spacing = v; draw(); }),
+          h('div.k-row', { style: { gap: '8px' } }, btn('Export SVG', exportSvg, 'pri'), btn('Copy SVG', () => copy(tileSvg()))),
+          code),
+        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '10px', minHeight: 0 } },
+          h('div.k-row', { style: { fontSize: '12px', opacity: .6 } }, 'LIVE SEAMLESS PREVIEW', h('span', { style: { flex: 1 } }), 'CSS · SVG · PNG'),
+          preview))));
+
+  draw();
+  window.__demoProof = async () => {
+    P.motif = 'diamonds'; P.fg = '#ff5c8a'; P.bg = '#18181b'; P.scale = 56; P.spacing = 12; draw(); await sleep(80);
+    P.motif = 'stars'; P.fg = '#ffc83d'; draw(); await sleep(60);
+    copy(tileSvg());
+    return `motif stars; fg/bg/scale/spacing set; SVG copied`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }
