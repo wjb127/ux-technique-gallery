@@ -573,4 +573,174 @@ V['sfxr-8bit-sound-desk'] = (root, T) => {
   };
 };
 
+
+V['tonejs-simple-synth-desk'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#333', panel: '#f7f7f8', ac: '#2277ee', dark: false, line: '#e5e5e8', btn: '#333' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, Inter Variable, sans-serif';
+
+  const P = { type: 'triangle', attack: 0.05, decay: 0.2, sustain: 0.4, release: 0.6, volume: 0.35 };
+  const defaults = { ...P };
+  const NOTES = [
+    { name: 'C4', midi: 60, black: false },
+    { name: 'C#4', midi: 61, black: true },
+    { name: 'D4', midi: 62, black: false },
+    { name: 'D#4', midi: 63, black: true },
+    { name: 'E4', midi: 64, black: false },
+    { name: 'F4', midi: 65, black: false },
+    { name: 'F#4', midi: 66, black: true },
+    { name: 'G4', midi: 67, black: false },
+    { name: 'G#4', midi: 68, black: true },
+    { name: 'A4', midi: 69, black: false },
+    { name: 'A#4', midi: 70, black: true },
+    { name: 'B4', midi: 71, black: false },
+    { name: 'C5', midi: 72, black: false },
+  ];
+  const active = new Map();
+  let lastNote = '—';
+
+  const status = h('div', {
+    style: { font: '12px ui-monospace, JetBrains Mono Variable, monospace', color: '#888' },
+  }, 'last: —');
+
+  const trigger = (m, name) => {
+    const ac = audio();
+    lastNote = name;
+    status.textContent = `last: ${name} · ${P.type}`;
+    if (!ac) return 'simulated';
+    const t0 = ac.currentTime;
+    const osc = ac.createOscillator();
+    osc.type = P.type;
+    osc.frequency.value = midi(m);
+    const g = ac.createGain();
+    const peak = clamp(P.volume, 0.01, 1);
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.linearRampToValueAtTime(peak, t0 + Math.max(0.005, P.attack));
+    g.gain.linearRampToValueAtTime(peak * P.sustain, t0 + P.attack + P.decay);
+    const hold = 0.12;
+    const relStart = t0 + P.attack + P.decay + hold;
+    g.gain.setValueAtTime(peak * P.sustain, relStart);
+    g.gain.exponentialRampToValueAtTime(0.0001, relStart + Math.max(0.02, P.release));
+    osc.connect(g).connect(ac.destination);
+    osc.start(t0);
+    osc.stop(relStart + P.release + 0.05);
+    active.set(name, { osc, g });
+    return 'played';
+  };
+
+  const whites = NOTES.filter((n) => !n.black);
+  const blacks = NOTES.filter((n) => n.black);
+  const kb = h('div', {
+    style: {
+      position: 'relative', width: 'min(640px,92vw)', height: '160px',
+      margin: '0 auto', userSelect: 'none',
+    },
+  });
+  const whiteRow = h('div', {
+    style: { display: 'grid', gridTemplateColumns: `repeat(${whites.length},1fr)`, height: '100%', gap: '2px' },
+  });
+  whites.forEach((n) => {
+    const key = h('button', {
+      style: {
+        border: '1px solid #bbb', borderRadius: '0 0 6px 6px', background: 'linear-gradient(#fff,#f2f2f2)',
+        boxShadow: 'inset 0 -10px 0 #e8e8e8', cursor: 'pointer', position: 'relative',
+      },
+      onpointerdown: (e) => { e.preventDefault(); key.style.background = '#e8eef8'; trigger(n.midi, n.name); },
+      onpointerup: () => { key.style.background = 'linear-gradient(#fff,#f2f2f2)'; },
+      onpointerleave: () => { key.style.background = 'linear-gradient(#fff,#f2f2f2)'; },
+    }, h('span', { style: { position: 'absolute', bottom: '14px', left: 0, right: 0, textAlign: 'center', font: '10px ui-monospace,monospace', color: '#999' } }, n.name.replace(/\d/, '')));
+    whiteRow.append(key);
+  });
+  kb.append(whiteRow);
+  // black keys positioned over whites
+  const whiteNames = whites.map((w) => w.name);
+  blacks.forEach((n) => {
+    // find left neighbor white index
+    const base = n.name[0] + n.name.slice(-1); // e.g. C4 from C#4 — better: previous white
+    const prevWhite = NOTES.slice(0, NOTES.indexOf(n)).reverse().find((x) => !x.black);
+    const idx = whiteNames.indexOf(prevWhite.name);
+    const leftPct = ((idx + 0.72) / whites.length) * 100;
+    const key = h('button', {
+      style: {
+        position: 'absolute', left: `calc(${leftPct}% - 14px)`, top: 0, width: '28px', height: '96px',
+        background: '#222', border: '1px solid #111', borderRadius: '0 0 4px 4px', cursor: 'pointer', zIndex: 2,
+      },
+      onpointerdown: (e) => { e.preventDefault(); key.style.background = '#445'; trigger(n.midi, n.name); },
+      onpointerup: () => { key.style.background = '#222'; },
+      onpointerleave: () => { key.style.background = '#222'; },
+    });
+    kb.append(key);
+  });
+
+  const typeSel = select(
+    [['sine', 'sine'], ['square', 'square'], ['sawtooth', 'sawtooth'], ['triangle', 'triangle']],
+    P.type,
+    (v) => { P.type = v; status.textContent = `last: ${lastNote} · ${P.type}`; },
+  );
+  Object.assign(typeSel.style, { fontFamily: 'ui-monospace,monospace', minWidth: '140px' });
+
+  const panelOpen = h('div', {
+    style: {
+      width: 'min(640px,92vw)', margin: '18px auto 0', padding: '16px 18px',
+      border: '1px solid #e5e5e8', borderRadius: '10px', background: '#fafafa',
+      display: 'grid', gap: '8px',
+    },
+  },
+    h('div.k-row', { style: { gap: '10px', marginBottom: '4px' } },
+      h('b', { style: { fontSize: '15px' } }, '▸ Synth'),
+      h('span', { style: { flex: 1, height: '1px', background: '#e5e5e8' } }),
+      status,
+    ),
+    h('div.k-row', { style: { gap: '12px', font: '12px ui-monospace,monospace' } },
+      h('span', { style: { opacity: .6 } }, 'oscillator'),
+      typeSel,
+    ),
+    slider('Attack', 0.005, 1.5, P.attack, 0.005, (v) => { P.attack = v; }, (v) => (+v).toFixed(3) + 's'),
+    slider('Decay', 0.01, 1.5, P.decay, 0.01, (v) => { P.decay = v; }, (v) => (+v).toFixed(2) + 's'),
+    slider('Sustain', 0, 1, P.sustain, 0.01, (v) => { P.sustain = v; }, (v) => (+v).toFixed(2)),
+    slider('Release', 0.01, 2.5, P.release, 0.01, (v) => { P.release = v; }, (v) => (+v).toFixed(2) + 's'),
+    slider('Volume', 0, 1, P.volume, 0.01, (v) => { P.volume = v; }, (v) => Math.round(v * 100) + '%'),
+  );
+
+  const top = h('div', {
+    style: { padding: '28px 28px 8px', maxWidth: '760px', margin: '0 auto' },
+  },
+    h('div.k-row', { style: { marginBottom: '18px' } },
+      h('span', { style: { fontSize: '20px', letterSpacing: '.08em' } }, '☰'),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '18px' } }, '🔊'),
+    ),
+    h('p', {
+      style: { fontSize: '14px', color: '#555', lineHeight: 1.55, maxWidth: '560px', margin: '0 0 22px' },
+    },
+      h('a', { href: '#', style: { color: '#2277ee', textDecoration: 'none' }, onclick: (e) => e.preventDefault() }, 'Tone.Synth'),
+      ' is composed simply of a ',
+      h('a', { href: '#', style: { color: '#2277ee', textDecoration: 'none' }, onclick: (e) => e.preventDefault() }, 'Tone.OmniOscillator'),
+      ' routed through a ',
+      h('a', { href: '#', style: { color: '#2277ee', textDecoration: 'none' }, onclick: (e) => e.preventDefault() }, 'Tone.AmplitudeEnvelope'),
+      '.',
+    ),
+    h('div.k-row', { style: { justifyContent: 'flex-end', marginBottom: '6px', font: '11px ui-monospace,monospace', color: '#888', width: 'min(640px,92vw)', marginLeft: 'auto', marginRight: 'auto' } },
+      'MIDI IN:',
+      h('span', { style: { border: '1px solid #ccc', padding: '2px 8px', borderRadius: '4px', marginLeft: '6px' } }, 'none'),
+    ),
+    kb,
+    panelOpen,
+  );
+
+  root.append(top);
+
+  window.__demoProof = async () => {
+    const before = { ...P };
+    P.type = 'square';
+    typeSel.value = 'square';
+    P.attack = 0.12; P.decay = 0.35; P.sustain = 0.55; P.release = 0.8;
+    const r = trigger(64, 'E4');
+    await sleep(160);
+    Object.assign(P, before);
+    typeSel.value = before.type;
+    return `osc→square, ADSR nudged, note ${r}, restored`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

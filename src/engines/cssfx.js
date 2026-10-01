@@ -192,4 +192,179 @@ V['svgartista-stroke-draw'] = (root, T) => {
   draw();
   window.__demoProof = async () => { dur = 0.8; stagger = 0.1; draw(); await sleep(1200); return 'stroke-draw replayed and filled'; };
 };
+
+V['bradwoods-css-layout-generator'] = (root, T) => {
+  theme(root, T, { bg: '#ecebdf', fg: '#141414', panel: '#f7f6ef', ac: '#c45c4a', dark: false, line: '#d5d4c8', btn: '#141414' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, Inter Variable, sans-serif';
+
+  const P = { rows: 3, cols: 3, rowGap: 8, colGap: 8, children: 9 };
+  const defaults = { ...P };
+
+  const cssText = () => `.layout {
+  display: grid;
+  grid-template-rows: repeat(${P.rows}, 1fr);
+  grid-template-columns: repeat(${P.cols}, 1fr);
+  gap: ${P.rowGap}px ${P.colGap}px;
+}`;
+  const htmlText = () => {
+    const n = Math.min(P.children, P.rows * P.cols);
+    const cells = Array.from({ length: n }, (_, i) => `  <div>${i + 1}</div>`).join('\n');
+    return `<section class="layout">\n${cells}\n</section>`;
+  };
+
+  const cssPre = h('pre', {
+    style: {
+      margin: 0, padding: '12px 14px', background: '#1e1e1c', color: '#e8e6dc',
+      font: '12px/1.55 ui-monospace, JetBrains Mono Variable, monospace',
+      borderRadius: '8px', whiteSpace: 'pre-wrap', minHeight: '120px',
+    },
+  });
+  const htmlPre = h('pre', {
+    style: {
+      margin: 0, padding: '12px 14px', background: '#1e1e1c', color: '#e8e6dc',
+      font: '12px/1.55 ui-monospace, JetBrains Mono Variable, monospace',
+      borderRadius: '8px', whiteSpace: 'pre-wrap', minHeight: '120px', overflow: 'auto', maxHeight: '220px',
+    },
+  });
+
+  const gridEl = h('div', {
+    style: {
+      display: 'grid', width: '100%', height: '100%', minHeight: '320px',
+      border: '2px solid #141414', background: '#f7f6ef', boxSizing: 'border-box',
+    },
+  });
+
+  const cell = (n) => h('div', {
+    style: {
+      position: 'relative',
+      background: 'repeating-linear-gradient(135deg,#ecebdf 0 6px,#e4e3d6 6px 12px)',
+      border: '1px dashed #c45c4a55',
+      display: 'grid', placeItems: 'center',
+      font: 'italic 700 42px/1 Georgia,serif', color: '#141414',
+    },
+  },
+    h('span', { style: { position: 'absolute', left: '8px', top: '6px', font: '11px ui-monospace,monospace', color: '#c45c4a', fontStyle: 'normal', fontWeight: 600 } }, '+ name'),
+    String(n),
+  );
+
+  const draw = () => {
+    P.children = P.rows * P.cols;
+    gridEl.style.gridTemplateRows = `repeat(${P.rows}, 1fr)`;
+    gridEl.style.gridTemplateColumns = `repeat(${P.cols}, 1fr)`;
+    gridEl.style.gap = `${P.rowGap}px ${P.colGap}px`;
+    gridEl.replaceChildren(...Array.from({ length: P.children }, (_, i) => cell(i + 1)));
+    cssPre.textContent = cssText();
+    htmlPre.textContent = htmlText();
+    rowsOut.textContent = String(P.rows);
+    colsOut.textContent = String(P.cols);
+    rgOut.textContent = P.rowGap + ' px';
+    cgOut.textContent = P.colGap + ' px';
+  };
+
+  const rowsOut = h('span', { style: { color: '#c45c4a', fontWeight: 700, fontVariantNumeric: 'tabular-nums' } }, '3');
+  const colsOut = h('span', { style: { color: '#c45c4a', fontWeight: 700, fontVariantNumeric: 'tabular-nums' } }, '3');
+  const rgOut = h('span', { style: { color: '#c45c4a', fontWeight: 700 } }, '8 px');
+  const cgOut = h('span', { style: { color: '#c45c4a', fontWeight: 700 } }, '8 px');
+
+  const numRow = (label, out, min, max, key) => h('div.k-row', {
+    style: { justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid #d5d4c8', fontSize: '14px' },
+  },
+    h('span', {}, label),
+    h('div.k-row', { style: { gap: '8px' } },
+      h('button', {
+        style: { width: '28px', height: '28px', border: '1px solid #141414', background: '#fff', borderRadius: '6px', cursor: 'pointer' },
+        onclick: () => { P[key] = clamp(P[key] - 1, min, max); draw(); },
+      }, '−'),
+      out,
+      h('button', {
+        style: { width: '28px', height: '28px', border: '1px solid #141414', background: '#fff', borderRadius: '6px', cursor: 'pointer' },
+        onclick: () => { P[key] = clamp(P[key] + 1, min, max); draw(); },
+      }, '+'),
+    ),
+  );
+
+  const gapRow = (label, out, key) => h('div', { style: { padding: '10px 0', borderBottom: '1px solid #d5d4c8' } },
+    h('div.k-row', { style: { justifyContent: 'space-between', marginBottom: '4px', fontSize: '14px' } }, h('span', {}, label), out),
+    slider('', 0, 48, P[key], 1, (v) => { P[key] = v; draw(); }),
+  );
+
+  const left = h('div', {
+    style: {
+      position: 'absolute', left: 0, top: 0, bottom: 0, width: '260px',
+      padding: '18px 16px', background: '#f7f6ef', borderRight: '1px solid #d5d4c8',
+      overflow: 'auto', display: 'grid', alignContent: 'start', gap: '4px',
+    },
+  },
+    h('div.k-row', { style: { gap: '8px', marginBottom: '12px' } },
+      h('span', { style: { width: '18px', height: '18px', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '2px' } },
+        ...Array.from({ length: 9 }, () => h('i', { style: { background: '#141414', borderRadius: '1px' } }))),
+      h('b', { style: { fontSize: '15px' } }, 'CSS Layout Generator'),
+    ),
+    h('div', { style: { fontSize: '11px', letterSpacing: '.08em', opacity: .55, marginBottom: '6px' } }, 'GRID SETTINGS'),
+    numRow('Rows', rowsOut, 1, 8, 'rows'),
+    numRow('Columns', colsOut, 1, 8, 'cols'),
+    gapRow('Row Gap', rgOut, 'rowGap'),
+    gapRow('Column Gap', cgOut, 'colGap'),
+    h('div', { style: { marginTop: '14px', fontSize: '12px', opacity: .6 } }, 'Live CSS grid · copy CSS / HTML from the right panels.'),
+  );
+
+  const mid = h('div', {
+    style: {
+      position: 'absolute', left: '260px', right: '320px', top: 0, bottom: 0,
+      padding: '48px 28px 28px', display: 'grid',
+    },
+  },
+    h('div.k-row', {
+      style: {
+        position: 'absolute', top: '12px', left: '28px', right: '28px',
+        fontSize: '12px', letterSpacing: '.12em', gap: '18px',
+      },
+    },
+      h('span', { style: { borderBottom: '2px solid #c45c4a', paddingBottom: '4px', fontWeight: 700 } }, 'BASIC'),
+      h('span', { style: { opacity: .45 } }, 'ADVANCED'),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { opacity: .45 } }, 'ABOUT'),
+    ),
+    gridEl,
+  );
+
+  const codePanel = (title, pre, getter) => h('div', {
+    style: { display: 'grid', gap: '8px', minHeight: 0 },
+  },
+    h('div.k-row', { style: { justifyContent: 'space-between' } },
+      h('b', { style: { fontSize: '13px' } }, title),
+      btn('Copy', () => copy(getter(), title + ' copied'), 'pri'),
+    ),
+    pre,
+  );
+
+  const right = h('div', {
+    style: {
+      position: 'absolute', right: 0, top: 0, bottom: 0, width: '320px',
+      padding: '16px', background: '#f7f6ef', borderLeft: '1px solid #d5d4c8',
+      display: 'grid', gridTemplateRows: '1fr 1fr', gap: '14px', overflow: 'hidden',
+    },
+  },
+    codePanel('# CSS', cssPre, cssText),
+    codePanel('# HTML', htmlPre, htmlText),
+  );
+  right.querySelectorAll('.k-btn').forEach((b) => {
+    Object.assign(b.style, { background: '#c45c4a', color: '#fff', border: 0, borderRadius: '8px', fontSize: '12px', fontWeight: 700 });
+  });
+
+  root.append(left, mid, right);
+  draw();
+
+  window.__demoProof = async () => {
+    Object.assign(P, { rows: 4, cols: 5, rowGap: 16, colGap: 12 });
+    draw();
+    await copy(cssText(), 'CSS copied');
+    await sleep(80);
+    Object.assign(P, defaults);
+    draw();
+    return 'rows/cols/gaps changed, CSS copied, defaults restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['neumorph-softui-generator'])(root, T); }

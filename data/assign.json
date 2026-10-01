@@ -71,7 +71,8 @@
   "composable-css-anim-playground",
   "css-clippath-transition-gallery",
   "css-keyframe-timeline-studio",
-  "svgartista-stroke-draw"
+  "svgartista-stroke-draw",
+  "bradwoods-css-layout-generator"
  ],
  "svggen": [
   "shapedivider-preview-export",
@@ -224,7 +225,8 @@
   "calm-window-view-swap",
   "radiooooo-decade-country-radio",
   "generative-fm-ambient-player",
-  "sfxr-8bit-sound-desk"
+  "sfxr-8bit-sound-desk",
+  "tonejs-simple-synth-desk"
  ],
  "desk": [
   "parody-desktop-os-sandbox",
@@ -240,7 +242,8 @@
   "origami-crease-fold-studio",
   "isometric-cutaway-room-studio",
   "threejs-scene-editor-desk",
-  "donmccurdy-gltf-drop-viewer"
+  "donmccurdy-gltf-drop-viewer",
+  "zdog-pseudo3d-illo-playground"
  ],
  "saas": [
   "pricing-tier-cards",

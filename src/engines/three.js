@@ -388,4 +388,205 @@ V['donmccurdy-gltf-drop-viewer'] = (root, T) => {
   };
 };
 
+
+V['zdog-pseudo3d-illo-playground'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#636', panel: '#FFF0E0', ac: '#E62', dark: false, line: '#e8ddd0' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, Inter Variable, sans-serif';
+
+  const COLORS = ['#E62', '#C25', '#636', '#EA0', '#19F', '#5C5', '#E62'];
+  let rotX = -0.35, rotY = 0.55, spinning = true, selected = 0;
+  let strokeW = 18, color = '#C25';
+  const shapes = [
+    { kind: 'ellipse', x: 0, y: -20, z: 0, w: 70, h: 70, stroke: 16, color: '#EA0' },
+    { kind: 'rect', x: 0, y: 40, z: 0, w: 50, h: 70, stroke: 14, color: '#C25' },
+    { kind: 'ellipse', x: -55, y: 20, z: 10, w: 36, h: 36, stroke: 12, color: '#636' },
+    { kind: 'ellipse', x: 55, y: 20, z: -10, w: 36, h: 36, stroke: 12, color: '#19F' },
+    { kind: 'rect', x: 0, y: 90, z: 0, w: 90, h: 18, stroke: 10, color: '#E62' },
+  ];
+
+  const stageWrap = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '48%', transform: 'translate(-50%,-52%)',
+      width: 'min(520px,86vw)', height: 'min(520px,70vh)', background: '#FFF0E0',
+      borderRadius: '8px', overflow: 'hidden', boxShadow: '0 1px 0 #0001',
+    },
+  });
+  const cv = h('canvas', { style: { width: '100%', height: '100%', display: 'block', cursor: 'grab', touchAction: 'none' } });
+  stageWrap.append(cv);
+
+  const project = (x, y, z) => {
+    const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+    const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+    let x1 = x * cosY - z * sinY;
+    let z1 = x * sinY + z * cosY;
+    let y1 = y * cosX - z1 * sinX;
+    let z2 = y * sinX + z1 * cosX;
+    return { x: x1, y: y1, z: z2, depth: z2 };
+  };
+
+  const draw = () => {
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    const W = stageWrap.clientWidth || 480, H = stageWrap.clientHeight || 480;
+    if (cv.width !== Math.floor(W * dpr) || cv.height !== Math.floor(H * dpr)) {
+      cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
+    }
+    const g = cv.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, W, H);
+    g.fillStyle = '#FFF0E0';
+    g.fillRect(0, 0, W, H);
+    const cx = W / 2, cy = H / 2 + 10;
+    const drawn = shapes.map((sh, i) => {
+      const p = project(sh.x, sh.y, sh.z);
+      return { sh, i, p, depth: p.depth };
+    }).sort((a, b) => a.depth - b.depth);
+    for (const { sh, i, p } of drawn) {
+      g.save();
+      g.translate(cx + p.x, cy + p.y);
+      // foreshorten slightly by depth
+      const sc = 1 + p.depth * 0.0012;
+      g.scale(sc, sc);
+      g.lineCap = 'round';
+      g.lineJoin = 'round';
+      g.strokeStyle = sh.color;
+      g.lineWidth = sh.stroke;
+      g.fillStyle = 'transparent';
+      if (i === selected) {
+        g.shadowColor = sh.color;
+        g.shadowBlur = 10;
+      }
+      g.beginPath();
+      if (sh.kind === 'ellipse') {
+        g.ellipse(0, 0, sh.w / 2, sh.h / 2, 0, 0, Math.PI * 2);
+      } else {
+        const rw = sh.w, rh = sh.h;
+        g.roundRect(-rw / 2, -rh / 2, rw, rh, Math.min(sh.stroke, 12));
+      }
+      g.stroke();
+      g.restore();
+    }
+  };
+
+  let raf = 0;
+  const loop = () => {
+    if (spinning) rotY += 0.012;
+    draw();
+    raf = requestAnimationFrame(loop);
+  };
+  raf = requestAnimationFrame(loop);
+
+  drag(cv, {
+    start: () => { cv.style.cursor = 'grabbing'; },
+    move: (e) => {
+      rotY += e.movementX * 0.01;
+      rotX = clamp(rotX + e.movementY * 0.01, -1.2, 1.2);
+    },
+    end: () => { cv.style.cursor = 'grab'; },
+  });
+
+  const addShape = (kind) => {
+    const ang = Math.random() * Math.PI * 2;
+    const r = 30 + Math.random() * 50;
+    shapes.push({
+      kind,
+      x: Math.cos(ang) * r,
+      y: (Math.random() - 0.4) * 80,
+      z: Math.sin(ang) * r,
+      w: kind === 'ellipse' ? 40 + Math.random() * 40 : 36 + Math.random() * 40,
+      h: kind === 'ellipse' ? 40 + Math.random() * 40 : 28 + Math.random() * 50,
+      stroke: strokeW,
+      color,
+    });
+    selected = shapes.length - 1;
+  };
+  const applyStroke = (v) => {
+    strokeW = v;
+    if (shapes[selected]) shapes[selected].stroke = v;
+  };
+  const applyColor = (c) => {
+    color = c;
+    if (shapes[selected]) shapes[selected].color = c;
+  };
+
+  const swatch = h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+    ...COLORS.map((c) => h('button', {
+      style: {
+        width: '26px', height: '26px', borderRadius: '50%', background: c,
+        border: c === color ? '3px solid #222' : '2px solid #fff',
+        boxShadow: '0 0 0 1px #0002', cursor: 'pointer', padding: 0,
+      },
+      onclick: (e) => {
+        applyColor(c);
+        swatch.querySelectorAll('button').forEach((b) => { b.style.border = '2px solid #fff'; });
+        e.currentTarget.style.border = '3px solid #222';
+      },
+    })),
+  );
+
+  const toolbar = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '18px', transform: 'translateX(-50%)',
+      display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap',
+      background: '#fff', border: '1px solid #e8ddd0', borderRadius: '14px',
+      padding: '10px 14px', zIndex: 5, boxShadow: '0 8px 28px #0001',
+      maxWidth: '92vw', justifyContent: 'center',
+    },
+  },
+    toggle('Spin', true, (v) => { spinning = v; }),
+    btn('＋ Ellipse', () => addShape('ellipse'), 'pri'),
+    btn('＋ Rect', () => addShape('rect')),
+    h('div', { style: { width: '150px' } }, slider('Stroke', 4, 36, strokeW, 1, applyStroke, (v) => v + 'px')),
+    swatch,
+  );
+  toolbar.querySelectorAll('.k-btn').forEach((b) => {
+    Object.assign(b.style, {
+      background: b.classList.contains('pri') ? '#E62' : '#FFF0E0',
+      color: b.classList.contains('pri') ? '#fff' : '#636',
+      border: '0', borderRadius: '10px', fontWeight: '700',
+    });
+  });
+
+  const head = h('div', {
+    style: {
+      position: 'absolute', top: '16px', left: '20px', right: '20px', zIndex: 4,
+      display: 'flex', alignItems: 'baseline', gap: '14px', flexWrap: 'wrap',
+    },
+  },
+    h('b', { style: { fontSize: '34px', color: '#EA0', letterSpacing: '-.02em', fontWeight: 800 } }, 'Zdog'),
+    h('span', { style: { color: '#636', fontSize: '14px', maxWidth: '420px', lineHeight: 1.35 } },
+      'Round, flat, designer-friendly pseudo-3D illustration playground'),
+  );
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', top: '64px', left: '22px', zIndex: 4,
+      fontSize: '12px', color: '#6369',
+    },
+  }, 'drag to rotate · Spin for auto Y · add shapes');
+
+  root.append(head, hint, stageWrap, toolbar);
+
+  const snap = () => ({
+    rotX, rotY, spinning, selected, strokeW, color,
+    shapes: shapes.map((s) => ({ ...s })),
+  });
+  const restore = (s) => {
+    rotX = s.rotX; rotY = s.rotY; spinning = s.spinning; selected = s.selected;
+    strokeW = s.strokeW; color = s.color;
+    shapes.length = 0; s.shapes.forEach((x) => shapes.push({ ...x }));
+  };
+
+  window.__demoProof = async () => {
+    const before = snap();
+    spinning = true;
+    addShape('ellipse');
+    applyColor('#19F');
+    rotY += 0.4; rotX -= 0.1;
+    await sleep(180);
+    restore(before);
+    return 'spin on, shape added, color+drag-rotate exercised, restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }
