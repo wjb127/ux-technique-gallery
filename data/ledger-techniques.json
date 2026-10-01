@@ -1,5 +1,63 @@
 [
  {
+  "id": "clone-rive-motion-state-editor",
+  "slug": "rive-motion-state-editor",
+  "name": "Rive motion state-machine editor",
+  "date": "2026-10-02",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://editor.rive.app/",
+  "domain": "editor.rive.app",
+  "product": "Rive",
+  "checkpoints": [
+   "다크 크래프트 에디터 크롬 + 중앙 아트보드 스테이지",
+   "하단 타임라인 / scrub으로 플레이헤드 이동",
+   "스테이트 머신 그래프 또는 states 리스트 (Idle/Hover/Pressed 등)",
+   "Play / Pause로 스테이지 모션 재생",
+   "키프레임 또는 프로퍼티 패널(위치·스케일·불투명도) 편집이 스테이지에 반영",
+   "다크 에디터 크롬(툴바·패널·디바이더) 정리"
+  ],
+  "checkpoint_source": "briefing:2026-10-02-00.md",
+  "prompt": "Build a Rive-inspired motion/state-machine editor desk. Dark craft chrome:\n  top toolbar, left hierarchy, center artboard stage with a simple animated\n  shape, bottom timeline with scrubbable playhead and keyframe ticks, and a\n  state-machine panel (Idle → Hover → Pressed) with clickable states. Play/Pause\n  drives the stage; property panel edits x/y/scale/opacity. No real Rive runtime —\n  CSS/canvas stand-in. Scope 60–90 min."
+ },
+ {
+  "id": "clone-hydra-live-visual-synth",
+  "slug": "hydra-live-visual-synth",
+  "name": "Hydra live-coding visual synth",
+  "date": "2026-10-02",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://hydra.ojack.xyz/",
+  "domain": "hydra.ojack.xyz",
+  "product": "Hydra",
+  "checkpoints": [
+   "Hydra live-coding visual synth"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-leonardocolor-adaptive-theme-desk",
+  "slug": "leonardocolor-adaptive-theme-desk",
+  "name": "Leonardo Color adaptive theme desk",
+  "date": "2026-10-02",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://leonardocolor.io/",
+  "domain": "leonardocolor.io",
+  "product": "Leonardo Color",
+  "checkpoints": [
+   "테마/배경 선택 + contrast target (예: 3:1 / 4.5:1 / 7:1) 컨트롤",
+   "키 컬러에서 생성된 램프/스케일 스와치 행",
+   "각 스와치에 WCAG contrast 배지(AA/AAA/Fail)",
+   "Adaptive / light·dark 테마 프리뷰 토글",
+   "Theme export (JSON 또는 CSS variables) 복사",
+   "라이트 크래프트 데스크 레이아웃(패널·여백·타이포) 정리"
+  ],
+  "checkpoint_source": "briefing:2026-10-02-00.md",
+  "prompt": "Build a Leonardo Color–inspired adaptive theme desk. Light craft UI: key color\n  picker, background color, contrast-ratio target (3 / 4.5 / 7), generated tonal\n  ramp with WCAG AA/AAA badges per swatch, light/dark adaptive preview cards,\n  and Export theme (CSS variables / JSON). Vanilla JS, no backend. Scope 45–75 min."
+ },
+ {
   "id": "clone-wakamai-fondue-opentype-desk",
   "slug": "wakamai-fondue-opentype-desk",
   "name": "Wakamai Fondue OpenType/variable-font desk",

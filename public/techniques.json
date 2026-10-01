@@ -1,5 +1,78 @@
 [
  {
+  "id": "clone-rive-motion-state-editor",
+  "slug": "rive-motion-state-editor",
+  "name": "Rive motion state-machine editor",
+  "date": "2026-10-02",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://editor.rive.app/",
+  "domain": "editor.rive.app",
+  "product": "Rive",
+  "checkpoints": [
+   "다크 크래프트 에디터 크롬 + 중앙 아트보드 스테이지",
+   "하단 타임라인 / scrub으로 플레이헤드 이동",
+   "스테이트 머신 그래프 또는 states 리스트 (Idle/Hover/Pressed 등)",
+   "Play / Pause로 스테이지 모션 재생",
+   "키프레임 또는 프로퍼티 패널(위치·스케일·불투명도) 편집이 스테이지에 반영",
+   "다크 에디터 크롬(툴바·패널·디바이더) 정리"
+  ],
+  "checkpoint_source": "briefing:2026-10-02-00.md",
+  "short": "Rive motion state-machine editor",
+  "ko": "Rive 스타일 라이브 코딩 클론",
+  "engine": "nodes",
+  "variant": "rive-motion-state-editor",
+  "path": "/t/rive-motion-state-editor/",
+  "built": true
+ },
+ {
+  "id": "clone-hydra-live-visual-synth",
+  "slug": "hydra-live-visual-synth",
+  "name": "Hydra live-coding visual synth",
+  "date": "2026-10-02",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://hydra.ojack.xyz/",
+  "domain": "hydra.ojack.xyz",
+  "product": "Hydra",
+  "checkpoints": [
+   "Hydra live-coding visual synth"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Hydra live-coding visual synth",
+  "ko": "Hydra 스타일 사운드 클론",
+  "engine": null,
+  "variant": "hydra-live-visual-synth",
+  "path": "/t/hydra-live-visual-synth/",
+  "built": false
+ },
+ {
+  "id": "clone-leonardocolor-adaptive-theme-desk",
+  "slug": "leonardocolor-adaptive-theme-desk",
+  "name": "Leonardo Color adaptive theme desk",
+  "date": "2026-10-02",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://leonardocolor.io/",
+  "domain": "leonardocolor.io",
+  "product": "Leonardo Color",
+  "checkpoints": [
+   "테마/배경 선택 + contrast target (예: 3:1 / 4.5:1 / 7:1) 컨트롤",
+   "키 컬러에서 생성된 램프/스케일 스와치 행",
+   "각 스와치에 WCAG contrast 배지(AA/AAA/Fail)",
+   "Adaptive / light·dark 테마 프리뷰 토글",
+   "Theme export (JSON 또는 CSS variables) 복사",
+   "라이트 크래프트 데스크 레이아웃(패널·여백·타이포) 정리"
+  ],
+  "checkpoint_source": "briefing:2026-10-02-00.md",
+  "short": "Leonardo Color adaptive theme desk",
+  "ko": "Leonardo Color 스타일 컬러 클론",
+  "engine": "palette",
+  "variant": "leonardocolor-adaptive-theme-desk",
+  "path": "/t/leonardocolor-adaptive-theme-desk/",
+  "built": true
+ },
+ {
   "id": "clone-wakamai-fondue-opentype-desk",
   "slug": "wakamai-fondue-opentype-desk",
   "name": "Wakamai Fondue OpenType/variable-font desk",

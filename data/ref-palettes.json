@@ -1,4 +1,24 @@
 {
+ "rive-motion-state-editor": {
+  "bg": "#303030",
+  "fg": "#f0f0f0",
+  "panel": "#303030",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 1.0
+ },
+ "leonardocolor-adaptive-theme-desk": {
+  "bg": "#f5f5f5",
+  "fg": "#494949",
+  "panel": "#fafafa",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.46
+ },
  "wakamai-fondue-opentype-desk": {
   "bg": "#dfd6b3",
   "fg": "#3e3533",

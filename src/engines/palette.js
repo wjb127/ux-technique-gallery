@@ -281,4 +281,166 @@ V['khroma-ai-color-pair-studio'] = (root, T) => {
   };
 };
 
+
+V['leonardocolor-adaptive-theme-desk'] = (root, T) => {
+  theme(root, T, { bg: '#f5f5f5', fg: '#2c2c2c', panel: '#ffffff', ac: '#1473e6', ac2: '#5258e4', dark: false, line: '#00000014' });
+  const RATIOS = [1.45, 2.05, 3.03, 4.54, 7, 10.86];
+  const LABELS = ['100', '200', '300', '400', '500', '600'];
+  let key = '#6b7cff';
+  let bg = '#ffffff';
+  let target = 4.5;
+  let mode = 'light'; // light | dark adaptive preview
+  let scaleName = 'Gray';
+  let tab = 'Theme colors';
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '48px 1fr', background: '#f5f5f5' } });
+  const header = h('div.k-row', { style: { background: '#fff', borderBottom: '1px solid #e6e6e6', padding: '0 16px', gap: '16px' } },
+    h('div.k-row', { style: { gap: '8px' } },
+      h('div', { style: { width: '22px', height: '22px', borderRadius: '50%', background: 'conic-gradient(#1473e6,#7c5cff,#39c5ff,#1473e6)' } }),
+      h('b', { style: { fontSize: '16px' } }, 'Leonardo')),
+    h('span', { style: { opacity: 0.45 } }, '⌂'),
+    h('span', { style: { borderBottom: '2px solid #1473e6', paddingBottom: '12px', marginTop: '12px', color: '#1473e6', fontWeight: 600 } }, 'Create'),
+    h('span', { style: { opacity: 0.55 } }, 'Use'),
+    h('span', { style: { flex: 1 } }),
+    h('b', { id: 'leo-title', style: { fontWeight: 600 } }, 'Untitled'),
+    h('span', { style: { flex: 1 } }),
+    btn('Share', () => copy(exportCSS(), 'Theme URL stub'), 'pri'));
+
+  const body = h('div', { style: { display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 0, overflow: 'hidden' } });
+  const side = h('div', { style: { background: '#fff', borderRight: '1px solid #e6e6e6', padding: '14px', display: 'grid', alignContent: 'start', gap: '10px', overflow: 'auto' } });
+  const main = h('div', { style: { padding: '18px 22px', overflow: 'auto' } });
+
+  const relLum = (hex) => {
+    const [r, g, b] = hexToRgb(hex).map((v) => {
+      v /= 255;
+      return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const contrastOf = (a, b) => {
+    const [x, y] = [relLum(a), relLum(b)].sort((p, q) => q - p);
+    return (x + 0.05) / (y + 0.05);
+  };
+  const badge = (ratio) => {
+    if (ratio >= 7) return { lab: 'AAA', ok: true, col: '#0e7a3d' };
+    if (ratio >= target) return { lab: 'AA', ok: true, col: '#1473e6' };
+    if (ratio >= 3) return { lab: 'AA Large', ok: true, col: '#b26a00' };
+    return { lab: 'Fail', ok: false, col: '#c9252d' };
+  };
+  const buildRamp = () => {
+    // Generate tonal ramp targeting RATIOS against bg, tinted by key hue
+    const [L, C, H] = hexToOklch(key);
+    const bgL = relLum(bg);
+    const wantDarker = bgL > 0.5;
+    return RATIOS.map((ratio, i) => {
+      // binary search lightness for approximate contrast
+      let lo = 0.05, hi = 0.98, best = 0.5;
+      for (let k = 0; k < 18; k++) {
+        const mid = (lo + hi) / 2;
+        const hx = oklchToHex(mid, C * (0.55 + i * 0.06), H);
+        const r = contrastOf(hx, bg);
+        best = mid;
+        if (wantDarker) {
+          if (r < ratio) hi = mid; else lo = mid;
+        } else {
+          if (r < ratio) lo = mid; else hi = mid;
+        }
+      }
+      const hx = oklchToHex(best, Math.max(0.02, C * (0.4 + i * 0.08)), H);
+      const r = contrastOf(hx, bg);
+      return { label: LABELS[i], hex: hx, ratio: r, target: ratio };
+    });
+  };
+  const exportCSS = () => {
+    const ramp = buildRamp();
+    return `:root {\n  --leo-bg: ${bg};\n  --leo-key: ${key};\n  --leo-contrast-target: ${target};\n${ramp.map((s) => `  --${scaleName.toLowerCase()}-${s.label}: ${s.hex}; /* ${s.ratio.toFixed(2)}:1 */`).join('\n')}\n}`;
+  };
+  const exportJSON = () => {
+    const ramp = buildRamp();
+    return JSON.stringify({ name: scaleName, background: bg, key, contrastTarget: target, mode, colors: Object.fromEntries(ramp.map((s) => [s.label, s.hex])) }, null, 2);
+  };
+
+  const draw = () => {
+    const ramp = buildRamp();
+    const previewBg = mode === 'dark' ? '#1b1b1b' : bg;
+    const previewFg = mode === 'dark' ? ramp[4].hex : ramp[5].hex;
+    side.replaceChildren(
+      h('div.k-row', { style: { gap: '12px', borderBottom: '1px solid #eee', paddingBottom: '8px' } },
+        h('b', { style: { color: '#1473e6', borderBottom: '2px solid #1473e6', paddingBottom: '6px' } }, 'Color scales'),
+        h('span', { style: { opacity: 0.45 } }, 'Lightness stops')),
+      h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+        btn('+ Add color', () => { key = oklchToHex(0.62, 0.14, Math.random() * 360); scaleName = 'Accent'; draw(); toast('Scale recolored'); }),
+        btn('Sort', () => { RATIOS.sort((a, b) => a - b); draw(); })),
+      h('div', { style: { border: '1px solid #e6e6e6', borderRadius: '10px', padding: '10px', display: 'grid', gap: '8px' } },
+        h('div.k-row', {},
+          h('div', { style: { width: '36px', height: '36px', borderRadius: '6px', background: `linear-gradient(90deg,${ramp[0].hex},${ramp[5].hex})`, border: '1px solid #ddd' } }),
+          h('b', {}, scaleName), h('span', { style: { flex: 1 } }), h('span', { style: { opacity: 0.4 } }, '✎')),
+        h('label', { style: { fontSize: '12px', opacity: 0.7 } }, 'Key color'),
+        h('div.k-row', {},
+          h('input', { type: 'color', value: key, oninput: (e) => { key = e.target.value; draw(); } }),
+          h('input', { value: key, style: { flex: 1, padding: '6px 8px', border: '1px solid #ddd', borderRadius: '6px', fontFamily: 'monospace' }, oninput: (e) => { if (/^#[0-9a-fA-F]{6}$/.test(e.target.value)) { key = e.target.value; draw(); } } })),
+        h('label', { style: { fontSize: '12px', opacity: 0.7 } }, 'Background'),
+        h('div.k-row', {},
+          h('input', { type: 'color', value: bg, oninput: (e) => { bg = e.target.value; draw(); } }),
+          h('input', { value: bg, style: { flex: 1, padding: '6px 8px', border: '1px solid #ddd', borderRadius: '6px', fontFamily: 'monospace' }, oninput: (e) => { if (/^#[0-9a-fA-F]{6}$/.test(e.target.value)) { bg = e.target.value; draw(); } } })),
+        h('div.k-h', {}, 'Contrast target'),
+        seg([['3', '3:1'], ['4.5', '4.5:1'], ['7', '7:1']], String(target), (v) => { target = +v; draw(); }),
+      ),
+      h('div.k-h', {}, 'Adaptive preview'),
+      seg([['light', 'Light'], ['dark', 'Dark']], mode, (v) => { mode = v; draw(); }),
+      btn('Export CSS vars', () => copy(exportCSS(), 'CSS copied'), 'pri'),
+      btn('Export JSON', () => copy(exportJSON(), 'JSON copied')),
+    );
+
+    const swatches = ramp.map((s) => {
+      const b = badge(s.ratio);
+      const fg = contrastOf(s.hex, '#ffffff') > contrastOf(s.hex, '#111111') ? '#fff' : '#111';
+      return h('div', { style: { width: '92px', height: '92px', borderRadius: '10px', background: s.hex, color: fg, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '8px', boxShadow: '0 1px 0 #0001 inset', border: '1px solid #0001' } },
+        h('b', { style: { fontSize: '13px' } }, s.label),
+        h('div', {},
+          h('div', { style: { fontSize: '11px', fontWeight: 700 } }, `${s.ratio.toFixed(2)}:1`),
+          h('div', { style: { fontSize: '10px', marginTop: '2px', background: b.col, color: '#fff', display: 'inline-block', padding: '1px 6px', borderRadius: '99px' } }, b.lab)));
+    });
+
+    main.replaceChildren(
+      h('div.k-row', { style: { gap: '18px', marginBottom: '14px', borderBottom: '1px solid #e8e8e8', paddingBottom: '8px' } },
+        ...['Theme colors', 'Chromaticity', 'Lightness', '3d model'].map((name) => h('button', {
+          style: { border: 0, background: 'transparent', padding: '6px 2px', borderBottom: tab === name ? '2px solid #1473e6' : '2px solid transparent', color: tab === name ? '#1473e6' : '#666', fontWeight: tab === name ? 700 : 500 },
+          onclick: () => { tab = name; draw(); },
+        }, name))),
+      h('div', { style: { background: '#fff', borderRadius: '12px', border: '1px solid #e8e8e8', padding: '20px', boxShadow: '0 1px 2px #00000008' } },
+        h('div.k-row', { style: { gap: '12px', marginBottom: '18px' } },
+          h('b', {}, 'Background color'),
+          h('div', { style: { width: '48px', height: '48px', borderRadius: '8px', background: bg, border: '1px solid #ddd' } }),
+          h('span', { style: { fontFamily: 'monospace', fontSize: '12px', opacity: 0.7 } }, bg)),
+        h('div.k-row', { style: { marginBottom: '10px' } }, h('b', {}, scaleName), h('span', { style: { flex: 1 } }), h('span', { style: { fontSize: '12px', opacity: 0.55 } }, `target ≥ ${target}:1`)),
+        h('div.k-row', { style: { gap: '10px', flexWrap: 'wrap' } }, ...swatches),
+        h('div', { style: { marginTop: '22px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' } },
+          h('div', { style: { borderRadius: '12px', background: previewBg, color: previewFg, padding: '18px', border: '1px solid #0001', minHeight: '140px' } },
+            h('div', { style: { fontSize: '11px', opacity: 0.6, marginBottom: '8px' } }, `Adaptive · ${mode}`),
+            h('b', { style: { fontSize: '22px' } }, 'UI preview'),
+            h('p', { style: { opacity: 0.85, lineHeight: 1.5 } }, 'Accessible theme tokens update with contrast target and key color.'),
+            h('button', { style: { marginTop: '8px', background: ramp[4].hex, color: contrastOf(ramp[4].hex, '#fff') > 3 ? '#fff' : '#111', border: 0, borderRadius: '8px', padding: '8px 12px', fontWeight: 700 } }, 'Primary action')),
+          h('pre.k-code', { style: { background: '#1e1e1e', color: '#d7e3ff', maxHeight: '200px' } }, exportCSS())),
+      ),
+    );
+  };
+
+  body.append(side, main);
+  shell.append(header, body);
+  root.append(shell);
+  draw();
+  window.__demoProof = async () => {
+    key = '#3b6df0'; bg = '#ffffff'; target = 4.5; mode = 'light'; scaleName = 'Blue';
+    draw();
+    await sleep(60);
+    target = 7; draw();
+    await sleep(40);
+    mode = 'dark'; draw();
+    await copy(exportCSS(), 'CSS');
+    mode = 'light'; target = 4.5; draw();
+    return 'key+target 7:1 → WCAG badges; dark adaptive preview; CSS exported; restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['palette-lock-export'])(root, T); }

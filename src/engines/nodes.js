@@ -500,4 +500,156 @@ Tips
     return `nodes ${nodes.length} edges ${edges.length}; click-highlight line ${selLine}; theme toggled; zoom ${view.k}`;
   };
 };
+
+V['rive-motion-state-editor'] = (root, T) => {
+  theme(root, T, { bg: '#1d1d1d', fg: '#e8e8e8', panel: '#252525', ac: '#39c5ff', ac2: '#7c5cff', dark: true, line: '#ffffff14' });
+  const STATES = [
+    { id: 'idle', label: 'Idle', x: 40, y: 60 },
+    { id: 'hover', label: 'Hover', x: 200, y: 40 },
+    { id: 'pressed', label: 'Pressed', x: 360, y: 70 },
+    { id: 'exit', label: 'Exit', x: 200, y: 160 },
+  ];
+  const EDGES = [['idle', 'hover'], ['hover', 'pressed'], ['pressed', 'idle'], ['hover', 'exit'], ['exit', 'idle']];
+  const defaults = {
+    idle: { x: 0, y: 0, scale: 1, opacity: 1, rot: 0 },
+    hover: { x: 0, y: -8, scale: 1.12, opacity: 1, rot: 0 },
+    pressed: { x: 0, y: 4, scale: 0.92, opacity: 1, rot: -4 },
+    exit: { x: 40, y: -20, scale: 0.6, opacity: 0.2, rot: 12 },
+  };
+  let state = 'idle', playing = false, t = 0;
+  let props = { ...defaults.idle };
+  const shape = h('div', { style: { width: '120px', height: '120px', borderRadius: '28px', background: 'linear-gradient(135deg,#39c5ff,#7c5cff)', boxShadow: '0 18px 40px #0008', transition: 'transform .1s linear, opacity .1s linear' } });
+  const artboard = h('div', { style: { position: 'relative', width: '420px', height: '280px', background: '#2a2a2a', border: '1px solid #3a3a3a', borderRadius: '4px', display: 'grid', placeItems: 'center' } },
+    h('div', { style: { position: 'absolute', inset: 0, opacity: 0.08, backgroundImage: 'linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)', backgroundSize: '24px 24px' } }),
+    shape,
+    h('div', { style: { position: 'absolute', left: '10px', top: '8px', fontSize: '11px', opacity: 0.55, fontFamily: 'JetBrains Mono Variable,monospace' } }, 'Artboard 1 · 420×280'));
+  const smSvg = s('svg', { viewBox: '0 0 480 240', style: 'width:100%;height:210px;display:block' });
+  const tlTrack = h('div', { style: { position: 'relative', height: '54px', background: '#1a1a1a', borderRadius: '4px', cursor: 'pointer', border: '1px solid #333' } });
+  const playBtn = h('button', { style: { background: '#39c5ff', color: '#111', border: 0, borderRadius: '4px', padding: '6px 14px', fontWeight: 800 } }, '▶ Play');
+  const frameLab = h('span', { style: { fontFamily: 'monospace', fontSize: '11px', opacity: 0.6 } }, '0f');
+  const insp = h('div', { style: { display: 'grid', gap: '8px' } });
+  const stateLab = h('span', { style: { fontSize: '11px', color: '#39c5ff' } }, 'idle');
+
+  const applyProps = () => {
+    shape.style.transform = `translate(${props.x}px,${props.y}px) rotate(${props.rot}deg) scale(${props.scale})`;
+    shape.style.opacity = String(props.opacity);
+  };
+  const lerpProp = (a, b, u) => {
+    const o = {};
+    for (const k of Object.keys(a)) o[k] = a[k] + (b[k] - a[k]) * u;
+    return o;
+  };
+  const drawSM = () => {
+    const wires = EDGES.map(([a, b]) => {
+      const A = STATES.find((x) => x.id === a), B = STATES.find((x) => x.id === b);
+      const x1 = A.x + 110, y1 = A.y + 22, x2 = B.x, y2 = B.y + 22;
+      const dx = Math.max(30, Math.abs(x2 - x1) * 0.4);
+      return s('path', { d: `M${x1} ${y1}C${x1 + dx} ${y1},${x2 - dx} ${y2},${x2} ${y2}`, stroke: '#666', 'stroke-width': 1.5, fill: 'none', 'marker-end': 'url(#arr)' });
+    });
+    const nodes = STATES.map((n) => {
+      const on = n.id === state;
+      return s('g', { style: 'cursor:pointer', onclick: () => setState(n.id) },
+        s('rect', { x: n.x, y: n.y, width: 110, height: 44, rx: 8, fill: on ? '#39c5ff22' : '#2e2e2e', stroke: on ? '#39c5ff' : '#555', 'stroke-width': on ? 2 : 1 }),
+        s('text', { x: n.x + 14, y: n.y + 27, fill: '#eee', 'font-size': 13, 'font-family': 'Inter Variable,system-ui', 'font-weight': 600 }, n.label));
+    });
+    smSvg.replaceChildren(
+      s('defs', {}, s('marker', { id: 'arr', viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto' }, s('path', { d: 'M0 0L10 5L0 10z', fill: '#888' }))),
+      ...wires, ...nodes);
+  };
+  const drawTL = () => {
+    tlTrack.replaceChildren(
+      h('div', { style: { position: 'absolute', left: '8px', right: '8px', top: '26px', height: '2px', background: '#444' } }),
+      ...[0, 25, 50, 75, 100].map((x) => h('div', { style: { position: 'absolute', left: `calc(8px + ${x}% * 0.96)`, top: '18px', width: '1px', height: '18px', background: '#666' } },
+        h('span', { style: { position: 'absolute', top: '-14px', left: '-6px', fontSize: '9px', opacity: 0.5, fontFamily: 'monospace' } }, String(x)))),
+      ...[0, 33, 66, 100].map((x) => h('div', { style: { position: 'absolute', left: `calc(8px + ${x}% * 0.96)`, top: '22px', width: '10px', height: '10px', marginLeft: '-5px', background: '#39c5ff', transform: 'rotate(45deg)' } })),
+      h('div', { style: { position: 'absolute', left: `calc(8px + ${t}% * 0.96)`, top: '4px', bottom: '4px', width: '2px', background: '#ff5c8a' } },
+        h('div', { style: { position: 'absolute', top: '-2px', left: '-5px', width: '12px', height: '12px', background: '#ff5c8a', borderRadius: '2px' } })),
+    );
+    frameLab.textContent = `${Math.round(t)}f`;
+  };
+  const drawInspector = () => {
+    insp.replaceChildren(
+      h('div.k-h', {}, 'Transform'),
+      slider('X', -80, 80, props.x, 1, (v) => { props.x = v; applyProps(); }),
+      slider('Y', -80, 80, props.y, 1, (v) => { props.y = v; applyProps(); }),
+      slider('Scale', 0.2, 2, props.scale, 0.01, (v) => { props.scale = v; applyProps(); }, (v) => (+v).toFixed(2)),
+      slider('Opacity', 0, 1, props.opacity, 0.01, (v) => { props.opacity = v; applyProps(); }, (v) => (+v).toFixed(2)),
+      slider('Rotation', -45, 45, props.rot, 1, (v) => { props.rot = v; applyProps(); }),
+      h('div.k-h', {}, 'State'),
+      h('div', { style: { fontSize: '12px', opacity: 0.8 } }, `Active · ${state}`),
+      h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px' } }, ...STATES.map((n) => h('button', {
+        style: { border: `1px solid ${n.id === state ? '#39c5ff' : '#444'}`, background: n.id === state ? '#39c5ff22' : '#2a2a2a', color: '#eee', borderRadius: '4px', padding: '4px 8px', fontSize: '11px' },
+        onclick: () => setState(n.id),
+      }, n.label))),
+    );
+  };
+  const sampleAt = (u) => {
+    const keys = [{ t: 0, s: 'idle' }, { t: 0.33, s: 'hover' }, { t: 0.66, s: 'pressed' }, { t: 1, s: 'idle' }];
+    let a = keys[0], b = keys[keys.length - 1];
+    for (let i = 0; i < keys.length - 1; i++) if (u >= keys[i].t && u <= keys[i + 1].t) { a = keys[i]; b = keys[i + 1]; }
+    const f = b.t === a.t ? 0 : (u - a.t) / (b.t - a.t);
+    props = lerpProp(defaults[a.s], defaults[b.s], f);
+    state = u < a.t + (b.t - a.t) * 0.5 ? a.s : b.s;
+    stateLab.textContent = state;
+    applyProps(); drawSM(); drawTL(); drawInspector();
+  };
+  const setState = (id) => {
+    state = id;
+    props = { ...defaults[id] };
+    t = ({ idle: 0, hover: 33, pressed: 66, exit: 85 })[id] ?? t;
+    stateLab.textContent = state;
+    applyProps(); drawSM(); drawTL(); drawInspector();
+  };
+
+  drag(tlTrack, {
+    start: (e) => { const p = localPos(e, tlTrack); t = clamp((p.x / p.w) * 100, 0, 100); sampleAt(t / 100); },
+    move: (e) => { const p = localPos(e, tlTrack); t = clamp((p.x / p.w) * 100, 0, 100); sampleAt(t / 100); },
+  });
+  const loop = () => {
+    if (playing) { t = (t + 0.7) % 100; sampleAt(t / 100); }
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+  playBtn.onclick = () => {
+    playing = !playing;
+    playBtn.textContent = playing ? '⏸ Pause' : '▶ Play';
+    playBtn.style.background = playing ? '#ff5c8a' : '#39c5ff';
+  };
+
+  const top = h('div.k-row', { style: { height: '36px', background: '#161616', borderBottom: '1px solid #2a2a2a', padding: '0 12px', gap: '14px', fontSize: '12px' } },
+    h('b', { style: { color: '#39c5ff', letterSpacing: '0.04em' } }, '◇ RIVE'),
+    ...['File', 'Edit', 'View', 'Animate', 'Window'].map((x) => h('span', { style: { opacity: 0.7 } }, x)),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: 0.45, fontFamily: 'monospace', fontSize: '11px' } }, 'motion-state-demo.riv'));
+  const left = h('div', { style: { background: '#222', borderRight: '1px solid #2e2e2e', padding: '10px', display: 'grid', alignContent: 'start', gap: '6px', fontSize: '12px', overflow: 'auto' } },
+    h('div.k-h', {}, 'Hierarchy'),
+    ...['Artboard 1', '  └ Shape', '  └ State Machine 1', 'Animations', '  └ Timeline'].map((x, i) => h('div', { style: { padding: '4px 6px', borderRadius: '4px', background: i === 2 ? '#39c5ff22' : 'transparent', color: i === 2 ? '#39c5ff' : '#ccc' } }, x)));
+  const center = h('div', { style: { display: 'grid', gridTemplateRows: '1fr 248px', minHeight: 0, overflow: 'hidden' } },
+    h('div', { style: { display: 'grid', placeItems: 'center', background: '#1a1a1a' } }, artboard),
+    h('div', { style: { background: '#202020', borderTop: '1px solid #2e2e2e', padding: '8px 12px', display: 'grid', gridTemplateColumns: '1fr 1.05fr', gap: '12px', minHeight: 0 } },
+      h('div', {}, h('div.k-row', { style: { marginBottom: '6px' } }, h('b', { style: { fontSize: '11px', opacity: 0.7 } }, 'STATE MACHINE'), h('span', { style: { flex: 1 } }), stateLab), smSvg),
+      h('div', {}, h('div.k-row', { style: { marginBottom: '6px', gap: '8px' } }, h('b', { style: { fontSize: '11px', opacity: 0.7 } }, 'TIMELINE'), h('span', { style: { flex: 1 } }), playBtn, frameLab), tlTrack,
+        h('div', { style: { marginTop: '8px', fontSize: '11px', opacity: 0.5 } }, 'Scrub playhead · diamond keyframes · Play drives Idle→Hover→Pressed'))));
+  const right = h('div', { style: { background: '#222', borderLeft: '1px solid #2e2e2e', padding: '12px', overflow: 'auto' } }, h('div.k-h', {}, 'Inspector'), insp);
+
+  root.style.display = 'grid';
+  root.style.gridTemplateColumns = '180px 1fr 240px';
+  root.style.gridTemplateRows = '36px 1fr';
+  root.append(top, left, center, right);
+  top.style.gridColumn = '1 / -1';
+  setState('idle');
+  window.__demoProof = async () => {
+    setState('hover'); await sleep(80);
+    playing = true; playBtn.textContent = '⏸ Pause'; playBtn.style.background = '#ff5c8a';
+    await sleep(350);
+    playing = false; playBtn.textContent = '▶ Play'; playBtn.style.background = '#39c5ff';
+    t = 50; sampleAt(0.5);
+    props.scale = 1.35; applyProps(); drawInspector();
+    await sleep(50);
+    setState('pressed'); await sleep(60);
+    setState('idle');
+    return 'states Idle→Hover→Pressed; timeline scrubbed; scale edited; play toggled';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['noisecraft-node-audio-graph'])(root, T); }
