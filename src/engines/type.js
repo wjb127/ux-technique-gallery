@@ -249,4 +249,127 @@ V['pretextjs-reflow-playground'] = (root, T) => {
     return `variable mode · lines ${metrics.lines} · height ${metrics.height}px`;
   };
 };
+V['alphazet-3d-type-specimen-desk'] = (root, T) => {
+  theme(root, T, { bg: '#2a2a2a', fg: '#f4f4f4', panel: '#1c1c1c', ac: '#b8ff3c', dark: true });
+  root.style.backgroundImage = 'radial-gradient(#ffffff14 1px, transparent 1px)';
+  root.style.backgroundSize = '22px 22px';
+  root.style.overflow = 'auto';
+  const P = { weight: 700, slant: 0, tracking: 0, text: 'Alphazet', test: 'Interface @16dp 1/4 CPM {!exception:} 1,048 Устройство $ кремний gränssnitt', section: 'mock', talk: 0.35 };
+  const specimen = h('div', { contentEditable: true, spellcheck: 'false', style: { fontFamily: RF, fontSize: 'clamp(64px,12vw,140px)', fontWeight: 700, lineHeight: .9, letterSpacing: '-.04em', outline: 'none', textAlign: 'center', margin: '24px 0 8px', color: '#f0f0f0', textShadow: '0 18px 40px #0008' } }, P.text);
+  const applyType = () => {
+    specimen.style.fontVariationSettings = `"wght" ${P.weight}, "slnt" ${P.slant}`;
+    specimen.style.fontWeight = P.weight;
+    specimen.style.letterSpacing = (P.tracking / 1000) + 'em';
+    testLive.style.fontVariationSettings = `"wght" ${P.weight}, "slnt" ${P.slant}`;
+    testLive.style.fontWeight = P.weight;
+    testLive.style.letterSpacing = (P.tracking / 1000) + 'em';
+    glyphBig.style.fontVariationSettings = `"wght" ${P.weight}`;
+    glyphBig.style.fontWeight = P.weight;
+    wLab.textContent = String(P.weight);
+  };
+  const wLab = h('b', { style: { font: '700 13px ui-monospace,monospace', color: '#b8ff3c', minWidth: '36px', textAlign: 'right' } }, '700');
+  const weightRail = h('div', { style: { display: 'grid', gridTemplateColumns: 'auto 1fr auto', gap: '12px', alignItems: 'center', background: '#111c', border: '1px solid #ffffff18', borderRadius: '999px', padding: '8px 16px', maxWidth: '560px', margin: '0 auto' } },
+    h('span', { style: { fontSize: '11px', opacity: .55, letterSpacing: '.12em' } }, 'WEIGHT'),
+    h('input', { type: 'range', min: 100, max: 900, step: 10, value: P.weight, style: { width: '100%', accentColor: '#b8ff3c' }, oninput: (e) => { P.weight = +e.target.value; applyType(); } }),
+    wLab);
+  // Mock stage — drag text + shape cards
+  const stage = h('div', { style: { position: 'relative', height: '280px', borderRadius: '18px', background: 'linear-gradient(145deg,#3a3a3a,#1f1f1f)', border: '1px solid #ffffff14', boxShadow: 'inset 0 1px 0 #fff1, 0 24px 60px #0006', overflow: 'hidden', perspective: '900px' } });
+  const mkCard = (label, x, y, style, kind) => {
+    const el = h('div', { style: { position: 'absolute', left: x + 'px', top: y + 'px', cursor: 'grab', touchAction: 'none', userSelect: 'none', ...style } }, label);
+    el.dataset.kind = kind;
+    drag(el, { move: (e) => { const q = localPos(e, stage); el.style.left = clamp(q.x - 40, 0, stage.clientWidth - 40) + 'px'; el.style.top = clamp(q.y - 20, 0, stage.clientHeight - 40) + 'px'; } });
+    stage.append(el); return el;
+  };
+  const textCard = mkCard('POSTER', 48, 70, { padding: '14px 18px', background: '#fff', color: '#111', font: `800 28px ${RF}`, borderRadius: '10px', boxShadow: '0 16px 40px #0005', transform: 'rotate(-4deg)' }, 'text');
+  const shapeCard = mkCard('', 280, 110, { width: '96px', height: '96px', borderRadius: '28px', background: 'linear-gradient(135deg,#b8ff3c,#5cffb0)', boxShadow: '0 18px 40px #b8ff3c44', transform: 'rotate(12deg)' }, 'shape');
+  mkCard('Aa', 420, 40, { padding: '10px 16px', background: '#111', color: '#b8ff3c', font: `700 22px ${RF}`, borderRadius: '12px', border: '1px solid #b8ff3c55', transform: 'rotate(6deg)' }, 'text');
+  // Test
+  const testLive = h('div', { style: { fontFamily: RF, fontSize: '28px', lineHeight: 1.35, minHeight: '120px', padding: '18px 20px', background: '#141414', borderRadius: '14px', border: '1px solid #ffffff14' } }, P.test);
+  const testInput = h('textarea', { value: P.test, rows: 3, style: { width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #ffffff22', background: '#0e0e0e', color: '#eee', font: `13px/1.5 ${RF}`, resize: 'vertical', boxSizing: 'border-box' } });
+  testInput.oninput = () => { P.test = testInput.value; testLive.textContent = P.test; };
+  // Examine — glyph guides
+  const glyphWrap = h('div', { style: { position: 'relative', height: '220px', background: '#f6f6f4', color: '#111', borderRadius: '14px', overflow: 'hidden' } });
+  const glyphBig = h('div', { style: { position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-46%)', fontFamily: RF, fontSize: '180px', fontWeight: 700, lineHeight: 1, color: '#111' } }, 'A');
+  const guide = (top, label, color) => h('div', { style: { position: 'absolute', left: '8%', right: '8%', top, borderTop: `1px dashed ${color}`, pointerEvents: 'none' } },
+    h('span', { style: { position: 'absolute', right: 0, top: '-14px', font: '10px/1 ui-monospace,monospace', color, opacity: .85 } }, label));
+  glyphWrap.append(glyphBig,
+    guide('18%', 'Ascender', '#7c5cff'),
+    guide('28%', 'Cap Height', '#ff5c8a'),
+    guide('52%', 'X-Height', '#0ea5e9'),
+    guide('72%', 'Baseline', '#111'),
+    guide('88%', 'Descender', '#94a3b8'));
+  // Talk
+  const talkMeter = h('div', { style: { height: '10px', borderRadius: '999px', background: '#ffffff14', overflow: 'hidden' } },
+    h('div', { style: { height: '100%', width: (P.talk * 100) + '%', background: 'linear-gradient(90deg,#b8ff3c,#5cffb0)', transition: 'width .08s linear' } }));
+  const talkFill = talkMeter.firstChild;
+  const talkLab = h('div', { style: { font: '12px ui-monospace,monospace', opacity: .7 } }, 'level −6 dB · drives weight + tracking');
+  const onTalk = (v) => {
+    P.talk = v;
+    talkFill.style.width = (v * 100) + '%';
+    P.weight = Math.round(clamp(200 + v * 700, 100, 900));
+    P.tracking = Math.round((v - 0.35) * 80);
+    wRailInput.value = P.weight;
+    applyType();
+    talkLab.textContent = `level ${(20 * Math.log10(Math.max(0.01, v))).toFixed(1)} dB · weight ${P.weight} · tracking ${P.tracking}`;
+  };
+  const wRailInput = weightRail.querySelector('input');
+  const talkSlider = slider('Voice level', 0, 1, P.talk, 0.01, onTalk, (v) => (v * 100).toFixed(0) + '%');
+  // Sections
+  const sectionHost = h('div', { style: { display: 'grid', gap: '18px', padding: '0 28px 48px', maxWidth: '960px', margin: '0 auto' } });
+  const sec = (id, title, sub, ...kids) => h('section', { id: 'az-' + id, style: { scrollMarginTop: '70px' } },
+    h('div.k-row', { style: { marginBottom: '10px', gap: '12px' } },
+      h('b', { style: { font: `700 22px ${RF}`, letterSpacing: '-.02em' } }, title),
+      h('span', { style: { fontSize: '12px', opacity: .5 } }, sub)),
+    ...kids);
+  sectionHost.append(
+    sec('mock', 'Mock', 'Drag text & shape cards on a soft 3D stage',
+      h('div', { style: { fontSize: '13px', opacity: .6, marginBottom: '10px' } }, 'Create your own layout with Text, Shapes and Images.'),
+      stage),
+    sec('test', 'Test', 'Type & test — live specimen',
+      testInput, testLive,
+      h('div.k-row', { style: { gap: '8px', flexWrap: 'wrap', marginTop: '8px' } },
+        ...['English', 'Cyrillic', 'Greek', 'Symbols'].map((chip) => h('button', { style: { background: '#ffffff10', border: '1px solid #ffffff22', color: '#eee', borderRadius: '999px', padding: '4px 10px', fontSize: '11px' }, onclick: () => {
+          const samples = { English: 'The quick brown fox jumps over the lazy dog', Cyrillic: 'Съешь ещё этих мягких французских булок', Greek: 'Γαζέες καὶ μυρτιὲς δὲν θὰ βρῶ', Symbols: '© ® ™ € £ ¥ → ← ↑ ↓ ✦' };
+          testInput.value = samples[chip]; P.test = samples[chip]; testLive.textContent = P.test;
+        } }, chip)))),
+    sec('examine', 'Examine', 'Glyph metrics — baseline + x-height guides',
+      glyphWrap,
+      h('div.k-row', { style: { marginTop: '10px', gap: '8px' } },
+        ...['A', 'g', 'R', 'y', 'Ö'].map((gch) => h('button', { style: { width: '36px', height: '36px', borderRadius: '8px', border: '1px solid #ffffff22', background: '#141414', color: '#fff', font: `700 16px ${RF}` }, onclick: () => { glyphBig.textContent = gch; } }, gch)))),
+    sec('talk', 'Talk', 'Level slider drives weight / tracking',
+      h('div', { style: { background: '#141414', borderRadius: '14px', border: '1px solid #ffffff14', padding: '16px', display: 'grid', gap: '12px' } },
+        talkLab, talkMeter, talkSlider,
+        h('div', { style: { fontSize: '11px', opacity: .45 } }, 'Mic stub — use the slider (no recording).'))),
+  );
+  const navBtn = (id, label) => h('button', { style: { background: 'transparent', border: 0, color: '#eee', padding: '8px 12px', fontWeight: 600, fontSize: '13px', opacity: .75 }, onclick: () => {
+    P.section = id;
+    document.getElementById('az-' + id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } }, label);
+  root.append(
+    h('div.k-row', { style: { position: 'sticky', top: 0, zIndex: 5, height: '48px', padding: '0 16px', background: '#0e0e0eee', borderBottom: '1px solid #ffffff14', gap: '4px', backdropFilter: 'blur(8px)' } },
+      navBtn('mock', 'Mock'), navBtn('test', 'Test'), navBtn('examine', 'Examine'), navBtn('talk', 'Talk'),
+      h('span', { style: { flex: 1 } }),
+      h('b', { style: { font: `700 14px ${RF}`, letterSpacing: '.04em' } }, 'typeforward-ish'),
+      h('span', { style: { flex: 1 } }),
+      h('button', { style: { background: '#b8ff3c', color: '#111', border: 0, fontWeight: 800, padding: '7px 14px', borderRadius: '8px' } }, 'Buy Alphazet')),
+    h('div', { style: { padding: '36px 28px 12px', textAlign: 'center' } },
+      specimen,
+      h('div', { style: { fontSize: '14px', opacity: .55, marginBottom: '18px', letterSpacing: '.04em' } }, 'Geometric Sans-Serif Variable Font'),
+      weightRail),
+    h('div', { style: { background: '#e8e8e4', color: '#111', padding: '28px', marginTop: '28px' } },
+      h('div', { style: { font: `800 clamp(28px,6vw,56px)/1.05 ${RF}`, letterSpacing: '-.03em', maxWidth: '960px', margin: '0 auto' } }, 'TALL X-HEIGHT · SHORT ASCENDERS & DESCENDERS · WIDER LETTERFORMS')),
+    sectionHost,
+  );
+  applyType();
+  window.__demoProof = async () => {
+    P.weight = 820; wRailInput.value = 820; applyType();
+    textCard.style.left = '120px'; textCard.style.top = '40px';
+    shapeCard.style.left = '340px'; shapeCard.style.top = '90px';
+    testInput.value = 'Live type specimen desk'; P.test = testInput.value; testLive.textContent = P.test;
+    glyphBig.textContent = 'g';
+    onTalk(0.72);
+    await sleep(200);
+    return `weight ${P.weight}; mock cards dragged; test typed; examine glyph g; talk level drove weight/tracking`;
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }

@@ -294,4 +294,210 @@ V['webaudio-studio-graph-desk'] = (root, T) => {
   };
 };
 
+V['flowchart-fun-indent-graph-desk'] = (root, T) => {
+  let dark = false;
+  const applyTheme = () => {
+    theme(root, T, dark
+      ? { bg: '#141414', fg: '#ececec', panel: '#1c1c1c', ac: '#5b8cff', dark: true }
+      : { bg: '#ffffff', fg: '#141414', panel: '#f4f4f5', ac: '#2563eb', dark: false });
+    root.style.setProperty('--line', dark ? '#ffffff18' : '#00000014');
+    editorWrap.style.background = dark ? '#121212' : '#fafafa';
+    editorWrap.style.borderColor = dark ? '#ffffff14' : '#e5e5e5';
+    ta.style.background = 'transparent';
+    ta.style.color = dark ? '#ececec' : '#141414';
+    gutter.style.color = dark ? '#666' : '#aaa';
+    canvasWrap.style.background = dark ? '#0e0e0e' : '#f7f7f8';
+    topBar.style.background = dark ? '#1a1a1a' : '#fff';
+    topBar.style.borderBottom = dark ? '1px solid #ffffff14' : '1px solid #eee';
+    subBar.style.background = dark ? '#161616' : '#fafafa';
+    subBar.style.borderBottom = dark ? '1px solid #ffffff10' : '1px solid #f0f0f0';
+    layout();
+  };
+  const EXAMPLE = `This app works
+  by typing
+    indentation
+    creates edges
+  goes to: Share link
+Share link
+  goes to: Download
+Download
+  Export PNG
+  Export SVG
+Tips
+  Click a node
+  goes to: This app works`;
+  let text = EXAMPLE;
+  let nodes = [], edges = [], selLine = -1;
+  let view = { x: 40, y: 40, k: 1 };
+  let debounce = null;
+  const parse = (src) => {
+    const lines = src.replace(/\t/g, '  ').split('\n');
+    const stack = []; // {depth, id}
+    const byLabel = new Map();
+    const ns = [], es = [];
+    const idOf = (label) => {
+      const key = label.trim();
+      if (byLabel.has(key)) return byLabel.get(key);
+      const id = 'n' + ns.length;
+      byLabel.set(key, id);
+      ns.push({ id, label: key, line: -1 });
+      return id;
+    };
+    lines.forEach((raw, li) => {
+      if (!raw.trim()) return;
+      const mGo = raw.match(/^(\s*)(.+?)\s+goes to:\s*(.+)\s*$/i);
+      if (mGo) {
+        const depth = mGo[1].length;
+        const fromLabel = mGo[2].trim();
+        const toLabel = mGo[3].trim().replace(/^\(|\)$/g, '');
+        while (stack.length && stack[stack.length - 1].depth >= depth) stack.pop();
+        const parent = stack.length ? stack[stack.length - 1].id : null;
+        const fromId = idOf(fromLabel);
+        const node = ns.find((n) => n.id === fromId);
+        if (node && node.line < 0) node.line = li;
+        if (parent && parent !== fromId) es.push({ a: parent, b: fromId });
+        const toId = idOf(toLabel);
+        es.push({ a: fromId, b: toId });
+        stack.push({ depth, id: fromId });
+        return;
+      }
+      const mRef = raw.match(/^(\s*)\((.+)\)\s*$/);
+      const depth = (raw.match(/^(\s*)/) || ['', ''])[1].length;
+      const label = mRef ? mRef[2].trim() : raw.trim().replace(/\s+\.color_\w+/g, '');
+      while (stack.length && stack[stack.length - 1].depth >= depth) stack.pop();
+      const parent = stack.length ? stack[stack.length - 1].id : null;
+      const id = idOf(label);
+      const node = ns.find((n) => n.id === id);
+      if (node.line < 0) node.line = li;
+      if (parent && parent !== id) es.push({ a: parent, b: id });
+      stack.push({ depth, id });
+    });
+    // dedupe edges
+    const seen = new Set();
+    const uniq = [];
+    es.forEach((e) => { const k = e.a + '->' + e.b; if (!seen.has(k) && e.a !== e.b) { seen.add(k); uniq.push(e); } });
+    return { nodes: ns, edges: uniq };
+  };
+  const layoutGraph = (ns, es) => {
+    // simple layered tree layout by BFS from roots
+    const children = new Map(ns.map((n) => [n.id, []]));
+    const indeg = new Map(ns.map((n) => [n.id, 0]));
+    es.forEach((e) => { children.get(e.a)?.push(e.b); indeg.set(e.b, (indeg.get(e.b) || 0) + 1); });
+    const roots = ns.filter((n) => !indeg.get(n.id)).map((n) => n.id);
+    if (!roots.length && ns.length) roots.push(ns[0].id);
+    const depth = new Map();
+    const order = [];
+    const q = roots.map((r) => (depth.set(r, 0), r));
+    const seen = new Set(q);
+    while (q.length) {
+      const u = q.shift(); order.push(u);
+      for (const v of children.get(u) || []) if (!seen.has(v)) { seen.add(v); depth.set(v, (depth.get(u) || 0) + 1); q.push(v); }
+    }
+    ns.forEach((n) => { if (!seen.has(n.id)) { depth.set(n.id, 0); order.push(n.id); } });
+    const layers = new Map();
+    order.forEach((id) => {
+      const d = depth.get(id) || 0;
+      if (!layers.has(d)) layers.set(d, []);
+      layers.get(d).push(id);
+    });
+    const pos = new Map();
+    const W = 180, H = 70;
+    [...layers.keys()].sort((a, b) => a - b).forEach((d) => {
+      const row = layers.get(d);
+      row.forEach((id, i) => {
+        pos.set(id, { x: 40 + i * W, y: 40 + d * H });
+      });
+    });
+    return pos;
+  };
+  const svg = s('svg', { style: 'width:100%;height:100%;cursor:grab;touch-action:none' });
+  const gRoot = s('g');
+  svg.append(gRoot);
+  const canvasWrap = h('div', { style: { position: 'relative', overflow: 'hidden', minHeight: 0 } }, svg);
+  const highlightLine = (li) => {
+    selLine = li;
+    const lines = ta.value.split('\n');
+    // visual: set selection range approximate via overlay mark in gutter
+    gutter.replaceChildren(...lines.map((ln, i) => h('div', { style: { height: '20px', background: i === li ? (dark ? '#2563eb55' : '#2563eb22') : 'transparent', color: i === li ? (dark ? '#9db7ff' : '#2563eb') : undefined, fontWeight: i === li ? 700 : 400 } }, String(i + 1))));
+    // also flash node
+    layout();
+  };
+  const layout = () => {
+    const parsed = parse(text);
+    nodes = parsed.nodes; edges = parsed.edges;
+    const pos = layoutGraph(nodes, edges);
+    gRoot.setAttribute('transform', `translate(${view.x},${view.y}) scale(${view.k})`);
+    const els = [];
+    edges.forEach((e) => {
+      const a = pos.get(e.a), b = pos.get(e.b); if (!a || !b) return;
+      const x1 = a.x + 70, y1 = a.y + 22, x2 = b.x + 70, y2 = b.y;
+      const mid = (y1 + y2) / 2;
+      els.push(s('path', { d: `M${x1} ${y1}C${x1} ${mid},${x2} ${mid},${x2} ${y2}`, fill: 'none', stroke: dark ? '#666' : '#b0b0b0', 'stroke-width': 2 }));
+    });
+    nodes.forEach((n) => {
+      const p = pos.get(n.id); if (!p) return;
+      const selected = n.line === selLine;
+      const w = Math.max(120, n.label.length * 7.5 + 24);
+      const bg = selected ? (dark ? '#2563eb' : '#2563eb') : (dark ? '#1e1e1e' : '#fff');
+      const fg = selected ? '#fff' : (dark ? '#ececec' : '#141414');
+      const stroke = selected ? '#93c5fd' : (dark ? '#444' : '#d4d4d8');
+      const g = s('g', { style: 'cursor:pointer', onclick: () => highlightLine(n.line) },
+        s('rect', { x: p.x, y: p.y, width: w, height: 44, rx: 10, fill: bg, stroke, 'stroke-width': 1.5, filter: dark ? '' : 'drop-shadow(0 2px 6px rgba(0,0,0,.08))' }),
+        s('text', { x: p.x + w / 2, y: p.y + 27, 'text-anchor': 'middle', fill: fg, 'font-size': 13, 'font-family': 'Inter,system-ui,sans-serif', 'font-weight': 600 }, n.label.slice(0, 28)));
+      els.push(g);
+    });
+    gRoot.replaceChildren(...els);
+    stats.textContent = `${nodes.length} nodes · ${edges.length} edges`;
+  };
+  const schedule = () => { clearTimeout(debounce); debounce = setTimeout(layout, 180); };
+  const gutter = h('div', { style: { padding: '12px 8px', font: '12px/20px ui-monospace,monospace', textAlign: 'right', userSelect: 'none', minWidth: '36px' } });
+  const ta = h('textarea', { value: text, spellcheck: 'false', style: { flex: 1, border: 0, outline: 'none', resize: 'none', padding: '12px 12px 12px 0', font: '13px/20px ui-monospace,SFMono-Regular,Menlo,monospace', whiteSpace: 'pre', tabSize: 2 } });
+  ta.oninput = () => { text = ta.value; gutter.replaceChildren(...text.split('\n').map((_, i) => h('div', { style: { height: '20px' } }, String(i + 1)))); schedule(); };
+  gutter.replaceChildren(...text.split('\n').map((_, i) => h('div', { style: { height: '20px' } }, String(i + 1))));
+  const editorWrap = h('div', { style: { display: 'flex', overflow: 'auto', minHeight: 0, borderRight: '1px solid var(--line)' } }, gutter, ta);
+  // pan/zoom
+  let panning = false, lx = 0, ly = 0;
+  svg.addEventListener('pointerdown', (e) => { if (e.target === svg || e.target === gRoot) { panning = true; lx = e.clientX; ly = e.clientY; svg.setPointerCapture(e.pointerId); } });
+  svg.addEventListener('pointermove', (e) => { if (!panning) return; view.x += e.clientX - lx; view.y += e.clientY - ly; lx = e.clientX; ly = e.clientY; layout(); });
+  svg.addEventListener('pointerup', () => { panning = false; });
+  svg.addEventListener('wheel', (e) => { e.preventDefault(); view.k = clamp(view.k * (e.deltaY > 0 ? 0.9 : 1.1), 0.4, 2.5); layout(); }, { passive: false });
+  const stats = h('span', { style: { fontSize: '11px', opacity: .55 } }, '');
+  const topBar = h('div.k-row', { style: { height: '44px', padding: '0 14px', gap: '14px', zIndex: 3 } },
+    h('b', { style: { font: '800 15px Inter,system-ui', letterSpacing: '-.02em' } }, 'FF'),
+    h('span', { style: { fontWeight: 700 } }, 'flowchart.fun-ish'),
+    h('span', { style: { fontSize: '12px', opacity: .5 } }, 'indent text → graph'),
+    h('span', { style: { flex: 1 } }),
+    btn('Load example', () => { text = EXAMPLE; ta.value = text; ta.oninput(); toast('example loaded'); }),
+    btn('Theme', () => { dark = !dark; applyTheme(); }),
+    btn('Share stub', () => { try { location.hash = encodeURIComponent(text.slice(0, 800)); toast('hash updated'); } catch { toast('share stub'); } }),
+  );
+  const subBar = h('div.k-row', { style: { height: '34px', padding: '0 14px', gap: '10px', fontSize: '12px' } },
+    h('span', { style: { fontWeight: 700, opacity: .7 } }, 'Document'),
+    h('span', { style: { opacity: .4 } }, '·'),
+    h('span', { style: { opacity: .6 } }, 'indent nests · `goes to:` edges · (Node) refs'),
+    h('span', { style: { flex: 1 } }),
+    stats,
+    h('button', { style: { border: '1px solid var(--line)', background: 'transparent', borderRadius: '6px', padding: '3px 8px' }, onclick: () => { view.k = clamp(view.k * 1.15, 0.4, 2.5); layout(); } }, '+'),
+    h('button', { style: { border: '1px solid var(--line)', background: 'transparent', borderRadius: '6px', padding: '3px 8px' }, onclick: () => { view.k = clamp(view.k * 0.87, 0.4, 2.5); layout(); } }, '−'),
+    h('button', { style: { border: '1px solid var(--line)', background: 'transparent', borderRadius: '6px', padding: '3px 8px' }, onclick: () => { view = { x: 40, y: 40, k: 1 }; layout(); } }, 'Fit'),
+  );
+  root.style.display = 'grid';
+  root.style.gridTemplateRows = '44px 34px 1fr';
+  root.style.gridTemplateColumns = 'minmax(280px,38%) 1fr';
+  root.append(topBar, subBar, editorWrap, canvasWrap);
+  topBar.style.gridColumn = '1/-1';
+  subBar.style.gridColumn = '1/-1';
+  applyTheme();
+  layout();
+  window.__demoProof = async () => {
+    text = EXAMPLE; ta.value = text; ta.oninput();
+    await sleep(250);
+    const n = nodes.find((x) => x.label.includes('Share')) || nodes[1];
+    if (n) highlightLine(n.line);
+    view.k = 1.2; view.x = 20; layout();
+    await sleep(120);
+    dark = true; applyTheme(); await sleep(80); dark = false; applyTheme();
+    return `nodes ${nodes.length} edges ${edges.length}; click-highlight line ${selLine}; theme toggled; zoom ${view.k}`;
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['noisecraft-node-audio-graph'])(root, T); }

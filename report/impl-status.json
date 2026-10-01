@@ -2032,5 +2032,32 @@
   "proof": "presets + mutate + play; wave square; WAV export available",
   "demoNodes": 86,
   "errors": []
+ },
+ "pretextjs-reflow-playground": {
+  "url": "http://127.0.0.1:4173/t/pretextjs-reflow-playground/",
+  "ok": true,
+  "at": "2026-09-30T23:52:10.172Z",
+  "http": 200,
+  "proof": "variable mode · lines 9 · height 251px",
+  "demoNodes": 52,
+  "errors": []
+ },
+ "online-sequencer-piano-roll": {
+  "url": "http://127.0.0.1:4173/t/online-sequencer-piano-roll/",
+  "ok": true,
+  "at": "2026-09-30T23:52:10.184Z",
+  "http": 200,
+  "proof": "synth notes placed · playhead advanced to 4",
+  "demoNodes": 1585,
+  "errors": []
+ },
+ "whatamesh-gradient-desk": {
+  "url": "http://127.0.0.1:4173/t/whatamesh-gradient-desk/",
+  "ok": true,
+  "at": "2026-09-30T23:52:10.184Z",
+  "http": 200,
+  "proof": "preset 3 playing @1.2 · CSS copied",
+  "demoNodes": 31,
+  "errors": []
  }
 }

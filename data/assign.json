@@ -39,7 +39,8 @@
   "nand-logic-build-game",
   "circuit-construction-sandbox",
   "neural-net-playground",
-  "webaudio-studio-graph-desk"
+  "webaudio-studio-graph-desk",
+  "flowchart-fun-indent-graph-desk"
  ],
  "palette": [
   "palette-lock-export",
@@ -111,7 +112,8 @@
   "liquid-type-motion-toy",
   "pretext-dragon-chase-reflow",
   "font-pair-studio",
-  "pretextjs-reflow-playground"
+  "pretextjs-reflow-playground",
+  "alphazet-3d-type-specimen-desk"
  ],
  "pixel": [
   "pixel-sprite-editor-workspace",
@@ -172,7 +174,8 @@
   "climate-strategy-map-hud",
   "map-explore-side-panel",
   "gis-simplify-slider-workspace",
-  "windy-weather-map-desk"
+  "windy-weather-map-desk",
+  "ancient-earth-deep-time-globe"
  ],
  "chart": [
   "bubble-chart-time-scrubber",

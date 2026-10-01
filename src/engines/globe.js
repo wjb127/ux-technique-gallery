@@ -241,4 +241,140 @@ V['windy-weather-map-desk'] = (root, T) => {
   };
 };
 
+V['ancient-earth-deep-time-globe'] = (root, T) => {
+  theme(root, T, { bg: '#000', fg: '#fff', panel: '#0a0a0a', ac: '#e8d48a', dark: true });
+  const AGES = [
+    { ma: 750, label: '750 million', era: 'Cryogenian', blurb: 'Snowball Earth episodes. Continents clustered near the equator under ice.' },
+    { ma: 600, label: '600 million', era: 'Ediacaran', blurb: 'Soft-bodied life blooms in shallow seas as ice retreats.' },
+    { ma: 500, label: '500 million', era: 'Cambrian', blurb: 'Cambrian explosion — shells, trilobites, and complex ecosystems.' },
+    { ma: 400, label: '400 million', era: 'Devonian', blurb: 'Age of Fishes. Early forests creep onto land.' },
+    { ma: 300, label: '300 million', era: 'Carboniferous', blurb: 'Vast swamp forests; coal beds form. Pangaea assembling.' },
+    { ma: 240, label: '240 million', era: 'Early Triassic', blurb: 'Oxygen levels are lower. Small ancestors to birds, mammals, and dinosaurs survive on Pangaea.' },
+    { ma: 150, label: '150 million', era: 'Late Jurassic', blurb: 'Pangaea rifts. Dinosaurs dominate continents and skies.' },
+    { ma: 90, label: '90 million', era: 'Late Cretaceous', blurb: 'Warm greenhouse world. Flowering plants spread widely.' },
+    { ma: 50, label: '50 million', era: 'Eocene', blurb: 'Mammals diversify after the K–Pg extinction. Primates appear.' },
+    { ma: 20, label: '20 million', era: 'Miocene', blurb: 'Grasslands expand. Modern ocean currents take shape.' },
+    { ma: 0, label: '0 (today)', era: 'Holocene', blurb: 'Present-day continents and climates — the Anthropocene begins.' },
+  ];
+  const JUMPS = [
+    ['first shells', 500], ['first forests', 400], ['first reptiles', 300],
+    ['first dinosaurs', 240], ['first flowers', 90], ['first primates', 50], ['today', 0],
+  ];
+  let age = 240, rotating = true, cloudsOn = true;
+  const ageOf = (ma) => AGES.reduce((best, a) => Math.abs(a.ma - ma) < Math.abs(best.ma - ma) ? a : best, AGES[0]);
+  const terrain = (ma) => {
+    // stylized deep-time palette: older = greener/browner continents, different ocean tint
+    const t = clamp(1 - ma / 750, 0, 1);
+    const land = `hsl(${95 - t * 40},${35 + t * 20}%,${28 + t * 18}%)`;
+    const ocean = `hsl(${205 - t * 25},${55 + t * 10}%,${18 + t * 10}%)`;
+    const shelf = `hsl(${190 - t * 20},50%,${30 + t * 8}%)`;
+    return { land, ocean, shelf, ice: t > 0.85 ? '#e8f0ff' : '#dfe8f0' };
+  };
+  const N = noise2(11);
+  const cloudLayer = document.createElement('canvas'); cloudLayer.width = 512; cloudLayer.height = 256;
+  const bakeClouds = () => {
+    const g = cloudLayer.getContext('2d'); const img = g.createImageData(512, 256);
+    for (let y = 0; y < 256; y++) for (let x = 0; x < 512; x++) {
+      const n = N(x / 40, y / 28) * 0.65 + N(x / 12, y / 10 + 3) * 0.35;
+      const band = Math.exp(-(((y - 80) / 40) ** 2)) * 0.25 + Math.exp(-(((y - 170) / 35) ** 2)) * 0.2;
+      const v = clamp((n + band - 0.55) * 2.8, 0, 1);
+      const i = (y * 512 + x) * 4; img.data[i] = img.data[i + 1] = img.data[i + 2] = 255; img.data[i + 3] = v * 180;
+    }
+    g.putImageData(img, 0, 0);
+  };
+  bakeClouds();
+  const G = globeCanvas(root, { rot: [-20, -15], scale: 0.48, spin: 0.08, draw: (g, proj, path, cv, st) => {
+    st.spin = rotating ? 0.08 : 0;
+    const pal = terrain(age);
+    // starfield
+    g.fillStyle = '#000'; g.fillRect(0, 0, cv.W, cv.H);
+    g.fillStyle = '#ffffff';
+    for (let i = 0; i < 120; i++) {
+      const sx = ((i * 97) % cv.W), sy = ((i * 53) % cv.H);
+      g.globalAlpha = 0.15 + (i % 5) * 0.08;
+      g.fillRect(sx, sy, 1.2, 1.2);
+    }
+    g.globalAlpha = 1;
+    // atmosphere glow
+    const r = Math.min(cv.W, cv.H) * st.scale;
+    const glow = g.createRadialGradient(cv.W / 2, cv.H / 2, r * 0.92, cv.W / 2, cv.H / 2, r * 1.12);
+    glow.addColorStop(0, '#4fa3ff00'); glow.addColorStop(0.6, '#4fa3ff22'); glow.addColorStop(1, '#0000');
+    g.fillStyle = glow; g.beginPath(); g.arc(cv.W / 2, cv.H / 2, r * 1.12, 0, 7); g.fill();
+    g.beginPath(); path({ type: 'Sphere' }); g.fillStyle = pal.ocean; g.fill();
+    // shallow shelf band via graticule tint
+    g.beginPath(); path(geoGraticule10()); g.strokeStyle = pal.shelf + '44'; g.lineWidth = 0.4; g.stroke();
+    g.beginPath(); path(LAND); g.fillStyle = pal.land; g.fill();
+    g.beginPath(); path(BORDERS); g.strokeStyle = '#00000055'; g.lineWidth = 0.5; g.stroke();
+    if (cloudsOn) {
+      // project cloud equirect onto sphere via drawImage clipped to sphere is hard; approximate with soft arcs
+      g.save();
+      g.beginPath(); path({ type: 'Sphere' }); g.clip();
+      g.globalAlpha = 0.55;
+      // spin clouds slightly offset
+      const [x0, y0] = proj([-180, 90]) || [0, 0], [x1, y1] = proj([180, -90]) || [cv.W, cv.H];
+      if (x0 != null && x1 != null) g.drawImage(cloudLayer, x0 - 20, y0, (x1 - x0) + 40, y1 - y0);
+      g.globalAlpha = 1; g.restore();
+    }
+    // limb highlight
+    g.beginPath(); path({ type: 'Sphere' }); g.strokeStyle = '#ffffff22'; g.lineWidth = 2; g.stroke();
+  }});
+  const infoEra = h('div', { style: { fontSize: '13px', opacity: .85, maxWidth: '320px', lineHeight: 1.45 } });
+  const infoAge = h('div', { style: { font: '700 28px/1.1 Inter,system-ui,sans-serif', marginTop: '8px' } });
+  const syncLabels = () => {
+    const a = ageOf(age);
+    infoEra.innerHTML = `<b style="opacity:.95">${a.era}.</b> ${a.blurb}`;
+    infoAge.textContent = a.ma === 0 ? 'today' : `${a.ma} million years ago`;
+    ageSel.value = String(a.ma);
+    // sync jump select to nearest milestone
+    let best = JUMPS[0], bd = 1e9;
+    JUMPS.forEach((j) => { const d = Math.abs(j[1] - a.ma); if (d < bd) { bd = d; best = j; } });
+    jumpSel.value = String(best[1]);
+    headlineAge.textContent = a.label;
+  };
+  const setAge = (ma) => { age = +ma; syncLabels(); };
+  const ageSel = select(AGES.map((a) => [String(a.ma), a.label]), String(age), setAge);
+  Object.assign(ageSel.style, { background: '#000a', color: '#fff', border: '1px solid #ffffff55', borderRadius: '6px', padding: '4px 8px', fontWeight: 700 });
+  const jumpSel = select(JUMPS.map(([l, m]) => [String(m), l]), '240', (v) => setAge(+v));
+  Object.assign(jumpSel.style, { background: '#000a', color: '#fff', border: '1px solid #ffffff44', borderRadius: '6px', padding: '4px 8px' });
+  const headlineAge = h('span', { style: { display: 'inline-block', background: '#000c', border: '1px solid #ffffff55', borderRadius: '6px', padding: '2px 10px', fontWeight: 700, margin: '0 6px' } }, '240 million');
+  // replace ageSel visual in headline — keep select functional beside
+  const rotToggle = toggle('Rotate globe', true, (v) => { rotating = v; });
+  const cloudToggle = toggle('Clouds', true, (v) => { cloudsOn = v; });
+  Object.assign(rotToggle.style, { color: '#fff', fontSize: '12px', background: '#000a', padding: '6px 10px', borderRadius: '6px', border: '1px solid #ffffff22' });
+  Object.assign(cloudToggle.style, { color: '#fff', fontSize: '12px', background: '#000a', padding: '6px 10px', borderRadius: '6px', border: '1px solid #ffffff22' });
+  root.append(
+    h('div', { style: { position: 'absolute', top: '14px', left: '16px', fontSize: '12px', color: '#e8d48a', zIndex: 4 } }, '« Back to Dinosaur Database'),
+    h('div', { style: { position: 'absolute', top: '18px', left: '50%', transform: 'translateX(-50%)', zIndex: 4, textAlign: 'center', fontSize: '20px', fontWeight: 500, whiteSpace: 'nowrap' } },
+      'What did Earth look like ', headlineAge, ' years ago?'),
+    h('div', { style: { position: 'absolute', top: '56px', left: '50%', transform: 'translateX(-50%)', zIndex: 4 } }, ageSel),
+    h('div', { style: { position: 'absolute', top: '70px', right: '18px', zIndex: 4, display: 'grid', gap: '8px', justifyItems: 'end' } },
+      h('div.k-row', { style: { gap: '8px', fontSize: '12px' } }, h('span', { style: { opacity: .7 } }, 'Jump to…'), jumpSel),
+      rotToggle, cloudToggle),
+    h('div', { style: { position: 'absolute', left: '18px', bottom: '24px', zIndex: 4, maxWidth: '340px' } }, infoEra, infoAge),
+    h('div', { style: { position: 'absolute', right: '18px', bottom: '18px', zIndex: 4, fontSize: '11px', opacity: .55, textAlign: 'right', maxWidth: '260px' } },
+      'Drag to orbit · ← → step through time', h('br'), 'Paleomap-inspired demo · no licensed map copy'),
+  );
+  // keyboard step
+  const onKey = (e) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const idx = AGES.findIndex((a) => a.ma === ageOf(age).ma);
+    const n = clamp(idx + (e.key === 'ArrowRight' ? -1 : 1), 0, AGES.length - 1); // right = younger
+    setAge(AGES[n].ma);
+  };
+  window.addEventListener('keydown', onKey);
+  syncLabels();
+  window.__demoProof = async () => {
+    setAge(500); await sleep(120);
+    setAge(90); await sleep(120);
+    rotating = false; rotToggle.querySelector('input').checked = false;
+    cloudsOn = false; cloudToggle.querySelector('input').checked = false;
+    await sleep(80);
+    rotating = true; cloudsOn = true;
+    rotToggle.querySelector('input').checked = true;
+    cloudToggle.querySelector('input').checked = true;
+    G.rot[0] += 40; G.rot[1] = -10;
+    setAge(240);
+    return `age ${age} Ma; jump/age synced; rotate+clouds toggled; drag-rotate exercised`;
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }
