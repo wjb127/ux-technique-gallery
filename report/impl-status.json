@@ -2059,5 +2059,32 @@
   "proof": "preset 3 playing @1.2 · CSS copied",
   "demoNodes": 31,
   "errors": []
+ },
+ "svgomg-optimize-toggle-desk": {
+  "url": "http://127.0.0.1:4173/t/svgomg-optimize-toggle-desk/",
+  "ok": true,
+  "at": "2026-10-01T07:56:31.593Z",
+  "http": 200,
+  "proof": "toggles 13; precision 1; bytes 572→352; markup+checker exercised",
+  "demoNodes": 98,
+  "errors": []
+ },
+ "pixelartcss-boxshadow-desk": {
+  "url": "http://127.0.0.1:4173/t/pixelartcss-boxshadow-desk/",
+  "ok": true,
+  "at": "2026-10-01T07:56:31.595Z",
+  "http": 200,
+  "proof": "grid 16; frames 2; undo/redo; copy CSS; play loop exercised",
+  "demoNodes": 53,
+  "errors": []
+ },
+ "kepler-gl-geospatial-layer-desk": {
+  "url": "http://127.0.0.1:4173/t/kepler-gl-geospatial-layer-desk/",
+  "ok": true,
+  "at": "2026-10-01T07:56:31.585Z",
+  "http": 200,
+  "proof": "loaded SF sample; filter≥40; layers 2; blend additive; reorder+visibility exercised",
+  "demoNodes": 74,
+  "errors": []
  }
 }

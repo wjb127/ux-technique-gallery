@@ -377,4 +377,181 @@ V['ancient-earth-deep-time-globe'] = (root, T) => {
     return `age ${age} Ma; jump/age synced; rotate+clouds toggled; drag-rotate exercised`;
   };
 };
+
+V['kepler-gl-geospatial-layer-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0d1117', fg: '#e8eaed', panel: '#1c2330cc', ac: '#6b8cff', dark: true });
+  const SAMPLES = {
+    'SF Taxi Trips': (() => {
+      const R = rng(11); const pts = [];
+      for (let i = 0; i < 180; i++) pts.push({ lon: -122.42 + (R() - 0.5) * 0.18, lat: 37.77 + (R() - 0.5) * 0.12, val: Math.round(R() * 100), color: '#f7b500' });
+      return pts;
+    })(),
+    'NYC Contagion': (() => {
+      const R = rng(22); const pts = [];
+      for (let i = 0; i < 160; i++) pts.push({ lon: -74.0 + (R() - 0.5) * 0.22, lat: 40.72 + (R() - 0.5) * 0.16, val: Math.round(R() * 100), color: '#ff6b6b' });
+      return pts;
+    })(),
+    'Earthquakes': (() => {
+      const R = rng(33); const pts = [];
+      for (let i = 0; i < 140; i++) pts.push({ lon: R() * 360 - 180, lat: (R() - 0.5) * 140, val: Math.round(20 + R() * 80), color: '#7ee787' });
+      return pts;
+    })(),
+  };
+  let state = 'empty'; // empty | loading | loaded
+  let points = [];
+  let filterMin = 0;
+  let blend = 'normal';
+  let tab = 'Layers';
+  let lid = 1;
+  const layers = []; // {id,name,type,visible,color}
+  const BLENDS = ['normal', 'additive', 'screen', 'multiply'];
+
+  const statusEl = h('div', { style: { fontSize: '12px', opacity: .7, padding: '8px 12px' } });
+  const layerList = h('div', { style: { display: 'grid', gap: '8px', padding: '0 10px 10px' } });
+  const countEl = h('div', { style: { fontSize: '11px', opacity: .55, padding: '0 12px 8px' } });
+
+  const syncStatus = () => {
+    if (state === 'empty') statusEl.textContent = 'No data · Add Data to begin';
+    else if (state === 'loading') statusEl.textContent = 'Loading sample…';
+    else statusEl.textContent = `${points.length} points · ${layers.filter((l) => l.visible).length} layers visible`;
+    const vis = layers.filter((l) => l.visible).length;
+    const shown = points.filter((p) => p.val >= filterMin).length;
+    countEl.textContent = state === 'loaded' ? `Showing ${shown}/${points.length} (filter ≥ ${filterMin}) · blend ${blend}` : '';
+  };
+
+  const renderLayers = () => {
+    layerList.replaceChildren(...layers.map((L, idx) => {
+      const card = h('div', { style: { background: '#0f141dcc', border: '1px solid #ffffff18', borderRadius: '8px', padding: '10px', display: 'grid', gap: '6px' } },
+        h('div.k-row', { style: { gap: '8px' } },
+          h('button', { title: 'visibility', style: { background: 'none', border: 0, color: L.visible ? '#6b8cff' : '#666', cursor: 'pointer', fontSize: '14px' }, onclick: () => { L.visible = !L.visible; renderLayers(); syncStatus(); } }, L.visible ? '👁' : '👁‍🗨'),
+          h('b', { style: { flex: 1, fontSize: '13px' } }, L.name),
+          h('span', { style: { fontSize: '10px', background: L.color + '33', color: L.color, border: `1px solid ${L.color}66`, borderRadius: '4px', padding: '2px 6px', fontWeight: 700 } }, L.type),
+          h('button', { style: { background: 'none', border: 0, color: '#888', cursor: 'pointer' }, onclick: () => { layers.splice(idx, 1); if (!layers.length) { state = 'empty'; points = []; } renderLayers(); syncStatus(); } }, '✕')),
+        h('div.k-row', { style: { gap: '6px', fontSize: '11px' } },
+          h('button', { style: { background: '#ffffff10', border: '1px solid #ffffff18', color: '#ccc', borderRadius: '4px', padding: '2px 8px', cursor: 'pointer' }, onclick: () => { if (idx > 0) { const t = layers[idx - 1]; layers[idx - 1] = layers[idx]; layers[idx] = t; renderLayers(); } } }, '↑'),
+          h('button', { style: { background: '#ffffff10', border: '1px solid #ffffff18', color: '#ccc', borderRadius: '4px', padding: '2px 8px', cursor: 'pointer' }, onclick: () => { if (idx < layers.length - 1) { const t = layers[idx + 1]; layers[idx + 1] = layers[idx]; layers[idx] = t; renderLayers(); } } }, '↓'),
+          h('span', { style: { opacity: .45 } }, `id ${L.id}`)));
+      return card;
+    }));
+    if (!layers.length) layerList.append(h('div', { style: { padding: '24px 12px', textAlign: 'center', opacity: .45, fontSize: '12px', lineHeight: 1.6 } }, 'Empty layers panel', h('br'), 'Add Data or Add Layer to populate'));
+  };
+
+  const loadSample = (name) => {
+    state = 'loading'; syncStatus(); renderLayers();
+    setTimeout(() => {
+      points = SAMPLES[name].map((p) => ({ ...p }));
+      layers.length = 0;
+      layers.push({ id: lid++, name, type: 'point', visible: true, color: points[0]?.color || '#f7b500' });
+      state = 'loaded';
+      modal.style.display = 'none';
+      renderLayers(); syncStatus();
+      // center map roughly
+      if (name === 'SF Taxi Trips') { M.x = 40; M.y = -20; M.k = 3.2; }
+      else if (name === 'NYC Contagion') { M.x = 180; M.y = -40; M.k = 3.4; }
+      else { M.x = 0; M.y = 0; M.k = 1.1; }
+    }, 450);
+  };
+
+  const modal = h('div', { style: { position: 'absolute', inset: 0, background: '#000a', display: 'none', placeItems: 'center', zIndex: 20 } });
+  const modalCard = h('div', { style: { width: '420px', background: '#1a2230', border: '1px solid #ffffff22', borderRadius: '12px', padding: '18px', display: 'grid', gap: '12px', boxShadow: '0 24px 80px #000a' } },
+    h('div.k-row', {}, h('b', { style: { fontSize: '16px' } }, 'Add Data'), h('span', { style: { flex: 1 } }), h('button', { style: { background: 'none', border: 0, color: '#aaa', cursor: 'pointer', fontSize: '18px' }, onclick: () => (modal.style.display = 'none') }, '✕')),
+    h('div', { style: { fontSize: '12px', opacity: .65 } }, 'Try sample data — no upload required'),
+    ...Object.keys(SAMPLES).map((n) => h('button', { style: { textAlign: 'left', background: '#0f141d', border: '1px solid #ffffff18', color: '#e8eaed', borderRadius: '8px', padding: '12px 14px', cursor: 'pointer' }, onclick: () => loadSample(n) },
+      h('b', {}, n), h('div', { style: { fontSize: '11px', opacity: .55, marginTop: '4px' } }, `${SAMPLES[n].length} points · GeoJSON sample`))),
+    h('div', { style: { border: '2px dashed #ffffff22', borderRadius: '8px', padding: '16px', textAlign: 'center', fontSize: '12px', opacity: .5 } }, 'Drop CSV / GeoJSON here (demo stub)'));
+  modal.append(modalCard);
+  modal.style.display = 'none';
+
+  const M = mapView(root, { proj: geoMercator(), draw: (g, proj, path, cv, st) => {
+    g.fillStyle = '#0b0f14'; g.fillRect(0, 0, cv.W, cv.H);
+    g.beginPath(); path(LAND); g.fillStyle = '#1a2330'; g.fill();
+    g.beginPath(); path(BORDERS); g.strokeStyle = '#ffffff14'; g.lineWidth = 0.6; g.stroke();
+    if (state === 'loading') {
+      g.fillStyle = '#ffffff88'; g.font = '14px Inter,sans-serif'; g.fillText('Loading…', cv.W / 2 - 30, cv.H / 2);
+      return;
+    }
+    if (state !== 'loaded' || !layers.some((l) => l.visible)) return;
+    const prev = g.globalCompositeOperation;
+    g.globalCompositeOperation = blend === 'additive' ? 'lighter' : blend === 'screen' ? 'screen' : blend === 'multiply' ? 'multiply' : 'source-over';
+    for (const p of points) {
+      if (p.val < filterMin) continue;
+      const xy = proj([p.lon, p.lat]); if (!xy) continue;
+      g.beginPath(); g.fillStyle = p.color; g.globalAlpha = 0.75;
+      g.arc(xy[0], xy[1], 2.2 + (p.val / 100) * 2.5, 0, 7); g.fill();
+    }
+    g.globalAlpha = 1; g.globalCompositeOperation = prev;
+  }});
+  M.k = 1.4; M.x = 0; M.y = 20;
+
+  const filterSl = slider('Value ≥', 0, 100, 0, 1, (v) => { filterMin = v; syncStatus(); }, (v) => String(v));
+  const blendSel = select(BLENDS.map((b) => [b, 'Blend: ' + b]), 'normal', (v) => { blend = v; syncStatus(); });
+  Object.assign(blendSel.style, { background: '#0f141d', color: '#e8eaed', border: '1px solid #ffffff22', width: '100%' });
+
+  const tabs = h('div.k-row', { style: { gap: 0, borderBottom: '1px solid #ffffff14', padding: '0 4px' } });
+  const setTab = (t) => {
+    tab = t;
+    tabs.querySelectorAll('button').forEach((b) => {
+      const on = b.dataset.t === t;
+      b.style.borderBottom = on ? '2px solid #6b8cff' : '2px solid transparent';
+      b.style.color = on ? '#fff' : '#889';
+    });
+    bodyLayers.style.display = t === 'Layers' ? 'grid' : 'none';
+    bodyFilters.style.display = t === 'Filters' ? 'grid' : 'none';
+    bodyBase.style.display = t === 'Base map' ? 'grid' : 'none';
+  };
+  ['Layers', 'Filters', 'Interactions', 'Base map'].forEach((t) => tabs.append(h('button', { 'data-t': t, style: { flex: 1, background: 'none', border: 0, borderBottom: '2px solid transparent', color: '#889', padding: '10px 4px', fontSize: '11px', fontWeight: 700, cursor: 'pointer' }, onclick: () => setTab(t) }, t)));
+
+  const bodyLayers = h('div', { style: { display: 'grid', gap: '8px', paddingTop: '8px' } },
+    statusEl, layerList, countEl,
+    h('div.k-row', { style: { padding: '0 10px 12px', gap: '8px' } },
+      btn('＋ Add Layer', () => {
+        if (state !== 'loaded') { modal.style.display = 'grid'; return; }
+        layers.push({ id: lid++, name: 'Layer ' + lid, type: pick(['point', 'heatmap', 'hex']), visible: true, color: pick(['#6b8cff', '#f7b500', '#ff6b6b', '#7ee787']) });
+        renderLayers(); syncStatus();
+      }, 'pri'),
+      btn('Add Data', () => { modal.style.display = 'grid'; })));
+  Object.assign(bodyLayers.querySelector('.k-btn.pri')?.style || {}, {});
+
+  const bodyFilters = h('div', { style: { display: 'none', gap: '12px', padding: '14px 12px' } },
+    h('div', { style: { fontSize: '12px', opacity: .7 } }, 'Filter points by numeric field'),
+    filterSl,
+    h('div', { style: { fontSize: '11px', opacity: .5 } }, 'Live-filters map markers as you drag'));
+  const bodyBase = h('div', { style: { display: 'none', gap: '12px', padding: '14px 12px' } },
+    h('div', { style: { fontSize: '12px', opacity: .7 } }, 'Layer blending'),
+    blendSel,
+    h('div', { style: { fontSize: '11px', opacity: .5 } }, 'Base map: dark matter (demo)'));
+
+  const dock = h('div', { style: { position: 'absolute', left: '12px', top: '12px', bottom: '12px', width: '300px', background: '#1c2330d9', backdropFilter: 'blur(14px)', border: '1px solid #ffffff1a', borderRadius: '12px', zIndex: 5, display: 'grid', gridTemplateRows: 'auto auto 1fr', overflow: 'hidden', boxShadow: '0 12px 40px #0008' } },
+    h('div.k-row', { style: { padding: '12px 14px', gap: '8px', borderBottom: '1px solid #ffffff12' } },
+      h('b', { style: { fontSize: '14px', letterSpacing: '.02em' } }, 'kepler.gl'),
+      h('span', { style: { flex: 1 } }),
+      h('button', { style: { background: '#6b8cff', color: '#fff', border: 0, borderRadius: '6px', padding: '5px 10px', fontWeight: 700, fontSize: '11px', cursor: 'pointer' }, onclick: () => { modal.style.display = 'grid'; } }, 'Add Data')),
+    tabs,
+    h('div', { style: { overflow: 'auto' } }, bodyLayers, bodyFilters, bodyBase));
+
+  root.append(
+    dock, modal,
+    h('div', { style: { position: 'absolute', right: '14px', top: '14px', zIndex: 4, display: 'grid', gap: '8px' } },
+      h('div', { style: { background: '#1c2330cc', border: '1px solid #ffffff18', borderRadius: '8px', padding: '8px 12px', fontSize: '11px' } }, 'Share · Export'),
+    ),
+    h('div', { style: { position: 'absolute', right: '14px', bottom: '14px', zIndex: 4, fontSize: '11px', opacity: .45 } }, 'Drag to pan · scroll to zoom'),
+  );
+  setTab('Layers');
+  renderLayers(); syncStatus();
+
+  window.__demoProof = async () => {
+    modal.style.display = 'grid'; await sleep(80);
+    loadSample('SF Taxi Trips'); await sleep(520);
+    filterMin = 40; filterSl.set(40); await sleep(80);
+    layers.push({ id: lid++, name: 'Heat overlay', type: 'heatmap', visible: true, color: '#ff6b6b' });
+    renderLayers();
+    // reorder
+    if (layers.length > 1) { const t = layers[0]; layers[0] = layers[1]; layers[1] = t; renderLayers(); }
+    blend = 'additive'; blendSel.value = 'additive'; setTab('Filters'); await sleep(60); setTab('Layers');
+    layers[0].visible = false; renderLayers(); await sleep(60); layers[0].visible = true; renderLayers();
+    syncStatus();
+    return `loaded SF sample; filter≥${filterMin}; layers ${layers.length}; blend ${blend}; reorder+visibility exercised`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }

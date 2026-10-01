@@ -326,4 +326,146 @@ V['icones-icon-explorer-desk'] = (root, T) => {
   };
 };
 
+
+V['svgomg-optimize-toggle-desk'] = (root, T) => {
+  theme(root, T, { bg: '#303030', fg: '#f0f0f0', panel: '#303030', ac: '#e91e8c', dark: true });
+  const CATS = [
+    ['Global', ['Remove doctype', 'Remove XML proc. instruction', 'Remove comments', 'Remove metadata', 'Remove title', 'Remove desc']],
+    ['Cleanup', ['Cleanup attrs', 'Cleanup IDs', 'Remove unused NS', 'Convert colors', 'Remove empty attrs', 'Remove empty containers']],
+    ['Shapes', ['Convert shape to path', 'Merge paths', 'Convert path data', 'Remove hidden elems', 'Round/rewrite numbers', 'Sort attrs']],
+  ];
+  const ALL = CATS.flatMap(([, opts]) => opts);
+  const on = new Set(ALL.filter((_, i) => i % 3 !== 2));
+  let prec = 3;
+  let checker = true;
+  let view = 'Image'; // Image | Markup
+  const SAMPLE = `<?xml version="1.0"?>
+<!-- demo icon -->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <metadata>svgomg-demo</metadata>
+  <circle cx="100.000" cy="100.000" r="78.500" fill="#E91E8C"/>
+  <path d="M 62.25 118.00 Q 100.00 48.00 137.75 118.00" stroke="#FFFFFF" stroke-width="12.000" fill="none" stroke-linecap="round"/>
+  <circle cx="78.000" cy="82.000" r="9.000" fill="#FFFFFF"/>
+  <circle cx="122.000" cy="82.000" r="9.000" fill="#FFFFFF"/>
+  <g id="unused-group"><rect x="0" y="0" width="0" height="0" fill="#000000"/></g>
+</svg>`;
+  let raw = SAMPLE;
+  const optimize = (src) => {
+    let out = src;
+    if (on.has('Remove comments')) out = out.replace(/<!--[\s\S]*?-->/g, '');
+    if (on.has('Remove doctype')) out = out.replace(/<!DOCTYPE[\s\S]*?>/gi, '');
+    if (on.has('Remove XML proc. instruction')) out = out.replace(/<\?xml[\s\S]*?\?>/gi, '');
+    if (on.has('Remove metadata')) out = out.replace(/<metadata[\s\S]*?<\/metadata>/gi, '');
+    if (on.has('Remove title')) out = out.replace(/<title[\s\S]*?<\/title>/gi, '');
+    if (on.has('Remove desc')) out = out.replace(/<desc[\s\S]*?<\/desc>/gi, '');
+    if (on.has('Remove empty containers')) out = out.replace(/<g[^>]*>\s*<\/g>/gi, '').replace(/<g[^>]*>\s*<rect[^>]*width="0"[^>]*\/?>\s*<\/g>/gi, '');
+    if (on.has('Remove hidden elems')) out = out.replace(/<rect[^>]*width="0"[^>]*\/?>/gi, '');
+    if (on.has('Convert colors')) out = out.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3').replace(/#FFFFFF/gi, '#fff').replace(/#000000/gi, '#000');
+    if (on.has('Round/rewrite numbers')) {
+      const p = prec;
+      out = out.replace(/-?\d+\.\d+/g, (n) => {
+        const v = (+n).toFixed(p); return v.replace(/\.?0+$/, '') || '0';
+      });
+    }
+    if (on.has('Cleanup attrs')) out = out.replace(/\s{2,}/g, ' ').replace(/\s+>/g, '>');
+    if (on.has('Cleanup IDs')) out = out.replace(/\s+id="[^"]*"/g, '');
+    if (on.has('Sort attrs')) out = out; // stub visual
+    if (on.has('Merge paths')) out = out; // stub
+    if (on.has('Convert shape to path')) out = out;
+    if (on.has('Convert path data')) out = out;
+    if (on.has('Remove unused NS')) out = out;
+    if (on.has('Remove empty attrs')) out = out.replace(/\s+\w+=""/g, '');
+    return out.trim();
+  };
+  let opt = optimize(raw);
+  const bytes = (s) => new TextEncoder().encode(s).length;
+  const preview = h('div', { style: { width: '100%', height: '100%', display: 'grid', placeItems: 'center' } });
+  const markup = h('pre', { style: { display: 'none', margin: 0, padding: '16px', font: '12px/1.5 ui-monospace,monospace', color: '#e8e8e8', whiteSpace: 'pre-wrap', wordBreak: 'break-all', overflow: 'auto', height: '100%', boxSizing: 'border-box' } });
+  const stage = h('div', { style: { position: 'absolute', left: '280px', right: 0, top: '48px', bottom: '56px' } }, preview, markup);
+  const drop = h('div', { style: { display: 'none', position: 'absolute', inset: 0, background: '#000a', placeItems: 'center', zIndex: 8, color: '#fff', fontSize: '18px', fontWeight: 700 } }, 'Drop SVG here');
+  const stat = h('div', { style: { position: 'absolute', right: '16px', bottom: '64px', background: '#fff', color: '#222', padding: '10px 14px', borderRadius: '8px', fontFamily: 'ui-monospace,monospace', fontSize: '12px', boxShadow: '0 8px 28px #0005', zIndex: 6, minWidth: '140px' } });
+  const sync = () => {
+    opt = optimize(raw);
+    const o = bytes(raw), n = bytes(opt);
+    const pct = o ? Math.round((1 - n / o) * 100) : 0;
+    stat.replaceChildren(
+      h('div', {}, h('span', { style: { opacity: .55 } }, 'Original '), h('b', {}, o + ' B')),
+      h('div', {}, h('span', { style: { opacity: .55 } }, 'Optimized '), h('b', { style: { color: '#00897b' } }, n + ' B')),
+      h('div', { style: { fontSize: '22px', fontWeight: 800, color: pct > 0 ? '#00897b' : '#666' } }, (pct > 0 ? '−' : '') + pct + '%'));
+    markup.textContent = opt;
+    preview.style.background = checker
+      ? 'repeating-conic-gradient(#cfcfcf 0 25%, #f3f3f3 0 50%) 0 0 / 20px 20px'
+      : '#2a2a2a';
+    try {
+      const doc = new DOMParser().parseFromString(opt, 'image/svg+xml');
+      const svgEl = doc.documentElement;
+      if (svgEl && svgEl.nodeName === 'svg') {
+        svgEl.setAttribute('width', '360'); svgEl.setAttribute('height', '360');
+        preview.replaceChildren(document.importNode(svgEl, true));
+      } else preview.textContent = 'Invalid SVG';
+    } catch { preview.textContent = 'Parse error'; }
+    preview.style.display = view === 'Image' ? 'grid' : 'none';
+    markup.style.display = view === 'Markup' ? 'block' : 'none';
+    drawer.querySelectorAll('input[type=checkbox]').forEach((c) => { c.checked = on.has(c.dataset.n); });
+  };
+  const mkSwitch = (n) => {
+    const lab = h('label', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', padding: '7px 4px', fontSize: '12.5px', cursor: 'pointer', borderBottom: '1px solid #ffffff10' } },
+      h('span', {}, n),
+      h('input', { type: 'checkbox', 'data-n': n, checked: on.has(n), style: { accentColor: '#e91e8c', width: '18px', height: '18px' }, onchange: (e) => { e.target.checked ? on.add(n) : on.delete(n); sync(); } }));
+    return lab;
+  };
+  const drawer = h('div', { style: { position: 'absolute', left: 0, top: '48px', bottom: 0, width: '280px', background: '#303030', borderRight: '1px solid #ffffff14', overflow: 'auto', padding: '10px 12px 24px', display: 'grid', gap: '4px', alignContent: 'start', zIndex: 5 } },
+    h('b', { style: { fontSize: '11px', letterSpacing: '.08em', opacity: .55, margin: '4px 0' } }, 'GLOBAL SETTINGS'),
+    slider('Precision', 0, 8, prec, 1, (v) => { prec = v; sync(); }),
+    ...CATS.flatMap(([cat, opts]) => [h('b', { style: { fontSize: '11px', letterSpacing: '.08em', opacity: .55, margin: '12px 0 4px' } }, cat.toUpperCase()), ...opts.map(mkSwitch)]));
+
+  const loadSample = () => { raw = SAMPLE; sync(); toast('Sample SVG loaded'); };
+  const onFile = (file) => {
+    if (!file) return;
+    const r = new FileReader();
+    r.onload = () => { raw = String(r.result || ''); sync(); toast('SVG loaded'); };
+    r.readAsText(file);
+  };
+
+  root.append(
+    h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, top: 0, height: '48px', background: '#e91e8c', color: '#fff', padding: '0 14px', zIndex: 6, gap: '14px' } },
+      h('b', { style: { fontSize: '16px' } }, 'SVGOMG'),
+      h('span', { style: { fontSize: '11px', opacity: .85 } }, 'SVGO Magical GUI'),
+      h('span', { style: { flex: 1 } }),
+      btn('Open SVG', () => fileInp.click()),
+      btn('Paste markup', () => { const t = prompt('Paste SVG markup', raw.slice(0, 200)); if (t != null && t.trim()) { raw = t; sync(); } }),
+      btn('Demo', loadSample, 'pri')),
+    drawer, stage, drop, stat,
+    h('div.k-row', { style: { position: 'absolute', left: '280px', right: 0, bottom: 0, height: '56px', background: '#252525', borderTop: '1px solid #ffffff14', padding: '0 16px', zIndex: 6, gap: '12px' } },
+      seg([['Image', 'Image'], ['Markup', 'Markup']], 'Image', (v) => { view = v; sync(); }),
+      toggle('Checkerboard', true, (v) => { checker = v; sync(); }),
+      h('span', { style: { flex: 1 } }),
+      btn('Copy markup', () => copy(opt, 'Optimized SVG copied'), 'pri'),
+      btn('Download', () => dl('optimized.svg', opt))),
+  );
+  // style primary header buttons
+  root.querySelectorAll('.k-btn').forEach((b) => {
+    if (b.textContent === 'Demo') { b.style.background = '#fff'; b.style.color = '#e91e8c'; }
+    else if (b.closest('[style*="e91e8c"]')) { b.style.background = '#ffffff22'; b.style.borderColor = 'transparent'; b.style.color = '#fff'; }
+  });
+  const fileInp = h('input', { type: 'file', accept: '.svg,image/svg+xml', style: { display: 'none' }, onchange: (e) => onFile(e.target.files?.[0]) });
+  root.append(fileInp);
+  // drag-drop on stage
+  stage.addEventListener('dragover', (e) => { e.preventDefault(); drop.style.display = 'grid'; });
+  stage.addEventListener('dragleave', () => { drop.style.display = 'none'; });
+  stage.addEventListener('drop', (e) => { e.preventDefault(); drop.style.display = 'none'; onFile(e.dataTransfer?.files?.[0]); });
+  sync();
+  window.__demoProof = async () => {
+    loadSample(); await sleep(60);
+    on.add('Round/rewrite numbers'); on.add('Convert colors'); on.add('Remove comments');
+    prec = 1; drawer.querySelector('input[type=range]').value = 1;
+    sync(); await sleep(80);
+    view = 'Markup'; sync(); await sleep(60);
+    view = 'Image'; checker = false; sync(); await sleep(40);
+    checker = true; sync();
+    copy(opt);
+    return `toggles ${on.size}; precision ${prec}; bytes ${bytes(raw)}→${bytes(opt)}; markup+checker exercised`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-kepler-gl-geospatial-layer-desk",
+  "slug": "kepler-gl-geospatial-layer-desk",
+  "name": "Kepler.gl geospatial layer desk",
+  "date": "2026-10-01",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://kepler.gl/demo",
+  "domain": "kepler.gl",
+  "product": "Kepler",
+  "checkpoints": [
+   "풀뷰포트 다크 맵 셸 + 좌측 글래스 패널 프레임",
+   "“Add Data / Try sample data” 모달과 샘플 로드 후 포인트 렌더",
+   "Layer 카드(이름, 가시성 토글, 타입 뱃지) 추가/제거",
+   "필터 슬라이더 ↔ 맵 포인트 필터링 실시간 연동",
+   "레이어 리스트 드래그 리오더(또는 위/아래 버튼) + 블렌딩 셀렉트",
+   "빈 상태 / 로딩 / 데이터 있음 상태 카피·스페이싱 정리"
+  ],
+  "checkpoint_source": "briefing:2026-10-01-16.md",
+  "prompt": "Build a Kepler.gl-inspired geospatial layer desk (React + MapLibre or Leaflet).\n  Dark full-viewport map, left glass dock with tabs: Layers / Filters / Base map.\n  Include: (1) Add Data modal with 2–3 built-in sample GeoJSON sets, (2) layer cards\n  with visibility toggle and type badge, (3) one range filter that live-filters points\n  on the map, (4) layer reorder + blend mode select. No backend. Aesthetic: dense\n  cartography UI, muted neutrals, thin borders, compact controls. Scope 60–90 min."
+ },
+ {
+  "id": "clone-svgomg-optimize-toggle-desk",
+  "slug": "svgomg-optimize-toggle-desk",
+  "name": "SVGOMG optimize toggle desk",
+  "date": "2026-10-01",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://svgomg.net/",
+  "domain": "svgomg.net",
+  "product": "Svgomg",
+  "checkpoints": [
+   "드롭존 + 샘플 SVG 로드 버튼으로 프리뷰가 뜨는 셸",
+   "스크롤 가능한 토글 리스트(라벨 + 스위치), 카테고리 헤더",
+   "토글 변경 시 프리뷰 즉시 갱신",
+   "Original / Optimized 바이트(및 절감 %) 배지",
+   "Markup 패널 + Copy to clipboard",
+   "다크/라이트 또는 체커보드 프리뷰 배경 토글"
+  ],
+  "checkpoint_source": "briefing:2026-10-01-16.md",
+  "prompt": "Clone an SVGOMG-style optimize desk. Layout: scrollable sidebar of labeled toggles\n  (at least 12 fake or real SVGO-like options), main stage with live SVG preview on\n  checkerboard, and a markup panel. Features: drag-drop SVG upload, sample icon,\n  original vs optimized byte sizes, Copy SVG button. Toggles must immediately\n  re-run a small client-side optimize pipeline (strip comments, round numbers,\n  minify colors — stub the rest). Strong craft: dense toggle wall, vivid accent\n  switches, monospace markup. 45–75 min."
+ },
+ {
+  "id": "clone-pixelartcss-boxshadow-desk",
+  "slug": "pixelartcss-boxshadow-desk",
+  "name": "Pixel Art to CSS box-shadow desk",
+  "date": "2026-10-01",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.pixelartcss.com/",
+  "domain": "pixelartcss.com",
+  "product": "Pixelartcss",
+  "checkpoints": [
+   "N×N 그리드 캔버스 + 셀 클릭/드래그 페인팅",
+   "팔레트 스와치 + 현재색 + eraser",
+   "Undo/Redo 스택",
+   "실시간 CSS `box-shadow` 미리보기(또는 별도 preview div)",
+   "Copy CSS / Download PNG",
+   "(보너스) 2+ 프레임 타임라인 + Play 루프"
+  ],
+  "checkpoint_source": "briefing:2026-10-01-16.md",
+  "prompt": "Build a Pixel Art to CSS clone: 16×16 (switchable 32×32) grid editor, color\n  palette swatches, pencil/eraser, undo/redo. Live-generate a single-element CSS\n  preview using box-shadow for every non-transparent pixel. Panels: canvas,\n  palette, export (Copy CSS, Download PNG). Optional: 2–4 frame animation with\n  playhead and CSS keyframes export. Aesthetic: playful retro workbench, chunky\n  pixels, clear code panel. No accounts. 60–90 min."
+ },
+ {
   "id": "clone-alphazet-3d-type-specimen-desk",
   "slug": "alphazet-3d-type-specimen-desk",
   "name": "Alphazet 3D type specimen + voice playground",

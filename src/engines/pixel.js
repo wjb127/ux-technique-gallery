@@ -168,4 +168,180 @@ V['image-weave-loom-desk'] = (root, T) => {
   draw();
   window.__demoProof = async () => { P.weave = 'twill'; P.threads = 90; draw(); return 'twill 90 threads woven from image'; };
 };
+
+V['pixelartcss-boxshadow-desk'] = (root, T) => {
+  theme(root, T, { bg: '#1a1a2e', fg: '#f2f2f7', panel: '#16213e', ac: '#e94560', dark: true });
+  const PAL = ['#000000', '#ffffff', '#e94560', '#0f3460', '#16c79a', '#f9c74f', '#577590', '#f9844a', '#90be6d', '#277da1', '#f94144', '#8338ec'];
+  let N = 16;
+  let tool = 'pen'; // pen | erase
+  let color = '#e94560';
+  let playing = false;
+  let playTimer = null;
+  let playIdx = 0;
+  const empty = () => new Array(N * N).fill(null);
+  let frames = [empty()];
+  let cur = 0;
+  const undoStack = [];
+  const redoStack = [];
+  const snap = () => frames[cur].slice();
+  const pushUndo = () => { undoStack.push(snap()); if (undoStack.length > 80) undoStack.shift(); redoStack.length = 0; };
+
+  const cell = 22;
+  const cv = h('canvas', { width: N * cell, height: N * cell, style: { imageRendering: 'pixelated', cursor: 'crosshair', touchAction: 'none', border: '3px solid #0f3460', boxShadow: '0 12px 40px #0006', background: '#111' } });
+  const g = cv.getContext('2d');
+  const cssPrev = h('div', { style: { position: 'relative', width: '120px', height: '120px', margin: '0 auto', background: 'repeating-conic-gradient(#333 0 25%, #222 0 50%) 0 0/12px 12px', border: '1px solid #ffffff22', borderRadius: '8px' } });
+  const cssBox = h('div', { style: { position: 'absolute', left: '50%', top: '50%', width: '1px', height: '1px', transformOrigin: '0 0' } });
+  cssPrev.append(cssBox);
+  const code = h('pre.k-code', { style: { maxHeight: '180px', fontSize: '11px' } });
+  const frameBar = h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } });
+  const sizeLab = h('b', {}, '16×16');
+
+  const toCSS = (data) => {
+    const parts = [];
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+      const c = data[y * N + x]; if (!c) continue;
+      parts.push(`${x}px ${y}px 0 0 ${c}`);
+    }
+    return parts.length ? parts.join(',\n  ') : 'none';
+  };
+  const render = () => {
+    const data = frames[cur];
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+      const c = data[y * N + x];
+      g.fillStyle = c || (((x + y) % 2) ? '#2a2a40' : '#222238');
+      g.fillRect(x * cell, y * cell, cell, cell);
+    }
+    g.strokeStyle = '#ffffff10'; g.beginPath();
+    for (let i = 0; i <= N; i++) { g.moveTo(i * cell + 0.5, 0); g.lineTo(i * cell + 0.5, N * cell); g.moveTo(0, i * cell + 0.5); g.lineTo(N * cell, i * cell + 0.5); }
+    g.stroke();
+    const shadow = toCSS(data);
+    const scale = Math.max(2, Math.floor(90 / N));
+    cssBox.style.boxShadow = shadow;
+    cssBox.style.background = 'transparent';
+    cssBox.style.transform = `scale(${scale}) translate(-0.5px,-0.5px)`;
+    code.textContent = `.pixel {\n  width: 1px;\n  height: 1px;\n  box-shadow:\n  ${shadow};\n}`;
+    frameBar.replaceChildren(
+      ...frames.map((f, i) => {
+        const t = h('canvas', { width: N, height: N, style: { width: '40px', height: '40px', imageRendering: 'pixelated', border: i === cur ? '2px solid #e94560' : '2px solid #ffffff22', cursor: 'pointer', background: '#111' }, onclick: () => { cur = i; render(); } });
+        const tg = t.getContext('2d');
+        f.forEach((c, j) => { if (c) { tg.fillStyle = c; tg.fillRect(j % N, Math.floor(j / N), 1, 1); } });
+        return t;
+      }),
+      h('button', { style: { width: '40px', height: '40px', background: '#ffffff10', border: '2px dashed #ffffff33', color: '#ccc', cursor: 'pointer' }, onclick: () => { frames.push(frames[cur].slice()); cur = frames.length - 1; render(); } }, '+'));
+  };
+
+  const paintAt = (e) => {
+    const p = localPos(e, cv); const r = cv.getBoundingClientRect();
+    const x = Math.floor((p.x / r.width) * N), y = Math.floor((p.y / r.height) * N);
+    if (x < 0 || y < 0 || x >= N || y >= N) return;
+    const i = y * N + x;
+    const next = tool === 'erase' ? null : color;
+    if (frames[cur][i] !== next) { frames[cur][i] = next; render(); }
+  };
+  let painting = false;
+  drag(cv, {
+    start: (e) => { pushUndo(); painting = true; paintAt(e); },
+    move: (e) => { if (painting) paintAt(e); },
+    end: () => { painting = false; },
+  });
+
+  const setSize = (n) => {
+    pushUndo();
+    N = n; sizeLab.textContent = `${n}×${n}`;
+    frames = frames.map((f) => {
+      const nf = empty();
+      const old = Math.sqrt(f.length) | 0;
+      for (let y = 0; y < Math.min(old, N); y++) for (let x = 0; x < Math.min(old, N); x++) nf[y * N + x] = f[y * old + x];
+      return nf;
+    });
+    cv.width = N * cell; cv.height = N * cell;
+    undoStack.length = 0; redoStack.length = 0;
+    render();
+  };
+
+  const undo = () => {
+    if (!undoStack.length) return;
+    redoStack.push(snap());
+    frames[cur] = undoStack.pop();
+    render();
+  };
+  const redo = () => {
+    if (!redoStack.length) return;
+    undoStack.push(snap());
+    frames[cur] = redoStack.pop();
+    render();
+  };
+
+  const dlPng = () => {
+    const c = document.createElement('canvas'); c.width = N; c.height = N;
+    const cg = c.getContext('2d');
+    frames[cur].forEach((col, i) => { if (col) { cg.fillStyle = col; cg.fillRect(i % N, Math.floor(i / N), 1, 1); } });
+    const a = h('a', { download: 'pixel.png', href: c.toDataURL('image/png') }); a.click();
+    toast('pixel.png downloaded');
+  };
+
+  const play = () => {
+    playing = !playing;
+    playBtn.textContent = playing ? '❚❚ Stop' : '▶ Play';
+    if (playTimer) { clearInterval(playTimer); playTimer = null; }
+    if (!playing) return;
+    playTimer = setInterval(() => {
+      playIdx = (playIdx + 1) % frames.length;
+      cur = playIdx; render();
+    }, 220);
+  };
+  const playBtn = btn('▶ Play', play);
+
+  const swatches = h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+    ...PAL.map((c) => h('div.k-sw', { style: { background: c, outline: c === color ? '2px solid #fff' : '' }, onclick: (e) => {
+      color = c; tool = 'pen';
+      swatches.querySelectorAll('.k-sw').forEach((d) => (d.style.outline = ''));
+      e.currentTarget.style.outline = '2px solid #fff';
+      toolSeg.buttons[0].click();
+    } })),
+    h('input', { type: 'color', value: color, style: { width: '32px', height: '32px', border: 0, background: 'none', cursor: 'pointer' }, oninput: (e) => { color = e.target.value; tool = 'pen'; } }));
+
+  const toolSeg = seg([['pen', 'Pencil'], ['erase', 'Eraser']], 'pen', (v) => (tool = v));
+
+  root.style.overflow = 'auto';
+  root.append(
+    h('div.k-row', { style: { height: '52px', padding: '0 18px', background: '#0f3460', gap: '12px', borderBottom: '2px solid #e94560' } },
+      h('b', { style: { fontSize: '16px', letterSpacing: '.02em' } }, 'Pixel Art to CSS'),
+      h('span', { style: { opacity: .65, fontSize: '12px' } }, 'box-shadow workbench'),
+      h('span', { style: { flex: 1 } }),
+      sizeLab,
+      seg([['16', '16×16'], ['32', '32×32']], '16', (v) => setSize(+v))),
+    h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 320px', gap: '20px', padding: '20px 24px 40px', maxWidth: '1100px', margin: '0 auto' } },
+      h('div', { style: { display: 'grid', gap: '14px', justifyItems: 'center' } },
+        h('div.k-row', { style: { gap: '10px', width: '100%', justifyContent: 'center' } }, toolSeg, btn('Undo', undo), btn('Redo', redo), btn('Clear', () => { pushUndo(); frames[cur] = empty(); render(); })),
+        cv,
+        h('div', { style: { width: '100%' } }, h('div.k-h', {}, 'Timeline'), h('div.k-row', { style: { gap: '10px', marginTop: '8px' } }, frameBar, playBtn))),
+      h('div', { style: { display: 'grid', gap: '12px', alignContent: 'start' } },
+        panel('Palette', swatches),
+        panel('CSS Preview', cssPrev),
+        panel('Export', code,
+          h('div.k-row', {}, btn('Copy CSS', () => copy(code.textContent, 'CSS copied'), 'pri'), btn('Download PNG', dlPng))))),
+  );
+  // seed a small heart so preview isn't empty
+  const HEART = [[3,1],[4,1],[7,1],[8,1],[2,2],[3,2],[4,2],[5,2],[6,2],[7,2],[8,2],[9,2],[2,3],[3,3],[4,3],[5,3],[6,3],[7,3],[8,3],[9,3],[3,4],[4,4],[5,4],[6,4],[7,4],[8,4],[4,5],[5,5],[6,5],[7,5],[5,6],[6,6]];
+  HEART.forEach(([x, y]) => { frames[0][y * N + x] = '#e94560'; });
+  frames[0][3 * N + 4] = '#ffffff';
+  render();
+
+  window.__demoProof = async () => {
+    pushUndo();
+    // paint a few cells
+    frames[cur][1 * N + 1] = '#16c79a'; frames[cur][1 * N + 2] = '#16c79a';
+    render(); await sleep(40);
+    undo(); await sleep(40); redo();
+    frames.push(frames[cur].map((c, i) => (c === '#e94560' && i % 5 === 0 ? '#f9c74f' : c)));
+    cur = 1; render();
+    setSize(32); await sleep(40); setSize(16);
+    tool = 'erase'; frames[cur][2 * N + 2] = null; render(); tool = 'pen';
+    playing = false; play(); await sleep(500); play();
+    copy(code.textContent);
+    return `grid ${N}; frames ${frames.length}; undo/redo; copy CSS; play loop exercised`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pixel-sprite-editor-workspace'])(root, T); }

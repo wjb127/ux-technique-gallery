@@ -85,7 +85,8 @@
   "personas-svg-avatar-composer",
   "avatar-part-composer",
   "social-meta-preview-studio",
-  "icones-icon-explorer-desk"
+  "icones-icon-explorer-desk",
+  "svgomg-optimize-toggle-desk"
  ],
  "imagefx": [
   "duotone-photo-studio",
@@ -126,7 +127,8 @@
   "isometric-island-hotbar-builder",
   "keycap-layout-canvas",
   "hardware-keymap-layer-configurator",
-  "image-weave-loom-desk"
+  "image-weave-loom-desk",
+  "pixelartcss-boxshadow-desk"
  ],
  "sim": [
   "falling-sand-particle-sandbox",
@@ -175,7 +177,8 @@
   "map-explore-side-panel",
   "gis-simplify-slider-workspace",
   "windy-weather-map-desk",
-  "ancient-earth-deep-time-globe"
+  "ancient-earth-deep-time-globe",
+  "kepler-gl-geospatial-layer-desk"
  ],
  "chart": [
   "bubble-chart-time-scrubber",
