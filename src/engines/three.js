@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { h, drag, clamp, toast, sleep, noise2 } from '../lib.js';
+import { h, drag, clamp, toast, sleep, noise2, fitCanvas } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
 function stage(el, { bg = null, ortho = false, alpha = false } = {}) {
@@ -839,6 +839,379 @@ V['spline-browser-3d-craft-desk'] = (root, T) => {
     objs.forEach(applyState);
     renderInsp();
     return `tree+add (${before.n}→${objs.length}); material live; hover state; orbit ready`;
+  };
+};
+
+V['floorsjs-isometric-room-desk'] = (root, T) => {
+  theme(root, T, { bg: '#09090b', fg: '#f0f0f0', panel: '#141418', ac: '#7c5cff', dark: true, line: '#2a2a32' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, Inter Variable, sans-serif';
+
+  const style = {
+    back: '#c4b5a0', left: '#a89880', floorDark: '#8a7355', floorLight: '#b8a07a', trim: '#5a4634',
+    pattern: 'Checkerboard', window: 'Cross', showTrim: true, showDoors: true,
+  };
+  const WALLS = ['#c4b5a0', '#e8dcc8', '#8fa8b8', '#b87a7a', '#6a8a6a', '#d4c4a8', '#9a8ab0', '#f0e6d8'];
+  const FLOORS = ['#8a7355', '#b8a07a', '#5a5048', '#c8b898', '#6b4a2e', '#a07850', '#444444', '#ddd0c0'];
+  const TRIMS = ['#5a4634', '#2a2a2a', '#f5f0e8', '#8a6a4a', '#3a5068', '#ffffff'];
+
+  const FURN = [
+    { id: 'bed', label: 'Bed', w: 2.2, d: 1.4, color: '#5b6a8a' },
+    { id: 'desk', label: 'Desk', w: 1.6, d: 0.8, color: '#6b4a2e' },
+    { id: 'chair', label: 'Chair', w: 0.7, d: 0.7, color: '#3a3a3a' },
+    { id: 'plant', label: 'Plant', w: 0.55, d: 0.55, color: '#2d6a3a' },
+    { id: 'lamp', label: 'Lamp', w: 0.45, d: 0.45, color: '#ffcc77' },
+    { id: 'shelf', label: 'Shelf', w: 1.4, d: 0.4, color: '#8a6a4a' },
+    { id: 'sofa', label: 'Sofa', w: 2.0, d: 0.9, color: '#7a4a5a' },
+    { id: 'rug', label: 'Rug', w: 1.8, d: 1.2, color: '#c45a4a' },
+  ];
+  let items = [
+    { uid: 1, kind: 'bed', ix: 1.2, iy: 1.0 },
+    { uid: 2, kind: 'desk', ix: 3.2, iy: 2.4 },
+    { uid: 3, kind: 'plant', ix: 4.2, iy: 0.8 },
+  ];
+  let nextUid = 10;
+  let selected = null;
+  let dragState = null; // {uid|paletteKind, ox, oy}
+
+  const stage = h('div', {
+    style: {
+      position: 'absolute', left: 0, top: 0, right: '280px', bottom: 0,
+      background: 'radial-gradient(ellipse at 50% 40%, #1a1a22 0%, #09090b 70%)',
+    },
+  });
+  const cv = h('canvas', { style: { width: '100%', height: '100%', display: 'block', touchAction: 'none', cursor: 'default' } });
+  stage.append(cv);
+
+  const iso = (ix, iy, iz = 0) => {
+    const s = 42;
+    return { x: (ix - iy) * s * 0.866, y: (ix + iy) * s * 0.5 - iz * s };
+  };
+
+  const drawRoom = (g, ox, oy) => {
+    const ROOM = 5;
+    // floor diamond
+    const corners = [[0, 0], [ROOM, 0], [ROOM, ROOM], [0, ROOM]].map(([a, b]) => iso(a, b));
+    g.save();
+    g.translate(ox, oy);
+    // back wall (top of diamond view — wall along iy=0)
+    const bw = [iso(0, 0, 0), iso(ROOM, 0, 0), iso(ROOM, 0, 2.4), iso(0, 0, 2.4)];
+    g.beginPath();
+    g.moveTo(bw[0].x, bw[0].y); bw.slice(1).forEach((p) => g.lineTo(p.x, p.y));
+    g.closePath();
+    g.fillStyle = style.back;
+    g.fill();
+    // left wall (ix=0)
+    const lw = [iso(0, 0, 0), iso(0, ROOM, 0), iso(0, ROOM, 2.4), iso(0, 0, 2.4)];
+    g.beginPath();
+    g.moveTo(lw[0].x, lw[0].y); lw.slice(1).forEach((p) => g.lineTo(p.x, p.y));
+    g.closePath();
+    g.fillStyle = style.left;
+    g.fill();
+
+    // floor with pattern
+    const cells = 8;
+    for (let i = 0; i < cells; i++) {
+      for (let j = 0; j < cells; j++) {
+        const a = i / cells * ROOM, b = j / cells * ROOM;
+        const s = ROOM / cells;
+        const p0 = iso(a, b), p1 = iso(a + s, b), p2 = iso(a + s, b + s), p3 = iso(a, b + s);
+        let col = style.floorLight;
+        if (style.pattern === 'Checkerboard') col = (i + j) % 2 ? style.floorDark : style.floorLight;
+        else if (style.pattern === 'Solid') col = style.floorLight;
+        else if (style.pattern === 'Striped') col = i % 2 ? style.floorDark : style.floorLight;
+        else if (style.pattern === 'Diagonal') col = ((i + j * 2) % 3 === 0) ? style.floorDark : style.floorLight;
+        g.beginPath();
+        g.moveTo(p0.x, p0.y); g.lineTo(p1.x, p1.y); g.lineTo(p2.x, p2.y); g.lineTo(p3.x, p3.y);
+        g.closePath();
+        g.fillStyle = col;
+        g.fill();
+      }
+    }
+
+    // window on back wall
+    if (style.window !== 'None') {
+      const wx = ROOM * 0.35, ww = ROOM * 0.3;
+      const base = 0.9, top = 2.0;
+      const w0 = iso(wx, 0.02, base), w1 = iso(wx + ww, 0.02, base), w2 = iso(wx + ww, 0.02, top), w3 = iso(wx, 0.02, top);
+      g.beginPath();
+      if (style.window === 'Arched') {
+        g.moveTo(w0.x, w0.y); g.lineTo(w1.x, w1.y); g.lineTo(w2.x, w2.y);
+        const mid = iso(wx + ww / 2, 0.02, top + 0.35);
+        g.quadraticCurveTo(mid.x, mid.y, w3.x, w3.y);
+      } else {
+        g.moveTo(w0.x, w0.y); g.lineTo(w1.x, w1.y); g.lineTo(w2.x, w2.y); g.lineTo(w3.x, w3.y);
+      }
+      g.closePath();
+      g.fillStyle = '#7ec8e8aa';
+      g.fill();
+      g.strokeStyle = style.trim;
+      g.lineWidth = 2;
+      g.stroke();
+      if (style.window === 'Cross' || style.window === 'Double') {
+        const mx = iso(wx + ww / 2, 0.02, base), my = iso(wx + ww / 2, 0.02, top);
+        g.beginPath(); g.moveTo(mx.x, mx.y); g.lineTo(my.x, my.y); g.stroke();
+        if (style.window === 'Cross') {
+          const mh = iso(wx, 0.02, (base + top) / 2), mh2 = iso(wx + ww, 0.02, (base + top) / 2);
+          g.beginPath(); g.moveTo(mh.x, mh.y); g.lineTo(mh2.x, mh2.y); g.stroke();
+        }
+      }
+    }
+
+    // trim / doors
+    if (style.showTrim) {
+      g.strokeStyle = style.trim;
+      g.lineWidth = 3;
+      g.beginPath();
+      g.moveTo(iso(0, 0, 0).x, iso(0, 0, 0).y);
+      g.lineTo(iso(ROOM, 0, 0).x, iso(ROOM, 0, 0).y);
+      g.lineTo(iso(ROOM, ROOM, 0).x, iso(ROOM, ROOM, 0).y);
+      g.lineTo(iso(0, ROOM, 0).x, iso(0, ROOM, 0).y);
+      g.closePath();
+      g.stroke();
+    }
+    if (style.showDoors) {
+      const d0 = iso(0.02, ROOM * 0.55, 0), d1 = iso(0.02, ROOM * 0.55 + 1.0, 0), d2 = iso(0.02, ROOM * 0.55 + 1.0, 2.0), d3 = iso(0.02, ROOM * 0.55, 2.0);
+      g.beginPath();
+      g.moveTo(d0.x, d0.y); g.lineTo(d1.x, d1.y); g.lineTo(d2.x, d2.y); g.lineTo(d3.x, d3.y);
+      g.closePath();
+      g.fillStyle = '#5a4030';
+      g.fill();
+      g.strokeStyle = style.trim;
+      g.stroke();
+    }
+
+    // furniture sorted by depth
+    const sorted = [...items].sort((a, b) => (a.ix + a.iy) - (b.ix + b.iy));
+    for (const it of sorted) {
+      const def = FURN.find((f) => f.id === it.kind) || FURN[0];
+      const p = iso(it.ix, it.iy, 0);
+      const hgt = it.kind === 'lamp' ? 1.4 : it.kind === 'shelf' ? 1.6 : it.kind === 'plant' ? 1.1 : 0.7;
+      const top = iso(it.ix, it.iy, hgt);
+      // simple iso box footprint
+      const hw = def.w / 2, hd = def.d / 2;
+      const c = [
+        iso(it.ix - hw, it.iy - hd, 0),
+        iso(it.ix + hw, it.iy - hd, 0),
+        iso(it.ix + hw, it.iy + hd, 0),
+        iso(it.ix - hw, it.iy + hd, 0),
+      ];
+      const ct = c.map((pt, i) => ({ x: pt.x, y: pt.y - (hgt * 42) }));
+      // top
+      g.beginPath();
+      g.moveTo(ct[0].x, ct[0].y); ct.slice(1).forEach((p2) => g.lineTo(p2.x, p2.y));
+      g.closePath();
+      g.fillStyle = def.color;
+      g.fill();
+      // left face
+      g.beginPath();
+      g.moveTo(c[3].x, c[3].y); g.lineTo(c[0].x, c[0].y); g.lineTo(ct[0].x, ct[0].y); g.lineTo(ct[3].x, ct[3].y);
+      g.closePath();
+      g.fillStyle = shade(def.color, -25);
+      g.fill();
+      // right face
+      g.beginPath();
+      g.moveTo(c[0].x, c[0].y); g.lineTo(c[1].x, c[1].y); g.lineTo(ct[1].x, ct[1].y); g.lineTo(ct[0].x, ct[0].y);
+      g.closePath();
+      g.fillStyle = shade(def.color, -12);
+      g.fill();
+      if (selected === it.uid) {
+        g.strokeStyle = '#7c5cff';
+        g.lineWidth = 2;
+        g.beginPath();
+        g.moveTo(ct[0].x, ct[0].y); ct.slice(1).forEach((p2) => g.lineTo(p2.x, p2.y));
+        g.closePath();
+        g.stroke();
+      }
+      // label tiny
+      g.fillStyle = '#ffffffaa';
+      g.font = '10px system-ui';
+      g.textAlign = 'center';
+      g.fillText(def.label, top.x, top.y - 6);
+    }
+    g.restore();
+  };
+
+  const shade = (hex, amt) => {
+    const n = parseInt(hex.slice(1), 16);
+    let r = (n >> 16) + amt, g2 = ((n >> 8) & 255) + amt, b = (n & 255) + amt;
+    r = clamp(r, 0, 255); g2 = clamp(g2, 0, 255); b = clamp(b, 0, 255);
+    return '#' + ((1 << 24) + (r << 16) + (g2 << 8) + b).toString(16).slice(1);
+  };
+
+  const screenToIso = (sx, sy, ox, oy) => {
+    const s = 42;
+    const x = sx - ox, y = sy - oy;
+    const ix = (x / (s * 0.866) + y / (s * 0.5)) / 2;
+    const iy = (y / (s * 0.5) - x / (s * 0.866)) / 2;
+    return { ix: clamp(ix, 0.3, 4.7), iy: clamp(iy, 0.3, 4.7) };
+  };
+
+  const hitItem = (sx, sy, ox, oy) => {
+    const sorted = [...items].sort((a, b) => (b.ix + b.iy) - (a.ix + a.iy));
+    for (const it of sorted) {
+      const def = FURN.find((f) => f.id === it.kind) || FURN[0];
+      const p = iso(it.ix, it.iy, 0.35);
+      const dx = sx - (ox + p.x), dy = sy - (oy + p.y);
+      if (Math.hypot(dx, dy) < 28 + def.w * 8) return it;
+    }
+    return null;
+  };
+
+  const draw = () => {
+    fitCanvas(cv, stage);
+    const g = cv.g, W = cv.W, H = cv.H;
+    g.clearRect(0, 0, W, H);
+    const ox = W * 0.52, oy = H * 0.28;
+    drawRoom(g, ox, oy);
+    g.fillStyle = '#ffffff55';
+    g.font = '11px system-ui';
+    g.textAlign = 'left';
+    g.fillText('tiny-home diorama · drag furniture · delete selected', 16, H - 16);
+  };
+
+  let raf = 0;
+  const loop = () => { draw(); raf = requestAnimationFrame(loop); };
+  raf = requestAnimationFrame(loop);
+
+  cv.addEventListener('pointerdown', (e) => {
+    const rect = cv.getBoundingClientRect();
+    const sx = e.clientX - rect.left, sy = e.clientY - rect.top;
+    fitCanvas(cv, stage);
+    const ox = cv.W * 0.52, oy = cv.H * 0.28;
+    const hit = hitItem(sx, sy, ox, oy);
+    if (hit) {
+      selected = hit.uid;
+      dragState = { uid: hit.uid };
+      cv.setPointerCapture(e.pointerId);
+    } else {
+      selected = null;
+    }
+  });
+  cv.addEventListener('pointermove', (e) => {
+    if (!dragState || dragState.uid == null) return;
+    const rect = cv.getBoundingClientRect();
+    const sx = e.clientX - rect.left, sy = e.clientY - rect.top;
+    const ox = cv.W * 0.52, oy = cv.H * 0.28;
+    const p = screenToIso(sx, sy, ox, oy);
+    const it = items.find((x) => x.uid === dragState.uid);
+    if (it) { it.ix = p.ix; it.iy = p.iy; }
+  });
+  cv.addEventListener('pointerup', () => { dragState = null; });
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.key === 'Delete' || e.key === 'Backspace') && selected != null) {
+      items = items.filter((x) => x.uid !== selected);
+      selected = null;
+    }
+  });
+
+  const chipRow = (colors, onPick, cur) => h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px' } },
+    ...colors.map((c) => h('span', {
+      style: {
+        width: '22px', height: '22px', borderRadius: '5px', background: c, cursor: 'pointer',
+        border: c === cur ? '2px solid #7c5cff' : '1px solid #ffffff33',
+      },
+      onclick: () => onPick(c),
+    })));
+
+  let wallTarget = 'back';
+  const wallSeg = seg([['back', 'Back'], ['left', 'Left']], 'back', (v) => { wallTarget = v; });
+  const patternSeg = seg(
+    [['Checkerboard', 'Checker'], ['Solid', 'Solid'], ['Striped', 'Stripe'], ['Diagonal', 'Diag']],
+    'Checkerboard',
+    (v) => { style.pattern = v; },
+  );
+  const windowSeg = seg(
+    [['Cross', 'Cross'], ['Arched', 'Arch'], ['Double', 'Double'], ['None', 'None']],
+    'Cross',
+    (v) => { style.window = v; },
+  );
+
+  const furnPalette = h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' } },
+    ...FURN.map((f) => h('button', {
+      draggable: true,
+      style: {
+        background: '#1c1c24', border: '1px solid #ffffff18', color: '#eee', borderRadius: '8px',
+        padding: '8px 6px', fontSize: '11px', cursor: 'grab', textAlign: 'left',
+      },
+      ondragstart: (e) => { e.dataTransfer.setData('text/plain', f.id); },
+      onclick: () => {
+        const it = { uid: nextUid++, kind: f.id, ix: 2 + Math.random() * 1.5, iy: 2 + Math.random() * 1.5 };
+        items.push(it);
+        selected = it.uid;
+        toast('placed ' + f.label);
+      },
+    }, h('span', { style: { display: 'inline-block', width: '10px', height: '10px', borderRadius: '2px', background: f.color, marginRight: '6px' } }), f.label)));
+
+  stage.addEventListener('dragover', (e) => e.preventDefault());
+  stage.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const kind = e.dataTransfer.getData('text/plain');
+    if (!kind) return;
+    const rect = cv.getBoundingClientRect();
+    fitCanvas(cv, stage);
+    const ox = cv.W * 0.52, oy = cv.H * 0.28;
+    const p = screenToIso(e.clientX - rect.left, e.clientY - rect.top, ox, oy);
+    const it = { uid: nextUid++, kind, ix: p.ix, iy: p.iy };
+    items.push(it);
+    selected = it.uid;
+  });
+
+  const panelEl = h('div', {
+    style: {
+      position: 'absolute', right: 0, top: 0, bottom: 0, width: '280px',
+      background: '#141418', borderLeft: '1px solid #ffffff12', padding: '14px',
+      display: 'grid', gap: '10px', alignContent: 'start', overflow: 'auto', fontSize: '12px', zIndex: 3,
+    },
+  },
+    h('b', { style: { fontSize: '14px' } }, 'Room Style'),
+    h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.08em' } }, 'WALL'),
+    wallSeg,
+    chipRow(WALLS, (c) => { style[wallTarget] = c; }, style.back),
+    h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.08em' } }, 'FLOOR DARK / LIGHT'),
+    chipRow(FLOORS, (c) => { style.floorDark = c; }, style.floorDark),
+    chipRow(FLOORS, (c) => { style.floorLight = c; }, style.floorLight),
+    h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.08em' } }, 'TRIM'),
+    chipRow(TRIMS, (c) => { style.trim = c; }, style.trim),
+    h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.08em' } }, 'FLOOR PATTERN'),
+    patternSeg,
+    h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.08em' } }, 'WINDOW STYLE'),
+    windowSeg,
+    h('div.k-row', { style: { gap: '8px' } },
+      toggle('Show trim', style.showTrim, (v) => { style.showTrim = v; }),
+      toggle('Show doors', style.showDoors, (v) => { style.showDoors = v; }),
+    ),
+    h('b', { style: { marginTop: '6px' } }, 'Furniture'),
+    furnPalette,
+    h('div.k-row', { style: { gap: '6px' } },
+      btn('Delete selected', () => { if (selected != null) { items = items.filter((x) => x.uid !== selected); selected = null; } }),
+      btn('Clear all', () => { items = []; selected = null; }),
+    ),
+  );
+
+  root.append(stage, panelEl);
+
+  window.__demoProof = async () => {
+    const before = {
+      pattern: style.pattern, window: style.window, back: style.back,
+      items: items.map((x) => ({ ...x })),
+    };
+    style.pattern = 'Striped';
+    style.window = 'Arched';
+    style.back = '#8fa8b8';
+    style.left = '#6a8a6a';
+    const plant = { uid: nextUid++, kind: 'lamp', ix: 3.5, iy: 3.5 };
+    items.push(plant);
+    selected = plant.uid;
+    await sleep(200);
+    items = items.filter((x) => x.uid !== plant.uid);
+    style.pattern = before.pattern;
+    style.window = before.window;
+    style.back = before.back;
+    items = before.items.map((x) => ({ ...x }));
+    selected = null;
+    return 'pattern+window+wall chips + place/delete furniture exercised, restored';
   };
 };
 

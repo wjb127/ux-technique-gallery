@@ -324,4 +324,254 @@ V['matterjs-physics-demo-desk'] = (root, T) => {
   };
 };
 
+V['particulardrift-image-particle-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0e1020', fg: '#f0f0f0', panel: '#1a1c2e', ac: '#ff9f43', dark: true, line: '#ffffff18' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, Inter Variable, sans-serif';
+
+  const PALS = [
+    ['#ff9f43', '#ee5a24', '#f8efba', '#58b19f'],
+    ['#7c5cff', '#ff5c8a', '#5ce1ff', '#ffe66d'],
+    ['#a8e6cf', '#dcedc1', '#ffd3b6', '#ffaaa5'],
+    ['#00d2ff', '#3a7bd5', '#ffffff', '#89f7fe'],
+    ['#f953c6', '#b91d73', '#ffecd2', '#fcb69f'],
+    ['#11998e', '#38ef7d', '#d4fc79', '#96e6a1'],
+  ];
+  let pal = 0;
+  const P = { speed: 0.55, attract: 0.45, edge: 0.35, flow: 0.4 };
+  let paused = false;
+  let particles = [];
+  let targets = []; // {x,y} seed positions in 0..1
+  const nz = noise2(11);
+
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, touchAction: 'none' } });
+  root.append(cv);
+
+  // procedural silhouette (face/bust-ish) into offscreen, sample edges
+  const seedFromProcedural = () => {
+    const W = 320, H = 400;
+    const off = document.createElement('canvas');
+    off.width = W; off.height = H;
+    const g = off.getContext('2d');
+    g.fillStyle = '#000';
+    g.fillRect(0, 0, W, H);
+    g.fillStyle = '#fff';
+    // head
+    g.beginPath(); g.ellipse(W / 2, H * 0.32, 70, 85, 0, 0, 7); g.fill();
+    // neck + shoulders
+    g.fillRect(W / 2 - 28, H * 0.45, 56, 50);
+    g.beginPath();
+    g.moveTo(40, H * 0.95); g.quadraticCurveTo(W / 2, H * 0.55, W - 40, H * 0.95);
+    g.lineTo(W, H); g.lineTo(0, H); g.closePath(); g.fill();
+    // hair blob
+    g.beginPath(); g.ellipse(W / 2, H * 0.22, 78, 50, 0, Math.PI, 0); g.fill();
+
+    const img = g.getImageData(0, 0, W, H);
+    const thr = P.edge * 255;
+    targets = [];
+    for (let y = 1; y < H - 1; y += 2) {
+      for (let x = 1; x < W - 1; x += 2) {
+        const i = (y * W + x) * 4;
+        const lum = img.data[i];
+        if (lum < thr) continue;
+        // edge: neighbor darker
+        let edge = false;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const j = ((y + dy) * W + (x + dx)) * 4;
+          if (img.data[j] < thr * 0.5) { edge = true; break; }
+        }
+        if (edge || lum > 200) {
+          targets.push({ x: x / W, y: y / H });
+        }
+      }
+    }
+    if (targets.length < 80) {
+      // fallback ring
+      for (let i = 0; i < 200; i++) {
+        const a = (i / 200) * Math.PI * 2;
+        targets.push({ x: 0.5 + Math.cos(a) * 0.22, y: 0.42 + Math.sin(a) * 0.28 });
+      }
+    }
+    spawnParticles();
+  };
+
+  const spawnParticles = () => {
+    const n = Math.min(1400, Math.max(400, targets.length * 2));
+    particles = Array.from({ length: n }, (_, i) => {
+      const t = targets[i % targets.length];
+      return {
+        x: t.x + (Math.random() - 0.5) * 0.04,
+        y: t.y + (Math.random() - 0.5) * 0.04,
+        vx: 0, vy: 0,
+        tx: t.x, ty: t.y,
+        c: PALS[pal][i % PALS[pal].length],
+        s: 0.8 + Math.random() * 1.6,
+      };
+    });
+  };
+
+  const randomize = () => {
+    P.speed = 0.2 + Math.random() * 1.2;
+    P.attract = 0.15 + Math.random() * 0.8;
+    P.edge = 0.15 + Math.random() * 0.6;
+    P.flow = Math.random() * 0.9;
+    pal = Math.floor(Math.random() * PALS.length);
+    seedFromProcedural();
+    syncSliders();
+    toast('randomized ✦');
+  };
+
+  let speedSl, attractSl, edgeSl, flowSl;
+  const syncSliders = () => {
+    speedSl?.set?.(P.speed);
+    attractSl?.set?.(P.attract);
+    edgeSl?.set?.(P.edge);
+    flowSl?.set?.(P.flow);
+    paintChips();
+  };
+
+  const loop = (tms) => {
+    fitCanvas(cv, root);
+    const g = cv.g, W = cv.W, H = cv.H;
+    g.fillStyle = 'rgba(14,16,32,0.22)';
+    g.fillRect(0, 0, W, H);
+
+    if (!paused) {
+      const t = tms * 0.001;
+      for (const p of particles) {
+        const n = nz(p.x * 3 + t * 0.15, p.y * 3 - t * 0.1);
+        const ang = n * Math.PI * 4;
+        const flowX = Math.cos(ang) * P.flow * 0.008;
+        const flowY = Math.sin(ang) * P.flow * 0.008;
+        p.vx += (p.tx - p.x) * P.attract * 0.04;
+        p.vy += (p.ty - p.y) * P.attract * 0.04;
+        p.vx += flowX;
+        p.vy += flowY;
+        p.vx *= 0.92;
+        p.vy *= 0.92;
+        p.x += p.vx * P.speed;
+        p.y += p.vy * P.speed;
+        // soft wrap
+        if (p.x < -0.05) p.x = 1.05; if (p.x > 1.05) p.x = -0.05;
+        if (p.y < -0.05) p.y = 1.05; if (p.y > 1.05) p.y = -0.05;
+      }
+    }
+
+    for (const p of particles) {
+      g.fillStyle = p.c;
+      g.globalAlpha = 0.85;
+      g.beginPath();
+      g.arc(p.x * W, p.y * H, p.s, 0, 7);
+      g.fill();
+    }
+    g.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  };
+
+  const chipWrap = h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px' } });
+  const paintChips = () => {
+    chipWrap.replaceChildren(...PALS.map((set, i) => h('span', {
+      style: {
+        width: '28px', height: '18px', borderRadius: '4px', cursor: 'pointer',
+        background: `linear-gradient(90deg,${set[0]},${set[1]},${set[2]})`,
+        border: i === pal ? '2px solid #fff' : '1px solid #ffffff33',
+      },
+      onclick: () => { pal = i; particles.forEach((p, k) => { p.c = PALS[pal][k % PALS[pal].length]; }); paintChips(); },
+    })));
+  };
+
+  speedSl = slider('Speed', 0.05, 1.8, P.speed, 0.01, (v) => { P.speed = v; });
+  attractSl = slider('Attraction', 0, 1, P.attract, 0.01, (v) => { P.attract = v; });
+  edgeSl = slider('Edge threshold', 0.05, 0.9, P.edge, 0.01, (v) => { P.edge = v; seedFromProcedural(); });
+  flowSl = slider('Flow amount', 0, 1.2, P.flow, 0.01, (v) => { P.flow = v; });
+
+  // attach .set helpers if slider returns element with value tracking — kit may not; wrap
+  const bindSet = (el, apply) => {
+    el.set = (v) => {
+      const inp = el.querySelector('input[type=range]');
+      if (inp) { inp.value = v; }
+      apply(v);
+    };
+    return el;
+  };
+  speedSl = bindSet(speedSl, (v) => { P.speed = v; });
+  attractSl = bindSet(attractSl, (v) => { P.attract = v; });
+  edgeSl = bindSet(edgeSl, (v) => { P.edge = v; });
+  flowSl = bindSet(flowSl, (v) => { P.flow = v; });
+
+  const pauseBtn = btn('Pause', (e) => {
+    paused = !paused;
+    e.target.textContent = paused ? 'Play' : 'Pause';
+  });
+
+  const panelEl = h('div', {
+    style: {
+      position: 'absolute', top: '16px', right: '16px', width: '240px',
+      background: '#1a1c2eee', border: '1px solid #ffffff18', borderRadius: '12px',
+      padding: '14px', display: 'grid', gap: '8px', fontSize: '12px', zIndex: 4,
+      backdropFilter: 'blur(8px)',
+    },
+  },
+    h('div.k-row', {}, h('b', {}, 'Controls'), h('span', { style: { flex: 1 } }), pauseBtn),
+    speedSl, attractSl, edgeSl, flowSl,
+    h('div', { style: { opacity: .55, fontSize: '10px', letterSpacing: '.1em' } }, 'PALETTE'),
+    chipWrap,
+    h('div.k-row', { style: { gap: '6px' } },
+      btn('🎲 Randomize', randomize, 'pri'),
+      btn('PNG', () => {
+        const a = h('a', { download: 'particle-drift.png', href: cv.toDataURL('image/png') });
+        a.click();
+        toast('screenshot stub');
+      }),
+    ),
+    h('div', { style: { opacity: .45, fontSize: '10px', lineHeight: 1.5 } }, 'Space pause · R randomize · S screenshot'),
+  );
+
+  const title = h('div', {
+    style: {
+      position: 'absolute', left: '20px', bottom: '18px', zIndex: 3,
+      fontSize: '12px', opacity: .5, letterSpacing: '.08em',
+    },
+  }, 'silhouette → flowing particles');
+
+  root.append(panelEl, title);
+  paintChips();
+  seedFromProcedural();
+  // dark clear first frame
+  fitCanvas(cv, root); cv.g.fillStyle = '#0e1020'; cv.g.fillRect(0, 0, cv.W, cv.H);
+  requestAnimationFrame(loop);
+
+  const onKey = (e) => {
+    if (e.key === ' ' || e.code === 'Space') {
+      e.preventDefault();
+      paused = !paused;
+      pauseBtn.textContent = paused ? 'Play' : 'Pause';
+    } else if (e.key === 'r' || e.key === 'R') {
+      randomize();
+    } else if (e.key === 's' || e.key === 'S') {
+      const a = h('a', { download: 'particle-drift.png', href: cv.toDataURL('image/png') });
+      a.click();
+    }
+  };
+  window.addEventListener('keydown', onKey);
+
+  window.__demoProof = async () => {
+    const before = { ...P, pal, paused };
+    P.speed = 1.2;
+    P.attract = 0.8;
+    P.flow = 0.7;
+    pal = 1;
+    paused = false;
+    spawnParticles();
+    await sleep(200);
+    paused = true;
+    await sleep(80);
+    Object.assign(P, before);
+    pal = before.pal;
+    paused = false;
+    seedFromProcedural();
+    return 'speed/attract/flow + palette + pause exercised, restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }

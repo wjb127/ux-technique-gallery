@@ -924,4 +924,187 @@ V['blob-opera-drag-choir-desk'] = (root, T) => {
   };
 };
 
+V['typatone-type-music-desk'] = (root, T) => {
+  theme(root, T, { bg: '#efefef', fg: '#0a81c6', panel: '#ffffff', ac: '#0a81c6', dark: false, line: '#d0d8e0' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', Georgia, serif";
+
+  // A–Z → pentatonic-ish map (C4 major pentatonic repeating)
+  const PENTA = [60, 62, 64, 67, 69]; // C D E G A
+  const pitchOf = (ch) => {
+    const i = ch.toLowerCase().charCodeAt(0) - 97;
+    if (i < 0 || i > 25) return null;
+    const deg = PENTA[i % 5];
+    const oct = Math.floor(i / 5);
+    return deg + oct * 12;
+  };
+
+  let muted = false;
+  let typed = '';
+  const flashes = []; // {ch,x,y,t,hue,vx,vy}
+  let unlocked = false;
+
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, displayAction: 'none', cursor: 'text' } });
+  root.append(cv);
+
+  const preview = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '28px', transform: 'translateX(-50%)',
+      width: 'min(720px,90vw)', textAlign: 'center', font: '18px/1.4 Georgia, serif',
+      color: '#0a81c6', letterSpacing: '0.04em', zIndex: 3, pointerEvents: 'none',
+      whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+    },
+  }, 'Start typing…');
+
+  const bar = h('div.k-row', {
+    style: {
+      position: 'absolute', top: '18px', right: '18px', gap: '8px', zIndex: 4,
+    },
+  },
+    btn('Mute', (e) => {
+      muted = !muted;
+      e.target.textContent = muted ? 'Unmute' : 'Mute';
+      toast(muted ? 'muted' : 'sound on');
+    }),
+    btn('Clear', () => {
+      typed = '';
+      flashes.length = 0;
+      preview.textContent = 'Start typing…';
+      preview.style.opacity = '0.55';
+    }, 'pri'),
+  );
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', top: '22%', left: '50%', transform: 'translateX(-50%)',
+      font: '13px/1.5 system-ui', color: '#0a81c688', zIndex: 2, textAlign: 'center',
+      pointerEvents: 'none',
+    },
+  }, 'writing as performance · each letter is a note');
+
+  const unlock = () => {
+    if (unlocked) return;
+    audio();
+    unlocked = true;
+    hint.style.opacity = '0';
+  };
+
+  const playLetter = (ch) => {
+    const m = pitchOf(ch);
+    if (m == null) return;
+    unlock();
+    if (!muted) blip(midi(m), 0.28, 'sine', 0.14);
+    const hue = ((m - 60) * 18 + 190) % 360;
+    flashes.push({
+      ch: ch.toUpperCase(),
+      x: 0.15 + Math.random() * 0.7,
+      y: 0.25 + Math.random() * 0.45,
+      t: 0,
+      hue,
+      vx: (Math.random() - 0.5) * 0.15,
+      vy: -0.08 - Math.random() * 0.12,
+      rot: (Math.random() - 0.5) * 0.4,
+    });
+  };
+
+  const onKey = (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'Backspace') {
+      typed = typed.slice(0, -1);
+      preview.textContent = typed || 'Start typing…';
+      preview.style.opacity = typed ? '1' : '0.55';
+      e.preventDefault();
+      return;
+    }
+    if (e.key.length === 1) {
+      const ch = e.key;
+      typed += ch;
+      if (typed.length > 80) typed = typed.slice(-80);
+      preview.textContent = typed;
+      preview.style.opacity = '1';
+      if (/^[a-z]$/i.test(ch)) playLetter(ch);
+      else if (ch === ' ') {
+        unlock();
+        // soft rest click
+        if (!muted) blip(110, 0.05, 'triangle', 0.04);
+      }
+      e.preventDefault();
+    }
+  };
+  window.addEventListener('keydown', onKey);
+  cv.addEventListener('pointerdown', () => unlock());
+
+  const loop = () => {
+    fitCanvas(cv, root);
+    const g = cv.g, W = cv.W, H = cv.H;
+    // soft cream stage
+    const grad = g.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, '#f7f7f5');
+    grad.addColorStop(1, '#e8eef2');
+    g.fillStyle = grad;
+    g.fillRect(0, 0, W, H);
+    // faint staff lines
+    g.strokeStyle = '#0a81c612';
+    g.lineWidth = 1;
+    for (let i = 0; i < 5; i++) {
+      const y = H * 0.38 + i * 14;
+      g.beginPath(); g.moveTo(W * 0.12, y); g.lineTo(W * 0.88, y); g.stroke();
+    }
+    // flashes / trails
+    for (const f of flashes) {
+      f.t += 0.018;
+      f.x += f.vx * 0.016;
+      f.y += f.vy * 0.016;
+      const life = Math.min(1, f.t);
+      const fade = 1 - Math.max(0, f.t - 0.55) / 0.45;
+      g.save();
+      g.translate(f.x * W, f.y * H);
+      g.rotate(f.rot * life);
+      g.globalAlpha = Math.max(0, fade);
+      g.fillStyle = `hsl(${f.hue} 70% 45%)`;
+      g.font = `700 ${28 + life * 36}px Georgia, serif`;
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(f.ch, 0, 0);
+      // trail dots
+      g.fillStyle = `hsl(${f.hue} 80% 60% / 0.35)`;
+      for (let k = 1; k <= 4; k++) {
+        g.beginPath();
+        g.arc(-f.vx * W * 0.04 * k, -f.vy * H * 0.04 * k, 3 - k * 0.4, 0, 7);
+        g.fill();
+      }
+      g.restore();
+    }
+    while (flashes.length && flashes[0].t > 1) flashes.shift();
+    if (!typed && flashes.length === 0) {
+      g.fillStyle = '#0a81c655';
+      g.font = '28px Georgia, serif';
+      g.textAlign = 'center';
+      g.fillText('Start typing…', W / 2, H * 0.48);
+    }
+    requestAnimationFrame(loop);
+  };
+  loop();
+
+  root.append(bar, hint, preview);
+
+  window.__demoProof = async () => {
+    const before = { muted, typed };
+    muted = false;
+    typed = '';
+    for (const ch of 'melody') playLetter(ch);
+    typed = 'melody';
+    preview.textContent = typed;
+    await sleep(220);
+    muted = true;
+    playLetter('z');
+    await sleep(80);
+    muted = before.muted;
+    typed = before.typed;
+    flashes.length = 0;
+    preview.textContent = typed || 'Start typing…';
+    return 'A–Z pitch map + glyph flash + mute exercised, restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

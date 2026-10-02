@@ -151,7 +151,8 @@
   "constellation-signal-garden",
   "handdrawn-physics-sandbox",
   "mondrian-partition-canvas",
-  "matterjs-physics-demo-desk"
+  "matterjs-physics-demo-desk",
+  "particulardrift-image-particle-desk"
  ],
  "gen": [
   "tinkersynth-slopes-synth-desk",
@@ -240,7 +241,8 @@
   "generative-fm-ambient-player",
   "sfxr-8bit-sound-desk",
   "tonejs-simple-synth-desk",
-  "blob-opera-drag-choir-desk"
+  "blob-opera-drag-choir-desk",
+  "typatone-type-music-desk"
  ],
  "desk": [
   "parody-desktop-os-sandbox",
@@ -258,7 +260,8 @@
   "threejs-scene-editor-desk",
   "donmccurdy-gltf-drop-viewer",
   "zdog-pseudo3d-illo-playground",
-  "spline-browser-3d-craft-desk"
+  "spline-browser-3d-craft-desk",
+  "floorsjs-isometric-room-desk"
  ],
  "saas": [
   "pricing-tier-cards",

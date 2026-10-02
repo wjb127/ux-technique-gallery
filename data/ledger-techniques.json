@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-floorsjs-isometric-room-desk",
+  "slug": "floorsjs-isometric-room-desk",
+  "name": "floors.js Isometric Room Builder Desk",
+  "date": "2026-10-03",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://floorsjs.com/room-builder",
+  "domain": "floorsjs.com",
+  "product": "Floorsjs",
+  "checkpoints": [
+   "아이소메트릭 방(바닥+두 벽)이 한 화면에 보인다.",
+   "벽/바닥 색을 바꾸면 즉시 반영된다.",
+   "Floor pattern 칩을 바꾸면 바닥 패턴이 바뀐다.",
+   "Furniture를 드래그해 방에 놓을 수 있다.",
+   "선택한 가구를 지우거나 옮길 수 있다.",
+   "타이니홈 디오라마 데스크 크롬이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-03-04.md",
+  "prompt": "Build a floors.js–inspired isometric room builder desk (inspired by\nhttps://floorsjs.com/room-builder). Center stage: isometric room (floor diamond\n+ left/back walls). Side panel: wall/floor/trim color chips, Floor pattern\n(Checkerboard/Solid/Striped/Diagonal), Window style (Cross/Arched/Double/None),\nShow trim/doors toggles. Furniture palette (≥6 items) with drag-drop place,\nselect, delete. Aesthetic: tiny-home diorama craft chrome — not a full 3D CAD\nsuite, not Spline, not a pricing page. No real floors.js logos/servers.\nScope 60–90 min."
+ },
+ {
+  "id": "clone-typatone-type-music-desk",
+  "slug": "typatone-type-music-desk",
+  "name": "Typatone Type-to-Music Writing Desk",
+  "date": "2026-10-03",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://typatone.com/",
+  "domain": "typatone.com",
+  "product": "Typatone",
+  "checkpoints": [
+   "첫 클릭/키 후 타이핑이 소리를 낸다.",
+   "다른 글자는 다른 음높이로 들린다.",
+   "타이핑할 때 캔버스에 글자/모션이 보인다.",
+   "Mute를 켜면 시각은 유지되고 소리만 꺼진다.",
+   "Clear로 캔버스(또는 문장)가 비워진다.",
+   "“쓰기=연주” 데스크 미학이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-03-04.md",
+  "prompt": "Build a Typatone–inspired type-to-music writing desk (inspired by\nhttps://typatone.com/). Full-stage canvas; click/first key unlocks AudioContext.\nEach A–Z key maps to a fixed pitch (pentatonic or chromatic stub), plays a short\nWeb Audio oscillator envelope, and flashes/trails the glyph on canvas. Mute\ntoggle, Clear, one-line typed preview. Aesthetic: writing-as-performance craft\nchrome — not a DAW, not Patatap drum pads, not a MIDI piano roll. No real\nTypatone logos. Scope 45–75 min."
+ },
+ {
+  "id": "clone-particulardrift-image-particle-desk",
+  "slug": "particulardrift-image-particle-desk",
+  "name": "Particular Drift Image Particle Flow Desk",
+  "date": "2026-10-03",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://particular-drift.netlify.app/",
+  "domain": "particular-drift.netlify.app",
+  "product": "Particular-drift",
+  "checkpoints": [
+   "이미지를 올리면 파티클이 이미지 형태를 따른다.",
+   "Attraction을 올리면 입자가 엣지에 더 붙는다.",
+   "Speed를 올리면 입자가 더 자유롭게 흐른다.",
+   "🎲/R로 파라미터가 한 번에 바뀐다.",
+   "Pause로 모션이 멈춘다.",
+   "이미지-실루엣 파티클 데스크 미학이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-03-04.md",
+  "prompt": "Build a Particular Drift–inspired image-to-particle desk (inspired by\nhttps://particular-drift.netlify.app/). Full-stage canvas + Controls panel.\nUpload (or preload) an image; seed particles from edge/luminance samples.\nSliders: Speed, Attraction, Edge threshold, Flow amount. Palette chips +\nRandomize (dice). Space=pause, R=randomize, S=PNG screenshot stub. Aesthetic:\nhypnotic silhouette-particle craft chrome — not falling-sand, not a generative\nart prompt studio, not a marketing landing. No real Particular Drift logos.\nScope 60–90 min."
+ },
+ {
   "id": "clone-spacetype-kinetic-type-desk",
   "slug": "spacetype-kinetic-type-desk",
   "name": "Space Type Generator Kinetic Type Desk",
@@ -8,7 +71,7 @@
   "lens": "aesthetic-interactive-craft",
   "url": "https://spacetypegenerator.com/coil",
   "domain": "spacetypegenerator.com",
-  "product": "Space Type Generator",
+  "product": "Spacetypegenerator",
   "checkpoints": [
    "큰 타이포 스테이지와 Controls가 한 화면에 보인다.",
    "텍스트를 바꾸면 글자가 즉시 다시 그려진다.",
@@ -29,7 +92,7 @@
   "lens": "aesthetic-interactive-craft",
   "url": "https://www.stitchfiddle.com/en/chart/create/knitting",
   "domain": "stitchfiddle.com",
-  "product": "Stitch Fiddle",
+  "product": "Stitchfiddle",
   "checkpoints": [
    "Craft 종류를 고르는 화면이 먼저 보인다.",
    "Knitting → Colors로 들어가면 그리드 차트가 열린다.",
@@ -50,7 +113,7 @@
   "lens": "aesthetic-interactive-craft",
   "url": "https://thetruesize.com/",
   "domain": "thetruesize.com",
-  "product": "The True Size Of",
+  "product": "Thetruesize",
   "checkpoints": [
    "세계지도 베이스가 보인다.",
    "검색으로 국가 outline을 올릴 수 있다.",
