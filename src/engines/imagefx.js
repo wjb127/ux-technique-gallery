@@ -1,4 +1,4 @@
-import { h, s, css, drag, localPos, clamp, copy, toast, sleep, rng, hexToRgb, noise2, gesture } from '../lib.js';
+import { h, s, css, drag, localPos, clamp, copy, toast, sleep, rng, hexToRgb, rgbToHsl, hsl, noise2, gesture } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle, codebox } from '../kit.js';
 export function scene(w, hh, kind = 'land', seed = 3) {
   const c = document.createElement('canvas'); c.width = w; c.height = hh; const g = c.getContext('2d'); const N = noise2(seed); const R = rng(seed);
@@ -246,6 +246,201 @@ V['chalkist-code-shot-studio'] = (root, T) => {
     ta.value = 'const hello = (name) => `hi ${name}`;\nconsole.log(hello("chalk"));';
     draw();
     return 'theme Candy, pad 80, round 24, particles on, code edited';
+  };
+};
+
+
+V['moshlite-glitch-effect-mixer-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0a0a0a', fg: '#f5f5f5', panel: '#141414', ac: '#ffffff', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const FX_DEFS = [
+    { id: 'rgb', name: 'RGB Split', on: true, amt: 0.55 },
+    { id: 'scan', name: 'Scanlines', on: true, amt: 0.4 },
+    { id: 'noise', name: 'Noise', on: true, amt: 0.35 },
+    { id: 'wave', name: 'Wave', on: false, amt: 0.45 },
+    { id: 'pixel', name: 'Pixelate', on: false, amt: 0.3 },
+    { id: 'hue', name: 'Hue Shift', on: true, amt: 0.25 },
+  ];
+  const fx = FX_DEFS.map((d) => ({ ...d }));
+  let seed = 48291;
+  let srcKind = 'land';
+  let mode = 'mixer';
+  const localRng = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+
+  const srcCanvas = () => scene(640, 400, srcKind, (srcKind === 'land' ? 3 : srcKind === 'sunset' ? 7 : 11));
+  let base = srcCanvas();
+
+  const stageWrap = h('div', { style: { position: 'relative', flex: 1, minWidth: 0, minHeight: 0, background: '#000', display: 'grid', placeItems: 'center' } });
+  const out = h('canvas', { width: 640, height: 400, style: { maxWidth: '92%', maxHeight: '86%', width: 'auto', height: 'auto', boxShadow: '0 0 0 1px #ffffff18, 0 30px 80px #000a' } });
+  const watermark = h('div', { style: { position: 'absolute', right: '18px', bottom: '14px', fontSize: '11px', letterSpacing: '.12em', opacity: .35, pointerEvents: 'none' } }, 'MOSH-LITE');
+  stageWrap.append(out, watermark);
+
+  const seedLab = h('b', { style: { fontFamily: 'ui-monospace,monospace', fontSize: '12px' } }, String(seed));
+  const stack = h('div', { style: { display: 'grid', gap: '8px', overflow: 'auto', padding: '4px 2px', flex: 1, alignContent: 'start' } });
+
+  const applyFx = () => {
+    const g = out.getContext('2d');
+    const W = out.width, H = out.height;
+    g.clearRect(0, 0, W, H);
+    g.drawImage(base, 0, 0, W, H);
+    let img = g.getImageData(0, 0, W, H);
+    const d = img.data;
+    const roll = rng(seed || 1);
+
+    const rgb = fx.find((f) => f.id === 'rgb');
+    if (rgb?.on) {
+      const off = Math.round(rgb.amt * 18);
+      const copyA = new Uint8ClampedArray(d);
+      for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+        const i = (y * W + x) * 4;
+        const xr = clamp(x + off, 0, W - 1);
+        const xb = clamp(x - off, 0, W - 1);
+        d[i] = copyA[(y * W + xr) * 4];
+        d[i + 2] = copyA[(y * W + xb) * 4 + 2];
+      }
+    }
+    const hue = fx.find((f) => f.id === 'hue');
+    if (hue?.on) {
+      const shift = hue.amt * 80;
+      for (let i = 0; i < d.length; i += 4) {
+        const [hh, ss, ll] = rgbToHsl(d[i], d[i + 1], d[i + 2]);
+        const hex = hsl((hh + shift) % 360, ss, ll);
+        const [rr, gg, bb] = hexToRgb(hex);
+        d[i] = rr; d[i + 1] = gg; d[i + 2] = bb;
+      }
+    }
+    const noiseF = fx.find((f) => f.id === 'noise');
+    if (noiseF?.on) {
+      const a = noiseF.amt * 70;
+      for (let i = 0; i < d.length; i += 4) {
+        const n = (roll() - 0.5) * a;
+        d[i] = clamp(d[i] + n, 0, 255);
+        d[i + 1] = clamp(d[i + 1] + n, 0, 255);
+        d[i + 2] = clamp(d[i + 2] + n, 0, 255);
+      }
+    }
+    g.putImageData(img, 0, 0);
+
+    const wave = fx.find((f) => f.id === 'wave');
+    if (wave?.on) {
+      const tmp = document.createElement('canvas'); tmp.width = W; tmp.height = H;
+      tmp.getContext('2d').drawImage(out, 0, 0);
+      g.clearRect(0, 0, W, H);
+      const amp = wave.amt * 14;
+      for (let y = 0; y < H; y++) {
+        const dx = Math.sin(y * 0.08 + seed * 0.001) * amp;
+        g.drawImage(tmp, 0, y, W, 1, dx, y, W, 1);
+      }
+    }
+    const pixel = fx.find((f) => f.id === 'pixel');
+    if (pixel?.on) {
+      const s = Math.max(2, Math.round(2 + pixel.amt * 14));
+      const tw = Math.ceil(W / s), th = Math.ceil(H / s);
+      const t = document.createElement('canvas'); t.width = tw; t.height = th;
+      const tg = t.getContext('2d'); tg.imageSmoothingEnabled = false;
+      tg.drawImage(out, 0, 0, tw, th);
+      g.imageSmoothingEnabled = false;
+      g.clearRect(0, 0, W, H);
+      g.drawImage(t, 0, 0, W, H);
+    }
+    const scan = fx.find((f) => f.id === 'scan');
+    if (scan?.on) {
+      g.fillStyle = `rgba(0,0,0,${0.15 + scan.amt * 0.35})`;
+      for (let y = 0; y < H; y += 3) g.fillRect(0, y, W, 1);
+    }
+    seedLab.textContent = String(seed);
+  };
+
+  const renderStack = () => {
+    stack.replaceChildren(...fx.map((f, i) => {
+      const row = h('div', { style: { background: '#1a1a1a', border: '1px solid #ffffff14', borderRadius: '10px', padding: '10px 12px', display: 'grid', gap: '8px' } });
+      const head = h('div.k-row', { style: { gap: '8px', fontSize: '12px' } },
+        h('span', { style: { opacity: .4, cursor: 'grab' } }, '⠿'),
+        h('b', { style: { flex: 1 } }, f.name),
+        h('label.k-row', { style: { gap: '6px', cursor: 'pointer', fontSize: '11px', opacity: .8 } },
+          h('input', { type: 'checkbox', checked: f.on, onchange: (e) => { f.on = e.target.checked; applyFx(); } }), 'ON'));
+      const sl = slider('Amount', 0, 1, f.amt, 0.01, (v) => { f.amt = v; applyFx(); }, (v) => (+v).toFixed(2));
+      sl.style.opacity = f.on ? '1' : '.35';
+      row.append(head, sl);
+      row.addEventListener('dblclick', () => {
+        if (i <= 0) return;
+        const [x] = fx.splice(i, 1); fx.splice(i - 1, 0, x);
+        renderStack(); applyFx();
+      });
+      return row;
+    }));
+  };
+
+  const mosh = () => {
+    seed = (Math.random() * 1e9) | 0;
+    fx.forEach((f) => {
+      f.on = Math.random() > 0.35;
+      f.amt = 0.15 + Math.random() * 0.8;
+    });
+    if (!fx.some((f) => f.on)) fx[0].on = true;
+    renderStack(); applyFx();
+    toast('Moshed · seed ' + seed);
+  };
+
+  const loadSample = (kind) => {
+    srcKind = kind; base = srcCanvas(); mode = 'mixer'; showUI(); applyFx();
+  };
+
+  const top = h('div.k-row', { style: { height: '52px', padding: '0 18px', borderBottom: '1px solid #ffffff12', gap: '18px', background: '#0a0a0a' } },
+    h('b', { style: { letterSpacing: '.18em', fontSize: '14px' } }, 'MOSH'),
+    h('span', { style: { opacity: .4, fontSize: '12px' } }, 'Lite'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '12px', opacity: .45 } }, 'Overview'),
+    h('span', { style: { fontSize: '12px', opacity: .45 } }, 'Effects'),
+    btn('GET MOSH-PRO', () => toast('Pro upgrade stub'), 'pri'));
+
+  const landing = h('div', { style: { position: 'absolute', inset: '52px 0 0', display: 'grid', placeItems: 'center', background: '#0a0a0a', zIndex: 5 } },
+    h('div', { style: { width: 'min(520px, 90%)', textAlign: 'center', display: 'grid', gap: '18px' } },
+      h('div', { style: { fontSize: '42px', fontWeight: 800, letterSpacing: '-.02em' } }, 'Mosh-Lite'),
+      h('div', { style: { opacity: .55, fontSize: '14px' } }, 'Try the free demo version of Mosh with limited features.'),
+      h('div', { style: { border: '1px dashed #ffffff33', borderRadius: '16px', padding: '28px', display: 'grid', gap: '14px' } },
+        h('div.k-row', { style: { justifyContent: 'center', gap: '10px', flexWrap: 'wrap' } },
+          btn('LOAD FILE', () => loadSample('sunset')),
+          btn('USE WEBCAM', () => { toast('Webcam stub — sample loaded'); loadSample('portrait'); })),
+        h('div', { style: { opacity: .4, fontSize: '12px' } }, 'OR'),
+        h('div', { style: { opacity: .5, fontSize: '12px' } }, 'DRAG AND DROP FILE HERE · or pick a sample'),
+        h('div.k-row', { style: { justifyContent: 'center', gap: '8px', flexWrap: 'wrap' } },
+          ...[['land', 'Landscape'], ['sunset', 'Sunset'], ['portrait', 'Portrait']].map(([k, l]) =>
+            btn(l, () => loadSample(k)))))));
+
+  const side = h('div', { style: { width: '300px', background: '#101010', borderLeft: '1px solid #ffffff12', display: 'flex', flexDirection: 'column', minHeight: 0 } },
+    h('div.k-row', { style: { padding: '14px 14px 8px', gap: '8px' } },
+      h('b', { style: { flex: 1, fontSize: '13px' } }, 'Effects'),
+      h('span', { style: { fontSize: '11px', opacity: .45 } }, 'Seed'), seedLab),
+    h('div', { style: { padding: '0 14px 10px', display: 'grid', gap: '8px' } },
+      btn('MOSH', mosh, 'pri'),
+      h('div.k-row', { style: { gap: '8px' } },
+        btn('Reroll seed', () => { seed = (Math.random() * 1e9) | 0; applyFx(); }),
+        btn('Export PNG', () => { const a = h('a', { download: 'mosh-lite.png', href: out.toDataURL('image/png') }); a.click(); toast('Exported with watermark'); }))),
+    h('div', { style: { padding: '0 12px 12px', flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' } }, stack),
+    h('div', { style: { padding: '10px 14px', borderTop: '1px solid #ffffff10', fontSize: '11px', opacity: .4 } }, 'Double-click an effect to bump order · look-alike'));
+
+  const mixer = h('div', { style: { position: 'absolute', inset: '52px 0 0', display: 'none', gridTemplateColumns: '1fr 300px' } }, stageWrap, side);
+
+  const showUI = () => {
+    landing.style.display = mode === 'landing' ? 'grid' : 'none';
+    mixer.style.display = mode === 'mixer' ? 'grid' : 'none';
+  };
+
+  root.append(top, landing, mixer);
+  mode = 'mixer'; showUI(); renderStack(); applyFx();
+
+  window.__demoProof = async () => {
+    mode = 'landing'; showUI(); await sleep(120);
+    loadSample('sunset'); await sleep(80);
+    mosh(); await sleep(80);
+    const rgbF = fx.find((f) => f.id === 'rgb'); if (rgbF) { rgbF.on = true; rgbF.amt = 0.85; }
+    const scanF = fx.find((f) => f.id === 'scan'); if (scanF) { scanF.on = true; scanF.amt = 0.7; }
+    renderStack(); applyFx();
+    seed = 123456; applyFx();
+    return `mixer; seed ${seed}; rgb+scan; moshed`;
   };
 };
 

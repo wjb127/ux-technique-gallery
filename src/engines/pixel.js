@@ -344,4 +344,288 @@ V['pixelartcss-boxshadow-desk'] = (root, T) => {
   };
 };
 
+
+V['bitsy-pixel-game-maker-desk'] = (root, T) => {
+  theme(root, T, { bg: '#ccccff', fg: '#2800aa', panel: '#f2f2ff', ac: '#2066d2', dark: false, line: '#b8b8ee' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const ROOM = 16, PAINT = 8;
+  let colors = { bg: '#0052cc', tile: '#80b3ff', sprite: '#ffffff' };
+  let tab = 'avatar'; // avatar | tile | sprite
+  let playing = false;
+  let showGrid = true, showWalls = true;
+  let roomId = 0;
+  const drawings = {
+    avatar: Array(PAINT * PAINT).fill(false),
+    tile: Array(PAINT * PAINT).fill(false),
+    sprite: Array(PAINT * PAINT).fill(false),
+  };
+  let tileWall = true;
+  // seed avatar (simple person) + tile border block + cat sprite
+  [[3,1],[4,1],[2,2],[3,2],[4,2],[5,2],[3,3],[4,3],[2,4],[3,4],[4,4],[5,4],[2,5],[5,5],[2,6],[5,6],[3,7],[4,7]].forEach(([x,y]) => drawings.avatar[y*PAINT+x]=true);
+  for (let i=0;i<PAINT;i++){ drawings.tile[i]=true; drawings.tile[(PAINT-1)*PAINT+i]=true; drawings.tile[i*PAINT]=true; drawings.tile[i*PAINT+PAINT-1]=true; drawings.tile[3*PAINT+3]=true; }
+  [[2,2],[3,2],[4,2],[5,2],[1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[2,4],[3,4],[4,4],[5,4],[2,5],[5,5],[3,6],[4,6]].forEach(([x,y]) => drawings.sprite[y*PAINT+x]=true);
+
+  const rooms = [
+    { name: 'room 0', cells: Array(ROOM * ROOM).fill(null), exits: [] },
+    { name: 'room 1', cells: Array(ROOM * ROOM).fill(null), exits: [] },
+  ];
+  // border walls of tile in room 0
+  for (let i = 0; i < ROOM; i++) {
+    rooms[0].cells[i] = 'tile';
+    rooms[0].cells[(ROOM - 1) * ROOM + i] = 'tile';
+    rooms[0].cells[i * ROOM] = 'tile';
+    rooms[0].cells[i * ROOM + ROOM - 1] = 'tile';
+  }
+  rooms[0].cells[8 * ROOM + 4] = 'avatar';
+  rooms[0].cells[8 * ROOM + 10] = 'sprite';
+  rooms[0].exits.push({ x: 14, y: 8, to: 1 });
+  rooms[1].exits.push({ x: 1, y: 8, to: 0 });
+  for (let i = 0; i < ROOM; i++) {
+    rooms[1].cells[i] = 'tile';
+    rooms[1].cells[(ROOM - 1) * ROOM + i] = 'tile';
+    rooms[1].cells[i * ROOM] = 'tile';
+    rooms[1].cells[i * ROOM + ROOM - 1] = 'tile';
+  }
+
+  let avatarPos = { x: 4, y: 8 };
+  const findAvatar = () => {
+    const cells = rooms[roomId].cells;
+    for (let i = 0; i < cells.length; i++) if (cells[i] === 'avatar') return { x: i % ROOM, y: (i / ROOM) | 0 };
+    return { ...avatarPos };
+  };
+  avatarPos = findAvatar();
+
+  const paintCell = 22;
+  const roomCell = 18;
+  const paintCv = h('canvas', { width: PAINT * paintCell, height: PAINT * paintCell, style: { imageRendering: 'pixelated', cursor: 'crosshair', border: '2px solid #2800aa22' } });
+  const roomCv = h('canvas', { width: ROOM * roomCell, height: ROOM * roomCell, style: { imageRendering: 'pixelated', cursor: 'crosshair', border: '2px solid #2800aa22' } });
+
+  const drawPixels = (g, data, cell, fg, bg) => {
+    for (let y = 0; y < PAINT; y++) for (let x = 0; x < PAINT; x++) {
+      g.fillStyle = data[y * PAINT + x] ? fg : bg;
+      g.fillRect(x * cell, y * cell, cell, cell);
+    }
+  };
+  const blitDrawing = (g, kind, dx, dy, cell) => {
+    const data = drawings[kind];
+    const fg = kind === 'tile' ? colors.tile : colors.sprite;
+    const bg = colors.bg;
+    for (let y = 0; y < PAINT; y++) for (let x = 0; x < PAINT; x++) {
+      if (!data[y * PAINT + x]) continue;
+      g.fillStyle = fg;
+      // scale 8px drawing into room cell
+      const s = cell / PAINT;
+      g.fillRect(dx + x * s, dy + y * s, Math.ceil(s), Math.ceil(s));
+    }
+  };
+
+  const renderPaint = () => {
+    const g = paintCv.getContext('2d');
+    const fg = tab === 'tile' ? colors.tile : colors.sprite;
+    drawPixels(g, drawings[tab], paintCell, fg, colors.bg);
+    if (showGrid) {
+      g.strokeStyle = '#00000022'; g.beginPath();
+      for (let i = 0; i <= PAINT; i++) {
+        g.moveTo(i * paintCell + 0.5, 0); g.lineTo(i * paintCell + 0.5, PAINT * paintCell);
+        g.moveTo(0, i * paintCell + 0.5); g.lineTo(PAINT * paintCell, i * paintCell + 0.5);
+      }
+      g.stroke();
+    }
+  };
+
+  const renderRoom = () => {
+    const g = roomCv.getContext('2d');
+    const cells = rooms[roomId].cells;
+    g.fillStyle = colors.bg; g.fillRect(0, 0, ROOM * roomCell, ROOM * roomCell);
+    for (let y = 0; y < ROOM; y++) for (let x = 0; x < ROOM; x++) {
+      const kind = cells[y * ROOM + x];
+      if (!kind) continue;
+      if (kind === 'avatar' && playing) continue;
+      blitDrawing(g, kind === 'avatar' ? 'avatar' : kind, x * roomCell, y * roomCell, roomCell);
+    }
+    if (playing) blitDrawing(g, 'avatar', avatarPos.x * roomCell, avatarPos.y * roomCell, roomCell);
+    rooms[roomId].exits.forEach((ex) => {
+      g.strokeStyle = '#ffcc00'; g.lineWidth = 2;
+      g.strokeRect(ex.x * roomCell + 2, ex.y * roomCell + 2, roomCell - 4, roomCell - 4);
+      g.fillStyle = '#ffcc00'; g.font = '10px sans-serif';
+      g.fillText('E', ex.x * roomCell + 5, ex.y * roomCell + 12);
+    });
+    if (showWalls) {
+      g.fillStyle = '#ffffff55';
+      for (let y = 0; y < ROOM; y++) for (let x = 0; x < ROOM; x++) {
+        if (cells[y * ROOM + x] === 'tile' && tileWall) {
+          g.fillRect(x * roomCell + roomCell / 2 - 2, y * roomCell + roomCell / 2 - 2, 4, 4);
+        }
+      }
+    }
+    if (showGrid) {
+      g.strokeStyle = '#ffffff33'; g.beginPath();
+      for (let i = 0; i <= ROOM; i++) {
+        g.moveTo(i * roomCell + 0.5, 0); g.lineTo(i * roomCell + 0.5, ROOM * roomCell);
+        g.moveTo(0, i * roomCell + 0.5); g.lineTo(ROOM * roomCell, i * roomCell + 0.5);
+      }
+      g.stroke();
+    }
+  };
+
+  const paintAt = (e) => {
+    const p = localPos(e, paintCv); const r = paintCv.getBoundingClientRect();
+    const x = Math.floor((p.x / r.width) * PAINT), y = Math.floor((p.y / r.height) * PAINT);
+    if (x < 0 || y < 0 || x >= PAINT || y >= PAINT) return;
+    drawings[tab][y * PAINT + x] = !drawings[tab][y * PAINT + x];
+    renderPaint(); renderRoom();
+  };
+  paintCv.addEventListener('click', paintAt);
+
+  const placeAt = (e) => {
+    if (playing) return;
+    const p = localPos(e, roomCv); const r = roomCv.getBoundingClientRect();
+    const x = Math.floor((p.x / r.width) * ROOM), y = Math.floor((p.y / r.height) * ROOM);
+    if (x < 0 || y < 0 || x >= ROOM || y >= ROOM) return;
+    const i = y * ROOM + x;
+    const cells = rooms[roomId].cells;
+    if (tab === 'avatar') {
+      for (let k = 0; k < cells.length; k++) if (cells[k] === 'avatar') cells[k] = null;
+      cells[i] = 'avatar'; avatarPos = { x, y };
+    } else if (cells[i] === tab) cells[i] = null;
+    else cells[i] = tab;
+    renderRoom();
+  };
+  roomCv.addEventListener('click', placeAt);
+
+  const isWall = (x, y) => {
+    if (x < 0 || y < 0 || x >= ROOM || y >= ROOM) return true;
+    const kind = rooms[roomId].cells[y * ROOM + x];
+    return kind === 'tile' && tileWall;
+  };
+  const tryMove = (dx, dy) => {
+    if (!playing) return;
+    const nx = avatarPos.x + dx, ny = avatarPos.y + dy;
+    if (isWall(nx, ny)) return;
+    const ex = rooms[roomId].exits.find((e) => e.x === nx && e.y === ny);
+    if (ex) {
+      roomId = ex.to;
+      const back = rooms[roomId].exits.find((e) => e.to !== undefined) || { x: 2, y: 8 };
+      avatarPos = { x: back.x, y: back.y };
+      roomTitle.textContent = rooms[roomId].name;
+      renderRoom();
+      return;
+    }
+    avatarPos = { x: nx, y: ny }; renderRoom();
+  };
+  window.addEventListener('keydown', (e) => {
+    if (!playing) return;
+    const map = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
+    if (map[e.key]) { e.preventDefault(); tryMove(...map[e.key]); }
+  });
+
+  const win = (title, icon, x, y, w, body) => {
+    const el = h('div', { style: { position: 'absolute', left: x + 'px', top: y + 'px', width: w + 'px', background: '#f7f7ff', borderRadius: '10px', boxShadow: '0 10px 28px #2800aa22', border: '1px solid #b8b8ee', overflow: 'hidden', zIndex: 2 } });
+    const bar = h('div.k-row', { style: { background: '#e4e4ff', padding: '8px 10px', gap: '8px', cursor: 'move', fontSize: '13px', fontWeight: 600, color: '#2800aa' } },
+      h('span', {}, icon), h('span', { style: { flex: 1 } }, title), h('span', { style: { opacity: .4 } }, '✕'));
+    let ox = 0, oy = 0;
+    drag(bar, {
+      start: (e) => { const r = el.getBoundingClientRect(); const pr = root.getBoundingClientRect(); ox = e.clientX - r.left; oy = e.clientY - r.top; el.style.zIndex = 6; },
+      move: (e) => {
+        const pr = root.getBoundingClientRect();
+        el.style.left = clamp(e.clientX - pr.left - ox, 0, pr.width - 80) + 'px';
+        el.style.top = clamp(e.clientY - pr.top - oy, 40, pr.height - 40) + 'px';
+      },
+    });
+    el.append(bar, body);
+    return el;
+  };
+
+  const tabBar = h('div.k-row', { style: { gap: '4px', padding: '8px', flexWrap: 'wrap' } });
+  const wallBtn = btn('wall', () => { tileWall = !tileWall; wallBtn.style.background = tileWall ? '#2066d2' : ''; wallBtn.style.color = tileWall ? '#fff' : ''; renderRoom(); });
+  wallBtn.style.background = '#2066d2'; wallBtn.style.color = '#fff';
+  const syncTabs = () => {
+    tabBar.replaceChildren(...['avatar', 'tile', 'sprite'].map((t) => {
+      const b = btn(t, () => { tab = t; syncTabs(); renderPaint(); });
+      if (t === tab) { b.style.background = '#2066d2'; b.style.color = '#fff'; }
+      return b;
+    }));
+  };
+  syncTabs();
+
+  const paintBody = h('div', { style: { padding: '10px', display: 'grid', gap: '8px', justifyItems: 'center' } },
+    tabBar, paintCv,
+    h('div.k-row', { style: { gap: '8px' } },
+      btn('grid', () => { showGrid = !showGrid; renderPaint(); renderRoom(); }),
+      wallBtn));
+
+  const roomTitle = h('span', {}, rooms[roomId].name);
+  const roomTools = h('div.k-row', { style: { gap: '6px', padding: '8px', flexWrap: 'wrap', fontSize: '12px' } },
+    btn('paint', () => toast('Paint tool active — click room to place ' + tab)),
+    btn('exits', () => {
+      const cells = rooms[roomId];
+      const x = clamp(avatarPos.x + 1, 0, ROOM - 1), y = avatarPos.y;
+      if (!cells.exits.some((e) => e.x === x && e.y === y)) cells.exits.push({ x, y, to: (roomId + 1) % rooms.length });
+      renderRoom(); toast('Exit marker added');
+    }),
+    btn('grid', () => { showGrid = !showGrid; renderPaint(); renderRoom(); }),
+    btn('walls', () => { showWalls = !showWalls; renderRoom(); }),
+    btn('‹', () => { roomId = (roomId + rooms.length - 1) % rooms.length; roomTitle.textContent = rooms[roomId].name; avatarPos = findAvatar(); renderRoom(); }),
+    roomTitle,
+    btn('›', () => { roomId = (roomId + 1) % rooms.length; roomTitle.textContent = rooms[roomId].name; avatarPos = findAvatar(); renderRoom(); }),
+    btn('+', () => { rooms.push({ name: 'room ' + rooms.length, cells: Array(ROOM * ROOM).fill(null), exits: [] }); toast('Room added'); }));
+
+  const roomBody = h('div', { style: { padding: '10px', display: 'grid', gap: '8px', justifyItems: 'center' } }, roomCv, roomTools);
+
+  const colorRows = h('div', { style: { padding: '12px', display: 'grid', gap: '10px' } });
+  const rebuildColors = () => {
+    colorRows.replaceChildren(...[['bg', 'background color'], ['tile', 'tile color'], ['sprite', 'sprite color']].map(([k, lab]) =>
+      h('label.k-row', { style: { gap: '10px', fontSize: '12px' } },
+        h('input', { type: 'color', value: colors[k], oninput: (e) => { colors[k] = e.target.value; renderPaint(); renderRoom(); } }),
+        h('span', { style: { flex: 1 } }, lab),
+        h('code', { style: { fontSize: '11px', opacity: .6 } }, colors[k]))));
+  };
+  rebuildColors();
+
+  const playBtn = btn('play', () => {
+    playing = !playing;
+    playBtn.textContent = playing ? 'stop' : 'play';
+    if (playing) {
+      avatarPos = findAvatar();
+      // clear avatar cell so we draw movable avatar
+      const cells = rooms[roomId].cells;
+      for (let i = 0; i < cells.length; i++) if (cells[i] === 'avatar') cells[i] = null;
+    } else {
+      rooms[roomId].cells[avatarPos.y * ROOM + avatarPos.x] = 'avatar';
+    }
+    renderRoom();
+    toast(playing ? 'Play mode — arrow keys' : 'Edit mode');
+  });
+  playBtn.style.background = '#2066d2'; playBtn.style.color = '#fff';
+
+  const header = h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, top: 0, height: '40px', background: '#fff', borderBottom: '1px solid #b8b8ee', padding: '0 12px', gap: '10px', zIndex: 8 } },
+    h('b', { style: { color: '#2800aa' } }, '⬛ Bitsy'),
+    h('input', { value: 'Write your game\'s title here.', style: { flex: 1, border: '1px solid #c8c8ee', borderRadius: '6px', padding: '6px 10px', background: '#f7f7ff', color: '#2800aa' } }),
+    btn('tools', () => toast('Tools palette')),
+    playBtn);
+
+  root.append(
+    header,
+    win('room', '▦', 24, 56, 340, roomBody),
+    win('paint', '✎', 390, 56, 260, paintBody),
+    win('colors', '◐', 670, 56, 240, colorRows),
+    h('div', { style: { position: 'absolute', right: '16px', bottom: '12px', fontSize: '11px', opacity: .45, color: '#2800aa' } }, 'look-alike · arrow keys in play'),
+  );
+  renderPaint(); renderRoom();
+
+  window.__demoProof = async () => {
+    tab = 'tile'; syncTabs(); renderPaint();
+    drawings.tile[4 * PAINT + 4] = true; renderPaint(); await sleep(40);
+    rooms[0].cells[5 * ROOM + 5] = 'tile'; roomId = 0; renderRoom(); await sleep(40);
+    tileWall = true; renderRoom();
+    playing = false; playBtn.click(); await sleep(40);
+    tryMove(1, 0); tryMove(0, -1); tryMove(-1, 0);
+    colors.bg = '#003399'; rebuildColors(); renderPaint(); renderRoom();
+    playing = true; playBtn.click();
+    return `paint tile; placed wall; play moves; colors updated; rooms ${rooms.length}`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pixel-sprite-editor-workspace'])(root, T); }

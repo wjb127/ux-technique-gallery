@@ -104,7 +104,8 @@
   "code-snippet-image-studio",
   "carbon-code-image-studio",
   "video-framegrid-contact-sheet",
-  "chalkist-code-shot-studio"
+  "chalkist-code-shot-studio",
+  "moshlite-glitch-effect-mixer-desk"
  ],
  "type": [
   "modular-typescale-studio",
@@ -135,7 +136,8 @@
   "keycap-layout-canvas",
   "hardware-keymap-layer-configurator",
   "image-weave-loom-desk",
-  "pixelartcss-boxshadow-desk"
+  "pixelartcss-boxshadow-desk",
+  "bitsy-pixel-game-maker-desk"
  ],
  "sim": [
   "falling-sand-particle-sandbox",
@@ -188,7 +190,8 @@
   "windy-weather-map-desk",
   "ancient-earth-deep-time-globe",
   "kepler-gl-geospatial-layer-desk",
-  "maputnik-map-style-editor"
+  "maputnik-map-style-editor",
+  "musicmap-genre-carta-desk"
  ],
  "chart": [
   "bubble-chart-time-scrubber",

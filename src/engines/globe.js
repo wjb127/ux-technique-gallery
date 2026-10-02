@@ -678,4 +678,231 @@ V['maputnik-map-style-editor'] = (root, T) => {
   };
 };
 
+
+V['musicmap-genre-carta-desk'] = (root, T) => {
+  theme(root, T, { bg: '#1a1820', fg: '#f2f0f5', panel: '#24222c', ac: '#ffd166', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, Georgia, serif';
+
+  const SUPERS = [
+    { id: 'blues', name: 'BLUES', color: '#4ea8de' },
+    { id: 'jazz', name: 'JAZZ', color: '#5e60ce' },
+    { id: 'gospel', name: 'GOSPEL', color: '#7b2cbf' },
+    { id: 'country', name: 'COUNTRY', color: '#f4a261' },
+    { id: 'rock', name: 'ROCK', color: '#e9c46a' },
+    { id: 'metal', name: 'METAL', color: '#e76f51' },
+    { id: 'pop', name: 'POP', color: '#ef476f' },
+    { id: 'hiphop', name: 'HIP-HOP', color: '#06d6a0' },
+    { id: 'reggae', name: 'REGGAE', color: '#118ab2' },
+    { id: 'electronic', name: 'ELECTRONIC', color: '#ff006e' },
+    { id: 'dance', name: 'DANCE', color: '#8338ec' },
+    { id: 'ambient', name: 'AMBIENT', color: '#3a86ff' },
+  ];
+  const GENRES = [
+    { name: 'Worksong / Spiritual', year: 1860, s: 0, links: [1, 2] },
+    { name: 'Ragtime', year: 1897, s: 1, links: [2] },
+    { name: 'Delta Blues', year: 1920, s: 0, links: [3, 4] },
+    { name: 'Swing', year: 1935, s: 1, links: [5] },
+    { name: 'Gospel', year: 1930, s: 2, links: [6] },
+    { name: 'Honky Tonk', year: 1940, s: 3, links: [7] },
+    { name: 'Rhythm & Blues', year: 1945, s: 0, links: [7, 8] },
+    { name: 'Rock & Roll', year: 1954, s: 4, links: [9, 10] },
+    { name: 'Soul', year: 1958, s: 2, links: [11] },
+    { name: 'Surf Rock', year: 1961, s: 4, links: [12] },
+    { name: 'Motown', year: 1961, s: 6, links: [11] },
+    { name: 'Folk Rock', year: 1965, s: 4, links: [13] },
+    { name: 'Psychedelic Rock', year: 1966, s: 4, links: [14, 15] },
+    { name: 'Funk', year: 1967, s: 6, links: [16, 19] },
+    { name: 'Prog Rock', year: 1969, s: 4, links: [17] },
+    { name: 'Hard Rock', year: 1968, s: 4, links: [17, 18] },
+    { name: 'Reggae', year: 1968, s: 8, links: [20] },
+    { name: 'Heavy Metal', year: 1970, s: 5, links: [21] },
+    { name: 'Glam Rock', year: 1971, s: 4, links: [22] },
+    { name: 'Disco', year: 1974, s: 6, links: [23, 24] },
+    { name: 'Dub', year: 1973, s: 8, links: [25] },
+    { name: 'Punk Rock', year: 1976, s: 4, links: [26, 27] },
+    { name: 'New Wave', year: 1978, s: 6, links: [28] },
+    { name: 'Hip-Hop', year: 1979, s: 7, links: [29, 30] },
+    { name: 'House', year: 1984, s: 10, links: [31] },
+    { name: 'Techno', year: 1985, s: 10, links: [31, 32] },
+    { name: 'Hardcore Punk', year: 1980, s: 4, links: [27] },
+    { name: 'Post-Punk', year: 1978, s: 4, links: [28, 33] },
+    { name: 'Synthpop', year: 1980, s: 6, links: [32] },
+    { name: 'Electro', year: 1982, s: 7, links: [30] },
+    { name: 'Gangsta Rap', year: 1988, s: 7, links: [34] },
+    { name: 'Trance', year: 1991, s: 10, links: [35] },
+    { name: 'Ambient Techno', year: 1992, s: 11, links: [35] },
+    { name: 'Shoegaze', year: 1990, s: 4, links: [36] },
+    { name: 'Trip-Hop', year: 1993, s: 7, links: [36] },
+    { name: 'Drum & Bass', year: 1993, s: 10, links: [37] },
+    { name: 'Indie Rock', year: 1994, s: 4, links: [37] },
+    { name: 'Dubstep', year: 2002, s: 10, links: [] },
+  ].map((g, i) => ({ ...g, i }));
+
+  const Y0 = 1850, Y1 = 2015;
+  const colW = 140, rowH = 2.2;
+  const worldW = SUPERS.length * colW;
+  const worldH = (Y1 - Y0) * rowH + 80;
+
+  const posOf = (g) => ({
+    x: g.s * colW + colW / 2,
+    y: 40 + (g.year - Y0) * rowH,
+  });
+
+  let cam = { x: worldW / 2, y: worldH * 0.45, k: 0.85 };
+  let hover = null, sel = null;
+
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, cursor: 'grab', touchAction: 'none' } });
+  const panelEl = h('div', { style: { position: 'absolute', right: '16px', top: '56px', width: '300px', maxHeight: 'calc(100% - 80px)', overflow: 'auto', background: '#1e1c26f2', border: '1px solid #ffffff18', borderRadius: '12px', padding: '14px 16px', display: 'none', zIndex: 4, backdropFilter: 'blur(10px)' } });
+  const zoomLab = h('div', { style: { position: 'absolute', left: '14px', bottom: '14px', background: '#0008', border: '1px solid #ffffff22', borderRadius: '6px', padding: '6px 10px', fontSize: '11px', zIndex: 4, fontFamily: 'ui-monospace,monospace' } }, 'Zoom 0.85');
+
+  const project = (x, y, W, H) => [(x - cam.x) * cam.k + W / 2, (y - cam.y) * cam.k + H / 2];
+  const unproject = (sx, sy, W, H) => [(sx - W / 2) / cam.k + cam.x, (sy - H / 2) / cam.k + cam.y];
+
+  const draw = () => {
+    fitCanvas(cv, root);
+    const g = cv.g, W = cv.W, H = cv.H;
+    g.fillStyle = '#16141c'; g.fillRect(0, 0, W, H);
+
+    // decade lines
+    for (let y = 1860; y <= 2010; y += 10) {
+      const yy = 40 + (y - Y0) * rowH;
+      const [, py] = project(0, yy, W, H);
+      g.strokeStyle = y % 20 === 0 ? '#ffffff22' : '#ffffff10';
+      g.lineWidth = y % 20 === 0 ? 1.2 : 0.6;
+      g.beginPath(); g.moveTo(0, py); g.lineTo(W, py); g.stroke();
+      if (cam.k > 0.55 && y % 20 === 0) {
+        g.fillStyle = '#ffffff55'; g.font = '11px ui-monospace,monospace';
+        g.fillText(String(y), 10, py - 4);
+      }
+    }
+
+    // super-genre bands
+    SUPERS.forEach((S, i) => {
+      const [x0] = project(i * colW, 0, W, H);
+      const [x1] = project((i + 1) * colW, 0, W, H);
+      g.fillStyle = S.color + '18';
+      g.fillRect(x0, 0, Math.max(2, x1 - x0), H);
+      if (cam.k < 1.15) {
+        g.fillStyle = S.color;
+        g.font = `700 ${Math.max(10, 12 * cam.k)}px Inter Variable,sans-serif`;
+        g.save();
+        g.translate((x0 + x1) / 2, 28);
+        g.fillText(S.name, -g.measureText(S.name).width / 2, 0);
+        g.restore();
+      }
+    });
+
+    // links
+    const linkAlpha = cam.k < 0.7 ? 0.08 : 0.28;
+    GENRES.forEach((a) => {
+      const pa = posOf(a);
+      a.links.forEach((bi) => {
+        const b = GENRES[bi]; if (!b) return;
+        const pb = posOf(b);
+        const [ax, ay] = project(pa.x, pa.y, W, H);
+        const [bx, by] = project(pb.x, pb.y, W, H);
+        const hi = hover && (hover.i === a.i || hover.i === b.i || (hover.links || []).includes(a.i) || a.links.includes(hover.i));
+        g.strokeStyle = hi ? '#ffd166cc' : `rgba(255,255,255,${linkAlpha})`;
+        g.lineWidth = hi ? 2 : 1;
+        g.beginPath(); g.moveTo(ax, ay); g.bezierCurveTo(ax, (ay + by) / 2, bx, (ay + by) / 2, bx, by); g.stroke();
+      });
+    });
+
+    // nodes
+    GENRES.forEach((ge) => {
+      const p = posOf(ge);
+      const [x, y] = project(p.x, p.y, W, H);
+      if (x < -40 || y < -40 || x > W + 40 || y > H + 40) return;
+      const col = SUPERS[ge.s].color;
+      const hi = hover?.i === ge.i || sel?.i === ge.i;
+      const r = hi ? 6.5 : 4.5;
+      g.beginPath(); g.arc(x, y, r, 0, 7);
+      g.fillStyle = col; g.fill();
+      if (hi) { g.strokeStyle = '#fff'; g.lineWidth = 1.5; g.stroke(); }
+      if (cam.k > 0.75 || hi) {
+        g.fillStyle = hi ? '#fff' : '#ffffffcc';
+        g.font = `${hi ? 700 : 500} ${Math.max(9, 11 * Math.min(cam.k, 1.4))}px Inter Variable,sans-serif`;
+        g.fillText(ge.name, x + 8, y + 3);
+      }
+    });
+
+    zoomLab.textContent = `Zoom ${cam.k.toFixed(2)} · drag pan · wheel zoom`;
+  };
+
+  const hit = (sx, sy) => {
+    const W = cv.W, H = cv.H;
+    let best = null, bd = 16;
+    GENRES.forEach((ge) => {
+      const p = posOf(ge);
+      const [x, y] = project(p.x, p.y, W, H);
+      const d = Math.hypot(x - sx, y - sy);
+      if (d < bd) { bd = d; best = ge; }
+    });
+    return best;
+  };
+
+  const openPanel = (ge) => {
+    sel = ge;
+    const S = SUPERS[ge.s];
+    const tracks = ['Example Track A', 'Example Track B', 'Example Track C'].map((t, i) => `${t} — Artist ${String.fromCharCode(65 + (ge.i + i) % 12)}`);
+    panelEl.style.display = 'block';
+    panelEl.replaceChildren(
+      h('div.k-row', { style: { gap: '8px', marginBottom: '8px' } },
+        h('b', { style: { flex: 1, fontSize: '16px' } }, ge.name),
+        h('button', { style: { background: 'none', border: 0, color: '#fff', cursor: 'pointer', fontSize: '18px' }, onclick: () => { panelEl.style.display = 'none'; sel = null; draw(); } }, '–')),
+      h('div', { style: { fontSize: '12px', opacity: .7, marginBottom: '6px' } }, String(ge.year)),
+      h('span', { style: { display: 'inline-block', background: S.color + '33', color: S.color, border: `1px solid ${S.color}66`, borderRadius: '999px', padding: '2px 10px', fontSize: '11px', fontWeight: 700, letterSpacing: '.04em' } }, S.name),
+      h('p', { style: { fontSize: '13px', lineHeight: 1.55, opacity: .85, margin: '12px 0' } },
+        `${ge.name} emerges around ${ge.year} within the ${S.name} super-genre. Stub blurb for clone practice — sociological context and sonic traits would live here on the real Carta.`),
+      h('div', { style: { fontSize: '11px', opacity: .5, letterSpacing: '.08em', marginBottom: '6px' } }, 'PLAYLIST STUB'),
+      ...tracks.map((t) => h('div', { style: { fontSize: '12px', padding: '6px 0', borderBottom: '1px solid #ffffff10' } }, '♪ ', t)),
+    );
+    draw();
+  };
+
+  drag(cv, {
+    start: () => { cv.style.cursor = 'grabbing'; },
+    move: (e) => { cam.x -= e.movementX / cam.k; cam.y -= e.movementY / cam.k; draw(); },
+    end: () => { cv.style.cursor = 'grab'; },
+  });
+  cv.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY > 0 ? 0.9 : 1.1;
+    cam.k = clamp(cam.k * factor, 0.35, 2.4);
+    draw();
+  }, { passive: false });
+  cv.addEventListener('mousemove', (e) => {
+    const p = localPos(e, cv);
+    const n = hit(p.x, p.y);
+    if (n?.i !== hover?.i) { hover = n; draw(); }
+  });
+  cv.addEventListener('click', (e) => {
+    const p = localPos(e, cv);
+    const n = hit(p.x, p.y);
+    if (n) openPanel(n);
+  });
+
+  root.append(
+    h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, top: 0, height: '44px', padding: '0 16px', background: '#121018ee', borderBottom: '1px solid #ffffff12', zIndex: 5, gap: '12px' } },
+      h('b', { style: { letterSpacing: '.04em' } }, 'musicmap'),
+      h('span', { style: { opacity: .45, fontSize: '12px' } }, 'Carta · genre genealogy'),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '11px', opacity: .4 } }, 'look-alike · 12 super-genres')),
+    cv, panelEl, zoomLab,
+  );
+
+  const loop = () => { draw(); requestAnimationFrame(loop); };
+  // single draws on interaction; initial + rAF once for fit
+  requestAnimationFrame(() => { draw(); });
+
+  window.__demoProof = async () => {
+    cam.k = 1.2; cam.x = worldW * 0.55; cam.y = worldH * 0.55; draw(); await sleep(60);
+    hover = GENRES.find((g) => g.name === 'Rock & Roll'); draw(); await sleep(60);
+    openPanel(GENRES.find((g) => g.name === 'House') || GENRES[24]); await sleep(60);
+    cam.k = 0.5; draw(); await sleep(40); cam.k = 1.1; draw();
+    return `carta zoom ${cam.k}; hovered Rock & Roll; opened House panel`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }

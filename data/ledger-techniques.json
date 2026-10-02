@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-moshlite-glitch-effect-mixer-desk",
+  "slug": "moshlite-glitch-effect-mixer-desk",
+  "name": "Mosh-Lite real-time glitch effect mixer desk",
+  "date": "2026-10-02",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://moshpro.app/lite/",
+  "domain": "moshpro.app",
+  "product": "Moshpro",
+  "checkpoints": [
+   "큰 프리뷰와 Effects 스택이 한 화면에 보인다.",
+   "샘플 소스를 바꾸면 프리뷰가 갱신된다.",
+   "Mosh를 누르면 여러 이펙트 파라미터가 랜덤으로 바뀌고 프리뷰가 즉시 변한다.",
+   "개별 이펙트 토글/슬라이더가 프리뷰에 반영된다.",
+   "Seed 표시가 있고 리롤할 수 있다.",
+   "다크 글리치-믹서 크롬(풀스테이지·스택 패널)이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-02-16.md",
+  "prompt": "Build a Mosh-Lite–inspired real-time glitch effect mixer desk (inspired by\nhttps://moshpro.app/lite/). Dark full-stage preview + Effects stack panel.\nLoad 2–3 sample images (webcam/upload can be stubs). Primary “Mosh” button\nrandomizes a seed and several effect intensities. Implement at least RGB\nSplit, Scanlines, Noise, Wave, Pixelate (Canvas 2D stand-ins OK) each with\nenable toggle + intensity slider. Show seed + reroll. Export PNG stub with\noptional watermark text. Aesthetic: VJ/glitch mixer chrome, not a marketing\nlanding. No login, no real Mosh runtime/logos. Scope 45–75 min."
+ },
+ {
+  "id": "clone-musicmap-genre-carta-desk",
+  "slug": "musicmap-genre-carta-desk",
+  "name": "Musicmap genre genealogy carta explorer",
+  "date": "2026-10-02",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.musicmap.info/",
+  "domain": "musicmap.info",
+  "product": "Musicmap",
+  "checkpoints": [
+   "Carta가 슈퍼장르 컬러 밴드로 보인다.",
+   "드래그로 팬, 휠로 줌이 된다.",
+   "줌 레벨에 따라 라벨/노드 디테일이 달라진다.",
+   "장르 호버 시 관계 링크가 강조된다.",
+   "클릭하면 장르 패널(연도·설명)이 열린다.",
+   "지도형 계보 미학(타임라인×장르 축)이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-02-16.md",
+  "prompt": "Build a Musicmap-inspired genre genealogy Carta explorer (inspired by\nhttps://www.musicmap.info/). Full-canvas map: vertical axis = time\n(top=past), horizontal = color-coded super-genres. Place ~8–12 super-genre\ncolumns and ~30–40 main genre nodes with influence links. Drag to pan,\nwheel to zoom; zoomed-out shows super-genres, zoomed-in shows nodes/links.\nHover highlights related links; click opens a detail panel (name, year,\nsuper-genre tag, short blurb, 3 example track stubs). Aesthetic: scholarly\nmap/carta, soft decade lines, vivid super-genre bands — not a plain force\ngraph. No YouTube embeds, no full 234-genre dump. Scope 60–90 min."
+ },
+ {
+  "id": "clone-bitsy-pixel-game-maker-desk",
+  "slug": "bitsy-pixel-game-maker-desk",
+  "name": "Bitsy multi-panel pixel game maker desk",
+  "date": "2026-10-02",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://make.bitsy.org/",
+  "domain": "make.bitsy.org",
+  "product": "Make",
+  "checkpoints": [
+   "Paint와 Room 패널이 동시에 보인다.",
+   "Paint에서 픽셀을 토글하면 드로잉이 바뀐다.",
+   "Room 셀에 타일/아바타를 배치할 수 있다.",
+   "wall 타일은 Play에서 통과할 수 없다.",
+   "Exit 마커를 두고 다른 룸으로 연결(또는 stub)할 수 있다.",
+   "Bitsy스러운 멀티패널·픽셀 메이커 미학이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-02-16.md",
+  "prompt": "Build a Bitsy-inspired multi-panel pixel game maker desk (inspired by\nhttps://make.bitsy.org/). Floating panels: Paint (8×8 grid, Avatar/Tile/\nSprite tabs, wall toggle for tiles, 3-color palette) and Room (16×16 cell\ngrid to place the selected drawing). Optional Exits panel: place an exit\nmarker to another room stub. Play mode: move avatar with arrows; walls\nblock. Aesthetic: warm playful Bitsy-like tool chrome, soft panels, chunky\npixels — not a AAA engine. No real Bitsy runtime/logos, no full dialog\nscripting. Scope 60–90 min."
+ },
+ {
   "id": "clone-spline-browser-3d-craft-desk",
   "slug": "spline-browser-3d-craft-desk",
   "name": "Spline browser 3D interactive craft desk",
@@ -7,8 +70,8 @@
   "slot": "12:00",
   "lens": "aesthetic-interactive-craft",
   "url": "https://app.spline.design/",
-  "domain": "spline.design",
-  "product": "Spline",
+  "domain": "app.spline.design",
+  "product": "App",
   "checkpoints": [
    "왼쪽 트리에 오브젝트가 보이고 클릭하면 선택된다.",
    "＋로 box/sphere를 추가하면 뷰포트와 트리에 나타난다.",
@@ -29,7 +92,7 @@
   "lens": "aesthetic-interactive-craft",
   "url": "https://shaderpark.com/new",
   "domain": "shaderpark.com",
-  "product": "Shader Park",
+  "product": "Shaderpark",
   "checkpoints": [
    "코드 페인과 라이브 프리뷰가 나란히 보인다.",
    "예제 칩을 누르면 코드와 프리뷰가 함께 바뀐다.",
