@@ -554,4 +554,204 @@ V['wakamai-fondue-opentype-desk'] = (root, T) => {
   };
 };
 
+
+V['recursive-five-axis-font-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0f1220', fg: '#f4f1ea', panel: '#1a1f33', ac: '#ff6bcb', dark: true, line: '#ffffff18' });
+  root.style.overflow = 'auto';
+  root.style.fontFamily = "Recursive, 'Recursive Mono Casual Static', ui-sans-serif, system-ui, sans-serif";
+
+  // Load Recursive variable from Google Fonts CDN (five axes)
+  if (!document.getElementById('tg-recursive-font')) {
+    const link = document.createElement('link');
+    link.id = 'tg-recursive-font';
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap';
+    document.head.append(link);
+  }
+
+  const a = { MONO: 0, CASL: 0, wght: 700, slnt: 0, CRSV: 0.5 };
+  const CRSV_MAP = { off: 0, auto: 0.5, on: 1 };
+  let crsvKey = 'auto';
+  const sls = {};
+
+  const fvsRec = () => `"MONO" ${a.MONO.toFixed(2)}, "CASL" ${a.CASL.toFixed(2)}, "wght" ${Math.round(a.wght)}, "slnt" ${a.slnt.toFixed(1)}, "CRSV" ${a.CRSV.toFixed(2)}`;
+  const cssSnippet = () => `font-family: "Recursive", sans-serif;\nfont-variation-settings: ${fvsRec()};`;
+
+  const hero = h('div', {
+    contentEditable: true,
+    spellcheck: false,
+    style: {
+      fontSize: 'clamp(56px, 9vw, 120px)', lineHeight: 0.95, letterSpacing: '-.03em',
+      outline: 'none', fontFamily: 'Recursive, sans-serif', fontWeight: 700,
+      background: 'linear-gradient(120deg,#fff 20%,#ff6bcb 55%,#7cf0c2)',
+      WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent',
+      minHeight: '1.1em', margin: '0 0 8px',
+    },
+  }, 'Recursive');
+
+  const sub = h('div', {
+    style: { fontSize: '15px', opacity: .65, maxWidth: '520px', lineHeight: 1.5, marginBottom: '22px' },
+  }, 'Five-axis variable font playground — MONO · CASL · wght · slnt · CRSV wired live.');
+
+  const code = codebox(cssSnippet);
+  const apply = () => {
+    const settings = fvsRec();
+    hero.style.fontVariationSettings = settings;
+    hero.style.fontFamily = 'Recursive, sans-serif';
+    menuDemo.querySelectorAll('[data-item]').forEach((el) => {
+      el.style.fontVariationSettings = settings;
+      el.style.fontFamily = 'Recursive, sans-serif';
+    });
+    compare.querySelectorAll('[data-side]').forEach((el) => {
+      el.style.fontFamily = 'Recursive, sans-serif';
+    });
+    code.update();
+    axisReadout.textContent = fvsRec();
+  };
+
+  const PRESETS = [
+    { id: 'linear-sans', lab: 'Linear Sans', v: { MONO: 0, CASL: 0, wght: 500, slnt: 0, CRSV: 0.5 } },
+    { id: 'casual-mono', lab: 'Casual Mono', v: { MONO: 1, CASL: 1, wght: 600, slnt: 0, CRSV: 1 } },
+    { id: 'extra-black', lab: 'ExtraBlack', v: { MONO: 0, CASL: 0.2, wght: 1000, slnt: 0, CRSV: 0.5 } },
+    { id: 'slanted', lab: 'Slanted', v: { MONO: 0, CASL: 0.35, wght: 700, slnt: -12, CRSV: 0.5 } },
+    { id: 'soft-casual', lab: 'Soft Casual', v: { MONO: 0, CASL: 1, wght: 450, slnt: -3, CRSV: 1 } },
+    { id: 'code-italic', lab: 'Code Italic', v: { MONO: 1, CASL: 0, wght: 480, slnt: -10, CRSV: 0 } },
+    { id: 'display', lab: 'Display', v: { MONO: 0, CASL: 0.7, wght: 900, slnt: -6, CRSV: 0.5 } },
+    { id: 'neutral', lab: 'Neutral', v: { MONO: 0, CASL: 0, wght: 400, slnt: 0, CRSV: 0.5 } },
+  ];
+
+  const setAxes = (v, syncSliders = true) => {
+    Object.assign(a, v);
+    crsvKey = a.CRSV <= 0.1 ? 'off' : a.CRSV >= 0.9 ? 'on' : 'auto';
+    if (syncSliders) {
+      sls.MONO?.set(a.MONO);
+      sls.CASL?.set(a.CASL);
+      sls.wght?.set(a.wght);
+      sls.slnt?.set(a.slnt);
+      crsvSeg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.textContent.toLowerCase() === crsvKey));
+    }
+    presetRow.querySelectorAll('button').forEach((b) => {
+      const p = PRESETS.find((x) => x.id === b.dataset.id);
+      const match = p && ['MONO', 'CASL', 'wght', 'slnt', 'CRSV'].every((k) => Math.abs(p.v[k] - a[k]) < 0.05);
+      b.classList.toggle('on', !!match);
+    });
+    apply();
+  };
+
+  const presetRow = h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+    ...PRESETS.map((p) => h('button.k-btn', {
+      'data-id': p.id,
+      style: { padding: '6px 10px', fontSize: '11px', borderRadius: '999px' },
+      onclick: () => setAxes({ ...p.v }),
+    }, p.lab)),
+  );
+
+  const crsvSeg = seg([['off', 'Off'], ['auto', 'Auto'], ['on', 'On']], 'auto', (v) => {
+    crsvKey = v;
+    a.CRSV = CRSV_MAP[v];
+    apply();
+  });
+
+  sls.MONO = slider('MONO', 0, 1, a.MONO, 0.01, (v) => { a.MONO = v; apply(); }, (v) => (+v).toFixed(2));
+  sls.CASL = slider('CASL', 0, 1, a.CASL, 0.01, (v) => { a.CASL = v; apply(); }, (v) => (+v).toFixed(2));
+  sls.wght = slider('wght', 300, 1000, a.wght, 1, (v) => { a.wght = v; apply(); });
+  sls.slnt = slider('slnt', -15, 0, a.slnt, 0.5, (v) => { a.slnt = v; apply(); }, (v) => (+v).toFixed(1));
+
+  const axisReadout = h('div', {
+    style: { font: "11px/1.5 'JetBrains Mono Variable',ui-monospace,monospace", opacity: .55, wordBreak: 'break-all' },
+  }, fvsRec());
+
+  const menuDemo = h('div', {
+    style: {
+      background: '#12162a', border: '1px solid #ffffff14', borderRadius: '14px',
+      padding: '14px 16px', display: 'grid', gap: '6px', maxWidth: '280px',
+    },
+  },
+    h('div', { style: { fontSize: '11px', opacity: .45, marginBottom: '4px' } }, 'Width-stable menu'),
+    ...['Overview', 'Features', 'Pricing', 'Docs'].map((lab) => h('div', {
+      'data-item': lab,
+      style: {
+        padding: '8px 10px', borderRadius: '8px', background: '#ffffff08',
+        fontFamily: 'Recursive, sans-serif', fontSize: '14px',
+      },
+    }, lab)),
+    h('div', { style: { fontSize: '10px', opacity: .4, marginTop: '4px' } }, 'Weight changes · mono width holds layout'),
+  );
+
+  const compare = h('div', {
+    style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' },
+  },
+    h('div', {
+      'data-side': 'lin',
+      style: {
+        padding: '18px', borderRadius: '14px', background: '#161b30', border: '1px solid #ffffff12',
+        fontSize: '28px', lineHeight: 1.15, fontVariationSettings: '"MONO" 0, "CASL" 0, "wght" 700, "slnt" 0, "CRSV" 0.5',
+      },
+    }, h('div', { style: { fontSize: '11px', opacity: .45, marginBottom: '8px' } }, 'Linear'), 'Sans energy'),
+    h('div', {
+      'data-side': 'cas',
+      style: {
+        padding: '18px', borderRadius: '14px', background: '#1c1630', border: '1px solid #ff6bcb33',
+        fontSize: '28px', lineHeight: 1.15, fontVariationSettings: '"MONO" 0, "CASL" 1, "wght" 700, "slnt" 0, "CRSV" 1',
+      },
+    }, h('div', { style: { fontSize: '11px', opacity: .45, marginBottom: '8px' } }, 'Casual'), 'Brush energy'),
+  );
+
+  const controls = h('div', {
+    style: {
+      background: '#151a2e', border: '1px solid #ffffff14', borderRadius: '16px',
+      padding: '16px', display: 'grid', gap: '10px',
+    },
+  },
+    h('div.k-h', {}, 'Axes'),
+    sls.MONO, sls.CASL, sls.wght, sls.slnt,
+    h('div.k-row', {}, h('span', { style: { fontSize: '12px', opacity: .75, width: '54px' } }, 'CRSV'), crsvSeg),
+    h('div.k-h', {}, 'Presets'),
+    presetRow,
+    h('div.k-h', {}, 'CSS'),
+    code,
+    btn('Copy CSS', () => copy(cssSnippet()), 'pri'),
+    axisReadout,
+  );
+
+  const stage = h('div', {
+    style: {
+      minHeight: '100%',
+      background: 'radial-gradient(90% 70% at 15% 0%,#2a1a40 0%,#0f1220 45%,#0a1020 100%)',
+      padding: '28px 28px 48px',
+      display: 'grid',
+      gridTemplateColumns: 'minmax(0,1.2fr) minmax(280px,360px)',
+      gap: '28px',
+      alignItems: 'start',
+    },
+  },
+    h('div', {},
+      h('div.k-row', { style: { gap: '10px', marginBottom: '18px' } },
+        h('b', { style: { fontSize: '13px', letterSpacing: '.12em', textTransform: 'uppercase', opacity: .55 } }, 'Recursive-ish'),
+        h('span', { style: { flex: 1 } }),
+        h('span', { style: { fontSize: '11px', padding: '4px 10px', borderRadius: '999px', background: '#ff6bcb22', color: '#ff9ad8' } }, '5 axes'),
+      ),
+      hero, sub,
+      compare,
+      h('div', { style: { marginTop: '18px' } }, menuDemo),
+    ),
+    controls,
+  );
+
+  root.append(stage);
+  apply();
+
+  window.__demoProof = async () => {
+    setAxes(PRESETS.find((p) => p.id === 'casual-mono').v);
+    await sleep(120);
+    setAxes(PRESETS.find((p) => p.id === 'extra-black').v);
+    hero.textContent = 'Five Axes';
+    await sleep(100);
+    await copy(cssSnippet(), 'CSS');
+    setAxes(PRESETS.find((p) => p.id === 'linear-sans').v);
+    hero.textContent = 'Recursive';
+    return '5 axes + presets + copy CSS exercised';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }

@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-spline-browser-3d-craft-desk",
+  "slug": "spline-browser-3d-craft-desk",
+  "name": "Spline browser 3D interactive craft desk",
+  "date": "2026-10-02",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://app.spline.design/",
+  "domain": "spline.design",
+  "product": "Spline",
+  "checkpoints": [
+   "왼쪽 트리에 오브젝트가 보이고 클릭하면 선택된다.",
+   "＋로 box/sphere를 추가하면 뷰포트와 트리에 나타난다.",
+   "드래그로 궤도 회전·휠 줌이 동작한다.",
+   "오른쪽 컬러/opacity(또는 roughness) 컨트롤이 선택 메시에 즉시 반영된다.",
+   "Hover state 토글/미리보기에서 스케일 또는 컬러가 바뀐다.",
+   "Spline스러운 툴 크롬(패널 분할·라운드 컨트롤·뷰포트 포커스)이 정리된다."
+  ],
+  "checkpoint_source": "briefing:2026-10-02-12.md",
+  "prompt": "Build a Spline-inspired browser 3D interactive craft desk (inspired by\nhttps://app.spline.design/). Three-pane UI: left object tree, center\nThree.js/WebGL viewport with orbit rotate + wheel zoom + pan, right\ninspector for Transform (pos/rot/scale) and Material (color, metalness,\nroughness, opacity). Add Primitive buttons (box, sphere, plane). Select\nobject in tree or by click; edits update live. Simple States: Default vs\nHover (scale/color). Aesthetic: clean Spline-like design-tool chrome,\nsoft lighting, rounded panels — not a game engine debug view. No login,\nno real Spline runtime/logos. Scope 60–90 min."
+ },
+ {
+  "id": "clone-shaderpark-js-sdf-sculpt-desk",
+  "slug": "shaderpark-js-sdf-sculpt-desk",
+  "name": "Shader Park JS SDF live sculpt desk",
+  "date": "2026-10-02",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://shaderpark.com/new",
+  "domain": "shaderpark.com",
+  "product": "Shader Park",
+  "checkpoints": [
+   "코드 페인과 라이브 프리뷰가 나란히 보인다.",
+   "예제 칩을 누르면 코드와 프리뷰가 함께 바뀐다.",
+   "Auto Update ON일 때 코드 수정이 debounce 후 프리뷰에 반영된다.",
+   "size/noise 등 슬라이더가 형태 또는 컬러를 바꾼다.",
+   "프리뷰를 드래그해 보는 각도를 바꿀 수 있다.",
+   "다크 라이브코딩 데스크 미학(모노 에디터·큰 스테이지)이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-02-12.md",
+  "prompt": "Build a Shader Park–inspired JS SDF live sculpt desk (inspired by\nhttps://shaderpark.com/new). Dual-pane: monospace code editor + WebGL or\ncanvas preview. Load 2–3 example “sculpt” snippets via chips (blob sphere,\ntwisted torus, noisy terrain — raymarch SDF stub OR metaball stand-in is\nfine). Auto Update toggle with debounce + manual Run. Controls panel with\nat least two uniform sliders (size, noise) bound to the preview. Drag to\norbit. Show a small compile/error banner on failure. Aesthetic: dark\ncreative-coding stage, generous preview, compact chrome — not a marketing\nlanding page. No login/save/community crawl. Scope 45–75 min."
+ },
+ {
+  "id": "clone-recursive-five-axis-font-desk",
+  "slug": "recursive-five-axis-font-desk",
+  "name": "Recursive five-axis variable font playground",
+  "date": "2026-10-02",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.recursive.design/",
+  "domain": "recursive.design",
+  "product": "Recursive",
+  "checkpoints": [
+   "5개 축 컨트롤이 모두 히어로 텍스트에 즉시 반영된다.",
+   "히어로 텍스트를 편집할 수 있다.",
+   "프리셋 칩이 여러 축을 한꺼번에 세팅한다.",
+   "CSS `font-variation-settings` 스니펫이 현재 값과 동기화된다.",
+   "Copy가 클립보드에 들어간다.",
+   "Sans↔Mono 또는 Linear↔Casual 변화가 시각적으로 분명하다 (유틸 그레이 폰트 피커 금지)."
+  ],
+  "checkpoint_source": "briefing:2026-10-02-12.md",
+  "prompt": "Build a Recursive-inspired five-axis variable font playground (inspired by\nhttps://www.recursive.design/). Hero editable wordmark + sliders for MONO\n(0–1), CASL (0–1), wght (300–1000), slnt (0 to -15), CRSV (off/auto/on)\nwired to font-variation-settings (Recursive from Google Fonts/CDN).\nPreset chips that set multi-axis looks (Linear Sans, Casual Mono,\nExtraBlack, slanted italic stub…). Live CSS snippet panel with Copy.\nOptional: a small UI menu demo proving weight changes don’t shift layout\nwidth. Aesthetic: vibrant type-specimen craft, big type, clear axis\nlabels, scroll sections — not a SaaS pricing page or generic font picker.\nScope 45–75 min."
+ },
+ {
   "id": "clone-maputnik-map-style-editor",
   "slug": "maputnik-map-style-editor",
   "name": "Maputnik MapLibre style visual editor",

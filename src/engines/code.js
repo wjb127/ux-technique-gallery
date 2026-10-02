@@ -179,4 +179,254 @@ V['httpie-api-workspace'] = (root, T) => {
   root.append(side, h('div', { style: { display: 'grid', gridTemplateRows: 'auto auto 1fr', background: 'radial-gradient(80% 60% at 70% 20%,#2f6b45,#1c1f24 70%)' } }, h('div.k-row', { style: { padding: '14px', gap: '8px' } }, ms, ui, h('button', { style: { background: '#73dc8c', border: 0, padding: '8px 18px', borderRadius: '4px', fontWeight: 700 }, onclick: send }, 'Send')), h('div.k-row', { style: { padding: '0 14px', gap: '16px', fontSize: '12px', opacity: .8 } }, h('u', {}, 'Params'), 'Headers', 'Auth', 'Body', h('span', { style: { flex: 1 } }), h('span', { style: { background: '#73dc8c22', color: '#73dc8c', padding: '2px 8px', borderRadius: '4px' } }, '✦ AI: describe a request in plain English')), h('div', { style: { margin: '10px 14px', background: '#16181ccc', border: '1px solid #333', borderRadius: '8px', display: 'grid', gridTemplateRows: 'auto 1fr', overflow: 'hidden' } }, meta, resp)));
   window.__demoProof = async () => { await send(); return 'GET /users → 200 JSON response'; };
 };
+
+V['shaderpark-js-sdf-sculpt-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0b0c10', fg: '#e8ecf4', panel: '#12141a', ac: '#7cf0c2', dark: true, line: '#ffffff14' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "Inter Variable, system-ui, sans-serif";
+
+  const EX = {
+    blob: `// blob sphere — soft SDF sculpt
+function sculpt(p, size, noise) {
+  const d = length(p) - size;
+  const n = sin(p.x*3.+t)*cos(p.y*3.-t)*noise*0.15;
+  return d + n;
+}
+color(0.45, 0.85, 0.95);`,
+    torus: `// twisted torus
+function sculpt(p, size, noise) {
+  const q = vec2(length(p.xz)-size*1.2, p.y);
+  const tw = sin(atan(p.z,p.x)*3. + t)*noise*0.2;
+  return length(q) - size*0.35 + tw;
+}
+color(0.95, 0.55, 0.85);`,
+    noise: `// noisy terrain stub
+function sculpt(p, size, noise) {
+  const h = sin(p.x*2.5+t)*cos(p.z*2.2-t*0.7)*noise*0.45;
+  return p.y - h + (1.0-size);
+}
+color(0.55, 0.95, 0.65);`,
+  };
+
+  let code = EX.blob;
+  let auto = true;
+  let size = 0.72;
+  let noise = 0.55;
+  let angY = 0.55, angX = 0.35;
+  let dragging = false, lx = 0, ly = 0;
+  let errMsg = '';
+  let mode = 'blob';
+  let timer = 0;
+
+  // Canvas 2D metaball / raymarch-ish stub driven by "sculpt" keywords
+  const cv = h('canvas', { style: { width: '100%', height: '100%', display: 'block', cursor: 'grab', background: '#05060a' } });
+  const err = h('div', {
+    style: {
+      position: 'absolute', left: '12px', right: '12px', top: '12px', zIndex: 3,
+      background: '#3a1218ee', color: '#ffb4c0', border: '1px solid #ff5c8a55',
+      borderRadius: '8px', padding: '8px 10px', fontSize: '11px', fontFamily: MONO,
+      display: 'none',
+    },
+  });
+
+  const parseColor = (src) => {
+    const m = src.match(/color\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*\)/);
+    if (!m) return [0.5, 0.85, 0.9];
+    return [+m[1], +m[2], +m[3]];
+  };
+  const detectKind = (src) => {
+    if (/torus|twisted/i.test(src)) return 'torus';
+    if (/terrain|noisy/i.test(src)) return 'noise';
+    if (/sculpt\s*\(/.test(src) && /length\(p\)/.test(src)) return 'blob';
+    if (/function\s+sculpt/.test(src)) return 'blob';
+    return null;
+  };
+
+  const draw = (t) => {
+    const g = cv.getContext('2d');
+    const r = cv.getBoundingClientRect();
+    const W = r.width | 0, H = r.height | 0;
+    if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; }
+    const img = g.createImageData(W, H);
+    const data = img.data;
+    const col = parseColor(code);
+    const kind = detectKind(code);
+    if (!kind) {
+      errMsg = 'compile failed: expected function sculpt(p, size, noise)';
+      err.textContent = errMsg;
+      err.style.display = 'block';
+      g.fillStyle = '#0a0b10';
+      g.fillRect(0, 0, W, H);
+      return;
+    }
+    errMsg = '';
+    err.style.display = 'none';
+    const cosY = Math.cos(angY), sinY = Math.sin(angY);
+    const cosX = Math.cos(angX), sinX = Math.sin(angX);
+    const sdf = (x, y, z) => {
+      // rotate into view
+      let X = x * cosY - z * sinY; let Z = x * sinY + z * cosY;
+      let Y = y * cosX - Z * sinX; Z = y * sinX + Z * cosX;
+      if (kind === 'torus') {
+        const qx = Math.hypot(X, Z) - size * 1.2;
+        const tw = Math.sin(Math.atan2(Z, X) * 3 + t) * noise * 0.2;
+        return Math.hypot(qx, Y) - size * 0.35 + tw;
+      }
+      if (kind === 'noise') {
+        const hgt = Math.sin(X * 2.5 + t) * Math.cos(Z * 2.2 - t * 0.7) * noise * 0.45;
+        return Y - hgt + (1 - size);
+      }
+      const d = Math.hypot(X, Y, Z) - size;
+      const n = Math.sin(X * 3 + t) * Math.cos(Y * 3 - t) * noise * 0.15;
+      return d + n;
+    };
+    const step = Math.max(1, Math.floor(Math.min(W, H) / 180));
+    for (let py = 0; py < H; py += step) {
+      for (let px = 0; px < W; px += step) {
+        const u = (px / W) * 2 - 1;
+        const v = -((py / H) * 2 - 1);
+        const aspect = W / H;
+        let ox = 0, oy = 0, oz = 2.6;
+        let dx = u * aspect * 0.7, dy = v * 0.7, dz = -1;
+        const dl = Math.hypot(dx, dy, dz); dx /= dl; dy /= dl; dz /= dl;
+        let dist = 0, hit = false, p = 0;
+        for (let i = 0; i < 48; i++) {
+          const x = ox + dx * dist, y = oy + dy * dist, z = oz + dz * dist;
+          p = sdf(x, y, z);
+          if (p < 0.008) { hit = true; break; }
+          dist += Math.max(0.02, p * 0.85);
+          if (dist > 6) break;
+        }
+        let rC = 8, gC = 10, bC = 16;
+        if (hit) {
+          const x = ox + dx * dist, y = oy + dy * dist, z = oz + dz * dist;
+          const e = 0.02;
+          const nx = sdf(x + e, y, z) - sdf(x - e, y, z);
+          const ny = sdf(x, y + e, z) - sdf(x, y - e, z);
+          const nz = sdf(x, y, z + e) - sdf(x, y, z - e);
+          const nl = Math.hypot(nx, ny, nz) || 1;
+          const ndx = nx / nl, ndy = ny / nl, ndz = nz / nl;
+          const ldot = Math.max(0, ndx * 0.4 + ndy * 0.85 + ndz * 0.35);
+          const fres = Math.pow(1 - Math.max(0, -dy * ndy + 0.2), 2) * 0.35;
+          rC = Math.min(255, (col[0] * (0.25 + ldot * 0.85) + fres) * 255);
+          gC = Math.min(255, (col[1] * (0.25 + ldot * 0.85) + fres) * 255);
+          bC = Math.min(255, (col[2] * (0.25 + ldot * 0.85) + fres) * 255);
+        } else {
+          const glow = Math.max(0, 1 - Math.abs(v) * 0.7) * 18;
+          rC = 8 + glow; gC = 10 + glow * 0.8; bC = 18 + glow;
+        }
+        for (let yy = 0; yy < step && py + yy < H; yy++) {
+          for (let xx = 0; xx < step && px + xx < W; xx++) {
+            const i = ((py + yy) * W + (px + xx)) * 4;
+            data[i] = rC; data[i + 1] = gC; data[i + 2] = bC; data[i + 3] = 255;
+          }
+        }
+      }
+    }
+    g.putImageData(img, 0, 0);
+  };
+
+  let t0 = performance.now();
+  const loop = () => { draw((performance.now() - t0) / 1000); requestAnimationFrame(loop); };
+  loop();
+
+  const schedule = () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => draw((performance.now() - t0) / 1000), 280);
+  };
+
+  const ed = editor(code, (v) => {
+    code = v;
+    if (auto) schedule();
+  }, { bg: '#0e1016', fg: '#c8d6ff', gutter: '#4a5568', size: 13, lh: 20 });
+  ed.onRun = () => draw((performance.now() - t0) / 1000);
+
+  cv.addEventListener('pointerdown', (e) => {
+    dragging = true; lx = e.clientX; ly = e.clientY;
+    cv.setPointerCapture(e.pointerId);
+    cv.style.cursor = 'grabbing';
+  });
+  cv.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    angY += (e.clientX - lx) * 0.01;
+    angX = clamp(angX + (e.clientY - ly) * 0.01, -1.2, 1.2);
+    lx = e.clientX; ly = e.clientY;
+  });
+  cv.addEventListener('pointerup', () => { dragging = false; cv.style.cursor = 'grab'; });
+
+  const loadEx = (k) => {
+    mode = k;
+    code = EX[k];
+    ed.set(code);
+    chips.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.k === k));
+  };
+
+  const chips = h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+    ...[['blob', 'Blob'], ['torus', 'Torus'], ['noise', 'Noise']].map(([k, lab]) =>
+      h('button.k-btn', {
+        'data-k': k,
+        className: 'k-btn' + (k === 'blob' ? ' on' : ''),
+        style: { padding: '5px 10px', fontSize: '11px' },
+        onclick: () => loadEx(k),
+      }, lab)),
+  );
+  // fix class for first
+  chips.children[0].classList.add('on');
+
+  const preview = h('div', { style: { position: 'relative', minHeight: 0, background: '#05060a' } }, cv, err);
+  const side = h('div', {
+    style: {
+      display: 'grid', gridTemplateRows: '40px 1fr 150px', borderLeft: '1px solid #ffffff14',
+      background: '#0e1016', minHeight: 0,
+    },
+  },
+    h('div.k-row', { style: { padding: '0 12px', gap: '10px', borderBottom: '1px solid #ffffff10' } },
+      h('b', { style: { fontSize: '12px' } }, 'sculpt.js'),
+      h('span', { style: { flex: 1 } }),
+      toggle('Auto Update', true, (v) => { auto = v; }),
+      btn('Run', () => draw((performance.now() - t0) / 1000), 'pri'),
+    ),
+    h('div', { style: { minHeight: 0, overflow: 'hidden' } }, ed),
+    h('div', {
+      style: {
+        borderTop: '1px solid #ffffff10', padding: '10px 12px', display: 'grid', gap: '8px',
+        background: '#0b0d12',
+      },
+    },
+      h('div.k-h', {}, 'Examples'),
+      chips,
+      h('div.k-h', {}, 'Controls'),
+      slider('size', 0.25, 1.2, size, 0.01, (v) => { size = v; }),
+      slider('noise', 0, 1.2, noise, 0.01, (v) => { noise = v; }),
+    ),
+  );
+
+  const top = h('div.k-row', {
+    style: {
+      padding: '0 14px', gap: '12px', background: '#0e1016', borderBottom: '1px solid #ffffff10',
+      height: '40px',
+    },
+  },
+    h('b', { style: { fontSize: '13px', letterSpacing: '-.01em' } }, 'Shader Park-ish'),
+    h('span', { style: { fontSize: '11px', opacity: .45 } }, 'JS → SDF live sculpt'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '11px', opacity: .4, fontFamily: MONO } }, 'drag preview to orbit'),
+  );
+
+  root.style.display = 'grid';
+  root.style.gridTemplateRows = '40px 1fr';
+  root.append(top, h('div', { style: { display: 'grid', gridTemplateColumns: '1.15fr 1fr', minHeight: 0 } }, preview, side));
+
+  window.__demoProof = async () => {
+    loadEx('torus');
+    size = 0.9; noise = 0.8;
+    angY += 0.6; angX = 0.2;
+    await sleep(200);
+    loadEx('blob');
+    size = 0.72; noise = 0.55;
+    await sleep(120);
+    return 'examples swapped; size/noise + orbit exercised; auto-update path ready';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }

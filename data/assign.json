@@ -120,7 +120,8 @@
   "font-pair-studio",
   "pretextjs-reflow-playground",
   "alphazet-3d-type-specimen-desk",
-  "wakamai-fondue-opentype-desk"
+  "wakamai-fondue-opentype-desk",
+  "recursive-five-axis-font-desk"
  ],
  "pixel": [
   "pixel-sprite-editor-workspace",
@@ -169,7 +170,8 @@
   "hydra-livecode-video-synth",
   "textmode-livecode-stage",
   "turtle-plotter-livecode",
-  "httpie-api-workspace"
+  "httpie-api-workspace",
+  "shaderpark-js-sdf-sculpt-desk"
  ],
  "globe": [
   "globe-radio-discover",
@@ -246,7 +248,8 @@
   "isometric-cutaway-room-studio",
   "threejs-scene-editor-desk",
   "donmccurdy-gltf-drop-viewer",
-  "zdog-pseudo3d-illo-playground"
+  "zdog-pseudo3d-illo-playground",
+  "spline-browser-3d-craft-desk"
  ],
  "saas": [
   "pricing-tier-cards",

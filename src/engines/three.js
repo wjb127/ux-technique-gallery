@@ -589,4 +589,257 @@ V['zdog-pseudo3d-illo-playground'] = (root, T) => {
   };
 };
 
+
+V['spline-browser-3d-craft-desk'] = (root, T) => {
+  theme(root, T, { bg: '#f4f5f7', fg: '#1a1d23', panel: '#ffffff', ac: '#5b6cff', dark: false, line: '#e4e6ec' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "Inter Variable, system-ui, sans-serif";
+
+  const objs = [];
+  let selected = null;
+  let stateMode = 'default'; // default | hover
+  let uid = 1;
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '44px 1fr 26px', background: '#eef0f4' } });
+  const top = h('div.k-row', {
+    style: {
+      padding: '0 14px', gap: '10px', background: '#fff', borderBottom: '1px solid #e4e6ec',
+      boxShadow: '0 1px 0 #00000006',
+    },
+  },
+    h('b', { style: { fontSize: '13px', letterSpacing: '-.01em' } }, '✦ Craft Desk'),
+    h('span', { style: { width: '1px', height: '18px', background: '#e4e6ec' } }),
+    h('span', { style: { fontSize: '12px', opacity: .55 } }, 'Scene · Untitled'),
+    h('span', { style: { flex: 1 } }),
+  );
+  const addBar = h('div.k-row', { style: { gap: '6px' } });
+  top.append(addBar);
+
+  const body = h('div', { style: { display: 'grid', gridTemplateColumns: '220px 1fr 280px', minHeight: 0 } });
+  const treeWrap = h('div', {
+    style: {
+      background: '#fff', borderRight: '1px solid #e4e6ec', display: 'grid',
+      gridTemplateRows: '36px 1fr', minHeight: 0,
+    },
+  });
+  const treeHead = h('div.k-row', {
+    style: { padding: '0 12px', fontSize: '11px', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', opacity: .45 },
+  }, 'Objects');
+  const tree = h('div', { style: { overflow: 'auto', padding: '6px 8px', display: 'grid', gap: '2px', alignContent: 'start' } });
+  treeWrap.append(treeHead, tree);
+
+  const vp = h('div', { style: { position: 'relative', minHeight: 0, background: '#dfe3ea' } });
+  const S = stage(vp, { bg: '#d8dde6' });
+  S.cam.position.set(4.2, 3.2, 5.4);
+  lights(S.scene, 1.05);
+  const hemi = new THREE.HemisphereLight(0xffffff, 0xb0b8c8, 0.55);
+  S.scene.add(hemi);
+  const floor = new THREE.Mesh(
+    new THREE.CircleGeometry(8, 64),
+    new THREE.MeshStandardMaterial({ color: 0xcfd5df, roughness: 0.95, metalness: 0.02 }),
+  );
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = -0.01;
+  floor.receiveShadow = true;
+  S.scene.add(floor);
+  const grid = new THREE.GridHelper(10, 20, 0xb8c0ce, 0xc9d0db);
+  grid.position.y = 0.001;
+  S.scene.add(grid);
+  const oc = new OrbitControls(S.cam, S.r.domElement);
+  oc.enableDamping = true;
+  oc.enablePan = true;
+  oc.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN };
+  S.on(() => oc.update());
+
+  const insp = h('div', {
+    style: {
+      background: '#fff', borderLeft: '1px solid #e4e6ec', display: 'grid',
+      gridTemplateRows: '36px 1fr', minHeight: 0, overflow: 'hidden',
+    },
+  });
+  const inspHead = h('div.k-row', {
+    style: { padding: '0 12px', fontSize: '11px', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', opacity: .45 },
+  }, 'Inspector');
+  const inspBody = h('div', { style: { overflow: 'auto', padding: '10px 12px', display: 'grid', gap: '10px', alignContent: 'start' } });
+  insp.append(inspHead, inspBody);
+
+  const foot = h('div.k-row', {
+    style: { padding: '0 14px', fontSize: '11px', background: '#fff', borderTop: '1px solid #e4e6ec', opacity: .55, gap: '14px' },
+  }, h('span', {}, 'Orbit · wheel zoom · right-drag pan'), h('span', { style: { flex: 1 } }), h('span', {}, 'Craft Desk · look-alike'));
+
+  const geoOf = (kind) => {
+    if (kind === 'sphere') return new THREE.SphereGeometry(0.55, 48, 32);
+    if (kind === 'plane') return new THREE.PlaneGeometry(1.6, 1.6);
+    return new THREE.BoxGeometry(1, 1, 1);
+  };
+  const matOf = (hex = '#7c8cff') => new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color(hex), metalness: 0.15, roughness: 0.35, transparent: true, opacity: 1,
+    clearcoat: 0.4, clearcoatRoughness: 0.35,
+  });
+
+  const selectObj = (o) => {
+    selected = o;
+    objs.forEach((x) => {
+      if (x.userData.outline) x.userData.outline.visible = x === o;
+    });
+    renderTree();
+    renderInsp();
+  };
+
+  const applyState = (o) => {
+    if (!o) return;
+    const def = o.userData.def;
+    const hov = o.userData.hov;
+    const use = stateMode === 'hover' ? hov : def;
+    o.material.color.set(use.color);
+    o.scale.setScalar(use.scale);
+  };
+
+  const addPrim = (kind) => {
+    const mat = matOf(kind === 'sphere' ? '#ff7ab8' : kind === 'plane' ? '#6ee7c5' : '#7c8cff');
+    const mesh = new THREE.Mesh(geoOf(kind), mat);
+    mesh.name = kind.charAt(0).toUpperCase() + kind.slice(1) + ' ' + uid++;
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    mesh.position.set((Math.random() - 0.5) * 1.6, kind === 'plane' ? 0.02 : 0.5, (Math.random() - 0.5) * 1.6);
+    if (kind === 'plane') mesh.rotation.x = -Math.PI / 2;
+    const outline = new THREE.Mesh(
+      mesh.geometry.clone(),
+      new THREE.MeshBasicMaterial({ color: 0x5b6cff, wireframe: true, transparent: true, opacity: 0.55 }),
+    );
+    outline.scale.setScalar(1.02);
+    outline.visible = false;
+    mesh.add(outline);
+    mesh.userData = {
+      kind,
+      outline,
+      def: { color: '#' + mat.color.getHexString(), scale: 1 },
+      hov: { color: '#ffd166', scale: 1.12 },
+    };
+    S.scene.add(mesh);
+    objs.push(mesh);
+    selectObj(mesh);
+    return mesh;
+  };
+
+  const renderTree = () => {
+    tree.replaceChildren(...objs.map((o) => h('div.k-row', {
+      style: {
+        padding: '7px 8px', borderRadius: '8px', cursor: 'pointer', gap: '8px',
+        background: o === selected ? '#5b6cff14' : 'transparent',
+        outline: o === selected ? '1px solid #5b6cff44' : 'none',
+      },
+      onclick: () => selectObj(o),
+    },
+      h('span', { style: { width: '8px', height: '8px', borderRadius: '3px', background: '#' + o.material.color.getHexString() } }),
+      h('span', { style: { fontSize: '12px', fontWeight: o === selected ? 700 : 500 } }, o.name),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '10px', opacity: .4, textTransform: 'uppercase' } }, o.userData.kind),
+    )));
+  };
+
+  const numRow = (label, get, set, step = 0.05) => h('div.k-row', {},
+    h('span', { style: { width: '54px', fontSize: '11px', opacity: .6 } }, label),
+    h('input', {
+      type: 'number', step, value: +get().toFixed(2),
+      style: { flex: 1, padding: '5px 7px', borderRadius: '7px', border: '1px solid #e4e6ec', background: '#f7f8fb' },
+      oninput: (e) => { set(+e.target.value); },
+    }),
+  );
+
+  const renderInsp = () => {
+    if (!selected) {
+      inspBody.replaceChildren(h('div', { style: { opacity: .5, fontSize: '12px', padding: '8px 0' } }, 'Select an object in the tree or add a primitive.'));
+      return;
+    }
+    const o = selected;
+    const m = o.material;
+    const colorInp = h('input', {
+      type: 'color', value: '#' + m.color.getHexString(),
+      style: { width: '100%', height: '34px', border: '1px solid #e4e6ec', borderRadius: '8px', background: '#fff', padding: 0 },
+      oninput: (e) => {
+        m.color.set(e.target.value);
+        o.userData.def.color = e.target.value;
+        if (stateMode === 'default') applyState(o);
+        renderTree();
+      },
+    });
+    inspBody.replaceChildren(
+      h('b', { style: { fontSize: '13px' } }, o.name),
+      h('div.k-h', {}, 'Transform'),
+      numRow('pos.x', () => o.position.x, (v) => { o.position.x = v; }),
+      numRow('pos.y', () => o.position.y, (v) => { o.position.y = v; }),
+      numRow('pos.z', () => o.position.z, (v) => { o.position.z = v; }),
+      numRow('rot.y', () => o.rotation.y, (v) => { o.rotation.y = v; }, 0.05),
+      numRow('scl', () => o.scale.x, (v) => {
+        o.scale.setScalar(v);
+        o.userData.def.scale = v;
+      }, 0.05),
+      h('div.k-h', {}, 'Material'),
+      h('div.k-row', {}, h('span', { style: { width: '54px', fontSize: '11px', opacity: .6 } }, 'color'), colorInp),
+      slider('Metalness', 0, 1, m.metalness, 0.01, (v) => { m.metalness = v; }),
+      slider('Roughness', 0, 1, m.roughness, 0.01, (v) => { m.roughness = v; }),
+      slider('Opacity', 0.1, 1, m.opacity, 0.01, (v) => { m.opacity = v; m.transparent = v < 1; }),
+      h('div.k-h', {}, 'States'),
+      seg([['default', 'Default'], ['hover', 'Hover']], stateMode, (v) => {
+        stateMode = v;
+        objs.forEach(applyState);
+        renderInsp();
+      }),
+      h('div', { style: { fontSize: '11px', opacity: .5, lineHeight: 1.45 } },
+        stateMode === 'hover'
+          ? 'Hover preview: scale ×1.12 + warm accent color.'
+          : 'Default state — edits write to the base look.'),
+    );
+  };
+
+  [['box', 'Cube'], ['sphere', 'Sphere'], ['plane', 'Plane']].forEach(([k, lab]) => {
+    addBar.append(btn('+ ' + lab, () => addPrim(k), k === 'box' ? 'pri' : ''));
+  });
+
+  // seed scene
+  addPrim('box');
+  objs[0].position.set(-0.7, 0.5, 0.2);
+  addPrim('sphere');
+  objs[1].position.set(0.9, 0.55, -0.3);
+  selectObj(objs[0]);
+
+  // click-to-select in viewport
+  const ray = new THREE.Raycaster();
+  S.r.domElement.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    const b = S.r.domElement.getBoundingClientRect();
+    ray.setFromCamera({
+      x: ((e.clientX - b.left) / b.width) * 2 - 1,
+      y: -((e.clientY - b.top) / b.height) * 2 + 1,
+    }, S.cam);
+    const hit = ray.intersectObjects(objs, false)[0];
+    if (hit) selectObj(hit.object);
+  });
+
+  body.append(treeWrap, vp, insp);
+  shell.append(top, body, foot);
+  root.append(shell);
+
+  window.__demoProof = async () => {
+    const before = { mode: stateMode, n: objs.length, sel: selected?.name };
+    addPrim('box');
+    addPrim('sphere');
+    selectObj(objs[0]);
+    objs[0].material.color.set('#ff5c8a');
+    objs[0].userData.def.color = '#ff5c8a';
+    objs[0].material.roughness = 0.18;
+    objs[0].material.metalness = 0.55;
+    stateMode = 'hover';
+    objs.forEach(applyState);
+    renderTree(); renderInsp();
+    oc.object.position.x += 0.4;
+    await sleep(160);
+    stateMode = 'default';
+    objs.forEach(applyState);
+    renderInsp();
+    return `tree+add (${before.n}→${objs.length}); material live; hover state; orbit ready`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }
