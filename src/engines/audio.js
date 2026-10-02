@@ -1107,4 +1107,226 @@ V['typatone-type-music-desk'] = (root, T) => {
   };
 };
 
+
+V['plaza-vaporwave-radio-desk'] = (root, T) => {
+  theme(root, T, { bg: '#1a1030', fg: '#e8e0f0', panel: '#c0c0c0', ac: '#ff71ce', dark: true, line: '#808080' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'MS Sans Serif', Tahoma, system-ui, sans-serif";
+  root.style.background = '#0d0820';
+
+  const TRACKS = [
+    { title: 'Aisle 9 (Palm Leaves)', artist: '식료품groceries', dur: '3:42' },
+    { title: 'リサフランク420', artist: 'Macintosh Plus', dur: '7:12' },
+    { title: 'Private Caller', artist: 'Blank Banshee', dur: '3:05' },
+    { title: 'Resonance', artist: 'HOME', dur: '3:32' },
+    { title: '花の専門店', artist: 'マクロスMACROSS 82-99', dur: '4:01' },
+    { title: 'Slow Dive', artist: 'Saint Pepsi', dur: '2:48' },
+    { title: 'Breeze', artist: 'Eco Virtual', dur: '3:18' },
+    { title: 'Night Temples', artist: '丹波', dur: '5:02' },
+  ];
+  let idx = 0, playing = false, vol = 0.45, listeners = 151;
+  let tmr = null, pulse = 0;
+
+  // vapor pixel backdrop (canvas)
+  const bg = h('canvas', { style: { position: 'absolute', inset: 0, width: '100%', height: '100%', imageRendering: 'pixelated', zIndex: 0 } });
+  root.append(bg);
+  const paintBg = () => {
+    fitCanvas(bg, root);
+    const g = bg.g, W = bg.W, H = bg.H;
+    const grd = g.createLinearGradient(0, 0, 0, H);
+    grd.addColorStop(0, '#2a1848');
+    grd.addColorStop(0.45, '#1a2840');
+    grd.addColorStop(1, '#0a1828');
+    g.fillStyle = grd; g.fillRect(0, 0, W, H);
+    // dithered cliffs / waterfall suggestion
+    for (let y = 0; y < H; y += 3) {
+      for (let x = 0; x < W; x += 3) {
+        const n = (Math.sin(x * 0.02 + y * 0.01) + Math.cos(x * 0.005 - y * 0.03)) * 0.5;
+        const edge = Math.abs(x - W * 0.5) / W;
+        if (n > 0.3 + edge * 0.4) {
+          g.fillStyle = y < H * 0.45 ? '#3d2a5c' : '#1e3a3a';
+          if ((x + y) % 6 === 0) g.fillStyle = y < H * 0.5 ? '#5a3d7a' : '#2a5050';
+          g.fillRect(x, y, 3, 3);
+        }
+      }
+    }
+    // waterfall column
+    g.fillStyle = '#9ad4e844';
+    for (let y = H * 0.2; y < H * 0.85; y += 4) {
+      g.fillRect(W * 0.48 + Math.sin(y * 0.08) * 6, y, 10, 4);
+    }
+    // pink rooftops
+    g.fillStyle = '#c45c7a';
+    [[0.22, 0.38], [0.28, 0.32], [0.7, 0.36], [0.76, 0.42]].forEach(([px, py]) => {
+      g.fillRect(W * px, H * py, 28, 8);
+      g.fillRect(W * px + 4, H * py - 10, 20, 10);
+    });
+  };
+  paintBg();
+  new ResizeObserver(paintBg).observe(root);
+
+  const bevel = (raised = true) => raised
+    ? 'border:2px solid;border-color:#fff #808080 #808080 #fff'
+    : 'border:2px solid;border-color:#808080 #fff #fff #808080';
+
+  const clock = h('span', {}, '');
+  const tickClock = () => {
+    const d = new Date();
+    clock.textContent = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  };
+  tickClock(); setInterval(tickClock, 10000);
+
+  const titleEl = h('div', { style: { fontWeight: 700, fontSize: '13px', color: '#000' } });
+  const artistEl = h('div', { style: { fontSize: '11px', color: '#333', marginTop: '2px' } });
+  const listenEl = h('div', { style: { fontSize: '11px', color: '#444', marginTop: '8px' } });
+  const playBtn = h('button', {
+    style: { padding: '4px 14px', ...Object.fromEntries([]), cursor: 'pointer', background: '#c0c0c0', fontSize: '12px', fontWeight: 700 },
+  }, '▶ Play');
+  playBtn.setAttribute('style', `padding:4px 14px;cursor:pointer;background:#c0c0c0;font-size:12px;font-weight:700;${bevel(true)}`);
+
+  const art = h('div', {
+    style: {
+      width: '120px', height: '120px', background: 'linear-gradient(135deg,#ff71ce,#01cdfe 50%,#b967ff)',
+      border: '2px solid #808080', flexShrink: 0, display: 'grid', placeItems: 'center',
+      fontSize: '42px', color: '#fff8', textShadow: '0 0 12px #ff71ce',
+    },
+  }, '◈');
+
+  const list = h('div', {
+    style: { marginTop: '10px', maxHeight: '160px', overflow: 'auto', background: '#fff', ...Object.fromEntries([]), fontSize: '12px', color: '#000' },
+  });
+  list.setAttribute('style', 'margin-top:10px;max-height:160px;overflow:auto;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;font-size:12px;color:#000');
+
+  const volSl = h('input', { type: 'range', min: 0, max: 100, value: 45, style: { width: '90px', writingMode: 'vertical-lr', direction: 'rtl', height: '100px' } });
+
+  const refresh = () => {
+    const t = TRACKS[idx];
+    titleEl.textContent = t.title;
+    artistEl.textContent = t.artist + ' · ' + t.dur;
+    listenEl.textContent = 'Listeners: ' + listeners;
+    playBtn.textContent = playing ? '❚❚ Pause' : '▶ Play';
+    list.replaceChildren(...TRACKS.map((tr, i) => h('div', {
+      style: {
+        padding: '4px 8px', cursor: 'pointer',
+        background: i === idx ? '#000080' : (i % 2 ? '#f0f0f0' : '#fff'),
+        color: i === idx ? '#fff' : '#000',
+      },
+      onclick: () => { idx = i; refresh(); if (playing) pulsePlay(); },
+    }, `${i + 1}. ${tr.title} — ${tr.artist}`)));
+  };
+
+  const pulsePlay = () => {
+    const t = TRACKS[idx];
+    const base = 48 + (t.title.charCodeAt(0) % 12);
+    blip(midi(base), 0.35 * vol, 'triangle', 0.08 * vol);
+    blip(midi(base + 7), 0.45 * vol, 'sine', 0.05 * vol, 0.05);
+    blip(midi(base + 12), 0.5 * vol, 'sawtooth', 0.03 * vol, 0.1);
+  };
+
+  const setPlaying = (on) => {
+    playing = on;
+    clearInterval(tmr);
+    refresh();
+    if (on) {
+      pulsePlay();
+      tmr = setInterval(() => {
+        pulsePlay();
+        listeners = 140 + ((listeners + 3) % 40);
+        listenEl.textContent = 'Listeners: ' + listeners;
+        pulse = (pulse + 1) % 8;
+        art.style.filter = `hue-rotate(${pulse * 20}deg) brightness(1.05)`;
+      }, 1600);
+    } else {
+      art.style.filter = '';
+    }
+  };
+  playBtn.onclick = () => setPlaying(!playing);
+  volSl.oninput = (e) => { vol = (+e.target.value) / 100; };
+
+  const win = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '46%', transform: 'translate(-50%,-50%)',
+      width: 'min(520px, 92%)', background: '#c0c0c0', zIndex: 4,
+      boxShadow: '4px 4px 0 #0006', border: '2px solid', borderColor: '#fff #808080 #808080 #fff',
+    },
+  });
+  const titlebar = h('div', {
+    style: {
+      background: 'linear-gradient(90deg,#000080,#1084d0)', color: '#fff',
+      padding: '3px 6px', display: 'flex', alignItems: 'center', gap: '8px',
+      fontSize: '12px', fontWeight: 700, cursor: 'default',
+    },
+  },
+    h('span', {}, '🌃 Nightwave Plaza-ish'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: `width:16px;height:14px;background:#c0c0c0;color:#000;text-align:center;line-height:12px;font-size:10px;${bevel(true)}` }, '_'),
+    h('span', { style: `width:16px;height:14px;background:#c0c0c0;color:#000;text-align:center;line-height:12px;font-size:10px;${bevel(true)}` }, '□'),
+    h('span', { style: `width:16px;height:14px;background:#c0c0c0;color:#000;text-align:center;line-height:12px;font-size:10px;${bevel(true)}` }, '×'),
+  );
+  const menu = h('div', {
+    style: { display: 'flex', gap: '12px', padding: '2px 8px', fontSize: '12px', color: '#000', borderBottom: '1px solid #808080' },
+  }, ...['About', 'Settings', 'Visuals', 'Station', 'IRC'].map((m) => h('span', { style: { cursor: 'default' } }, m)));
+
+  const body = h('div', { style: { padding: '10px', display: 'flex', gap: '12px', color: '#000' } },
+    art,
+    h('div', { style: { flex: 1, minWidth: 0 } },
+      titleEl, artistEl,
+      h('div', { style: { display: 'flex', gap: '8px', alignItems: 'center', marginTop: '10px' } },
+        playBtn,
+        h('button', {
+          style: `padding:4px 10px;cursor:pointer;background:#c0c0c0;font-size:12px;${bevel(true)}`,
+          onclick: () => { idx = (idx + 1) % TRACKS.length; refresh(); if (playing) pulsePlay(); },
+        }, '♥ Fav'),
+        h('button', {
+          style: `padding:4px 10px;cursor:pointer;background:#c0c0c0;font-size:12px;${bevel(true)}`,
+          onclick: () => { idx = (idx + 1) % TRACKS.length; refresh(); if (playing) pulsePlay(); },
+        }, '⏭'),
+      ),
+      listenEl,
+      list,
+    ),
+    h('div', { style: { display: 'grid', justifyItems: 'center', gap: '4px', fontSize: '11px', color: '#000' } },
+      h('span', {}, '🔊'),
+      volSl,
+      h('span', {}, '45%'),
+    ),
+  );
+  // fix volume label
+  const volLbl = h('span', {}, '45%');
+  volSl.oninput = (e) => { vol = (+e.target.value) / 100; volLbl.textContent = Math.round(vol * 100) + '%'; };
+  body.lastChild.replaceChildren(h('span', {}, '🔊'), volSl, volLbl);
+
+  win.append(titlebar, menu, body);
+
+  const taskbar = h('div', {
+    style: {
+      position: 'absolute', left: 0, right: 0, bottom: 0, height: '28px', zIndex: 8,
+      background: '#c0c0c0', borderTop: '2px solid #fff', display: 'flex', alignItems: 'center',
+      gap: '4px', padding: '0 4px', color: '#000', fontSize: '12px',
+    },
+  },
+    h('button', { style: `padding:2px 10px;font-weight:700;background:#c0c0c0;cursor:pointer;${bevel(true)}` }, 'Start'),
+    h('button', { style: `padding:2px 10px;background:#c0c0c0;cursor:pointer;${bevel(false)}` }, 'Nightwave Plaza'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: `padding:2px 8px;${bevel(false)}` }, clock),
+  );
+
+  root.append(win, taskbar);
+  refresh();
+
+  window.__demoProof = async () => {
+    const before = { idx, playing, vol };
+    idx = 2; vol = 0.6; volSl.value = 60; volLbl.textContent = '60%';
+    refresh();
+    setPlaying(true);
+    await sleep(300);
+    idx = 4; refresh(); pulsePlay();
+    await sleep(200);
+    setPlaying(false);
+    idx = before.idx; vol = before.vol; volSl.value = Math.round(vol * 100); volLbl.textContent = Math.round(vol * 100) + '%';
+    refresh();
+    return 'play/pause + track select + volume exercised, restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

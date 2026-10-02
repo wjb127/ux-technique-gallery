@@ -19,7 +19,8 @@
   "polished-whiteboard-canvas",
   "infinite-canvas-toolbar",
   "frame-timeline-animation-studio",
-  "heraldic-flag-canvas-desk"
+  "heraldic-flag-canvas-desk",
+  "bomomo-generative-brush-desk"
  ],
  "seq": [
   "music-grid-sequencer",
@@ -152,7 +153,8 @@
   "handdrawn-physics-sandbox",
   "mondrian-partition-canvas",
   "matterjs-physics-demo-desk",
-  "particulardrift-image-particle-desk"
+  "particulardrift-image-particle-desk",
+  "paperplanes-throw-catch-world"
  ],
  "gen": [
   "tinkersynth-slopes-synth-desk",
@@ -242,7 +244,8 @@
   "sfxr-8bit-sound-desk",
   "tonejs-simple-synth-desk",
   "blob-opera-drag-choir-desk",
-  "typatone-type-music-desk"
+  "typatone-type-music-desk",
+  "plaza-vaporwave-radio-desk"
  ],
  "desk": [
   "parody-desktop-os-sandbox",

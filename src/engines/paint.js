@@ -303,4 +303,222 @@ V['frame-timeline-animation-studio'] = (root, T) => {
   drawTL();
   window.__demoProof = async () => { await sleep(50); for (let i = 0; i < 3; i++) { show(i); await scribble(p.cv, 0, 0, 0, 20, (t) => [150 + i * 150 + Math.cos(t * 6.3) * 50, 200 + Math.sin(t * 6.3) * 50]); } show(3); show(2); return 'drew 3 frames, onion skin visible on frame 3'; };
 };
+
+V['bomomo-generative-brush-desk'] = (root, T) => {
+  theme(root, T, { bg: '#c8c8c8', fg: '#222', panel: '#d8d8d8', ac: '#f0e070', dark: false, line: '#999' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, sans-serif';
+
+  const BRUSHES = [
+    { id: 'orbit', label: 'Orbit', icon: '◎' },
+    { id: 'sprout', label: 'Sprout', icon: '✶' },
+    { id: 'ribbon', label: 'Ribbon', icon: '∿' },
+    { id: 'stamp', label: 'Stamp', icon: '◍' },
+    { id: 'scatter', label: 'Scatter', icon: '∷' },
+    { id: 'mirror', label: 'Mirror', icon: '☯' },
+    { id: 'propeller', label: 'Prop', icon: '✱' },
+    { id: 'wave', label: 'Wave', icon: '≈' },
+  ];
+  let bi = 0;
+  const COLORS = ['#222', '#e0457b', '#2d8ceb', '#16a085', '#f39c12', '#8e44ad', '#1abc9c', '#c0392b'];
+  let color = COLORS[0];
+
+  const stage = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '42%', transform: 'translate(-50%,-50%)',
+      width: 'min(860px, 92%)', height: 'min(480px, 62%)',
+      background: '#fff', boxShadow: '0 2px 0 #0002, 0 12px 40px #0002',
+      border: '1px solid #bbb',
+    },
+  });
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, touchAction: 'none', cursor: 'crosshair' } });
+  stage.append(cv);
+  root.append(stage);
+
+  let g, drawing = false, last = null, particles = [];
+
+  const resize = () => {
+    const snap = g && cv.width ? g.getImageData(0, 0, cv.width, cv.height) : null;
+    fitCanvas(cv, stage);
+    g = cv.g;
+    g.fillStyle = '#fff';
+    g.fillRect(0, 0, cv.W, cv.H);
+    if (snap) try { g.putImageData(snap, 0, 0); } catch {}
+  };
+  resize();
+  new ResizeObserver(resize).observe(stage);
+
+  const spawn = (x, y, dx, dy) => {
+    const b = BRUSHES[bi].id;
+    const spd = Math.hypot(dx, dy) || 1;
+    if (b === 'orbit') {
+      for (let i = 0; i < 3; i++) {
+        const a = Math.random() * 7;
+        particles.push({ kind: 'orb', x, y, r: 8 + Math.random() * 18, a, da: 0.08 + Math.random() * 0.1, life: 1, c: color });
+      }
+    } else if (b === 'sprout') {
+      particles.push({ kind: 'sprout', x, y, vx: dx * 0.2, vy: dy * 0.2 - 1.2, life: 1, c: color, len: 10 + Math.random() * 20 });
+    } else if (b === 'ribbon') {
+      g.strokeStyle = color; g.lineWidth = 2 + spd * 0.15; g.lineCap = 'round';
+      g.globalAlpha = 0.55;
+      g.beginPath(); g.moveTo(x - dy * 0.4, y + dx * 0.4); g.lineTo(x + dy * 0.4, y - dx * 0.4); g.stroke();
+      g.globalAlpha = 1;
+      particles.push({ kind: 'ribbon', x, y, life: 0.6, c: color });
+    } else if (b === 'stamp') {
+      g.strokeStyle = color; g.lineWidth = 1.5; g.globalAlpha = 0.7;
+      g.beginPath(); g.arc(x, y, 6 + Math.random() * 10, 0, 7); g.stroke();
+      g.globalAlpha = 1;
+    } else if (b === 'scatter') {
+      g.fillStyle = color;
+      for (let i = 0; i < 8; i++) {
+        const a = Math.random() * 7, r = Math.random() * 16;
+        g.globalAlpha = 0.5 + Math.random() * 0.5;
+        g.fillRect(x + Math.cos(a) * r, y + Math.sin(a) * r, 2, 2);
+      }
+      g.globalAlpha = 1;
+    } else if (b === 'mirror') {
+      const cx = cv.W / 2, cy = cv.H / 2;
+      g.fillStyle = color; g.globalAlpha = 0.65;
+      for (const [sx, sy] of [[1, 1], [-1, 1], [1, -1], [-1, -1]]) {
+        g.beginPath(); g.arc(cx + (x - cx) * sx, cy + (y - cy) * sy, 3, 0, 7); g.fill();
+      }
+      g.globalAlpha = 1;
+    } else if (b === 'propeller') {
+      particles.push({ kind: 'prop', x, y, a: Math.random() * 7, life: 1, c: color });
+    } else if (b === 'wave') {
+      g.strokeStyle = color; g.lineWidth = 1.4; g.globalAlpha = 0.6;
+      g.beginPath();
+      for (let i = 0; i < 12; i++) {
+        const px = x + i * 3, py = y + Math.sin(i * 0.8 + x * 0.05) * 6;
+        if (i === 0) g.moveTo(px, py); else g.lineTo(px, py);
+      }
+      g.stroke(); g.globalAlpha = 1;
+    }
+  };
+
+  const onDown = (e) => {
+    drawing = true; last = localPos(e, cv);
+    cv.setPointerCapture(e.pointerId);
+    spawn(last.x, last.y, 0, 0);
+  };
+  const onMove = (e) => {
+    if (!drawing) return;
+    const p = localPos(e, cv);
+    const dx = p.x - last.x, dy = p.y - last.y;
+    // interpolate
+    const dist = Math.hypot(dx, dy);
+    const steps = Math.max(1, Math.floor(dist / 4));
+    for (let i = 1; i <= steps; i++) {
+      const t = i / steps;
+      spawn(last.x + dx * t, last.y + dy * t, dx, dy);
+    }
+    last = p;
+  };
+  const onUp = () => { drawing = false; last = null; };
+  cv.addEventListener('pointerdown', onDown);
+  cv.addEventListener('pointermove', onMove);
+  cv.addEventListener('pointerup', onUp);
+
+  const tick = () => {
+    // animate living particles onto canvas
+    if (g) {
+      for (const p of particles) {
+        p.life -= 0.02;
+        if (p.kind === 'orb') {
+          p.a += p.da;
+          const ox = p.x + Math.cos(p.a) * p.r, oy = p.y + Math.sin(p.a) * p.r;
+          g.strokeStyle = p.c; g.globalAlpha = Math.max(0, p.life) * 0.5; g.lineWidth = 1.2;
+          g.beginPath(); g.arc(ox, oy, 2.5, 0, 7); g.stroke();
+          g.beginPath(); g.moveTo(p.x, p.y); g.lineTo(ox, oy); g.stroke();
+          g.globalAlpha = 1;
+        } else if (p.kind === 'sprout') {
+          p.x += p.vx; p.y += p.vy; p.vy += 0.05;
+          g.strokeStyle = p.c; g.globalAlpha = Math.max(0, p.life); g.lineWidth = 1.5;
+          g.beginPath(); g.moveTo(p.x, p.y); g.lineTo(p.x - p.vx * 2, p.y - p.vy * 2); g.stroke();
+          g.fillStyle = p.c; g.beginPath(); g.arc(p.x, p.y, 2, 0, 7); g.fill();
+          g.globalAlpha = 1;
+        } else if (p.kind === 'prop') {
+          p.a += 0.2;
+          g.strokeStyle = p.c; g.globalAlpha = Math.max(0, p.life) * 0.7; g.lineWidth = 1.3;
+          for (let k = 0; k < 3; k++) {
+            const a = p.a + k * 2.094;
+            g.beginPath(); g.moveTo(p.x, p.y); g.lineTo(p.x + Math.cos(a) * 14, p.y + Math.sin(a) * 14); g.stroke();
+          }
+          g.globalAlpha = 1;
+        }
+      }
+      particles = particles.filter((p) => p.life > 0);
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  const rail = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '28px', transform: 'translateX(-50%)',
+      display: 'flex', gap: '4px', alignItems: 'center', zIndex: 5,
+      background: '#d0d0d0', padding: '6px 8px', border: '1px solid #999',
+      boxShadow: 'inset 1px 1px 0 #fff8, 0 2px 8px #0002',
+    },
+  });
+  const brushBtns = [];
+  const paintRail = () => {
+    rail.replaceChildren(
+      ...BRUSHES.map((b, i) => {
+        const el = h('button', {
+          title: b.label,
+          style: {
+            width: '36px', height: '36px', border: '1px solid #888', cursor: 'pointer',
+            background: i === bi ? '#f0e070' : '#ececec', fontSize: '16px',
+            boxShadow: i === bi ? 'inset 1px 1px 0 #0003' : 'inset 1px 1px 0 #fff',
+          },
+          onclick: () => { bi = i; paintRail(); },
+        }, b.icon);
+        brushBtns[i] = el;
+        return el;
+      }),
+      h('span', { style: { width: '8px' } }),
+      ...COLORS.map((c) => h('button', {
+        style: { width: '18px', height: '18px', background: c, border: color === c ? '2px solid #111' : '1px solid #666', cursor: 'pointer', padding: 0 },
+        onclick: () => { color = c; paintRail(); },
+      })),
+      h('span', { style: { width: '8px' } }),
+      h('button', {
+        title: 'Clear',
+        style: { width: '36px', height: '36px', border: '1px solid #888', background: '#ececec', cursor: 'pointer', fontSize: '14px' },
+        onclick: () => { g.fillStyle = '#fff'; g.fillRect(0, 0, cv.W, cv.H); particles = []; toast('cleared'); },
+      }, '⌫'),
+      h('button', {
+        title: 'Save PNG',
+        style: { width: '36px', height: '36px', border: '1px solid #888', background: '#ececec', cursor: 'pointer', fontSize: '14px' },
+        onclick: () => { const a = h('a', { download: 'bomomo-ish.png', href: cv.toDataURL('image/png') }); a.click(); },
+      }, '⬇'),
+    );
+  };
+  paintRail();
+
+  const tip = h('div', {
+    style: { position: 'absolute', top: '14px', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', opacity: .55, zIndex: 3 },
+  }, 'generative brushes · drag to paint');
+
+  root.append(rail, tip);
+
+  window.__demoProof = async () => {
+    const before = bi;
+    resize();
+    for (let b = 0; b < 4; b++) {
+      bi = b; paintRail();
+      const pts = [];
+      for (let i = 0; i <= 20; i++) {
+        const t = i / 20;
+        pts.push([180 + b * 140 + Math.cos(t * 9) * 50, 160 + Math.sin(t * 7) * 40 + b * 20]);
+      }
+      await gesture(cv, pts, 2);
+      await sleep(40);
+    }
+    bi = before; paintRail();
+    return '4 generative brushes stroked, restored brush index';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['kleki-layered-paint-desk'])(root, T); }

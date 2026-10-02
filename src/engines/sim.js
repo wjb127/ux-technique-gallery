@@ -574,4 +574,288 @@ V['particulardrift-image-particle-desk'] = (root, T) => {
   };
 };
 
+
+V['paperplanes-throw-catch-world'] = (root, T) => {
+  theme(root, T, { bg: '#a8b0e8', fg: '#2a2a44', panel: '#ffffffcc', ac: '#ff7eb6', dark: false, line: '#ffffff55' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'system-ui, Inter Variable, sans-serif';
+
+  const STAMPS = ['Seoul', 'Tokyo', 'Lisbon', 'Cairo', 'Lima', 'Oslo', 'Nairobi', 'Reykjavík'];
+  let mode = 'fold'; // fold | stamp | throw | catch
+  let fold = 0; // 0..1
+  let stamp = STAMPS[0];
+  let hand = null; // plane being prepared {fold, stamp}
+  let catchMsg = null;
+  const flock = [];
+  const R = rng(42);
+
+  const seedFlock = (n = 28) => {
+    flock.length = 0;
+    for (let i = 0; i < n; i++) {
+      flock.push({
+        x: R(), y: 0.15 + R() * 0.55,
+        vx: 0.08 + R() * 0.18, vy: (R() - 0.5) * 0.04,
+        a: R() * Math.PI * 2, s: 0.7 + R() * 0.6,
+        stamp: STAMPS[(R() * STAMPS.length) | 0],
+        tint: R() > 0.5 ? '#fff8f0' : '#f4f0ff',
+      });
+    }
+  };
+  seedFlock();
+
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, touchAction: 'none', cursor: 'pointer' } });
+  root.append(cv);
+
+  const drawPlane = (g, x, y, ang, sc, fill, outline = '#2a2a4422') => {
+    g.save();
+    g.translate(x, y);
+    g.rotate(ang);
+    g.scale(sc, sc);
+    g.fillStyle = fill;
+    g.strokeStyle = outline;
+    g.lineWidth = 1.2;
+    g.beginPath();
+    g.moveTo(18, 0);
+    g.lineTo(-14, 8);
+    g.lineTo(-8, 0);
+    g.lineTo(-14, -8);
+    g.closePath();
+    g.fill();
+    g.stroke();
+    g.beginPath();
+    g.moveTo(-8, 0); g.lineTo(18, 0);
+    g.strokeStyle = '#2a2a4433';
+    g.stroke();
+    g.restore();
+  };
+
+  const hud = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '22px', transform: 'translateX(-50%)',
+      display: 'flex', gap: '8px', zIndex: 5, alignItems: 'center',
+      background: '#ffffffb8', backdropFilter: 'blur(10px)', padding: '10px 14px',
+      borderRadius: '999px', boxShadow: '0 8px 28px #2a2a4418', border: '1px solid #ffffffaa',
+    },
+  });
+  const status = h('div', {
+    style: {
+      position: 'absolute', top: '18px', left: '50%', transform: 'translateX(-50%)',
+      zIndex: 5, textAlign: 'center', color: '#2a2a44', fontWeight: 600, fontSize: '14px',
+      letterSpacing: '.04em', textShadow: '0 1px 0 #fff8',
+    },
+  }, 'Fold a plane · soft sky flock');
+  const catchCard = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '28%', transform: 'translate(-50%,-50%)',
+      background: '#fffef8', borderRadius: '14px', padding: '18px 22px', zIndex: 6,
+      boxShadow: '0 18px 50px #2a2a4433', border: '1px solid #e8e0d0', display: 'none',
+      minWidth: '220px', textAlign: 'center',
+    },
+  });
+
+  const setMode = (m) => {
+    mode = m;
+    status.textContent = ({
+      fold: '① Fold — drag corners or tap Fold',
+      stamp: '② Stamp — pick a city mark',
+      throw: '③ Throw — flick into the flock',
+      catch: '④ Catch — click a nearby plane',
+    })[m];
+    paintHud();
+  };
+
+  const paintHud = () => {
+    const mk = (label, on, pri) => h('button', {
+      style: {
+        border: 0, borderRadius: '999px', padding: '8px 14px', cursor: 'pointer',
+        fontWeight: 700, fontSize: '12px', letterSpacing: '.04em',
+        background: on ? '#ff7eb6' : (pri ? '#7c5cff' : '#2a2a4410'),
+        color: on || pri ? '#fff' : '#2a2a44',
+      },
+      onclick: () => {
+        if (label === 'Fold') {
+          fold = Math.min(1, fold + 0.34);
+          if (fold >= 1) { hand = { fold: 1, stamp }; setMode('stamp'); }
+          else setMode('fold');
+        } else if (label === 'Stamp') {
+          stamp = STAMPS[(STAMPS.indexOf(stamp) + 1) % STAMPS.length];
+          if (hand) hand.stamp = stamp;
+          setMode('stamp');
+        } else if (label === 'Throw') {
+          if (!hand) { hand = { fold: 1, stamp }; }
+          // launch
+          flock.push({
+            x: 0.5, y: 0.72, vx: 0.35 + R() * 0.15, vy: -0.22 - R() * 0.08,
+            a: -0.4, s: 1.1, stamp: hand.stamp, tint: '#fffef5', thrown: true,
+          });
+          hand = null; fold = 0;
+          toast('thrown ✈');
+          setMode('catch');
+        } else if (label === 'Catch') {
+          setMode('catch');
+        } else if (label === 'Reset') {
+          fold = 0; hand = null; catchMsg = null; catchCard.style.display = 'none';
+          seedFlock(); setMode('fold');
+        }
+      },
+    }, label);
+    hud.replaceChildren(
+      mk('Fold', mode === 'fold'),
+      mk('Stamp', mode === 'stamp'),
+      h('span', { style: { fontSize: '11px', opacity: .7, padding: '0 4px' } }, stamp),
+      mk('Throw', mode === 'throw' || mode === 'stamp', true),
+      mk('Catch', mode === 'catch'),
+      mk('Reset', false),
+    );
+  };
+
+  cv.addEventListener('pointerdown', (e) => {
+    const q = localPos(e, cv);
+    if (mode === 'fold') {
+      fold = Math.min(1, fold + 0.25);
+      if (fold >= 1) { hand = { fold: 1, stamp }; setMode('stamp'); }
+      return;
+    }
+    if (mode === 'catch' || mode === 'throw') {
+      fitCanvas(cv, root);
+      const W = cv.W, H = cv.H;
+      let best = null, bd = 40;
+      for (const p of flock) {
+        const d = Math.hypot(p.x * W - q.x, p.y * H - q.y);
+        if (d < bd) { bd = d; best = p; }
+      }
+      if (best) {
+        catchMsg = best;
+        catchCard.style.display = 'block';
+        catchCard.replaceChildren(
+          h('div', { style: { fontSize: '11px', letterSpacing: '.14em', opacity: .55, marginBottom: '6px' } }, 'CAUGHT PLANE'),
+          h('div', { style: { fontSize: '28px', margin: '4px 0' } }, '✈'),
+          h('div', { style: { fontWeight: 700, fontSize: '16px' } }, best.stamp),
+          h('div', { style: { fontSize: '12px', opacity: .65, marginTop: '6px' } }, 'passport stamp · add yours & rethrow'),
+          h('div.k-row', { style: { justifyContent: 'center', gap: '8px', marginTop: '12px' } },
+            btn('Stamp + Throw', () => {
+              best.stamp = stamp;
+              catchCard.style.display = 'none';
+              best.vx += 0.2; best.vy -= 0.12;
+              toast('rethrown from ' + stamp);
+              catchMsg = null;
+            }, 'pri'),
+            btn('Release', () => { catchCard.style.display = 'none'; catchMsg = null; }),
+          ),
+        );
+      }
+    }
+  });
+
+  // drag-fold
+  drag(cv, {
+    move: () => {
+      if (mode === 'fold') {
+        fold = Math.min(1, fold + 0.02);
+        if (fold >= 1) { hand = { fold: 1, stamp }; setMode('stamp'); }
+      }
+    },
+  });
+
+  const loop = (tms) => {
+    fitCanvas(cv, root);
+    const g = cv.g, W = cv.W, H = cv.H;
+    const t = tms * 0.001;
+    // pastel sky gradient that slowly shifts
+    const sky = g.createLinearGradient(0, 0, 0, H);
+    const hueShift = (Math.sin(t * 0.08) + 1) * 0.5;
+    sky.addColorStop(0, `hsl(${210 + hueShift * 40} 55% 82%)`);
+    sky.addColorStop(0.55, `hsl(${280 + hueShift * 20} 45% 78%)`);
+    sky.addColorStop(1, `hsl(${320 - hueShift * 30} 50% 84%)`);
+    g.fillStyle = sky;
+    g.fillRect(0, 0, W, H);
+    // soft haze clouds
+    g.fillStyle = '#ffffff22';
+    for (let i = 0; i < 5; i++) {
+      const cx = ((t * 12 + i * 180) % (W + 200)) - 100;
+      const cy = H * (0.18 + (i % 3) * 0.12);
+      g.beginPath(); g.ellipse(cx, cy, 90 + i * 10, 28, 0, 0, 7); g.fill();
+    }
+
+    // flock update (boids-lite)
+    for (const p of flock) {
+      // slight cohesion toward center band
+      p.vx += (0.55 - p.x) * 0.0008;
+      p.vy += (0.4 - p.y) * 0.0006;
+      p.vx += Math.sin(t + p.a) * 0.0004;
+      p.vy += Math.cos(t * 0.7 + p.a) * 0.0003;
+      p.vx *= 0.995; p.vy *= 0.995;
+      const sp = Math.hypot(p.vx, p.vy) || 0.01;
+      const max = p.thrown ? 0.55 : 0.22;
+      if (sp > max) { p.vx *= max / sp; p.vy *= max / sp; }
+      p.x += p.vx * 0.016;
+      p.y += p.vy * 0.016;
+      p.a = Math.atan2(p.vy, p.vx);
+      if (p.x > 1.12) { p.x = -0.08; p.thrown = false; }
+      if (p.x < -0.12) p.x = 1.08;
+      if (p.y < 0.05) { p.y = 0.05; p.vy *= -0.4; }
+      if (p.y > 0.85) { p.y = 0.85; p.vy *= -0.4; }
+    }
+    for (const p of flock) {
+      drawPlane(g, p.x * W, p.y * H, p.a, 10 * p.s, p.tint);
+    }
+
+    // folding paper sheet / hand plane
+    if (mode === 'fold' || (hand && mode === 'stamp')) {
+      const cx = W * 0.5, cy = H * 0.72;
+      const f = hand ? 1 : fold;
+      g.save();
+      g.translate(cx, cy);
+      if (f < 1) {
+        // paper sheet collapsing
+        const w = 70 * (1 - f * 0.55), hh = 90 * (1 - f * 0.4);
+        g.fillStyle = '#fffef8';
+        g.strokeStyle = '#c8c0b0';
+        g.lineWidth = 1.5;
+        g.beginPath();
+        g.moveTo(-w, -hh * (1 - f));
+        g.lineTo(w * (1 - f * 0.3), -hh * 0.2);
+        g.lineTo(w * 0.2, hh * (1 - f * 0.5));
+        g.lineTo(-w * (0.6 + f * 0.2), hh * 0.3);
+        g.closePath();
+        g.fill(); g.stroke();
+        g.fillStyle = '#ff7eb655';
+        g.font = '11px system-ui';
+        g.fillText(Math.round(f * 100) + '% folded', -20, hh + 18);
+      } else {
+        drawPlane(g, 0, 0, -0.35, 16, '#fffef5', '#2a2a4466');
+        g.fillStyle = '#ff7eb6';
+        g.font = 'bold 11px system-ui';
+        g.fillText(stamp, -16, 28);
+      }
+      g.restore();
+    }
+
+    requestAnimationFrame(loop);
+  };
+
+  root.append(hud, status, catchCard);
+  setMode('fold');
+  requestAnimationFrame(loop);
+
+  window.__demoProof = async () => {
+    const before = { mode, fold, stamp, n: flock.length };
+    fold = 1; hand = { fold: 1, stamp: 'Seoul' }; stamp = 'Seoul';
+    setMode('stamp');
+    await sleep(80);
+    stamp = 'Tokyo'; hand.stamp = stamp; setMode('stamp');
+    await sleep(60);
+    flock.push({ x: 0.5, y: 0.72, vx: 0.4, vy: -0.25, a: -0.4, s: 1.2, stamp: 'Tokyo', tint: '#fffef5', thrown: true });
+    hand = null; fold = 0; setMode('catch');
+    await sleep(120);
+    catchMsg = flock[flock.length - 1];
+    catchCard.style.display = 'block';
+    catchCard.textContent = 'caught ' + catchMsg.stamp;
+    await sleep(100);
+    catchCard.style.display = 'none'; catchMsg = null;
+    fold = before.fold; stamp = before.stamp; hand = null; setMode('fold');
+    return 'fold→stamp→throw→catch exercised, restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }
