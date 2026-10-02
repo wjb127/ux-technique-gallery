@@ -754,4 +754,171 @@ V['recursive-five-axis-font-desk'] = (root, T) => {
   };
 };
 
+V['spacetype-kinetic-type-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0a0a0c', fg: '#f2f2f4', panel: '#141418', ac: '#e8ff4a', dark: true, line: '#ffffff14' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+
+  const P = { text: 'THIS & THEN', variation: 'coil', speed: 0.55, density: 0.72, scale: 1.05 };
+  let rotX = 0.35, rotY = 0.0, dragOn = false, lx = 0, ly = 0, t0 = performance.now();
+
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, width: '100%', height: '100%', cursor: 'grab', touchAction: 'none' } });
+  const g = cv.getContext('2d');
+
+  const textInp = h('input', {
+    value: P.text,
+    style: { width: '100%', padding: '9px 10px', borderRadius: '8px', border: '1px solid #ffffff22', background: '#0c0c10', color: '#fff', font: '600 13px Inter Variable' },
+    oninput: (e) => { P.text = e.target.value || ' '; },
+  });
+
+  const varSeg = seg([['coil', 'Coil'], ['cylinder', 'Cylinder'], ['layers', 'Layers']], P.variation, (v) => { P.variation = v; });
+  const speedSl = slider('Speed', 0.05, 1.5, P.speed, 0.01, (v) => { P.speed = v; }, (v) => (+v).toFixed(2));
+  const densSl = slider('Density', 0.2, 1.4, P.density, 0.01, (v) => { P.density = v; }, (v) => (+v).toFixed(2));
+  const scaleSl = slider('Scale', 0.4, 2.2, P.scale, 0.01, (v) => { P.scale = v; }, (v) => (+v).toFixed(2));
+
+  const fit = () => {
+    const r = root.getBoundingClientRect();
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = Math.max(1, Math.floor(r.width * dpr));
+    cv.height = Math.max(1, Math.floor(r.height * dpr));
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { W: r.width, H: r.height };
+  };
+
+  const samplePath = (kind, i, n, W, H, phase) => {
+    const cx = W * 0.42, cy = H * 0.5;
+    const u = i / Math.max(1, n - 1);
+    if (kind === 'coil') {
+      const turns = 3.2 * P.density;
+      const ang = u * Math.PI * 2 * turns + phase;
+      const rad = (18 + u * Math.min(W, H) * 0.28) * P.scale;
+      return { x: cx + Math.cos(ang) * rad, y: cy + Math.sin(ang) * rad * 0.55 + Math.sin(phase * 0.7 + u * 4) * 8, a: ang + Math.PI / 2, z: u };
+    }
+    if (kind === 'cylinder') {
+      const bands = Math.max(3, Math.round(5 * P.density));
+      const bi = i % bands, bj = Math.floor(i / bands);
+      const rows = Math.ceil(n / bands);
+      const ang = (bi / bands) * Math.PI * 2 + phase * 0.6;
+      const y = cy - (rows * 14 * P.scale) / 2 + bj * 14 * P.scale;
+      const rad = Math.min(W, H) * 0.22 * P.scale;
+      return { x: cx + Math.cos(ang) * rad, y: y + Math.sin(ang) * 10, a: ang + Math.PI / 2, z: (Math.sin(ang) + 1) / 2 };
+    }
+    // layers
+    const layers = Math.max(2, Math.round(4 * P.density));
+    const li = i % layers;
+    const along = Math.floor(i / layers) / Math.max(1, Math.ceil(n / layers) - 1);
+    const y = cy - (layers - 1) * 28 * P.scale / 2 + li * 28 * P.scale + Math.sin(phase + along * 6) * 6;
+    const x = cx - 180 * P.scale + along * 360 * P.scale;
+    return { x, y, a: Math.sin(phase * 0.5 + li) * 0.25, z: 1 - li / layers };
+  };
+
+  const draw = () => {
+    const { W, H } = fit();
+    const t = (performance.now() - t0) / 1000 * P.speed;
+    g.clearRect(0, 0, W, H);
+    const grd = g.createRadialGradient(W * 0.4, H * 0.45, 40, W * 0.4, H * 0.5, Math.max(W, H) * 0.7);
+    grd.addColorStop(0, '#1a1a22');
+    grd.addColorStop(1, '#050506');
+    g.fillStyle = grd;
+    g.fillRect(0, 0, W, H);
+
+    // faint grid
+    g.strokeStyle = '#ffffff08';
+    g.beginPath();
+    for (let x = 0; x < W; x += 48) { g.moveTo(x + 0.5, 0); g.lineTo(x + 0.5, H); }
+    for (let y = 0; y < H; y += 48) { g.moveTo(0, y + 0.5); g.lineTo(W, y + 0.5); }
+    g.stroke();
+
+    const chars = [...P.text.replace(/\s+/g, ' ')];
+    const n = Math.max(chars.length, 1);
+    const reps = P.variation === 'coil' ? Math.max(2, Math.round(3 * P.density)) : P.variation === 'cylinder' ? Math.max(2, Math.round(4 * P.density)) : Math.max(2, Math.round(3 * P.density));
+    const items = [];
+    for (let r = 0; r < reps; r++) {
+      for (let i = 0; i < n; i++) {
+        const idx = r * n + i;
+        const p = samplePath(P.variation, idx, n * reps, W, H, t + rotY + r * 0.4);
+        // orbit tilt
+        const yy = (p.y - H / 2) * Math.cos(rotX) - (p.z - 0.5) * 80 * Math.sin(rotX) + H / 2;
+        items.push({ ch: chars[i % n], x: p.x, y: yy, a: p.a + rotY * 0.2, z: p.z, i: idx });
+      }
+    }
+    items.sort((a, b) => a.z - b.z);
+    for (const it of items) {
+      const size = (22 + it.z * 38) * P.scale;
+      g.save();
+      g.translate(it.x, it.y);
+      g.rotate(it.a * 0.35);
+      g.globalAlpha = 0.35 + it.z * 0.65;
+      g.fillStyle = it.z > 0.55 ? '#f4f4f6' : '#a8a8b8';
+      g.font = `700 ${size}px "Inter Variable", system-ui, sans-serif`;
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(it.ch, 0, 0);
+      g.restore();
+    }
+
+    g.globalAlpha = 1;
+    g.fillStyle = '#ffffff22';
+    g.font = '11px Inter Variable';
+    g.fillText('STG-ish · kinetic type desk', 18, H - 16);
+    requestAnimationFrame(draw);
+  };
+
+  drag(cv, {
+    start: (e) => { dragOn = true; lx = e.clientX; ly = e.clientY; cv.style.cursor = 'grabbing'; },
+    move: (e) => {
+      if (!dragOn) return;
+      rotY += (e.clientX - lx) * 0.008;
+      rotX = clamp(rotX + (e.clientY - ly) * 0.004, -0.9, 0.9);
+      lx = e.clientX; ly = e.clientY;
+    },
+    end: () => { dragOn = false; cv.style.cursor = 'grab'; },
+  });
+
+  const panelEl = h('div', {
+    style: {
+      position: 'absolute', right: '16px', top: '16px', bottom: '16px', width: '280px',
+      background: '#141418ee', border: '1px solid #ffffff16', borderRadius: '16px',
+      padding: '16px', display: 'grid', gap: '12px', alignContent: 'start', zIndex: 3,
+      backdropFilter: 'blur(10px)',
+    },
+  },
+    h('div.k-row', {}, h('b', { style: { letterSpacing: '.14em', fontSize: '11px', opacity: .55 } }, 'CONTROLS'), h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '10px', padding: '3px 8px', borderRadius: '999px', background: '#e8ff4a22', color: '#e8ff4a' } }, 'coil desk')),
+    h('div.k-h', {}, 'Variation'),
+    varSeg,
+    h('div.k-h', {}, 'Text'),
+    textInp,
+    h('div.k-h', {}, 'Motion'),
+    speedSl, densSl, scaleSl,
+    h('div', { style: { fontSize: '11px', opacity: .45, lineHeight: 1.5 } }, 'Drag stage to orbit. Switching variation remaps the same string.'),
+    btn('Reset view', () => { rotX = 0.35; rotY = 0; P.speed = 0.55; speedSl.set(0.55); }, ''),
+  );
+
+  root.append(cv, panelEl);
+  requestAnimationFrame(draw);
+
+  window.__demoProof = async () => {
+    P.text = 'COIL TYPE'; textInp.value = P.text;
+    P.variation = 'coil';
+    varSeg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.textContent === 'Coil'));
+    P.speed = 1.1; speedSl.set(1.1);
+    P.scale = 1.3; scaleSl.set(1.3);
+    await sleep(120);
+    P.variation = 'cylinder';
+    varSeg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.textContent === 'Cylinder'));
+    await sleep(100);
+    P.variation = 'layers';
+    varSeg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.textContent === 'Layers'));
+    await sleep(80);
+    P.variation = 'coil';
+    varSeg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.textContent === 'Coil'));
+    P.text = 'THIS & THEN'; textInp.value = P.text;
+    P.speed = 0.55; speedSl.set(0.55);
+    P.scale = 1.05; scaleSl.set(1.05);
+    return 'coil→cylinder→layers + text/speed/scale exercised';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
+

@@ -905,4 +905,236 @@ V['musicmap-genre-carta-desk'] = (root, T) => {
   };
 };
 
+V['truesize-country-compare-map'] = (root, T) => {
+  theme(root, T, { bg: '#d8e4ef', fg: '#1b2430', panel: '#ffffff', ac: '#e4572e', dark: false, line: '#00000014' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+
+  // Approximate areas (km²) for labels
+  const AREA = {
+    'Greenland': 2166086, 'Africa': 30370000, 'Russia': 17098246, 'Canada': 9984670,
+    'United States of America': 9833517, 'China': 9596961, 'Brazil': 8515767,
+    'Australia': 7692024, 'India': 3287263, 'Argentina': 2780400, 'Kazakhstan': 2724900,
+    'Algeria': 2381741, 'Mexico': 1964375, 'Indonesia': 1904569, 'Sudan': 1861484,
+    'Libya': 1759540, 'Iran': 1648195, 'Mongolia': 1564116, 'Peru': 1285216,
+    'Chad': 1284000, 'Niger': 1267000, 'Angola': 1246700, 'Mali': 1240192,
+    'South Africa': 1221037, 'Colombia': 1141748, 'Ethiopia': 1104300, 'Bolivia': 1098581,
+    'Egypt': 1002450, 'Tanzania': 945087, 'Nigeria': 923768, 'Venezuela': 916445,
+    'Namibia': 825615, 'Mozambique': 801590, 'Pakistan': 881913, 'Turkey': 783562,
+    'Chile': 756102, 'France': 551695, 'Spain': 505992, 'Japan': 377975,
+    'Germany': 357114, 'Norway': 385207, 'Sweden': 450295, 'Finland': 338145,
+    'United Kingdom': 242495, 'Italy': 301340, 'South Korea': 100210, 'Iceland': 103000,
+  };
+
+  // Synthetic Africa multipolygon proxy: use union of African countries by name list
+  const AFRICA_NAMES = new Set(['Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cameroon','Central African Rep.','Chad','Congo','Dem. Rep. Congo','Djibouti','Egypt','Equatorial Guinea','Eritrea','eSwatini','Ethiopia','Gabon','Gambia','Ghana','Guinea','Guinea-Bissau','Ivory Coast','Kenya','Lesotho','Liberia','Libya','Madagascar','Malawi','Mali','Mauritania','Morocco','Mozambique','Namibia','Niger','Nigeria','Rwanda','Senegal','Sierra Leone','Somalia','South Africa','S. Sudan','Sudan','Tanzania','Togo','Tunisia','Uganda','Zambia','Zimbabwe','W. Sahara','Côte d\'Ivoire','Congo','Central African Republic','South Sudan']);
+
+  const byName = new Map();
+  for (const f of COUNTRIES.features) {
+    const n = f.properties?.name;
+    if (n) byName.set(n, f);
+  }
+
+  // Build Africa as MultiPolygon feature from matching countries
+  const africaPolys = [];
+  for (const f of COUNTRIES.features) {
+    const n = f.properties?.name;
+    if (!n || !AFRICA_NAMES.has(n)) continue;
+    const g = f.geometry;
+    if (!g) continue;
+    if (g.type === 'Polygon') africaPolys.push(g.coordinates);
+    else if (g.type === 'MultiPolygon') africaPolys.push(...g.coordinates);
+  }
+  const AfricaFeat = { type: 'Feature', properties: { name: 'Africa' }, geometry: { type: 'MultiPolygon', coordinates: africaPolys } };
+
+  const PRESET_NAMES = ['Greenland', 'Russia', 'Canada', 'United States of America', 'China', 'Brazil', 'Australia', 'India', 'Argentina', 'Mexico', 'Algeria', 'Kazakhstan', 'France', 'Japan', 'United Kingdom', 'South Korea', 'Iceland', 'Norway'];
+  const catalog = PRESET_NAMES.filter((n) => byName.has(n)).map((n) => ({ name: n, feature: byName.get(n), area: AREA[n] || 0 }));
+  catalog.unshift({ name: 'Africa', feature: AfricaFeat, area: AREA.Africa });
+
+  // placed outlines: {name, feature, dx, dy, color, area}
+  const placed = [];
+  let active = -1;
+  let searchQ = '';
+  const COLORS = ['#e4572eaa', '#2e86abbb', '#f6ae2daa', '#8ac926aa', '#8338ecaa', '#ff006eaa'];
+
+  const status = h('div', { style: { fontSize: '12px', opacity: .7 } }, 'Search a country, then drag its outline to compare areas.');
+  const listEl = h('div', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap' } });
+  const search = h('input', {
+    placeholder: 'Search country…',
+    style: { width: '220px', padding: '8px 10px', borderRadius: '8px', border: '1px solid #0002', background: '#fff', font: '13px Inter Variable' },
+    oninput: (e) => { searchQ = e.target.value.trim().toLowerCase(); renderSuggest(); },
+  });
+  const suggest = h('div', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap', maxWidth: '420px' } });
+
+  const drop = (item) => {
+    if (placed.some((p) => p.name === item.name)) { toast(item.name + ' already on map'); return; }
+    placed.push({ name: item.name, feature: item.feature, dx: 0, dy: 0, color: COLORS[placed.length % COLORS.length], area: item.area });
+    active = placed.length - 1;
+    syncList();
+    status.textContent = `${item.name} · ${(item.area / 1e6).toFixed(2)} M km² — drag to compare`;
+  };
+
+  const renderSuggest = () => {
+    const hits = catalog.filter((c) => !searchQ || c.name.toLowerCase().includes(searchQ)).slice(0, 8);
+    suggest.replaceChildren(...hits.map((c) => h('button.k-btn', {
+      style: { padding: '5px 10px', fontSize: '12px', borderRadius: '999px' },
+      onclick: () => { drop(c); search.value = ''; searchQ = ''; renderSuggest(); },
+    }, c.name)));
+  };
+
+  const syncList = () => {
+    listEl.replaceChildren(...placed.map((p, i) => h('button', {
+      style: {
+        padding: '5px 10px', borderRadius: '999px', border: i === active ? '2px solid #1b2430' : '1px solid #0002',
+        background: p.color, color: '#fff', fontWeight: 700, fontSize: '11px', cursor: 'pointer',
+      },
+      onclick: () => { active = i; syncList(); status.textContent = `${p.name} selected · drag outline`; },
+    }, `${p.name} · ${(p.area / 1e6).toFixed(1)}M`)));
+  };
+
+  const presets = h('div.k-row', { style: { gap: '8px', flexWrap: 'wrap' } },
+    btn('Greenland vs Africa', () => {
+      placed.length = 0;
+      const g = catalog.find((c) => c.name === 'Greenland');
+      const a = catalog.find((c) => c.name === 'Africa');
+      if (a) drop(a);
+      if (g) { drop(g); placed[placed.length - 1].dx = 80; placed[placed.length - 1].dy = 40; }
+      status.textContent = 'Preset: Greenland over Africa — Mercator makes Greenland look huge; true areas differ.';
+    }, 'pri'),
+    btn('Russia vs Africa', () => {
+      placed.length = 0;
+      const r = catalog.find((c) => c.name === 'Russia');
+      const a = catalog.find((c) => c.name === 'Africa');
+      if (a) drop(a);
+      if (r) { drop(r); placed[placed.length - 1].dx = -40; placed[placed.length - 1].dy = 60; }
+      status.textContent = 'Preset: Russia vs Africa';
+    }),
+    btn('Clear', () => { placed.length = 0; active = -1; syncList(); status.textContent = 'Cleared.'; }),
+  );
+
+  const M = mapView(root, {
+    proj: geoMercator(),
+    draw: (g, proj, path, cv) => {
+      g.fillStyle = '#b9d0e4';
+      g.fillRect(0, 0, cv.W, cv.H);
+      // ocean tint + land
+      g.beginPath(); path(LAND);
+      g.fillStyle = '#e7e0d2';
+      g.fill();
+      g.beginPath(); path(BORDERS);
+      g.strokeStyle = '#00000022';
+      g.lineWidth = 0.6;
+      g.stroke();
+
+      for (let i = 0; i < placed.length; i++) {
+        const p = placed[i];
+        g.save();
+        g.translate(p.dx, p.dy);
+        g.beginPath();
+        path(p.feature);
+        g.fillStyle = p.color;
+        g.fill();
+        g.strokeStyle = i === active ? '#1b2430' : '#ffffffaa';
+        g.lineWidth = i === active ? 2 : 1;
+        g.stroke();
+        // label at centroid-ish of projected bbox
+        try {
+          const b = path.bounds(p.feature);
+          const lx = (b[0][0] + b[1][0]) / 2;
+          const ly = (b[0][1] + b[1][1]) / 2;
+          g.fillStyle = '#1b2430';
+          g.font = '700 12px Inter Variable';
+          g.textAlign = 'center';
+          g.fillText(`${p.name}`, lx, ly - 6);
+          g.font = '11px Inter Variable';
+          g.fillStyle = '#1b2430cc';
+          g.fillText(`${(p.area / 1e6).toFixed(2)} M km²`, lx, ly + 10);
+        } catch {}
+        g.restore();
+      }
+    },
+  });
+  M.k = 1.05; M.x = 0; M.y = 20;
+
+  // drag active outline (pointer on canvas when holding Alt or when an outline is active — use overlay hit via shift+drag on map for outline move)
+  // Simpler: dedicated drag mode when active>=0 and user holds Space / uses "Move outline" — bind secondary drag with Alt
+  let modeMove = true;
+  const toggleMove = btn('Move outlines: ON', () => {
+    modeMove = !modeMove;
+    toggleMove.textContent = 'Move outlines: ' + (modeMove ? 'ON' : 'OFF');
+    M.cv.style.cursor = modeMove ? 'move' : 'grab';
+  });
+  toggleMove.classList.add('pri');
+
+  // Intercept: when modeMove and active>=0, consume drag to move outline instead of pan
+  const native = M.cv;
+  let moving = false;
+  native.addEventListener('pointerdown', (e) => {
+    if (!modeMove || active < 0 || e.button) return;
+    moving = true;
+    e.stopImmediatePropagation();
+    try { native.setPointerCapture(e.pointerId); } catch {}
+    const mv = (ev) => {
+      if (!moving || active < 0) return;
+      placed[active].dx += ev.movementX;
+      placed[active].dy += ev.movementY;
+    };
+    const up = () => {
+      moving = false;
+      native.removeEventListener('pointermove', mv);
+      native.removeEventListener('pointerup', up);
+    };
+    native.addEventListener('pointermove', mv);
+    native.addEventListener('pointerup', up);
+  }, true);
+
+  root.append(
+    h('div', {
+      style: {
+        position: 'absolute', left: '14px', top: '14px', zIndex: 5,
+        background: '#ffffffee', border: '1px solid #00000014', borderRadius: '14px',
+        padding: '14px', display: 'grid', gap: '10px', maxWidth: '460px',
+        boxShadow: '0 12px 30px #1b243018',
+      },
+    },
+      h('div.k-row', {}, h('b', {}, 'True Size-ish'), h('span', { style: { flex: 1 } }),
+        h('span', { style: { fontSize: '10px', padding: '3px 8px', borderRadius: '999px', background: '#e4572e18', color: '#e4572e' } }, 'Mercator compare')),
+      h('div.k-row', { style: { gap: '8px' } }, search, toggleMove),
+      suggest,
+      h('div.k-h', {}, 'On map'),
+      listEl,
+      h('div.k-h', {}, 'Presets'),
+      presets,
+      status,
+    ),
+    h('div', { style: { position: 'absolute', right: '14px', bottom: '12px', zIndex: 4, fontSize: '11px', opacity: .55, background: '#ffffffaa', padding: '4px 8px', borderRadius: '6px' } }, 'look-alike · drag outlines to expose Mercator distortion'),
+  );
+
+  renderSuggest();
+  // default seed
+  drop(catalog.find((c) => c.name === 'Africa'));
+  const gr = catalog.find((c) => c.name === 'Greenland');
+  if (gr) { drop(gr); placed[1].dx = 90; placed[1].dy = 30; }
+
+  window.__demoProof = async () => {
+    placed.length = 0;
+    const a = catalog.find((c) => c.name === 'Africa');
+    const g = catalog.find((c) => c.name === 'Greenland');
+    const r = catalog.find((c) => c.name === 'Russia');
+    if (a) drop(a);
+    if (g) { drop(g); placed[placed.length - 1].dx = 70; placed[placed.length - 1].dy = 20; }
+    await sleep(80);
+    if (r) { drop(r); placed[placed.length - 1].dx = -30; placed[placed.length - 1].dy = 50; }
+    active = placed.length - 1; syncList();
+    if (active >= 0) { placed[active].dx += 40; placed[active].dy += 20; }
+    await sleep(60);
+    searchQ = 'japan'; search.value = 'japan'; renderSuggest();
+    const j = catalog.find((c) => c.name === 'Japan');
+    if (j) drop(j);
+    await sleep(40);
+    return `placed ${placed.map((p) => p.name).join(', ')}; drag+search exercised`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }
+

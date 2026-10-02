@@ -123,7 +123,8 @@
   "pretextjs-reflow-playground",
   "alphazet-3d-type-specimen-desk",
   "wakamai-fondue-opentype-desk",
-  "recursive-five-axis-font-desk"
+  "recursive-five-axis-font-desk",
+  "spacetype-kinetic-type-desk"
  ],
  "pixel": [
   "pixel-sprite-editor-workspace",
@@ -138,7 +139,8 @@
   "hardware-keymap-layer-configurator",
   "image-weave-loom-desk",
   "pixelartcss-boxshadow-desk",
-  "bitsy-pixel-game-maker-desk"
+  "bitsy-pixel-game-maker-desk",
+  "stitchfiddle-knit-chart-desk"
  ],
  "sim": [
   "falling-sand-particle-sandbox",
@@ -193,7 +195,8 @@
   "ancient-earth-deep-time-globe",
   "kepler-gl-geospatial-layer-desk",
   "maputnik-map-style-editor",
-  "musicmap-genre-carta-desk"
+  "musicmap-genre-carta-desk",
+  "truesize-country-compare-map"
  ],
  "chart": [
   "bubble-chart-time-scrubber",

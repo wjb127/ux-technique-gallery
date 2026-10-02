@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-spacetype-kinetic-type-desk",
+  "slug": "spacetype-kinetic-type-desk",
+  "name": "Space Type Generator Kinetic Type Desk",
+  "date": "2026-10-03",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://spacetypegenerator.com/coil",
+  "domain": "spacetypegenerator.com",
+  "product": "Space Type Generator",
+  "checkpoints": [
+   "큰 타이포 스테이지와 Controls가 한 화면에 보인다.",
+   "텍스트를 바꾸면 글자가 즉시 다시 그려진다.",
+   "Variation을 바꾸면 배치/모션 규칙이 바뀐다.",
+   "Speed / Scale 슬라이더가 모션에 반영된다.",
+   "Coil에서 글자가 나선형으로 감긴다.",
+   "갤러리급 키네틱 타이포 데스크 크롬이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-03-00.md",
+  "prompt": "Build a Space Type Generator–inspired kinetic type desk (inspired by\nhttps://spacetypegenerator.com/coil). Full-stage canvas with Controls panel.\nThree variations: Coil (spiral path), Cylinder (wrapped bands), Layers\n(stacked depth planes). Live text input, Speed / Density / Scale sliders,\ndrag-to-orbit stub. Switching variation remaps the same string into the new\ngeometry. Aesthetic: hypnotic letterform sculpture craft chrome — not a\nmarketing landing, not liquid-blob type, not variable-font axis UI. No real\nSTG logos. Scope 60–90 min."
+ },
+ {
+  "id": "clone-stitchfiddle-knit-chart-desk",
+  "slug": "stitchfiddle-knit-chart-desk",
+  "name": "Stitch Fiddle Knit Chart Desk",
+  "date": "2026-10-03",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.stitchfiddle.com/en/chart/create/knitting",
+  "domain": "stitchfiddle.com",
+  "product": "Stitch Fiddle",
+  "checkpoints": [
+   "Craft 종류를 고르는 화면이 먼저 보인다.",
+   "Knitting → Colors로 들어가면 그리드 차트가 열린다.",
+   "팔레트에서 색을 고르고 셀을 칠할 수 있다.",
+   "드래그로 여러 셀을 연속 칠할 수 있다.",
+   "Grid size를 바꾸면 차트 크기가 바뀐다.",
+   "뜨개 차트 데스크(그리드·원사 팔레트) 미학이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-03-00.md",
+  "prompt": "Build a Stitch Fiddle–inspired knitting/cross-stitch chart desk (inspired by\nhttps://www.stitchfiddle.com/en/chart/create/knitting). Step 1: craft chips\n(Knitting / Cross stitch / Crochet). Step 2 for Knitting: project-kind cards\n(Colors/Fair Isle, Lace, Cables stubs). Main desk: stitch grid (default 40×40)\nwith click-drag paint/erase, yarn palette chips (8–12 colors), grid width/height,\nClear, Export PNG stub. Aesthetic: digital knitting-pattern paper craft chrome —\nnot a pixel-game maker, not MS Paint. No signup wall, no real Stitch Fiddle\nlogos. Scope 45–75 min."
+ },
+ {
+  "id": "clone-truesize-country-compare-map",
+  "slug": "truesize-country-compare-map",
+  "name": "True Size Country Compare Map",
+  "date": "2026-10-03",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://thetruesize.com/",
+  "domain": "thetruesize.com",
+  "product": "The True Size Of",
+  "checkpoints": [
+   "세계지도 베이스가 보인다.",
+   "검색으로 국가 outline을 올릴 수 있다.",
+   "Outline을 드래그해 위치를 옮길 수 있다.",
+   "두 국가를 겹쳐 크기를 눈으로 비교할 수 있다.",
+   "면적 라벨/프리셋 비교가 동작한다.",
+   "교육용 지리 비교 맵 미학이 난다."
+  ],
+  "checkpoint_source": "briefing:2026-10-03-00.md",
+  "prompt": "Build a The True Size Of–inspired Mercator compare map (inspired by\nhttps://thetruesize.com/). Full-stage world map base. Search box drops a\nsemi-transparent country outline (stub GeoJSON for ~10 countries). Drag to\nreposition, rotate handle stub, area label (km²), 2–3 preset comparisons\n(Greenland vs Africa, etc.). Aesthetic: geography craft stage that exposes\nMercator distortion — not a map-style editor, not a fantasy map generator,\nnot a weather globe. No real True Size logos, no ad layer. Scope 60–90 min."
+ },
+ {
   "id": "clone-voanh-generative-art-studio-desk",
   "slug": "voanh-generative-art-studio-desk",
   "name": "Voanh Generative Art Studio Desk",

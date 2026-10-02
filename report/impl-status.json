@@ -2140,5 +2140,32 @@
   "proof": "scenes Avalanche→Mixed; gravity 0.7; spawned bodies; world 14",
   "demoNodes": 55,
   "errors": []
+ },
+ "stitchfiddle-knit-chart-desk": {
+  "url": "http://127.0.0.1:4177/t/stitchfiddle-knit-chart-desk/",
+  "ok": true,
+  "at": "2026-10-02T15:52:00.484Z",
+  "http": 200,
+  "proof": "craft→kind→paint drag stub; grid resize; restored editor",
+  "demoNodes": 44,
+  "errors": []
+ },
+ "spacetype-kinetic-type-desk": {
+  "url": "http://127.0.0.1:4177/t/spacetype-kinetic-type-desk/",
+  "ok": true,
+  "at": "2026-10-02T15:52:00.476Z",
+  "http": 200,
+  "proof": "coil→cylinder→layers + text/speed/scale exercised",
+  "demoNodes": 28,
+  "errors": []
+ },
+ "truesize-country-compare-map": {
+  "url": "http://127.0.0.1:4177/t/truesize-country-compare-map/",
+  "ok": true,
+  "at": "2026-10-02T15:52:00.489Z",
+  "http": 200,
+  "proof": "placed Africa, Greenland, Russia, Japan; drag+search exercised",
+  "demoNodes": 24,
+  "errors": []
  }
 }

@@ -628,4 +628,164 @@ V['bitsy-pixel-game-maker-desk'] = (root, T) => {
   };
 };
 
+V['stitchfiddle-knit-chart-desk'] = (root, T) => {
+  theme(root, T, { bg: '#f4efe6', fg: '#2a241c', panel: '#fffdf8', ac: '#c45c26', dark: false, line: '#00000014' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', Georgia, serif";
+
+  let step = 1; // 1 craft, 2 kind, 3 editor
+  let craft = 'knitting';
+  let kind = 'colors';
+  let cols = 40, rows = 40;
+  const YARNS = ['#e8dcc8', '#c45c26', '#2f5d50', '#1f3a5f', '#c9a227', '#8b3a4a', '#5a4a3a', '#dce6ea', '#6b7c3a', '#3d2b1f', '#f0a0a8', '#4a6fa5'];
+  let color = YARNS[1];
+  let cells = Array(cols * rows).fill(null);
+  let painting = false, erase = false;
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center' } });
+  const stage = h('div', { style: { width: 'min(980px, 96%)', height: 'min(720px, 92%)', background: '#fffdf8', border: '1px solid #d9d0c2', borderRadius: '18px', boxShadow: '0 20px 50px #2a241c18', display: 'flex', flexDirection: 'column', overflow: 'hidden' } });
+
+  const header = h('div.k-row', { style: { padding: '14px 18px', borderBottom: '1px solid #ebe3d6', gap: '12px' } },
+    h('b', { style: { color: '#c45c26', letterSpacing: '.04em' } }, '🧶 Stitch Fiddle-ish'),
+    h('span', { style: { flex: 1, fontSize: '12px', opacity: .55 } }, 'knitting · cross stitch chart desk'),
+    h('span', { style: { fontSize: '11px', padding: '4px 10px', borderRadius: '999px', background: '#c45c2614', color: '#c45c26' } }, 'look-alike'),
+  );
+
+  const body = h('div', { style: { flex: 1, overflow: 'auto', padding: '22px' } });
+
+  const renderWizard = () => {
+    if (step === 1) {
+      body.replaceChildren(
+        h('div', { style: { maxWidth: '640px', margin: '40px auto', display: 'grid', gap: '18px' } },
+          h('div', { style: { fontSize: '28px', fontWeight: 750, letterSpacing: '-.02em' } }, 'Choose a craft'),
+          h('div', { style: { opacity: .6, fontSize: '14px' } }, 'Start a digital knitting / embroidery chart — pattern paper chrome.'),
+          h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' } },
+            ...[['knitting', 'Knitting', 'Fair Isle · Lace · Cables'], ['cross', 'Cross stitch', 'X-grid · floss palette'], ['crochet', 'Crochet', 'Motif stubs']].map(([id, lab, sub]) =>
+              h('button', {
+                style: { textAlign: 'left', padding: '18px', borderRadius: '14px', border: craft === id ? '2px solid #c45c26' : '1px solid #ddd3c4', background: craft === id ? '#fff7f0' : '#fff', cursor: 'pointer' },
+                onclick: () => { craft = id; step = id === 'knitting' ? 2 : 3; if (id !== 'knitting') kind = 'colors'; render(); },
+              }, h('div', { style: { fontWeight: 700, marginBottom: '6px' } }, lab), h('div', { style: { fontSize: '12px', opacity: .55 } }, sub))),
+          ),
+        ),
+      );
+      return;
+    }
+    if (step === 2) {
+      body.replaceChildren(
+        h('div', { style: { maxWidth: '720px', margin: '36px auto', display: 'grid', gap: '16px' } },
+          h('div.k-row', {}, btn('← Crafts', () => { step = 1; render(); }), h('span', { style: { flex: 1 } })),
+          h('div', { style: { fontSize: '26px', fontWeight: 750 } }, 'Knitting project'),
+          h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' } },
+            ...[['colors', 'Colors / Fair Isle', 'Multi-yarn colorwork chart'], ['lace', 'Lace', 'Openwork stub'], ['cables', 'Cables', 'Twist markers stub']].map(([id, lab, sub]) =>
+              h('button', {
+                style: { textAlign: 'left', padding: '18px', borderRadius: '14px', border: '1px solid #ddd3c4', background: '#fff', cursor: 'pointer' },
+                onclick: () => { kind = id; step = 3; render(); },
+              }, h('div', { style: { fontWeight: 700, marginBottom: '6px' } }, lab), h('div', { style: { fontSize: '12px', opacity: .55 } }, sub))),
+          ),
+        ),
+      );
+    }
+  };
+
+  const cv = h('canvas', { style: { display: 'block', maxWidth: '100%', border: '1px solid #d9d0c2', borderRadius: '8px', cursor: 'crosshair', touchAction: 'none', background: '#fff' } });
+
+  const resizeGrid = (nc, nr) => {
+    const next = Array(nc * nr).fill(null);
+    for (let y = 0; y < Math.min(rows, nr); y++) for (let x = 0; x < Math.min(cols, nc); x++) next[y * nc + x] = cells[y * cols + x];
+    cols = nc; rows = nr; cells = next; paint();
+  };
+
+  const paint = () => {
+    const cell = Math.max(8, Math.min(16, Math.floor(560 / Math.max(cols, rows))));
+    cv.width = cols * cell; cv.height = rows * cell;
+    const g = cv.getContext('2d');
+    for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+      const c = cells[y * cols + x];
+      g.fillStyle = c || ((x + y) % 2 ? '#f7f1e6' : '#fffdf8');
+      g.fillRect(x * cell, y * cell, cell, cell);
+    }
+    g.strokeStyle = '#00000012';
+    g.beginPath();
+    for (let x = 0; x <= cols; x++) { g.moveTo(x * cell + 0.5, 0); g.lineTo(x * cell + 0.5, rows * cell); }
+    for (let y = 0; y <= rows; y++) { g.moveTo(0, y * cell + 0.5); g.lineTo(cols * cell, y * cell + 0.5); }
+    g.stroke();
+    // every 10 helper
+    g.strokeStyle = '#c45c2633';
+    for (let x = 0; x <= cols; x += 10) { g.beginPath(); g.moveTo(x * cell + 0.5, 0); g.lineTo(x * cell + 0.5, rows * cell); g.stroke(); }
+    for (let y = 0; y <= rows; y += 10) { g.beginPath(); g.moveTo(0, y * cell + 0.5); g.lineTo(cols * cell, y * cell + 0.5); g.stroke(); }
+  };
+
+  const at = (e) => {
+    const p = localPos(e, cv); const r = cv.getBoundingClientRect();
+    return [clamp(Math.floor((p.x / r.width) * cols), 0, cols - 1), clamp(Math.floor((p.y / r.height) * rows), 0, rows - 1)];
+  };
+  const stroke = (e) => {
+    const [x, y] = at(e);
+    cells[y * cols + x] = erase ? null : color;
+    paint();
+  };
+  drag(cv, { start: (e) => { painting = true; erase = e.shiftKey || e.altKey; stroke(e); }, move: (e) => { if (painting) stroke(e); }, end: () => { painting = false; } });
+
+  const pal = h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } });
+  const syncPal = () => {
+    pal.replaceChildren(...YARNS.map((c) => h('button', {
+      style: { width: '28px', height: '28px', borderRadius: '50%', background: c, border: color === c ? '3px solid #2a241c' : '2px solid #fff', boxShadow: '0 0 0 1px #0002', cursor: 'pointer' },
+      onclick: () => { color = c; syncPal(); },
+      title: c,
+    })));
+  };
+  syncPal();
+
+  const wSl = slider('Width', 10, 60, cols, 1, (v) => resizeGrid(v, rows));
+  const hSl = slider('Height', 10, 60, rows, 1, (v) => resizeGrid(cols, v));
+
+  const renderEditor = () => {
+    body.replaceChildren(
+      h('div', { style: { display: 'grid', gridTemplateColumns: '240px 1fr', gap: '18px', height: '100%' } },
+        h('div', { style: { display: 'grid', gap: '12px', alignContent: 'start' } },
+          h('div.k-row', {}, btn('← Back', () => { step = craft === 'knitting' ? 2 : 1; render(); }), h('span', { style: { flex: 1 } })),
+          h('div', { style: { fontSize: '12px', opacity: .55 } }, `${craft} · ${kind}`),
+          h('div.k-h', {}, 'Yarn palette'),
+          pal,
+          h('div', { style: { fontSize: '11px', opacity: .5 } }, 'Click/drag to paint · Shift-drag erase'),
+          h('div.k-h', {}, 'Grid size'),
+          wSl, hSl,
+          h('div.k-row', { style: { gap: '8px', flexWrap: 'wrap' } },
+            btn('Clear', () => { cells.fill(null); paint(); }),
+            btn('Symbol mode', () => toast('Symbol mode stub'), ''),
+            btn('Export PNG', () => { const a = h('a', { download: 'knit-chart.png', href: cv.toDataURL() }); a.click(); }, 'pri'),
+            btn('Export PDF', () => toast('PDF stub'), ''),
+          ),
+        ),
+        h('div', { style: { display: 'grid', placeItems: 'center', background: '#f7f1e6', borderRadius: '12px', padding: '16px', overflow: 'auto' } }, cv),
+      ),
+    );
+    paint();
+  };
+
+  const render = () => {
+    if (step < 3) renderWizard();
+    else renderEditor();
+  };
+
+  stage.append(header, body);
+  shell.append(stage);
+  root.append(shell);
+  render();
+
+  window.__demoProof = async () => {
+    craft = 'knitting'; step = 2; render(); await sleep(60);
+    kind = 'colors'; step = 3; render(); await sleep(60);
+    color = YARNS[2]; syncPal();
+    for (let i = 0; i < 12; i++) { cells[10 * cols + 8 + i] = color; cells[11 * cols + 8 + i] = YARNS[1]; }
+    paint(); await sleep(40);
+    resizeGrid(36, 36); wSl.set(36); hSl.set(36); await sleep(40);
+    resizeGrid(40, 40); wSl.set(40); hSl.set(40);
+    step = 1; render(); await sleep(40);
+    step = 3; craft = 'knitting'; kind = 'colors'; render();
+    return 'craft→kind→paint drag stub; grid resize; restored editor';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pixel-sprite-editor-workspace'])(root, T); }
+
