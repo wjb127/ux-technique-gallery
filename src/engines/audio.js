@@ -743,4 +743,185 @@ V['tonejs-simple-synth-desk'] = (root, T) => {
   };
 };
 
+
+V['blob-opera-drag-choir-desk'] = (root, T) => {
+  theme(root, T, { bg: '#1a1428', fg: '#f4efe8', panel: '#241c36', ac: '#ffb4e1', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Fraunces Variable, Georgia, serif';
+
+  const VOICES = [
+    { id: 'bass', name: 'Bass', color: '#5b8def', baseMidi: 40, x: 0.18 },
+    { id: 'mezzo', name: 'Mezzo', color: '#f0a05a', baseMidi: 55, x: 0.40 },
+    { id: 'tenor', name: 'Tenor', color: '#34d399', baseMidi: 60, x: 0.62 },
+    { id: 'soprano', name: 'Soprano', color: '#f472b6', baseMidi: 72, x: 0.84 },
+  ];
+  // pose: pitch 0..1 (up=high), vowel 0..1 (right=open)
+  const pose = VOICES.map((v, i) => ({ pitch: 0.35 + i * 0.08, vowel: 0.45 }));
+  const defaults = pose.map((p) => ({ ...p }));
+  let active = -1;
+  const oscillators = VOICES.map(() => null);
+
+  const stage = h('div', {
+    style: {
+      position: 'absolute', inset: 0,
+      background: 'radial-gradient(ellipse at 50% 70%, #3a2a55 0%, #1a1428 55%, #0e0a18 100%)',
+    },
+  });
+  const floor = h('div', {
+    style: {
+      position: 'absolute', left: '8%', right: '8%', bottom: '12%', height: '18%',
+      background: 'linear-gradient(180deg, #2a2040aa, #120e1c)',
+      borderRadius: '50%', filter: 'blur(1px)', opacity: .7, pointerEvents: 'none',
+    },
+  });
+  const curtain = h('div', {
+    style: {
+      position: 'absolute', inset: '0 0 auto', height: '70px',
+      background: 'linear-gradient(180deg, #4a1840cc, transparent)', pointerEvents: 'none',
+    },
+  });
+
+  const svg = s('svg', {
+    viewBox: '0 0 1000 560',
+    style: 'position:absolute;inset:40px 40px 90px;width:calc(100% - 80px);height:calc(100% - 130px);touch-action:none',
+  });
+
+  const blobEls = [];
+  const stopVoice = (i) => {
+    const o = oscillators[i];
+    if (!o) return;
+    try { o.gain.gain.exponentialRampToValueAtTime(0.0001, audio().currentTime + 0.12); o.osc.stop(audio().currentTime + 0.14); } catch {}
+    oscillators[i] = null;
+  };
+  const startVoice = (i) => {
+    const ac = audio(); if (!ac) return;
+    stopVoice(i);
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    const filt = ac.createBiquadFilter();
+    filt.type = 'lowpass';
+    osc.type = i === 0 ? 'triangle' : i === 3 ? 'sine' : 'sawtooth';
+    const p = pose[i];
+    const freq = midi(VOICES[i].baseMidi + Math.round((p.pitch - 0.5) * 24));
+    osc.frequency.value = freq;
+    filt.frequency.value = 400 + p.vowel * 2200;
+    gain.gain.value = 0.0001;
+    osc.connect(filt); filt.connect(gain); gain.connect(ac.destination);
+    osc.start();
+    gain.gain.exponentialRampToValueAtTime(0.06, ac.currentTime + 0.05);
+    oscillators[i] = { osc, gain, filt };
+  };
+  const updateVoice = (i) => {
+    const o = oscillators[i]; if (!o) return;
+    const p = pose[i];
+    const freq = midi(VOICES[i].baseMidi + Math.round((p.pitch - 0.5) * 24));
+    o.osc.frequency.setTargetAtTime(freq, audio().currentTime, 0.04);
+    o.filt.frequency.setTargetAtTime(400 + p.vowel * 2200, audio().currentTime, 0.05);
+  };
+
+  const drawBlobs = () => {
+    svg.replaceChildren();
+    // soft stage lights
+    svg.append(s('ellipse', { cx: 500, cy: 480, rx: 420, ry: 40, fill: '#ffffff08' }));
+    blobEls.length = 0;
+    VOICES.forEach((v, i) => {
+      const p = pose[i];
+      const cx = v.x * 1000;
+      const cy = 420 - p.pitch * 260;
+      const stretchX = 55 + p.vowel * 35;
+      const stretchY = 70 - p.vowel * 18 + (1 - p.pitch) * 10;
+      const mouthW = 12 + p.vowel * 28;
+      const mouthH = 6 + p.vowel * 16;
+      const g = s('g', { style: 'cursor:grab', 'data-i': String(i) });
+      g.append(
+        s('ellipse', { cx, cy: cy + stretchY * 0.55, rx: stretchX * 0.55, ry: 14, fill: '#00000033' }),
+        s('ellipse', { cx, cy, rx: stretchX, ry: stretchY, fill: v.color, opacity: active === i ? 1 : 0.92 }),
+        s('ellipse', { cx: cx - stretchX * 0.25, cy: cy - stretchY * 0.25, rx: stretchX * 0.28, ry: stretchY * 0.22, fill: '#ffffff55' }),
+        s('ellipse', { cx: cx - 14, cy: cy - 8, rx: 6, ry: 8, fill: '#1a1020' }),
+        s('ellipse', { cx: cx + 14, cy: cy - 8, rx: 6, ry: 8, fill: '#1a1020' }),
+        s('ellipse', { cx, cy: cy + 18, rx: mouthW / 2, ry: mouthH / 2, fill: '#2a1030' }),
+        s('text', { x: cx, y: cy + stretchY + 28, 'text-anchor': 'middle', fill: '#f4efe8aa', 'font-size': 18, 'font-family': 'Inter Variable,system-ui' }, v.name),
+      );
+      const onDown = (e) => {
+        e.preventDefault();
+        active = i;
+        const rect = svg.getBoundingClientRect();
+        startVoice(i);
+        // harmony followers
+        VOICES.forEach((_, j) => { if (j !== i) startVoice(j); });
+        const move = (ev) => {
+          const x = (ev.clientX - rect.left) / rect.width;
+          const y = (ev.clientY - rect.top) / rect.height;
+          pose[i].vowel = clamp(x * 1.2 - v.x + 0.5, 0, 1);
+          pose[i].pitch = clamp(1 - y, 0, 1);
+          // others harmonize
+          VOICES.forEach((_, j) => {
+            if (j === i) return;
+            const interval = [0, 3, 7, 12][(j - i + 4) % 4] / 24;
+            pose[j].pitch = clamp(pose[i].pitch + (j - i) * 0.08 + (interval - 0.2) * 0.15, 0.05, 0.95);
+            pose[j].vowel = clamp(pose[i].vowel * 0.7 + 0.15 + j * 0.05, 0, 1);
+            updateVoice(j);
+          });
+          updateVoice(i);
+          drawBlobs();
+        };
+        const up = () => {
+          active = -1;
+          VOICES.forEach((_, j) => stopVoice(j));
+          window.removeEventListener('pointermove', move);
+          window.removeEventListener('pointerup', up);
+          drawBlobs();
+        };
+        window.addEventListener('pointermove', move);
+        window.addEventListener('pointerup', up);
+        drawBlobs();
+      };
+      g.addEventListener('pointerdown', onDown);
+      svg.append(g);
+      blobEls.push(g);
+    });
+  };
+
+  const reset = () => {
+    pose.forEach((p, i) => Object.assign(p, defaults[i]));
+    VOICES.forEach((_, i) => stopVoice(i));
+    drawBlobs();
+    toast('Poses reset');
+  };
+
+  const top = h('div.k-row', {
+    style: { position: 'absolute', top: 0, left: 0, right: 0, height: '52px', padding: '0 22px', zIndex: 2, gap: '14px', background: 'linear-gradient(#2a1840cc,#0000)', fontFamily: 'Inter Variable,system-ui' },
+  },
+    h('b', { style: { letterSpacing: '.08em', fontSize: '14px' } }, 'Blob Opera-ish'),
+    h('span', { style: { opacity: .5, fontSize: '12px' } }, 'drag choir'),
+    h('span', { style: { flex: 1 } }),
+    btn('Reset', reset),
+    btn('Record stub', () => toast('Recording stub saved'), 'pri'),
+  );
+
+  const hint = h('div', {
+    style: { position: 'absolute', bottom: '22px', left: 0, right: 0, textAlign: 'center', fontSize: '13px', opacity: .65, zIndex: 2, fontFamily: 'Inter Variable,system-ui', pointerEvents: 'none' },
+  }, 'Drag up/down for pitch · sideways for vowels · others harmonize');
+
+  root.append(stage, floor, curtain, svg, top, hint);
+  drawBlobs();
+
+  window.__demoProof = async () => {
+    const snap = pose.map((p) => ({ ...p }));
+    pose[2].pitch = 0.85; pose[2].vowel = 0.8;
+    VOICES.forEach((_, j) => {
+      if (j === 2) return;
+      pose[j].pitch = clamp(0.85 + (j - 2) * 0.1, 0.1, 0.95);
+      pose[j].vowel = 0.55;
+    });
+    drawBlobs();
+    startVoice(2); VOICES.forEach((_, j) => { if (j !== 2) startVoice(j); });
+    await sleep(500);
+    VOICES.forEach((_, j) => stopVoice(j));
+    pose.forEach((p, i) => Object.assign(p, snap[i]));
+    drawBlobs();
+    return 'tenor raised · choir harmonized · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

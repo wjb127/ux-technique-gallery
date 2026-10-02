@@ -204,4 +204,216 @@ V['online-sequencer-piano-roll'] = (root, T) => {
     return 'synth notes placed · playhead advanced to ' + pos;
   };
 };
+
+V['signal-midi-piano-roll-desk'] = (root, T) => {
+  theme(root, T, { bg: '#1e1e22', fg: '#e6e6ea', panel: '#2a2a30', ac: '#5b8def', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const NOTES = 28, PX = 14, PY = 14;
+  const names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+  const noteOf = (r) => { const midiN = 72 - r; return { midi: midiN, name: names[midiN % 12] + Math.floor(midiN / 12 - 1), black: names[midiN % 12].includes('#') }; };
+  const TRACKS = [
+    { id: 0, name: 'Acoustic Grand Piano', emoji: '🎹', color: '#5b8def', wave: 'triangle' },
+    { id: 1, name: 'Synth Lead', emoji: '🎛', color: '#c084fc', wave: 'sawtooth' },
+    { id: 2, name: 'Electric Bass', emoji: '🎸', color: '#34d399', wave: 'square' },
+  ];
+  const STEPS = 64;
+  const songs = TRACKS.map(() => []); // each: {r, start, len, vel}
+  // seed track 0 motif
+  [[16, 0, 2, 100], [12, 2, 2, 90], [9, 4, 2, 95], [7, 6, 4, 110], [9, 10, 2, 90], [12, 12, 2, 85], [16, 14, 4, 100]].forEach(([r, s, l, v]) => songs[0].push({ r, start: s, len: l, vel: v }));
+  [[20, 0, 4, 80], [18, 8, 4, 75], [16, 16, 4, 80]].forEach(([r, s, l, v]) => songs[1].push({ r, start: s, len: l, vel: v }));
+  [[24, 0, 4, 100], [24, 8, 4, 95], [21, 16, 4, 100]].forEach(([r, s, l, v]) => songs[2].push({ r, start: s, len: l, vel: v }));
+
+  let track = 0, bpm = 120, pos = -1, tid = null, tool = 'draw', ctrl = 'velocity';
+  let dragNote = null;
+
+  const keys = h('div', { style: { width: '64px', flexShrink: 0, background: '#25252b', borderRight: '1px solid #0008' } });
+  const gridWrap = h('div', { style: { overflow: 'auto', flex: 1, position: 'relative', background: '#1a1a1e' } });
+  const gridEl = h('div', { style: { position: 'relative', width: STEPS * PX + 'px', height: NOTES * PY + 'px' } });
+  const head = h('div', { style: { position: 'absolute', top: 0, bottom: 0, width: '2px', background: '#ff6b6b', left: 0, zIndex: 5, pointerEvents: 'none', display: 'none' } });
+  const noteLayer = h('div', { style: { position: 'absolute', inset: 0, zIndex: 2 } });
+
+  for (let r = 0; r < NOTES; r++) {
+    const n = noteOf(r);
+    keys.append(h('div', {
+      style: {
+        height: PY + 'px', boxSizing: 'border-box', borderBottom: '1px solid #0006',
+        background: n.black ? '#111116' : '#f4f4f6', color: n.black ? '#ccc' : '#222',
+        font: '10px/14px ui-monospace,monospace', paddingLeft: n.black ? '22px' : '6px', userSelect: 'none',
+      },
+    }, n.name));
+    for (let i = 0; i < STEPS; i++) {
+      const bar = Math.floor(i / 4) % 2;
+      const c = h('div', {
+        style: {
+          position: 'absolute', left: i * PX + 'px', top: r * PY + 'px', width: PX + 'px', height: PY + 'px',
+          boxSizing: 'border-box',
+          borderRight: i % 4 === 0 ? '1px solid #ffffff18' : '1px solid #ffffff08',
+          borderBottom: '1px solid #ffffff08',
+          background: n.black ? (bar ? '#16161a' : '#1a1a1f') : (bar ? '#202026' : '#24242a'),
+        },
+      });
+      gridEl.append(c);
+    }
+  }
+  gridEl.append(noteLayer, head);
+  gridWrap.append(gridEl);
+
+  const timeLab = h('span', { style: { font: '600 12px ui-monospace,monospace', minWidth: '96px' } }, '0001:01:000');
+  const trackLab = h('span', { style: { fontSize: '12px' } }, TRACKS[0].emoji + ' ' + TRACKS[0].name);
+
+  const paintNotes = () => {
+    noteLayer.replaceChildren();
+    songs[track].forEach((note, idx) => {
+      const el = h('div', {
+        style: {
+          position: 'absolute', left: note.start * PX + 'px', top: note.r * PY + 1 + 'px',
+          width: note.len * PX - 2 + 'px', height: PY - 2 + 'px',
+          background: TRACKS[track].color, borderRadius: '3px',
+          boxShadow: 'inset 0 0 0 1px #ffffff33', cursor: 'pointer', opacity: 0.55 + note.vel / 280,
+          zIndex: 3,
+        },
+      });
+      el.onpointerdown = (e) => {
+        e.stopPropagation();
+        if (e.shiftKey || tool === 'erase') {
+          songs[track].splice(idx, 1); paintNotes(); paintVel(); return;
+        }
+        dragNote = { note, mode: e.offsetX > el.clientWidth - 8 ? 'resize' : 'move', ox: e.clientX, start0: note.start, len0: note.len };
+        el.setPointerCapture?.(e.pointerId);
+      };
+      noteLayer.append(el);
+    });
+  };
+
+  gridEl.onpointerdown = (e) => {
+    if (e.target !== gridEl && e.target.parentNode !== gridEl) return;
+    const rect = gridEl.getBoundingClientRect();
+    const x = e.clientX - rect.left + gridWrap.scrollLeft;
+    const y = e.clientY - rect.top + gridWrap.scrollTop;
+    const r = clamp(Math.floor(y / PY), 0, NOTES - 1);
+    const s = clamp(Math.floor(x / PX), 0, STEPS - 1);
+    if (tool === 'erase') {
+      songs[track] = songs[track].filter((n) => !(n.r === r && s >= n.start && s < n.start + n.len));
+      paintNotes(); paintVel(); return;
+    }
+    const note = { r, start: s, len: 2, vel: 100 };
+    songs[track].push(note);
+    blip(midi(noteOf(r).midi), 0.18, TRACKS[track].wave, 0.08);
+    dragNote = { note, mode: 'resize', ox: e.clientX, start0: s, len0: 2 };
+    paintNotes(); paintVel();
+  };
+
+  window.addEventListener('pointermove', (e) => {
+    if (!dragNote) return;
+    const dx = Math.round((e.clientX - dragNote.ox) / PX);
+    if (dragNote.mode === 'move') {
+      dragNote.note.start = clamp(dragNote.start0 + dx, 0, STEPS - 1);
+    } else {
+      dragNote.note.len = clamp(dragNote.len0 + dx, 1, STEPS - dragNote.note.start);
+    }
+    paintNotes(); paintVel();
+  });
+  window.addEventListener('pointerup', () => { dragNote = null; });
+
+  const velWrap = h('div', { style: { height: '72px', position: 'relative', background: '#18181c', borderTop: '1px solid #0008', overflow: 'hidden' } });
+  const paintVel = () => {
+    velWrap.replaceChildren();
+    if (ctrl !== 'velocity') {
+      velWrap.append(h('div', { style: { padding: '20px', opacity: .4, fontSize: '12px' } }, ctrl.toUpperCase() + ' lane stub'));
+      return;
+    }
+    const inner = h('div', { style: { position: 'relative', width: STEPS * PX + 'px', height: '100%' } });
+    songs[track].forEach((note) => {
+      const bar = h('div', {
+        style: {
+          position: 'absolute', left: note.start * PX + 'px', bottom: '4px',
+          width: Math.max(4, note.len * PX - 4) + 'px', height: (note.vel / 127) * 56 + 'px',
+          background: TRACKS[track].color + '99', borderRadius: '2px 2px 0 0', cursor: 'ns-resize',
+        },
+      });
+      let y0, v0;
+      bar.onpointerdown = (e) => {
+        e.stopPropagation(); y0 = e.clientY; v0 = note.vel;
+        const move = (ev) => { note.vel = clamp(v0 + (y0 - ev.clientY), 1, 127); paintVel(); paintNotes(); };
+        const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); };
+        window.addEventListener('pointermove', move); window.addEventListener('pointerup', up);
+      };
+      inner.append(bar);
+    });
+    velWrap.append(inner);
+    velWrap.scrollLeft = gridWrap.scrollLeft;
+  };
+  gridWrap.addEventListener('scroll', () => { velWrap.querySelector('div') && (velWrap.querySelector('div').parentElement.scrollLeft = gridWrap.scrollLeft); });
+
+  const stop = () => { clearInterval(tid); tid = null; head.style.display = 'none'; playB.textContent = '▶'; };
+  const soundAt = (p) => {
+    songs[track].forEach((n) => {
+      if (n.start === p) blip(midi(noteOf(n.r).midi), 0.12 + n.len * 0.04, TRACKS[track].wave, 0.04 + n.vel / 800);
+    });
+  };
+  const play = () => {
+    audio(); if (tid) return;
+    head.style.display = '';
+    tid = setInterval(() => {
+      pos = (pos + 1) % STEPS;
+      head.style.left = pos * PX + 'px';
+      const bar = Math.floor(pos / 16) + 1;
+      const beat = Math.floor((pos % 16) / 4) + 1;
+      timeLab.textContent = String(bar).padStart(4, '0') + ':' + String(beat).padStart(2, '0') + ':000';
+      soundAt(pos);
+      const x = pos * PX, left = gridWrap.scrollLeft, view = gridWrap.clientWidth;
+      if (x < left || x > left + view - 40) gridWrap.scrollLeft = Math.max(0, x - 80);
+    }, 60000 / bpm / 4);
+    playB.textContent = '■';
+  };
+  const playB = h('button', { style: { width: '36px', height: '28px', border: '1px solid #ffffff22', background: '#2a2a32', color: '#fff', borderRadius: '6px', cursor: 'pointer' }, onclick: () => (tid ? stop() : play()) }, '▶');
+
+  const menu = h('div.k-row', {
+    style: { height: '36px', padding: '0 12px', gap: '14px', background: '#25252b', borderBottom: '1px solid #0008', fontSize: '12px', flexShrink: 0 },
+  },
+    h('b', { style: { letterSpacing: '.06em', color: '#5b8def' } }, 'signal'),
+    ...['File', 'Edit', 'Piano Roll', 'Arrange', 'Tempo', 'Settings'].map((m) => h('span', { style: { opacity: m === 'Piano Roll' ? 1 : .55, borderBottom: m === 'Piano Roll' ? '2px solid #5b8def' : '2px solid transparent', paddingBottom: '2px', cursor: 'default' } }, m)),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .4 } }, 'Sign In'),
+  );
+
+  const toolbar = h('div.k-row', {
+    style: { height: '44px', padding: '0 12px', gap: '10px', background: '#1e1e22', borderBottom: '1px solid #0008', flexShrink: 0, fontSize: '12px' },
+  },
+    playB, timeLab,
+    h('div', { style: { width: '140px' } }, slider('BPM', 40, 240, bpm, 1, (v) => { bpm = v; if (tid) { stop(); play(); } })),
+    trackLab,
+    h('div.k-row', { style: { gap: '4px' } }, ...TRACKS.map((t) => h('button', {
+      style: { border: track === t.id ? '1px solid ' + t.color : '1px solid #ffffff18', background: track === t.id ? t.color + '33' : '#2a2a30', color: '#eee', borderRadius: '6px', padding: '4px 8px', cursor: 'pointer', fontSize: '11px' },
+      onclick: () => { track = t.id; trackLab.textContent = t.emoji + ' ' + t.name; paintNotes(); paintVel(); toolbar.querySelectorAll('button').forEach((b, i) => { if (i < 3) { b.style.border = (i === track) ? '1px solid ' + TRACKS[i].color : '1px solid #ffffff18'; b.style.background = (i === track) ? TRACKS[i].color + '33' : '#2a2a30'; } }); },
+    }, t.emoji))),
+    seg([['draw', 'Draw'], ['erase', 'Erase']], tool, (v) => (tool = v)),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .4 } }, 'Pan 8 · Vel'),
+  );
+
+  const ctrlTabs = h('div.k-row', { style: { height: '28px', padding: '0 10px', gap: '10px', background: '#222228', borderTop: '1px solid #0008', fontSize: '11px', flexShrink: 0 } },
+    ...['velocity', 'pitch', 'volume', 'pan', 'expression'].map((c) => h('button', {
+      style: { background: 'transparent', border: 0, color: ctrl === c ? '#5b8def' : '#888', borderBottom: ctrl === c ? '2px solid #5b8def' : '2px solid transparent', cursor: 'pointer', textTransform: 'capitalize', padding: '4px 2px' },
+      onclick: (e) => { ctrl = c; [...e.target.parentNode.children].forEach((b) => { b.style.color = '#888'; b.style.borderBottom = '2px solid transparent'; }); e.target.style.color = '#5b8def'; e.target.style.borderBottom = '2px solid #5b8def'; paintVel(); },
+    }, c.replace('pitch', 'Pitch Bend').replace('velocity', 'Velocity').replace('volume', 'Volume').replace('pan', 'Pan').replace('expression', 'Expression'))),
+  );
+
+  const body = h('div', { style: { display: 'flex', flex: 1, minHeight: 0 } }, keys, gridWrap);
+  root.style.display = 'flex'; root.style.flexDirection = 'column';
+  root.append(menu, toolbar, body, ctrlTabs, velWrap);
+  paintNotes(); paintVel();
+
+  window.__demoProof = async () => {
+    track = 0; paintNotes(); paintVel();
+    songs[0].push({ r: 4, start: 20, len: 3, vel: 120 });
+    paintNotes(); paintVel();
+    play(); await sleep(700); stop();
+    songs[0].pop(); paintNotes(); paintVel();
+    return 'note painted · playhead to ' + pos + ' · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['music-grid-sequencer'])(root, T); }

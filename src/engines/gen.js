@@ -87,4 +87,179 @@ V['fantasy-map-generator-workspace'] = (root, T) => {
   gen();
   window.__demoProof = async () => { seed = 6; gen(); return 'generated heightmap + 9 political states'; };
 };
+
+V['voanh-generative-art-studio-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0c0d10', fg: '#e8e6e3', panel: '#16181e', ac: '#c8f55a', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const PALETTES = [
+    { id: 'ink', name: 'Ink Bloom', cols: ['#0b0c10', '#1f2a44', '#5b8def', '#c8f55a', '#f4f1ea'] },
+    { id: 'ember', name: 'Ember', cols: ['#140a08', '#3b1510', '#c44b27', '#f0a05a', '#ffe8c8'] },
+    { id: 'tide', name: 'Tide', cols: ['#061018', '#0d3a4a', '#1aa6a6', '#7ee0d0', '#e8fff8'] },
+    { id: 'orchid', name: 'Orchid', cols: ['#120816', '#3a1650', '#a855f7', '#f0abfc', '#fdf4ff'] },
+    { id: 'mono', name: 'Mono', cols: ['#0a0a0a', '#2a2a2a', '#6a6a6a', '#b0b0b0', '#f2f2f2'] },
+  ];
+  const ASPECTS = { '1:1': [720, 720], '16:9': [960, 540], '9:16': [480, 854], '4:5': [640, 800] };
+  const P = {
+    gen: 'flow', aspect: '1:1', pal: 'ink', mode: 'harmony',
+    density: 0.55, swirl: 0.65, scale: 0.45, grain: 0.22, vignette: 0.35, bloom: 0.25,
+    seed: 48291, lock: false,
+  };
+  let W = 720, H = 720;
+
+  const cv = h('canvas', { width: W, height: H, style: { maxWidth: '100%', maxHeight: '100%', boxShadow: '0 0 0 1px #ffffff14, 0 28px 80px #000a', background: '#000' } });
+  const seedLab = h('b', { style: { font: '600 12px ui-monospace,monospace' } }, String(P.seed));
+
+  const rnd = (s) => { let x = s >>> 0; return () => { x = (x * 1664525 + 1013904223) >>> 0; return x / 4294967296; }; };
+  const hexRgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const mix = (a, b, t) => a.map((v, i) => Math.round(lerp(v, b[i], t)));
+
+  const palCols = () => {
+    const base = PALETTES.find((p) => p.id === P.pal) || PALETTES[0];
+    let cols = base.cols.map(hexRgb);
+    if (P.mode === 'mono') cols = cols.map((c, i) => mix([20, 20, 22], [235, 232, 228], i / (cols.length - 1)));
+    if (P.mode === 'pastel') cols = cols.map((c) => mix(c, [255, 250, 245], 0.45));
+    if (P.mode === 'custom') cols = cols.map((c, i) => mix(c, [200, 245, 90], (i % 3) * 0.12));
+    return cols;
+  };
+
+  const draw = () => {
+    const [aw, ah] = ASPECTS[P.aspect] || ASPECTS['1:1'];
+    W = aw; H = ah; cv.width = W; cv.height = H;
+    const g = cv.getContext('2d');
+    const cols = palCols();
+    const R = rnd(P.seed);
+    const nz = (x, y) => {
+      const s = sn(x + P.seed * 0.01, y - P.seed * 0.007);
+      return s;
+    };
+    g.fillStyle = `rgb(${cols[0].join(',')})`;
+    g.fillRect(0, 0, W, H);
+
+    if (P.gen === 'flow') {
+      const n = Math.floor(lerp(120, 520, P.density));
+      g.lineWidth = 1.1;
+      for (let i = 0; i < n; i++) {
+        let x = R() * W, y = R() * H;
+        const c = cols[1 + Math.floor(R() * (cols.length - 1))];
+        g.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},0.55)`;
+        g.beginPath(); g.moveTo(x, y);
+        for (let s = 0; s < 80; s++) {
+          const a = nz(x * (0.002 + P.scale * 0.006), y * (0.002 + P.scale * 0.006)) * Math.PI * (1 + P.swirl * 2);
+          x += Math.cos(a) * 3; y += Math.sin(a) * 3;
+          if (x < 0 || y < 0 || x > W || y > H) break;
+          g.lineTo(x, y);
+        }
+        g.stroke();
+      }
+    } else if (P.gen === 'warp') {
+      const img = g.createImageData(W, H);
+      const d = img.data;
+      for (let y = 0; y < H; y += 2) for (let x = 0; x < W; x += 2) {
+        const u = x / W, v = y / H;
+        const wx = u + nz(u * (2 + P.scale * 6), v * 3) * P.swirl * 0.35;
+        const wy = v + nz(u * 3 + 9, v * (2 + P.scale * 6)) * P.swirl * 0.35;
+        const t = (Math.sin(wx * 8 + P.seed) + Math.cos(wy * 7 - P.seed) + 2) / 4;
+        const ci = Math.min(cols.length - 1, Math.floor(t * (cols.length - 0.01)));
+        const c = mix(cols[ci], cols[Math.min(cols.length - 1, ci + 1)], (t * cols.length) % 1);
+        for (const [dx, dy] of [[0, 0], [1, 0], [0, 1], [1, 1]]) {
+          const i = ((y + dy) * W + x + dx) * 4;
+          if (i >= d.length) continue;
+          d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
+        }
+      }
+      g.putImageData(img, 0, 0);
+    } else {
+      const n = Math.floor(lerp(40, 220, P.density));
+      const circles = [];
+      for (let tries = 0; circles.length < n && tries < n * 40; tries++) {
+        const r = lerp(4, 48 * (1.2 - P.scale * 0.6), Math.pow(R(), 1.6));
+        const x = r + R() * (W - 2 * r), y = r + R() * (H - 2 * r);
+        if (circles.some((c) => Math.hypot(c.x - x, c.y - y) < c.r + r + 1.5)) continue;
+        circles.push({ x, y, r });
+      }
+      circles.forEach((c, i) => {
+        const col = cols[1 + (i % (cols.length - 1))];
+        g.beginPath(); g.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        g.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},0.85)`;
+        g.fill();
+        if (P.swirl > 0.3) {
+          g.strokeStyle = `rgba(${cols[cols.length - 1].join(',')},0.35)`;
+          g.lineWidth = 1; g.stroke();
+        }
+      });
+    }
+
+    if (P.bloom > 0.02) {
+      g.save(); g.globalCompositeOperation = 'lighter'; g.globalAlpha = P.bloom * 0.35;
+      g.filter = 'blur(12px)'; g.drawImage(cv, 0, 0); g.restore();
+    }
+    if (P.grain > 0.01) {
+      const img = g.getImageData(0, 0, W, H); const d = img.data; const gr = rnd(P.seed ^ 0x9e37);
+      for (let i = 0; i < d.length; i += 4) {
+        const n = (gr() - 0.5) * 255 * P.grain * 0.55;
+        d[i] = clamp(d[i] + n, 0, 255); d[i + 1] = clamp(d[i + 1] + n, 0, 255); d[i + 2] = clamp(d[i + 2] + n, 0, 255);
+      }
+      g.putImageData(img, 0, 0);
+    }
+    if (P.vignette > 0.01) {
+      const grd = g.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.25, W / 2, H / 2, Math.hypot(W, H) * 0.55);
+      grd.addColorStop(0, 'rgba(0,0,0,0)');
+      grd.addColorStop(1, `rgba(0,0,0,${0.25 + P.vignette * 0.65})`);
+      g.fillStyle = grd; g.fillRect(0, 0, W, H);
+    }
+    seedLab.textContent = String(P.seed);
+  };
+
+  const roll = () => { if (!P.lock) P.seed = (Math.random() * 1e9) | 0; draw(); toast(P.lock ? 'Seed locked' : 'Rolled · ' + P.seed); };
+
+  const sect = (t, ...kids) => h('div', { style: { display: 'grid', gap: '8px', padding: '10px 0', borderBottom: '1px solid #ffffff10' } }, h('div.k-h', {}, t), ...kids);
+
+  const stage = h('div', { style: { flex: 1, minWidth: 0, display: 'grid', placeItems: 'center', padding: '24px', background: 'radial-gradient(ellipse at 50% 40%, #1a1c24 0%, #0c0d10 70%)' } }, cv);
+  const side = h('div', {
+    style: { width: '300px', flexShrink: 0, background: '#16181e', borderLeft: '1px solid #ffffff12', padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '4px', overflow: 'auto', fontSize: '12px' },
+  },
+    h('div.k-row', {}, h('b', { style: { letterSpacing: '.14em', fontSize: '13px' } }, 'VOANH'), h('span', { style: { flex: 1 } }), h('span', { style: { opacity: .4, fontSize: '11px' } }, 'studio')),
+    sect('Generator', seg([['flow', 'Flow'], ['warp', 'Warp'], ['pack', 'Pack']], P.gen, (v) => { P.gen = v; draw(); })),
+    sect('Canvas', seg(Object.keys(ASPECTS), P.aspect, (v) => { P.aspect = v; draw(); })),
+    sect('Palette', h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px' } }, ...PALETTES.map((p) => h('button', {
+      title: p.name, style: { width: '34px', height: '34px', borderRadius: '8px', border: P.pal === p.id ? '2px solid #c8f55a' : '1px solid #ffffff22', background: `linear-gradient(135deg,${p.cols[1]},${p.cols[3]})`, cursor: 'pointer' },
+      onclick: () => { P.pal = p.id; draw(); side.querySelectorAll('button[title]').forEach((b) => { b.style.border = b.title === p.name ? '2px solid #c8f55a' : '1px solid #ffffff22'; }); },
+    }))), select([['harmony', 'Harmony'], ['mono', 'Monochrome'], ['pastel', 'Pastel'], ['custom', 'Custom']], P.mode, (v) => { P.mode = v; draw(); })),
+    sect('Composition',
+      slider('Density', 0, 1, P.density, 0.01, (v) => { P.density = v; draw(); }, (v) => (+v).toFixed(2)),
+      slider('Swirl', 0, 1, P.swirl, 0.01, (v) => { P.swirl = v; draw(); }, (v) => (+v).toFixed(2)),
+      slider('Scale', 0, 1, P.scale, 0.01, (v) => { P.scale = v; draw(); }, (v) => (+v).toFixed(2))),
+    sect('Finish',
+      slider('Grain', 0, 1, P.grain, 0.01, (v) => { P.grain = v; draw(); }, (v) => (+v).toFixed(2)),
+      slider('Vignette', 0, 1, P.vignette, 0.01, (v) => { P.vignette = v; draw(); }, (v) => (+v).toFixed(2)),
+      slider('Bloom', 0, 1, P.bloom, 0.01, (v) => { P.bloom = v; draw(); }, (v) => (+v).toFixed(2))),
+    sect('Seed', h('div.k-row', {}, seedLab, h('span', { style: { flex: 1 } }), btn('Roll', roll), btn(P.lock ? 'Locked' : 'Lock', (e) => { P.lock = !P.lock; e.target.textContent = P.lock ? 'Locked' : 'Lock'; toast(P.lock ? 'Seed locked' : 'Seed unlocked'); }))),
+    h('div.k-row', { style: { marginTop: '8px' } }, btn('Export PNG', () => dl(cv, 'voanh-' + P.seed + '.png'), 'pri'), btn('SVG stub', () => toast('SVG export stub'))),
+  );
+
+  const top = h('div.k-row', { style: { height: '48px', padding: '0 18px', borderBottom: '1px solid #ffffff10', gap: '16px', background: '#0c0d10' } },
+    h('b', { style: { letterSpacing: '.16em' } }, 'voanh'),
+    h('span', { style: { opacity: .4, fontSize: '12px' } }, 'generative art studio'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '12px', opacity: .4 } }, 'Local render · private'),
+  );
+
+  root.style.display = 'flex'; root.style.flexDirection = 'column';
+  root.append(top, h('div', { style: { display: 'flex', flex: 1, minHeight: 0 } }, stage, side));
+  draw();
+
+  window.__demoProof = async () => {
+    const prev = { ...P };
+    P.gen = 'warp'; P.pal = 'ember'; P.grain = 0.4; P.vignette = 0.5;
+    if (!P.lock) P.seed = 777001;
+    draw();
+    await sleep(200);
+    Object.assign(P, prev); draw();
+    return 'warp+ember applied then restored · seed ' + P.seed;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['ritmo-simplex-wave-studio'])(root, T); }

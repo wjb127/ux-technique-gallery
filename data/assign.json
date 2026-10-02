@@ -27,7 +27,8 @@
   "beepbox-piano-roll",
   "ableton-beat-grid-lesson",
   "euclidean-pulse-necklace",
-  "online-sequencer-piano-roll"
+  "online-sequencer-piano-roll",
+  "signal-midi-piano-roll-desk"
  ],
  "nodes": [
   "noisecraft-node-audio-graph",
@@ -158,7 +159,8 @@
   "pattern-symmetry-playground",
   "canvas-fx-param-export",
   "procedural-dungeon-theme-stage",
-  "fantasy-map-generator-workspace"
+  "fantasy-map-generator-workspace",
+  "voanh-generative-art-studio-desk"
  ],
  "code": [
   "mermaid-dualpane-live-editor",
@@ -234,7 +236,8 @@
   "radiooooo-decade-country-radio",
   "generative-fm-ambient-player",
   "sfxr-8bit-sound-desk",
-  "tonejs-simple-synth-desk"
+  "tonejs-simple-synth-desk",
+  "blob-opera-drag-choir-desk"
  ],
  "desk": [
   "parody-desktop-os-sandbox",
