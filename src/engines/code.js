@@ -545,4 +545,155 @@ V['hydra-live-visual-synth'] = (root, T) => {
   };
 };
 
+
+V['dwitter-140char-demo-stage'] = (root, T) => {
+  theme(root, T, { bg: '#0b0d10', fg: '#e8eaed', panel: '#151920', ac: '#3d8bfd', ac2: '#ff6b81', dark: true, line: '#ffffff14' });
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  const SAMPLES = [
+    { user: 'u/xor', likes: 1842, body: 'for(i=0;i<2e3;i++)x.fillRect(960+C(i)*i/3+S(t)*99,540+S(i)*i/3,2,2)' },
+    { user: 'u/neon', likes: 991, body: 'for(i=0;i<400;i++){x.fillStyle=R(S(i+t)*128+128,99,C(i)*128+128);x.fillRect(960+C(i*.02+t)*400,540+S(i*.03)*220,3,3)}' },
+    { user: 'u/wave', likes: 640, body: 'x.strokeStyle=R(0,200,255,.4);x.beginPath();for(i=0;i<1920;i++)x.lineTo(i,540+S(i*.01+t)*99+C(i*.02-t)*40);x.stroke()' },
+    { user: 'u/orb', likes: 512, body: 'for(i=0;i<64;i++){a=i/10+t;x.fillStyle=R(255,C(a)*99+99,S(a)*99+99,.6);x.beginPath();x.arc(960+C(a)*300,540+S(a*1.3)*200,8+S(t+i)*6,0,7);x.fill()}' },
+    { user: 'u/grid', likes: 308, body: 'for(i=0;i<20;i++)for(j=0;j<12;j++){x.fillStyle=R(40+i*8,30+j*12,90+S(t+i)*.40);x.fillRect(200+i*70+S(t+j)*8,80+j*60,50,40)}' },
+  ];
+  let body = SAMPLES[0].body;
+  let err = '';
+  let playing = true;
+  let likes = 0;
+
+  const wrap = (src) => {
+    const trimmed = String(src || '').slice(0, 140);
+    return `with(Math){const S=sin,C=cos,T=tan;const R=(r,g,b,a)=>a==null?\`rgb(\${r|0},\${g|0},\${b|0})\`:\`rgba(\${r|0},\${g|0},\${b|0},\${a})\`;return function(t,c,x){${trimmed}\n}}`;
+  };
+  let fn = null;
+  const compile = (src) => {
+    try {
+      // eslint-disable-next-line no-new-func
+      fn = new Function('return ' + wrap(src))();
+      err = '';
+    } catch (e) {
+      err = String(e.message || e).slice(0, 80);
+      fn = null;
+    }
+  };
+  compile(body);
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '52px 1fr', background: '#0b0d10' } });
+  const header = h('div.k-row', { style: { padding: '0 18px', borderBottom: '1px solid #ffffff12', gap: '16px', background: '#10141a' } },
+    h('b', { style: { fontSize: '20px', letterSpacing: '-.02em' } }, 'Dwitter'),
+    h('span', { style: { opacity: .45, fontSize: '13px' } }, '140-char JS demos'),
+    h('span', { style: { flex: 1 } }),
+    btn('New dweet', () => { body = SAMPLES[0].body; ta.value = body; compile(body); paintFeed(); updMeta(); toast('new'); }, 'pri'),
+  );
+
+  const main = h('div', { style: { display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', minHeight: 0, overflow: 'hidden' } });
+  const stage = h('div', { style: { display: 'grid', gridTemplateRows: 'auto 1fr auto', gap: '10px', padding: '14px', minHeight: 0, borderRight: '1px solid #ffffff10' } });
+  const feedHost = h('div', { style: { overflow: 'auto', padding: '12px 14px', display: 'grid', gap: '10px', alignContent: 'start', background: '#0d1117' } });
+
+  const cv = h('canvas', { width: 960, height: 540, style: { width: '100%', height: 'auto', maxHeight: '360px', background: '#000', borderRadius: '10px', border: '1px solid #ffffff14', display: 'block' } });
+  const x = cv.getContext('2d');
+  const meta = h('div.k-row', { style: { gap: '10px', fontSize: '12px', opacity: .85 } });
+  const ta = h('textarea', {
+    spellcheck: false, maxlength: 140, value: body,
+    style: {
+      width: '100%', minHeight: '88px', resize: 'vertical', border: '1px solid #ffffff18', borderRadius: '10px',
+      background: '#12161d', color: '#9cdcfe', font: `13px/1.45 ${MONO}`, padding: '12px', outline: 'none',
+    },
+    oninput: (e) => {
+      body = e.target.value.slice(0, 140);
+      e.target.value = body;
+      compile(body);
+      updMeta();
+    },
+  });
+  const updMeta = () => {
+    meta.replaceChildren(
+      h('b', { style: { color: body.length > 140 ? '#ff6b81' : '#3d8bfd' } }, `${body.length}/140`),
+      h('span', { style: { opacity: .5 } }, 'function u(t){ … }'),
+      h('span', { style: { flex: 1 } }),
+      err ? h('span', { style: { color: '#ff6b81' } }, err) : h('span', { style: { color: '#3dd68c' } }, 'ok'),
+      btn(playing ? '❚❚' : '▶', () => { playing = !playing; updMeta(); }),
+      btn('♥ ' + likes, () => { likes++; updMeta(); toast('liked'); }),
+      btn('Remix', () => { toast('remixed into editor'); }),
+    );
+  };
+  updMeta();
+
+  const t0 = performance.now();
+  const loop = () => {
+    if (playing && fn) {
+      const t = (performance.now() - t0) / 1000;
+      try {
+        x.fillStyle = '#000';
+        x.fillRect(0, 0, cv.width, cv.height);
+        x.save();
+        // scale logical 1920×1080 → canvas
+        x.scale(cv.width / 1920, cv.height / 1080);
+        fn(t, cv, x);
+        x.restore();
+      } catch (e) {
+        err = String(e.message || e).slice(0, 80);
+        fn = null;
+        updMeta();
+      }
+    }
+    requestAnimationFrame(loop);
+  };
+  loop();
+
+  const paintFeed = () => {
+    feedHost.replaceChildren(
+      h('div.k-h', {}, 'Hot dweets'),
+      ...SAMPLES.map((d, i) => {
+        const mini = h('canvas', { width: 320, height: 180, style: { width: '100%', height: 'auto', background: '#000', borderRadius: '8px', display: 'block' } });
+        const mx = mini.getContext('2d');
+        try {
+          // eslint-disable-next-line no-new-func
+          const f = new Function('return ' + wrap(d.body))();
+          mx.fillStyle = '#000'; mx.fillRect(0, 0, 320, 180);
+          mx.save(); mx.scale(320 / 1920, 180 / 1080); f(1.2 + i * 0.4, mini, mx); mx.restore();
+        } catch {}
+        return h('div', {
+          style: { background: '#151920', border: '1px solid #ffffff12', borderRadius: '12px', padding: '10px', cursor: 'pointer' },
+          onclick: () => { body = d.body; ta.value = body; compile(body); likes = d.likes; updMeta(); toast('loaded ' + d.user); },
+        },
+          h('div.k-row', { style: { gap: '8px', marginBottom: '8px' } },
+            h('div', { style: { width: '28px', height: '28px', borderRadius: '50%', background: `hsl(${i * 50},60%,45%)` } }),
+            h('b', { style: { fontSize: '13px' } }, d.user),
+            h('span', { style: { flex: 1 } }),
+            h('span', { style: { fontSize: '12px', opacity: .6 } }, '♥ ' + d.likes),
+          ),
+          mini,
+          h('pre', { style: { margin: '8px 0 0', font: `11px/1.4 ${MONO}`, color: '#9cdcfe', whiteSpace: 'pre-wrap', wordBreak: 'break-all', opacity: .9 } }, `u(t){\n${d.body}\n}`),
+          h('div.k-row', { style: { marginTop: '8px', gap: '6px' } },
+            btn('Like', () => toast('♥')),
+            btn('Remix', () => { body = d.body; ta.value = body; compile(body); updMeta(); }),
+          ),
+        );
+      }),
+    );
+  };
+  paintFeed();
+
+  stage.append(
+    h('div', {}, h('div.k-row', { style: { marginBottom: '8px' } }, h('b', {}, 'Live stage'), h('span', { style: { flex: 1 } }), h('span', { style: { fontSize: '12px', opacity: .5 } }, 'S C T R · c · x')), cv),
+    h('div', { style: { display: 'grid', gap: '8px', minHeight: 0 } }, meta, ta),
+    h('div', { style: { fontSize: '11px', opacity: .45 } }, 'Helpers: S=sin C=cos T=tan R=rgba · canvas is 1920×1080 logical'),
+  );
+  main.append(stage, feedHost);
+  shell.append(header, main);
+  root.append(shell);
+
+  window.__demoProof = async () => {
+    body = SAMPLES[1].body; ta.value = body; compile(body); likes = 42; updMeta();
+    await sleep(120);
+    body = SAMPLES[0].body; ta.value = body; compile(body); updMeta();
+    await sleep(80);
+    playing = true; updMeta();
+    return 'switched dweet bodies · recompiled u(t) · animation running';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }

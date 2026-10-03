@@ -1,5 +1,53 @@
 [
  {
+  "id": "clone-dwitter-140char-demo-stage",
+  "slug": "dwitter-140char-demo-stage",
+  "name": "Dwitter 140-Char JS Demo Stage",
+  "date": "2026-10-03",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://dwitter.net/",
+  "domain": "dwitter.net",
+  "product": "Dwitter",
+  "checkpoints": [
+   "Dwitter 140-Char JS Demo Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-lospec-pixel-palette-browser",
+  "slug": "lospec-pixel-palette-browser",
+  "name": "Lospec Pixel Palette Browser Desk",
+  "date": "2026-10-03",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lospec.com/palette-list",
+  "domain": "lospec.com",
+  "product": "Lospec",
+  "checkpoints": [
+   "Lospec Pixel Palette Browser Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-colorbox-palette-system-desk",
+  "slug": "colorbox-palette-system-desk",
+  "name": "ColorBox Palette System Curve Desk",
+  "date": "2026-10-03",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://colorbox.io/",
+  "domain": "colorbox.io",
+  "product": "Colorbox",
+  "checkpoints": [
+   "ColorBox Palette System Curve Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
   "id": "clone-lordicon-animated-icon-desk",
   "slug": "lordicon-animated-icon-desk",
   "name": "Lordicon Animated Icon Customizer Desk",

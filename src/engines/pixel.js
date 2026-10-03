@@ -787,5 +787,191 @@ V['stitchfiddle-knit-chart-desk'] = (root, T) => {
   };
 };
 
+
+V['lospec-pixel-palette-browser'] = (root, T) => {
+  theme(root, T, { bg: '#1a1e27', fg: '#e8ecf4', panel: '#232834', ac: '#5b8cff', ac2: '#ffd166', dark: true, line: '#ffffff14' });
+  root.style.fontFamily = "'Press Start 2P',Inter Variable,system-ui,sans-serif";
+  root.style.overflow = 'hidden';
+
+  const PALETTES = [
+    { name: 'DawnBringer 16', author: 'DawnBringer', tags: ['retro', 'game'], likes: 9201, downloads: 48200, colors: ['#140c1c','#442434','#30346d','#4e4a4e','#854c30','#346524','#d04648','#757161','#597dce','#d27d2c','#8595a1','#6daa2c','#d2aa99','#6dc2ca','#dad45e','#deeed6'] },
+    { name: 'PICO-8', author: 'Lexaloffle', tags: ['retro', 'console'], likes: 11002, downloads: 61000, colors: ['#000000','#1d2b53','#7e2553','#008751','#ab5236','#5f574f','#c2c3c7','#fff1e8','#ff004d','#ffa300','#ffec27','#00e436','#29adff','#83769c','#ff77a8','#ffccaa'] },
+    { name: 'Endesga 32', author: 'Endesga', tags: ['rich', 'game'], likes: 7800, downloads: 34000, colors: ['#be4a2f','#d77643','#ead4aa','#e4a672','#b86f50','#733e39','#3e2731','#a22633','#e43b44','#f77622','#feae34','#fee761','#63c74d','#3e8948','#265c42','#193c3e','#124e89','#0099db','#2ce8f5','#ffffff','#c0cbdc','#8b9bb4','#5a6988','#3a4466','#262b44','#181425','#ff0044','#68386c','#b55088','#f6757a','#e8b796','#c28569'] },
+    { name: 'Sweetie 16', author: 'GrafxKid', tags: ['pastel', 'soft'], likes: 5400, downloads: 22000, colors: ['#1a1c2c','#5d275d','#b13e53','#ef7d57','#ffcd75','#a7f070','#38b764','#257179','#29366f','#3b5dc9','#41a6f6','#73eff7','#f4f4f4','#94b0c2','#566c86','#333c57'] },
+    { name: 'SLSO8', author: 'Clouds', tags: ['limited', '8'], likes: 2100, downloads: 9000, colors: ['#0d2b45','#203c56','#544e68','#8d697a','#d08159','#ffaa5e','#ffd4a3','#ffecd6'] },
+    { name: 'Apollo', author: 'AdamCYounis', tags: ['warm', 'game'], likes: 4300, downloads: 18000, colors: ['#172038','#253a5e','#3c5e8b','#4f8fba','#73bed3','#a4dddb','#19332d','#25562e','#468232','#75a743','#a8ca58','#d0da91','#4d2b32','#7a4841','#ad7757','#c09473','#d7b594','#e7d5b3','#341c27','#602c2c','#884b2b','#be772b','#de9e41','#e8c170','#a62e2e','#d3455c','#e5897d','#f1b296','#ffd2c0','#ffffff'] },
+    { name: 'Vinik24', author: 'Vinik', tags: ['vibrant'], likes: 3100, downloads: 12000, colors: ['#000000','#6f6776','#9a8e8b','#e5cdb8','#c8b58b','#92877a','#7a6a55','#593f2e','#452923','#6e273d','#ba3655','#ea4f36','#f88736','#f7bb3b','#f1f246','#a7d33e','#4dbc3c','#248b46','#176b4b','#0e484b','#0c2e44','#173f5f','#1e6f9f','#3bb6a9','#6dd3c5','#a9e8dc','#ffffff','#c1d9d8','#8ba1a9','#65778a','#4a5675','#393a61'] },
+    { name: 'Oil 6', author: 'GrafxKid', tags: ['limited', '6'], likes: 1900, downloads: 8000, colors: ['#fbf5ef','#f2d3ab','#c69fa5','#8b6d9c','#494d7e','#272744'] },
+    { name: 'Nyx8', author: 'Janne', tags: ['cool', '8'], likes: 2600, downloads: 11000, colors: ['#08141e','#0f2a3f','#20394f','#4a6b85','#738e99','#b0c0c7','#d7e1e4','#f4f7f5'] },
+    { name: 'Journey', author: 'PineTreePizza', tags: ['warm', 'desert'], likes: 3500, downloads: 14000, colors: ['#3e2731','#733e39','#b86f50','#e4a672','#ead4aa','#f5f0d6','#a8c874','#63c74d','#3e8948','#265c42','#193c3e','#124e89','#0099db','#2ce8f5','#ffffff','#c0cbdc'] },
+    { name: 'Resurrect 64', author: 'Kerrie Lake', tags: ['rich'], likes: 6200, downloads: 25000, colors: ['#2e222f','#3e3546','#625565','#966c6c','#ab947a','#cfbc8e','#e6cdb0','#fbffe0','#2e222f','#45293f','#7a3045','#ad3645','#d15f56','#e69c6a','#f0d2a8','#fbf5ef','#20394f','#2c5a6e','#33859d','#41a6f6','#73eff7','#a7f070','#38b764','#257179','#29366f','#3b5dc9','#41a6f6','#73eff7','#94b0c2','#566c86','#333c57','#1a1c2c'].slice(0,32) },
+    { name: 'AAP-16', author: 'Adigun A. Polack', tags: ['retro'], likes: 2800, downloads: 10000, colors: ['#070708','#332222','#774433','#998855','#bbcc88','#ddeebb','#6699aa','#225588','#113344','#000000','#aa6644','#cc8855','#eecc99','#ffffff','#6688cc','#4466aa'] },
+  ];
+
+  let q = '';
+  let countFilter = 'any';
+  let tagFilter = 'all';
+  let selected = PALETTES[0];
+  let doodleColor = PALETTES[0].colors[0];
+  const D = 16;
+  const doodle = Array(D * D).fill(null);
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '56px auto 1fr', background: '#1a1e27' } });
+  const header = h('div.k-row', { style: { padding: '0 18px', gap: '18px', borderBottom: '1px solid #ffffff12', background: '#12151c' } },
+    h('b', { style: { fontSize: '18px', letterSpacing: '.04em', color: '#d7dde8' } }, 'LOSPEC'),
+    h('span', { style: { opacity: .45, fontSize: '10px' } }, 'GALLERY'),
+    h('span', { style: { color: '#5b8cff', fontSize: '10px', borderBottom: '2px solid #5b8cff', paddingBottom: '14px', marginTop: '14px' } }, 'PALETTES'),
+    h('span', { style: { opacity: .45, fontSize: '10px' } }, 'SHOP'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '10px', opacity: .5 } }, 'pixel palette desk'),
+  );
+
+  const filters = h('div.k-row', { style: { padding: '10px 18px', gap: '10px', flexWrap: 'wrap', borderBottom: '1px solid #ffffff10', background: '#1f2430', fontFamily: 'Inter Variable,system-ui,sans-serif' } });
+  const body = h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 320px', minHeight: 0, overflow: 'hidden' } });
+  const grid = h('div', { style: { overflow: 'auto', padding: '16px 18px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(260px,1fr))', gap: '14px', alignContent: 'start' } });
+  const detail = h('div', { style: { borderLeft: '1px solid #ffffff12', background: '#161a22', padding: '14px', overflow: 'auto', fontFamily: 'Inter Variable,system-ui,sans-serif', display: 'grid', alignContent: 'start', gap: '12px' } });
+
+  const filtered = () => PALETTES.filter((p) => {
+    if (countFilter !== 'any' && p.colors.length !== +countFilter) return false;
+    if (tagFilter !== 'all' && !p.tags.includes(tagFilter)) return false;
+    if (q && !(`${p.name} ${p.author} ${p.tags.join(' ')}`.toLowerCase().includes(q.toLowerCase()))) return false;
+    return true;
+  });
+
+  const paintDoodle = (cv) => {
+    const g = cv.getContext('2d');
+    const cell = cv.width / D;
+    for (let y = 0; y < D; y++) for (let x = 0; x < D; x++) {
+      const c = doodle[y * D + x];
+      g.fillStyle = c || (((x + y) % 2) ? '#2a3140' : '#232834');
+      g.fillRect(x * cell, y * cell, cell, cell);
+    }
+  };
+
+  const applyPalettePreview = (colors, cv) => {
+    const g = cv.getContext('2d');
+    const n = colors.length;
+    for (let i = 0; i < 64; i++) {
+      const x = i % 8, y = (i / 8) | 0;
+      g.fillStyle = colors[(x * 3 + y * 5) % n];
+      g.fillRect(x * 4, y * 4, 4, 4);
+    }
+  };
+
+  const draw = () => {
+    const list = filtered();
+    filters.replaceChildren(
+      h('b', { style: { fontSize: '11px', opacity: .55, letterSpacing: '.08em' } }, 'FILTERING'),
+      h('input', { placeholder: 'Search palettes…', value: q, style: { padding: '7px 10px', borderRadius: '8px', border: '1px solid #ffffff18', background: '#12151c', color: '#fff', width: '180px', font: '12px Inter Variable' }, oninput: (e) => { q = e.target.value; draw(); } }),
+      seg([['any', 'Any'], ['2', '2'], ['4', '4'], ['8', '8'], ['16', '16'], ['32', '32']], countFilter, (v) => { countFilter = v; draw(); }),
+      select([['all', 'All tags'], ['retro', 'retro'], ['game', 'game'], ['limited', 'limited'], ['warm', 'warm'], ['cool', 'cool'], ['pastel', 'pastel'], ['vibrant', 'vibrant']], tagFilter, (v) => { tagFilter = v; draw(); }),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '12px', opacity: .55 } }, `${list.length} results`),
+    );
+
+    grid.replaceChildren(...list.map((p) => {
+      const mini = h('canvas', { width: 32, height: 32, style: { width: '40px', height: '40px', imageRendering: 'pixelated', borderRadius: '4px', border: '1px solid #ffffff10' } });
+      applyPalettePreview(p.colors, mini);
+      return h('button', {
+        style: {
+          textAlign: 'left', border: selected?.name === p.name ? '2px solid #5b8cff' : '1px solid #ffffff14',
+          background: '#232834', borderRadius: '12px', padding: '12px', cursor: 'pointer', color: 'inherit', fontFamily: 'Inter Variable,system-ui',
+        },
+        onclick: () => { selected = p; doodleColor = p.colors[0]; draw(); },
+      },
+        h('div.k-row', { style: { gap: '10px', marginBottom: '8px' } },
+          mini,
+          h('div', {}, h('b', { style: { fontSize: '13px' } }, p.name), h('div', { style: { fontSize: '11px', opacity: .55 } }, p.author))),
+        h('div', { style: { display: 'flex', height: '28px', borderRadius: '6px', overflow: 'hidden', border: '1px solid #0006' } },
+          ...p.colors.slice(0, 32).map((c) => h('div', { style: { flex: 1, background: c } }))),
+        h('div.k-row', { style: { marginTop: '8px', fontSize: '11px', opacity: .6, gap: '10px' } },
+          h('span', {}, '♥ ' + p.likes), h('span', {}, '⬇ ' + p.downloads), h('span', { style: { flex: 1 } }),
+          ...p.tags.slice(0, 2).map((t) => h('span', { style: { background: '#ffffff10', padding: '2px 6px', borderRadius: '99px' } }, t))),
+      );
+    }));
+
+    const cv = h('canvas', { width: 256, height: 256, style: { width: '100%', imageRendering: 'pixelated', borderRadius: '8px', border: '1px solid #ffffff14', cursor: 'crosshair', touchAction: 'none' } });
+    paintDoodle(cv);
+    drag(cv, {
+      start: (e) => {
+        const r = cv.getBoundingClientRect();
+        const x = Math.floor(((e.clientX - r.left) / r.width) * D);
+        const y = Math.floor(((e.clientY - r.top) / r.height) * D);
+        if (x < 0 || y < 0 || x >= D || y >= D) return;
+        doodle[y * D + x] = doodleColor;
+        paintDoodle(cv);
+      },
+      move: (e) => {
+        const r = cv.getBoundingClientRect();
+        const x = Math.floor(((e.clientX - r.left) / r.width) * D);
+        const y = Math.floor(((e.clientY - r.top) / r.height) * D);
+        if (x < 0 || y < 0 || x >= D || y >= D) return;
+        doodle[y * D + x] = doodleColor;
+        paintDoodle(cv);
+      },
+    });
+
+    detail.replaceChildren(
+      h('div.k-h', {}, 'Palette detail'),
+      h('b', { style: { fontSize: '16px' } }, selected.name),
+      h('div', { style: { fontSize: '12px', opacity: .6 } }, `by ${selected.author} · ${selected.colors.length} colors`),
+      h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(8,1fr)', gap: '4px' } },
+        ...selected.colors.map((c) => h('button', {
+          title: c, style: { aspectRatio: '1', background: c, border: doodleColor === c ? '2px solid #fff' : '1px solid #0005', borderRadius: '4px', cursor: 'pointer' },
+          onclick: () => { doodleColor = c; copy(c, 'Hex'); draw(); },
+        }))),
+      h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+        ...selected.tags.map((t) => h('span', { style: { background: '#5b8cff22', color: '#9bbcff', padding: '3px 8px', borderRadius: '99px', fontSize: '11px' } }, t))),
+      btn('Use palette', () => {
+        // remap doodle to nearest palette colors / seed a sprite
+        const seed = [
+          '....xxxx........',
+          '...xxxxxx.......',
+          '..xx..x..xx.....',
+          '.xxxxxxxxxxxx...',
+          'xx..xxxxxx..xx..',
+          'xxxxxxxxxxxxxxx.',
+          '.xx..xxxx..xx...',
+          '..xxxxxxxxxxxx..',
+          '...xx....xx.....',
+          '....xx..xx......',
+          '.....xxxx.......',
+          '......xx........',
+        ];
+        doodle.fill(null);
+        seed.forEach((row, y) => [...row].forEach((ch, x) => {
+          if (ch === 'x') doodle[y * D + x] = selected.colors[(x + y) % selected.colors.length];
+        }));
+        doodleColor = selected.colors[0];
+        toast('palette applied');
+        draw();
+      }, 'pri'),
+      h('div.k-h', {}, '16×16 doodle'),
+      cv,
+      btn('Clear doodle', () => { doodle.fill(null); draw(); }),
+      btn('Copy hex list', () => copy(selected.colors.join(', '), 'Palette')),
+    );
+  };
+
+  body.append(grid, detail);
+  shell.append(header, filters, body);
+  root.append(shell);
+  draw();
+
+  window.__demoProof = async () => {
+    q = 'dawn'; countFilter = '16'; draw();
+    await sleep(60);
+    selected = PALETTES[0]; doodleColor = selected.colors[3];
+    // seed doodle
+    for (let i = 0; i < 40; i++) doodle[((i * 7) % (D * D))] = selected.colors[i % selected.colors.length];
+    draw();
+    q = ''; countFilter = 'any';
+    selected = PALETTES[1];
+    doodleColor = selected.colors[8];
+    draw();
+    return 'filtered DawnBringer-16 · applied swatches to doodle · switched to PICO-8';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pixel-sprite-editor-workspace'])(root, T); }
 

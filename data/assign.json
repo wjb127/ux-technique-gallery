@@ -57,7 +57,8 @@
   "oklch-perceptual-color-lab",
   "vision-contrast-sim-cards",
   "khroma-ai-color-pair-studio",
-  "leonardocolor-adaptive-theme-desk"
+  "leonardocolor-adaptive-theme-desk",
+  "colorbox-palette-system-desk"
  ],
  "cssfx": [
   "neumorph-softui-generator",
@@ -143,7 +144,8 @@
   "image-weave-loom-desk",
   "pixelartcss-boxshadow-desk",
   "bitsy-pixel-game-maker-desk",
-  "stitchfiddle-knit-chart-desk"
+  "stitchfiddle-knit-chart-desk",
+  "lospec-pixel-palette-browser"
  ],
  "sim": [
   "falling-sand-particle-sandbox",
@@ -185,7 +187,8 @@
   "turtle-plotter-livecode",
   "httpie-api-workspace",
   "shaderpark-js-sdf-sculpt-desk",
-  "hydra-live-visual-synth"
+  "hydra-live-visual-synth",
+  "dwitter-140char-demo-stage"
  ],
  "globe": [
   "globe-radio-discover",

@@ -443,4 +443,166 @@ V['leonardocolor-adaptive-theme-desk'] = (root, T) => {
   };
 };
 
+
+V['colorbox-palette-system-desk'] = (root, T) => {
+  theme(root, T, { bg: '#ebebeb', fg: '#1a1a1a', panel: '#ffffff', ac: '#2732e6', ac2: '#040675', dark: false, line: '#00000014' });
+  root.style.overflow = 'hidden';
+
+  let mode = 'HSV'; // HSV | OKLCH
+  let hueStart = 220, hueEnd = 240;
+  let satStart = 0.08, satEnd = 1;
+  let briStart = 1, briEnd = 0.22;
+  let steps = 11;
+  let locked = false;
+  let name = 'Blue';
+
+  const ease = (t, kind = 'easeOut') => {
+    if (kind === 'linear') return t;
+    if (kind === 'easeIn') return t * t;
+    return 1 - (1 - t) * (1 - t);
+  };
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '48px 1fr', background: '#ebebeb' } });
+  const header = h('div.k-row', { style: { background: '#fff', borderBottom: '1px solid #e0e0e0', padding: '0 16px', gap: '14px' } },
+    h('b', { style: { fontSize: '15px' } }, 'ColorBox ', h('span', { style: { fontWeight: 500, opacity: .55 } }, 'by Kevyn')),
+    h('span', { style: { flex: 1 } }),
+    btn('Import', () => toast('import stub')),
+    btn('Export', () => copy(exportCSS(), 'CSS vars'), 'pri'),
+  );
+
+  const body = h('div', { style: { display: 'grid', gridTemplateColumns: '200px 1fr 300px', minHeight: 0, overflow: 'hidden' } });
+  const left = h('div', { style: { background: '#fff', borderRight: '1px solid #e4e4e4', padding: '14px', display: 'grid', alignContent: 'start', gap: '10px' } });
+  const stage = h('div', { style: { display: 'grid', placeItems: 'center', padding: '24px', overflow: 'auto' } });
+  const right = h('div', { style: { background: '#fff', borderLeft: '1px solid #e4e4e4', padding: '14px', overflow: 'auto', display: 'grid', alignContent: 'start', gap: '10px' } });
+
+  const buildRamp = () => {
+    const out = [];
+    for (let i = 0; i < steps; i++) {
+      const t = steps === 1 ? 0 : i / (steps - 1);
+      const te = ease(t, 'easeOut');
+      const H = hueStart + (hueEnd - hueStart) * te;
+      const S = satStart + (satEnd - satStart) * te;
+      const B = briStart + (briEnd - briStart) * te;
+      let hex;
+      if (mode === 'OKLCH') {
+        // map B→L, S→C roughly
+        hex = oklchToHex(clamp(B, 0.05, 0.98), clamp(S * 0.22, 0, 0.3), ((H % 360) + 360) % 360);
+      } else {
+        // HSV-ish via HSL approx: V≈L scaled
+        const L = clamp(B * (1 - S * 0.35), 0.04, 0.97) * 100;
+        const Ss = clamp(S * 100, 0, 100);
+        hex = hsl(((H % 360) + 360) % 360, Ss, L);
+      }
+      out.push({ i, hex, H, S, B, crW: contrast(hex, '#ffffff'), crB: contrast(hex, '#000000') });
+    }
+    return out;
+  };
+
+  const exportCSS = () => {
+    const ramp = buildRamp();
+    return `:root {
+${ramp.map((s, i) => `  --${name.toLowerCase()}-${i}: ${s.hex};`).join('\n')}
+}
+/* hex list */
+${ramp.map((s) => s.hex).join(', ')}`;
+  };
+
+  const draw = () => {
+    if (locked) return;
+    const ramp = buildRamp();
+    left.replaceChildren(
+      h('div.k-h', {}, 'Colors'),
+      h('div.k-row', { style: { gap: '8px', background: '#f3f4ff', border: '1px solid #d0d4ff', borderRadius: '999px', padding: '6px 10px' } },
+        h('div', { style: { width: '18px', height: '18px', borderRadius: '50%', background: ramp[Math.floor(steps / 2)].hex, border: '1px solid #0002' } }),
+        h('b', { style: { fontSize: '13px' } }, name),
+        h('span', { style: { flex: 1 } }),
+        h('span', { style: { opacity: .4, cursor: 'pointer' }, onclick: () => toast('locked tone') }, '✕'),
+      ),
+      btn('+ Add color', () => { name = 'Accent'; hueStart = (hueStart + 80) % 360; hueEnd = (hueEnd + 60) % 360; draw(); }),
+      h('div.k-h', {}, 'Major steps'),
+      h('div.k-row', {},
+        btn('−', () => { steps = clamp(steps - 1, 3, 21); draw(); }),
+        h('b', { style: { minWidth: '36px', textAlign: 'center', fontSize: '18px' } }, String(steps)),
+        btn('+', () => { steps = clamp(steps + 1, 3, 21); draw(); }),
+      ),
+      toggle('Lock ramp', locked, (v) => { locked = v; toast(v ? 'locked' : 'unlocked'); }),
+    );
+
+    // find contrast marker indices vs white
+    let m3 = -1, m45 = -1;
+    ramp.forEach((s, i) => {
+      if (m3 < 0 && s.crW >= 3) m3 = i;
+      if (m45 < 0 && s.crW >= 4.5) m45 = i;
+    });
+
+    const rampEl = h('div', { style: { width: 'min(420px, 70%)', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 12px 40px #00000018', border: '1px solid #00000010', position: 'relative' } },
+      h('div.k-row', { style: { background: '#fff', padding: '10px 14px', borderBottom: '1px solid #eee' } },
+        h('b', {}, name), h('span', { style: { flex: 1 } }), h('span', { style: { fontSize: '12px', opacity: .55 } }, `${steps} steps · ${mode}`)),
+      ...ramp.map((s, i) => {
+        const fg = fgOn(s.hex);
+        const markers = [];
+        if (i === m3) markers.push(h('div', { style: { position: 'absolute', left: '-70px', top: '50%', transform: 'translateY(-50%)', fontSize: '11px', color: '#666', whiteSpace: 'nowrap' } }, '—— 3:1'));
+        if (i === m45) markers.push(h('div', { style: { position: 'absolute', left: '-78px', top: '50%', transform: 'translateY(-50%)', fontSize: '11px', color: '#666', whiteSpace: 'nowrap' } }, '—— 4.5:1'));
+        return h('div', {
+          style: {
+            position: 'relative', height: '52px', background: s.hex, color: fg, display: 'grid',
+            gridTemplateColumns: '48px 1fr auto', alignItems: 'center', padding: '0 14px', gap: '10px',
+            borderTop: (i === m3 || i === m45) ? '2px solid #fff' : '0',
+          },
+          onclick: () => copy(s.hex, 'Hex'),
+        },
+          h('b', { style: { fontSize: '13px' } }, String(i)),
+          h('span', { style: { fontFamily: 'JetBrains Mono Variable,ui-monospace,monospace', fontSize: '12px' } }, s.hex),
+          h('span', { style: { fontSize: '11px', opacity: .85 } }, mode === 'OKLCH'
+            ? `L${s.B.toFixed(2)} C${(s.S * 0.22).toFixed(2)} H${s.H.toFixed(0)}`
+            : `H${s.H.toFixed(0)} S${s.S.toFixed(2)} B${s.B.toFixed(2)}`),
+          ...markers,
+        );
+      }),
+    );
+    stage.replaceChildren(rampEl);
+
+    const hs = slider('Hue start', 0, 360, hueStart, 1, (v) => { hueStart = v; draw(); });
+    const he = slider('Hue end', 0, 360, hueEnd, 1, (v) => { hueEnd = v; draw(); });
+    const ss = slider('Sat start', 0, 1, satStart, 0.01, (v) => { satStart = v; draw(); }, (v) => (+v).toFixed(2));
+    const se = slider('Sat end', 0, 1, satEnd, 0.01, (v) => { satEnd = v; draw(); }, (v) => (+v).toFixed(2));
+    const bs = slider('Bright start', 0, 1, briStart, 0.01, (v) => { briStart = v; draw(); }, (v) => (+v).toFixed(2));
+    const be = slider('Bright end', 0, 1, briEnd, 0.01, (v) => { briEnd = v; draw(); }, (v) => (+v).toFixed(2));
+
+    right.replaceChildren(
+      h('div.k-h', {}, 'Color space'),
+      seg([['HSV', 'HSV'], ['OKLCH', 'OKLCH']], mode, (v) => { mode = v; draw(); }),
+      h('div.k-h', {}, 'Hue'),
+      hs, he,
+      h('div.k-h', {}, 'Saturation'),
+      ss, se,
+      h('div.k-h', {}, 'Brightness / Lightness'),
+      bs, be,
+      h('div.k-h', {}, 'Export'),
+      codebox(() => exportCSS().split('/*')[0].trim()),
+      btn('Copy CSS variables', () => copy(exportCSS(), 'Exported'), 'pri'),
+      btn('Copy hex list', () => copy(buildRamp().map((s) => s.hex).join('\n'), 'Hex list')),
+    );
+  };
+
+  body.append(left, stage, right);
+  shell.append(header, body);
+  root.append(shell);
+  // unlock for initial paint
+  locked = false;
+  draw();
+
+  window.__demoProof = async () => {
+    locked = false;
+    hueStart = 200; hueEnd = 260; steps = 11; mode = 'HSV'; draw();
+    await sleep(80);
+    hueStart = 12; hueEnd = 40; steps = 9; name = 'Warm'; draw();
+    await sleep(60);
+    mode = 'OKLCH'; steps = 13; draw();
+    await sleep(40);
+    mode = 'HSV'; hueStart = 220; hueEnd = 240; steps = 11; name = 'Blue'; draw();
+    return 'hue start/steps regenerated ramp · OKLCH pass · restored Blue HSV';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['palette-lock-export'])(root, T); }
