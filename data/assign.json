@@ -20,7 +20,8 @@
   "infinite-canvas-toolbar",
   "frame-timeline-animation-studio",
   "heraldic-flag-canvas-desk",
-  "bomomo-generative-brush-desk"
+  "bomomo-generative-brush-desk",
+  "sketchtoy-replay-sketch-stage"
  ],
  "seq": [
   "music-grid-sequencer",
@@ -96,7 +97,8 @@
   "boxy-svg-craft-editor",
   "pattern-monster-svg-pattern-desk",
   "dicebear-avatar-seed-playground",
-  "lordicon-animated-icon-desk"
+  "lordicon-animated-icon-desk",
+  "blush-illustration-remix-desk"
  ],
  "imagefx": [
   "duotone-photo-studio",
@@ -254,7 +256,8 @@
   "tonejs-simple-synth-desk",
   "blob-opera-drag-choir-desk",
   "typatone-type-music-desk",
-  "plaza-vaporwave-radio-desk"
+  "plaza-vaporwave-radio-desk",
+  "muted-circle-of-fifths-desk"
  ],
  "desk": [
   "parody-desktop-os-sandbox",

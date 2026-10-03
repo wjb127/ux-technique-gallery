@@ -1329,4 +1329,243 @@ V['plaza-vaporwave-radio-desk'] = (root, T) => {
   };
 };
 
+V['muted-circle-of-fifths-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0e2a32', fg: '#e8f1f3', ac: '#f3b5c5', dark: true });
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  // Circle of fifths order (clockwise from C)
+  const MAJ = ['C', 'G', 'D', 'A', 'E', 'B', 'F♯/G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'];
+  const MIN = ['Am', 'Em', 'Bm', 'F♯m', 'C♯m', 'G♯m', 'E♭m', 'B♭m', 'Fm', 'Cm', 'Gm', 'Dm'];
+  const PC = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]; // pitch class of each major key
+  const SHARPS = ['', 'F♯', 'F♯ C♯', 'F♯ C♯ G♯', 'F♯ C♯ G♯ D♯', 'F♯ C♯ G♯ D♯ A♯', 'F♯ C♯ G♯ D♯ A♯ E♯', '', '', '', '', ''];
+  const FLATS = ['', '', '', '', '', '', 'G♭ D♭ A♭ E♭ B♭ F♭', 'B♭ E♭ A♭ D♭ G♭', 'B♭ E♭ A♭ D♭', 'B♭ E♭ A♭', 'B♭ E♭', 'B♭'];
+  const DEG = ['1', '2', '3', '4', '5', '6', '7', '1', '2', '3', '4', '5']; // outer ring labels relative — rebuilt per tonic
+  const ROMAN_MAJ = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii°'];
+  const ROMAN_MIN = ['i', 'ii°', 'III', 'iv', 'v', 'VI', 'VII'];
+  // scale degree offsets in fifths-circle steps from tonic for diatonic chords
+  // better: use semitone intervals from tonic
+  const MAJ_IV = [0, 2, 4, 5, 7, 9, 11]; // major scale
+  const MIN_IV = [0, 2, 3, 5, 7, 8, 10]; // natural minor
+
+  let mode = 'major'; // major | minor
+  let sel = 0; // index into MAJ (tonic of selected key on major circle)
+
+  const noteName = (pc) => {
+    const N = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+    return N[((pc % 12) + 12) % 12];
+  };
+  const keySig = (i) => {
+    // i = steps clockwise from C
+    if (i === 0) return 'no sharps / flats';
+    if (i === 6) return '6 sharps (F♯) or 6 flats (G♭)';
+    if (i < 6) return `${i} sharp${i > 1 ? 's' : ''} · ${SHARPS[i]}`;
+    const f = 12 - i;
+    return `${f} flat${f > 1 ? 's' : ''} · ${FLATS[i]}`;
+  };
+  const diatonic = () => {
+    const rootPc = mode === 'major' ? PC[sel] : (PC[sel] + 9) % 12; // relative minor of selected major slice when in minor mode uses inner
+    // When mode is major: tonic is MAJ[sel]; when minor: tonic is MIN[sel] (relative minor of that slice)
+    const tonicPc = mode === 'major' ? PC[sel] : (PC[sel] + 9) % 12;
+    const ivs = mode === 'major' ? MAJ_IV : MIN_IV;
+    const romans = mode === 'major' ? ROMAN_MAJ : ROMAN_MIN;
+    const quals = mode === 'major'
+      ? ['', 'm', 'm', '', '', 'm', '°']
+      : ['m', '°', '', 'm', 'm', '', ''];
+    return romans.map((r, k) => {
+      const pc = (tonicPc + ivs[k]) % 12;
+      return { roman: r, name: noteName(pc) + quals[k], pc };
+    });
+  };
+  const tonicLabel = () => (mode === 'major' ? MAJ[sel] : MIN[sel]);
+
+  const playChord = (i, asMinor) => {
+    const root = 48 + PC[i];
+    const minor = asMinor ?? (mode === 'minor');
+    [0, minor ? 3 : 4, 7].forEach((iv, k) => blip(midi(root + iv), 0.9, 'triangle', 0.07, k * 0.03));
+  };
+
+  // SVG wheel
+  const svg = s('svg', { viewBox: '-280 -280 560 560', width: '100%', height: '100%', style: 'max-width:560px;max-height:560px;display:block;margin:0 auto' });
+
+  const wedge = (i, r0, r1) => {
+    const a0 = ((i - 0.5) / 12) * Math.PI * 2 - Math.PI / 2;
+    const a1 = ((i + 0.5) / 12) * Math.PI * 2 - Math.PI / 2;
+    const x0 = Math.cos(a0), y0 = Math.sin(a0), x1 = Math.cos(a1), y1 = Math.sin(a1);
+    return `M${x0 * r0} ${y0 * r0}A${r0} ${r0} 0 0 1 ${x1 * r0} ${y1 * r0}L${x1 * r1} ${y1 * r1}A${r1} ${r1} 0 0 0 ${x0 * r1} ${y0 * r1}Z`;
+  };
+  const midA = (i) => (i / 12) * Math.PI * 2 - Math.PI / 2;
+
+  // degree labels around outer ring relative to selected tonic
+  const degreeAt = (i) => {
+    // position i relative to sel
+    const steps = (i - sel + 12) % 12;
+    // map fifths-steps to scale degree is non-trivial; show chromatic relation labels used by muted: 1 at tonic, then around
+    // Simplified: show roman for diatonic positions only
+    const map = { 0: '1', 1: '5', 11: '4', 2: '2', 10: '♭7', 3: '6', 9: '♭3', 4: '3', 8: '♭6', 5: '7', 7: '♭2', 6: '♯4/♭5' };
+    return map[steps] || '';
+  };
+
+  const draw = () => {
+    const els = [];
+    els.push(s('circle', { r: 268, fill: '#123840', stroke: '#1e4a54', 'stroke-width': 2 }));
+    // outer degree ring
+    for (let i = 0; i < 12; i++) {
+      const lit = i === sel;
+      els.push(s('path', {
+        d: wedge(i, 255, 220),
+        fill: lit ? '#1a5560' : '#0f333c',
+        stroke: '#2a5a66', 'stroke-width': 1,
+        style: 'cursor:pointer',
+        onclick: () => { sel = i; draw(); playChord(i, mode === 'minor'); refreshSide(); },
+      }));
+      const a = midA(i);
+      els.push(s('text', {
+        x: Math.cos(a) * 237, y: Math.sin(a) * 237 + 4,
+        'text-anchor': 'middle', fill: lit ? '#f3b5c5' : '#8fb8c2',
+        'font-size': 11, 'font-weight': 600, 'pointer-events': 'none',
+      }, degreeAt(i)));
+    }
+    // main major keys ring
+    for (let i = 0; i < 12; i++) {
+      const lit = i === sel;
+      const fill = lit ? (mode === 'major' ? '#f3b5c5' : '#3d7a88') : (mode === 'major' ? '#1c4e5a' : '#163e48');
+      els.push(s('path', {
+        d: wedge(i, 218, 130),
+        fill, stroke: '#2a5a66', 'stroke-width': 1.2,
+        style: 'cursor:pointer',
+        onclick: () => { sel = i; draw(); playChord(i, mode === 'minor'); refreshSide(); },
+      }));
+      const a = midA(i);
+      const label = mode === 'major' ? MAJ[i] : MIN[i];
+      els.push(s('text', {
+        x: Math.cos(a) * 174, y: Math.sin(a) * 174 + 5,
+        'text-anchor': 'middle', fill: lit && mode === 'major' ? '#1a2a30' : '#e8f1f3',
+        'font-size': label.length > 3 ? 13 : 16, 'font-weight': 700, 'pointer-events': 'none',
+      }, label));
+    }
+    // inner relative ring
+    for (let i = 0; i < 12; i++) {
+      const lit = i === sel;
+      const fill = lit ? (mode === 'minor' ? '#f3b5c5' : '#2a6270') : '#124049';
+      els.push(s('path', {
+        d: wedge(i, 128, 72),
+        fill, stroke: '#2a5a66', 'stroke-width': 1,
+        style: 'cursor:pointer',
+        onclick: () => { sel = i; mode = mode === 'major' ? 'minor' : mode; /* keep selection */ draw(); playChord(i, true); refreshSide(); },
+      }));
+      const a = midA(i);
+      const label = mode === 'major' ? MIN[i] : MAJ[i];
+      els.push(s('text', {
+        x: Math.cos(a) * 100, y: Math.sin(a) * 100 + 4,
+        'text-anchor': 'middle', fill: lit && mode === 'minor' ? '#1a2a30' : '#b7d4db',
+        'font-size': 11, 'font-weight': 600, 'pointer-events': 'none',
+      }, label));
+    }
+    els.push(s('circle', { r: 70, fill: '#0e2a32', stroke: '#2a5a66', 'stroke-width': 2 }));
+    els.push(s('text', { y: -6, 'text-anchor': 'middle', fill: '#f3b5c5', 'font-size': 13, 'font-weight': 700 }, 'tonic'));
+    els.push(s('text', { y: 14, 'text-anchor': 'middle', fill: '#fff', 'font-size': 18, 'font-weight': 800 }, tonicLabel()));
+    svg.replaceChildren(...els);
+  };
+
+  const sideTitle = h('div', { style: { fontSize: '22px', fontWeight: 800, letterSpacing: '-.02em' } });
+  const sideSig = h('div', { style: { fontSize: '13px', opacity: .75, marginTop: '4px' } });
+  const sideChords = h('div', { style: { display: 'grid', gap: '6px', marginTop: '14px' } });
+  const refreshSide = () => {
+    sideTitle.textContent = tonicLabel() + (mode === 'major' ? ' major' : '');
+    sideSig.textContent = 'Key signature · ' + keySig(sel);
+    const ch = diatonic();
+    sideChords.replaceChildren(...ch.map((c) => h('button', {
+      style: {
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        padding: '8px 12px', borderRadius: '8px', border: '1px solid #2a5a66',
+        background: '#123840', color: '#e8f1f3', cursor: 'pointer', fontSize: '13px',
+      },
+      onclick: () => {
+        const root = 48 + c.pc;
+        const minor = /m|°/.test(c.name) && !/^[A-G]♯?$/.test(c.name.replace('°',''));
+        const isDim = c.name.includes('°');
+        const isMin = c.name.endsWith('m') || isDim;
+        [0, isDim ? 3 : isMin ? 3 : 4, isDim ? 6 : 7].forEach((iv, k) => blip(midi(root + iv), 0.7, 'triangle', 0.06, k * 0.025));
+      },
+    }, h('span', { style: { color: '#f3b5c5', fontWeight: 700, width: '36px' } }, c.roman), h('span', { style: { fontWeight: 600 } }, c.name))));
+  };
+
+  const modeSeg = h('div', { style: { display: 'flex', gap: '0', background: '#123840', borderRadius: '10px', padding: '3px', border: '1px solid #2a5a66' } });
+  const paintMode = () => {
+    modeSeg.replaceChildren(
+      ...[['major', 'Major (Ionian)'], ['minor', 'Minor (Aeolian)']].map(([v, l]) => h('button', {
+        style: {
+          flex: 1, padding: '8px 10px', border: 0, borderRadius: '8px', cursor: 'pointer',
+          background: mode === v ? '#f3b5c5' : 'transparent',
+          color: mode === v ? '#1a2a30' : '#8fb8c2', fontWeight: 700, fontSize: '12px',
+        },
+        onclick: () => { mode = v; draw(); refreshSide(); },
+      }, l)),
+    );
+  };
+
+  const header = h('div', {
+    style: {
+      display: 'flex', alignItems: 'center', gap: '14px', padding: '10px 20px',
+      borderBottom: '1px solid #1e4a54', background: '#0c242c',
+    },
+  },
+    h('div', { style: { width: '28px', height: '28px', borderRadius: '50%', border: '2px solid #f3b5c5', display: 'grid', placeItems: 'center', fontSize: '12px', color: '#f3b5c5', fontWeight: 800 } }, '^^'),
+    h('b', { style: { fontSize: '15px', letterSpacing: '.02em' } }, 'muted'),
+    h('span', { style: { opacity: .45, fontSize: '13px' } }, '·'),
+    h('span', { style: { fontSize: '13px', opacity: .8 } }, 'Circle of Fifths'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '11px', opacity: .5 } }, 'music theory chart'),
+  );
+
+  const stage = h('div', {
+    style: { display: 'grid', gridTemplateColumns: '1fr 280px', gap: '20px', padding: '18px 24px', height: 'calc(100% - 48px)', boxSizing: 'border-box' },
+  },
+    h('div', { style: { display: 'grid', gridTemplateRows: 'auto 1fr', gap: '12px', minHeight: 0 } },
+      h('div', {},
+        h('div', { style: { fontSize: '26px', fontWeight: 800, letterSpacing: '-.03em', marginBottom: '8px' } }, 'Interactive Circle of Fifths'),
+        paintMode(),
+      ),
+      h('div', { style: { display: 'grid', placeItems: 'center', minHeight: 0 } }, svg),
+    ),
+    h('div', {
+      style: {
+        background: '#123840', border: '1px solid #2a5a66', borderRadius: '14px',
+        padding: '16px', overflow: 'auto', alignSelf: 'stretch',
+      },
+    },
+      h('div', { style: { fontSize: '11px', letterSpacing: '.14em', color: '#f3b5c5', fontWeight: 700 } }, 'SELECTED KEY'),
+      sideTitle, sideSig,
+      h('div', { style: { fontSize: '11px', letterSpacing: '.14em', color: '#8fb8c2', fontWeight: 700, marginTop: '16px' } }, 'DIATONIC CHORDS'),
+      sideChords,
+      h('div', { style: { fontSize: '11px', opacity: .5, marginTop: '14px', lineHeight: 1.5 } }, 'Click a key to select tonic. Outer ring = scale degrees · main ring = keys · inner = relatives.'),
+    ),
+  );
+
+  // fix modeSeg - paintMode mutates modeSeg; need to call before append
+  paintMode();
+  // rebuild stage left header row properly
+  stage.firstChild.firstChild.replaceChildren(
+    h('div', { style: { fontSize: '26px', fontWeight: 800, letterSpacing: '-.03em', marginBottom: '8px' } }, 'Interactive Circle of Fifths'),
+    modeSeg,
+  );
+
+  root.append(header, stage);
+  draw();
+  refreshSide();
+
+  window.__demoProof = async () => {
+    const before = { mode, sel };
+    mode = 'major'; sel = 3; // A major
+    draw(); refreshSide(); playChord(3, false);
+    await sleep(200);
+    mode = 'minor'; draw(); refreshSide(); playChord(3, true);
+    await sleep(150);
+    mode = before.mode; sel = before.sel;
+    draw(); refreshSide();
+    return 'selected A major → toggled Aeolian → restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-muted-circle-of-fifths-desk",
+  "slug": "muted-circle-of-fifths-desk",
+  "name": "Muted Circle of Fifths Desk",
+  "date": "2026-10-04",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://muted.io/circle-of-fifths/",
+  "domain": "muted.io",
+  "product": "Muted",
+  "checkpoints": [
+   "Muted Circle of Fifths Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Muted Circle of Fifths Desk",
+  "ko": "Muted 스타일 인터랙션 클론",
+  "engine": "audio",
+  "variant": "muted-circle-of-fifths-desk",
+  "path": "/t/muted-circle-of-fifths-desk/",
+  "built": true
+ },
+ {
+  "id": "clone-blush-illustration-remix-desk",
+  "slug": "blush-illustration-remix-desk",
+  "name": "Blush Illustration Remix Desk",
+  "date": "2026-10-04",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://blush.design/collections/open-peeps/open-peeps",
+  "domain": "blush.design",
+  "product": "Blush",
+  "checkpoints": [
+   "Blush Illustration Remix Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Blush Illustration Remix Desk",
+  "ko": "Blush 스타일 인터랙션 클론",
+  "engine": "svggen",
+  "variant": "blush-illustration-remix-desk",
+  "path": "/t/blush-illustration-remix-desk/",
+  "built": true
+ },
+ {
+  "id": "clone-sketchtoy-replay-sketch-stage",
+  "slug": "sketchtoy-replay-sketch-stage",
+  "name": "Sketch Toy Replay Sketch Stage",
+  "date": "2026-10-04",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.sketchtoy.com/",
+  "domain": "sketchtoy.com",
+  "product": "Sketchtoy",
+  "checkpoints": [
+   "Sketch Toy Replay Sketch Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Sketch Toy Replay Sketch Stage",
+  "ko": "Sketchtoy 스타일 드로잉 클론",
+  "engine": "paint",
+  "variant": "sketchtoy-replay-sketch-stage",
+  "path": "/t/sketchtoy-replay-sketch-stage/",
+  "built": true
+ },
+ {
   "id": "clone-dwitter-140char-demo-stage",
   "slug": "dwitter-140char-demo-stage",
   "name": "Dwitter 140-Char JS Demo Stage",

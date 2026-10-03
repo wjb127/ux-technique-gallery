@@ -521,4 +521,213 @@ V['bomomo-generative-brush-desk'] = (root, T) => {
   };
 };
 
+V['sketchtoy-replay-sketch-stage'] = (root, T) => {
+  theme(root, T, { bg: '#fff', fg: '#222', ac: '#e85a3c', dark: false });
+  root.style.fontFamily = 'system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  const COLORS = ['#111111', '#e85a3c', '#2d8ceb', '#16a085', '#f1c40f', '#8e44ad', '#e91e63', '#95a5a6'];
+  let color = COLORS[0];
+  let size = 3;
+  let vibration = 1;
+  let eraser = false;
+  let strokes = []; // {color,size,vib,eraser,points:[{x,y,t}]}
+  let cur = null;
+  let undoStack = [];
+  let replaying = false;
+  let raf = null;
+
+  const header = h('div', {
+    style: {
+      height: '44px', background: '#111', color: '#fff', display: 'flex', alignItems: 'center',
+      padding: '0 16px', gap: '14px', fontSize: '13px',
+    },
+  },
+    h('span', { style: { font: "700 18px 'Comic Sans MS',cursive", letterSpacing: '.02em' } }, '✎ Sketch Toy'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .55, fontSize: '12px' } }, 'shaky-line replay stage'),
+  );
+
+  const tb = h('div', {
+    style: { display: 'flex', gap: '8px', padding: '10px 16px', alignItems: 'center', flexWrap: 'wrap', background: '#fafafa', borderBottom: '1px solid #eee' },
+  });
+
+  const stage = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-46%)',
+      width: 'min(920px, 94%)', height: 'min(520px, 68%)',
+      background: '#fff', border: '1px solid #c5d5e0', boxShadow: '0 4px 24px #0001',
+      backgroundImage: 'linear-gradient(#e8f0f8 1px, transparent 1px), linear-gradient(90deg, #e8f0f8 1px, transparent 1px)',
+      backgroundSize: '24px 24px',
+    },
+  });
+  const cv = h('canvas', { style: { position: 'absolute', inset: 0, touchAction: 'none', cursor: 'crosshair' } });
+  stage.append(cv);
+  let g;
+
+  const resize = () => {
+    fitCanvas(cv, stage);
+    g = cv.g;
+    redraw(0);
+  };
+
+  const jitter = (p, vib, seed) => {
+    if (!vib) return p;
+    const a = Math.sin(seed * 12.9898) * 43758.5453;
+    const b = Math.sin(seed * 78.233) * 43758.5453;
+    return { x: p.x + (a - Math.floor(a) - 0.5) * vib * 0.9, y: p.y + (b - Math.floor(b) - 0.5) * vib * 0.9 };
+  };
+
+  const drawStroke = (st, tMax = Infinity, frameSeed = 0) => {
+    if (!st.points.length) return;
+    g.lineCap = 'round'; g.lineJoin = 'round';
+    g.globalCompositeOperation = st.eraser ? 'destination-out' : 'source-over';
+    g.strokeStyle = st.color;
+    g.lineWidth = st.size;
+    g.globalAlpha = st.eraser ? 1 : 1;
+    g.beginPath();
+    let started = false;
+    st.points.forEach((p, i) => {
+      if (p.t > tMax) return;
+      const q = jitter(p, st.vib, frameSeed + i * 17 + p.t * 0.01);
+      if (!started) { g.moveTo(q.x, q.y); started = true; }
+      else g.lineTo(q.x, q.y);
+    });
+    g.stroke();
+    g.globalCompositeOperation = 'source-over';
+  };
+
+  const clearCanvas = () => {
+    g.fillStyle = '#ffffff00';
+    g.clearRect(0, 0, cv.W, cv.H);
+    // grid shows through via stage bg; keep canvas transparent
+  };
+
+  const redraw = (frameSeed = 0) => {
+    if (!g) return;
+    g.clearRect(0, 0, cv.W, cv.H);
+    for (const st of strokes) drawStroke(st, Infinity, frameSeed);
+  };
+
+  const paintTb = () => {
+    const mk = (label, bg, onClick, active) => h('button', {
+      style: {
+        padding: '8px 14px', borderRadius: '8px', border: '0', cursor: 'pointer',
+        background: bg, color: '#fff', fontWeight: 700, fontSize: '12px', letterSpacing: '.04em',
+        boxShadow: active ? 'inset 0 2px 4px #0004' : '0 2px 0 #0002',
+        outline: active ? '2px solid #111' : 'none',
+      },
+      onclick: onClick,
+    }, label);
+
+    const sizeBtn = mk(`SIZE: ${size}`, '#e85a3c', () => {
+      size = size >= 12 ? 1 : size + 1; paintTb();
+    });
+    const vibBtn = mk(`VIBRATION: ${vibration}`, '#e85a3c', () => {
+      vibration = vibration >= 20 ? 0 : vibration + 1; paintTb();
+    });
+
+    tb.replaceChildren(
+      mk('NEW', '#7cb342', () => {
+        if (replaying) return;
+        undoStack.push(strokes.map((s) => ({ ...s, points: s.points.slice() })));
+        strokes = []; redraw(); toast('new sketch');
+      }),
+      mk('SAVE', '#7cb342', () => { startReplay(); }),
+      mk('UNDO', '#e85a3c', () => {
+        if (replaying) return;
+        if (strokes.length) { strokes.pop(); redraw(); }
+        else if (undoStack.length) { strokes = undoStack.pop(); redraw(); }
+      }),
+      mk(eraser ? 'BRUSH' : 'ERASE', '#e85a3c', () => { eraser = !eraser; paintTb(); }, eraser),
+      sizeBtn,
+      vibBtn,
+      h('span', { style: { width: '6px' } }),
+      ...COLORS.map((c) => h('button', {
+        title: c,
+        style: {
+          width: '22px', height: '22px', borderRadius: '50%', background: c, cursor: 'pointer',
+          border: color === c && !eraser ? '2px solid #111' : '1px solid #ccc', padding: 0,
+        },
+        onclick: () => { color = c; eraser = false; paintTb(); },
+      })),
+      h('span', { style: { flex: 1 } }),
+      mk('REPLAY', '#5c6bc0', () => startReplay()),
+    );
+  };
+
+  const startReplay = () => {
+    if (!strokes.length || replaying) return;
+    replaying = true;
+    const all = strokes.slice();
+    const t0 = all[0]?.points[0]?.t || 0;
+    const t1 = Math.max(...all.map((s) => s.points[s.points.length - 1]?.t || 0));
+    const dur = Math.max(600, Math.min(4000, (t1 - t0) * 0.6 + 400));
+    const start = performance.now();
+    cancelAnimationFrame(raf);
+    const tick = (now) => {
+      const u = Math.min(1, (now - start) / dur);
+      const tCut = t0 + (t1 - t0) * u;
+      g.clearRect(0, 0, cv.W, cv.H);
+      // animate vibration each frame
+      const seed = now * 0.05;
+      for (const st of all) drawStroke(st, tCut, seed);
+      if (u < 1) raf = requestAnimationFrame(tick);
+      else { replaying = false; redraw(0); toast('replay done'); }
+    };
+    g.clearRect(0, 0, cv.W, cv.H);
+    raf = requestAnimationFrame(tick);
+  };
+
+  cv.addEventListener('pointerdown', (e) => {
+    if (replaying) return;
+    cv.setPointerCapture(e.pointerId);
+    const p = localPos(e, cv);
+    cur = {
+      color, size, vib: vibration, eraser,
+      points: [{ x: p.x, y: p.y, t: performance.now() }],
+    };
+    strokes.push(cur);
+    redraw(0);
+    drawStroke(cur, Infinity, 0);
+  });
+  cv.addEventListener('pointermove', (e) => {
+    if (!cur || replaying) return;
+    const p = localPos(e, cv);
+    cur.points.push({ x: p.x, y: p.y, t: performance.now() });
+    // live shaky preview: full redraw with live jitter
+    redraw(performance.now() * 0.08);
+  });
+  cv.addEventListener('pointerup', () => { cur = null; redraw(0); });
+  cv.addEventListener('pointercancel', () => { cur = null; });
+
+  paintTb();
+  root.append(header, tb, stage);
+  resize();
+  new ResizeObserver(resize).observe(stage);
+
+  window.__demoProof = async () => {
+    const before = { vibration, color, size, strokes: strokes.slice() };
+    vibration = 8; color = '#e85a3c'; size = 4; eraser = false; paintTb();
+    // programmatic stroke
+    const now = performance.now();
+    const pts = [];
+    for (let i = 0; i <= 24; i++) {
+      const t = i / 24;
+      pts.push({ x: 120 + t * 400, y: 200 + Math.sin(t * 8) * 60, t: now + i * 30 });
+    }
+    strokes = [{ color: '#e85a3c', size: 4, vib: 8, eraser: false, points: pts }];
+    redraw(0);
+    await sleep(80);
+    startReplay();
+    await sleep(500);
+    // leave idle ready
+    replaying = false; cancelAnimationFrame(raf);
+    strokes = [];
+    vibration = before.vibration; color = before.color; size = before.size;
+    paintTb(); redraw(0);
+    return 'drew shaky stroke, replayed briefly, left idle canvas';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['kleki-layered-paint-desk'])(root, T); }

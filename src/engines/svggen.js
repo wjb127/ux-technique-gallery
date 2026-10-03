@@ -1338,4 +1338,256 @@ V['lordicon-animated-icon-desk'] = (root, T) => {
   };
 };
 
+V['blush-illustration-remix-desk'] = (root, T) => {
+  theme(root, T, { bg: '#faf7f2', fg: '#222', ac: '#ff6b8a', dark: false });
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  const SKINS = ['#FFE0C2', '#F5C7A0', '#D8A07A', '#A66B45', '#6B3F2A'];
+  const HAIR_C = ['#1a1a1a', '#4a2c14', '#c47a3a', '#e8d27a', '#e85a8a', '#6b7cff', '#fff'];
+  const CLOTH = ['#2b2b2b', '#6b7cff', '#ff6b8a', '#7ed6a5', '#ffd36b', '#f0f0f0', '#9b59b6'];
+  const HAIRS = [
+    { id: 'short', label: 'Short', d: 'M70 95c0-38 18-55 50-55s50 17 50 55c-8-20-24-30-50-30s-42 10-50 30z' },
+    { id: 'afro', label: 'Afro', d: 'M55 100c-8-50 20-78 65-78s73 28 65 78c-10-28-30-40-65-40s-55 12-65 40z' },
+    { id: 'long', label: 'Long', d: 'M68 100c0-42 20-62 52-62s52 20 52 62v70h-18v-68c-6-16-18-24-34-24s-28 8-34 24v68H68z' },
+    { id: 'bun', label: 'Bun', d: 'M75 95c0-32 16-48 45-48s45 16 45 48c-8-14-22-22-45-22s-37 8-45 22zM105 28a16 16 0 1 0 0.1 0' },
+    { id: 'mohawk', label: 'Mohawk', d: 'M108 28c-6 0-14 8-16 28h32c-2-20-10-28-16-28zM72 95c0-20 12-36 48-36s48 16 48 36' },
+    { id: 'bald', label: 'Bald', d: '' },
+  ];
+  const FACES = [
+    { id: 'round', label: 'Round' },
+    { id: 'oval', label: 'Oval' },
+    { id: 'soft', label: 'Soft' },
+  ];
+  const EYES = [
+    { id: 'dot', label: 'Dots' },
+    { id: 'happy', label: 'Happy' },
+    { id: 'wink', label: 'Wink' },
+    { id: 'wide', label: 'Wide' },
+  ];
+  const NOSES = [
+    { id: 'dot', label: 'Dot' },
+    { id: 'curve', label: 'Curve' },
+    { id: 'none', label: 'None' },
+  ];
+  const MOUTHS = [
+    { id: 'smile', label: 'Smile' },
+    { id: 'grin', label: 'Grin' },
+    { id: 'flat', label: 'Flat' },
+    { id: 'o', label: 'Oh' },
+  ];
+  const BODIES = [
+    { id: 'tee', label: 'Tee' },
+    { id: 'hoodie', label: 'Hoodie' },
+    { id: 'coat', label: 'Coat' },
+    { id: 'tank', label: 'Tank' },
+  ];
+  const ACCS = [
+    { id: 'none', label: 'None' },
+    { id: 'glasses', label: 'Glasses' },
+    { id: 'shades', label: 'Shades' },
+    { id: 'mask', label: 'Mask' },
+    { id: 'earrings', label: 'Earrings' },
+  ];
+
+  const DEFAULT = { hair: 'short', face: 'round', eyes: 'dot', nose: 'dot', mouth: 'smile', body: 'tee', acc: 'none', skin: SKINS[1], hairC: HAIR_C[0], cloth: CLOTH[1] };
+  let P = { ...DEFAULT };
+  let cat = 'hair';
+
+  const peepSVG = (o, w = 320) => {
+    const g = s('svg', { viewBox: '0 0 200 260', width: w, height: w * 1.3, style: 'overflow:visible' });
+    // soft shadow blob
+    g.append(s('ellipse', { cx: 100, cy: 248, rx: 48, ry: 8, fill: '#00000012' }));
+    // body / clothes
+    const cloth = o.cloth;
+    if (o.body === 'tee') {
+      g.append(s('path', { d: 'M55 150 L80 130 L120 130 L145 150 L140 230 L60 230 Z', fill: cloth, stroke: '#111', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
+      g.append(s('path', { d: 'M80 130 L70 155 M120 130 L130 155', fill: 'none', stroke: '#111', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+    } else if (o.body === 'hoodie') {
+      g.append(s('path', { d: 'M52 148 L78 128 L122 128 L148 148 L142 232 L58 232 Z', fill: cloth, stroke: '#111', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
+      g.append(s('path', { d: 'M78 128 Q100 118 122 128', fill: 'none', stroke: '#111', 'stroke-width': 3 }));
+      g.append(s('path', { d: 'M100 128 L100 200', stroke: '#111', 'stroke-width': 2, 'stroke-dasharray': '4 3' }));
+    } else if (o.body === 'coat') {
+      g.append(s('path', { d: 'M48 145 L78 128 L122 128 L152 145 L148 235 L52 235 Z', fill: cloth, stroke: '#111', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
+      g.append(s('path', { d: 'M100 130 L100 235', stroke: '#111', 'stroke-width': 2 }));
+      g.append(s('circle', { cx: 92, cy: 160, r: 3, fill: '#111' }), s('circle', { cx: 92, cy: 180, r: 3, fill: '#111' }));
+    } else {
+      g.append(s('path', { d: 'M62 148 L82 132 L118 132 L138 148 L132 210 L68 210 Z', fill: cloth, stroke: '#111', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
+    }
+    // neck
+    g.append(s('rect', { x: 90, y: 118, width: 20, height: 22, rx: 4, fill: o.skin, stroke: '#111', 'stroke-width': 2.5 }));
+    // face
+    if (o.face === 'oval') g.append(s('ellipse', { cx: 100, cy: 88, rx: 36, ry: 44, fill: o.skin, stroke: '#111', 'stroke-width': 3 }));
+    else if (o.face === 'soft') g.append(s('path', { d: 'M64 90c0-36 16-50 36-50s36 14 36 50c0 28-12 44-36 44s-36-16-36-44z', fill: o.skin, stroke: '#111', 'stroke-width': 3 }));
+    else g.append(s('circle', { cx: 100, cy: 90, r: 40, fill: o.skin, stroke: '#111', 'stroke-width': 3 }));
+    // hair behind/front
+    const hair = HAIRS.find((h) => h.id === o.hair);
+    if (hair?.d) g.append(s('path', { d: hair.d, fill: o.hairC, stroke: '#111', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
+    // eyes
+    if (o.eyes === 'happy') {
+      g.append(s('path', { d: 'M78 90q8-10 16 0', fill: 'none', stroke: '#111', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+      g.append(s('path', { d: 'M106 90q8-10 16 0', fill: 'none', stroke: '#111', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+    } else if (o.eyes === 'wink') {
+      g.append(s('circle', { cx: 84, cy: 90, r: 4.5, fill: '#111' }));
+      g.append(s('path', { d: 'M106 90h16', stroke: '#111', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+    } else if (o.eyes === 'wide') {
+      g.append(s('circle', { cx: 84, cy: 90, r: 7, fill: '#fff', stroke: '#111', 'stroke-width': 2.5 }), s('circle', { cx: 84, cy: 90, r: 3, fill: '#111' }));
+      g.append(s('circle', { cx: 116, cy: 90, r: 7, fill: '#fff', stroke: '#111', 'stroke-width': 2.5 }), s('circle', { cx: 116, cy: 90, r: 3, fill: '#111' }));
+    } else {
+      g.append(s('circle', { cx: 84, cy: 90, r: 4.5, fill: '#111' }), s('circle', { cx: 116, cy: 90, r: 4.5, fill: '#111' }));
+    }
+    // nose
+    if (o.nose === 'dot') g.append(s('circle', { cx: 100, cy: 102, r: 2.5, fill: '#111' }));
+    else if (o.nose === 'curve') g.append(s('path', { d: 'M100 96q6 8 0 12', fill: 'none', stroke: '#111', 'stroke-width': 2.5, 'stroke-linecap': 'round' }));
+    // mouth (skip if mask)
+    if (o.acc !== 'mask') {
+      if (o.mouth === 'smile') g.append(s('path', { d: 'M86 112q14 14 28 0', fill: 'none', stroke: '#111', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+      else if (o.mouth === 'grin') g.append(s('path', { d: 'M84 110q16 18 32 0', fill: '#fff', stroke: '#111', 'stroke-width': 2.5 }));
+      else if (o.mouth === 'flat') g.append(s('path', { d: 'M88 114h24', stroke: '#111', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+      else g.append(s('ellipse', { cx: 100, cy: 116, rx: 8, ry: 7, fill: '#111' }));
+    }
+    // accessories
+    if (o.acc === 'glasses') {
+      g.append(s('circle', { cx: 84, cy: 90, r: 12, fill: '#ffffff33', stroke: '#111', 'stroke-width': 2.5 }));
+      g.append(s('circle', { cx: 116, cy: 90, r: 12, fill: '#ffffff33', stroke: '#111', 'stroke-width': 2.5 }));
+      g.append(s('path', { d: 'M96 90h8M72 90h-6M128 90h6', stroke: '#111', 'stroke-width': 2.5 }));
+    } else if (o.acc === 'shades') {
+      g.append(s('rect', { x: 70, y: 82, width: 26, height: 16, rx: 4, fill: '#222', stroke: '#111', 'stroke-width': 2 }));
+      g.append(s('rect', { x: 104, y: 82, width: 26, height: 16, rx: 4, fill: '#222', stroke: '#111', 'stroke-width': 2 }));
+      g.append(s('path', { d: 'M96 90h8', stroke: '#111', 'stroke-width': 2.5 }));
+    } else if (o.acc === 'mask') {
+      g.append(s('path', { d: 'M70 105 Q100 130 130 105 Q100 145 70 105', fill: '#b8e0f0', stroke: '#111', 'stroke-width': 2.5 }));
+      g.append(s('path', { d: 'M70 105 L58 95 M130 105 L142 95', stroke: '#111', 'stroke-width': 2 }));
+    } else if (o.acc === 'earrings') {
+      g.append(s('circle', { cx: 62, cy: 100, r: 4, fill: '#ffd36b', stroke: '#111', 'stroke-width': 1.5 }));
+      g.append(s('circle', { cx: 138, cy: 100, r: 4, fill: '#ffd36b', stroke: '#111', 'stroke-width': 1.5 }));
+    }
+    return g;
+  };
+
+  const preview = h('div', {
+    style: {
+      flex: 1, display: 'grid', placeItems: 'center', position: 'relative',
+      background: 'radial-gradient(circle at 50% 40%, #fff 0%, #faf7f2 70%)',
+      minHeight: 0,
+    },
+  });
+  // decorative shapes like Blush hero
+  const decor = h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' } },
+    h('div', { style: { position: 'absolute', left: '8%', top: '18%', width: 0, height: 0, borderLeft: '28px solid transparent', borderRight: '28px solid transparent', borderBottom: '48px solid #ffd36b', opacity: .7 } }),
+    h('div', { style: { position: 'absolute', right: '12%', top: '22%', width: '44px', height: '44px', borderRadius: '50%', background: '#ffb3c6', opacity: .55 } }),
+    h('div', { style: { position: 'absolute', left: '14%', bottom: '16%', width: '36px', height: '36px', background: '#a8d8ff', transform: 'rotate(20deg)', opacity: .6 } }),
+    h('div', { style: { position: 'absolute', right: '10%', bottom: '20%', width: 0, height: 0, borderLeft: '22px solid transparent', borderRight: '22px solid transparent', borderBottom: '38px solid #c5b3ff', opacity: .65 } }),
+  );
+
+  const CATS = [
+    ['hair', 'Hair', HAIRS],
+    ['face', 'Face', FACES],
+    ['eyes', 'Eyes', EYES],
+    ['nose', 'Nose', NOSES],
+    ['mouth', 'Mouth', MOUTHS],
+    ['body', 'Body', BODIES],
+    ['acc', 'Extra', ACCS],
+  ];
+
+  const tabs = h('div', { style: { display: 'flex', gap: '4px', padding: '8px 12px', borderBottom: '1px solid #eee', overflowX: 'auto' } });
+  const thumbs = h('div', { style: { display: 'flex', gap: '10px', padding: '12px', overflowX: 'auto', minHeight: '92px', alignItems: 'center' } });
+  const swatches = h('div', { style: { display: 'flex', gap: '16px', padding: '8px 12px 14px', alignItems: 'center', flexWrap: 'wrap', borderTop: '1px solid #eee' } });
+
+  const draw = () => {
+    preview.replaceChildren(decor, peepSVG(P, 300));
+    tabs.replaceChildren(...CATS.map(([id, label]) => h('button', {
+      style: {
+        padding: '7px 12px', borderRadius: '99px', border: '1px solid #e5e0d8', cursor: 'pointer',
+        background: cat === id ? '#222' : '#fff', color: cat === id ? '#fff' : '#444',
+        fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap',
+      },
+      onclick: () => { cat = id; draw(); },
+    }, label)));
+    const list = CATS.find((c) => c[0] === cat)[2];
+    thumbs.replaceChildren(...list.map((item) => {
+      const on = P[cat] === item.id;
+      const mini = { ...P, [cat]: item.id };
+      const thumb = h('button', {
+        title: item.label,
+        style: {
+          width: '72px', height: '72px', borderRadius: '12px', cursor: 'pointer',
+          border: on ? '2px solid #ff6b8a' : '1px solid #e5e0d8',
+          background: on ? '#fff5f7' : '#fff', padding: '4px', overflow: 'hidden',
+          display: 'grid', placeItems: 'center',
+        },
+        onclick: () => { P[cat] = item.id; draw(); },
+      }, peepSVG(mini, 64));
+      return thumb;
+    }));
+    const row = (label, arr, key) => h('div', { style: { display: 'flex', gap: '6px', alignItems: 'center' } },
+      h('span', { style: { fontSize: '11px', opacity: .55, width: '36px' } }, label),
+      ...arr.map((c) => h('button', {
+        style: {
+          width: '22px', height: '22px', borderRadius: '50%', background: c, cursor: 'pointer', padding: 0,
+          border: P[key] === c ? '2px solid #111' : '1px solid #ccc',
+        },
+        onclick: () => { P[key] = c; draw(); },
+      })),
+    );
+    swatches.replaceChildren(row('Skin', SKINS, 'skin'), row('Hair', HAIR_C, 'hairC'), row('Fit', CLOTH, 'cloth'));
+  };
+
+  const randomize = () => {
+    P.hair = pick(HAIRS).id;
+    P.face = pick(FACES).id;
+    P.eyes = pick(EYES).id;
+    P.nose = pick(NOSES).id;
+    P.mouth = pick(MOUTHS).id;
+    P.body = pick(BODIES).id;
+    P.acc = pick(ACCS).id;
+    P.skin = pick(SKINS);
+    P.hairC = pick(HAIR_C);
+    P.cloth = pick(CLOTH);
+    draw();
+    toast('randomized peep');
+  };
+  const reset = () => { P = { ...DEFAULT }; draw(); toast('reset to default'); };
+
+  const top = h('div', {
+    style: {
+      display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 20px',
+      borderBottom: '1px solid #efeae2', background: '#fff',
+    },
+  },
+    h('b', { style: { fontSize: '18px', letterSpacing: '-.02em' } }, 'blush'),
+    h('span', { style: { opacity: .35 } }, '/'),
+    h('span', { style: { fontWeight: 600 } }, 'Open Peeps'),
+    h('span', { style: { fontSize: '12px', opacity: .5 } }, 'remix desk'),
+    h('span', { style: { flex: 1 } }),
+    btn('🎲 Randomize', randomize),
+    btn('Reset', reset, 'pri'),
+  );
+
+  const dock = h('div', {
+    style: {
+      background: '#fff', borderTop: '1px solid #efeae2',
+      boxShadow: '0 -8px 30px #0000000a',
+    },
+  }, tabs, thumbs, swatches);
+
+  const hero = h('div', { style: { padding: '10px 20px 0', textAlign: 'center' } },
+    h('div', { style: { fontSize: '28px', fontWeight: 800, letterSpacing: '-.03em' } }, 'Open Peeps'),
+    h('div', { style: { fontSize: '13px', opacity: .55 } }, 'Hand-drawn people · swap parts to remix yourself'),
+  );
+
+  root.append(h('div', {
+    style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' },
+  }, top, hero, preview, dock));
+
+  draw();
+
+  window.__demoProof = async () => {
+    randomize();
+    await sleep(120);
+    reset();
+    return 'randomized once then reset to default peep';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }
