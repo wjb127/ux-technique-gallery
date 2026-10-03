@@ -1,4 +1,4 @@
-import { h, s, drag, clamp, toast, sleep, rng, pick, copy } from '../lib.js';
+import { h, s, drag, clamp, toast, sleep, rng, pick, copy, css } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
 const SERIF = "'Fraunces Variable',Georgia,serif", MONO = "'JetBrains Mono Variable',monospace";
@@ -170,4 +170,267 @@ V['slide-deck-workspace'] = (root, T) => {
   root.append(h('style', {}, '@keyframes pop{from{transform:scale(.9);opacity:0}}'), h('div', { style: { background: '#c9b8ff', color: '#2a1070', textAlign: 'center', fontSize: '12px', padding: '6px' } }, 'New! AI generation is here — try it below →'), ...ghosts, nav('▰ Pitch-ish', ['Product ▾', 'Use Cases ▾', 'Templates ▾', 'Resources ▾', 'Pricing'], [pill('Log in', { background: '#fff', color: '#000' }), pill('Sign up', { background: '#e3ff5c', color: '#000' })], { position: 'relative' }), h('div', { style: { position: 'relative', textAlign: 'center', paddingTop: '60px' } }, h('div', { style: { font: "800 96px/0.95 'Inter Variable'", letterSpacing: '-.04em' } }, 'Create slides', h('br'), 'that win.'), h('div', { style: { width: '560px', margin: '40px auto 0', background: '#ffffff1f', border: '1px solid #ffffff55', borderRadius: '14px', padding: '14px', textAlign: 'left', backdropFilter: 'blur(10px)' } }, inp, h('div.k-row', {}, h('span', { style: { fontSize: '12px', opacity: .8 } }, '▦ 10 slides'), h('span', { style: { flex: 1 } }), h('button', { style: { background: '#c9b8ff', border: 0, borderRadius: '8px', padding: '7px 14px', fontWeight: 700 }, onclick: () => gen(inp.value) }, 'Generate →'))), h('p', { style: { opacity: .8, fontSize: '13px' } }, 'From prompt to presentation. AI-drafted decks you can refine together.')), out);
   window.__demoProof = async () => { await gen('Coffee startup'); const n = out.children.length; out.replaceChildren(); return 'prompt → ' + n + ' slide thumbnails'; };
 };
+
+V['sonner-toast-desk'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#161616', panel: '#fcfcfc', ac: '#171717', dark: false });
+  scroll(root);
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  css(`
+  @keyframes sn-in{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+  @keyframes sn-out{to{opacity:0;transform:translateY(8px) scale(.96)}}
+  .sn-toast{animation:sn-in .35s cubic-bezier(.22,1.2,.36,1) both;pointer-events:auto}
+  .sn-toast.leaving{animation:sn-out .22s ease forwards}
+  .sn-stack:hover .sn-toast{transform:none!important;margin-bottom:8px!important;scale:1!important}
+  `);
+
+  const TYPES = [
+    { id: 'default', label: 'Default', title: 'Event has been created', desc: 'Monday, January 3rd at 6:00pm' },
+    { id: 'success', label: 'Success', title: 'Event has been created', desc: null, color: '#16a34a' },
+    { id: 'error', label: 'Error', title: 'Event has not been created', desc: null, color: '#dc2626' },
+    { id: 'warning', label: 'Warning', title: 'Event starts in 5 minutes', desc: null, color: '#ca8a04' },
+    { id: 'info', label: 'Info', title: 'Be at the area 10 minutes before', desc: null, color: '#2563eb' },
+    { id: 'promise', label: 'Promise', title: 'Loading…', desc: 'Fetching data', color: null },
+    { id: 'custom', label: 'Custom', title: 'Custom toast', desc: 'With JSX-ish layout', color: '#7c5cff' },
+  ];
+  const POS = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'];
+  let type = 'default';
+  let position = 'bottom-right';
+  let richColors = true;
+  let expand = false;
+  let toasts = [];
+  let tid = 1;
+
+  const viewport = h('div.sn-stack', {
+    style: {
+      position: 'fixed', zIndex: 50, display: 'flex', flexDirection: 'column',
+      gap: '0', pointerEvents: 'none', width: '356px', maxWidth: '92vw',
+    },
+  });
+
+  const placeViewport = () => {
+    const [y, x] = position.split('-');
+    Object.assign(viewport.style, {
+      top: y === 'top' ? '16px' : 'auto',
+      bottom: y === 'bottom' ? '16px' : 'auto',
+      left: x === 'left' ? '16px' : x === 'center' ? '50%' : 'auto',
+      right: x === 'right' ? '16px' : 'auto',
+      transform: x === 'center' ? 'translateX(-50%)' : 'none',
+      flexDirection: y === 'top' ? 'column' : 'column-reverse',
+      alignItems: x === 'left' ? 'flex-start' : x === 'right' ? 'flex-end' : 'center',
+    });
+  };
+
+  const dismiss = (id) => {
+    const el = viewport.querySelector(`[data-id="${id}"]`);
+    if (el) {
+      el.classList.add('leaving');
+      setTimeout(() => { el.remove(); toasts = toasts.filter((t) => t.id !== id); restack(); }, 220);
+    } else {
+      toasts = toasts.filter((t) => t.id !== id);
+      restack();
+    }
+  };
+
+  const restack = () => {
+    const kids = [...viewport.children].filter((c) => !c.classList.contains('leaving'));
+    kids.forEach((el, i) => {
+      if (expand) {
+        el.style.transform = 'none';
+        el.style.marginBottom = '8px';
+        el.style.scale = '1';
+        el.style.opacity = '1';
+      } else {
+        const stackI = i;
+        el.style.transform = `translateY(${(position.startsWith('top') ? 1 : -1) * stackI * -10}px) scale(${1 - stackI * 0.04})`;
+        el.style.marginBottom = stackI ? '-42px' : '0';
+        el.style.zIndex = String(40 - stackI);
+        el.style.opacity = stackI > 2 ? '0' : '1';
+      }
+    });
+  };
+
+  const makeToast = (kind) => {
+    const def = TYPES.find((t) => t.id === kind) || TYPES[0];
+    const id = tid++;
+    const icon = kind === 'success' ? '✓' : kind === 'error' ? '✕' : kind === 'warning' ? '!' : kind === 'info' ? 'ℹ' : kind === 'promise' ? '◌' : '·';
+    const border = richColors && def.color ? `1px solid ${def.color}33` : '1px solid #e5e5e5';
+    const bg = richColors && def.color && kind !== 'default' && kind !== 'promise' && kind !== 'custom'
+      ? `${def.color}10` : '#fff';
+    const el = h('div.sn-toast', {
+      'data-id': id,
+      style: {
+        width: '356px', maxWidth: '92vw', background: bg, border, borderRadius: '8px',
+        padding: '14px 16px', boxShadow: '0 4px 12px #00000014, 0 1px 2px #0000000a',
+        display: 'grid', gridTemplateColumns: 'auto 1fr auto', gap: '10px', alignItems: 'start',
+        cursor: 'pointer', position: 'relative', color: '#161616',
+      },
+      onclick: () => dismiss(id),
+    },
+      h('span', {
+        style: {
+          width: '20px', height: '20px', borderRadius: '50%', display: 'grid', placeItems: 'center',
+          fontSize: '11px', fontWeight: 700,
+          background: def.color || '#eee', color: def.color ? '#fff' : '#666',
+          marginTop: '1px',
+        },
+      }, icon),
+      h('div', {},
+        h('div', { style: { fontSize: '13px', fontWeight: 560 } }, def.title),
+        def.desc ? h('div', { style: { fontSize: '12px', opacity: .55, marginTop: '2px' } }, def.desc) : null,
+      ),
+      h('button', {
+        style: { background: 'none', border: 0, opacity: .4, cursor: 'pointer', fontSize: '14px', lineHeight: 1, padding: '0 2px' },
+        onclick: (e) => { e.stopPropagation(); dismiss(id); },
+      }, '×'),
+    );
+    toasts.push({ id, kind });
+    viewport.prepend(el);
+    placeViewport();
+    restack();
+    if (kind === 'promise') {
+      setTimeout(() => {
+        if (!viewport.contains(el)) return;
+        el.querySelector('div > div').textContent = 'Data loaded';
+        el.querySelector('span').textContent = '✓';
+        el.querySelector('span').style.background = '#16a34a';
+        el.querySelector('span').style.color = '#fff';
+      }, 900);
+    }
+    setTimeout(() => dismiss(id), kind === 'promise' ? 2800 : 4200);
+    return id;
+  };
+
+  const pushToast = () => makeToast(type);
+
+  // Hero stacked cards decoration
+  const stackArt = h('div', {
+    style: { position: 'relative', width: '280px', height: '100px', margin: '0 auto 28px' },
+  },
+    ...[0, 1, 2].map((i) => h('div', {
+      style: {
+        position: 'absolute', left: '50%', top: (i * 10) + 'px',
+        width: (220 - i * 16) + 'px', height: '48px',
+        marginLeft: (-(220 - i * 16) / 2) + 'px',
+        background: '#fff', borderRadius: '10px',
+        boxShadow: '0 8px 24px #00000014',
+        border: '1px solid #eee',
+        transform: `scale(${1 - i * 0.04})`,
+        zIndex: 3 - i,
+      },
+    })),
+  );
+
+  const typeChips = h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px', justifyContent: 'center', marginTop: '18px' } });
+  const paintTypes = () => {
+    typeChips.replaceChildren(...TYPES.map((t) => h('button', {
+      style: {
+        border: type === t.id ? '1px solid #161616' : '1px solid #e5e5e5',
+        background: type === t.id ? '#161616' : '#fff',
+        color: type === t.id ? '#fff' : '#161616',
+        borderRadius: '99px', padding: '6px 12px', fontSize: '12px', fontWeight: 560, cursor: 'pointer',
+      },
+      onclick: () => { type = t.id; paintTypes(); },
+    }, t.label)));
+  };
+  paintTypes();
+
+  const posSel = h('div.k-row', { style: { flexWrap: 'wrap', gap: '6px', justifyContent: 'center', marginTop: '12px' } });
+  const paintPos = () => {
+    posSel.replaceChildren(...POS.map((p) => h('button', {
+      style: {
+        border: position === p ? '1px solid #161616' : '1px solid #e5e5e5',
+        background: position === p ? '#f4f4f5' : '#fff',
+        borderRadius: '6px', padding: '5px 9px', fontSize: '11px', cursor: 'pointer',
+      },
+      onclick: () => { position = p; paintPos(); placeViewport(); restack(); },
+    }, p)));
+  };
+  paintPos();
+
+  const toggles = h('div.k-row', {
+    style: { gap: '18px', justifyContent: 'center', marginTop: '16px', fontSize: '13px' },
+  },
+    toggle('Rich colors', richColors, (v) => { richColors = v; }),
+    toggle('Expand', expand, (v) => { expand = v; restack(); }),
+  );
+
+  const page = h('div', { style: { maxWidth: '640px', margin: '0 auto', padding: '72px 24px 120px', textAlign: 'center' } },
+    stackArt,
+    h('h1', { style: { fontSize: '48px', fontWeight: 700, letterSpacing: '-.03em', margin: '0 0 10px' } }, 'Sonner'),
+    h('p', { style: { fontSize: '16px', opacity: .65, margin: '0 0 28px' } }, 'An opinionated toast component for React.'),
+    h('div.k-row', { style: { gap: '10px', justifyContent: 'center' } },
+      h('button', {
+        style: {
+          background: '#171717', color: '#fff', border: 0, borderRadius: '8px',
+          padding: '10px 18px', fontWeight: 600, fontSize: '14px', cursor: 'pointer',
+        },
+        onclick: pushToast,
+      }, 'Give me a toast'),
+      h('button', {
+        style: {
+          background: '#f4f4f5', color: '#161616', border: 0, borderRadius: '8px',
+          padding: '10px 18px', fontWeight: 600, fontSize: '14px', cursor: 'pointer',
+        },
+        onclick: () => toast('GitHub stub'),
+      }, 'GitHub'),
+    ),
+    h('div', { style: { marginTop: '14px', fontSize: '13px', textDecoration: 'underline', opacity: .55, cursor: 'pointer' } }, 'Documentation'),
+    h('div', { style: { marginTop: '28px', fontSize: '12px', opacity: .45, letterSpacing: '.06em' } }, 'TYPE'),
+    typeChips,
+    h('div', { style: { marginTop: '18px', fontSize: '12px', opacity: .45, letterSpacing: '.06em' } }, 'POSITION'),
+    posSel,
+    toggles,
+    h('div', { style: { marginTop: '56px', textAlign: 'left' } },
+      h('h2', { style: { fontSize: '20px', fontWeight: 650, margin: '0 0 12px' } }, 'Installation'),
+      h('div', {
+        style: {
+          background: '#f4f4f5', borderRadius: '8px', padding: '12px 14px',
+          fontFamily: "'JetBrains Mono Variable',ui-monospace,monospace", fontSize: '13px',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        },
+      }, 'npm install sonner', h('span', { style: { opacity: .4, cursor: 'pointer' }, onclick: () => copy('npm install sonner') }, '⧉')),
+      h('h2', { style: { fontSize: '20px', fontWeight: 650, margin: '32px 0 12px' } }, 'Usage'),
+      h('p', { style: { fontSize: '14px', opacity: .6, margin: '0 0 10px' } }, 'Render the toaster in the root of your app.'),
+      h('pre', {
+        style: {
+          background: '#f4f4f5', border: '1px solid #eee', borderRadius: '8px',
+          padding: '16px', textAlign: 'left', fontSize: '12.5px', lineHeight: 1.55,
+          fontFamily: "'JetBrains Mono Variable',ui-monospace,monospace", overflow: 'auto',
+        },
+      }, `import { Toaster, toast } from 'sonner'\n\nfunction App() {\n  return (\n    <div>\n      <Toaster />\n      <button onClick={() => toast('Hello')}>\\n        Give me a toast\\n      </button>\n    </div>\n  )\n}`),
+    ),
+  );
+
+  placeViewport();
+  // Attach viewport to document body-ish via root's parent — use root overlay that escapes scroll
+  const overlayHost = h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 40 } });
+  // Actually fixed viewport needs to be outside scroll — append to root which is absolute full
+  root.append(page);
+  // Put viewport on document.body for fixed positioning relative to viewport
+  document.body.append(viewport);
+  // Clean up on remount: store ref
+  const prev = window.__sonnerViewport;
+  if (prev && prev !== viewport) prev.remove();
+  window.__sonnerViewport = viewport;
+
+  window.__demoProof = async () => {
+    const prevType = type, prevPos = position, prevRich = richColors, prevExp = expand;
+    type = 'success'; makeToast('success');
+    type = 'error'; makeToast('error');
+    type = 'warning'; makeToast('warning');
+    type = 'info'; makeToast('info');
+    type = 'promise'; makeToast('promise');
+    position = 'top-center'; placeViewport(); restack();
+    richColors = true; expand = true; restack();
+    await sleep(400);
+    type = prevType; position = prevPos; richColors = prevRich; expand = prevExp;
+    paintTypes(); paintPos(); placeViewport(); restack();
+    // clear remaining
+    [...viewport.querySelectorAll('.sn-toast')].forEach((el) => el.remove());
+    toasts = [];
+    return 'fired success/error/warning/info/promise; toggled position+expand; restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

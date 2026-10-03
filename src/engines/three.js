@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { h, drag, clamp, toast, sleep, noise2, fitCanvas } from '../lib.js';
+import { h, drag, clamp, toast, sleep, noise2, fitCanvas, blip, audio } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
 function stage(el, { bg = null, ortho = false, alpha = false } = {}) {
@@ -1212,6 +1212,241 @@ V['floorsjs-isometric-room-desk'] = (root, T) => {
     items = before.items.map((x) => ({ ...x }));
     selected = null;
     return 'pattern+window+wall chips + place/delete furniture exercised, restored';
+  };
+};
+
+
+V['georgeandjonathan-album-experience'] = (root, T) => {
+  theme(root, T, { bg: '#0b0617', fg: '#e8e4f0', panel: '#120a24', ac: '#c8a0ff', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const TRACKS = [
+    { name: 'Heaven', bpm: 92, notes: [60, 64, 67, 72, 67, 64] },
+    { name: 'Jamn', bpm: 110, notes: [62, 65, 69, 74, 69, 65] },
+    { name: 'Puppy Love', bpm: 88, notes: [57, 60, 64, 69, 64, 60] },
+    { name: 'R U IN 2 IT?', bpm: 120, notes: [55, 59, 62, 67, 62, 59] },
+    { name: 'Everyday Problems', bpm: 98, notes: [58, 62, 65, 70, 65, 62] },
+    { name: 'Canopy', bpm: 84, notes: [53, 57, 60, 65, 60, 57] },
+    { name: 'A Brief Moment Of Clarity', bpm: 76, notes: [52, 55, 59, 64, 59, 55] },
+    { name: 'Rock', bpm: 130, notes: [60, 63, 67, 70, 67, 63] },
+    { name: 'Hurtful Things', bpm: 90, notes: [56, 59, 63, 68, 63, 59] },
+    { name: 'Crystal', bpm: 100, notes: [61, 64, 68, 73, 68, 64] },
+  ];
+  const COLORS = [0xff8ec8, 0x7ee0c8, 0xffe08a, 0xa78bfa, 0x7dd3fc, 0xf9a8d4, 0x86efac, 0xfde68a, 0xc4b5fd, 0xfca5a5];
+
+  let ti = 0, playing = false, noteI = 0, lastBlip = 0, started = false;
+  let camYaw = 0.35, camPitch = 0.45, camDist = 14;
+  let dragOn = false, lx = 0, ly = 0;
+
+  const world = h('div', { style: { position: 'absolute', inset: 0, bottom: '72px', cursor: 'grab' } });
+  const S = stage(world, { bg: '#0b0617' });
+  S.cam.position.set(0, 4, 14);
+  lights(S.scene, 0.55);
+  // soft fill
+  const amb = new THREE.AmbientLight(0x4a3080, 0.55); S.scene.add(amb);
+
+  // starfield
+  {
+    const N = 900;
+    const pos = new Float32Array(N * 3);
+    for (let i = 0; i < N; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 80;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 50;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 80;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    S.scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.06, transparent: true, opacity: 0.7 })));
+  }
+
+  const noteGroup = new THREE.Group(); S.scene.add(noteGroup);
+  const bars = [];
+  const rebuildNotes = () => {
+    while (noteGroup.children.length) noteGroup.remove(noteGroup.children[0]);
+    bars.length = 0;
+    const tr = TRACKS[ti];
+    const n = 28;
+    for (let i = 0; i < n; i++) {
+      const hgt = 0.3 + (tr.notes[i % tr.notes.length] % 12) * 0.18 + (i % 5) * 0.08;
+      const mesh = new THREE.Mesh(
+        new THREE.BoxGeometry(0.35, hgt, 0.12),
+        new THREE.MeshStandardMaterial({
+          color: COLORS[i % COLORS.length],
+          emissive: COLORS[i % COLORS.length],
+          emissiveIntensity: 0.35,
+          metalness: 0.2,
+          roughness: 0.45,
+        }),
+      );
+      const ang = (i / n) * Math.PI * 2;
+      const rad = 3.2 + (i % 4) * 0.35;
+      mesh.position.set(Math.cos(ang) * rad, hgt / 2 + Math.sin(i * 0.7) * 0.4, Math.sin(ang) * rad * 0.7);
+      mesh.rotation.y = -ang;
+      mesh.userData.baseY = mesh.position.y;
+      mesh.userData.phase = i * 0.4;
+      noteGroup.add(mesh);
+      bars.push(mesh);
+    }
+  };
+  rebuildNotes();
+
+  const updateCam = () => {
+    S.cam.position.set(
+      Math.sin(camYaw) * Math.cos(camPitch) * camDist,
+      Math.sin(camPitch) * camDist * 0.85 + 2,
+      Math.cos(camYaw) * Math.cos(camPitch) * camDist,
+    );
+    S.cam.lookAt(0, 1.2, 0);
+  };
+  updateCam();
+
+  world.addEventListener('pointerdown', (e) => {
+    dragOn = true; lx = e.clientX; ly = e.clientY; world.style.cursor = 'grabbing';
+    if (!started) begin();
+  });
+  window.addEventListener('pointerup', () => { dragOn = false; world.style.cursor = 'grab'; });
+  world.addEventListener('pointermove', (e) => {
+    if (!dragOn) return;
+    camYaw -= (e.clientX - lx) * 0.006;
+    camPitch = clamp(camPitch + (e.clientY - ly) * 0.004, 0.12, 1.2);
+    lx = e.clientX; ly = e.clientY;
+    updateCam();
+  });
+  world.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    camDist = clamp(camDist + e.deltaY * 0.01, 7, 28);
+    updateCam();
+  }, { passive: false });
+
+  const titleLab = h('b', { style: { fontSize: '14px', letterSpacing: '.04em' } }, `1. ${TRACKS[0].name.toUpperCase()}`);
+  const timeLab = h('span', { style: { fontSize: '12px', opacity: .7, fontVariantNumeric: 'tabular-nums' } }, '0:00');
+  const endLab = h('span', { style: { fontSize: '12px', opacity: .7 } }, '1:19');
+  const prog = h('div', { style: { flex: 1, height: '3px', background: '#ffffff22', borderRadius: '2px', position: 'relative', maxWidth: '280px' } },
+    h('div', { style: { position: 'absolute', left: 0, top: '-3px', width: '8px', height: '8px', borderRadius: '50%', background: '#fff' } }));
+  const playBtn = h('button', {
+    style: { background: 'none', border: 0, color: '#fff', fontSize: '16px', cursor: 'pointer', padding: '4px 8px' },
+    onclick: () => { if (!started) begin(); else { playing = !playing; playBtn.textContent = playing ? '❚❚' : '▶'; } },
+  }, '▶');
+
+  const dock = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, bottom: 0, height: '72px',
+      background: '#000', padding: '0 22px', gap: '16px', zIndex: 5,
+    },
+  },
+    titleLab,
+    h('span', { style: { flex: 1 } }),
+    playBtn,
+    h('button', { style: { background: 'none', border: 0, color: '#fff', cursor: 'pointer', fontSize: '14px' }, onclick: () => switchTrack((ti - 1 + TRACKS.length) % TRACKS.length) }, '⏮'),
+    h('button', { style: { background: 'none', border: 0, color: '#fff', cursor: 'pointer', fontSize: '14px' }, onclick: () => switchTrack((ti + 1) % TRACKS.length) }, '⏭'),
+    timeLab, prog, endLab,
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '18px', opacity: .85 } }, '☝️'),
+  );
+
+  const landing = h('div', {
+    style: {
+      position: 'absolute', inset: 0, bottom: '72px', zIndex: 4,
+      display: 'grid', placeItems: 'center', background: '#0b0617cc', cursor: 'pointer',
+    },
+    onclick: () => begin(),
+  },
+    h('div', { style: { textAlign: 'center', display: 'grid', gap: '14px' } },
+      h('div', { style: { fontSize: '64px', opacity: .85 } }, '▶'),
+      h('div', { style: { fontSize: '14px', opacity: .75 } }, 'Please turn up your volume'),
+      h('div', { style: { fontSize: '13px', opacity: .45 } }, "You're listening to George & Jonathan III"),
+      h('div', { style: { fontSize: '11px', opacity: .35, marginTop: '8px' } }, 'drag to orbit · click track list'),
+    ),
+  );
+
+  const list = h('div', {
+    style: {
+      position: 'absolute', right: '16px', top: '56px', bottom: '88px', width: '220px',
+      overflow: 'auto', zIndex: 3, fontSize: '12px', opacity: .9,
+      background: '#0b0617aa', borderRadius: '10px', padding: '10px 8px',
+      border: '1px solid #ffffff10', backdropFilter: 'blur(8px)',
+    },
+  });
+  const paintList = () => {
+    list.replaceChildren(
+      h('div', { style: { fontSize: '10px', letterSpacing: '.12em', opacity: .45, padding: '4px 8px 10px' } }, 'ALBUM III'),
+      ...TRACKS.map((t, i) => h('div', {
+        style: {
+          padding: '8px 10px', borderRadius: '6px', cursor: 'pointer',
+          background: i === ti ? '#ffffff14' : 'transparent',
+          fontWeight: i === ti ? 700 : 500,
+        },
+        onclick: () => { switchTrack(i); if (!started) begin(); },
+      }, `${i + 1}. ${t.name}`)),
+      h('div', {
+        style: { marginTop: '14px', padding: '10px', fontSize: '11px', opacity: .4, lineHeight: 1.5, borderTop: '1px solid #ffffff10' },
+      }, 'Soft pastel note blocks float in the dark. Drag the stage to move the camera. Each track loops a short Web Audio melody — no external files.'),
+    );
+  };
+  paintList();
+
+  const topBar = h('div.k-row', {
+    style: { position: 'absolute', top: 0, left: 0, right: 0, height: '48px', padding: '0 18px', zIndex: 3, fontSize: '12px', opacity: .7 },
+  },
+    h('b', { style: { letterSpacing: '.14em' } }, 'GEORGE & JONATHAN'),
+    h('span', { style: { flex: 1 } }),
+    h('span', {}, 'III · interactive album'),
+  );
+
+  const switchTrack = (i) => {
+    ti = i;
+    noteI = 0;
+    titleLab.textContent = `${i + 1}. ${TRACKS[i].name.toUpperCase()}`;
+    rebuildNotes();
+    paintList();
+  };
+
+  const begin = () => {
+    started = true;
+    playing = true;
+    playBtn.textContent = '❚❚';
+    landing.style.display = 'none';
+    audio();
+  };
+
+  S.on((t) => {
+    noteGroup.rotation.y = t * 0.08;
+    bars.forEach((m, i) => {
+      const pulse = playing ? Math.sin(t * 3 + m.userData.phase) * 0.15 : 0;
+      m.position.y = m.userData.baseY + pulse;
+      m.scale.y = 1 + (playing ? Math.abs(Math.sin(t * 4 + i)) * 0.2 : 0);
+    });
+    if (playing) {
+      const tr = TRACKS[ti];
+      const step = 60 / tr.bpm;
+      if (t - lastBlip >= step) {
+        lastBlip = t;
+        const midiN = tr.notes[noteI % tr.notes.length];
+        blip(440 * 2 ** ((midiN - 69) / 12), 0.14, 'triangle', 0.08);
+        noteI++;
+        const secs = noteI * step;
+        const m = Math.floor(secs / 60);
+        const s = Math.floor(secs % 60);
+        timeLab.textContent = `${m}:${String(s).padStart(2, '0')}`;
+        const pct = Math.min(100, (secs % 79) / 79 * 100);
+        prog.firstChild.style.left = `calc(${pct}% - 4px)`;
+      }
+    }
+  });
+
+  root.append(world, topBar, list, landing, dock);
+
+  window.__demoProof = async () => {
+    begin();
+    switchTrack(2);
+    camYaw += 0.8; camPitch = 0.55; updateCam();
+    await sleep(200);
+    switchTrack(0);
+    playing = false; playBtn.textContent = '▶';
+    landing.style.display = 'grid'; started = false;
+    camYaw = 0.35; camPitch = 0.45; camDist = 14; updateCam();
+    return 'orbit camera + track switch + melody; restored landing';
   };
 };
 

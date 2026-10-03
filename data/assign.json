@@ -113,7 +113,8 @@
     "carbon-code-image-studio",
     "video-framegrid-contact-sheet",
     "chalkist-code-shot-studio",
-    "moshlite-glitch-effect-mixer-desk"
+    "moshlite-glitch-effect-mixer-desk",
+    "pointerpointer-photo-novelty"
   ],
   "type": [
     "modular-typescale-studio",
@@ -280,7 +281,8 @@
     "donmccurdy-gltf-drop-viewer",
     "zdog-pseudo3d-illo-playground",
     "spline-browser-3d-craft-desk",
-    "floorsjs-isometric-room-desk"
+    "floorsjs-isometric-room-desk",
+    "georgeandjonathan-album-experience"
   ],
   "saas": [
     "pricing-tier-cards",
@@ -298,7 +300,8 @@
     "drifting-art-attic-canvas",
     "scroll-depth-explorer",
     "mechanical-watch-explainer",
-    "transformer-attention-explainer"
+    "transformer-attention-explainer",
+    "sonner-toast-desk"
   ],
   "ux": [
     "5-state-gate",

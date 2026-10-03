@@ -444,4 +444,175 @@ V['moshlite-glitch-effect-mixer-desk'] = (root, T) => {
   };
 };
 
+
+V['pointerpointer-photo-novelty'] = (root, T) => {
+  theme(root, T, { bg: '#000000', fg: '#f0f0f0', panel: '#111', ac: '#ffffff', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.style.cursor = 'none';
+
+  // Procedural photo cards: colored rect + silhouette + finger tip hotspot (nx, ny in 0..1)
+  const PHOTOS = [
+    { bg: '#e8d5c4', accent: '#c4785a', emoji: '🧑', tip: [0.72, 0.38], label: 'A' },
+    { bg: '#d4e4f7', accent: '#4a7ab5', emoji: '👩', tip: [0.28, 0.42], label: 'B' },
+    { bg: '#f5e6c8', accent: '#b8860b', emoji: '🧔', tip: [0.65, 0.55], label: 'C' },
+    { bg: '#e0f0e0', accent: '#3d8b5f', emoji: '👨', tip: [0.35, 0.30], label: 'D' },
+    { bg: '#f0d4e8', accent: '#a8558a', emoji: '👧', tip: [0.78, 0.48], label: 'E' },
+    { bg: '#dde8f0', accent: '#5b7c99', emoji: '👱', tip: [0.22, 0.58], label: 'F' },
+    { bg: '#f8e8d0', accent: '#c97b3a', emoji: '👵', tip: [0.58, 0.25], label: 'G' },
+    { bg: '#e8e0f5', accent: '#7c5cff', emoji: '🧒', tip: [0.40, 0.70], label: 'H' },
+    { bg: '#f5d0d0', accent: '#c45a5a', emoji: '👩‍🦰', tip: [0.82, 0.35], label: 'I' },
+    { bg: '#d0f0f5', accent: '#2a9d8f', emoji: '🧑‍🦱', tip: [0.18, 0.45], label: 'J' },
+    { bg: '#f0f0d0', accent: '#9a8b2a', emoji: '👨‍🦳', tip: [0.55, 0.62], label: 'K' },
+    { bg: '#e0d8d0', accent: '#8b6f5c', emoji: '🧔‍♀️', tip: [0.68, 0.28], label: 'L' },
+    { bg: '#d8e8e0', accent: '#4a8b6a', emoji: '🧑‍💼', tip: [0.45, 0.50], label: 'M' },
+    { bg: '#f0e0e8', accent: '#b85a8a', emoji: '👩‍🎤', tip: [0.75, 0.65], label: 'N' },
+    { bg: '#e8f0f8', accent: '#4a6a9a', emoji: '👨‍🔬', tip: [0.30, 0.22], label: 'O' },
+    { bg: '#f5e8e0', accent: '#c4784a', emoji: '🧑‍🎨', tip: [0.60, 0.40], label: 'P' },
+  ];
+
+  const stage = h('div', {
+    style: { position: 'absolute', inset: 0, background: '#000', overflow: 'hidden' },
+  });
+  const hint = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)',
+      color: '#fff', fontSize: '15px', letterSpacing: '.01em', pointerEvents: 'none',
+      opacity: 1, transition: 'opacity .25s',
+    },
+  }, 'Please move your pointer');
+  const photoEl = h('div', {
+    style: {
+      position: 'absolute', display: 'none', pointerEvents: 'none',
+      width: '320px', height: '400px', borderRadius: '2px', overflow: 'hidden',
+      boxShadow: '0 12px 40px #0008',
+    },
+  });
+  const cursorDot = h('div', {
+    style: {
+      position: 'absolute', width: '10px', height: '10px', borderRadius: '50%',
+      background: '#fff', border: '1.5px solid #000', pointerEvents: 'none',
+      transform: 'translate(-50%,-50%)', zIndex: 20, display: 'none',
+    },
+  });
+  stage.append(hint, photoEl, cursorDot);
+  root.append(stage);
+
+  let mx = 0, my = 0, stillTimer = 0, shown = false, used = new Set();
+  let current = null;
+  const STILL_MS = 1100;
+
+  const paintPhoto = (p, scale = 1) => {
+    const W = 320, H = 400;
+    photoEl.replaceChildren();
+    photoEl.style.width = W * scale + 'px';
+    photoEl.style.height = H * scale + 'px';
+    photoEl.style.background = p.bg;
+    const body = h('div', {
+      style: {
+        position: 'absolute', inset: 0, display: 'grid', placeItems: 'center',
+        fontSize: (120 * scale) + 'px', background: `linear-gradient(160deg,${p.bg},${p.accent}55)`,
+      },
+    }, p.emoji);
+    // Finger tip marker (visual only — positioning uses tip nx,ny)
+    const finger = h('div', {
+      style: {
+        position: 'absolute',
+        left: (p.tip[0] * 100) + '%',
+        top: (p.tip[1] * 100) + '%',
+        width: (28 * scale) + 'px', height: (28 * scale) + 'px',
+        transform: 'translate(-50%,-50%)',
+        borderRadius: '50% 50% 40% 50%',
+        background: '#f5c9a0',
+        boxShadow: '0 0 0 2px #e0a878',
+        display: 'grid', placeItems: 'center', fontSize: (14 * scale) + 'px',
+      },
+    }, '👆');
+    const badge = h('div', {
+      style: {
+        position: 'absolute', left: '8px', bottom: '8px', fontSize: '10px',
+        opacity: .35, letterSpacing: '.08em', color: '#000',
+      },
+    }, 'PHOTO ' + p.label);
+    photoEl.append(body, finger, badge);
+  };
+
+  const placeAtCursor = (p) => {
+    const rect = stage.getBoundingClientRect();
+    const W = 320, H = 400;
+    // pan so tip (nx,ny) lands on cursor
+    const left = mx - p.tip[0] * W;
+    const top = my - p.tip[1] * H;
+    photoEl.style.left = left + 'px';
+    photoEl.style.top = top + 'px';
+    photoEl.style.display = 'block';
+    paintPhoto(p);
+    shown = true;
+    current = p;
+    hint.style.opacity = '0';
+  };
+
+  const clearPhoto = () => {
+    photoEl.style.display = 'none';
+    shown = false;
+    current = null;
+    hint.style.opacity = '1';
+    hint.textContent = 'Please move your pointer';
+  };
+
+  const pickNearest = () => {
+    const rect = stage.getBoundingClientRect();
+    const nx = mx / Math.max(1, rect.width);
+    const ny = my / Math.max(1, rect.height);
+    let best = null, bestD = Infinity;
+    for (const p of PHOTOS) {
+      if (used.has(p.label) && used.size < PHOTOS.length) continue;
+      const d = (p.tip[0] - nx) ** 2 + (p.tip[1] - ny) ** 2;
+      if (d < bestD) { bestD = d; best = p; }
+    }
+    if (used.size >= PHOTOS.length) used.clear();
+    if (best) used.add(best.label);
+    return best;
+  };
+
+  const onMove = (e) => {
+    const r = stage.getBoundingClientRect();
+    mx = e.clientX - r.left;
+    my = e.clientY - r.top;
+    cursorDot.style.display = 'block';
+    cursorDot.style.left = mx + 'px';
+    cursorDot.style.top = my + 'px';
+    if (shown) clearPhoto();
+    clearTimeout(stillTimer);
+    stillTimer = setTimeout(() => {
+      const p = pickNearest();
+      if (p) placeAtCursor(p);
+    }, STILL_MS);
+  };
+
+  stage.addEventListener('pointermove', onMove);
+  stage.addEventListener('pointerleave', () => {
+    clearTimeout(stillTimer);
+    cursorDot.style.display = 'none';
+    clearPhoto();
+  });
+
+  window.__demoProof = async () => {
+    const r = stage.getBoundingClientRect();
+    const fake = { clientX: r.left + r.width * 0.62, clientY: r.top + r.height * 0.4 };
+    onMove(fake);
+    await sleep(STILL_MS + 80);
+    const had = shown && !!current;
+    const lab = current?.label || '?';
+    onMove({ clientX: r.left + r.width * 0.3, clientY: r.top + r.height * 0.7 });
+    await sleep(STILL_MS + 80);
+    clearTimeout(stillTimer);
+    clearPhoto();
+    cursorDot.style.display = 'none';
+    hint.style.opacity = '1';
+    hint.textContent = 'Please move your pointer';
+    return had ? `still→photo ${lab} then move-clear; restored idle` : 'still-hold photo attempt';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['dither-param-studio'])(root, T); }

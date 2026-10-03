@@ -1,5 +1,101 @@
 [
  {
+  "id": "clone-pointerpointer-photo-novelty",
+  "slug": "pointerpointer-photo-novelty",
+  "name": "Pointer Pointer Photo Novelty Stage",
+  "date": "2026-10-04",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://pointerpointer.com/",
+  "domain": "pointerpointer.com",
+  "product": "Pointerpointer",
+  "checkpoints": [
+   "Pointer Pointer Photo Novelty Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Pointer Pointer Photo Novelty Stage",
+  "ko": "Pointerpointer 스타일 이미지 스튜디오 클론",
+  "engine": "imagefx",
+  "variant": "pointerpointer-photo-novelty",
+  "theme": {
+   "bg": "#000000",
+   "fg": "#f0f0f0",
+   "panel": "#2d2d2d",
+   "dark": true,
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 1
+  },
+  "path": "/t/pointerpointer-photo-novelty/",
+  "built": true
+ },
+ {
+  "id": "clone-georgeandjonathan-album-experience",
+  "slug": "georgeandjonathan-album-experience",
+  "name": "George & Jonathan Interactive Album Experience",
+  "date": "2026-10-04",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.georgeandjonathan.com/",
+  "domain": "georgeandjonathan.com",
+  "product": "Georgeandjonathan",
+  "checkpoints": [
+   "George & Jonathan Interactive Album Experience"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "George & Jonathan Interactive Album Experience",
+  "ko": "Georgeandjonathan 스타일 인터랙션 클론",
+  "engine": "three",
+  "variant": "georgeandjonathan-album-experience",
+  "theme": {
+   "bg": "#170d2f",
+   "fg": "#a09da7",
+   "panel": "#0b0617",
+   "dark": true,
+   "ac": "#170d2f",
+   "ac2": "#180e30",
+   "ac3": "#1a1032",
+   "coverage": 0.81
+  },
+  "path": "/t/georgeandjonathan-album-experience/",
+  "built": true
+ },
+ {
+  "id": "clone-sonner-toast-desk",
+  "slug": "sonner-toast-desk",
+  "name": "Sonner Toast Notification Craft Desk",
+  "date": "2026-10-04",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://sonner.emilkowal.ski/",
+  "domain": "sonner.emilkowal.ski",
+  "product": "Sonner",
+  "checkpoints": [
+   "Sonner Toast Notification Craft Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Sonner Toast Notification Craft Desk",
+  "ko": "Sonner 스타일 인터랙션 클론",
+  "engine": "saas",
+  "variant": "sonner-toast-desk",
+  "theme": {
+   "bg": "#ffffff",
+   "fg": "#161616",
+   "panel": "#fcfcfc",
+   "dark": false,
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.85
+  },
+  "path": "/t/sonner-toast-desk/",
+  "built": true
+ },
+ {
   "id": "clone-whorl-generative-motion-desk",
   "slug": "whorl-generative-motion-desk",
   "name": "Whorl Generative Motion Design Desk",
