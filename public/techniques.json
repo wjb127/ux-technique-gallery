@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-whorl-generative-motion-desk",
+  "slug": "whorl-generative-motion-desk",
+  "name": "Whorl Generative Motion Design Desk",
+  "date": "2026-10-04",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://design.whorl.app/",
+  "domain": "design.whorl.app",
+  "product": "Design",
+  "checkpoints": [
+   "Whorl Generative Motion Design Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Whorl Generative Motion Design Desk",
+  "ko": "Design 스타일 인터랙션 클론",
+  "engine": "gen",
+  "variant": "whorl-generative-motion-desk",
+  "path": "/t/whorl-generative-motion-desk/",
+  "built": true
+ },
+ {
+  "id": "clone-singlediv-css-art-museum",
+  "slug": "singlediv-css-art-museum",
+  "name": "A Single Div CSS Art Museum",
+  "date": "2026-10-04",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://a.singlediv.com/",
+  "domain": "a.singlediv.com",
+  "product": "A",
+  "checkpoints": [
+   "A Single Div CSS Art Museum"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "A Single Div CSS Art Museum",
+  "ko": "A 스타일 CSS 생성기 클론",
+  "engine": "cssfx",
+  "variant": "singlediv-css-art-museum",
+  "path": "/t/singlediv-css-art-museum/",
+  "built": true
+ },
+ {
+  "id": "clone-vertexshaderart-live-stage",
+  "slug": "vertexshaderart-live-stage",
+  "name": "Vertex Shader Art Live Stage",
+  "date": "2026-10-04",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://vertexshaderart.com/",
+  "domain": "vertexshaderart.com",
+  "product": "Vertexshaderart",
+  "checkpoints": [
+   "Vertex Shader Art Live Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Vertex Shader Art Live Stage",
+  "ko": "Vertexshaderart 스타일 인터랙션 클론",
+  "engine": "code",
+  "variant": "vertexshaderart-live-stage",
+  "path": "/t/vertexshaderart-live-stage/",
+  "built": true
+ },
+ {
   "id": "clone-muted-circle-of-fifths-desk",
   "slug": "muted-circle-of-fifths-desk",
   "name": "Muted Circle of Fifths Desk",

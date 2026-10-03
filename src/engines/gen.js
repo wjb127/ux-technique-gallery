@@ -262,4 +262,194 @@ V['voanh-generative-art-studio-desk'] = (root, T) => {
   };
 };
 
+V['whorl-generative-motion-desk'] = (root, T) => {
+  theme(root, T, { bg: '#0a0b0f', fg: '#ece8e1', panel: '#12141c', ac: '#7ee0c8', ac2: '#f0a05a', dark: true, line: '#ffffff12' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const P = { mode: 'motion', speed: 0.55, density: 0.62, swirl: 0.7, stroke: 1.4, hue: 168, seed: 42011 };
+  const defaults = { ...P };
+  let playing = true;
+  let t0 = performance.now();
+  let raf = 0;
+
+  const cv = h('canvas', { width: 900, height: 640, style: { width: '100%', height: '100%', display: 'block', background: '#05060a' } });
+  const g = cv.getContext('2d');
+  const R = () => rng(P.seed);
+
+  const drawFrame = (t) => {
+    const W = cv.width, H = cv.height;
+    g.fillStyle = '#05060a';
+    g.fillRect(0, 0, W, H);
+    const cx = W / 2, cy = H / 2;
+    const dens = Math.floor(18 + P.density * 64);
+    const spd = 0.25 + P.speed * 1.8;
+    const swirl = P.swirl * 2.4;
+    const hue = P.hue;
+    g.lineCap = 'round';
+
+    if (P.mode === 'motion') {
+      for (let i = 0; i < dens; i++) {
+        const r = 28 + i * (Math.min(W, H) * 0.42 / dens);
+        const a0 = t * spd * (0.4 + (i % 5) * 0.08) + i * 0.37;
+        g.beginPath();
+        for (let a = 0; a <= Math.PI * 2 + 0.05; a += 0.05) {
+          const wob = Math.sin(a * (3 + (i % 4)) + t * spd + i) * (6 + swirl * 10);
+          const x = cx + Math.cos(a + a0) * (r + wob);
+          const y = cy + Math.sin(a + a0 * 0.92) * (r * 0.72 + wob * 0.7);
+          if (a === 0) g.moveTo(x, y); else g.lineTo(x, y);
+        }
+        g.strokeStyle = `hsla(${(hue + i * 4) % 360} 72% ${48 + (i % 5) * 6}% / ${0.35 + (i % 3) * 0.12})`;
+        g.lineWidth = P.stroke * (0.6 + (i % 4) * 0.25);
+        g.stroke();
+      }
+      // particle trails
+      for (let i = 0; i < dens * 2; i++) {
+        const ang = t * spd + i * 0.31;
+        const rr = 40 + (i % dens) * 7 + Math.sin(t * spd + i) * swirl * 12;
+        const x = cx + Math.cos(ang) * rr;
+        const y = cy + Math.sin(ang * 1.15) * rr * 0.68;
+        g.fillStyle = `hsla(${(hue + 40 + i * 3) % 360} 80% 68% / 0.75)`;
+        g.beginPath(); g.arc(x, y, 1.2 + P.stroke * 0.4, 0, 7); g.fill();
+      }
+    } else if (P.mode === 'stencil') {
+      g.save();
+      g.translate(cx, cy);
+      g.rotate(t * spd * 0.15);
+      const shapes = dens;
+      for (let i = 0; i < shapes; i++) {
+        const ang = (i / shapes) * Math.PI * 2;
+        g.save();
+        g.rotate(ang + Math.sin(t * spd + i) * swirl * 0.2);
+        g.beginPath();
+        const len = 80 + i * 4;
+        g.moveTo(0, 0);
+        g.quadraticCurveTo(len * 0.5, -30 - swirl * 20, len, Math.sin(t + i) * 18);
+        g.strokeStyle = `hsla(${(hue + i * 6) % 360} 65% 60% / 0.55)`;
+        g.lineWidth = P.stroke * 1.2;
+        g.stroke();
+        // stencil cut rings
+        g.beginPath();
+        g.arc(len * 0.7, 0, 8 + (i % 5) * 3, 0, 7);
+        g.fillStyle = `hsla(${(hue + 90) % 360} 70% 55% / 0.25)`;
+        g.fill();
+        g.restore();
+      }
+      g.restore();
+      // vignette mask feel
+      const grd = g.createRadialGradient(cx, cy, 40, cx, cy, Math.min(W, H) * 0.55);
+      grd.addColorStop(0, 'rgba(5,6,10,0)');
+      grd.addColorStop(1, 'rgba(5,6,10,0.55)');
+      g.fillStyle = grd; g.fillRect(0, 0, W, H);
+    } else {
+      // Text mode — kinetic letterforms from seed glyphs
+      const glyphs = 'WHORL · MOTION · STENCIL'.split('');
+      g.textAlign = 'center'; g.textBaseline = 'middle';
+      for (let i = 0; i < dens; i++) {
+        const ang = t * spd * 0.5 + i * (Math.PI * 2 / dens);
+        const rr = 60 + (i % 8) * 28 + Math.sin(t * spd + i) * swirl * 16;
+        const x = cx + Math.cos(ang) * rr;
+        const y = cy + Math.sin(ang * 0.9) * rr * 0.62;
+        const ch = glyphs[i % glyphs.length];
+        g.save();
+        g.translate(x, y);
+        g.rotate(ang + Math.PI / 2);
+        g.font = `${700} ${10 + P.stroke * 6 + (i % 4) * 2}px Inter Variable,sans-serif`;
+        g.fillStyle = `hsla(${(hue + i * 5) % 360} 70% 70% / ${0.4 + (i % 3) * 0.15})`;
+        g.fillText(ch, 0, 0);
+        g.restore();
+      }
+      g.font = '800 42px Inter Variable,sans-serif';
+      g.fillStyle = `hsla(${hue} 80% 78% / 0.9)`;
+      g.fillText('WHORL', cx, cy);
+      g.font = '500 13px Inter Variable,sans-serif';
+      g.fillStyle = 'rgba(236,232,225,0.45)';
+      g.fillText('generative motion desk', cx, cy + 28);
+    }
+  };
+
+  const loop = () => {
+    if (playing) drawFrame((performance.now() - t0) / 1000);
+    raf = requestAnimationFrame(loop);
+  };
+  loop();
+
+  const modeBtn = (id, label, icon) => h('button', {
+    title: label,
+    style: {
+      width: '48px', height: '48px', borderRadius: '12px', cursor: 'pointer',
+      border: P.mode === id ? '1px solid #7ee0c8' : '1px solid #ffffff14',
+      background: P.mode === id ? '#7ee0c822' : '#161822', color: P.mode === id ? '#7ee0c8' : '#9aa0ae',
+      display: 'grid', placeItems: 'center', fontSize: '11px', fontWeight: 700, letterSpacing: '.04em',
+    },
+    onclick: () => { P.mode = id; paintRail(); toast(label); },
+  }, icon || label.slice(0, 3));
+
+  const rail = h('div', { style: { width: '72px', flexShrink: 0, background: '#0e1016', borderRight: '1px solid #ffffff10', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', padding: '16px 0' } });
+  const paintRail = () => {
+    rail.replaceChildren(
+      h('div', { style: { width: '28px', height: '28px', borderRadius: '8px', background: 'conic-gradient(from 120deg,#7ee0c8,#f0a05a,#7b8cff,#7ee0c8)', marginBottom: '8px' } }),
+      modeBtn('motion', 'Motion', '◉'),
+      modeBtn('stencil', 'Stencil', '▣'),
+      modeBtn('text', 'Text', 'Aa'),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '9px', opacity: .35, writingMode: 'vertical-rl' } }, 'WHORL'),
+    );
+  };
+  paintRail();
+
+  const seedLab = h('b', { style: { font: '600 12px ui-monospace,monospace', color: '#7ee0c8' } }, String(P.seed));
+  const side = h('div', {
+    style: { width: '280px', flexShrink: 0, background: '#12141c', borderLeft: '1px solid #ffffff10', padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px', overflow: 'auto', fontSize: '12px' },
+  },
+    h('div.k-row', {}, h('b', { style: { letterSpacing: '.14em', fontSize: '13px' } }, 'WHORL'), h('span', { style: { flex: 1 } }), h('span', { style: { opacity: .4 } }, 'desk')),
+    h('div', { style: { opacity: .45, fontSize: '11px', marginBottom: '6px' } }, 'Generative motion · stencil · text'),
+    h('div.k-h', {}, 'Inspector'),
+    slider('Speed', 0, 1, P.speed, 0.01, (v) => { P.speed = v; }, (v) => (+v).toFixed(2)),
+    slider('Density', 0, 1, P.density, 0.01, (v) => { P.density = v; }, (v) => (+v).toFixed(2)),
+    slider('Swirl', 0, 1, P.swirl, 0.01, (v) => { P.swirl = v; }, (v) => (+v).toFixed(2)),
+    slider('Stroke', 0.4, 4, P.stroke, 0.1, (v) => { P.stroke = v; }, (v) => (+v).toFixed(1)),
+    slider('Hue', 0, 360, P.hue, 1, (v) => { P.hue = v; }, (v) => String(v | 0)),
+    h('div.k-row', { style: { marginTop: '10px', gap: '8px' } }, seedLab, h('span', { style: { flex: 1 } }),
+      btn('🎲 Seed', () => { P.seed = (Math.random() * 1e9) | 0; seedLab.textContent = String(P.seed); toast('seed ' + P.seed); }),
+    ),
+    h('div.k-row', { style: { marginTop: '8px', gap: '8px' } },
+      btn(playing ? 'Pause' : 'Play', (e) => { playing = !playing; e.target.textContent = playing ? 'Pause' : 'Play'; if (playing) t0 = performance.now() - ((performance.now() - t0)); }),
+      btn('Export PNG', () => dl(cv, 'whorl-' + P.seed + '.png'), 'pri'),
+    ),
+  );
+
+  const top = h('div.k-row', { style: { height: '48px', padding: '0 18px', borderBottom: '1px solid #ffffff10', gap: '14px', background: '#0a0b0f' } },
+    h('b', { style: { letterSpacing: '.18em', fontSize: '13px' } }, 'WHORL'),
+    h('span', { style: { opacity: .4, fontSize: '12px' } }, 'generative motion design desk'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '11px', opacity: .35 } }, 'look-alike · local canvas'),
+  );
+
+  const stage = h('div', { style: { flex: 1, minWidth: 0, minHeight: 0, position: 'relative', background: 'radial-gradient(ellipse at 50% 45%, #141824 0%, #05060a 70%)' } }, cv);
+  // fit canvas to stage
+  const fit = () => {
+    const r = stage.getBoundingClientRect();
+    const w = Math.max(640, Math.floor(r.width) || 900);
+    const hgt = Math.max(420, Math.floor(r.height) || 640);
+    if (cv.width !== w || cv.height !== hgt) { cv.width = w; cv.height = hgt; }
+  };
+  requestAnimationFrame(fit);
+  window.addEventListener('resize', fit);
+
+  root.style.display = 'flex'; root.style.flexDirection = 'column';
+  root.append(top, h('div', { style: { display: 'flex', flex: 1, minHeight: 0 } }, rail, stage, side));
+
+  window.__demoProof = async () => {
+    const prev = { ...P };
+    P.mode = 'stencil'; P.hue = 28; P.swirl = 0.95; P.density = 0.8;
+    paintRail();
+    await sleep(180);
+    P.mode = 'text'; paintRail();
+    await sleep(120);
+    Object.assign(P, prev); paintRail();
+    return 'cycled motion→stencil→text and restored · seed ' + P.seed;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['ritmo-simplex-wave-studio'])(root, T); }

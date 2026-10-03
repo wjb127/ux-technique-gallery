@@ -696,4 +696,180 @@ V['dwitter-140char-demo-stage'] = (root, T) => {
   };
 };
 
+V['vertexshaderart-live-stage'] = (root, T) => {
+  theme(root, T, { bg: '#000', fg: '#e8e8e8', panel: '#111', ac: '#6cf', dark: true, line: '#ffffff14' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'ui-monospace, JetBrains Mono Variable, monospace';
+
+  const PRESETS = [
+    {
+      id: 'spiral', title: 'point spiral', author: 'gman', likes: 1284,
+      code: `// vertex-ish point spiral
+vec2 pos = vec2(cos(i*0.15+t), sin(i*0.15+t)) * (0.2+i*0.002);
+gl_PointSize = 2.0;`,
+      paint: (g, W, H, t, n) => {
+        for (let i = 0; i < n; i++) {
+          const a = i * 0.15 + t;
+          const r = 40 + i * 0.55;
+          const x = W / 2 + Math.cos(a) * r;
+          const y = H / 2 + Math.sin(a) * r * 0.85;
+          g.fillStyle = `hsl(${(i * 0.4 + t * 40) % 360} 80% 65%)`;
+          g.fillRect(x, y, 2, 2);
+        }
+      },
+    },
+    {
+      id: 'gridwave', title: 'grid wave', author: 'kolargon', likes: 862,
+      code: `// displaced grid
+float z = sin(x*0.04+t)*cos(y*0.04-t);
+pos = vec3(x, y, z*40.0);`,
+      paint: (g, W, H, t, n) => {
+        const cols = 48, rows = 28;
+        for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+          const x = (i / (cols - 1)) * W;
+          const y = (j / (rows - 1)) * H;
+          const z = Math.sin(i * 0.35 + t * 2) * Math.cos(j * 0.35 - t) * 18;
+          g.fillStyle = `hsl(${180 + z * 3} 70% ${55 + z}%)`;
+          g.fillRect(x, y + z, 3, 3);
+        }
+      },
+    },
+    {
+      id: 'tunnel', title: 'circle tunnel', author: 'argonblue', likes: 640,
+      code: `// rings toward camera
+float z = fract(i/N - t*0.2);
+pos = vec2(cos(a),sin(a)) * (0.1/z);`,
+      paint: (g, W, H, t, n) => {
+        const rings = 28;
+        for (let r = 0; r < rings; r++) {
+          const z = ((r / rings) + t * 0.15) % 1;
+          const rad = 20 + (1 - z) * Math.min(W, H) * 0.48;
+          const pts = 36;
+          for (let k = 0; k < pts; k++) {
+            const a = (k / pts) * Math.PI * 2 + t * 0.4;
+            const x = W / 2 + Math.cos(a) * rad;
+            const y = H / 2 + Math.sin(a) * rad * 0.7;
+            g.fillStyle = `hsla(${(k * 8 + r * 12) % 360} 75% 60% / ${0.3 + z * 0.7})`;
+            g.beginPath(); g.arc(x, y, 2 + (1 - z) * 2, 0, 7); g.fill();
+          }
+        }
+      },
+    },
+    {
+      id: 'nebula', title: 'nebula cloud', author: 'trip-les-ix', likes: 401,
+      code: `// noisy point cloud
+pos += noise(pos+t)*0.15;
+color = hsl(length(pos)+t, .7, .6);`,
+      paint: (g, W, H, t, n) => {
+        const rnd = rng(99);
+        for (let i = 0; i < n; i++) {
+          let x = rnd() * W, y = rnd() * H;
+          const nx = Math.sin(x * 0.01 + t) * Math.cos(y * 0.012 - t * 0.7);
+          x += nx * 40; y += Math.cos(x * 0.008 + t) * 30;
+          g.fillStyle = `hsla(${(200 + nx * 80 + t * 30) % 360} 70% 60% / 0.55)`;
+          g.fillRect(x, y, 2.2, 2.2);
+        }
+      },
+    },
+  ];
+
+  let cur = 0;
+  let playing = true;
+  let likes = PRESETS[0].likes;
+  let code = PRESETS[0].code;
+  const t0 = performance.now();
+
+  const cv = h('canvas', { width: 960, height: 540, style: { width: '100%', height: 'auto', display: 'block', background: '#000', borderBottom: '1px solid #ffffff10' } });
+  const g = cv.getContext('2d');
+  const ta = h('textarea', {
+    spellcheck: false, value: code,
+    style: {
+      width: '100%', height: '140px', resize: 'vertical', border: '1px solid #ffffff18', borderRadius: '0',
+      background: '#0a0a0a', color: '#9cdcfe', font: '12px/1.45 ui-monospace,monospace', padding: '12px', outline: 'none',
+    },
+    oninput: (e) => { code = e.target.value; },
+  });
+  const meta = h('div.k-row', { style: { padding: '8px 12px', gap: '10px', fontSize: '12px', borderBottom: '1px solid #ffffff10', background: '#0d0d0d' } });
+  const strip = h('div', { style: { display: 'flex', gap: '10px', padding: '10px 12px', overflowX: 'auto', background: '#0a0a0a', borderTop: '1px solid #ffffff10' } });
+
+  const updMeta = () => {
+    const p = PRESETS[cur];
+    meta.replaceChildren(
+      h('b', {}, p.title),
+      h('span', { style: { opacity: .5 } }, '@' + p.author),
+      h('span', { style: { flex: 1 } }),
+      btn(playing ? '❚❚' : '▶', () => { playing = !playing; updMeta(); }),
+      btn('♥ ' + likes, () => { likes++; updMeta(); toast('liked'); }),
+      btn('Apply', () => { toast('shader applied (visual preset)'); }, 'pri'),
+    );
+  };
+
+  const paintStrip = () => {
+    strip.replaceChildren(...PRESETS.map((p, i) => {
+      const mini = h('canvas', { width: 160, height: 90, style: { width: '160px', height: '90px', display: 'block', background: '#000', borderRadius: '4px' } });
+      const mx = mini.getContext('2d');
+      mx.fillStyle = '#000'; mx.fillRect(0, 0, 160, 90);
+      p.paint(mx, 160, 90, 1.2 + i, 400);
+      return h('div', {
+        style: {
+          flex: '0 0 auto', cursor: 'pointer', padding: '4px',
+          border: i === cur ? '1px solid #6cf' : '1px solid #ffffff14', borderRadius: '6px', background: '#111',
+        },
+        onclick: () => {
+          cur = i; likes = p.likes; code = p.code; ta.value = code; updMeta(); paintStrip(); toast(p.title);
+        },
+      },
+        mini,
+        h('div.k-row', { style: { marginTop: '4px', fontSize: '10px', gap: '6px' } },
+          h('span', {}, p.title), h('span', { style: { flex: 1 } }), h('span', { style: { opacity: .5 } }, p.author),
+        ),
+      );
+    }));
+  };
+
+  const loop = () => {
+    if (playing) {
+      const t = (performance.now() - t0) / 1000;
+      g.fillStyle = '#000'; g.fillRect(0, 0, cv.width, cv.height);
+      PRESETS[cur].paint(g, cv.width, cv.height, t, 900);
+    }
+    requestAnimationFrame(loop);
+  };
+  loop();
+  updMeta();
+  paintStrip();
+
+  const header = h('div.k-row', { style: { height: '44px', padding: '0 14px', gap: '14px', borderBottom: '1px solid #ffffff12', background: '#0a0a0a', fontSize: '13px' } },
+    h('b', {}, 'vertexshaderart.com'),
+    h('span', { style: { opacity: .4 } }, 'live vertex stage'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .45 } }, 'new'),
+    h('span', { style: { opacity: .45 } }, 'lessons'),
+    h('span', { style: { opacity: .45 } }, 'github'),
+  );
+
+  const author = h('div.k-row', { style: { padding: '6px 12px', fontSize: '11px', opacity: .55, gap: '8px', background: '#0d0d0d' } },
+    h('span', { style: { width: '18px', height: '18px', borderRadius: '50%', background: '#6cf' } }),
+    h('span', {}, 'author chip · GLSL-ish vertex snippet · canvas 2D point stage'),
+  );
+
+  root.style.display = 'flex'; root.style.flexDirection = 'column';
+  root.append(
+    header,
+    h('div', { style: { flex: 1, minHeight: 0, display: 'grid', gridTemplateRows: 'auto auto 1fr auto auto', overflow: 'auto' } },
+      cv, meta, ta, author, strip,
+    ),
+  );
+
+  window.__demoProof = async () => {
+    cur = 1; likes = PRESETS[1].likes; code = PRESETS[1].code; ta.value = code; updMeta(); paintStrip();
+    await sleep(140);
+    cur = 2; likes = PRESETS[2].likes; code = PRESETS[2].code; ta.value = code; updMeta(); paintStrip();
+    await sleep(100);
+    cur = 0; likes = PRESETS[0].likes; code = PRESETS[0].code; ta.value = code; updMeta(); paintStrip();
+    playing = true; updMeta();
+    return 'cycled spiral→gridwave→tunnel→spiral · animation running';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }

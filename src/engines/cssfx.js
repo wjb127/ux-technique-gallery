@@ -367,4 +367,124 @@ V['bradwoods-css-layout-generator'] = (root, T) => {
   };
 };
 
+V['singlediv-css-art-museum'] = (root, T) => {
+  theme(root, T, { bg: '#f4f1ea', fg: '#1a1a1a', panel: '#fffdf8', ac: '#2c5aa0', dark: false, line: '#e4dfd4' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Georgia, "Times New Roman", serif';
+
+  const ART = [
+    {
+      id: 'coffee', title: 'Morning Cup', artist: 'Museum · CSS', year: '2016', bg: '#c4a574',
+      css: `#art{width:60px;height:60px;background:#6f4e37;border-radius:0 0 28px 28px;box-shadow:70px 0 0 #6f4e37,35px 55px 0 -8px #fff,35px 55px 0 4px #6f4e37, -18px 10px 0 8px #6f4e37, 88px 10px 0 8px #6f4e37;position:relative}
+#art:before{content:"";position:absolute;left:100%;top:12px;width:22px;height:34px;border:6px solid #6f4e37;border-left:0;border-radius:0 18px 18px 0}`,
+    },
+    {
+      id: 'icecream', title: 'Soft Serve', artist: 'Museum · CSS', year: '2017', bg: '#f7c6d0',
+      css: `#art{width:50px;height:50px;background:#fff;border-radius:50%;box-shadow:0 -28px 0 #fff,0 -56px 0 #fff,0 42px 0 -8px #e8b86d,0 58px 0 -2px #e8b86d,0 74px 0 2px #e8b86d;position:relative;margin-top:60px}
+#art:before{content:"";position:absolute;left:50%;top:-70px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#ff6b8a}`,
+    },
+    {
+      id: 'ghost', title: 'Friendly Ghost', artist: 'Museum · CSS', year: '2015', bg: '#2b2d42',
+      css: `#art{width:70px;height:80px;background:#f8f7f4;border-radius:35px 35px 8px 8px;box-shadow: inset 18px 28px 0 -10px #2b2d42, inset -18px 28px 0 -10px #2b2d42, 0 70px 0 -28px #f8f7f4, -18px 70px 0 -28px #f8f7f4, 18px 70px 0 -28px #f8f7f4;position:relative}
+#art:before{content:"";position:absolute;left:16px;top:30px;width:10px;height:14px;border-radius:50%;background:#2b2d42;box-shadow:28px 0 #2b2d42}`,
+    },
+    {
+      id: 'planet', title: 'Ringed Planet', artist: 'Museum · CSS', year: '2018', bg: '#0b132b',
+      css: `#art{width:70px;height:70px;background:radial-gradient(circle at 30% 30%,#7ee0c8,#1c7c6a 55%,#0b3d4a);border-radius:50%;box-shadow:0 0 0 8px #0b132b, 0 0 0 12px #f0c27a55;position:relative}
+#art:before{content:"";position:absolute;left:-30px;top:28px;width:130px;height:14px;border-radius:50%;border:3px solid #f0c27a;transform:rotate(-18deg);box-shadow:0 0 12px #f0c27a66}`,
+    },
+    {
+      id: 'balloon', title: 'Party Balloon', artist: 'Museum · CSS', year: '2014', bg: '#e8f4ff',
+      css: `#art{width:56px;height:68px;background:#ff5a5f;border-radius:50% 50% 50% 50% / 42% 42% 58% 58%;box-shadow:inset -10px -8px 0 #cc3338;position:relative;margin-bottom:40px}
+#art:before{content:"";position:absolute;left:50%;bottom:-10px;width:0;height:0;border:6px solid transparent;border-top-color:#cc3338;margin-left:-6px}
+#art:after{content:"";position:absolute;left:50%;top:100%;width:2px;height:48px;background:repeating-linear-gradient(#888 0 4px,transparent 4px 8px);margin-left:-1px}`,
+    },
+    {
+      id: 'moon', title: 'Night Moon', artist: 'Museum · CSS', year: '2019', bg: '#1b1f3a',
+      css: `#art{width:80px;height:80px;border-radius:50%;background:#f4e8c1;box-shadow: inset -18px -6px 0 6px #1b1f3a, 40px -30px 0 -28px #fff, 60px 10px 0 -34px #fff, -30px -40px 0 -32px #fff;position:relative}`,
+    },
+  ];
+  let idx = 0;
+  let showCss = false;
+
+  const stageWrap = h('div', { style: { flex: 1, minWidth: 0, display: 'grid', placeItems: 'center', position: 'relative', transition: 'background .35s' } });
+  const artHost = h('div', { style: { width: '160px', height: '160px', display: 'grid', placeItems: 'center' } });
+  const meta = h('div', { style: { position: 'absolute', left: '28px', bottom: '28px', color: '#fff', textShadow: '0 1px 8px #0008' } });
+  const cssPanel = h('pre', {
+    style: {
+      position: 'absolute', right: '20px', top: '20px', bottom: '20px', width: '340px', margin: 0,
+      padding: '16px', background: '#1a1a1acc', color: '#e8e6dc', borderRadius: '12px',
+      font: '11px/1.5 ui-monospace, JetBrains Mono Variable, monospace', overflow: 'auto',
+      display: 'none', backdropFilter: 'blur(8px)', border: '1px solid #ffffff22',
+    },
+  });
+
+  const styleEl = h('style', {});
+  const apply = () => {
+    const a = ART[idx];
+    stageWrap.style.background = a.bg;
+    styleEl.textContent = a.css.replace(/#art/g, '#singlediv-art');
+    artHost.replaceChildren(h('div#singlediv-art', {}));
+    meta.replaceChildren(
+      h('div', { style: { font: 'italic 28px/1.1 Georgia,serif' } }, a.title),
+      h('div', { style: { font: '13px Inter Variable,system-ui,sans-serif', opacity: .85, marginTop: '6px' } }, `${a.artist} · ${a.year}`),
+      h('div', { style: { font: '11px Inter Variable,system-ui,sans-serif', opacity: .55, marginTop: '4px' } }, `${idx + 1} / ${ART.length} · one <div>`),
+    );
+    cssPanel.textContent = `/* single div */\n${a.css}`;
+    cssPanel.style.display = showCss ? 'block' : 'none';
+    paintGrid();
+  };
+
+  const gridHost = h('div', { style: { width: '220px', flexShrink: 0, background: '#fffdf8', borderLeft: '1px solid #e4dfd4', padding: '14px', overflow: 'auto', display: 'grid', gap: '10px', alignContent: 'start' } });
+  const paintGrid = () => {
+    gridHost.replaceChildren(
+      h('div', { style: { font: '700 12px Inter Variable,system-ui', letterSpacing: '.1em', opacity: .55 } }, 'GALLERY'),
+      ...ART.map((a, i) => h('button', {
+        style: {
+          textAlign: 'left', border: i === idx ? '2px solid #2c5aa0' : '1px solid #e4dfd4', borderRadius: '10px',
+          padding: '10px', cursor: 'pointer', background: i === idx ? '#eef3fb' : '#fff', fontFamily: 'Inter Variable,system-ui',
+        },
+        onclick: () => { idx = i; apply(); toast(a.title); },
+      },
+        h('div', { style: { height: '48px', borderRadius: '6px', background: a.bg, marginBottom: '8px' } }),
+        h('b', { style: { fontSize: '13px', display: 'block' } }, a.title),
+        h('span', { style: { fontSize: '11px', opacity: .55 } }, a.year),
+      )),
+    );
+  };
+
+  const nav = (dir) => { idx = (idx + dir + ART.length) % ART.length; apply(); };
+
+  const header = h('div.k-row', {
+    style: { height: '52px', padding: '0 20px', background: '#2a2a2a', color: '#f4f1ea', gap: '16px', fontFamily: 'Inter Variable,system-ui,sans-serif' },
+  },
+    h('b', { style: { fontWeight: 500 } }, 'A Single Div'),
+    h('span', { style: { opacity: .55, fontSize: '13px' } }, 'a CSS drawing museum'),
+    h('span', { style: { flex: 1 } }),
+    btn('← Prev', () => nav(-1)),
+    btn('Next →', () => nav(1)),
+    btn(showCss ? 'Hide CSS' : 'View CSS', (e) => { showCss = !showCss; e.target.textContent = showCss ? 'Hide CSS' : 'View CSS'; apply(); }, 'pri'),
+    btn('Copy CSS', () => copy(ART[idx].css, 'CSS copied')),
+  );
+  header.querySelectorAll('.k-btn').forEach((b) => {
+    Object.assign(b.style, { background: '#ffffff14', color: '#f4f1ea', border: '1px solid #ffffff22', borderRadius: '8px' });
+  });
+
+  stageWrap.append(artHost, meta, cssPanel);
+  root.style.display = 'flex'; root.style.flexDirection = 'column';
+  root.append(styleEl, header, h('div', { style: { display: 'flex', flex: 1, minHeight: 0 } }, stageWrap, gridHost));
+  apply();
+
+  window.__demoProof = async () => {
+    const prev = idx;
+    idx = 2; showCss = true; apply();
+    await sleep(150);
+    idx = 3; apply();
+    await copy(ART[idx].css, 'CSS copied');
+    await sleep(80);
+    idx = prev; showCss = false; apply();
+    return 'opened ghost→planet, copied CSS, restored gallery index';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['neumorph-softui-generator'])(root, T); }
