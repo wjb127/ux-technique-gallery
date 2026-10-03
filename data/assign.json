@@ -94,7 +94,8 @@
   "svgomg-optimize-toggle-desk",
   "boxy-svg-craft-editor",
   "pattern-monster-svg-pattern-desk",
-  "dicebear-avatar-seed-playground"
+  "dicebear-avatar-seed-playground",
+  "lordicon-animated-icon-desk"
  ],
  "imagefx": [
   "duotone-photo-studio",
@@ -156,7 +157,8 @@
   "matterjs-physics-demo-desk",
   "particulardrift-image-particle-desk",
   "paperplanes-throw-catch-world",
-  "collidingscopes-liquid-distort-desk"
+  "collidingscopes-liquid-distort-desk",
+  "thisissand-layered-sand-art-desk"
  ],
  "gen": [
   "tinkersynth-slopes-synth-desk",
@@ -182,7 +184,8 @@
   "textmode-livecode-stage",
   "turtle-plotter-livecode",
   "httpie-api-workspace",
-  "shaderpark-js-sdf-sculpt-desk"
+  "shaderpark-js-sdf-sculpt-desk",
+  "hydra-live-visual-synth"
  ],
  "globe": [
   "globe-radio-discover",
@@ -222,7 +225,8 @@
   "interactive-trust-explainer-game",
   "alchemy-combine-discovery",
   "voxel-sculpture-merge-puzzle",
-  "math-manipulatives-playground"
+  "math-manipulatives-playground",
+  "timeguessr-historic-photo-quiz"
  ],
  "audio": [
   "key-av-instrument",

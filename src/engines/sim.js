@@ -1025,4 +1025,176 @@ V['collidingscopes-liquid-distort-desk'] = (root, T) => {
   };
 };
 
+
+V['thisissand-layered-sand-art-desk'] = (root, T) => {
+  theme(root, T, { bg: '#e8e8e8', fg: '#141414', panel: '#ffffff', ac: '#7c5cff', dark: false });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+
+  const W = 360, H = 480;
+  const g = new Uint16Array(W * H); // 0 empty, else color index+1
+  const PAL = [
+    '#e85d4c', '#f0a04b', '#f5d76e', '#7bc67e', '#4aa3a2', '#4a7fd4',
+    '#6b5b95', '#c45c9a', '#8b5a2b', '#d4a574', '#2c2c2c', '#ffffff',
+    '#ff6b9d', '#00c2a8', '#ffd166', '#118ab2', '#ef476f', '#06d6a0',
+  ];
+  const rgb = PAL.map((c) => [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]);
+  let cur = 0, pouring = false, brush = 5, multi = [0];
+
+  const cv = h('canvas', {
+    width: W, height: H,
+    style: { width: '100%', height: '100%', display: 'block', cursor: 'crosshair', touchAction: 'none', background: '#ddd' },
+  });
+  const ctx = cv.getContext('2d');
+  const img = ctx.createImageData(W, H);
+
+  const get = (x, y) => (x < 0 || y < 0 || x >= W || y >= H ? 65535 : g[y * W + x]);
+  const step = () => {
+    for (let y = H - 2; y >= 0; y--) {
+      const dir = Math.random() < 0.5 ? 1 : -1;
+      for (let xi = 0; xi < W; xi++) {
+        const x = dir > 0 ? xi : W - 1 - xi;
+        const i = y * W + x;
+        if (!g[i]) continue;
+        if (get(x, y + 1) === 0) { g[(y + 1) * W + x] = g[i]; g[i] = 0; }
+        else {
+          const d = Math.random() < 0.5 ? 1 : -1;
+          if (get(x + d, y + 1) === 0) { g[(y + 1) * W + x + d] = g[i]; g[i] = 0; }
+          else if (get(x - d, y + 1) === 0) { g[(y + 1) * W + x - d] = g[i]; g[i] = 0; }
+        }
+      }
+    }
+  };
+  const render = () => {
+    for (let i = 0; i < W * H; i++) {
+      const v = g[i];
+      if (!v) { img.data[i * 4] = 232; img.data[i * 4 + 1] = 232; img.data[i * 4 + 2] = 232; img.data[i * 4 + 3] = 255; }
+      else {
+        const c = rgb[(v - 1) % rgb.length];
+        const n = ((i * 2654435761) >>> 28) - 6;
+        img.data[i * 4] = c[0] + n; img.data[i * 4 + 1] = c[1] + n; img.data[i * 4 + 2] = c[2] + n; img.data[i * 4 + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+  };
+  const pour = (px, py) => {
+    const col = multi[Math.floor(Math.random() * multi.length)] + 1;
+    for (let y = -brush; y <= brush; y++) for (let x = -brush; x <= brush; x++) {
+      if (x * x + y * y > brush * brush) continue;
+      if (Math.random() > 0.55) continue;
+      const X = px + x, Y = py + y;
+      if (X >= 0 && Y >= 0 && X < W && Y < H && !g[Y * W + X]) g[Y * W + X] = col;
+    }
+  };
+  const at = (e) => {
+    const p = localPos(e, cv); const r = cv.getBoundingClientRect();
+    return [Math.floor((p.x / r.width) * W), Math.floor((p.y / r.height) * H)];
+  };
+  drag(cv, {
+    start: (e) => { pouring = true; pour(...at(e)); },
+    move: (e) => { if (pouring) pour(...at(e)); },
+    end: () => { pouring = false; },
+  });
+
+  const swatch = h('div', {
+    style: {
+      position: 'absolute', right: '18px', top: '18px', width: '220px',
+      background: '#fff', borderRadius: '16px', padding: '14px',
+      boxShadow: '0 8px 32px #00000022', display: 'grid', gap: '10px', zIndex: 3,
+    },
+  });
+  const paintSwatch = () => {
+    const dots = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: '6px' } },
+      ...PAL.map((c, i) => h('button', {
+        title: c,
+        style: {
+          width: '28px', height: '28px', borderRadius: '50%', background: c, cursor: 'pointer',
+          border: multi.includes(i) ? '3px solid #111' : '2px solid #ddd',
+          boxShadow: c === '#ffffff' ? 'inset 0 0 0 1px #ccc' : 'none',
+        },
+        onpointerdown: (e) => {
+          e.preventDefault();
+          if (e.shiftKey || e.metaKey) {
+            if (multi.includes(i)) multi = multi.filter((x) => x !== i);
+            else multi = [...multi, i];
+            if (!multi.length) multi = [i];
+          } else { multi = [i]; cur = i; }
+          paintSwatch();
+        },
+      })));
+    const current = h('div', {
+      style: {
+        width: '44px', height: '44px', borderRadius: '50%', margin: '0 auto',
+        background: multi.length === 1 ? PAL[multi[0]] : `conic-gradient(${multi.map((i, k) => PAL[i] + ' ' + (k / multi.length * 360) + 'deg ' + ((k + 1) / multi.length * 360) + 'deg').join(',')})`,
+        border: '3px solid #111',
+      },
+    });
+    swatch.replaceChildren(
+      h('div', { style: { fontSize: '11px', letterSpacing: '.14em', opacity: .45, textAlign: 'center' } }, 'COLOR PALETTE'),
+      current,
+      dots,
+      slider('Intensity', 2, 12, brush, 1, (v) => (brush = v)),
+      h('div', { style: { fontSize: '11px', opacity: .5, textAlign: 'center' } }, 'shift-click multi · drag to pour'),
+      btn('Clear canvas', () => { g.fill(0); toast('cleared'); }),
+      btn('Randomize', () => {
+        multi = Array.from({ length: 2 + (Math.random() * 3 | 0) }, () => Math.floor(Math.random() * PAL.length));
+        paintSwatch(); toast('colors shuffled');
+      }, 'pri'),
+    );
+  };
+  paintSwatch();
+
+  const header = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, top: 0, height: '48px', zIndex: 4,
+      padding: '0 18px', background: '#ffffffcc', backdropFilter: 'blur(8px)',
+      borderBottom: '1px solid #00000010',
+    },
+  },
+    h('b', { style: { letterSpacing: '.08em', fontSize: '14px' } }, 'THISISSAND'),
+    h('span', { style: { flex: 1 } }),
+    h('button', {
+      style: {
+        background: '#7ac943', color: '#fff', border: 0, borderRadius: '20px',
+        padding: '8px 18px', fontWeight: 700, fontSize: '13px', cursor: 'pointer',
+      },
+      onclick: () => toast('gallery'),
+    }, 'Gallery'),
+  );
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '24px', transform: 'translateX(-50%)',
+      background: '#000000aa', color: '#fff', padding: '8px 16px', borderRadius: '99px',
+      fontSize: '12px', zIndex: 3, pointerEvents: 'none',
+    },
+  }, 'Click & drag to pour layered sand');
+
+  const wrap = h('div', { style: { position: 'absolute', inset: 0, background: '#e8e8e8' } }, cv, header, swatch, hint);
+  root.append(wrap);
+
+  // seed a small dune so the canvas isn't empty
+  for (let x = 40; x < W - 40; x++) {
+    const h0 = H - 20 - Math.floor(8 + 6 * Math.sin(x / 28));
+    for (let y = h0; y < H; y++) g[y * W + x] = (x % PAL.length) + 1;
+  }
+
+  const loop = () => { step(); step(); render(); requestAnimationFrame(loop); };
+  loop();
+
+  window.__demoProof = async () => {
+    const before = multi.slice();
+    multi = [0, 5, 14]; brush = 8; paintSwatch();
+    for (let i = 0; i < 40; i++) pour(80 + i * 4, 40 + (i % 7));
+    for (let i = 0; i < 60; i++) step();
+    await sleep(80);
+    multi = [12]; brush = 6; paintSwatch();
+    for (let i = 0; i < 25; i++) pour(200, 30 + i);
+    for (let i = 0; i < 40; i++) step();
+    await sleep(60);
+    multi = before; brush = 5; paintSwatch();
+    return 'poured multi-color layers + settled · palette restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }

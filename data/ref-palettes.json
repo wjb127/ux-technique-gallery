@@ -1,4 +1,34 @@
 {
+ "lordicon-animated-icon-desk": {
+  "bg": "#ffffff",
+  "fg": "#121330",
+  "panel": "#fafafb",
+  "dark": false,
+  "ac": "#121330",
+  "ac2": "#181e38",
+  "ac3": "#40aa93",
+  "coverage": 0.38
+ },
+ "thisissand-layered-sand-art-desk": {
+  "bg": "#f4f4f4",
+  "fg": "#141414",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.87
+ },
+ "timeguessr-historic-photo-quiz": {
+  "bg": "#060a17",
+  "fg": "#aca196",
+  "panel": "#0a1411",
+  "dark": true,
+  "ac": "#47332c",
+  "ac2": "#715649",
+  "ac3": "#ffc83d",
+  "coverage": 0.4
+ },
  "cyanbanister-vaporwave-os-desk": {
   "bg": "#5657e9",
   "fg": "#ffffff",
@@ -248,6 +278,16 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 1.0
+ },
+ "hydra-live-visual-synth": {
+  "bg": "#000000",
+  "fg": "#f0f0f0",
+  "panel": "#010101",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.52
  },
  "leonardocolor-adaptive-theme-desk": {
   "bg": "#f5f5f5",

@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-lordicon-animated-icon-desk",
+  "slug": "lordicon-animated-icon-desk",
+  "name": "Lordicon Animated Icon Customizer Desk",
+  "date": "2026-10-03",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lordicon.com/icons",
+  "domain": "lordicon.com",
+  "product": "Lordicon",
+  "checkpoints": [
+   "Lordicon Animated Icon Customizer Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Lordicon Animated Icon Customizer Desk",
+  "ko": "Lordicon 스타일 CSS 생성기 클론",
+  "engine": "svggen",
+  "variant": "lordicon-animated-icon-desk",
+  "path": "/t/lordicon-animated-icon-desk/",
+  "built": true
+ },
+ {
+  "id": "clone-thisissand-layered-sand-art-desk",
+  "slug": "thisissand-layered-sand-art-desk",
+  "name": "Thisissand Layered Sand Pour Art Desk",
+  "date": "2026-10-03",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://thisissand.com/app",
+  "domain": "thisissand.com",
+  "product": "Thisissand",
+  "checkpoints": [
+   "Thisissand Layered Sand Pour Art Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Thisissand Layered Sand Pour Art Desk",
+  "ko": "Thisissand 스타일 시뮬레이션 클론",
+  "engine": "sim",
+  "variant": "thisissand-layered-sand-art-desk",
+  "path": "/t/thisissand-layered-sand-art-desk/",
+  "built": true
+ },
+ {
+  "id": "clone-timeguessr-historic-photo-quiz",
+  "slug": "timeguessr-historic-photo-quiz",
+  "name": "TimeGuessr Historic Photo Year-Location Quiz",
+  "date": "2026-10-03",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://timeguessr.com/",
+  "domain": "timeguessr.com",
+  "product": "Timeguessr",
+  "checkpoints": [
+   "TimeGuessr Historic Photo Year-Location Quiz"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "TimeGuessr Historic Photo Year-Location Quiz",
+  "ko": "Timeguessr 스타일 이미지 스튜디오 클론",
+  "engine": "puzzle",
+  "variant": "timeguessr-historic-photo-quiz",
+  "path": "/t/timeguessr-historic-photo-quiz/",
+  "built": true
+ },
+ {
   "id": "clone-cyanbanister-vaporwave-os-desk",
   "slug": "cyanbanister-vaporwave-os-desk",
   "name": "Cyan Banister Vaporwave OS Anti-Portfolio Desk",
@@ -743,10 +806,10 @@
   "checkpoint_source": "derived-from-ledger-name",
   "short": "Hydra live-coding visual synth",
   "ko": "Hydra 스타일 사운드 클론",
-  "engine": null,
+  "engine": "code",
   "variant": "hydra-live-visual-synth",
   "path": "/t/hydra-live-visual-synth/",
-  "built": false
+  "built": true
  },
  {
   "id": "clone-leonardocolor-adaptive-theme-desk",

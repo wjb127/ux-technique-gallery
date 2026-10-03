@@ -1163,4 +1163,179 @@ V['dicebear-avatar-seed-playground'] = (root, T) => {
   };
 };
 
+
+V['lordicon-animated-icon-desk'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#121330', panel: '#fafafb', ac: '#00b884', dark: false });
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  const ICONS = [
+    { id: 'image-mountain', d: 'M3 17l5-6 4 4 3-3 6 7H3z M7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z', style: 'wired-outline' },
+    { id: 'book-guideline', d: 'M5 4h10a2 2 0 0 1 2 2v14l-6-3-6 3V6a2 2 0 0 1 2-2z M9 8h4M9 11h4', style: 'wired-outline' },
+    { id: 'person-office', d: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1', style: 'bulk' },
+    { id: 'hand-refund', d: 'M8 11V7a2 2 0 1 1 4 0v4 M12 11V6a2 2 0 1 1 4 0v5 M16 11V8a2 2 0 1 1 4 0v8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-1a3 3 0 0 1 3-3h1', style: 'wired-flat' },
+    { id: 'heart-pulse', d: 'M12 21s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10z', style: 'wired-outline' },
+    { id: 'bell-alert', d: 'M6 9a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9 M10 21a2 2 0 0 0 4 0', style: 'bulk' },
+    { id: 'cart-shop', d: 'M3 4h2l2.4 12h11.2L21 7H7 M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2z M18 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2z', style: 'wired-outline' },
+    { id: 'cloud-upload', d: 'M8 17h8a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1.5A3.5 3.5 0 0 0 8 17z M12 12v7 M9 15l3-3 3 3', style: 'wired-flat' },
+    { id: 'mail-open', d: 'M4 8l8 5 8-5 M4 8v10h16V8 M4 8l8-4 8 4', style: 'bulk' },
+    { id: 'star-glow', d: 'M12 3l2.8 6.2L21 10l-4.5 4.2L17.6 21 12 17.8 6.4 21l1.1-6.8L3 10l6.2-.8z', style: 'wired-outline' },
+    { id: 'lock-secure', d: 'M8 11V8a4 4 0 0 1 8 0v3 M6 11h12v10H6z', style: 'wired-flat' },
+    { id: 'zap-flash', d: 'M13 2L4 14h7l-1 8 9-12h-7z', style: 'bulk' },
+  ];
+  const ANIMS = ['reveal', 'pinch', 'portrait', 'sea', 'morph', 'hover'];
+  let sel = ICONS[0], anim = 'pinch', color = '#121330', stroke = 2, playing = true, t0 = performance.now(), progress = 0;
+
+  const svgIcon = (ic, sz = 48, col = color, sw = stroke, phase = 0) => {
+    const g = s('svg', { viewBox: '0 0 24 24', width: sz, height: sz, fill: 'none', stroke: col, 'stroke-width': sw, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+    const p = s('path', { d: ic.d });
+    // animation transforms by style
+    const box = s('g');
+    if (anim === 'pinch') {
+      const sc = 1 + Math.sin(phase * Math.PI * 2) * 0.12;
+      box.setAttribute('transform', `translate(12,12) scale(${sc}) translate(-12,-12)`);
+    } else if (anim === 'reveal') {
+      const len = 120;
+      p.setAttribute('stroke-dasharray', String(len));
+      p.setAttribute('stroke-dashoffset', String(len * (1 - phase)));
+    } else if (anim === 'portrait') {
+      box.setAttribute('transform', `translate(0,${Math.sin(phase * Math.PI * 2) * 1.5})`);
+    } else if (anim === 'sea') {
+      box.setAttribute('transform', `rotate(${Math.sin(phase * Math.PI * 2) * 8} 12 12)`);
+    } else if (anim === 'morph') {
+      p.setAttribute('opacity', String(0.55 + 0.45 * Math.sin(phase * Math.PI * 2)));
+    } else {
+      box.setAttribute('transform', `translate(0,${playing ? Math.sin(phase * Math.PI * 2) * -1.2 : 0})`);
+    }
+    box.append(p);
+    g.append(box);
+    return g;
+  };
+
+  const previewBox = h('div', {
+    style: {
+      height: '200px', display: 'grid', placeItems: 'center', borderRadius: '12px',
+      background: 'repeating-conic-gradient(#eee 0% 25%, #fff 0% 50%) 0 0 / 16px 16px',
+      border: '1px solid #e8e8ea',
+    },
+  });
+  const scrub = h('input', {
+    type: 'range', min: 0, max: 100, value: 0,
+    style: { width: '100%', accentColor: '#00b884' },
+    oninput: (e) => { progress = +e.target.value / 100; playing = false; playBtn.textContent = '▶'; drawPreview(); },
+  });
+  const playBtn = h('button', {
+    style: { width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #ddd', background: '#fff', cursor: 'pointer', fontSize: '14px' },
+    onclick: () => { playing = !playing; playBtn.textContent = playing ? '❚❚' : '▶'; if (playing) t0 = performance.now() - progress * 2000; },
+  }, '❚❚');
+  const animGrid = h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' } });
+  const paintAnims = () => {
+    animGrid.replaceChildren(...ANIMS.map((a) => h('button', {
+      style: {
+        padding: '14px 8px', borderRadius: '10px', cursor: 'pointer', fontSize: '12px', fontWeight: 600,
+        border: '2px solid ' + (anim === a ? '#00b884' : '#e8e8ea'),
+        background: anim === a ? '#00b88414' : '#fff', color: 'inherit',
+      },
+      onclick: () => { anim = a; paintAnims(); drawPreview(); },
+    }, a)));
+  };
+  const drawPreview = () => {
+    previewBox.replaceChildren(svgIcon(sel, 96, color, stroke, progress));
+    scrub.value = Math.round(progress * 100);
+  };
+
+  const editor = h('aside', {
+    style: {
+      width: '320px', borderLeft: '1px solid #e8e8ea', background: '#fff',
+      padding: '16px', display: 'grid', gap: '12px', alignContent: 'start', overflow: 'auto',
+    },
+  },
+    h('div', {},
+      h('b', { style: { fontSize: '15px' } }, sel.id),
+      h('div', { style: { fontSize: '12px', opacity: .5, marginTop: '2px' } }, sel.style + '-54'),
+    ),
+    previewBox,
+    h('div.k-row', { style: { gap: '10px' } }, playBtn, h('div', { style: { flex: 1 } }, scrub, h('div', { style: { fontSize: '11px', opacity: .45, marginTop: '2px' } }, '2s loop'))),
+    h('div.k-row', { style: { gap: '8px' } },
+      select(['GIF', 'JSON', 'SVG', 'Lottie'], 'GIF', () => {}),
+      btn('Export', () => toast('exported ' + sel.id + '.gif'), 'pri'),
+    ),
+    h('div', { style: { fontSize: '12px', fontWeight: 700, marginTop: '4px' } }, 'Editor'),
+    animGrid,
+    h('div', {}, h('div', { style: { fontSize: '11px', opacity: .55, marginBottom: '4px' } }, 'Primary color'),
+      h('input', { type: 'color', value: color.length === 7 ? color : '#121330', style: { width: '100%', height: '36px', border: '1px solid #e8e8ea', borderRadius: '8px', cursor: 'pointer' },
+        oninput: (e) => { color = e.target.value; drawPreview(); paintGrid(); } })),
+    h('div', {}, h('div', { style: { fontSize: '11px', opacity: .55, marginBottom: '4px' } }, 'Stroke'),
+      slider('Stroke', 1, 4, stroke, 0.25, (v) => { stroke = v; drawPreview(); })),
+  );
+
+  const grid = h('div', {
+    style: {
+      flex: 1, overflow: 'auto', padding: '16px 20px',
+      display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(140px,1fr))', gap: '12px', alignContent: 'start',
+    },
+  });
+  const paintGrid = () => {
+    grid.replaceChildren(...ICONS.map((ic) => h('button', {
+      style: {
+        border: '2px solid ' + (sel.id === ic.id ? '#00b884' : '#eee'),
+        borderRadius: '12px', background: '#fff', padding: '18px 10px 12px', cursor: 'pointer',
+        display: 'grid', gap: '10px', placeItems: 'center', color: 'inherit',
+        boxShadow: sel.id === ic.id ? '0 0 0 1px #00b88444' : 'none',
+      },
+      onclick: () => { sel = ic; paintGrid(); paintAnims(); drawPreview(); },
+    }, svgIcon(ic, 40, color, 1.75, 0.35), h('span', { style: { fontSize: '11px', opacity: .65 } }, ic.id))));
+  };
+
+  const top = h('div.k-row', {
+    style: { height: '56px', padding: '0 20px', gap: '18px', borderBottom: '1px solid #eee' },
+  },
+    h('b', { style: { color: '#00b884', fontSize: '18px', letterSpacing: '-.02em' } }, 'lordicon'),
+    h('span', { style: { opacity: .55, fontSize: '13px' } }, 'Icons'),
+    h('span', { style: { opacity: .55, fontSize: '13px' } }, 'Docs'),
+    h('span', { style: { opacity: .55, fontSize: '13px' } }, 'Resources'),
+    h('span', { style: { opacity: .55, fontSize: '13px' } }, 'Pricing'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '13px', opacity: .6 } }, 'Log in'),
+    btn('Sign up', () => toast('signup'), 'pri'),
+  );
+  const filters = h('div.k-row', {
+    style: { padding: '12px 20px', gap: '10px', borderBottom: '1px solid #f0f0f2' },
+  },
+    select(['All Styles', 'Wired', 'Bulk', 'Lineal'], 'All Styles', () => {}),
+    select(['All Categories', 'UI', 'Business', 'Nature'], 'All Categories', () => {}),
+    h('input', { placeholder: 'Search icons…', style: { flex: 1, padding: '8px 12px', borderRadius: '8px', border: '1px solid #e5e5e8', outline: 'none', fontSize: '13px' } }),
+    toggle('Free only', false, () => {}),
+  );
+
+  root.append(h('div', {
+    style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', background: '#fafafb' },
+  }, top, filters, h('div', { style: { flex: 1, display: 'flex', minHeight: 0 } }, grid, editor)));
+
+  paintAnims(); paintGrid(); drawPreview();
+  const loop = () => {
+    if (playing) {
+      progress = ((performance.now() - t0) % 2000) / 2000;
+      drawPreview();
+    }
+    requestAnimationFrame(loop);
+  };
+  loop();
+
+  window.__demoProof = async () => {
+    const before = { id: sel.id, anim, color, stroke };
+    sel = ICONS[4]; anim = 'reveal'; color = '#00b884'; stroke = 2.5;
+    paintGrid(); paintAnims(); drawPreview();
+    await sleep(120);
+    playing = true; playBtn.textContent = '❚❚'; t0 = performance.now();
+    await sleep(100);
+    anim = 'sea'; paintAnims(); drawPreview();
+    await sleep(80);
+    sel = ICONS.find((x) => x.id === before.id) || ICONS[0];
+    anim = before.anim; color = before.color; stroke = before.stroke;
+    paintGrid(); paintAnims(); drawPreview();
+    return 'selected heart + reveal/sea anim + color · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

@@ -137,4 +137,261 @@ V['math-manipulatives-playground'] = (root, T) => {
   place(TOOLS['Fraction bar'](), 80, 80); place(TOOLS.Polygon(), 400, 200); place(TOOLS['Number tile'](), 300, 80);
   window.__demoProof = async () => 'manipulatives placed on grid (welcome modal)';
 };
+
+V['timeguessr-historic-photo-quiz'] = (root, T) => {
+  theme(root, T, { bg: '#060a17', fg: '#e8e2d8', panel: '#0a1411', ac: '#ffc83d', dark: true });
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  const ROUNDS = [
+    { title: 'Desert cylinder inspection', year: 1947, lat: 33.4, lon: -106.5, place: 'New Mexico, USA', hue: '#8b6b4a' },
+    { title: 'Crowd in red & yellow', year: 1969, lat: 41.9, lon: 12.5, place: 'Rome, Italy', hue: '#a83a3a' },
+    { title: 'Grand hall gathering', year: 1923, lat: 51.5, lon: -0.12, place: 'London, UK', hue: '#5a4a3a' },
+    { title: 'Harbor cranes at dusk', year: 1985, lat: 35.6, lon: 139.7, place: 'Tokyo, Japan', hue: '#3a5a7a' },
+    { title: 'Snow plaza parade', year: 1955, lat: 55.75, lon: 37.62, place: 'Moscow, USSR', hue: '#6a7a8a' },
+  ];
+  let mode = 'home'; // home | play | result
+  let ri = 0, yearGuess = 1950, pin = null, score = 0, last = null;
+
+  const shell = h('div', { style: { position: 'absolute', inset: 0, background: '#060a17' } });
+  root.append(shell);
+
+  const mapBg = () => {
+    // subtle world dots
+    const cv = h('canvas', { width: 900, height: 500, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: .35, pointerEvents: 'none' } });
+    const c = cv.getContext('2d');
+    c.fillStyle = '#0a1420'; c.fillRect(0, 0, 900, 500);
+    c.fillStyle = '#2a4a3a';
+    for (let i = 0; i < 800; i++) {
+      const x = (Math.sin(i * 12.9898) * 43758.5453 % 1) * 900;
+      const y = (Math.sin(i * 78.233) * 43758.5453 % 1) * 500;
+      if (y > 60 && y < 440) c.fillRect(x, y, 2, 2);
+    }
+    return cv;
+  };
+
+  const photoCard = (r, big = false) => {
+    const hgt = big ? '320px' : '160px';
+    return h('div', {
+      style: {
+        position: 'relative', borderRadius: '14px', overflow: 'hidden', height: hgt,
+        background: `linear-gradient(135deg, ${r.hue} 0%, #1a1210 100%)`,
+        boxShadow: '0 12px 40px #0008', border: '1px solid #ffffff18',
+      },
+    },
+      h('div', {
+        style: {
+          position: 'absolute', inset: 0,
+          backgroundImage: `radial-gradient(circle at 30% 40%, #ffffff22, transparent 50%),
+            repeating-linear-gradient(0deg, #00000018 0 2px, transparent 2px 4px)`,
+        },
+      }),
+      h('div', {
+        style: {
+          position: 'absolute', left: '16px', bottom: '14px', right: '16px',
+          fontSize: big ? '18px' : '14px', fontWeight: 700, textShadow: '0 2px 8px #000a',
+        },
+      }, r.title),
+      h('div', {
+        style: {
+          position: 'absolute', top: '12px', right: '12px', fontSize: '11px',
+          background: '#00000066', padding: '4px 8px', borderRadius: '99px', opacity: .8,
+        },
+      }, 'HISTORIC PHOTO'),
+    );
+  };
+
+  const yearScore = (g, t) => Math.max(0, 5000 - Math.abs(g - t) * 25);
+  const distKm = (a, b) => {
+    const R = 6371, toR = (d) => d * Math.PI / 180;
+    const dLat = toR(b.lat - a.lat), dLon = toR(b.lon - a.lon);
+    const x = Math.sin(dLat / 2) ** 2 + Math.cos(toR(a.lat)) * Math.cos(toR(b.lat)) * Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(x));
+  };
+  const locScore = (pin, t) => {
+    if (!pin) return 0;
+    const d = distKm(pin, t);
+    return Math.max(0, Math.round(5000 * Math.exp(-d / 2500)));
+  };
+
+  const render = () => {
+    if (mode === 'home') {
+      shell.replaceChildren(mapBg(),
+        h('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+          h('div.k-row', { style: { height: '56px', padding: '0 20px', gap: '12px' } },
+            h('span', { style: { fontSize: '18px', opacity: .7 } }, '☰'),
+            h('span', { style: { fontSize: '16px', opacity: .7 } }, '⚙'),
+            h('span', { style: { flex: 1 } }),
+            h('b', { style: { letterSpacing: '.18em', fontSize: '20px', fontWeight: 900 } }, 'TIMEGUESSR'),
+            h('span', { style: { flex: 1 } }),
+            h('button', { style: { background: 'transparent', border: '1px solid #ffffff33', color: '#eee', borderRadius: '8px', padding: '6px 12px', fontSize: '12px', cursor: 'pointer' } }, '🌐 English'),
+            h('button', { style: { background: 'transparent', border: '1px solid #ffffff33', color: '#eee', borderRadius: '8px', padding: '6px 12px', fontSize: '12px', cursor: 'pointer' } }, 'Log in'),
+          ),
+          h('div', {
+            style: {
+              flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '18px',
+              padding: '40px 48px', alignContent: 'center',
+            },
+          },
+            ...[
+              ['Play', 'Play a random game', 0],
+              ['Daily', 'Play the daily challenge', 1],
+              ['Community', 'Play games made by the community', 2],
+            ].map(([title, sub, idx]) => h('button', {
+              style: {
+                textAlign: 'left', border: '1px solid #ffffff22', borderRadius: '16px', padding: 0,
+                overflow: 'hidden', cursor: 'pointer', color: '#fff', background: 'transparent',
+                display: 'grid', gridTemplateRows: '1fr auto', minHeight: '280px',
+              },
+              onclick: () => { mode = 'play'; ri = idx % ROUNDS.length; yearGuess = 1950; pin = null; last = null; render(); },
+            }, photoCard(ROUNDS[idx], true),
+              h('div', { style: { padding: '14px 16px', background: '#0a0e1acc' } },
+                h('div', { style: { fontSize: '22px', fontWeight: 800 } }, title),
+                h('div', { style: { fontSize: '13px', opacity: .65, marginTop: '4px' } }, sub),
+              ))),
+          ),
+          h('div', { style: { textAlign: 'center', paddingBottom: '18px', fontSize: '12px', opacity: .45 } }, 'contact@timeguessr.com'),
+        ),
+      );
+      return;
+    }
+
+    const r = ROUNDS[ri];
+    if (mode === 'play') {
+      const yearLab = h('b', {}, String(yearGuess));
+      const map = h('div', {
+        style: {
+          position: 'relative', height: '280px', borderRadius: '12px', overflow: 'hidden',
+          background: '#0c1820', border: '1px solid #ffffff18', cursor: 'crosshair',
+        },
+      });
+      const drawMap = () => {
+        const cv = h('canvas', { width: 720, height: 280, style: { width: '100%', height: '100%', display: 'block' } });
+        const c = cv.getContext('2d');
+        c.fillStyle = '#0c1820'; c.fillRect(0, 0, 720, 280);
+        c.strokeStyle = '#1a3a30'; c.lineWidth = 1;
+        for (let x = 0; x < 720; x += 40) { c.beginPath(); c.moveTo(x, 0); c.lineTo(x, 280); c.stroke(); }
+        for (let y = 0; y < 280; y += 40) { c.beginPath(); c.moveTo(0, y); c.lineTo(720, y); c.stroke(); }
+        // continents blobs
+        c.fillStyle = '#1e4a3a88';
+        [[120, 100, 80, 50], [280, 90, 100, 60], [450, 110, 70, 40], [580, 130, 90, 55], [200, 180, 60, 30]].forEach(([x, y, w, h]) => {
+          c.beginPath(); c.ellipse(x, y, w, h, 0, 0, Math.PI * 2); c.fill();
+        });
+        if (pin) {
+          const px = ((pin.lon + 180) / 360) * 720;
+          const py = ((90 - pin.lat) / 180) * 280;
+          c.fillStyle = '#ffc83d'; c.beginPath(); c.arc(px, py, 7, 0, Math.PI * 2); c.fill();
+          c.strokeStyle = '#fff'; c.lineWidth = 2; c.stroke();
+        }
+        map.replaceChildren(cv);
+        cv.addEventListener('click', (e) => {
+          const rect = cv.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          pin = { lon: x * 360 - 180, lat: 90 - y * 180 };
+          drawMap();
+        });
+      };
+      drawMap();
+
+      shell.replaceChildren(
+        h('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' } },
+          h('div.k-row', { style: { height: '48px', padding: '0 16px', gap: '10px', borderBottom: '1px solid #ffffff12' } },
+            h('button', { style: { background: 'transparent', border: 0, color: '#aaa', cursor: 'pointer', fontSize: '14px' }, onclick: () => { mode = 'home'; render(); } }, '← Home'),
+            h('b', { style: { letterSpacing: '.14em' } }, 'TIMEGUESSR'),
+            h('span', { style: { flex: 1 } }),
+            h('span', { style: { fontSize: '12px', opacity: .55 } }, `Round ${ri + 1} / ${ROUNDS.length}`),
+            h('span', { style: { fontSize: '12px', color: '#ffc83d' } }, `Score ${score}`),
+          ),
+          h('div', { style: { flex: 1, display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '16px', padding: '16px', minHeight: 0 } },
+            h('div', { style: { display: 'grid', gap: '12px', alignContent: 'start' } },
+              photoCard(r, true),
+              h('div', { style: { fontSize: '13px', opacity: .6 } }, 'Guess the year this photo was taken, then pin the location on the map.'),
+            ),
+            h('div', { style: { display: 'grid', gap: '12px', alignContent: 'start' } },
+              h('div', { style: { background: '#0e1624', borderRadius: '12px', padding: '14px', border: '1px solid #ffffff12' } },
+                h('div.k-row', {}, h('span', { style: { fontSize: '12px', opacity: .55 } }, 'YEAR'), h('span', { style: { flex: 1 } }), yearLab),
+                h('input', {
+                  type: 'range', min: 1900, max: 2020, value: yearGuess,
+                  style: { width: '100%', accentColor: '#ffc83d', marginTop: '8px' },
+                  oninput: (e) => { yearGuess = +e.target.value; yearLab.textContent = String(yearGuess); },
+                }),
+                h('div.k-row', { style: { fontSize: '11px', opacity: .4, marginTop: '4px' } }, h('span', {}, '1900'), h('span', { style: { flex: 1 } }), h('span', {}, '2020')),
+              ),
+              h('div', {},
+                h('div', { style: { fontSize: '12px', opacity: .55, marginBottom: '6px' } }, 'LOCATION — click to pin'),
+                map,
+              ),
+              btn('Guess!', () => {
+                const ys = yearScore(yearGuess, r.year);
+                const ls = locScore(pin, r);
+                const total = ys + ls;
+                last = { ys, ls, total, dist: pin ? Math.round(distKm(pin, r)) : null };
+                score += total;
+                mode = 'result';
+                render();
+              }, 'pri'),
+            ),
+          ),
+        ),
+      );
+      return;
+    }
+
+    // result
+    const ys = last?.ys || 0, ls = last?.ls || 0;
+    shell.replaceChildren(
+      h('div', { style: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', padding: '24px' } },
+        h('div', {
+          style: {
+            width: 'min(520px, 100%)', background: '#0e1624', borderRadius: '16px',
+            border: '1px solid #ffffff18', padding: '24px', display: 'grid', gap: '14px',
+          },
+        },
+          h('div', { style: { fontSize: '12px', letterSpacing: '.16em', color: '#ffc83d' } }, 'ROUND RESULT'),
+          h('b', { style: { fontSize: '28px' } }, `+${last?.total || 0} pts`),
+          photoCard(r, false),
+          h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '13px' } },
+            h('div', { style: { background: '#ffffff08', borderRadius: '10px', padding: '12px' } },
+              h('div', { style: { opacity: .5, fontSize: '11px' } }, 'YEAR'),
+              h('div', {}, `Guess ${yearGuess} · Answer ${r.year}`),
+              h('div', { style: { color: '#ffc83d', marginTop: '4px' } }, `+${ys}`),
+            ),
+            h('div', { style: { background: '#ffffff08', borderRadius: '10px', padding: '12px' } },
+              h('div', { style: { opacity: .5, fontSize: '11px' } }, 'LOCATION'),
+              h('div', {}, r.place),
+              h('div', { style: { color: '#ffc83d', marginTop: '4px' } }, last?.dist != null ? `${last.dist} km · +${ls}` : 'No pin · +0'),
+            ),
+          ),
+          h('div.k-row', { style: { gap: '8px' } },
+            btn('Next round', () => {
+              ri = (ri + 1) % ROUNDS.length;
+              yearGuess = 1950; pin = null; last = null; mode = 'play'; render();
+            }, 'pri'),
+            btn('Home', () => { mode = 'home'; render(); }),
+          ),
+        ),
+      ),
+    );
+  };
+
+  render();
+
+  window.__demoProof = async () => {
+    mode = 'play'; ri = 0; yearGuess = 1945; pin = { lat: 34, lon: -107 }; score = 0; last = null;
+    render();
+    await sleep(80);
+    const r = ROUNDS[0];
+    const ys = yearScore(yearGuess, r.year);
+    const ls = locScore(pin, r);
+    last = { ys, ls, total: ys + ls, dist: Math.round(distKm(pin, r)) };
+    score += last.total;
+    mode = 'result';
+    render();
+    await sleep(80);
+    mode = 'home'; render();
+    return `guessed year+map → scored ${last.total} · returned home`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

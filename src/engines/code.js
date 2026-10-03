@@ -429,4 +429,120 @@ color(0.55, 0.95, 0.65);`,
   };
 };
 
+
+V['hydra-live-visual-synth'] = (root, T) => {
+  theme(root, T, { bg: '#000', fg: '#f0f0f0', panel: '#010101', ac: '#fff', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+
+  const SNIPS = [
+    'osc(20, 0.1, 1.2)\n  .rotate(0.6)\n  .kaleid(5)\n  .modulate(noise(3), 0.2)\n  .out()',
+    'osc(10, 0.2, 0.8)\n  .rotate(1.2)\n  .pixelate(24, 24)\n  .out()',
+    'osc(30, 0.1, 2)\n  .modulate(noise(4), 0.4)\n  .kaleid(3)\n  .out()',
+    'osc(40, 0.05, 1.5)\n  .kaleid(7)\n  .rotate(0.2)\n  .out()',
+    'osc(8, 0.15, 0)\n  .modulate(noise(2), 0.6)\n  .pixelate(40, 20)\n  .out()',
+  ];
+  let code = SNIPS[0];
+  let showInfo = true;
+
+  const toGLSL = (c) => {
+    const f = (n, d) => {
+      const m = c.match(new RegExp(n + '\\(([^)]*)\\)'));
+      return m ? m[1].split(',').map((x) => parseFloat(x) || 0).concat(d).slice(0, d.length).map((x, i) => (isNaN(x) ? d[i] : x)) : null;
+    };
+    const o = f('osc', [60, 0.1, 0]) || [60, 0.1, 0];
+    const rot = f('rotate', [0]);
+    const kal = f('kaleid', [4]);
+    const mod = f('modulate', [0, 0.1]);
+    const pix = f('pixelate', [20, 20]);
+    return `precision highp float;uniform vec2 r;uniform float t;float h(vec2 p){return fract(sin(dot(p,vec2(12.9,78.2)))*43758.);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f*=f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1)),f.x),f.y);}void main(){vec2 uv=gl_FragCoord.xy/r;vec2 p=uv-.5;p.x*=r.x/r.y;${rot ? `float a=${rot[0].toFixed(3)};p=mat2(cos(a),-sin(a),sin(a),cos(a))*p;` : ''}${kal ? `float k=${kal[0].toFixed(1)};float an=atan(p.y,p.x);float rr=length(p);an=mod(an,6.2832/k);an=abs(an-3.1416/k);p=vec2(cos(an),sin(an))*rr;` : ''}${mod ? `p+=(n(p*3.+t*.3)-.5)*${mod[1].toFixed(3)};` : ''}${pix ? `p=floor(p*${pix[0].toFixed(1)})/${pix[0].toFixed(1)};` : ''}float fr=${o[0].toFixed(2)},sp=${o[1].toFixed(3)},of=${o[2].toFixed(3)};float band=sin(p.x*fr+t*sp*6.28+of);float grain=h(uv*r*.5+t)*.12;vec3 c=vec3(band*.5+.5)+grain;float vig=smoothstep(1.2,.3,length(uv-.5));c*=vig;gl_FragColor=vec4(c,1);}`;
+  };
+
+  const G = gl(toGLSL(code));
+  G.cv.style.position = 'absolute';
+  G.cv.style.inset = '0';
+  G.cv.style.filter = 'contrast(1.15) brightness(1.05)';
+
+  const ta = h('textarea', {
+    spellcheck: false, value: code,
+    style: {
+      position: 'absolute', left: '20px', top: '20px', width: 'min(520px, 55vw)', height: '220px',
+      background: 'transparent', color: '#fff', border: 0, outline: 'none',
+      font: `17px/1.55 ${MONO}`, textShadow: '0 0 4px #000,0 0 10px #000', resize: 'none', zIndex: 2,
+    },
+    onkeydown: (e) => {
+      if ((e.ctrlKey || e.metaKey || e.shiftKey) && e.key === 'Enter') {
+        e.preventDefault(); code = ta.value; G.compile(toGLSL(code)); toast('compiled');
+      }
+    },
+  });
+
+  const run = () => { code = ta.value; G.compile(toGLSL(code)); };
+  const shuffle = () => {
+    ta.value = pick(SNIPS);
+    code = ta.value; G.compile(toGLSL(code));
+  };
+
+  const toolbar = h('div.k-row', {
+    style: {
+      position: 'absolute', right: '16px', top: '14px', gap: '14px', fontSize: '18px', zIndex: 3,
+      color: '#fff', textShadow: '0 0 6px #000',
+    },
+  },
+    h('span', { style: { cursor: 'pointer' }, title: 'Run', onclick: run }, '▶'),
+    h('span', { style: { cursor: 'pointer' }, title: 'Random', onclick: shuffle }, '🎲'),
+    h('span', { style: { cursor: 'pointer' }, title: 'Info', onclick: () => { showInfo = true; paintInfo(); } }, '?'),
+  );
+
+  const infoHost = h('div', { style: { position: 'absolute', inset: 0, zIndex: 5, pointerEvents: 'none' } });
+  const paintInfo = () => {
+    if (!showInfo) { infoHost.replaceChildren(); return; }
+    infoHost.replaceChildren(h('div', {
+      style: {
+        pointerEvents: 'auto', position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)',
+        width: 'min(640px, 92vw)', background: '#000', border: '1px solid #fff', padding: '20px 28px',
+        fontSize: '14px', lineHeight: 1.7, color: '#fff',
+      },
+    },
+      h('div.k-row', { style: { fontSize: '12px', gap: '10px', opacity: .85, flexWrap: 'wrap' } },
+        'english', 'español', h('b', {}, '한글'), '中文', 'français', 'deutsch', '日本語',
+        h('span', { style: { flex: 1 } }),
+        h('span', { style: { cursor: 'pointer' }, onclick: () => { showInfo = false; paintInfo(); } }, '✕'),
+      ),
+      h('div', { style: { fontSize: '28px', marginTop: '14px', fontWeight: 700 } }, '하이드라'),
+      h('div', { style: { opacity: .7 } }, '라이브 코딩 비디오 신스'),
+      h('div', { style: { margin: '12px 0', opacity: .5, letterSpacing: '1px' } }, '//////////////////////////////////////////'),
+      h('p', {}, '하이드라는 브라우저에서 동작하는 라이브 코딩 비디오 신시사이저입니다. osc(), rotate(), kaleid(), modulate(), pixelate() 체인을 연결해 시각을 만듭니다.'),
+      h('div', { style: { margin: '8px 0', opacity: .5 } }, 'To start'),
+      h('ol', { style: { margin: 0, paddingLeft: '18px' } },
+        h('li', {}, '이 창을 닫습니다'),
+        h('li', {}, '왼쪽 위 코드의 숫자를 바꿉니다'),
+        h('li', {}, 'Ctrl + Shift + Enter 로 실행합니다'),
+      ),
+      h('div', { style: { margin: '12px 0', opacity: .5, letterSpacing: '1px' } }, '//////////////////////////////////////////'),
+      h('p', { style: { opacity: .65, fontSize: '12px' } }, 'Hydra-ish · JS-like chains compile to a WebGL fragment shader in real time.'),
+    ));
+  };
+  paintInfo();
+
+  const t0 = performance.now();
+  const loop = () => { G.draw((performance.now() - t0) / 1000); requestAnimationFrame(loop); };
+  loop();
+
+  root.append(G.cv, ta, toolbar, infoHost);
+
+  window.__demoProof = async () => {
+    showInfo = true; paintInfo();
+    await sleep(60);
+    showInfo = false; paintInfo();
+    ta.value = SNIPS[2]; code = ta.value; G.compile(toGLSL(code));
+    await sleep(100);
+    ta.value = SNIPS[1]; code = ta.value; G.compile(toGLSL(code));
+    await sleep(80);
+    ta.value = SNIPS[0]; code = ta.value; G.compile(toGLSL(code));
+    showInfo = true; paintInfo();
+    return 'info toggled · osc/modulate/kaleid snippets compiled · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }
