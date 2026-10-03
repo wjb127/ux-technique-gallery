@@ -944,4 +944,223 @@ V['pattern-monster-svg-pattern-desk'] = (root, T) => {
   };
 };
 
+
+V['dicebear-avatar-seed-playground'] = (root, T) => {
+  theme(root, T, { bg: '#f7f7f8', fg: '#1a1a1a', panel: '#fff', ac: '#0d9373', dark: false });
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+  root.style.overflow = 'hidden';
+
+  const STYLES = [
+    { id: 'adventurer', label: 'Adventurer', hair: 'long', eyes: 'default', mouth: 'smile' },
+    { id: 'lorelei', label: 'Lorelei', hair: 'bun', eyes: 'happy', mouth: 'smile' },
+    { id: 'bottts', label: 'Bottts', hair: 'none', eyes: 'default', mouth: 'serious' },
+    { id: 'shapes', label: 'Shapes', hair: 'short', eyes: 'wink', mouth: 'open' },
+    { id: 'identicon', label: 'Identicon', hair: 'none', eyes: 'default', mouth: 'serious' },
+    { id: 'fun-emoji', label: 'Fun Emoji', hair: 'short', eyes: 'happy', mouth: 'open' },
+    { id: 'pixel', label: 'Pixel', hair: 'short', eyes: 'default', mouth: 'smile' },
+    { id: 'rings', label: 'Rings', hair: 'long', eyes: 'wink', mouth: 'smile' },
+  ];
+  const SKINS = ['#f2c7a5', '#e0a878', '#b67b52', '#8d5a3b', '#5c3a23'];
+  const HAIRS = ['#2b1b10', '#6b3e26', '#c98a3a', '#e8d27a', '#b33a3a', '#8a8fa0'];
+  const BGS = ['#e8f5e9', '#e3f2fd', '#fce4ec', '#fff8e1', '#f3e5f5', '#e0f7fa'];
+  const SHIRTS = ['#0d9373', '#5a4bff', '#ff5a7a', '#222', '#ffb020', '#1bb57a'];
+
+  const hash = (str) => {
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  };
+  const pickN = (arr, h, i) => arr[(h + i * 97) % arr.length];
+
+  let style = STYLES[0].id;
+  let seed = 'playground';
+  const state = () => {
+    const h = hash(style + '::' + seed);
+    const st = STYLES.find((x) => x.id === style) || STYLES[0];
+    if (style === 'identicon') {
+      return { kind: 'identicon', h, size: 280 };
+    }
+    if (style === 'shapes') {
+      return { kind: 'shapes', h, size: 280 };
+    }
+    if (style === 'bottts') {
+      return { kind: 'bottts', h, size: 280 };
+    }
+    if (style === 'rings') {
+      return { kind: 'rings', h, size: 280 };
+    }
+    return {
+      kind: 'face',
+      skin: pickN(SKINS, h, 1),
+      hair: st.hair,
+      hairColor: pickN(HAIRS, h, 2),
+      eyes: st.eyes,
+      mouth: st.mouth,
+      bg: pickN(BGS, h, 3),
+      shirt: pickN(SHIRTS, h, 4),
+      glasses: (h & 7) === 0,
+      size: 280,
+    };
+  };
+
+  const identiconSVG = (h, size) => {
+    const g = s('svg', { viewBox: '0 0 5 5', width: size, height: size });
+    const c = '#' + ((h & 0xffffff) | 0x333333).toString(16).padStart(6, '0');
+    g.append(s('rect', { width: 5, height: 5, fill: '#f0f0f0' }));
+    for (let y = 0; y < 5; y++) for (let x = 0; x < 3; x++) {
+      if ((h >> (y * 3 + x)) & 1) {
+        g.append(s('rect', { x, y, width: 1, height: 1, fill: c }));
+        if (x < 2) g.append(s('rect', { x: 4 - x, y, width: 1, height: 1, fill: c }));
+      }
+    }
+    return g;
+  };
+  const shapesSVG = (h, size) => {
+    const g = s('svg', { viewBox: '0 0 200 200', width: size, height: size });
+    const bg = pickN(BGS, h, 0);
+    g.append(s('rect', { width: 200, height: 200, rx: 24, fill: bg }));
+    for (let i = 0; i < 5; i++) {
+      const x = 30 + ((h >> (i * 3)) & 7) * 18;
+      const y = 30 + ((h >> (i * 4 + 2)) & 7) * 18;
+      const r = 18 + ((h >> i) & 15);
+      const fill = pickN(SHIRTS, h, i);
+      if (i % 3 === 0) g.append(s('circle', { cx: x, cy: y, r, fill, opacity: 0.85 }));
+      else if (i % 3 === 1) g.append(s('rect', { x: x - r / 2, y: y - r / 2, width: r, height: r, rx: 6, fill, opacity: 0.85 }));
+      else g.append(s('polygon', { points: `${x},${y - r} ${x + r},${y + r} ${x - r},${y + r}`, fill, opacity: 0.85 }));
+    }
+    return g;
+  };
+  const botttsSVG = (h, size) => {
+    const g = s('svg', { viewBox: '0 0 200 200', width: size, height: size });
+    const bg = pickN(BGS, h, 5);
+    const body = pickN(SHIRTS, h, 1);
+    g.append(s('rect', { width: 200, height: 200, rx: 20, fill: bg }));
+    g.append(s('rect', { x: 50, y: 55, width: 100, height: 90, rx: 12, fill: body }));
+    g.append(s('rect', { x: 70, y: 80, width: 22, height: 14, rx: 3, fill: '#fff' }));
+    g.append(s('rect', { x: 108, y: 80, width: 22, height: 14, rx: 3, fill: '#fff' }));
+    g.append(s('rect', { x: 78, y: 110, width: 44, height: 8, rx: 2, fill: '#111' }));
+    g.append(s('circle', { cx: 100, cy: 45, r: 10, fill: body }));
+    g.append(s('line', { x1: 100, y1: 45, x2: 100, y2: 55, stroke: body, 'stroke-width': 4 }));
+    return g;
+  };
+  const ringsSVG = (h, size) => {
+    const g = s('svg', { viewBox: '0 0 200 200', width: size, height: size });
+    g.append(s('rect', { width: 200, height: 200, rx: 100, fill: pickN(BGS, h, 2) }));
+    for (let i = 0; i < 4; i++) {
+      const r = 30 + i * 18;
+      g.append(s('circle', { cx: 100, cy: 100, r, fill: 'none', stroke: pickN(SHIRTS, h, i), 'stroke-width': 6 + (h >> i) % 4, opacity: 0.8 }));
+    }
+    g.append(s('circle', { cx: 100, cy: 100, r: 14, fill: pickN(SKINS, h, 0) }));
+    return g;
+  };
+
+  const preview = h('div', {
+    style: {
+      display: 'grid', placeItems: 'center', flex: 1,
+      background: '#fff', borderRadius: '16px', border: '1px solid #e8e8ea',
+      minHeight: '360px', boxShadow: '0 8px 30px #0000000a',
+    },
+  });
+  const seedInput = h('input', {
+    value: seed,
+    style: {
+      width: '100%', padding: '10px 12px', borderRadius: '8px',
+      border: '1px solid #d0d0d4', font: '14px ui-monospace,monospace', outline: 'none',
+    },
+    oninput: (e) => { seed = e.target.value || ' '; draw(); },
+  });
+  const meta = h('div', { style: { fontSize: '12px', opacity: .55, marginTop: '8px' } });
+
+  const draw = () => {
+    const o = state();
+    let node;
+    if (o.kind === 'identicon') node = identiconSVG(o.h, o.size);
+    else if (o.kind === 'shapes') node = shapesSVG(o.h, o.size);
+    else if (o.kind === 'bottts') node = botttsSVG(o.h, o.size);
+    else if (o.kind === 'rings') node = ringsSVG(o.h, o.size);
+    else node = avatarSVG(o);
+    preview.replaceChildren(node);
+    meta.textContent = `style=${style} · seed="${seed}" · hash=${hash(style + '::' + seed).toString(16)}`;
+  };
+
+  const side = h('div', {
+    style: {
+      width: '240px', padding: '18px 14px', borderRight: '1px solid #e8e8ea',
+      background: '#fff', overflow: 'auto', display: 'grid', gap: '8px', alignContent: 'start',
+    },
+  },
+    h('div', { style: { fontSize: '11px', letterSpacing: '.12em', opacity: .5, marginBottom: '4px' } }, 'STYLES'),
+    ...STYLES.map((st) => h('button', {
+      style: {
+        textAlign: 'left', padding: '10px 12px', borderRadius: '8px', cursor: 'pointer',
+        border: '1px solid ' + (style === st.id ? '#0d9373' : '#e8e8ea'),
+        background: style === st.id ? '#0d937314' : '#fafafa',
+        fontWeight: style === st.id ? 700 : 500, fontSize: '13px', color: 'inherit',
+      },
+      onclick: () => { style = st.id; paintSide(); draw(); },
+    }, st.label)),
+  );
+  const paintSide = () => {
+    side.replaceChildren(
+      h('div', { style: { fontSize: '11px', letterSpacing: '.12em', opacity: .5, marginBottom: '4px' } }, 'STYLES'),
+      ...STYLES.map((st) => h('button', {
+        style: {
+          textAlign: 'left', padding: '10px 12px', borderRadius: '8px', cursor: 'pointer',
+          border: '1px solid ' + (style === st.id ? '#0d9373' : '#e8e8ea'),
+          background: style === st.id ? '#0d937314' : '#fafafa',
+          fontWeight: style === st.id ? 700 : 500, fontSize: '13px', color: 'inherit',
+        },
+        onclick: () => { style = st.id; paintSide(); draw(); },
+      }, st.label)),
+    );
+  };
+
+  const main = h('div', {
+    style: { flex: 1, padding: '20px 28px', display: 'flex', flexDirection: 'column', gap: '14px', overflow: 'auto' },
+  },
+    h('div.k-row', {},
+      h('div', {},
+        h('div', { style: { fontSize: '11px', letterSpacing: '.14em', opacity: .5 } }, 'AVATAR SEED PLAYGROUND'),
+        h('h1', { style: { margin: '4px 0 0', fontSize: '26px', fontWeight: 700 } }, 'Dice-ish Bear'),
+      ),
+      h('span', { style: { flex: 1 } }),
+      btn('Randomize 🎲', () => {
+        seed = Math.random().toString(36).slice(2, 10);
+        seedInput.value = seed;
+        draw();
+        toast('seed → ' + seed);
+      }, 'pri'),
+      btn('Copy SVG', () => {
+        const svgEl = preview.querySelector('svg');
+        if (svgEl) copy(ser(svgEl), 'SVG copied');
+      }),
+      btn('Download', () => toast('avatar.svg (stub)')),
+    ),
+    h('div', {},
+      h('div', { style: { fontSize: '12px', marginBottom: '6px', opacity: .65 } }, 'Seed — same seed + style → same face'),
+      seedInput, meta,
+    ),
+    preview,
+  );
+
+  root.append(h('div', {
+    style: { position: 'absolute', inset: 0, display: 'flex', background: '#f7f7f8' },
+  }, side, main));
+  paintSide();
+  draw();
+
+  window.__demoProof = async () => {
+    const before = { style, seed };
+    style = 'bottts'; seed = 'proof-seed'; seedInput.value = seed; paintSide(); draw();
+    await sleep(80);
+    const a = hash(style + '::' + seed);
+    seed = 'proof-seed'; draw();
+    const b = hash(style + '::' + seed);
+    seed = Math.random().toString(36).slice(2, 8); seedInput.value = seed; draw();
+    await sleep(60);
+    style = before.style; seed = before.seed; seedInput.value = seed; paintSide(); draw();
+    return `style+seed deterministic (${a === b}) · randomized · restored`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

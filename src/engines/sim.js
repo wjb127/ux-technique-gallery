@@ -858,4 +858,171 @@ V['paperplanes-throw-catch-world'] = (root, T) => {
   };
 };
 
+
+V['collidingscopes-liquid-distort-desk'] = (root, T) => {
+  theme(root, T, { bg: '#050510', fg: '#f0e8ff', panel: '#12081ecc', ac: '#ff2bd6', dark: true });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable,system-ui,sans-serif';
+
+  const P = { warp: 1.4, speed: 0.55, hue: 280, blobs: 5, seed: 7, paused: false };
+  let t0 = performance.now();
+  let tAcc = 0;
+  let last = t0;
+
+  const cv = h('canvas', {
+    style: { position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block', cursor: 'crosshair' },
+  });
+  root.append(cv);
+
+  const R0 = rng(P.seed);
+  let centers = [];
+  const reseed = (s = Math.floor(Math.random() * 1e6)) => {
+    P.seed = s;
+    const R = rng(s);
+    P.hue = (R() * 360) | 0;
+    P.warp = 0.6 + R() * 2.2;
+    P.speed = 0.25 + R() * 1.1;
+    P.blobs = 4 + ((R() * 4) | 0);
+    centers = Array.from({ length: P.blobs }, () => ({
+      x: R(), y: R(),
+      px: 0.3 + R() * 0.7, py: 0.3 + R() * 0.7,
+      ph: R() * Math.PI * 2,
+      r: 0.12 + R() * 0.22,
+      h: R() * 60 - 30,
+    }));
+  };
+  reseed(P.seed);
+
+  const loop = (now) => {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    if (!P.paused) tAcc += dt * P.speed;
+    fitCanvas(cv, root);
+    const g = cv.g, W = cv.W, H = cv.H;
+    const t = tAcc;
+
+    // psychedelic base wash
+    const bg = g.createLinearGradient(0, 0, W, H);
+    bg.addColorStop(0, `hsl(${(P.hue + t * 12) % 360} 70% 8%)`);
+    bg.addColorStop(0.5, `hsl(${(P.hue + 80 + t * 8) % 360} 55% 12%)`);
+    bg.addColorStop(1, `hsl(${(P.hue + 160) % 360} 60% 6%)`);
+    g.fillStyle = bg;
+    g.fillRect(0, 0, W, H);
+
+    // liquid blobs with domain-warp-ish motion
+    g.globalCompositeOperation = 'lighter';
+    for (const c of centers) {
+      const x = (c.x + Math.sin(t * c.px + c.ph) * 0.18 * P.warp);
+      const y = (c.y + Math.cos(t * c.py + c.ph * 1.3) * 0.16 * P.warp);
+      const cx = ((x % 1) + 1) % 1 * W;
+      const cy = ((y % 1) + 1) % 1 * H;
+      const rr = c.r * Math.min(W, H) * (0.85 + 0.15 * Math.sin(t * 2 + c.ph));
+      const grd = g.createRadialGradient(cx, cy, 0, cx, cy, rr);
+      const hh = (P.hue + c.h + t * 20) % 360;
+      grd.addColorStop(0, `hsla(${hh} 95% 62% / 0.85)`);
+      grd.addColorStop(0.45, `hsla(${(hh + 40) % 360} 90% 50% / 0.35)`);
+      grd.addColorStop(1, `hsla(${hh} 80% 40% / 0)`);
+      g.fillStyle = grd;
+      g.beginPath();
+      // distorted ellipse
+      g.ellipse(cx, cy, rr * (1 + 0.25 * Math.sin(t * 3 + c.ph) * P.warp), rr * (1 + 0.2 * Math.cos(t * 2.4 + c.ph)), t + c.ph, 0, 7);
+      g.fill();
+      // rim shadow / light
+      g.strokeStyle = `hsla(${(hh + 180) % 360} 80% 70% / 0.25)`;
+      g.lineWidth = 2;
+      g.stroke();
+    }
+    g.globalCompositeOperation = 'source-over';
+
+    // secondary ripple ribbons
+    g.strokeStyle = `hsla(${(P.hue + 90) % 360} 90% 70% / 0.2)`;
+    g.lineWidth = 1.5;
+    for (let k = 0; k < 3; k++) {
+      g.beginPath();
+      for (let x = 0; x <= W; x += 8) {
+        const y = H * (0.3 + k * 0.2) + Math.sin(x * 0.012 + t * 2 + k) * 40 * P.warp
+          + Math.sin(x * 0.03 - t * 1.5 + k * 2) * 18;
+        x ? g.lineTo(x, y) : g.moveTo(x, y);
+      }
+      g.stroke();
+    }
+
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+
+  const cluster = h('div', {
+    style: {
+      position: 'absolute', right: '14px', top: '14px', zIndex: 5,
+      display: 'flex', gap: '8px', alignItems: 'center',
+    },
+  });
+  const mkIcon = (label, title, fn) => h('button', {
+    title,
+    style: {
+      width: '42px', height: '42px', borderRadius: '50%', border: '1px solid #ffffff33',
+      background: '#12081ecc', color: '#fff', fontSize: '18px', cursor: 'pointer',
+      backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px #0006',
+    },
+    onclick: fn,
+  }, label);
+
+  const pauseBtn = mkIcon('⏸', 'Pause / play', () => {
+    P.paused = !P.paused;
+    pauseBtn.textContent = P.paused ? '▶' : '⏸';
+    toast(P.paused ? 'paused' : 'playing');
+  });
+  cluster.append(
+    mkIcon('🎲', 'Randomize', () => {
+      reseed();
+      syncSliders();
+      toast('randomized · hue ' + (P.hue | 0));
+    }),
+    pauseBtn,
+    mkIcon('📷', 'Screenshot stub', () => toast('frame saved (stub)')),
+  );
+
+  const panel = h('div', {
+    style: {
+      position: 'absolute', left: '14px', bottom: '14px', zIndex: 5,
+      width: '260px', padding: '12px 14px', borderRadius: '12px',
+      background: '#12081ecc', border: '1px solid #ffffff22',
+      backdropFilter: 'blur(10px)', display: 'grid', gap: '6px',
+      fontSize: '11px', color: '#f0e8ff',
+    },
+  });
+  let warpSl, speedSl, hueSl;
+  const syncSliders = () => {
+    panel.replaceChildren(
+      h('div', { style: { letterSpacing: '.14em', opacity: .55, marginBottom: '2px' } }, 'LIQUID DISTORT'),
+      (warpSl = slider('Warp', 0.2, 3, P.warp, 0.05, (v) => (P.warp = v))),
+      (speedSl = slider('Speed', 0.05, 2, P.speed, 0.01, (v) => (P.speed = v))),
+      (hueSl = slider('Hue', 0, 360, P.hue, 1, (v) => (P.hue = v))),
+      h('div', { style: { opacity: .45, marginTop: '4px' } }, `blobs ${centers.length} · seed ${P.seed}`),
+    );
+  };
+  syncSliders();
+
+  const tag = h('div', {
+    style: {
+      position: 'absolute', left: '14px', top: '14px', zIndex: 5,
+      fontSize: '11px', letterSpacing: '.2em', opacity: .5, color: '#fff',
+    },
+  }, 'COLLIDING · LIQUID SHAPES');
+
+  root.append(cluster, panel, tag);
+
+  window.__demoProof = async () => {
+    const before = { ...P, seed: P.seed };
+    reseed(99); P.warp = 2.2; P.speed = 1.1; P.hue = 330; syncSliders();
+    await sleep(100);
+    P.paused = true; pauseBtn.textContent = '▶';
+    await sleep(80);
+    P.paused = false; pauseBtn.textContent = '⏸';
+    reseed(before.seed); P.warp = before.warp; P.speed = before.speed; P.hue = before.hue;
+    syncSliders();
+    return 'randomized + pause/play + 3 sliders · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }

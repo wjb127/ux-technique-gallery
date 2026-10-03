@@ -93,7 +93,8 @@
   "icones-icon-explorer-desk",
   "svgomg-optimize-toggle-desk",
   "boxy-svg-craft-editor",
-  "pattern-monster-svg-pattern-desk"
+  "pattern-monster-svg-pattern-desk",
+  "dicebear-avatar-seed-playground"
  ],
  "imagefx": [
   "duotone-photo-studio",
@@ -154,7 +155,8 @@
   "mondrian-partition-canvas",
   "matterjs-physics-demo-desk",
   "particulardrift-image-particle-desk",
-  "paperplanes-throw-catch-world"
+  "paperplanes-throw-catch-world",
+  "collidingscopes-liquid-distort-desk"
  ],
  "gen": [
   "tinkersynth-slopes-synth-desk",
@@ -251,7 +253,8 @@
   "parody-desktop-os-sandbox",
   "retro-boot-desktop-museum",
   "winamp-skinned-player-chrome",
-  "retro-media-player-chrome"
+  "retro-media-player-chrome",
+  "cyanbanister-vaporwave-os-desk"
  ],
  "three": [
   "3d-blob-param-mixer",

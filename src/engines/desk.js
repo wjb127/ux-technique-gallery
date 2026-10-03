@@ -46,4 +46,161 @@ V['retro-media-player-chrome'] = (root, T) => {
   root.append(h('div.k-row', { style: { position: 'absolute', left: 0, right: 0, top: 0, height: '24px', background: '#fff', borderBottom: '2px solid #222', padding: '0 10px', fontSize: '12px', gap: '16px', fontWeight: 700 } }, '🍑', 'File', 'Edit', 'View', 'Special', h('span', { style: { flex: 1 } }), h('span', { style: { background: '#222', color: '#fff', padding: '0 6px' } }, 'TUNE IN · FREE'), '☀ 27°'), h('div.k-row', { style: { position: 'absolute', bottom: '14px', left: '50%', transform: 'translateX(-50%)', background: '#fff', border: '2px solid #222', boxShadow: '3px 3px 0 #222', padding: '6px', gap: '4px' } }, ...DOCK.map(([ic, n, f]) => h('div', { style: { width: '54px', textAlign: 'center', fontSize: '10px', cursor: 'pointer', padding: '4px 0', border: '1px solid transparent' }, onclick: f }, h('div', { style: { fontSize: '24px' } }, ic), n))));
   window.__demoProof = async () => 'pink desktop with dock (click Player to open)';
 };
+
+V['cyanbanister-vaporwave-os-desk'] = (root, T) => {
+  let night = false;
+  const apply = () => {
+    const bg = night
+      ? 'radial-gradient(ellipse at 30% 20%,#2a0845 0%,#0a1628 55%,#120818 100%)'
+      : 'radial-gradient(ellipse at 70% 10%,#ff71ce55 0%,#01cdfe33 35%,#05ffa122 60%,#b967ff22 100%),linear-gradient(160deg,#0b3d4a 0%,#1a0a2e 50%,#3d0a4a 100%)';
+    theme(root, T, { bg: night ? '#0a1628' : '#0b3d4a', fg: night ? '#e0b0ff' : '#e8fff6', ac: night ? '#ff71ce' : '#01cdfe', dark: true });
+    root.style.background = bg;
+    root.style.fontFamily = "'VT323',monospace";
+    root.style.overflow = 'hidden';
+    if (clock) clock.textContent = night ? '☾ AFTER DARK' : '☀ DAY GLOW';
+    root.querySelectorAll('[data-vw]').forEach((w) => {
+      w.style.borderColor = night ? '#ff71ce' : '#01cdfe';
+      w.style.boxShadow = night ? '0 0 24px #ff71ce55, inset 0 0 0 1px #ff71ce44' : '0 0 24px #01cdfe55, inset 0 0 0 1px #01cdfe44';
+    });
+  };
+  const icons = [
+    ['🖥', 'Terminal', 'term'],
+    ['📁', 'Folders', 'fold'],
+    ['✦', 'About', 'about'],
+    ['🎨', 'ASCII', 'ascii'],
+    ['💾', 'Ugly Duck', 'duck'],
+  ];
+  let z = 20;
+  const mkWin = (title, body, { x = 120, y = 70, w = 360, hh = 220 } = {}) => {
+    const bar = h('div.k-row', {
+      style: {
+        background: night ? 'linear-gradient(90deg,#5a1a6e,#ff71ce)' : 'linear-gradient(90deg,#014d5c,#01cdfe)',
+        color: '#fff', padding: '4px 8px', fontSize: '14px', letterSpacing: '.06em',
+        cursor: 'move', gap: '6px', borderBottom: '1px solid #ffffff33',
+      },
+    }, h('span', {}, '◈ ' + title), h('span', { style: { flex: 1 } }), h('span', {
+      style: { cursor: 'pointer', opacity: .85, fontSize: '16px' },
+      onclick: () => el.remove(),
+    }, '×'));
+    const el = h('div', {
+      'data-vw': '1',
+      style: {
+        position: 'absolute', left: x + 'px', top: y + 'px', width: w + 'px',
+        background: night ? '#1a0a28ee' : '#062a32ee', color: night ? '#f0c8ff' : '#c8fff0',
+        border: '1px solid ' + (night ? '#ff71ce' : '#01cdfe'),
+        boxShadow: night ? '0 0 24px #ff71ce55' : '0 0 24px #01cdfe55',
+        borderRadius: '4px', zIndex: ++z, backdropFilter: 'blur(6px)',
+      },
+    }, bar, h('div', { style: { height: hh + 'px', overflow: 'auto', padding: '10px', fontSize: '15px', lineHeight: 1.45 } }, body));
+    let ox, oy;
+    drag(bar, {
+      start: (e) => { ox = e.clientX - el.offsetLeft; oy = e.clientY - el.offsetTop; el.style.zIndex = ++z; },
+      move: (e) => { el.style.left = (e.clientX - ox) + 'px'; el.style.top = (e.clientY - oy) + 'px'; },
+    });
+    root.append(el);
+    return el;
+  };
+  const open = (kind) => {
+    if (kind === 'term') {
+      const out = h('div', { style: { fontFamily: MONO, fontSize: '13px', whiteSpace: 'pre-wrap' } },
+        'ugly-duckling OS v0.88 — type help\n');
+      const inp = h('input', {
+        style: {
+          width: '100%', background: 'transparent', color: night ? '#ff71ce' : '#05ffa1',
+          border: 0, borderTop: '1px solid #ffffff22', outline: 'none',
+          font: `13px ${MONO}`, marginTop: '6px', paddingTop: '6px',
+        },
+        placeholder: '>',
+        onkeydown: (e) => {
+          if (e.key !== 'Enter') return;
+          const c = inp.value.trim().toLowerCase();
+          const reply = {
+            help: 'cmds: help · whoami · ls · date · glow · clear · duck',
+            whoami: 'guest@ugly-duckling ~ anti-portfolio',
+            ls: 'about.txt  lore/  ascii.paint  night.sh',
+            date: new Date().toUTCString(),
+            glow: (night ? 'after-dark on' : 'day glow on') + ' · palette pulsing',
+            duck: '  __\n<(o )___\n (  ._> /\n  `---\'  quack (not Cyan)',
+          }[c];
+          if (c === 'clear') { out.textContent = ''; }
+          else out.append(h('div', {}, '> ' + c), h('div', { style: { opacity: .85 } }, reply || 'command not found: ' + c));
+          inp.value = '';
+          out.parentElement.scrollTop = 9999;
+        },
+      });
+      mkWin('Terminal', [out, inp], { x: 280, y: 80, w: 420, hh: 240 });
+      setTimeout(() => inp.focus(), 40);
+    } else if (kind === 'fold') {
+      const chips = ['lore: neon mall', 'lore: VHS dusk', 'lore: teal CRT', 'file: resume.fake', 'file: links.void', 'note: make weird'];
+      mkWin('Folders', h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' } },
+        ...chips.map((t) => h('div', {
+          style: {
+            padding: '10px', borderRadius: '6px', cursor: 'pointer',
+            background: night ? '#ff71ce18' : '#01cdfe18',
+            border: '1px solid ' + (night ? '#ff71ce44' : '#01cdfe44'),
+            fontSize: '13px',
+          },
+          onclick: () => toast(t),
+        }, '📄 ' + t))), { x: 80, y: 120, w: 340, hh: 200 });
+    } else if (kind === 'about') {
+      mkWin('About', h('div', {},
+        h('div', { style: { fontSize: '22px', letterSpacing: '.08em', marginBottom: '8px' } }, 'UGLY DUCKLING OS'),
+        h('p', { style: { opacity: .8, margin: '0 0 8px' } }, 'A vaporwave anti-portfolio desk. Drag windows. Type nonsense. Flip after-dark.'),
+        h('p', { style: { opacity: .55, fontSize: '12px' } }, 'Inspired look-alike · no real branding · toy terminal only.'),
+      ), { x: 420, y: 160, w: 320, hh: 180 });
+    } else if (kind === 'ascii') {
+      const art = h('pre', { style: { margin: 0, fontSize: '11px', lineHeight: 1.2, color: night ? '#ff71ce' : '#05ffa1' } },
+        '  .--.\n /@@  \\\n(____)/\n  ||  ASCII PAINT stub\n  ``  click · to drip');
+      mkWin('ASCII Paint', art, { x: 200, y: 200, w: 280, hh: 160 });
+    } else {
+      mkWin('Ugly Duck', h('div', {}, 'A soft duck in a hard neon world.\nNo LLM contact form. Just chrome.'), { x: 340, y: 100, w: 300, hh: 140 });
+    }
+  };
+  const clock = h('span', { style: { letterSpacing: '.12em', fontSize: '14px' } }, '☀ DAY GLOW');
+  const task = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, bottom: 0, height: '36px', zIndex: 100,
+      background: 'linear-gradient(90deg,#01cdfe33,#ff71ce33,#b967ff33)',
+      borderTop: '1px solid #ffffff44', padding: '0 10px', gap: '10px',
+      backdropFilter: 'blur(8px)', color: '#fff',
+    },
+  },
+    h('b', { style: { cursor: 'pointer' }, onclick: () => open('about') }, '◈ Start'),
+    h('span', { style: { flex: 1 } }),
+    clock,
+    btn(night ? 'After-dark ✦' : 'Day glow ✦', () => { night = !night; apply(); toast(night ? 'after-dark' : 'day glow'); }),
+  );
+  icons.forEach(([ic, name, kind], i) => {
+    root.append(h('div', {
+      style: {
+        position: 'absolute', left: 18 + Math.floor(i / 5) * 92 + 'px',
+        top: 48 + (i % 5) * 88 + 'px', width: '78px', textAlign: 'center',
+        color: '#fff', fontSize: '12px', cursor: 'pointer', textShadow: '0 0 8px #01cdfe',
+        letterSpacing: '.04em',
+      },
+      ondblclick: () => open(kind),
+      onclick: () => open(kind),
+    }, h('div', { style: { fontSize: '32px', filter: 'drop-shadow(0 0 6px #ff71ce)' } }, ic), name));
+  });
+  root.append(
+    h('div', {
+      style: {
+        position: 'absolute', right: '24px', top: '48px', opacity: .35,
+        fontSize: '11px', letterSpacing: '.3em', writingMode: 'vertical-rl', color: '#fff',
+      },
+    }, 'ANTI-PORTFOLIO · VAPOR DESK'),
+    task,
+  );
+  apply();
+  open('term');
+  window.__demoProof = async () => {
+    night = false; apply();
+    open('fold'); open('about');
+    night = true; apply();
+    await sleep(120);
+    night = false; apply();
+    return 'opened Folders+About, toggled after-dark, restored day';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['parody-desktop-os-sandbox'])(root, T); }
