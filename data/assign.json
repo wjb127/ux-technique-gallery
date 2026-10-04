@@ -180,7 +180,8 @@
   "procedural-dungeon-theme-stage",
   "fantasy-map-generator-workspace",
   "voanh-generative-art-studio-desk",
-  "whorl-generative-motion-desk"
+  "whorl-generative-motion-desk",
+  "motionforge-motion-exhibition"
  ],
  "code": [
   "mermaid-dualpane-live-editor",
@@ -198,7 +199,9 @@
   "shaderpark-js-sdf-sculpt-desk",
   "hydra-live-visual-synth",
   "dwitter-140char-demo-stage",
-  "vertexshaderart-live-stage"
+  "vertexshaderart-live-stage",
+  "canvasui-shader-dom-playground",
+  "tweakcn-theme-editor-desk"
  ],
  "globe": [
   "globe-radio-discover",

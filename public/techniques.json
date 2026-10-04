@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-canvasui-shader-dom-playground",
+  "slug": "canvasui-shader-dom-playground",
+  "name": "Canvas UI Shader-over-DOM Playground",
+  "date": "2026-10-05",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://canvasui.dev/playground",
+  "domain": "canvasui.dev",
+  "product": "Canvasui",
+  "checkpoints": [
+   "Canvas UI Shader-over-DOM Playground"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Canvas UI Shader-over-DOM Playground",
+  "ko": "Canvasui 스타일 드로잉 클론",
+  "engine": "code",
+  "variant": "canvasui-shader-dom-playground",
+  "path": "/t/canvasui-shader-dom-playground/",
+  "built": true
+ },
+ {
+  "id": "clone-motionforge-motion-exhibition",
+  "slug": "motionforge-motion-exhibition",
+  "name": "MOTIONFORGE Motion Systems Exhibition",
+  "date": "2026-10-05",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://motionforge-2.vercel.app/",
+  "domain": "motionforge-2.vercel.app",
+  "product": "Motionforge-2",
+  "checkpoints": [
+   "MOTIONFORGE Motion Systems Exhibition"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "MOTIONFORGE Motion Systems Exhibition",
+  "ko": "Motionforge-2 스타일 인터랙션 클론",
+  "engine": "gen",
+  "variant": "motionforge-motion-exhibition",
+  "path": "/t/motionforge-motion-exhibition/",
+  "built": true
+ },
+ {
+  "id": "clone-tweakcn-theme-editor-desk",
+  "slug": "tweakcn-theme-editor-desk",
+  "name": "tweakcn Theme Editor Desk",
+  "date": "2026-10-05",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://tweakcn.com/editor/theme",
+  "domain": "tweakcn.com",
+  "product": "Tweakcn",
+  "checkpoints": [
+   "tweakcn Theme Editor Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "tweakcn Theme Editor Desk",
+  "ko": "Tweakcn 스타일 라이브 코딩 클론",
+  "engine": "code",
+  "variant": "tweakcn-theme-editor-desk",
+  "path": "/t/tweakcn-theme-editor-desk/",
+  "built": true
+ },
+ {
   "id": "clone-purl-visual-game-engine",
   "slug": "purl-visual-game-engine",
   "name": "Purl Visual Game Engine Desk",

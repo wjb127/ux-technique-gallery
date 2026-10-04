@@ -1,4 +1,4 @@
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, drum, blip, midi, fitCanvas } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, drum, blip, midi, fitCanvas, noise2, hexToRgb, oklchToHex, hexToOklch } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',ui-monospace,monospace";
 function editor(val, on, { bg = '#1e1e1e', fg = '#d4d4d4', gutter = '#858585', size = 13, lh = 20 } = {}) {
@@ -869,6 +869,522 @@ color = hsl(length(pos)+t, .7, .6);`,
     cur = 0; likes = PRESETS[0].likes; code = PRESETS[0].code; ta.value = code; updMeta(); paintStrip();
     playing = true; updMeta();
     return 'cycled spiral→gridwave→tunnel→spiral · animation running';
+  };
+};
+
+
+V['canvasui-shader-dom-playground'] = (root, T) => {
+  theme(root, T, { bg: '#f4f4f5', fg: '#111', panel: '#fff', ac: '#111', dark: false, line: '#e6e6e8' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const EFFECTS = [
+    { id: 'Liquid', desc: 'A fluid simulation over the live DOM' },
+    { id: 'Ripple', desc: 'Pointer ripples across the page surface' },
+    { id: 'Glass', desc: 'Frosted refraction over interactive HTML' },
+    { id: 'VHS', desc: 'Scanline + noise tape distortion' },
+    { id: 'ASCII', desc: 'Glyph rain sampled from the DOM texture' },
+  ];
+  const P = { force: 1.1, radius: 0.3, curl: 1.9, swirl: 4, pressure: 0.8, intensity: 2, distortion: 0.4, blend: 5, trail: 0.96, motion: 1 };
+  const defaults = { ...P };
+  let effect = 'Liquid';
+  let quality = 'Medium';
+  let mx = 0.55, my = 0.42;
+  const N = noise2(19);
+  let t0 = performance.now();
+
+  const side = h('div', {
+    style: {
+      width: '300px', flexShrink: 0, background: '#fff', borderRight: '1px solid #e8e8ea',
+      display: 'flex', flexDirection: 'column', padding: '16px 16px 12px', gap: '10px', overflow: 'auto',
+    },
+  });
+  const effectLab = h('div', { style: { font: '600 13px Inter Variable' } }, 'Liquid');
+  const effectDesc = h('div', { style: { fontSize: '11px', opacity: .5, marginTop: '2px' } }, EFFECTS[0].desc);
+  const qualitySeg = seg([['Low', 'Low'], ['Medium', 'Medium'], ['High', 'High']], quality, (v) => { quality = v; toast(v + ' quality'); });
+
+  const slidersHost = h('div', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } });
+  const SL = [
+    ['Force', 'force', 0, 3, 0.1, (v) => (+v).toFixed(1)],
+    ['Radius', 'radius', 0.05, 1, 0.01, (v) => (+v).toFixed(2)],
+    ['Curl', 'curl', 0, 4, 0.1, (v) => (+v).toFixed(1)],
+    ['Swirl', 'swirl', 0, 8, 0.1, (v) => String(+v)],
+    ['Pressure', 'pressure', 0, 2, 0.05, (v) => (+v).toFixed(2)],
+    ['Intensity', 'intensity', 0.2, 4, 0.1, (v) => (+v).toFixed(1)],
+    ['Distortion', 'distortion', 0, 1.5, 0.05, (v) => (+v).toFixed(2)],
+    ['Blend', 'blend', 0, 10, 0.1, (v) => (+v).toFixed(1)],
+    ['Trail fade', 'trail', 0.5, 1, 0.001, (v) => (+v).toFixed(3)],
+    ['Motion fade', 'motion', 0.5, 1, 0.001, (v) => (+v).toFixed(3)],
+  ];
+  const slMap = {};
+  for (const [lab, key, mn, mxv, st, fmt] of SL) {
+    const el = slider(lab, mn, mxv, P[key], st, (v) => { P[key] = v; }, fmt);
+    slMap[key] = el;
+    slidersHost.append(el);
+  }
+
+  const setEffect = (id) => {
+    effect = id;
+    const e = EFFECTS.find((x) => x.id === id) || EFFECTS[0];
+    effectLab.textContent = e.id;
+    effectDesc.textContent = e.desc;
+    toast(e.id);
+  };
+
+  side.append(
+    h('div.k-row', { style: { gap: '10px', marginBottom: '4px' } },
+      h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', width: '22px', height: '22px' } },
+        ...Array.from({ length: 4 }, () => h('i', { style: { background: '#111', borderRadius: '2px' } })),
+      ),
+      h('b', { style: { fontSize: '14px' } }, 'Canvas UI'),
+      h('span', { style: { fontSize: '10px', padding: '2px 8px', borderRadius: '99px', background: '#f0f0f2', color: '#555', fontWeight: 600 } }, 'Playground'),
+    ),
+    h('div.k-h', {}, 'Component'),
+    h('button', {
+      style: {
+        display: 'flex', gap: '10px', alignItems: 'center', border: '1px solid #e4e4e7', borderRadius: '12px',
+        padding: '8px', background: '#fafafa', cursor: 'pointer', textAlign: 'left', width: '100%',
+      },
+      onclick: () => {
+        const i = (EFFECTS.findIndex((e) => e.id === effect) + 1) % EFFECTS.length;
+        setEffect(EFFECTS[i].id);
+      },
+    },
+      h('div', { style: { width: '40px', height: '40px', borderRadius: '8px', overflow: 'hidden', background: '#111', flex: 'none' } },
+        h('canvas', { width: 40, height: 40, style: { width: '40px', height: '40px', display: 'block' }, ref: 0 }),
+      ),
+      h('div', { style: { minWidth: 0 } }, effectLab, effectDesc),
+    ),
+    h('div.k-row', { style: { gap: '8px' } },
+      btn('Copy for AI', () => copy(`Canvas UI · ${effect} · quality ${quality}`, 'Snippet'), ''),
+      btn('Share', () => toast('share link copied'), ''),
+    ),
+    h('div.k-row', {}, h('div.k-h', { style: { margin: 0 } }, 'Controls'), h('span', { style: { flex: 1 } }),
+      btn('Reset', () => {
+        Object.assign(P, defaults);
+        for (const [lab, key] of SL.map((x) => [x[0], x[1]])) slMap[key].set(P[key]);
+        toast('reset');
+      })),
+    qualitySeg,
+    slidersHost,
+    h('span', { style: { flex: 1 } }),
+    h('button', {
+      style: {
+        marginTop: '8px', width: '100%', background: '#111', color: '#fff', border: 0, borderRadius: '10px',
+        padding: '12px', fontWeight: 700, cursor: 'pointer',
+      },
+      onclick: () => toast('docs ←'),
+    }, '← Back to Docs'),
+  );
+
+  // paint tiny thumb
+  const thumbCv = side.querySelector('canvas');
+  const tg = thumbCv.getContext('2d');
+  const paintThumb = () => {
+    const img = tg.createImageData(40, 40);
+    for (let y = 0; y < 40; y++) for (let x = 0; x < 40; x++) {
+      const n = N(x * 0.08, y * 0.08 + performance.now() * 0.0002);
+      const v = (n * 180) | 0;
+      const i = (y * 40 + x) * 4;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255;
+    }
+    tg.putImageData(img, 0, 0);
+  };
+
+  const stage = h('div', {
+    style: {
+      flex: 1, minWidth: 0, minHeight: 0, padding: '18px 18px 18px 8px', display: 'flex', flexDirection: 'column', gap: '10px',
+      position: 'relative', background: '#f4f4f5',
+    },
+  });
+  const topTools = h('div.k-row', { style: { justifyContent: 'flex-end', gap: '10px', paddingRight: '6px' } },
+    h('span', { style: { fontSize: '12px', opacity: .45 } }, '⌕'),
+    h('span', { style: { fontSize: '12px', opacity: .45 } }, '☀'),
+    h('span', { style: { fontSize: '11px', padding: '4px 8px', borderRadius: '8px', border: '1px solid #ddd', background: '#fff' } }, '★ 4.8k'),
+  );
+
+  const frame = h('div', {
+    style: {
+      flex: 1, minHeight: 0, borderRadius: '16px', overflow: 'hidden', background: '#fff',
+      border: '1px solid #e4e4e7', boxShadow: '0 12px 40px #00000012', position: 'relative',
+    },
+  });
+
+  const site = h('div', {
+    style: {
+      position: 'absolute', inset: 0, padding: '22px 36px', background: '#fff', color: '#111',
+      overflow: 'hidden', zIndex: 1,
+    },
+  },
+    h('div.k-row', { style: { gap: '18px', marginBottom: '36px', fontSize: '13px' } },
+      h('b', { style: { display: 'flex', alignItems: 'center', gap: '6px' } }, h('span', {}, '⚡'), 'bolt'),
+      h('span', { style: { flex: 1 } }),
+      ...['Product', 'Pricing', 'Docs', 'Changelog'].map((x) => h('span', { style: { opacity: .55 } }, x)),
+    ),
+    h('div', { style: { maxWidth: '420px' } },
+      h('div', { style: { font: '800 42px/1.05 Inter Variable', letterSpacing: '-.03em' } }, 'Ship in days, not quarters'),
+      h('p', { style: { opacity: .55, lineHeight: 1.5, margin: '12px 0 18px', fontSize: '14px' } },
+        'bolt is the home for builds, reviews, and releases — with Canvas UI liquid over live DOM.'),
+      h('div.k-row', { style: { gap: '10px' } },
+        h('button', { style: { background: '#111', color: '#fff', border: 0, borderRadius: '10px', padding: '10px 14px', fontWeight: 700 } }, 'Start shipping free'),
+        h('button', { style: { background: '#fff', color: '#111', border: '1px solid #ddd', borderRadius: '10px', padding: '10px 14px', fontWeight: 600 } }, 'Book a demo'),
+      ),
+    ),
+    h('div', {
+      style: {
+        position: 'absolute', right: '28px', bottom: '24px', width: '46%', height: '48%',
+        borderRadius: '12px', overflow: 'hidden', background: 'linear-gradient(145deg,#1a1a1a,#555 40%,#111)',
+      },
+    },
+      h('div', { style: { position: 'absolute', inset: 0, background: 'repeating-linear-gradient(90deg,#fff1 0 2px,transparent 2px 28px),repeating-linear-gradient(#fff1 0 2px,transparent 2px 36px)', opacity: .35 } }),
+      h('div', { style: { position: 'absolute', inset: '18% 22%', border: '2px solid #fff6', borderRadius: '50%', transform: 'perspective(400px) rotateX(55deg)' } }),
+    ),
+  );
+
+  const overlay = h('canvas', {
+    style: { position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 2, pointerEvents: 'none', mixBlendMode: effect === 'Glass' ? 'soft-light' : 'multiply', opacity: 0.55 },
+  });
+  const newsletter = h('div', {
+    style: {
+      position: 'absolute', top: '18px', right: '18px', width: '240px', background: '#fff', border: '1px solid #e8e8ea',
+      borderRadius: '14px', padding: '14px', zIndex: 3, boxShadow: '0 10px 30px #0002', fontSize: '12px',
+    },
+  },
+    h('b', { style: { fontSize: '13px' } }, 'See how Canvas UI evolves'),
+    h('div', { style: { opacity: .5, margin: '6px 0 10px', lineHeight: 1.4 } }, 'Sign up to our newsletter for new shader components.'),
+    h('input', { placeholder: 'you@example.com', style: { width: '100%', border: '1px solid #ddd', borderRadius: '8px', padding: '8px', marginBottom: '8px' } }),
+    h('button', { style: { width: '100%', background: '#111', color: '#fff', border: 0, borderRadius: '8px', padding: '8px', fontWeight: 700, cursor: 'pointer' }, onclick: () => toast('signed up') }, 'Signup →'),
+  );
+
+  frame.append(site, overlay, newsletter);
+  stage.append(topTools, frame);
+
+  frame.addEventListener('pointermove', (e) => {
+    const r = frame.getBoundingClientRect();
+    mx = (e.clientX - r.left) / r.width;
+    my = (e.clientY - r.top) / r.height;
+  });
+
+  const paintOverlay = (t) => {
+    const r = frame.getBoundingClientRect();
+    const step = quality === 'High' ? 1 : quality === 'Medium' ? 2 : 3;
+    const W = Math.max(160, Math.floor(r.width / step));
+    const H = Math.max(100, Math.floor(r.height / step));
+    if (overlay.width !== W || overlay.height !== H) { overlay.width = W; overlay.height = H; }
+    const g = overlay.getContext('2d');
+    const img = g.createImageData(W, H);
+    const dens = 1.4 + P.curl * 0.4;
+    const spd = 0.15 + P.force * 0.12;
+    const rad = P.radius * 1.2;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      const u = x / W, v = y / H;
+      const dx = u - mx, dy = v - my;
+      const d = Math.hypot(dx, dy);
+      let n = N(u * dens + t * spd, v * dens - t * spd * 0.7);
+      if (effect === 'Ripple') n = 0.5 + 0.5 * Math.sin(d * (18 + P.swirl * 4) - t * (3 + P.force));
+      if (effect === 'VHS') n = ((x + (y % 3) * 7 + (t * 40 | 0)) % 9) / 9 * 0.7 + n * 0.3;
+      if (effect === 'ASCII') n = ((Math.sin(u * 40 + t) * Math.cos(v * 30 - t) + 1) / 2);
+      if (effect === 'Glass') n = 0.35 + n * 0.4;
+      const wake = Math.exp(-d * d / (rad * rad + 0.001)) * P.intensity * 0.35;
+      const swirl = Math.sin((Math.atan2(dy, dx) + t) * P.swirl * 0.5) * P.distortion * 0.25;
+      const val = clamp(n * P.pressure * 0.5 + wake + swirl, 0, 1);
+      const i = (y * W + x) * 4;
+      const gray = (val * 220) | 0;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = gray;
+      img.data[i + 3] = Math.min(255, (40 + val * 140 * (P.blend / 5) * P.trail * P.motion) | 0);
+    }
+    g.putImageData(img, 0, 0);
+    overlay.style.mixBlendMode = effect === 'Glass' ? 'soft-light' : effect === 'VHS' ? 'screen' : 'multiply';
+    overlay.style.opacity = effect === 'Glass' ? 0.7 : 0.55;
+  };
+
+  const loop = () => {
+    const t = (performance.now() - t0) / 1000;
+    paintOverlay(t);
+    paintThumb();
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+
+  root.style.display = 'flex';
+  root.append(side, stage);
+
+  window.__demoProof = async () => {
+    setEffect('Ripple'); quality = 'High'; qualitySeg.buttons[2].click();
+    P.force = 2.2; P.swirl = 6; P.intensity = 3; slMap.force.set(P.force); slMap.swirl.set(P.swirl); slMap.intensity.set(P.intensity);
+    await sleep(200);
+    setEffect('Glass');
+    await sleep(160);
+    setEffect('Liquid'); Object.assign(P, defaults);
+    for (const [, key] of SL.map((x) => [x[0], x[1]])) slMap[key].set(P[key]);
+    quality = 'Medium'; qualitySeg.buttons[1].click();
+    return 'cycled Liquid→Ripple→Glass→Liquid with param tweaks; restored defaults';
+  };
+};
+
+
+V['tweakcn-theme-editor-desk'] = (root, T) => {
+  theme(root, T, { bg: '#f7f7f8', fg: '#111', panel: '#fff', ac: '#111', dark: false, line: '#e5e5e7' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+
+  const tokens = {
+    primary: { bg: '#171717', fg: '#fafafa' },
+    secondary: { bg: '#f5f5f5', fg: '#171717' },
+    accent: { bg: '#f5f5f5', fg: '#171717' },
+    base: { bg: '#ffffff', fg: '#171717' },
+    card: { bg: '#ffffff', fg: '#171717' },
+    muted: { bg: '#f5f5f5', fg: '#737373' },
+    destructive: { bg: '#ef4444', fg: '#fafafa' },
+  };
+  const defaults = JSON.parse(JSON.stringify(tokens));
+  let tab = 'Colors';
+  let preview = 'Cards';
+  let preset = 'Default';
+  let darkMode = false;
+
+  const okl = (hex) => {
+    try {
+      const [L, C, H] = hexToOklch(hex);
+      return `oklch(${L.toFixed(3)} ${C.toFixed(2)} ${(H || 0).toFixed(0)})`;
+    } catch { return hex; }
+  };
+
+  const top = h('div.k-row', {
+    style: { height: '48px', padding: '0 16px', background: '#fff', borderBottom: '1px solid #ececee', gap: '12px', flexShrink: 0 },
+  },
+    h('b', { style: { fontSize: '15px', letterSpacing: '-.02em' } }, 'tweak', h('span', { style: { fontWeight: 500 } }, 'cn')),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '12px', opacity: .5 } }, '★ 10.4k'),
+    h('span', { style: { fontSize: '12px', opacity: .5 } }, 'Discord'),
+    btn('Export to Figma', () => toast('figma export'), ''),
+    btn('Sign In', () => toast('sign in'), ''),
+    btn('Sign Up', () => toast('sign up'), 'pri'),
+  );
+
+  const side = h('div', {
+    style: {
+      width: '300px', flexShrink: 0, background: '#fff', borderRight: '1px solid #ececee',
+      display: 'flex', flexDirection: 'column', overflow: 'auto', padding: '12px',
+    },
+  });
+  const colorList = h('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' } });
+
+  const paintColors = () => {
+    colorList.replaceChildren(
+      h('input', { placeholder: 'Search colors...', style: { width: '100%', border: '1px solid #e5e5e7', borderRadius: '8px', padding: '8px 10px', marginBottom: '4px' } }),
+      ...Object.entries(tokens).map(([group, pair]) => {
+        const open = group === 'primary' || group === 'secondary' || group === 'accent' || group === 'base';
+        const body = h('div', { style: { display: open ? 'grid' : 'none', gap: '6px', padding: '0 0 6px 4px' } });
+        for (const [role, key] of [['Background', 'bg'], ['Foreground', 'fg']]) {
+          body.append(h('div.k-row', { style: { gap: '8px', fontSize: '12px' } },
+            h('input', {
+              type: 'color', value: pair[key],
+              style: { width: '28px', height: '28px', border: '1px solid #ddd', borderRadius: '6px', padding: 0, background: 'none' },
+              oninput: (e) => { pair[key] = e.target.value; paintColors(); paintPreview(); },
+            }),
+            h('div', { style: { flex: 1, minWidth: 0 } },
+              h('div', { style: { fontWeight: 600 } }, role),
+              h('div', { style: { font: '11px/1.3 JetBrains Mono Variable,monospace', opacity: .55, overflow: 'hidden', textOverflow: 'ellipsis' } }, okl(pair[key])),
+            ),
+          ));
+        }
+        return h('div', { style: { border: '1px solid #eee', borderRadius: '10px', overflow: 'hidden' } },
+          h('button', {
+            style: {
+              width: '100%', display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 10px',
+              border: 0, background: '#fafafa', cursor: 'pointer', fontWeight: 700, fontSize: '11px', letterSpacing: '.06em',
+            },
+            onclick: (e) => {
+              const b = e.currentTarget.nextSibling;
+              b.style.display = b.style.display === 'none' ? 'grid' : 'none';
+            },
+          }, group.toUpperCase(), h('span', { style: { flex: 1 } }), open ? '▾' : '▸'),
+          body,
+        );
+      }),
+    );
+  };
+
+  side.append(
+    h('div.k-row', { style: { gap: '8px', marginBottom: '8px' } },
+      select([['Default', 'Default'], ['Midnight', 'Midnight'], ['Zinc', 'Zinc'], ['Rose', 'Rose']], preset, (v) => {
+        preset = v;
+        if (v === 'Midnight') {
+          tokens.primary = { bg: '#3b82f6', fg: '#fff' }; tokens.secondary = { bg: '#1e293b', fg: '#e2e8f0' };
+          tokens.accent = { bg: '#22d3ee', fg: '#082f49' }; tokens.base = { bg: '#0f172a', fg: '#e2e8f0' };
+          tokens.card = { bg: '#1e293b', fg: '#e2e8f0' }; tokens.muted = { bg: '#334155', fg: '#94a3b8' };
+        } else if (v === 'Rose') {
+          tokens.primary = { bg: '#e11d48', fg: '#fff' }; tokens.secondary = { bg: '#ffe4e6', fg: '#881337' };
+          tokens.accent = { bg: '#fb7185', fg: '#4c0519' }; tokens.base = { bg: '#fff1f2', fg: '#4c0519' };
+          tokens.card = { bg: '#fff', fg: '#4c0519' }; tokens.muted = { bg: '#fecdd3', fg: '#9f1239' };
+        } else if (v === 'Zinc') {
+          tokens.primary = { bg: '#18181b', fg: '#fafafa' }; tokens.secondary = { bg: '#f4f4f5', fg: '#18181b' };
+          tokens.accent = { bg: '#e4e4e7', fg: '#18181b' }; tokens.base = { bg: '#fafafa', fg: '#18181b' };
+          tokens.card = { bg: '#fff', fg: '#18181b' }; tokens.muted = { bg: '#f4f4f5', fg: '#71717a' };
+        } else {
+          Object.assign(tokens, JSON.parse(JSON.stringify(defaults)));
+        }
+        paintColors(); paintPreview(); toast(v);
+      }),
+      h('div.k-row', { style: { gap: '4px' } },
+        h('i', { style: { width: '12px', height: '12px', borderRadius: '50%', background: tokens.primary.bg } }),
+        h('i', { style: { width: '12px', height: '12px', borderRadius: '50%', background: tokens.secondary.bg, border: '1px solid #ddd' } }),
+        h('i', { style: { width: '12px', height: '12px', borderRadius: '50%', background: tokens.base.bg, border: '1px solid #ddd' } }),
+      ),
+    ),
+    seg([['Colors', 'Colors'], ['Typography', 'Typography'], ['Other', 'Other'], ['Generate', 'Generate']], tab, (v) => { tab = v; toast(v); }),
+    colorList,
+    h('span', { style: { flex: 1 } }),
+    btn('↻ SYNC', () => { Object.assign(tokens, JSON.parse(JSON.stringify(defaults))); preset = 'Default'; paintColors(); paintPreview(); toast('synced'); }),
+  );
+  paintColors();
+
+  const main = h('div', { style: { flex: 1, minWidth: 0, minHeight: 0, display: 'flex', flexDirection: 'column', background: '#f7f7f8' } });
+  const toolbar = h('div.k-row', { style: { padding: '10px 14px', gap: '8px', borderBottom: '1px solid #ececee', background: '#fff' } },
+    toggle('☀', !darkMode, (on) => { darkMode = !on; paintPreview(); }),
+    btn('Undo', () => toast('undo'), ''),
+    btn('Reset', () => { Object.assign(tokens, JSON.parse(JSON.stringify(defaults))); paintColors(); paintPreview(); }, ''),
+    h('span', { style: { flex: 1 } }),
+    btn('Import', () => toast('import'), ''),
+    btn('Share', () => toast('share'), ''),
+    btn('♡ Save', () => toast('saved'), ''),
+    btn('{ } Code', () => {
+      const css = Object.entries(tokens).map(([k, v]) => `  --${k}: ${v.bg};\n  --${k}-foreground: ${v.fg};`).join('\n');
+      copy(`:root {\n${css}\n}`, 'Theme CSS');
+    }, 'pri'),
+  );
+  const previewTabs = h('div.k-row', { style: { padding: '8px 14px', gap: '4px' } });
+  const previewHost = h('div', { style: { flex: 1, minHeight: 0, overflow: 'auto', padding: '8px 14px 18px' } });
+
+  const paintPreviewTabs = () => {
+    previewTabs.replaceChildren(
+      ...['Custom', 'Cards', 'Dashboard', 'Application', 'Marketing'].map((name) => h('button', {
+        style: {
+          border: 0, background: preview === name ? '#fff' : 'transparent', borderRadius: '8px',
+          padding: '6px 12px', fontWeight: preview === name ? 700 : 500, cursor: 'pointer',
+          boxShadow: preview === name ? '0 1px 3px #0001' : 'none', fontSize: '13px',
+        },
+        onclick: () => { preview = name; paintPreviewTabs(); paintPreview(); },
+      }, name)),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { fontSize: '11px', opacity: .4 } }, 'Open in v0'),
+    );
+  };
+
+  const card = (kids) => h('div', {
+    style: {
+      background: tokens.card.bg, color: tokens.card.fg, border: `1px solid ${tokens.muted.bg}`,
+      borderRadius: '12px', padding: '16px', boxShadow: '0 1px 2px #00000008',
+    },
+  }, ...kids);
+
+  const paintPreview = () => {
+    const bg = darkMode ? '#0a0a0a' : tokens.base.bg;
+    const fg = darkMode ? '#fafafa' : tokens.base.fg;
+    previewHost.style.background = darkMode ? '#111' : '#f0f0f2';
+    const spark = (kind) => {
+      const cv = h('canvas', { width: 280, height: 80, style: { width: '100%', height: '72px', display: 'block', marginTop: '10px' } });
+      const g = cv.getContext('2d');
+      g.strokeStyle = tokens.primary.bg; g.fillStyle = tokens.primary.bg + '22'; g.lineWidth = 2;
+      g.beginPath();
+      for (let i = 0; i <= 20; i++) {
+        const x = (i / 20) * 280;
+        const y = 50 - Math.sin(i * 0.45) * 22 - (kind === 'area' ? i * 0.6 : 0);
+        if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+      }
+      if (kind === 'area') { g.lineTo(280, 80); g.lineTo(0, 80); g.closePath(); g.fill(); }
+      g.stroke();
+      return cv;
+    };
+
+    if (preview === 'Dashboard') {
+      previewHost.replaceChildren(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' } },
+        card([h('div', { style: { opacity: .55, fontSize: '12px' } }, 'Active users'), h('div', { style: { font: '700 28px Inter Variable' } }, '12,482')]),
+        card([h('div', { style: { opacity: .55, fontSize: '12px' } }, 'MRR'), h('div', { style: { font: '700 28px Inter Variable' } }, '$48.2k')]),
+        card([h('div', { style: { opacity: .55, fontSize: '12px' } }, 'Churn'), h('div', { style: { font: '700 28px Inter Variable' } }, '2.1%')]),
+        h('div', { style: { gridColumn: '1/-1' } }, card([h('b', {}, 'Overview'), spark('area')])),
+      ));
+      return;
+    }
+    if (preview === 'Marketing') {
+      previewHost.replaceChildren(card([
+        h('div', { style: { font: '800 36px/1.1 Inter Variable', letterSpacing: '-.03em', maxWidth: '520px' } }, 'Beautiful themes for shadcn/ui'),
+        h('p', { style: { opacity: .6, margin: '12px 0 18px' } }, 'Visual editor · live component preview · export CSS variables.'),
+        h('button', { style: { background: tokens.primary.bg, color: tokens.primary.fg, border: 0, borderRadius: '10px', padding: '12px 18px', fontWeight: 700 } }, 'Start editing'),
+      ]));
+      return;
+    }
+    // Cards (default) + Custom/Application similar
+    previewHost.replaceChildren(h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' } },
+      card([
+        h('div', { style: { fontSize: '13px', opacity: .55 } }, 'Total Revenue'),
+        h('div', { style: { font: '700 28px Inter Variable' } }, '$15,231.89'),
+        h('div', { style: { fontSize: '12px', color: '#16a34a', marginTop: '4px' } }, '+20.1% from last month'),
+        spark('line'),
+      ]),
+      card([
+        h('div', { style: { fontSize: '13px', opacity: .55 } }, 'Subscriptions'),
+        h('div', { style: { font: '700 28px Inter Variable' } }, '+2,350'),
+        h('div', { style: { fontSize: '12px', color: '#16a34a', marginTop: '4px' } }, '+180.1% from last month'),
+        spark('area'),
+      ]),
+      card([
+        h('b', {}, 'Upgrade your subscription'),
+        h('div', { style: { display: 'grid', gap: '8px', marginTop: '12px', fontSize: '12px' } },
+          h('label', {}, 'Name', h('input', { value: 'Evil Rabbit', style: { display: 'block', width: '100%', marginTop: '4px', border: '1px solid #e5e5e7', borderRadius: '8px', padding: '8px', background: tokens.base.bg, color: tokens.base.fg } })),
+          h('label', {}, 'Email', h('input', { placeholder: 'm@example.com', style: { display: 'block', width: '100%', marginTop: '4px', border: '1px solid #e5e5e7', borderRadius: '8px', padding: '8px' } })),
+          h('div.k-row', { style: { gap: '8px' } },
+            h('label', { style: { flex: 1 } }, 'Card Number', h('input', { value: '1234 1234 ····', style: { display: 'block', width: '100%', marginTop: '4px', border: '1px solid #e5e5e7', borderRadius: '8px', padding: '8px' } })),
+          ),
+          h('div.k-row', { style: { gap: '8px', marginTop: '4px' } },
+            h('button', {
+              style: { flex: 1, border: `2px solid ${tokens.primary.bg}`, borderRadius: '10px', padding: '10px', background: tokens.secondary.bg, fontWeight: 700, cursor: 'pointer' },
+              onclick: () => toast('Starter Plan'),
+            }, 'Starter Plan'),
+            h('button', {
+              style: { flex: 1, border: '1px solid #e5e5e7', borderRadius: '10px', padding: '10px', background: '#fff', fontWeight: 600, cursor: 'pointer' },
+              onclick: () => toast('Pro Plan'),
+            }, 'Pro Plan'),
+          ),
+        ),
+      ]),
+      card([
+        h('b', {}, 'Create an account'),
+        h('div', { style: { display: 'grid', gap: '8px', marginTop: '12px' } },
+          h('button', { style: { border: '1px solid #e5e5e7', borderRadius: '8px', padding: '10px', background: '#fff', fontWeight: 600 }, onclick: () => toast('GitHub') }, 'GitHub'),
+          h('button', { style: { border: '1px solid #e5e5e7', borderRadius: '8px', padding: '10px', background: '#fff', fontWeight: 600 }, onclick: () => toast('Google') }, 'Google'),
+          h('div', { style: { textAlign: 'center', fontSize: '10px', opacity: .45, letterSpacing: '.08em' } }, 'OR CONTINUE WITH'),
+          h('input', { placeholder: 'Email', style: { border: '1px solid #e5e5e7', borderRadius: '8px', padding: '10px' } }),
+          h('input', { type: 'password', placeholder: 'Password', style: { border: '1px solid #e5e5e7', borderRadius: '8px', padding: '10px' } }),
+          h('button', {
+            style: { background: tokens.primary.bg, color: tokens.primary.fg, border: 0, borderRadius: '8px', padding: '12px', fontWeight: 700, cursor: 'pointer' },
+            onclick: () => toast('account created'),
+          }, 'Create account'),
+        ),
+      ]),
+    ));
+  };
+
+  paintPreviewTabs();
+  paintPreview();
+  main.append(toolbar, previewTabs, previewHost);
+
+  root.style.display = 'flex';
+  root.style.flexDirection = 'column';
+  root.append(top, h('div', { style: { display: 'flex', flex: 1, minHeight: 0 } }, side, main));
+
+  window.__demoProof = async () => {
+    tokens.primary = { bg: '#7c3aed', fg: '#fff' };
+    tokens.accent = { bg: '#ede9fe', fg: '#5b21b6' };
+    paintColors(); paintPreview();
+    await sleep(160);
+    preview = 'Dashboard'; paintPreviewTabs(); paintPreview();
+    await sleep(140);
+    preview = 'Cards';
+    Object.assign(tokens, JSON.parse(JSON.stringify(defaults)));
+    paintColors(); paintPreviewTabs(); paintPreview();
+    return 'recolored primary→violet, preview Cards→Dashboard→Cards, restored Default';
   };
 };
 

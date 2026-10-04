@@ -452,4 +452,271 @@ V['whorl-generative-motion-desk'] = (root, T) => {
   };
 };
 
+
+V['motionforge-motion-exhibition'] = (root, T) => {
+  theme(root, T, { bg: '#0b0b0d', fg: '#f4f1f8', panel: '#121016', ac: '#c5b4e3', ac2: '#8b7bb8', dark: true, line: '#ffffff14' });
+  root.style.overflow = 'auto';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.classList.add('scroll');
+
+  const FILTERS = [
+    { id: 'all', label: 'All motion', n: 15 },
+    { id: 'webgl', label: 'WebGL', n: 5 },
+    { id: 'type', label: 'Typography', n: 4 },
+    { id: 'physics', label: '3D & physics', n: 3 },
+    { id: 'ui', label: 'Interface', n: 3 },
+  ];
+  const ITEMS = [
+    { id: '01', title: 'Liquid Reality Reveal', tag: 'Expert', cat: 'webgl', blurb: 'A fluid lens between the expected and the extraordinary.', tech: 'WebGL / GLSL' },
+    { id: '02', title: 'Magnetic Typography', tag: 'Pro', cat: 'type', blurb: 'Letters that lean toward the pointer with spring physics.', tech: 'Canvas / Springs' },
+    { id: '03', title: 'Portal Image Transition', tag: 'Studio', cat: 'ui', blurb: 'A circular portal that opens into another frame.', tech: 'CSS / Mask' },
+    { id: '04', title: 'Dimensional Image Trail', tag: 'Lab', cat: 'webgl', blurb: 'Cursor wakes leave refracting afterimages.', tech: 'WebGL' },
+    { id: '05', title: 'Melting Text', tag: 'Pro', cat: 'type', blurb: 'Glyphs drip and reform under scroll pressure.', tech: 'SVG / Filter' },
+    { id: '06', title: 'Holographic Glass Cards', tag: 'Studio', cat: 'ui', blurb: 'Iridescent panels that tilt with the pointer.', tech: 'CSS 3D' },
+    { id: '07', title: 'Procedural Aurora Field', tag: 'Lab', cat: 'webgl', blurb: 'Soft northern ribbons driven by simplex noise.', tech: 'WebGL' },
+    { id: '08', title: 'Geometry Morphing', tag: 'Expert', cat: 'physics', blurb: 'Torus ↔ knot morph with metallic shading.', tech: 'Three.js' },
+    { id: '09', title: 'Scroll Tunnel', tag: 'Pro', cat: 'physics', blurb: 'Depth rings that scrub with scroll progress.', tech: 'Canvas' },
+    { id: '10', title: 'Liquid Magnetic Button', tag: 'Studio', cat: 'ui', blurb: 'A CTA that pools toward your cursor.', tech: 'SVG' },
+    { id: '11', title: 'Kinetic Word Split', tag: 'Lab', cat: 'type', blurb: 'Pull a word apart; velocity reshapes spacing.', tech: 'DOM' },
+    { id: '12', title: 'Signal Glitch', tag: 'Pro', cat: 'webgl', blurb: 'Controlled RGB tear with hold-to-corrupt.', tech: 'WebGL' },
+    { id: '13', title: 'Product Explosion', tag: 'Expert', cat: 'physics', blurb: 'Scroll-scrubbed disassembly of a hero object.', tech: 'Three.js' },
+    { id: '14', title: 'Infinite 3D Carousel', tag: 'Studio', cat: 'physics', blurb: 'Seamless orbit of product plates.', tech: 'Three.js' },
+    { id: '15', title: 'Cinematic Disintegration', tag: 'Lab', cat: 'type', blurb: 'Type dissolves into particles on hover.', tech: 'Canvas' },
+  ];
+  let filter = 'all';
+  let playing = true;
+  let selected = '01';
+  let mx = 0.5, my = 0.5;
+  let t0 = performance.now();
+  const N = noise2(42);
+
+  const nav = h('div.k-row', {
+    style: { height: '56px', padding: '0 28px', gap: '22px', borderBottom: '1px solid #ffffff10', position: 'sticky', top: 0, background: '#0b0b0dcc', backdropFilter: 'blur(10px)', zIndex: 5 },
+  },
+    h('b', { style: { letterSpacing: '.12em', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '8px' } },
+      h('span', { style: { width: '22px', height: '22px', borderRadius: '6px', background: 'linear-gradient(135deg,#c5b4e3,#7b6aa8)', display: 'grid', placeItems: 'center', color: '#0b0b0d', fontSize: '11px', fontWeight: 800 } }, 'M'),
+      'MOTIONFORGE.'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { fontSize: '13px', opacity: .7, cursor: 'pointer' }, onclick: () => { document.getElementById('mf-coll')?.scrollIntoView({ behavior: 'smooth' }); } }, 'Collection ', h('sup', { style: { color: '#c5b4e3' } }, '15')),
+    h('span', { style: { fontSize: '13px', opacity: .7, cursor: 'pointer' }, onclick: () => toast('playground') }, 'Playground'),
+    h('span', { style: { fontSize: '13px', opacity: .7, cursor: 'pointer' }, onclick: () => toast('philosophy') }, 'The philosophy'),
+    h('button', {
+      style: { marginLeft: '10px', border: '1px solid #ffffff55', background: 'transparent', color: '#fff', borderRadius: '8px', padding: '8px 14px', fontWeight: 600, cursor: 'pointer', fontSize: '12px' },
+      onclick: () => toast("let's make it move"),
+    }, "Let's make it move ↗"),
+  );
+
+  const heroCv = h('canvas', { width: 520, height: 420, style: { width: '100%', height: '100%', display: 'block' } });
+  const heroVisual = h('div', {
+    style: { position: 'relative', borderRadius: '18px', overflow: 'hidden', background: 'radial-gradient(ellipse at 50% 40%, #2a1f3a 0%, #0b0b0d 70%)', minHeight: '360px', border: '1px solid #ffffff10' },
+  }, heroCv, h('div', { style: { position: 'absolute', right: '14px', bottom: '12px', fontSize: '10px', letterSpacing: '.14em', opacity: .45 } }, 'SCROLL TO DISCOVER ↓'));
+
+  const paintKnot = (t) => {
+    const g = heroCv.getContext('2d');
+    const W = heroCv.width, H = heroCv.height;
+    g.fillStyle = '#0b0b0d'; g.fillRect(0, 0, W, H);
+    // stars
+    const R = rng(9);
+    for (let i = 0; i < 80; i++) {
+      const x = R() * W, y = R() * H;
+      g.fillStyle = `rgba(197,180,227,${0.15 + R() * 0.5})`;
+      g.fillRect(x, y, 1.5, 1.5);
+    }
+    const cx = W * 0.5 + (mx - 0.5) * 30, cy = H * 0.48 + (my - 0.5) * 20;
+    g.save();
+    g.translate(cx, cy);
+    g.rotate(t * 0.25);
+    for (let i = 0; i < 160; i++) {
+      const u = i / 160;
+      const a = u * Math.PI * 2 * 3 + t * 0.6;
+      const r = 70 + Math.sin(u * Math.PI * 4 + t) * 38 + Math.cos(a * 2) * 18;
+      const x = Math.cos(a) * r;
+      const y = Math.sin(a) * r * 0.55 + Math.sin(u * 8 + t) * 12;
+      const n = N(u * 3 + t * 0.2, a);
+      const L = 55 + n * 30;
+      g.beginPath();
+      g.arc(x, y, 3.2 + (i % 5) * 0.4, 0, 7);
+      g.fillStyle = `hsla(${270 + n * 40} 45% ${L}% / 0.85)`;
+      g.fill();
+      if (i > 0) {
+        g.strokeStyle = `hsla(${275} 40% 70% / 0.15)`;
+        g.lineWidth = 1.2;
+      }
+    }
+    // metallic torus ribbon
+    g.beginPath();
+    for (let i = 0; i <= 220; i++) {
+      const u = i / 220;
+      const a = u * Math.PI * 2 * 2 + t * 0.4;
+      const R1 = 95, R2 = 34;
+      const x = (R1 + R2 * Math.cos(a * 3)) * Math.cos(a);
+      const y = (R1 + R2 * Math.cos(a * 3)) * Math.sin(a) * 0.42;
+      if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+    }
+    g.strokeStyle = 'rgba(230,220,255,0.55)';
+    g.lineWidth = 6;
+    g.shadowColor = '#c5b4e3';
+    g.shadowBlur = 24;
+    g.stroke();
+    g.restore();
+  };
+
+  heroVisual.addEventListener('pointermove', (e) => {
+    const r = heroVisual.getBoundingClientRect();
+    mx = (e.clientX - r.left) / r.width;
+    my = (e.clientY - r.top) / r.height;
+  });
+
+  const loop = () => {
+    if (playing) paintKnot((performance.now() - t0) / 1000);
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+
+  const hero = h('div', {
+    style: { display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: '28px', padding: '48px 36px 36px', alignItems: 'center' },
+  },
+    h('div', {},
+      h('div', { style: { color: '#c5b4e3', fontSize: '11px', letterSpacing: '.14em', marginBottom: '18px' } }, '• INDEPENDENT MOTION. EXTRAORDINARY POSSIBILITIES.'),
+      h('div', { style: { font: '800 72px/0.95 Inter Variable', letterSpacing: '-.04em' } },
+        h('div', {}, 'MOTION'),
+        h('div', { style: { color: '#c5b4e3' } }, 'FORGE ', h('span', { style: { fontSize: '42px', verticalAlign: 'super' } }, '✦')),
+      ),
+      h('p', { style: { opacity: .55, maxWidth: '420px', lineHeight: 1.55, margin: '18px 0 22px', fontSize: '15px' } },
+        'Production-ready motion systems for ambitious websites.'),
+      h('div.k-row', { style: { gap: '12px' } },
+        h('button', {
+          style: { background: '#c5b4e3', color: '#0b0b0d', border: 0, borderRadius: '10px', padding: '12px 18px', fontWeight: 700, cursor: 'pointer' },
+          onclick: () => document.getElementById('mf-coll')?.scrollIntoView({ behavior: 'smooth' }),
+        }, 'Explore the collection ↓'),
+        h('button', {
+          style: { background: 'transparent', color: '#fff', border: '1px solid #ffffff40', borderRadius: '10px', padding: '12px 18px', fontWeight: 600, cursor: 'pointer' },
+          onclick: () => { selected = '01'; paintGrid(); toast('entered playground · Liquid Reality'); },
+        }, 'Enter playground ↗'),
+      ),
+      h('div', { style: { marginTop: '40px', fontSize: '10px', letterSpacing: '.16em', opacity: .35 } }, 'NOT YOUR ORDINARY ANIMATION LIBRARY.'),
+    ),
+    heroVisual,
+  );
+
+  const filterBar = h('div.k-row', { style: { gap: '8px', flexWrap: 'wrap', margin: '18px 0' } });
+  const grid = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px' } });
+  const liveLab = h('span', { style: { fontSize: '12px', opacity: .45 } }, '• Live previews');
+
+  const paintFilters = () => {
+    filterBar.replaceChildren(
+      ...FILTERS.map((f) => h('button', {
+        style: {
+          border: 0, borderRadius: '99px', padding: '8px 14px', cursor: 'pointer', fontWeight: 600, fontSize: '12px',
+          background: filter === f.id ? '#2a2038' : '#16141c', color: filter === f.id ? '#c5b4e3' : '#9a94a8',
+          boxShadow: filter === f.id ? 'inset 0 0 0 1px #c5b4e355' : 'none',
+        },
+        onclick: () => { filter = f.id; paintFilters(); paintGrid(); },
+      }, `${f.label} ${f.n}`)),
+      h('span', { style: { flex: 1 } }),
+      liveLab,
+      h('button', {
+        style: { border: '1px solid #ffffff22', background: 'transparent', color: '#aaa', borderRadius: '8px', padding: '6px 10px', cursor: 'pointer' },
+        onclick: () => { playing = !playing; toast(playing ? 'previews playing' : 'previews paused'); },
+      }, playing ? '❚❚' : '▶'),
+    );
+  };
+
+  const paintGrid = () => {
+    const list = ITEMS.filter((it) => filter === 'all' || it.cat === filter);
+    grid.replaceChildren(...list.map((it) => {
+      const on = selected === it.id;
+      const mini = h('canvas', { width: 320, height: 160, style: { width: '100%', height: '140px', display: 'block', background: '#08070a' } });
+      const g = mini.getContext('2d');
+      const paintMini = () => {
+        g.fillStyle = '#08070a'; g.fillRect(0, 0, 320, 160);
+        const tt = (performance.now() - t0) / 1000;
+        if (it.cat === 'webgl') {
+          for (let y = 0; y < 160; y += 2) for (let x = 0; x < 320; x += 2) {
+            const n = N(x * 0.02 + tt * 0.3, y * 0.02);
+            const d = Math.hypot(x / 320 - 0.5, y / 160 - 0.5);
+            const v = (n * 0.6 + Math.exp(-d * 4) * 0.5) * 255;
+            g.fillStyle = `rgb(${v * 0.7 | 0},${v * 0.65 | 0},${v | 0})`;
+            g.fillRect(x, y, 2, 2);
+          }
+        } else if (it.cat === 'type') {
+          g.fillStyle = '#c5b4e3'; g.font = '800 42px Inter Variable'; g.textAlign = 'center';
+          const wob = Math.sin(tt * 2 + it.id.charCodeAt(1)) * 8;
+          g.fillText('Aa', 160 + wob, 90);
+          g.font = '12px Inter Variable'; g.fillStyle = '#ffffff66'; g.fillText(it.title.split(' ')[0], 160, 120);
+        } else if (it.cat === 'ui') {
+          g.strokeStyle = '#c5b4e3'; g.lineWidth = 2;
+          const r = 30 + Math.sin(tt * 2) * 10;
+          g.beginPath(); g.arc(160, 80, r, 0, 7); g.stroke();
+          g.fillStyle = '#ffffff18'; g.fillRect(90, 50, 140, 60);
+        } else {
+          g.strokeStyle = '#c5b4e399'; g.lineWidth = 2;
+          g.beginPath();
+          for (let i = 0; i <= 40; i++) {
+            const a = (i / 40) * Math.PI * 2 + tt;
+            const rr = 40 + Math.sin(a * 3) * 18;
+            const x = 160 + Math.cos(a) * rr;
+            const y = 80 + Math.sin(a) * rr * 0.55;
+            if (i === 0) g.moveTo(x, y); else g.lineTo(x, y);
+          }
+          g.stroke();
+        }
+      };
+      paintMini();
+      if (playing) {
+        const id = setInterval(() => { if (!mini.isConnected) return clearInterval(id); paintMini(); }, 80);
+      }
+      return h('button', {
+        style: {
+          textAlign: 'left', border: on ? '1px solid #c5b4e3' : '1px solid #ffffff14', borderRadius: '14px',
+          overflow: 'hidden', background: '#100e14', color: '#fff', cursor: 'pointer', padding: 0,
+          boxShadow: on ? '0 0 0 1px #c5b4e355' : 'none',
+        },
+        onclick: () => { selected = it.id; paintGrid(); toast(it.title); },
+      },
+        mini,
+        h('div', { style: { padding: '12px 14px 14px' } },
+          h('div.k-row', { style: { gap: '8px', marginBottom: '6px' } },
+            h('span', { style: { font: '600 11px JetBrains Mono Variable,monospace', opacity: .45 } }, it.id),
+            h('span', { style: { fontSize: '10px', padding: '2px 8px', borderRadius: '99px', background: '#c5b4e322', color: '#c5b4e3' } }, it.tag),
+            h('span', { style: { flex: 1 } }),
+            h('span', { style: { fontSize: '10px', opacity: .35 } }, it.tech),
+          ),
+          h('div', { style: { font: '700 15px Inter Variable' } }, it.title),
+          h('div', { style: { fontSize: '12px', opacity: .45, marginTop: '4px', lineHeight: 1.4 } }, it.blurb),
+          h('div.k-row', { style: { marginTop: '10px', gap: '8px' } },
+            h('span', { style: { fontSize: '11px', color: '#c5b4e3', fontWeight: 600 } }, 'Customize'),
+            h('span', { style: { fontSize: '11px', opacity: .5 } }, 'Open demo'),
+          ),
+        ),
+      );
+    }));
+  };
+
+  paintFilters();
+  paintGrid();
+
+  const collection = h('div', { id: 'mf-coll', style: { padding: '24px 36px 60px' } },
+    h('div.k-row', { style: { gap: '8px', marginBottom: '10px', fontSize: '12px', opacity: .5 } }, h('span', {}, '+'), h('span', { style: { letterSpacing: '.12em' } }, 'THE SIGNATURE COLLECTION.')),
+    h('div', { style: { display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '20px', alignItems: 'end', marginBottom: '8px' } },
+      h('div', { style: { font: '800 42px/1.05 Inter Variable', letterSpacing: '-.03em' } }, 'Ordinary ends here', h('span', { style: { color: '#c5b4e3' } }, '.')),
+      h('div', { style: { opacity: .5, fontSize: '13px', lineHeight: 1.5 } }, 'Fifteen experiments in extraordinary. Built to be felt. Ready to be yours.'),
+    ),
+    filterBar,
+    grid,
+  );
+
+  root.append(nav, hero, collection);
+
+  window.__demoProof = async () => {
+    filter = 'webgl'; paintFilters(); paintGrid();
+    await sleep(160);
+    selected = '08'; filter = 'physics'; paintFilters(); paintGrid();
+    await sleep(140);
+    filter = 'all'; selected = '01'; paintFilters(); paintGrid();
+    playing = true;
+    return 'filtered All→WebGL→physics→All; selected Liquid Reality restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['ritmo-simplex-wave-studio'])(root, T); }
