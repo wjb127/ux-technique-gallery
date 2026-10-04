@@ -416,4 +416,250 @@ V['signal-midi-piano-roll-desk'] = (root, T) => {
   };
 };
 
+V['fontbox-typo-sequencer'] = (root, T) => {
+  theme(root, T, { bg: '#faf8f4', fg: '#1a1a1a', panel: '#f1e3c0', ac: '#62B6FF', dark: false });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+  root.style.display = 'flex';
+  root.style.padding = '12px';
+  root.style.gap = '10px';
+  root.style.background = '#faf8f4';
+  css(`.fb-cell{cursor:pointer;transition:transform .12s}.fb-pulse{transform:scale(1.12)}`);
+
+  const FONTS = ["Georgia,serif", "'Courier New',monospace", "Impact,sans-serif", "'Comic Sans MS',cursive", "system-ui", "'Times New Roman',serif", "Verdana,sans-serif", "'Trebuchet MS',sans-serif"];
+  const COLORS = ['#ff8a3d', '#e33059', '#8e4cf0', '#2cc36b', '#1d8af8', '#fdb827', '#ff5c8a', '#15b7a8', '#5d5cf5', '#fc8a28'];
+  const PRESETS = ['CHOIR', 'TYPEWRITER', 'BOUNCE', 'WHISPER', 'SHOUT'];
+
+  let text = 'FOnt box';
+  let stepMs = 250;
+  let dir = 1;
+  let ping = 1;
+  let playing = false;
+  let pos = -1;
+  let tid = null;
+  let preset = 0;
+  let fontSize = 72;
+  let tracking = 8;
+  let glyphs = [];
+
+  const chunkBtn = (label, on) => h('button', {
+    style: {
+      border: '2px solid #1a1a1a', background: '#fff', color: '#1a1a1a',
+      padding: '6px 8px', fontWeight: 700, fontSize: '11px', cursor: 'pointer', borderRadius: '2px',
+    },
+    onclick: on,
+  }, label);
+
+  const section = (title, bg, ...kids) => h('div', {
+    style: { border: '2.5px solid #1a1a1a', background: '#fff', marginBottom: '8px' },
+  },
+    h('div', {
+      style: {
+        background: bg, borderBottom: '2.5px solid #1a1a1a',
+        padding: '6px 10px', fontWeight: 800, fontSize: '11px', letterSpacing: '.08em',
+      },
+    }, title),
+    h('div', { style: { padding: '10px', display: 'grid', gap: '8px' } }, ...kids),
+  );
+
+  const stage = h('div', {
+    style: {
+      flex: 1, minWidth: 0, border: '3px solid #1a1a1a', background: '#fff',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      flexWrap: 'wrap', gap: tracking + 'px', padding: '40px', overflow: 'hidden',
+    },
+  });
+
+  const seqGrid = h('div', {
+    style: {
+      display: 'grid', gridTemplateColumns: 'repeat(8,1fr)', gap: '6px',
+      minHeight: '90px', background: '#e8dcc0', border: '2px solid #1a1a1a', padding: '10px',
+    },
+  });
+
+  const paintStage = () => {
+    stage.replaceChildren(...glyphs.map((g, i) => {
+      if (g.ch === ' ') return h('span', { style: { width: (fontSize * 0.35) + 'px' } });
+      const el = h('span.fb-cell', {
+        style: {
+          fontFamily: g.font, color: g.color,
+          fontSize: (fontSize * g.size) + 'px', fontWeight: 700,
+          userSelect: 'none', padding: '2px 4px', borderRadius: '4px',
+          outline: i === pos ? '3px solid #1a1a1a' : '',
+          background: i === pos ? '#ffc83d55' : 'transparent',
+        },
+        onclick: () => {
+          audio();
+          blip(midi(g.note), 0.22, i % 2 ? 'triangle' : 'sine', 0.14);
+          pos = i; paintStage(); paintSeq();
+        },
+      }, g.ch);
+      if (i === pos) el.classList.add('fb-pulse');
+      return el;
+    }));
+  };
+
+  const paintSeq = () => {
+    seqGrid.replaceChildren(...glyphs.filter((g) => g.ch !== ' ').map((g) => {
+      const realI = glyphs.indexOf(g);
+      return h('div.fb-cell', {
+        style: {
+          aspectRatio: '1', border: '2px solid #1a1a1a', background: g.on ? g.color : '#fff',
+          display: 'grid', placeItems: 'center', fontFamily: g.font, fontWeight: 800,
+          fontSize: '16px', color: '#1a1a1a',
+          outline: realI === pos ? '3px solid #1a1a1a' : '',
+          transform: realI === pos ? 'scale(1.08)' : '',
+        },
+        onclick: () => {
+          g.on = !g.on;
+          audio();
+          if (g.on) blip(midi(g.note), 0.18, 'square', 0.1);
+          paintSeq(); paintStage();
+        },
+      }, g.ch);
+    }));
+  };
+
+  const rebuild = () => {
+    glyphs = [...text].map((ch, i) => ({
+      ch,
+      font: FONTS[i % FONTS.length],
+      color: COLORS[i % COLORS.length],
+      size: 0.7 + (i % 5) * 0.12,
+      note: 60 + (i % 8) * 2,
+      on: ch !== ' ',
+    }));
+    paintStage();
+    paintSeq();
+  };
+
+  const stop = () => { clearInterval(tid); tid = null; playing = false; playBtn.textContent = '▶ Play'; };
+  const tick = () => {
+    const active = glyphs.map((g, i) => ({ g, i })).filter((x) => x.g.ch !== ' ' && x.g.on);
+    if (!active.length) return;
+    let next;
+    if (dir === 0) {
+      const cur = active.findIndex((x) => x.i === pos);
+      let ni = (cur < 0 ? 0 : cur) + ping;
+      if (ni < 0 || ni >= active.length) { ping *= -1; ni = (cur < 0 ? 0 : cur) + ping; }
+      next = active[clamp(ni, 0, active.length - 1)];
+    } else {
+      const cur = active.findIndex((x) => x.i === pos);
+      const ni = ((cur < 0 ? -1 : cur) + dir + active.length * 8) % active.length;
+      next = active[ni];
+    }
+    pos = next.i;
+    const g = next.g;
+    g.size = 0.65 + Math.random() * 0.5;
+    g.font = FONTS[Math.floor(Math.random() * FONTS.length)];
+    blip(midi(g.note), 0.2, pos % 3 === 0 ? 'triangle' : 'sine', 0.12);
+    paintStage(); paintSeq();
+  };
+  const play = () => {
+    audio();
+    if (playing) { stop(); return; }
+    playing = true;
+    playBtn.textContent = '❚❚ Pause';
+    tid = setInterval(tick, stepMs);
+  };
+
+  const inputEl = h('input', {
+    value: text, placeholder: 'Type here!',
+    style: {
+      width: '100%', boxSizing: 'border-box', border: '2.5px solid #1a1a1a',
+      padding: '10px 12px', fontSize: '14px', fontWeight: 600, background: '#fff',
+    },
+    oninput: (e) => { text = e.target.value || ' '; rebuild(); },
+  });
+
+  const playBtn = chunkBtn('▶ Play', play);
+  const presetLab = h('button', {
+    style: { flex: 1, border: '2px solid #1a1a1a', background: '#fff', fontWeight: 800, padding: '6px', cursor: 'pointer' },
+    onclick: () => {
+      const p = PRESETS[preset];
+      if (p === 'CHOIR') glyphs.forEach((g, i) => { g.note = 60 + (i % 5); g.size = 0.9; });
+      if (p === 'TYPEWRITER') glyphs.forEach((g) => { g.font = "'Courier New',monospace"; g.size = 0.85; });
+      if (p === 'BOUNCE') glyphs.forEach((g, i) => { g.size = 0.55 + (i % 3) * 0.25; });
+      if (p === 'WHISPER') glyphs.forEach((g) => { g.note = 72 + (g.note % 5); g.size = 0.55; });
+      if (p === 'SHOUT') glyphs.forEach((g) => { g.note = 48 + (g.note % 7); g.size = 1.15; });
+      paintStage(); paintSeq(); toast(p);
+    },
+  }, PRESETS[0]);
+
+  const side = h('div', {
+    style: { width: '300px', flexShrink: 0, overflow: 'auto', maxHeight: '100%' },
+  },
+    section('INPUT', '#62B6FF', inputEl),
+    section('SEQUENCER', '#DCD0B4',
+      h('div.k-row', { style: { gap: '4px', flexWrap: 'wrap' } },
+        chunkBtn('Set All', () => { glyphs.forEach((g) => { if (g.ch !== ' ') g.on = true; }); paintSeq(); }),
+        chunkBtn('Rando', () => {
+          glyphs.forEach((g) => {
+            g.font = FONTS[Math.floor(Math.random() * FONTS.length)];
+            g.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+            g.size = 0.6 + Math.random() * 0.6;
+            g.note = 55 + Math.floor(Math.random() * 24);
+          });
+          paintStage(); paintSeq();
+        }),
+        chunkBtn('Font', () => { glyphs.forEach((g) => { g.font = FONTS[(FONTS.indexOf(g.font) + 1) % FONTS.length]; }); paintStage(); paintSeq(); }),
+        chunkBtn('Pulse', () => { glyphs.forEach((g) => { g.size = 0.7 + Math.random() * 0.5; }); paintStage(); }),
+      ),
+      h('div.k-row', { style: { gap: '8px', alignItems: 'center', fontSize: '12px', fontWeight: 700 } },
+        'Time (MS)',
+        h('input', {
+          type: 'number', value: stepMs, min: 80, max: 800, step: 10,
+          style: { width: '72px', border: '2px solid #1a1a1a', padding: '4px 6px', fontWeight: 700 },
+          oninput: (e) => {
+            stepMs = clamp(+e.target.value || 250, 80, 800);
+            if (playing) { stop(); play(); }
+          },
+        }),
+      ),
+      seqGrid,
+    ),
+    section('TRANSPORT', '#FFC1C1',
+      h('div.k-row', { style: { gap: '6px' } },
+        chunkBtn('◀◀ Rev', () => { dir = -1; }),
+        chunkBtn('↔ Ping', () => { dir = 0; ping = 1; }),
+        chunkBtn('▶▶ Fwd', () => { dir = 1; }),
+      ),
+      playBtn,
+    ),
+    section('PRESETS', '#C6F0D2',
+      h('div.k-row', { style: { gap: '6px' } },
+        chunkBtn('◀', () => { preset = (preset - 1 + PRESETS.length) % PRESETS.length; presetLab.textContent = PRESETS[preset]; }),
+        presetLab,
+        chunkBtn('▶', () => { preset = (preset + 1) % PRESETS.length; presetLab.textContent = PRESETS[preset]; }),
+      ),
+    ),
+    section('SETTINGS', '#E2D5F2',
+      h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+        chunkBtn('Font −', () => { fontSize = clamp(fontSize - 6, 28, 140); paintStage(); }),
+        chunkBtn('Font +', () => { fontSize = clamp(fontSize + 6, 28, 140); paintStage(); }),
+        chunkBtn('Track −', () => { tracking = clamp(tracking - 2, 0, 24); stage.style.gap = tracking + 'px'; }),
+        chunkBtn('Track +', () => { tracking = clamp(tracking + 2, 0, 24); stage.style.gap = tracking + 'px'; }),
+      ),
+    ),
+    section('FONTBOX', '#FF954D',
+      h('div.k-row', { style: { gap: '6px', flexWrap: 'wrap' } },
+        chunkBtn('INFO + CREDITS', () => toast('Design + Code · Gabriel Drozdov')),
+        chunkBtn('MORE PROJECTS', () => toast('barcoloudly.com')),
+        chunkBtn('GO FULLSCREEN', () => toast('fullscreen (demo)')),
+      ),
+    ),
+  );
+
+  root.append(stage, side);
+  rebuild();
+
+  window.__demoProof = async () => {
+    const prev = text;
+    text = 'Fontbox'; inputEl.value = text; rebuild();
+    play(); await sleep(700); stop();
+    pos = -1; text = prev; inputEl.value = text; rebuild();
+    return 'typed Fontbox · sequencer advanced · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['music-grid-sequencer'])(root, T); }

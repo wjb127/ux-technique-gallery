@@ -1,5 +1,101 @@
 [
  {
+  "id": "clone-fontbox-typo-sequencer",
+  "slug": "fontbox-typo-sequencer",
+  "name": "Fontbox Typographic Musical Sequencer",
+  "date": "2026-10-04",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://fontbox.barcoloudly.com/",
+  "domain": "fontbox.barcoloudly.com",
+  "product": "Fontbox",
+  "checkpoints": [
+   "Fontbox Typographic Musical Sequencer"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Fontbox Typographic Musical Sequencer",
+  "ko": "Fontbox 스타일 사운드 클론",
+  "engine": "seq",
+  "variant": "fontbox-typo-sequencer",
+  "theme": {
+   "bg": "#ffffff",
+   "fg": "#2c2520",
+   "panel": "#f1e3c0",
+   "dark": false,
+   "ac": "#7daed4",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.56
+  },
+  "path": "/t/fontbox-typo-sequencer/",
+  "built": true
+ },
+ {
+  "id": "clone-toootegram-playlist-zoo",
+  "slug": "toootegram-playlist-zoo",
+  "name": "TOOOTEGRAM Playable Playlist Zoo",
+  "date": "2026-10-04",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://toootegram.tote.co.jp/",
+  "domain": "toootegram.tote.co.jp",
+  "product": "Toootegram",
+  "checkpoints": [
+   "TOOOTEGRAM Playable Playlist Zoo"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "TOOOTEGRAM Playable Playlist Zoo",
+  "ko": "Toootegram 스타일 인터랙션 클론",
+  "engine": "three",
+  "variant": "toootegram-playlist-zoo",
+  "theme": {
+   "bg": "#fc8dd1",
+   "fg": "#141414",
+   "panel": "#cabdff",
+   "dark": false,
+   "ac": "#fc8dd1",
+   "ac2": "#fae76e",
+   "ac3": "#69b5db",
+   "coverage": 0.12
+  },
+  "path": "/t/toootegram-playlist-zoo/",
+  "built": true
+ },
+ {
+  "id": "clone-ponpon-interactive-comic",
+  "slug": "ponpon-interactive-comic",
+  "name": "Ponpon Mania Interactive Comic Reader",
+  "date": "2026-10-04",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ponpon-mania.com/",
+  "domain": "ponpon-mania.com",
+  "product": "Ponpon-mania",
+  "checkpoints": [
+   "Ponpon Mania Interactive Comic Reader"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Ponpon Mania Interactive Comic Reader",
+  "ko": "Ponpon-mania 스타일 인터랙션 클론",
+  "engine": "saas",
+  "variant": "ponpon-interactive-comic",
+  "theme": {
+   "bg": "#fff6f0",
+   "fg": "#171717",
+   "panel": "#fffaf4",
+   "dark": false,
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.9
+  },
+  "path": "/t/ponpon-interactive-comic/",
+  "built": true
+ },
+ {
   "id": "clone-pointerpointer-photo-novelty",
   "slug": "pointerpointer-photo-novelty",
   "name": "Pointer Pointer Photo Novelty Stage",

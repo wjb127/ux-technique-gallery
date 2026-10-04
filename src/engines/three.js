@@ -1450,4 +1450,237 @@ V['georgeandjonathan-album-experience'] = (root, T) => {
   };
 };
 
+V['toootegram-playlist-zoo'] = (root, T) => {
+  theme(root, T, { bg: '#fc8dd1', fg: '#141414', panel: '#cabdff', ac: '#fae76e', dark: false });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+
+  const ANIMALS = [
+    { name: 'Mochi Bear', emoji: '🐻', color: 0xffb4a2, notes: [60, 64, 67, 72, 67, 64], bpm: 96 },
+    { name: 'Lulu Fox', emoji: '🦊', color: 0xff9f6b, notes: [62, 65, 69, 74, 69, 65], bpm: 110 },
+    { name: 'Pudding Cat', emoji: '🐱', color: 0xfae76e, notes: [57, 60, 64, 69, 64, 60], bpm: 88 },
+    { name: 'Boba Bunny', emoji: '🐰', color: 0xcabdff, notes: [55, 59, 62, 67, 62, 59], bpm: 120 },
+    { name: 'Soda Bird', emoji: '🐦', color: 0x69b5db, notes: [64, 67, 71, 76, 71, 67], bpm: 104 },
+    { name: 'Mango Dog', emoji: '🐶', color: 0xffd27a, notes: [53, 57, 60, 65, 60, 57], bpm: 100 },
+    { name: 'Gummy Frog', emoji: '🐸', color: 0x86efac, notes: [58, 62, 65, 70, 65, 62], bpm: 92 },
+    { name: 'Taro Panda', emoji: '🐼', color: 0xe8e0f8, notes: [52, 55, 59, 64, 59, 55], bpm: 84 },
+  ];
+
+  let ti = 0;
+  let playing = false;
+  let noteI = 0;
+  let lastBlip = 0;
+  let inZoo = false;
+
+  // kaleidoscope landing
+  const landing = h('div', {
+    style: {
+      position: 'absolute', inset: 0, zIndex: 6, display: 'grid', placeItems: 'center',
+      background: `
+        repeating-conic-gradient(from 0deg at 50% 50%,
+          #fc8dd1 0deg 20deg, #69b5db 20deg 40deg, #fae76e 40deg 60deg,
+          #cabdff 60deg 80deg, #ffb4a2 80deg 100deg, #e8e0f8 100deg 120deg)`,
+      cursor: 'pointer',
+    },
+    onclick: () => enterZoo(),
+  },
+    h('div', { style: { textAlign: 'center', display: 'grid', gap: '14px', padding: '24px' } },
+      h('div', { style: { fontSize: '12px', letterSpacing: '.2em', opacity: .55, fontWeight: 700 } }, 'THIS IS A'),
+      h('div', { style: { fontSize: '42px', fontWeight: 900, color: '#3dd6ff', letterSpacing: '-.02em', textShadow: '2px 2px 0 #fff' } }, 'NON-VERBAL PLAYABLE'),
+      h('div', { style: { fontSize: '36px', fontWeight: 700, color: '#fae76e', fontFamily: 'Georgia,serif', marginTop: '-8px' } }, 'Playlist Site.'),
+      h('div', { style: { fontSize: '12px', lineHeight: 1.7, opacity: .65, fontWeight: 600, marginTop: '8px' } },
+        'EVERY TAP TWIST OR SOUND', h('br'), 'LEADS TO A NEW DISCOVERY', h('br'), h('br'),
+        'TOUCH THE SCREEN', h('br'), 'FEEL THE RHYTHM', h('br'), 'AND FIND WHAT\'S HIDDEN INSIDE'),
+      h('button', {
+        style: {
+          margin: '18px auto 0', background: '#fae76e', border: '3px solid #5b3cff',
+          color: '#5b3cff', fontWeight: 900, fontSize: '18px', padding: '12px 36px',
+          cursor: 'pointer', letterSpacing: '.04em',
+        },
+        onclick: (e) => { e.stopPropagation(); enterZoo(); },
+      }, '◀ enter zoo ▶'),
+    ),
+  );
+
+  const world = h('div', { style: { position: 'absolute', inset: 0, bottom: '78px' } });
+  const S = stage(world, { bg: '#1a1028' });
+  S.cam.position.set(0, 6, 14);
+  lights(S.scene, 0.7);
+  S.scene.add(new THREE.AmbientLight(0xff88cc, 0.45));
+
+  // ground disk
+  {
+    const g = new THREE.Mesh(
+      new THREE.CircleGeometry(9, 48),
+      new THREE.MeshStandardMaterial({ color: 0x2a1840, roughness: 0.85 }),
+    );
+    g.rotation.x = -Math.PI / 2;
+    g.receiveShadow = true;
+    S.scene.add(g);
+  }
+
+  const group = new THREE.Group();
+  S.scene.add(group);
+  const meshes = [];
+
+  const makeAnimal = (a, i) => {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(
+      new THREE.SphereGeometry(0.55, 24, 24),
+      new THREE.MeshStandardMaterial({ color: a.color, roughness: 0.45, metalness: 0.05 }),
+    );
+    body.scale.set(1, 0.9, 1.1);
+    body.castShadow = true;
+    g.add(body);
+    // ears / accents
+    const earGeo = new THREE.SphereGeometry(0.18, 12, 12);
+    const earMat = new THREE.MeshStandardMaterial({ color: a.color, roughness: 0.5 });
+    const earL = new THREE.Mesh(earGeo, earMat); earL.position.set(-0.35, 0.5, 0.1); g.add(earL);
+    const earR = new THREE.Mesh(earGeo, earMat); earR.position.set(0.35, 0.5, 0.1); g.add(earR);
+    // eyes
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x141414 });
+    const eyeL = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 8), eyeMat); eyeL.position.set(-0.18, 0.15, 0.48); g.add(eyeL);
+    const eyeR = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 8), eyeMat); eyeR.position.set(0.18, 0.15, 0.48); g.add(eyeR);
+    // ring pedestal
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(0.7, 0.05, 8, 32),
+      new THREE.MeshStandardMaterial({ color: 0xfae76e, emissive: 0xfae76e, emissiveIntensity: 0.2 }),
+    );
+    ring.rotation.x = Math.PI / 2;
+    ring.position.y = -0.55;
+    g.add(ring);
+
+    const ang = (i / ANIMALS.length) * Math.PI * 2;
+    const rad = 4.2;
+    g.position.set(Math.cos(ang) * rad, 0.7, Math.sin(ang) * rad);
+    g.userData.i = i;
+    g.userData.baseY = 0.7;
+    g.userData.phase = i * 0.7;
+    group.add(g);
+    meshes.push(g);
+    return g;
+  };
+  ANIMALS.forEach(makeAnimal);
+
+  // raycast select
+  const ray = new THREE.Raycaster();
+  const ptr = new THREE.Vector2();
+  world.addEventListener('pointerdown', (e) => {
+    if (!inZoo) return;
+    const r = world.getBoundingClientRect();
+    ptr.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+    ptr.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+    ray.setFromCamera(ptr, S.cam);
+    const hits = ray.intersectObjects(meshes, true);
+    if (hits.length) {
+      let obj = hits[0].object;
+      while (obj && obj.userData.i == null) obj = obj.parent;
+      if (obj) selectTrack(obj.userData.i, true);
+    }
+  });
+
+  const titleLab = h('b', { style: { fontSize: '14px' } }, `${ANIMALS[0].emoji} ${ANIMALS[0].name}`);
+  const playBtn = h('button', {
+    style: { background: '#fae76e', border: '2px solid #141414', borderRadius: '99px', width: '42px', height: '42px', fontSize: '16px', cursor: 'pointer', fontWeight: 800 },
+    onclick: () => togglePlay(),
+  }, '▶');
+
+  const dock = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, bottom: 0, height: '78px',
+      background: '#141414', color: '#fff', padding: '0 20px', gap: '14px', zIndex: 5,
+    },
+  },
+    titleLab,
+    h('span', { style: { flex: 1, fontSize: '11px', opacity: .45 } }, 'TOOOTEGRAM · playable playlist zoo'),
+    h('button', { style: { background: 'none', border: 0, color: '#fff', fontSize: '18px', cursor: 'pointer' }, onclick: () => selectTrack((ti - 1 + ANIMALS.length) % ANIMALS.length, true) }, '⏮'),
+    playBtn,
+    h('button', { style: { background: 'none', border: 0, color: '#fff', fontSize: '18px', cursor: 'pointer' }, onclick: () => selectTrack((ti + 1) % ANIMALS.length, true) }, '⏭'),
+  );
+
+  const chips = h('div', {
+    style: {
+      position: 'absolute', left: '14px', top: '54px', zIndex: 4, display: 'grid', gap: '6px',
+      maxHeight: 'calc(100% - 140px)', overflow: 'auto',
+    },
+  });
+  const paintChips = () => {
+    chips.replaceChildren(...ANIMALS.map((a, i) => h('button', {
+      style: {
+        border: i === ti ? '2px solid #141414' : '2px solid #ffffff55',
+        background: i === ti ? '#fae76e' : '#ffffffcc',
+        color: '#141414', borderRadius: '99px', padding: '6px 12px',
+        fontWeight: 700, fontSize: '12px', cursor: 'pointer', textAlign: 'left',
+        backdropFilter: 'blur(6px)',
+      },
+      onclick: () => selectTrack(i, true),
+    }, `${a.emoji} ${a.name}`)));
+  };
+  paintChips();
+
+  const topBar = h('div.k-row', {
+    style: { position: 'absolute', top: 0, left: 0, right: 0, height: '48px', padding: '0 16px', zIndex: 4, fontSize: '12px', fontWeight: 800 },
+  },
+    h('span', { style: { background: '#fae76e', border: '2px solid #141414', padding: '4px 10px' } }, 'TOOOTEGRAM'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .7 } }, 'tap an animal · next / prev'),
+  );
+
+  const selectTrack = (i, autoPlay = false) => {
+    ti = i;
+    noteI = 0;
+    titleLab.textContent = `${ANIMALS[i].emoji} ${ANIMALS[i].name}`;
+    paintChips();
+    if (autoPlay) { playing = true; playBtn.textContent = '❚❚'; audio(); }
+  };
+  const togglePlay = () => {
+    audio();
+    playing = !playing;
+    playBtn.textContent = playing ? '❚❚' : '▶';
+  };
+  const enterZoo = () => {
+    inZoo = true;
+    landing.style.display = 'none';
+    audio();
+    playing = true;
+    playBtn.textContent = '❚❚';
+  };
+
+  S.on((t) => {
+    group.rotation.y = t * 0.12;
+    meshes.forEach((m, i) => {
+      const sel = i === ti && playing;
+      m.position.y = m.userData.baseY + Math.sin(t * 2 + m.userData.phase) * (sel ? 0.35 : 0.12);
+      m.scale.setScalar(sel ? 1.18 : 1);
+      m.rotation.y = sel ? t * 1.5 : Math.sin(t + i) * 0.2;
+    });
+    S.cam.position.x = Math.sin(t * 0.15) * 2;
+    S.cam.lookAt(0, 0.8, 0);
+    if (playing && inZoo) {
+      const tr = ANIMALS[ti];
+      const step = 60 / tr.bpm;
+      if (t - lastBlip >= step) {
+        lastBlip = t;
+        const n = tr.notes[noteI % tr.notes.length];
+        blip(440 * 2 ** ((n - 69) / 12), 0.14, 'triangle', 0.09);
+        noteI++;
+      }
+    }
+  });
+
+  root.append(world, topBar, chips, dock, landing);
+
+  window.__demoProof = async () => {
+    enterZoo();
+    selectTrack(2, true);
+    await sleep(400);
+    selectTrack(5, true);
+    await sleep(200);
+    playing = false; playBtn.textContent = '▶';
+    selectTrack(0, false);
+    landing.style.display = 'grid'; inZoo = false;
+    return 'entered zoo · switched animals · melody · restored landing';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }

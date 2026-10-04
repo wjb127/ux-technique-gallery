@@ -1,5 +1,53 @@
 [
  {
+  "id": "clone-fontbox-typo-sequencer",
+  "slug": "fontbox-typo-sequencer",
+  "name": "Fontbox Typographic Musical Sequencer",
+  "date": "2026-10-04",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://fontbox.barcoloudly.com/",
+  "domain": "fontbox.barcoloudly.com",
+  "product": "Fontbox",
+  "checkpoints": [
+   "Fontbox Typographic Musical Sequencer"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-toootegram-playlist-zoo",
+  "slug": "toootegram-playlist-zoo",
+  "name": "TOOOTEGRAM Playable Playlist Zoo",
+  "date": "2026-10-04",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://toootegram.tote.co.jp/",
+  "domain": "toootegram.tote.co.jp",
+  "product": "Toootegram",
+  "checkpoints": [
+   "TOOOTEGRAM Playable Playlist Zoo"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-ponpon-interactive-comic",
+  "slug": "ponpon-interactive-comic",
+  "name": "Ponpon Mania Interactive Comic Reader",
+  "date": "2026-10-04",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ponpon-mania.com/",
+  "domain": "ponpon-mania.com",
+  "product": "Ponpon-mania",
+  "checkpoints": [
+   "Ponpon Mania Interactive Comic Reader"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
   "id": "clone-pointerpointer-photo-novelty",
   "slug": "pointerpointer-photo-novelty",
   "name": "Pointer Pointer Photo Novelty Stage",

@@ -1,4 +1,4 @@
-import { h, s, drag, clamp, toast, sleep, rng, pick, copy, css } from '../lib.js';
+import { h, s, drag, clamp, toast, sleep, rng, pick, copy, css, blip, audio, midi } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
 const SERIF = "'Fraunces Variable',Georgia,serif", MONO = "'JetBrains Mono Variable',monospace";
@@ -430,6 +430,242 @@ V['sonner-toast-desk'] = (root, T) => {
     [...viewport.querySelectorAll('.sn-toast')].forEach((el) => el.remove());
     toasts = [];
     return 'fired success/error/warning/info/promise; toggled position+expand; restored';
+  };
+};
+
+V['ponpon-interactive-comic'] = (root, T) => {
+  theme(root, T, { bg: '#fff6f0', fg: '#171717', panel: '#fffaf4', ac: '#ff6b35', dark: false });
+  scroll(root);
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+  root.style.overflow = 'hidden';
+
+  const PAGES = [
+    {
+      title: 'Ponpon Mania · 1',
+      panels: [
+        { bg: '#ffe8d6', art: '🐑', caption: 'Ponpon wakes up.', bubble: 'Another day…' },
+        { bg: '#ffd6e8', art: '🕶️', caption: 'Sunglasses on.', bubble: 'Cool mode: ON' },
+        { bg: '#d6e8ff', art: '🎵', caption: 'Music starts.', bubble: 'Feel that beat?' },
+      ],
+    },
+    {
+      title: 'Ponpon Mania · 2',
+      panels: [
+        { bg: '#e8ffd6', art: '🏙️', caption: 'City stroll.', bubble: 'Where to next?' },
+        { bg: '#f0e0ff', art: '🧋', caption: 'Snack stop.', bubble: 'Boba first.' },
+        { bg: '#fff0c8', art: '🕺', caption: 'Dance break.', bubble: 'Pon! Pon!' },
+      ],
+    },
+    {
+      title: 'Ponpon Mania · 3',
+      panels: [
+        { bg: '#ffd0d0', art: '🌙', caption: 'Night falls.', bubble: 'Still bouncing.' },
+        { bg: '#d0f0ff', art: '✨', caption: 'Stars blink.', bubble: 'One more track.' },
+        { bg: '#e8e0ff', art: '💤', caption: 'Soft fade.', bubble: 'See you…' },
+      ],
+    },
+  ];
+  const TRACKS = [
+    { name: 'Ponpon Theme', notes: [60, 64, 67, 64, 69, 67, 64, 60], bpm: 100 },
+    { name: 'City Bounce', notes: [62, 65, 69, 65, 72, 69, 65, 62], bpm: 118 },
+    { name: 'Night Soft', notes: [57, 60, 64, 60, 67, 64, 60, 57], bpm: 84 },
+  ];
+
+  let page = 0;
+  let panel = 0;
+  let playing = false;
+  let track = 0;
+  let noteI = 0;
+  let tid = null;
+  let cookies = true;
+
+  const stage = h('div', {
+    style: {
+      position: 'absolute', inset: 0, bottom: '72px',
+      display: 'grid', placeItems: 'center', padding: '24px',
+      background: '#fff6f0',
+    },
+  });
+
+  const panelEl = h('div', {
+    style: {
+      width: 'min(520px, 92vw)', aspectRatio: '4/5', border: '3px solid #171717',
+      borderRadius: '8px', position: 'relative', overflow: 'hidden',
+      boxShadow: '8px 8px 0 #17171722', background: '#ffe8d6',
+      display: 'flex', flexDirection: 'column', cursor: 'pointer',
+    },
+    onclick: () => advance(),
+  });
+
+  const artEl = h('div', {
+    style: {
+      flex: 1, display: 'grid', placeItems: 'center', fontSize: '96px',
+      userSelect: 'none', transition: 'transform .25s',
+    },
+  }, '🐑');
+  const bubble = h('div', {
+    style: {
+      position: 'absolute', top: '18px', right: '18px', maxWidth: '55%',
+      background: '#fff', border: '2.5px solid #171717', borderRadius: '18px',
+      padding: '10px 14px', fontWeight: 700, fontSize: '14px',
+      boxShadow: '3px 3px 0 #171717',
+    },
+  }, '…');
+  const caption = h('div', {
+    style: {
+      padding: '12px 16px', borderTop: '3px solid #171717', background: '#fffaf4',
+      fontSize: '13px', fontWeight: 600, letterSpacing: '.02em',
+    },
+  }, '');
+  const pageLab = h('div', {
+    style: {
+      position: 'absolute', top: '14px', left: '14px', fontSize: '11px',
+      fontWeight: 800, letterSpacing: '.1em', opacity: .55,
+    },
+  }, '');
+
+  panelEl.append(pageLab, bubble, artEl, caption);
+
+  const paint = () => {
+    const pg = PAGES[page];
+    const pn = pg.panels[panel];
+    panelEl.style.background = pn.bg;
+    artEl.textContent = pn.art;
+    artEl.style.transform = 'scale(1.05)';
+    setTimeout(() => { artEl.style.transform = 'scale(1)'; }, 180);
+    bubble.textContent = pn.bubble;
+    caption.textContent = pn.caption;
+    pageLab.textContent = `${pg.title} · PANEL ${panel + 1}/${pg.panels.length}`;
+    pageChip.textContent = `${page + 1} / ${PAGES.length}`;
+  };
+
+  const advance = () => {
+    const pg = PAGES[page];
+    if (panel < pg.panels.length - 1) panel++;
+    else if (page < PAGES.length - 1) { page++; panel = 0; }
+    else { page = 0; panel = 0; }
+    paint();
+    // soft click
+    audio();
+    blip(220, 0.04, 'square', 0.04);
+  };
+  const back = () => {
+    if (panel > 0) panel--;
+    else if (page > 0) { page--; panel = PAGES[page].panels.length - 1; }
+    paint();
+  };
+
+  const pageChip = h('span', { style: { fontWeight: 800, fontSize: '12px', minWidth: '48px', textAlign: 'center' } }, '1 / 3');
+
+  // music player dock
+  const trackLab = h('span', { style: { fontSize: '13px', fontWeight: 700 } }, TRACKS[0].name);
+  const playBtn = h('button', {
+    style: {
+      width: '40px', height: '40px', borderRadius: '50%', border: '2px solid #171717',
+      background: '#ff6b35', color: '#fff', fontWeight: 800, cursor: 'pointer', fontSize: '14px',
+    },
+    onclick: () => toggleMusic(),
+  }, '▶');
+
+  const stopMusic = () => { clearInterval(tid); tid = null; playing = false; playBtn.textContent = '▶'; };
+  const tickMusic = () => {
+    const tr = TRACKS[track];
+    const n = tr.notes[noteI % tr.notes.length];
+    blip(440 * 2 ** ((n - 69) / 12), 0.16, noteI % 2 ? 'triangle' : 'sine', 0.1);
+    noteI++;
+  };
+  const toggleMusic = () => {
+    audio();
+    if (playing) { stopMusic(); return; }
+    playing = true;
+    playBtn.textContent = '❚❚';
+    const ms = 60000 / TRACKS[track].bpm;
+    tid = setInterval(tickMusic, ms);
+  };
+  const switchTrack = (i) => {
+    track = i;
+    noteI = 0;
+    trackLab.textContent = TRACKS[i].name;
+    if (playing) { stopMusic(); toggleMusic(); }
+  };
+
+  const dock = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, bottom: 0, height: '72px',
+      background: '#171717', color: '#fff', padding: '0 18px', gap: '12px', zIndex: 5,
+    },
+  },
+    h('div', { style: { display: 'grid', gap: '2px' } },
+      h('div', { style: { fontSize: '10px', opacity: .45, letterSpacing: '.12em' } }, 'NOW PLAYING'),
+      trackLab,
+    ),
+    h('span', { style: { flex: 1 } }),
+    h('button', {
+      style: { background: 'none', border: 0, color: '#fff', cursor: 'pointer', fontSize: '16px' },
+      onclick: () => switchTrack((track - 1 + TRACKS.length) % TRACKS.length),
+    }, '⏮'),
+    playBtn,
+    h('button', {
+      style: { background: 'none', border: 0, color: '#fff', cursor: 'pointer', fontSize: '16px' },
+      onclick: () => switchTrack((track + 1) % TRACKS.length),
+    }, '⏭'),
+    h('span', { style: { width: '1px', height: '28px', background: '#ffffff33', margin: '0 6px' } }),
+    h('button', {
+      style: { background: '#ffffff14', border: '1px solid #ffffff33', color: '#fff', borderRadius: '6px', padding: '6px 10px', cursor: 'pointer', fontWeight: 700, fontSize: '12px' },
+      onclick: back,
+    }, '◀ Panel'),
+    pageChip,
+    h('button', {
+      style: { background: '#ff6b35', border: 0, color: '#fff', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer', fontWeight: 800, fontSize: '12px' },
+      onclick: advance,
+    }, 'Panel ▶'),
+  );
+
+  const top = h('div.k-row', {
+    style: {
+      position: 'absolute', top: 0, left: 0, right: 0, height: '48px',
+      padding: '0 18px', zIndex: 4, fontSize: '12px', fontWeight: 700,
+    },
+  },
+    h('b', { style: { letterSpacing: '.06em' } }, 'PONPON MANIA'),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { opacity: .5 } }, 'Patrick HENG & Justine Soulié'),
+  );
+
+  // cookie banner (matches ref chrome)
+  const cookie = h('div.k-row', {
+    style: {
+      position: 'absolute', left: 0, right: 0, bottom: '72px', height: '44px',
+      background: '#171717', color: '#fff', padding: '0 16px', gap: '12px', zIndex: 6,
+      fontSize: '12px',
+    },
+  },
+    h('span', { style: { flex: 1 } }, 'Hey you ✨ This site uses cookies to measure the traffic.'),
+    h('button', {
+      style: { background: '#fff', color: '#171717', border: 0, borderRadius: '99px', padding: '6px 14px', fontWeight: 700, cursor: 'pointer' },
+      onclick: () => { cookies = true; cookie.remove(); },
+    }, 'Accept'),
+    h('button', {
+      style: { background: 'transparent', color: '#fff', border: '1px solid #fff', borderRadius: '99px', padding: '6px 14px', fontWeight: 700, cursor: 'pointer' },
+      onclick: () => { cookies = false; cookie.remove(); },
+    }, 'Decline'),
+  );
+
+  // need audio/blip in saas — will patch import
+  stage.append(panelEl);
+  root.append(stage, top, dock, cookie);
+  paint();
+
+  window.__demoProof = async () => {
+    advance(); advance();
+    switchTrack(1);
+    toggleMusic();
+    await sleep(500);
+    stopMusic();
+    page = 0; panel = 0; track = 0; noteI = 0;
+    trackLab.textContent = TRACKS[0].name;
+    paint();
+    return 'advanced panels · switched track · played · restored page 1';
   };
 };
 
