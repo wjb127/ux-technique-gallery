@@ -1,5 +1,101 @@
 [
  {
+  "id": "clone-purl-visual-game-engine",
+  "slug": "purl-visual-game-engine",
+  "name": "Purl Visual Game Engine Desk",
+  "date": "2026-10-04",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://purl.studio/",
+  "domain": "purl.studio",
+  "product": "Purl",
+  "checkpoints": [
+   "Purl Visual Game Engine Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Purl Visual Game Engine Desk",
+  "ko": "Purl 스타일 퍼즐/게임 클론",
+  "engine": "puzzle",
+  "variant": "purl-visual-game-engine",
+  "theme": {
+   "bg": "#808080",
+   "fg": "#141414",
+   "panel": "#666666",
+   "dark": false,
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.89
+  },
+  "path": "/t/purl-visual-game-engine/",
+  "built": true
+ },
+ {
+  "id": "clone-brushie-painterly-canvas",
+  "slug": "brushie-painterly-canvas",
+  "name": "Brushie Painterly Collaborative Canvas",
+  "date": "2026-10-04",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://brushie.vercel.app/",
+  "domain": "brushie.vercel.app",
+  "product": "Brushie",
+  "checkpoints": [
+   "Brushie Painterly Collaborative Canvas"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Brushie Painterly Collaborative Canvas",
+  "ko": "Brushie 스타일 드로잉 클론",
+  "engine": "paint",
+  "variant": "brushie-painterly-canvas",
+  "theme": {
+   "bg": "#fae6f0",
+   "fg": "#141414",
+   "panel": "#ebdae4",
+   "dark": false,
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.09
+  },
+  "path": "/t/brushie-painterly-canvas/",
+  "built": true
+ },
+ {
+  "id": "clone-fluidshader-gradient-desk",
+  "slug": "fluidshader-gradient-desk",
+  "name": "FluidShader Fluid Gradient Editor Desk",
+  "date": "2026-10-04",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://fluidshader.vercel.app/",
+  "domain": "fluidshader.vercel.app",
+  "product": "Fluidshader",
+  "checkpoints": [
+   "FluidShader Fluid Gradient Editor Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "FluidShader Fluid Gradient Editor Desk",
+  "ko": "Fluidshader 스타일 그라디언트 클론",
+  "engine": "gradient",
+  "variant": "fluidshader-gradient-desk",
+  "theme": {
+   "bg": "#151515",
+   "fg": "#7f8f94",
+   "panel": "#000000",
+   "dark": true,
+   "ac": "#8c35af",
+   "ac2": "#336666",
+   "ac3": "#63bf3f",
+   "coverage": 0.39
+  },
+  "path": "/t/fluidshader-gradient-desk/",
+  "built": true
+ },
+ {
   "id": "clone-lusion-3d-studio-stage",
   "slug": "lusion-3d-studio-stage",
   "name": "Lusion 3D Interactive Studio Stage",

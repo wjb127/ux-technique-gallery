@@ -394,4 +394,227 @@ V['timeguessr-historic-photo-quiz'] = (root, T) => {
   };
 };
 
+
+V['purl-visual-game-engine'] = (root, T) => {
+  theme(root, T, { bg: '#5c5c5c', fg: '#f2f2f2', panel: '#4a4a4a', ac: '#c45c6a', dark: true, line: '#3a3a3a' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.style.position = 'relative';
+
+  let mode = 'home'; // home | editor | tutorial | docs
+  let nodes = [];
+  let edges = [];
+  let nid = 1;
+  let zoom = 100;
+  const body = h('div', { style: { position: 'absolute', inset: '36px 0 0', display: 'grid', placeItems: 'center' } });
+
+  const logo = () => {
+    const petals = [
+      { c: '#c45c6a', rot: -20 },
+      { c: '#4a7ab8', rot: 70 },
+      { c: '#7a5ca8', rot: 160 },
+      { c: '#c9a84a', rot: 250 },
+    ];
+    return h('div', { style: { width: '72px', height: '72px', position: 'relative', margin: '0 auto 18px' } },
+      ...petals.map((p) => h('div', {
+        style: {
+          position: 'absolute', inset: '8px', borderRadius: '50% 50% 50% 0',
+          border: '3px solid #111', background: p.c,
+          transform: `rotate(${p.rot}deg)`, opacity: 0.92,
+        },
+      })),
+    );
+  };
+
+  const card = (icon, title, sub, on) => h('button', {
+    style: {
+      width: '200px', height: '168px', border: 'none', borderRadius: '14px',
+      background: '#3f3f3f', color: '#f2f2f2', cursor: 'pointer',
+      display: 'grid', alignContent: 'center', justifyItems: 'center', gap: '10px',
+      boxShadow: '0 8px 24px #0004', transition: 'transform .15s, background .15s',
+    },
+    onmouseenter: (e) => { e.currentTarget.style.background = '#484848'; e.currentTarget.style.transform = 'translateY(-2px)'; },
+    onmouseleave: (e) => { e.currentTarget.style.background = '#3f3f3f'; e.currentTarget.style.transform = ''; },
+    onclick: on,
+  },
+    h('div', { style: { fontSize: '28px', fontWeight: 300, lineHeight: 1 } }, icon),
+    h('div', { style: { font: '600 16px Inter Variable,system-ui' } }, title),
+    h('div', { style: { fontSize: '12px', opacity: .55, maxWidth: '140px', lineHeight: 1.35 } }, sub),
+  );
+
+  const topBar = () => h('div', {
+    style: {
+      position: 'absolute', top: 0, left: 0, right: 0, height: '36px',
+      background: '#2a2a2a', display: 'flex', alignItems: 'center', gap: '14px',
+      padding: '0 12px', fontSize: '12px', color: '#ddd', zIndex: 5,
+      borderBottom: '1px solid #1a1a1a',
+    },
+  },
+    h('span', { style: { width: '18px', height: '18px', borderRadius: '4px', background: 'conic-gradient(#c45c6a,#4a7ab8,#7a5ca8,#c9a84a)', border: '1px solid #111' } }),
+    ...['File', 'Edit', 'View', 'Settings', 'Help'].map((t) => h('span', { style: { opacity: .85, cursor: 'default' } }, t)),
+    h('span', { style: { flex: 1 } }),
+    h('span', { style: { background: '#3a3a3a', padding: '3px 10px', borderRadius: '6px', fontSize: '11px' } }, 'AI 🔒'),
+    h('span', { style: { background: '#3a3a3a', padding: '3px 10px', borderRadius: '6px', fontSize: '11px', cursor: 'pointer' } }, 'Sign in'),
+    h('span', { style: { display: 'flex', alignItems: 'center', gap: '6px', background: '#333', borderRadius: '6px', padding: '2px 8px' } },
+      h('span', { style: { cursor: 'pointer' }, onclick: () => { zoom = Math.max(50, zoom - 10); render(); } }, '−'),
+      h('span', {}, zoom + '%'),
+      h('span', { style: { cursor: 'pointer' }, onclick: () => { zoom = Math.min(200, zoom + 10); render(); } }, '+'),
+    ),
+  );
+
+  const openBlank = () => {
+    mode = 'editor';
+    nodes = [
+      { id: nid++, x: 180, y: 160, label: 'Start', kind: 'event' },
+      { id: nid++, x: 420, y: 160, label: 'Scene', kind: 'scene' },
+    ];
+    edges = [[nodes[0].id, nodes[1].id]];
+    render();
+  };
+
+  const addNode = (kind = 'action') => {
+    const labels = { event: 'Event', scene: 'Scene', action: 'Action', sprite: 'Sprite' };
+    nodes.push({ id: nid++, x: 220 + Math.random() * 280, y: 120 + Math.random() * 200, label: labels[kind] || 'Node', kind });
+    if (nodes.length > 1) edges.push([nodes[nodes.length - 2].id, nodes[nodes.length - 1].id]);
+    render();
+  };
+
+  const drawEditor = () => {
+    const stage = h('div', {
+      style: {
+        position: 'absolute', inset: 0, background: '#4a4a4a',
+        backgroundImage: 'radial-gradient(#666 1px, transparent 1px)',
+        backgroundSize: '24px 24px', overflow: 'hidden',
+      },
+    });
+    const world = h('div', {
+      style: {
+        position: 'absolute', left: '50%', top: '50%',
+        width: '900px', height: '560px', margin: '-280px -450px',
+        transform: `scale(${zoom / 100})`, transformOrigin: 'center center',
+      },
+    });
+    const svg = s('svg', { viewBox: '0 0 900 560', style: 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none' });
+    edges.forEach(([a, b]) => {
+      const A = nodes.find((n) => n.id === a), B = nodes.find((n) => n.id === b);
+      if (!A || !B) return;
+      svg.append(s('path', {
+        d: `M${A.x + 60} ${A.y + 28} C${A.x + 140} ${A.y + 28}, ${B.x - 40} ${B.y + 28}, ${B.x} ${B.y + 28}`,
+        stroke: '#9aa', 'stroke-width': 2, fill: 'none', opacity: .7,
+      }));
+    });
+    const kindColor = { event: '#c45c6a', scene: '#4a7ab8', action: '#7a5ca8', sprite: '#c9a84a' };
+    nodes.forEach((n) => {
+      const el = h('div', {
+        style: {
+          position: 'absolute', left: n.x + 'px', top: n.y + 'px', width: '120px',
+          background: '#2f2f2f', border: `2px solid ${kindColor[n.kind] || '#888'}`,
+          borderRadius: '10px', padding: '10px 12px', cursor: 'grab', boxShadow: '0 6px 18px #0005',
+          fontSize: '13px', userSelect: 'none',
+        },
+      },
+        h('div', { style: { fontSize: '10px', opacity: .5, textTransform: 'uppercase', letterSpacing: '.06em' } }, n.kind),
+        h('div', { style: { fontWeight: 600, marginTop: '4px' } }, n.label),
+      );
+      let lx, ly; drag(el, { start: (e) => { lx = e.clientX; ly = e.clientY; }, move: (e) => { n.x += e.clientX - lx; n.y += e.clientY - ly; lx = e.clientX; ly = e.clientY; el.style.left = n.x + 'px'; el.style.top = n.y + 'px'; redrawEdges(); } });
+      world.append(el);
+    });
+    const redrawEdges = () => {
+      svg.replaceChildren();
+      edges.forEach(([a, b]) => {
+        const A = nodes.find((n) => n.id === a), B = nodes.find((n) => n.id === b);
+        if (!A || !B) return;
+        svg.append(s('path', {
+          d: `M${A.x + 60} ${A.y + 28} C${A.x + 140} ${A.y + 28}, ${B.x - 40} ${B.y + 28}, ${B.x} ${B.y + 28}`,
+          stroke: '#9aa', 'stroke-width': 2, fill: 'none', opacity: .7,
+        }));
+      });
+    };
+    world.prepend(svg);
+    stage.append(world);
+    const rail = h('div', {
+      style: {
+        position: 'absolute', left: '14px', top: '14px', display: 'flex', gap: '8px', zIndex: 3,
+      },
+    },
+      btn('← Home', () => { mode = 'home'; render(); }),
+      btn('+ Event', () => addNode('event')),
+      btn('+ Scene', () => addNode('scene')),
+      btn('+ Action', () => addNode('action'), 'pri'),
+      btn('+ Sprite', () => addNode('sprite')),
+    );
+    const hint = h('div', {
+      style: {
+        position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)',
+        fontSize: '12px', opacity: .55, background: '#0006', padding: '6px 14px', borderRadius: '8px',
+      },
+    }, 'Blank project · drag nodes · wire story flow');
+    stage.append(rail, hint);
+    return stage;
+  };
+
+  const drawDocs = (title, lines) => h('div', {
+    style: {
+      width: 'min(640px,90%)', background: '#3f3f3f', borderRadius: '16px', padding: '28px 32px',
+      boxShadow: '0 16px 40px #0005', display: 'grid', gap: '12px',
+    },
+  },
+    h('div.k-row', {}, h('b', { style: { fontSize: '20px' } }, title), h('span', { style: { flex: 1 } }), btn('← Back', () => { mode = 'home'; render(); })),
+    ...lines.map((t) => h('p', { style: { margin: 0, opacity: .75, lineHeight: 1.55, fontSize: '14px' } }, t)),
+  );
+
+  const render = () => {
+    root.replaceChildren(topBar());
+    if (mode === 'home') {
+      body.replaceChildren(
+        h('div', { style: { textAlign: 'center' } },
+          logo(),
+          h('div', { style: { font: '700 42px/1.1 Inter Variable,system-ui', letterSpacing: '-.02em', color: '#fff' } }, 'Purl Studio'),
+          h('div', { style: { marginTop: '10px', marginBottom: '36px', opacity: .6, fontSize: '15px' } }, 'Visual game engine for the browser'),
+          h('div', { style: { display: 'flex', gap: '18px', justifyContent: 'center' } },
+            card('+', 'New Project', 'Start with a blank canvas', openBlank),
+            card('▸', 'Tutorial', 'Interactive editor walkthrough', () => { mode = 'tutorial'; render(); }),
+            card('?', 'Knowledge Portal', 'Docs, tutorials, reference', () => { mode = 'docs'; render(); }),
+          ),
+        ),
+      );
+      root.append(body);
+    } else if (mode === 'editor') {
+      root.append(drawEditor());
+    } else if (mode === 'tutorial') {
+      body.replaceChildren(drawDocs('Tutorial', [
+        '1. Create a blank project from the home desk.',
+        '2. Drop Event → Scene → Action nodes and drag them into place.',
+        '3. Edges auto-wire in creation order — tell a short interactive story.',
+        '4. Use zoom in the top bar to inspect denser graphs.',
+      ]));
+      root.append(body);
+    } else {
+      body.replaceChildren(drawDocs('Knowledge Portal', [
+        'Purl-ish is a look-alike visual game / story builder desk.',
+        'Nodes: Event (triggers), Scene (stages), Action (logic), Sprite (art).',
+        'This gallery demo keeps everything local — no cloud save or AI.',
+        'Rebuild focus: home card trio + blank node canvas flow.',
+      ]));
+      root.append(body);
+    }
+  };
+
+  render();
+
+  window.__demoProof = async () => {
+    mode = 'home'; render();
+    await sleep(40);
+    openBlank();
+    await sleep(40);
+    addNode('action');
+    addNode('sprite');
+    await sleep(40);
+    zoom = 110; render();
+    await sleep(60);
+    mode = 'home'; render();
+    return 'opened blank project, added action+sprite nodes, returned home';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

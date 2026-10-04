@@ -249,4 +249,184 @@ V['whatamesh-gradient-desk'] = (root, T) => {
     return 'preset 3 playing @1.2 · CSS copied';
   };
 };
+
+V['fluidshader-gradient-desk'] = (root, T) => {
+  theme(root, T, { bg: '#121214', fg: '#f0f0f2', panel: '#1a1a1e', ac: '#8c35af', dark: true, line: '#2a2a30' });
+  root.style.overflow = 'auto';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.style.padding = '28px 36px 48px';
+
+  const STYLES = [
+    { id: 'Fluid', cols: ['#2a0a4a', '#c42a8a', '#1a1a80'] },
+    { id: 'Aurora', cols: ['#1a0a2a', '#f2a8c8', '#e8e8f8'] },
+    { id: 'Silk', cols: ['#1a1028', '#e8a0c8', '#a8c8f0'] },
+    { id: 'Caustics', cols: ['#041810', '#20ff90', '#10c8e0'] },
+    { id: 'Plasma', cols: ['#1a2228', '#3a8a8a', '#c86878'] },
+  ];
+  const DITHERS = ['simplex', 'warp', 'dots', 'wave', 'ripple', 'swirl', 'sphere'];
+  let style = 'Fluid';
+  let dither = 'simplex';
+  let t0 = performance.now();
+  const N = noise2(7);
+
+  const hdr = h('div', { style: { marginBottom: '28px' } },
+    h('div.k-row', { style: { gap: '10px', marginBottom: '18px' } },
+      h('div', { style: { width: '28px', height: '28px', borderRadius: '8px', background: 'conic-gradient(from 120deg,#8c35af,#336666,#63bf3f,#8c35af)' } }),
+      h('b', { style: { font: '600 16px Inter Variable' } }, 'FluidShader'),
+    ),
+    h('div', { style: { font: '700 40px/1.1 Inter Variable', letterSpacing: '-.03em' } }, 'Shader playground'),
+    h('div', { style: { marginTop: '10px', opacity: .55, fontSize: '14px', maxWidth: '520px', lineHeight: 1.5 } },
+      'Choose a shader style below to start editing — tweak colors, speed, and patterns in real time.'),
+  );
+
+  const previewWrap = h('div', {
+    style: {
+      width: '100%', height: '220px', borderRadius: '16px', overflow: 'hidden', marginBottom: '28px',
+      border: '1px solid #2a2a30', position: 'relative', background: '#000',
+    },
+  });
+  const cv = h('canvas', { style: { width: '100%', height: '100%', display: 'block' } });
+  previewWrap.append(cv);
+  const badge = h('div', {
+    style: {
+      position: 'absolute', left: '14px', bottom: '14px', background: '#000a', color: '#fff',
+      font: '600 12px Inter Variable', padding: '6px 10px', borderRadius: '8px',
+    },
+  }, 'Fluid · simplex');
+  previewWrap.append(badge);
+
+  const W = 320, H = 140;
+  cv.width = W; cv.height = H;
+  const g = cv.getContext('2d');
+  const img = g.createImageData(W, H);
+
+  const styleCols = () => (STYLES.find((s) => s.id === style) || STYLES[0]).cols.map(hexToRgb);
+
+  const ditherMask = (x, y, u, v, tt, n) => {
+    if (dither === 'dots') return ((x * 3 + y * 5) % 7) / 7 > 0.55 ? 0 : 1;
+    if (dither === 'wave') return (Math.sin(u * 18 + tt * 2) * 0.5 + 0.5 + n * 0.3) > (1 - v) ? 1 : 0.15;
+    if (dither === 'ripple') {
+      const d = Math.hypot(u - 0.5, v - 0.5);
+      return (Math.sin(d * 40 - tt * 4) * 0.5 + 0.5) * (1 - d);
+    }
+    if (dither === 'swirl') {
+      const dx = u - 0.5, dy = v - 0.5;
+      const ang = Math.atan2(dy, dx) + Math.hypot(dx, dy) * 8 + tt;
+      return (Math.sin(ang * 6) * 0.5 + 0.5);
+    }
+    if (dither === 'sphere') {
+      const d = Math.hypot(u - 0.5, (v - 0.5) * 1.1);
+      return d < 0.42 ? (0.6 + 0.4 * n) : 0.05;
+    }
+    if (dither === 'warp') return clamp(0.35 + n * 1.2 + Math.sin((u + n) * 12 + tt) * 0.2, 0, 1);
+    // simplex default
+    return clamp(0.4 + n * 0.9, 0, 1);
+  };
+
+  const tick = (t) => {
+    const cols = styleCols();
+    const tt = (t - t0) / 1000;
+    const dens = style === 'Caustics' ? 3.2 : style === 'Silk' ? 2.4 : style === 'Aurora' ? 1.6 : 2.0;
+    const spd = style === 'Plasma' ? 0.35 : 0.55;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      const u = x / W, v = y / H;
+      let n = N(u * dens + tt * spd, v * dens * 0.8 - tt * spd * 0.5);
+      if (style === 'Aurora') n = 0.5 + 0.5 * Math.sin((v * 8 + n) * 2 + tt);
+      if (style === 'Silk') n = 0.5 + 0.5 * Math.sin((u + v + n) * 10 + tt * 1.5);
+      if (style === 'Caustics') n = Math.pow(clamp(0.55 + n * 0.7, 0, 1), 2.2);
+      if (style === 'Plasma') n = 0.45 + 0.35 * Math.sin(u * 6 + tt) * Math.cos(v * 5 - tt * 0.7);
+      const mask = ditherMask(x, y, u, v, tt, n);
+      const k = clamp(n * 1.2, 0, 1);
+      const a = k < 0.5 ? cols[0] : cols[1], b = k < 0.5 ? cols[1] : cols[2];
+      const f = k < 0.5 ? k * 2 : k * 2 - 1;
+      const i = (y * W + x) * 4;
+      const m = Math.max(0.08, mask);
+      img.data[i] = (a[0] + (b[0] - a[0]) * f) * m;
+      img.data[i + 1] = (a[1] + (b[1] - a[1]) * f) * m;
+      img.data[i + 2] = (a[2] + (b[2] - a[2]) * f) * m;
+      img.data[i + 3] = 255;
+    }
+    g.putImageData(img, 0, 0);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  const mini = (kind, id, cols) => {
+    const c = h('canvas', { width: 160, height: 96, style: { width: '100%', height: '110px', display: 'block', borderRadius: '12px 12px 0 0' } });
+    const cg = c.getContext('2d');
+    const paintMini = () => {
+      const rgb = (cols || ['#222', '#888', '#eee']).map((x) => typeof x === 'string' ? hexToRgb(x) : x);
+      for (let y = 0; y < 96; y++) for (let x = 0; x < 160; x += 2) {
+        const u = x / 160, v = y / 96;
+        let n = N(u * 2.5 + id.length * 0.1, v * 2 + id.length * 0.2);
+        if (kind === 'dither') {
+          const on = ditherMask(x, y, u, v, 0, n) > 0.45;
+          const col = on ? (id === 'wave' ? [40, 180, 80] : id === 'ripple' ? [40, 180, 180] : id === 'simplex' ? [220, 200, 40] : [200, 40, 160]) : [0, 0, 0];
+          cg.fillStyle = `rgb(${col})`;
+          cg.fillRect(x, y, 2, 1);
+        } else {
+          const k = clamp(n * 1.1 + v * 0.2, 0, 1);
+          const a = k < 0.5 ? rgb[0] : rgb[1], b = k < 0.5 ? rgb[1] : rgb[2];
+          const f = k < 0.5 ? k * 2 : k * 2 - 1;
+          cg.fillStyle = `rgb(${a[0] + (b[0] - a[0]) * f | 0},${a[1] + (b[1] - a[1]) * f | 0},${a[2] + (b[2] - a[2]) * f | 0})`;
+          cg.fillRect(x, y, 2, 1);
+        }
+      }
+    };
+    paintMini();
+    return c;
+  };
+
+  const card = (kind, id, sub, cols) => {
+    const sel = kind === 'style' ? style === id : dither === id;
+    return h('button', {
+      style: {
+        border: sel ? '2px solid #fff' : '1px solid #2a2a30',
+        borderRadius: '14px', overflow: 'hidden', padding: 0, cursor: 'pointer',
+        background: '#0c0c0e', color: '#fff', textAlign: 'left',
+        boxShadow: sel ? '0 0 0 2px #8c35af55' : 'none',
+        transition: 'border-color .15s',
+      },
+      onclick: () => {
+        if (kind === 'style') style = id; else dither = id;
+        badge.textContent = `${style} · ${dither}`;
+        renderCards();
+      },
+    },
+      mini(kind, id, cols),
+      h('div', { style: { padding: '10px 12px 12px' } },
+        h('div', { style: { font: '600 14px Inter Variable' } }, id),
+        h('div', { style: { fontSize: '11px', opacity: .45, marginTop: '2px' } }, sub),
+      ),
+    );
+  };
+
+  const styleGrid = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '14px', marginBottom: '32px' } });
+  const ditherGrid = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: '12px' } });
+
+  const renderCards = () => {
+    styleGrid.replaceChildren(...STYLES.map((s) => card('style', s.id, 'Gradient shader', s.cols)));
+    ditherGrid.replaceChildren(...DITHERS.map((d) => card('dither', d, 'Dither pattern')));
+  };
+  renderCards();
+
+  root.append(
+    hdr,
+    previewWrap,
+    h('div', { style: { fontSize: '11px', letterSpacing: '.08em', opacity: .45, marginBottom: '12px', textTransform: 'uppercase' } }, 'Gradient Styles'),
+    styleGrid,
+    h('div', { style: { fontSize: '11px', letterSpacing: '.08em', opacity: .45, marginBottom: '12px', textTransform: 'uppercase' } }, 'Dither Patterns'),
+    ditherGrid,
+  );
+
+  window.__demoProof = async () => {
+    style = 'Aurora'; dither = 'ripple'; badge.textContent = `${style} · ${dither}`; renderCards();
+    await sleep(350);
+    style = 'Caustics'; dither = 'swirl'; badge.textContent = `${style} · ${dither}`; renderCards();
+    await sleep(350);
+    style = 'Fluid'; dither = 'simplex'; badge.textContent = `${style} · ${dither}`; renderCards();
+    return 'cycled Fluid→Aurora→Caustics with dither patterns; restored Fluid·simplex';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['hdr-oklch-gradient-sculptor'])(root, T); }

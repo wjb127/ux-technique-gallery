@@ -4,7 +4,8 @@
   "multi-kind-gradient-studio",
   "mesh-gradient-webgl-sculptor",
   "shader-gradient-playground",
-  "whatamesh-gradient-desk"
+  "whatamesh-gradient-desk",
+  "fluidshader-gradient-desk"
  ],
  "paint": [
   "kleki-layered-paint-desk",
@@ -21,7 +22,8 @@
   "frame-timeline-animation-studio",
   "heraldic-flag-canvas-desk",
   "bomomo-generative-brush-desk",
-  "sketchtoy-replay-sketch-stage"
+  "sketchtoy-replay-sketch-stage",
+  "brushie-painterly-canvas"
  ],
  "seq": [
   "music-grid-sequencer",
@@ -237,7 +239,8 @@
   "alchemy-combine-discovery",
   "voxel-sculpture-merge-puzzle",
   "math-manipulatives-playground",
-  "timeguessr-historic-photo-quiz"
+  "timeguessr-historic-photo-quiz",
+  "purl-visual-game-engine"
  ],
  "audio": [
   "key-av-instrument",

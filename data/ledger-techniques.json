@@ -1,5 +1,53 @@
 [
  {
+  "id": "clone-purl-visual-game-engine",
+  "slug": "purl-visual-game-engine",
+  "name": "Purl Visual Game Engine Desk",
+  "date": "2026-10-04",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://purl.studio/",
+  "domain": "purl.studio",
+  "product": "Purl",
+  "checkpoints": [
+   "Purl Visual Game Engine Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-brushie-painterly-canvas",
+  "slug": "brushie-painterly-canvas",
+  "name": "Brushie Painterly Collaborative Canvas",
+  "date": "2026-10-04",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://brushie.vercel.app/",
+  "domain": "brushie.vercel.app",
+  "product": "Brushie",
+  "checkpoints": [
+   "Brushie Painterly Collaborative Canvas"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-fluidshader-gradient-desk",
+  "slug": "fluidshader-gradient-desk",
+  "name": "FluidShader Fluid Gradient Editor Desk",
+  "date": "2026-10-04",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://fluidshader.vercel.app/",
+  "domain": "fluidshader.vercel.app",
+  "product": "Fluidshader",
+  "checkpoints": [
+   "FluidShader Fluid Gradient Editor Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
   "id": "clone-lusion-3d-studio-stage",
   "slug": "lusion-3d-studio-stage",
   "name": "Lusion 3D Interactive Studio Stage",

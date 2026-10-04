@@ -730,4 +730,281 @@ V['sketchtoy-replay-sketch-stage'] = (root, T) => {
   };
 };
 
+
+V['brushie-painterly-canvas'] = (root, T) => {
+  theme(root, T, { bg: '#f3e6ef', fg: '#2a2a2a', panel: '#f7f7f7ee', ac: '#e8a0b0', dark: false, line: '#00000014' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.style.position = 'relative';
+  root.style.background = 'linear-gradient(90deg, #dfe6ec 0%, #f0dce8 42%, #e8f3ea 100%)';
+
+  let tool = 'pencil';
+  let zoom = 100;
+  let panX = 0, panY = 0;
+  let spacePan = false;
+  let peers = 0;
+  let connected = true;
+  const strokes = [];
+  let undostack = [];
+  let redostack = [];
+
+  const stage = h('div', { style: { position: 'absolute', inset: 0, overflow: 'hidden', cursor: 'crosshair' } });
+  const world = h('div', { style: { position: 'absolute', left: '50%', top: '50%', width: '2400px', height: '1600px', margin: '-800px -1200px', transformOrigin: 'center center' } });
+  const cv = h('canvas', { width: 2400, height: 1600, style: { width: '2400px', height: '1600px', display: 'block', background: 'transparent' } });
+  const g = cv.getContext('2d');
+  // subtle scanline texture overlay via CSS on stage
+  const texture = h('div', {
+    style: {
+      position: 'absolute', inset: 0, pointerEvents: 'none', opacity: .18,
+      backgroundImage: 'repeating-linear-gradient(0deg, #fff8 0 1px, transparent 1px 3px)',
+    },
+  });
+  world.append(cv);
+  stage.append(world, texture);
+
+  const applyView = () => {
+    world.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom / 100})`;
+  };
+  applyView();
+
+  const redraw = () => {
+    g.clearRect(0, 0, 2400, 1600);
+    for (const s of strokes) {
+      if (!s.points.length) continue;
+      g.lineCap = 'round'; g.lineJoin = 'round';
+      g.globalCompositeOperation = s.eraser ? 'destination-out' : 'source-over';
+      g.strokeStyle = s.color; g.lineWidth = s.size;
+      g.beginPath();
+      s.points.forEach((p, i) => (i ? g.lineTo(p.x, p.y) : g.moveTo(p.x, p.y)));
+      g.stroke();
+    }
+    g.globalCompositeOperation = 'source-over';
+  };
+
+  const toWorld = (e) => {
+    const r = stage.getBoundingClientRect();
+    const sx = e.clientX - r.left - r.width / 2;
+    const sy = e.clientY - r.top - r.height / 2;
+    const z = zoom / 100;
+    return { x: sx / z - panX / z + 1200, y: sy / z - panY / z + 800 };
+  };
+
+  let drawing = null;
+  let panning = false;
+  let lastPan = null;
+
+  stage.addEventListener('pointerdown', (e) => {
+    if (e.button === 1 || tool === 'hand' || spacePan) {
+      panning = true; lastPan = { x: e.clientX, y: e.clientY };
+      stage.setPointerCapture(e.pointerId);
+      return;
+    }
+    if (tool === 'select') return;
+    const p = toWorld(e);
+    drawing = {
+      color: tool === 'eraser' ? '#000' : '#2a2a2a',
+      size: tool === 'eraser' ? 28 : (tool === 'pencil' ? 4 : 3),
+      eraser: tool === 'eraser',
+      points: [p],
+      shape: ['rect', 'circle', 'line', 'arrow'].includes(tool) ? tool : null,
+      start: p,
+    };
+    undostack.push(strokes.map((s) => ({ ...s, points: s.points.slice() })));
+    redostack = [];
+    if (undostack.length > 40) undostack.shift();
+    strokes.push(drawing);
+    stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener('pointermove', (e) => {
+    if (panning && lastPan) {
+      panX += e.clientX - lastPan.x; panY += e.clientY - lastPan.y;
+      lastPan = { x: e.clientX, y: e.clientY }; applyView(); return;
+    }
+    if (!drawing) return;
+    const p = toWorld(e);
+    if (drawing.shape) {
+      drawing.points = [drawing.start];
+      if (drawing.shape === 'rect') {
+        drawing.points = [
+          drawing.start, { x: p.x, y: drawing.start.y }, p, { x: drawing.start.x, y: p.y }, drawing.start,
+        ];
+      } else if (drawing.shape === 'circle') {
+        const cx = (drawing.start.x + p.x) / 2, cy = (drawing.start.y + p.y) / 2;
+        const rx = Math.abs(p.x - drawing.start.x) / 2, ry = Math.abs(p.y - drawing.start.y) / 2;
+        drawing.points = Array.from({ length: 33 }, (_, i) => {
+          const a = (i / 32) * Math.PI * 2;
+          return { x: cx + Math.cos(a) * rx, y: cy + Math.sin(a) * ry };
+        });
+      } else if (drawing.shape === 'line') {
+        drawing.points = [drawing.start, p];
+      } else if (drawing.shape === 'arrow') {
+        const ang = Math.atan2(p.y - drawing.start.y, p.x - drawing.start.x);
+        const ah = 14;
+        drawing.points = [
+          drawing.start, p,
+          { x: p.x - Math.cos(ang - 0.4) * ah, y: p.y - Math.sin(ang - 0.4) * ah }, p,
+          { x: p.x - Math.cos(ang + 0.4) * ah, y: p.y - Math.sin(ang + 0.4) * ah },
+        ];
+      }
+    } else drawing.points.push(p);
+    redraw();
+  });
+  stage.addEventListener('pointerup', () => { drawing = null; panning = false; lastPan = null; });
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (e.ctrlKey) {
+      zoom = clamp(zoom + (e.deltaY < 0 ? 10 : -10), 40, 240);
+      zoomLbl.textContent = zoom + '%'; applyView();
+    } else {
+      panX -= e.deltaX; panY -= e.deltaY; applyView();
+    }
+  }, { passive: false });
+  window.addEventListener('keydown', (e) => { if (e.code === 'Space') { spacePan = true; stage.style.cursor = 'grab'; } });
+  window.addEventListener('keyup', (e) => { if (e.code === 'Space') { spacePan = false; stage.style.cursor = tool === 'hand' ? 'grab' : 'crosshair'; } });
+
+  const tools = [
+    ['hand', '✥'], ['select', '↖'], ['rect', '□'], ['circle', '○'],
+    ['line', '/'], ['arrow', '→'], ['pencil', '✎'], ['eraser', '⌫'],
+  ];
+  const tb = h('div', {
+    style: {
+      position: 'absolute', top: '16px', left: '50%', transform: 'translateX(-50%)',
+      display: 'flex', gap: '2px', background: '#f3f3f3ee', backdropFilter: 'blur(8px)',
+      borderRadius: '14px', padding: '5px', boxShadow: '0 4px 20px #0002, 0 0 0 1px #0000000d', zIndex: 4,
+    },
+  });
+  const syncTb = () => {
+    tb.replaceChildren(...tools.map(([t, ic]) => h('button', {
+      title: t,
+      style: {
+        width: '40px', height: '40px', border: 0, borderRadius: '10px', fontSize: '16px',
+        background: tool === t ? '#e8a0b0' : 'transparent', color: tool === t ? '#fff' : '#333', cursor: 'pointer',
+      },
+      onclick: () => {
+        tool = t; syncTb();
+        stage.style.cursor = t === 'hand' ? 'grab' : t === 'select' ? 'default' : 'crosshair';
+      },
+    }, ic)));
+  };
+  syncTb();
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', top: '68px', left: '50%', transform: 'translateX(-50%)',
+      fontSize: '12px', color: '#6a6a6a', zIndex: 3, pointerEvents: 'none',
+    },
+  }, 'hold mouse wheel or spacebar while dragging, or use the hand tool');
+
+  const status = h('div', {
+    style: {
+      position: 'absolute', left: '16px', bottom: '16px', display: 'flex', gap: '10px', alignItems: 'center', zIndex: 4,
+    },
+  });
+  const paintStatus = () => {
+    status.replaceChildren(
+      h('button', {
+        style: { background: '#f3f3f3ee', border: '1px solid #0001', borderRadius: '10px', padding: '8px 12px', cursor: 'pointer', font: '12px Inter Variable' },
+        onclick: () => { strokes.length = 0; redraw(); toast('Room reset'); },
+      }, 'Reset room'),
+      h('button', {
+        style: { background: '#f3f3f3ee', border: '1px solid #0001', borderRadius: '10px', padding: '8px 12px', cursor: 'pointer', font: '12px Inter Variable' },
+        onclick: () => { connected = true; peers = Math.max(0, peers); paintStatus(); toast('Reconnected'); },
+      }, 'Reconnect'),
+      h('span', { style: { fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px' } },
+        h('span', { style: { width: '8px', height: '8px', borderRadius: '50%', background: connected ? '#3ecf8e' : '#ff5a6e' } }),
+        `Room: ${connected ? 'Connected' : 'Offline'}`,
+      ),
+      h('span', { style: { fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px' } },
+        h('span', { style: { width: '8px', height: '8px', borderRadius: '50%', background: '#5b8def' } }),
+        `Peers: ${peers}`,
+      ),
+    );
+  };
+  paintStatus();
+
+  const zoomLbl = h('span', { style: { minWidth: '42px', textAlign: 'center', fontSize: '12px' } }, '100%');
+  const zoomBox = h('div', {
+    style: {
+      position: 'absolute', right: '110px', bottom: '16px', display: 'flex', alignItems: 'center', gap: '4px',
+      background: '#f3f3f3ee', borderRadius: '12px', padding: '6px 8px', boxShadow: '0 2px 10px #0001', zIndex: 4,
+    },
+  },
+    h('button', { style: { border: 0, background: 'transparent', cursor: 'pointer', fontSize: '14px' }, onclick: () => { zoom = clamp(zoom + 10, 40, 240); zoomLbl.textContent = zoom + '%'; applyView(); } }, '🔍+'),
+    zoomLbl,
+    h('button', { style: { border: 0, background: 'transparent', cursor: 'pointer', fontSize: '14px' }, onclick: () => { zoom = clamp(zoom - 10, 40, 240); zoomLbl.textContent = zoom + '%'; applyView(); } }, '🔍−'),
+  );
+
+  const hist = h('div', {
+    style: {
+      position: 'absolute', right: '52px', bottom: '16px', display: 'flex', gap: '2px',
+      background: '#f3f3f3ee', borderRadius: '12px', padding: '4px', zIndex: 4, boxShadow: '0 2px 10px #0001',
+    },
+  },
+    h('button', {
+      style: { width: '36px', height: '36px', border: 0, borderRadius: '9px', background: 'transparent', cursor: 'pointer' },
+      onclick: () => {
+        if (!undostack.length) return;
+        redostack.push(strokes.map((s) => ({ ...s, points: s.points.slice() })));
+        const prev = undostack.pop();
+        strokes.length = 0; prev.forEach((s) => strokes.push(s)); redraw();
+      },
+    }, '↶'),
+    h('button', {
+      style: { width: '36px', height: '36px', border: 0, borderRadius: '9px', background: 'transparent', cursor: 'pointer' },
+      onclick: () => {
+        if (!redostack.length) return;
+        undostack.push(strokes.map((s) => ({ ...s, points: s.points.slice() })));
+        const next = redostack.pop();
+        strokes.length = 0; next.forEach((s) => strokes.push(s)); redraw();
+      },
+    }, '↷'),
+  );
+
+  const logo = h('div', {
+    style: {
+      position: 'absolute', right: '16px', bottom: '16px', width: '36px', height: '36px',
+      borderRadius: '10px', background: '#e8a0b0', color: '#fff', display: 'grid', placeItems: 'center',
+      fontWeight: 800, fontSize: '14px', zIndex: 4, boxShadow: '0 2px 10px #e8a0b055',
+    },
+  }, 'B');
+
+  const offline = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '18px', transform: 'translateX(-50%)',
+      background: '#f3f3f3ee', borderRadius: '12px', padding: '10px 14px', fontSize: '12px',
+      boxShadow: '0 4px 16px #0002', zIndex: 5, textAlign: 'center',
+    },
+  },
+    h('div', {}, 'App ready to work offline'),
+    h('button', {
+      style: { marginTop: '6px', border: 0, background: 'transparent', color: '#666', cursor: 'pointer', fontSize: '12px' },
+      onclick: () => offline.remove(),
+    }, 'Close'),
+  );
+
+  root.append(stage, tb, hint, status, zoomBox, hist, logo, offline);
+
+  window.__demoProof = async () => {
+    tool = 'pencil'; syncTb();
+    const now = performance.now();
+    const pts = [];
+    for (let i = 0; i <= 28; i++) {
+      const t = i / 28;
+      pts.push({ x: 900 + t * 500, y: 700 + Math.sin(t * 9) * 80 });
+    }
+    undostack.push([]);
+    strokes.push({ color: '#2a2a2a', size: 5, eraser: false, points: pts, shape: null });
+    redraw();
+    await sleep(80);
+    tool = 'hand'; syncTb();
+    zoom = 120; zoomLbl.textContent = '120%'; applyView();
+    await sleep(80);
+    peers = 1; paintStatus();
+    await sleep(60);
+    tool = 'pencil'; syncTb(); zoom = 100; zoomLbl.textContent = '100%'; applyView();
+    peers = 0; paintStatus();
+    return 'painted stroke, hand/zoom exercised, room status toggled';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['kleki-layered-paint-desk'])(root, T); }
