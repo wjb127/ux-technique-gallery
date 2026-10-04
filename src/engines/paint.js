@@ -735,7 +735,6 @@ V['brushie-painterly-canvas'] = (root, T) => {
   theme(root, T, { bg: '#f3e6ef', fg: '#2a2a2a', panel: '#f7f7f7ee', ac: '#e8a0b0', dark: false, line: '#00000014' });
   root.style.overflow = 'hidden';
   root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
-  root.style.position = 'relative';
   root.style.background = 'linear-gradient(90deg, #dfe6ec 0%, #f0dce8 42%, #e8f3ea 100%)';
 
   let tool = 'pencil';

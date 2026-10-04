@@ -399,7 +399,6 @@ V['purl-visual-game-engine'] = (root, T) => {
   theme(root, T, { bg: '#5c5c5c', fg: '#f2f2f2', panel: '#4a4a4a', ac: '#c45c6a', dark: true, line: '#3a3a3a' });
   root.style.overflow = 'hidden';
   root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
-  root.style.position = 'relative';
 
   let mode = 'home'; // home | editor | tutorial | docs
   let nodes = [];

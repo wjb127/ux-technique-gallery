@@ -252,6 +252,7 @@ V['whatamesh-gradient-desk'] = (root, T) => {
 
 V['fluidshader-gradient-desk'] = (root, T) => {
   theme(root, T, { bg: '#121214', fg: '#f0f0f2', panel: '#1a1a1e', ac: '#8c35af', dark: true, line: '#2a2a30' });
+  root.classList.add('scroll');
   root.style.overflow = 'auto';
   root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
   root.style.padding = '28px 36px 48px';
