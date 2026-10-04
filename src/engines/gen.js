@@ -1,4 +1,4 @@
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas } from '../lib.js';
+import { h, s, css, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 import { glCanvas } from './sim.js';
 const nz = noise2(11); const sn = (x, y) => (nz(x, y) - 0.5) * 2.2;
@@ -716,6 +716,265 @@ V['motionforge-motion-exhibition'] = (root, T) => {
     filter = 'all'; selected = '01'; paintFilters(); paintGrid();
     playing = true;
     return 'filtered All→WebGL→physics→All; selected Liquid Reality restored';
+  };
+};
+
+
+V['kolesidis-frivobrutalism-playground'] = (root, T) => {
+  theme(root, T, { bg: '#ff7051', fg: '#111', panel: '#fff', ac: '#111', acfg: '#ffd30c', dark: false, line: '#111' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.style.background = '#ff7051';
+  root.style.color = '#111';
+
+  const hard = (extra = {}) => ({
+    border: '3px solid #111',
+    boxShadow: '6px 6px 0 #111',
+    background: '#fff',
+    ...extra,
+  });
+
+  // scrolling marquee bar
+  const marqueeInner = h('div', {
+    style: {
+      display: 'inline-block', whiteSpace: 'nowrap', paddingLeft: '100%',
+      animation: 'mk-marquee 22s linear infinite', fontWeight: 800, fontSize: '13px',
+      letterSpacing: '.08em', color: '#fff',
+    },
+  }, 'WELCOME TO MY PLAYGROUND  ·  FEEL FREE TO PLAY WITH MY RUBBER DUCK  ·  TRY MOVING THINGS AROUND  ·  FRIVOBRUTALISM  ·  ');
+  const marquee = h('div', {
+    style: {
+      position: 'absolute', top: 0, left: 0, right: 0, height: '34px', background: '#111',
+      overflow: 'hidden', zIndex: 6, displayItems: 'center', display: 'flex',
+    },
+  }, marqueeInner);
+  css(`@keyframes mk-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}`);
+
+  const title = h('div', {
+    style: { position: 'absolute', left: '28px', top: '56px', zIndex: 4, fontWeight: 900, fontSize: '42px', letterSpacing: '-.03em', lineHeight: 1 },
+  }, 'Michael', h('br'), 'Kolesidis');
+
+  const cta = h('button', {
+    style: {
+      position: 'absolute', right: '28px', top: '56px', zIndex: 5, ...hard({
+        padding: '14px 18px', fontWeight: 800, fontSize: '14px', cursor: 'pointer', borderRadius: '2px',
+      }),
+    },
+    onclick: () => toast('Project request submitted (demo)'),
+  }, 'Submit Project Request');
+
+  // rubber duck (CSS shapes)
+  const duck = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '42%', transform: 'translate(-50%,-50%)',
+      width: '220px', height: '200px', zIndex: 3, cursor: 'grab', touchAction: 'none',
+    },
+  });
+  const duckBody = h('div', {
+    style: {
+      position: 'absolute', left: '20px', bottom: '20px', width: '170px', height: '110px',
+      background: '#ffd30c', border: '4px solid #111', borderRadius: '80px 80px 70px 70px',
+      boxShadow: '8px 8px 0 #111',
+    },
+  });
+  const duckHead = h('div', {
+    style: {
+      position: 'absolute', right: '18px', top: '18px', width: '96px', height: '96px',
+      background: '#ffd30c', border: '4px solid #111', borderRadius: '50%',
+      boxShadow: '6px 6px 0 #111',
+    },
+  });
+  const beak = h('div', {
+    style: {
+      position: 'absolute', right: '-18px', top: '38px', width: '48px', height: '28px',
+      background: '#ff7a1a', border: '3px solid #111', borderRadius: '4px 16px 16px 4px',
+    },
+  });
+  const eye = h('div', {
+    style: {
+      position: 'absolute', left: '28px', top: '34px', width: '14px', height: '14px',
+      background: '#111', borderRadius: '50%',
+    },
+  });
+  duckHead.append(beak, eye);
+  const wing = h('div', {
+    style: {
+      position: 'absolute', left: '48px', bottom: '48px', width: '70px', height: '42px',
+      background: '#f5c400', border: '3px solid #111', borderRadius: '40px',
+      transform: 'rotate(-12deg)',
+    },
+  });
+  duck.append(duckBody, duckHead, wing);
+
+  let duckRot = 0;
+  const bob = () => {
+    duckRot += 0.04;
+    const y = Math.sin(duckRot) * 6;
+    const r = Math.sin(duckRot * 0.7) * 3;
+    if (!duck._dragging) duck.style.transform = `translate(-50%, calc(-50% + ${y}px)) rotate(${r}deg)`;
+    requestAnimationFrame(bob);
+  };
+  requestAnimationFrame(bob);
+
+  // make duck draggable
+  (() => {
+    let ox = 0, oy = 0, sx = 0, sy = 0;
+    drag(duck, {
+      start: (e) => {
+        duck._dragging = true;
+        duck.style.cursor = 'grabbing';
+        const r = duck.getBoundingClientRect();
+        const pr = root.getBoundingClientRect();
+        ox = r.left - pr.left + r.width / 2; oy = r.top - pr.top + r.height / 2;
+        sx = e.clientX; sy = e.clientY;
+      },
+      move: (e) => {
+        const pr = root.getBoundingClientRect();
+        const nx = ox + (e.clientX - sx);
+        const ny = oy + (e.clientY - sy);
+        duck.style.left = nx + 'px';
+        duck.style.top = ny + 'px';
+        duck.style.transform = 'translate(-50%,-50%) rotate(' + ((e.clientX - sx) * 0.05) + 'deg)';
+      },
+      end: () => { duck._dragging = false; duck.style.cursor = 'grab'; },
+    });
+  })();
+
+  const note = h('div', {
+    style: {
+      position: 'absolute', left: '58%', top: '28%', zIndex: 4, fontFamily: 'Georgia, serif',
+      fontStyle: 'italic', fontWeight: 700, fontSize: '15px', transform: 'rotate(6deg)',
+      maxWidth: '140px',
+    },
+  }, 'Use it for debugging ↗');
+
+  // WELCOME sunburst badge
+  const welcome = h('div', {
+    style: {
+      position: 'absolute', left: '36px', top: '38%', width: '150px', height: '150px', zIndex: 4,
+      borderRadius: '50%', border: '4px solid #111', boxShadow: '6px 6px 0 #111',
+      background: 'repeating-conic-gradient(#111 0 8deg, #fff 0 16deg)',
+      display: 'grid', placeItems: 'center', cursor: 'grab', touchAction: 'none',
+    },
+  }, h('span', {
+    style: {
+      background: '#ff7051', color: '#fff', fontWeight: 900, fontSize: '18px',
+      padding: '8px 10px', border: '3px solid #111', transform: 'rotate(-8deg)',
+      textShadow: '2px 2px 0 #111', letterSpacing: '.04em',
+    },
+  }, 'WELCOME'));
+
+  // hatch pattern block
+  const hatch = h('div', {
+    style: {
+      position: 'absolute', left: '48px', bottom: '160px', width: '110px', height: '110px', zIndex: 3,
+      ...hard({
+        backgroundImage: 'repeating-linear-gradient(-45deg,#111 0 2px,transparent 2px 10px)',
+        backgroundColor: '#fff', borderRadius: '2px', cursor: 'grab', touchAction: 'none',
+      }),
+    },
+  });
+
+  // award badge
+  const award = h('div', {
+    style: {
+      position: 'absolute', right: '40px', top: '36%', width: '180px', zIndex: 4,
+      ...hard({
+        padding: '14px 14px 16px', borderImage: 'repeating-linear-gradient(45deg,#111 0 8px,#fff 0 16px) 8',
+        border: '8px solid #111', background: '#111', color: '#fff', cursor: 'grab', touchAction: 'none',
+      }),
+    },
+  },
+    h('button', {
+      style: { float: 'right', border: 0, background: 'transparent', color: '#fff', fontWeight: 800, cursor: 'pointer' },
+      onclick: (e) => { e.stopPropagation(); award.style.display = 'none'; toast('badge closed'); },
+    }, '✕'),
+    h('div', { style: { fontSize: '11px', letterSpacing: '.14em', opacity: .7, marginBottom: '6px' } }, 'DESIGN AWARD'),
+    h('div', { style: { fontWeight: 800, fontSize: '15px', lineHeight: 1.25 } }, 'One Page Love'),
+    h('div', { style: { fontSize: '12px', marginTop: '6px', opacity: .75 } }, 'February 2023'),
+  );
+
+  // Japanese vertical tab
+  const jp = h('div', {
+    style: {
+      position: 'absolute', right: '28px', bottom: '150px', zIndex: 4,
+      ...hard({
+        writingMode: 'vertical-rl', padding: '16px 10px', fontWeight: 900, fontSize: '18px',
+        letterSpacing: '.2em', cursor: 'grab', touchAction: 'none', borderRadius: '2px',
+      }),
+    },
+  }, 'ラバーダック');
+
+  // melting smiley
+  const smile = h('div', {
+    style: {
+      position: 'absolute', right: '220px', top: '70px', zIndex: 4, width: '72px', height: '78px',
+      cursor: 'grab', touchAction: 'none',
+    },
+  },
+    s('svg', { viewBox: '0 0 72 78', width: '72', height: '78' },
+      s('path', { d: 'M8 28c0-16 12-26 28-26s28 10 28 26c0 8-2 14-6 20-3 5-2 12 2 18H12c4-6 5-13 2-18-4-6-6-12-6-20z', fill: '#fff', stroke: '#111', 'stroke-width': '3' }),
+      s('circle', { cx: '26', cy: '28', r: '4', fill: '#111' }),
+      s('circle', { cx: '46', cy: '28', r: '4', fill: '#111' }),
+      s('path', { d: 'M24 40c4 6 20 6 24 0', fill: 'none', stroke: '#111', 'stroke-width': '3', 'stroke-linecap': 'round' }),
+    ),
+  );
+
+  // make stickers draggable
+  const makeDrag = (el) => {
+    let ox = 0, oy = 0, sx = 0, sy = 0;
+    drag(el, {
+      start: (e) => {
+        el.style.zIndex = '8';
+        const r = el.getBoundingClientRect();
+        const pr = root.getBoundingClientRect();
+        ox = r.left - pr.left; oy = r.top - pr.top; sx = e.clientX; sy = e.clientY;
+      },
+      move: (e) => {
+        el.style.left = (ox + e.clientX - sx) + 'px';
+        el.style.top = (oy + e.clientY - sy) + 'px';
+        el.style.right = 'auto'; el.style.bottom = 'auto';
+      },
+    });
+  };
+  [welcome, hatch, award, jp, smile].forEach(makeDrag);
+
+  const body = h('div', {
+    style: {
+      position: 'absolute', left: '28px', right: '28px', bottom: '28px', zIndex: 2,
+      display: 'grid', gridTemplateColumns: '1fr 1.2fr 1fr', gap: '22px',
+      fontSize: '13px', lineHeight: 1.45, fontWeight: 600,
+    },
+  },
+    h('div', {}, 'Abolishing the static web through fluid motion and interactive storytelling.'),
+    h('div', {}, 'Bridging the gap between art direction and technical execution, I craft bespoke digital experiences for a global clientele.'),
+    h('div', {}, 'By operating on a limited commission basis, I ensure every project receives uncompromising focus.'),
+  );
+
+  const bounceDuck = () => {
+    duck.style.transition = 'transform 280ms cubic-bezier(.2,1.4,.4,1)';
+    duck.style.transform = 'translate(-50%,-50%) scale(1.12) rotate(-8deg)';
+    setTimeout(() => {
+      duck.style.transform = 'translate(-50%,-50%) scale(1) rotate(0deg)';
+      setTimeout(() => { duck.style.transition = ''; }, 280);
+    }, 280);
+  };
+  duck.addEventListener('dblclick', bounceDuck);
+
+  root.append(marquee, title, cta, duck, note, welcome, hatch, award, jp, smile, body);
+
+  window.__demoProof = async () => {
+    bounceDuck();
+    await sleep(200);
+    // nudge welcome badge
+    welcome.style.left = '80px'; welcome.style.top = '42%';
+    await sleep(100);
+    smile.style.transform = 'rotate(-18deg) scale(1.1)';
+    await sleep(120);
+    smile.style.transform = '';
+    welcome.style.left = '36px'; welcome.style.top = '38%';
+    award.style.display = '';
+    return 'duck bounce + sticker nudge · frivobrutalism playground';
   };
 };
 

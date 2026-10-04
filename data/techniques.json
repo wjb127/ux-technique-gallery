@@ -1,5 +1,101 @@
 [
  {
+  "id": "clone-squeezy-variable-font-playground",
+  "slug": "squeezy-variable-font-playground",
+  "name": "Squeezy Variable Font Playground",
+  "date": "2026-10-05",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://squeezy.overnice.com/",
+  "domain": "squeezy.overnice.com",
+  "product": "Squeezy",
+  "checkpoints": [
+   "Squeezy Variable Font Playground"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Squeezy Variable Font Playground",
+  "ko": "Squeezy 스타일 타이포 클론",
+  "engine": "type",
+  "variant": "squeezy-variable-font-playground",
+  "theme": {
+   "bg": "#009460",
+   "fg": "#f0f0f0",
+   "panel": "#009360",
+   "dark": true,
+   "ac": "#009460",
+   "ac2": "#009360",
+   "ac3": "#009260",
+   "coverage": 0.86
+  },
+  "path": "/t/squeezy-variable-font-playground/",
+  "built": true
+ },
+ {
+  "id": "clone-kolesidis-frivobrutalism-playground",
+  "slug": "kolesidis-frivobrutalism-playground",
+  "name": "Kolesidis Frivobrutalism Portfolio Playground",
+  "date": "2026-10-05",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://michaelkolesidis.com/",
+  "domain": "michaelkolesidis.com",
+  "product": "Michaelkolesidis",
+  "checkpoints": [
+   "Kolesidis Frivobrutalism Portfolio Playground"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Kolesidis Frivobrutalism Portfolio Playground",
+  "ko": "Michaelkolesidis 스타일 인터랙션 클론",
+  "engine": "gen",
+  "variant": "kolesidis-frivobrutalism-playground",
+  "theme": {
+   "bg": "#ff7051",
+   "fg": "#ffffff",
+   "panel": "#e8664a",
+   "dark": false,
+   "ac": "#ff7051",
+   "ac2": "#ffd30c",
+   "ac3": "#e8664a",
+   "coverage": 0.51
+  },
+  "path": "/t/kolesidis-frivobrutalism-playground/",
+  "built": true
+ },
+ {
+  "id": "clone-stabondar-physics-portfolio-stage",
+  "slug": "stabondar-physics-portfolio-stage",
+  "name": "Stabondar Physics Portfolio Stage",
+  "date": "2026-10-05",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.stabondar.com/",
+  "domain": "stabondar.com",
+  "product": "Stabondar",
+  "checkpoints": [
+   "Stabondar Physics Portfolio Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Stabondar Physics Portfolio Stage",
+  "ko": "Stabondar 스타일 시뮬레이션 클론",
+  "engine": "sim",
+  "variant": "stabondar-physics-portfolio-stage",
+  "theme": {
+   "bg": "#111111",
+   "fg": "#f0f0f0",
+   "panel": "#101111",
+   "dark": true,
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.99
+  },
+  "path": "/t/stabondar-physics-portfolio-stage/",
+  "built": true
+ },
+ {
   "id": "clone-canvasui-shader-dom-playground",
   "slug": "canvasui-shader-dom-playground",
   "name": "Canvas UI Shader-over-DOM Playground",

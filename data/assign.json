@@ -136,7 +136,8 @@
   "wakamai-fondue-opentype-desk",
   "recursive-five-axis-font-desk",
   "spacetype-kinetic-type-desk",
-  "utopia-fluid-type-calculator"
+  "utopia-fluid-type-calculator",
+  "squeezy-variable-font-playground"
  ],
  "pixel": [
   "pixel-sprite-editor-workspace",
@@ -168,7 +169,8 @@
   "particulardrift-image-particle-desk",
   "paperplanes-throw-catch-world",
   "collidingscopes-liquid-distort-desk",
-  "thisissand-layered-sand-art-desk"
+  "thisissand-layered-sand-art-desk",
+  "stabondar-physics-portfolio-stage"
  ],
  "gen": [
   "tinkersynth-slopes-synth-desk",
@@ -181,7 +183,8 @@
   "fantasy-map-generator-workspace",
   "voanh-generative-art-studio-desk",
   "whorl-generative-motion-desk",
-  "motionforge-motion-exhibition"
+  "motionforge-motion-exhibition",
+  "kolesidis-frivobrutalism-playground"
  ],
  "code": [
   "mermaid-dualpane-live-editor",

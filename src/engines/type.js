@@ -1137,5 +1137,171 @@ V['utopia-fluid-type-calculator'] = (root, T) => {
   };
 };
 
+
+V['squeezy-variable-font-playground'] = (root, T) => {
+  theme(root, T, { bg: '#008f5d', fg: '#ffcf66', panel: '#007a50', ac: '#ffcf66', acfg: '#008f5d', dark: true, line: '#ffcf6633' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = 'Inter Variable, system-ui, sans-serif';
+  root.style.background = '#008f5d';
+  root.style.color = '#ffcf66';
+
+  const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  let gi = 10; // K
+  let wdth = 100;
+  let wght = 700;
+  let soft = 80;
+  const pos = { x: 0.5, nx: 0.5 };
+
+  const header = h('div.k-row', {
+    style: { position: 'absolute', top: 0, left: 0, right: 0, height: '64px', padding: '0 28px', zIndex: 4, gap: '18px' },
+  },
+    h('div.k-row', { style: { gap: '10px', alignItems: 'center' } },
+      h('span', {
+        style: {
+          width: '22px', height: '22px', borderRadius: '50%', background: '#ffcf66', color: '#008f5d',
+          display: 'grid', placeItems: 'center', fontWeight: 800, fontSize: '12px',
+        },
+      }, '0'),
+      h('b', { style: { fontSize: '15px', letterSpacing: '-.01em' } }, 'Squeezy Variable'),
+    ),
+    h('span', { style: { flex: 1, textAlign: 'center', fontSize: '13px', opacity: .85 } }, 'A squishable and squashable variable font'),
+    h('button', {
+      style: {
+        background: 'transparent', border: 0, color: '#ffcf66', fontWeight: 600, cursor: 'pointer',
+        display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px',
+      },
+      onclick: () => toast('Download Squeezy (demo)'),
+    }, 'Download', h('span', {
+      style: {
+        width: '22px', height: '22px', borderRadius: '50%', border: '1.5px solid #ffcf66',
+        display: 'grid', placeItems: 'center', fontSize: '12px',
+      },
+    }, '→')),
+  );
+
+  const stage = h('div', {
+    style: {
+      position: 'absolute', inset: '64px 0 90px', display: 'grid', placeItems: 'center',
+      cursor: 'ew-resize', userSelect: 'none',
+    },
+  });
+
+  const letter = h('div', {
+    style: {
+      fontFamily: RF,
+      fontSize: 'min(62vh, 420px)',
+      lineHeight: 0.85,
+      color: '#ffcf66',
+      fontVariationSettings: '"wght" 700, "wdth" 100, "SOFT" 80',
+      letterSpacing: '-.04em',
+      transition: 'font-variation-settings 40ms linear',
+      textShadow: '0 0 0 #007048, 4px 6px 0 #00704844',
+      position: 'relative',
+    },
+  }, GLYPHS[gi]);
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)',
+      background: '#ffcf66', color: '#008f5d', borderRadius: '99px', padding: '10px 18px',
+      fontSize: '13px', fontWeight: 700, whiteSpace: 'nowrap', pointerEvents: 'none',
+      boxShadow: '0 4px 18px #0003', zIndex: 2,
+    },
+  }, '← Move your cursor to control the font width.');
+
+  const apply = () => {
+    letter.style.fontVariationSettings = `"wght" ${Math.round(wght)}, "wdth" ${Math.round(wdth)}, "SOFT" ${Math.round(soft)}`;
+    letter.textContent = GLYPHS[gi];
+  };
+
+  stage.append(letter, hint);
+  stage.addEventListener('pointermove', (e) => {
+    const r = stage.getBoundingClientRect();
+    pos.x = clamp((e.clientX - r.left) / r.width, 0, 1);
+    pos.nx = pos.x;
+    // left = narrow (squished), right = wide (stretched)
+    wdth = 50 + pos.x * 120; // 50..170
+    wght = 500 + pos.x * 400;
+    soft = 40 + (1 - Math.abs(pos.x - 0.5) * 2) * 60;
+    hint.style.opacity = String(0.15 + (1 - Math.abs(pos.x - 0.5) * 1.6) * 0.85);
+    apply();
+  });
+  stage.addEventListener('click', () => {
+    gi = (gi + 1) % GLYPHS.length;
+    apply();
+    toast('glyph ' + GLYPHS[gi]);
+  });
+
+  const tabs = ['Info', 'Try It', 'Characters', 'Posters', 'Info & Download'];
+  let tab = 'Info';
+  const nav = h('div.k-row', {
+    style: {
+      position: 'absolute', left: '24px', bottom: '22px', zIndex: 4,
+      background: '#006b46', borderRadius: '99px', padding: '8px 14px', gap: '4px',
+      boxShadow: '0 6px 20px #0003',
+    },
+  },
+    h('div.k-row', { style: { gap: '5px', marginRight: '10px' } },
+      ...['#7c5cff', '#3ddc97', '#2b4cff', '#ff4d6d'].map((c) =>
+        h('span', { style: { width: '8px', height: '8px', borderRadius: '50%', background: c } })),
+    ),
+  );
+  const paintTabs = () => {
+    // keep dots, rebuild labels
+    while (nav.children.length > 1) nav.lastChild.remove();
+    tabs.forEach((t) => {
+      nav.append(h('button', {
+        style: {
+          border: 0, background: tab === t ? '#ffcf66' : 'transparent',
+          color: tab === t ? '#008f5d' : '#ffcf66',
+          borderRadius: '99px', padding: '7px 12px', fontWeight: 700, fontSize: '12px', cursor: 'pointer',
+        },
+        onclick: () => { tab = t; paintTabs(); if (t === 'Characters') { gi = (gi + 3) % GLYPHS.length; apply(); } toast(t); },
+      }, t));
+    });
+  };
+  paintTabs();
+
+  const credit = h('button', {
+    style: {
+      position: 'absolute', right: '24px', bottom: '22px', zIndex: 4,
+      background: '#ffcf66', color: '#008f5d', border: 0, borderRadius: '99px',
+      padding: '10px 16px', fontWeight: 800, fontSize: '13px', cursor: 'pointer',
+      boxShadow: '0 6px 20px #0003',
+    },
+    onclick: () => toast('Made by Overnice'),
+  }, 'Made by Overnice.');
+
+  const axisReadout = h('div', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '100px', transform: 'translateX(-50%)',
+      fontFamily: "'JetBrains Mono Variable', monospace", fontSize: '11px', letterSpacing: '.08em',
+      opacity: .7, zIndex: 3,
+    },
+  });
+  const tick = () => {
+    axisReadout.textContent = `wdth ${Math.round(wdth)} · wght ${Math.round(wght)} · ${GLYPHS[gi]}`;
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  root.append(header, stage, nav, credit, axisReadout);
+  apply();
+
+  window.__demoProof = async () => {
+    const r = stage.getBoundingClientRect();
+    // squish left
+    stage.dispatchEvent(new PointerEvent('pointermove', { clientX: r.left + r.width * 0.12, clientY: r.top + r.height * 0.5 }));
+    await sleep(120);
+    // stretch right
+    stage.dispatchEvent(new PointerEvent('pointermove', { clientX: r.left + r.width * 0.88, clientY: r.top + r.height * 0.5 }));
+    await sleep(120);
+    // center restore
+    stage.dispatchEvent(new PointerEvent('pointermove', { clientX: r.left + r.width * 0.5, clientY: r.top + r.height * 0.5 }));
+    gi = 10; apply();
+    return 'cursor width axis squish→stretch→center · glyph K';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

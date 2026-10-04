@@ -1197,4 +1197,215 @@ V['thisissand-layered-sand-art-desk'] = (root, T) => {
   };
 };
 
+
+V['stabondar-physics-portfolio-stage'] = (root, T) => {
+  theme(root, T, { bg: '#111111', fg: '#ff4d2d', panel: '#1a1a1a', ac: '#ff4d2d', dark: true, line: '#ff4d2d33' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'JetBrains Mono Variable', ui-monospace, monospace";
+  root.style.background = '#111111';
+  root.style.color = '#ff4d2d';
+
+  const stage = h('div', {
+    style: { position: 'absolute', inset: 0, overflow: 'hidden', cursor: 'crosshair' },
+  });
+
+  // vertical brand
+  const brand = h('div', {
+    style: {
+      position: 'absolute', right: '28px', top: '36px', zIndex: 5,
+      writingMode: 'vertical-rl', transform: 'rotate(180deg)',
+      fontSize: '18px', fontWeight: 700, letterSpacing: '.28em',
+      color: '#ff4d2d', userSelect: 'none',
+    },
+  }, 'stλböndar');
+
+  const roles = h('div', {
+    style: {
+      position: 'absolute', left: '28px', bottom: '28px', zIndex: 5,
+      fontSize: '12px', lineHeight: 1.7, letterSpacing: '.04em', color: '#ff4d2d',
+      opacity: .9,
+    },
+  },
+    h('div', {}, 'Front-End Developer'),
+    h('div', { style: { paddingLeft: '28px' } }, 'Developer'),
+    h('div', {}, 'Front-End'),
+  );
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', left: '28px', top: '28px', zIndex: 5,
+      fontSize: '11px', letterSpacing: '.16em', opacity: .45, color: '#ff4d2d',
+    },
+  }, 'PHYSICS TEXT · SCROLL TO DISTORT · DRAG LETTERS');
+
+  // physics bodies for "STAS BONDAR"
+  const WORD = 'STAS BONDAR';
+  const bodies = [];
+  const W0 = () => stage.clientWidth || 900;
+  const H0 = () => stage.clientHeight || 600;
+
+  const mkBodies = () => {
+    bodies.length = 0;
+    stage.querySelectorAll('.sb-ltr').forEach((n) => n.remove());
+    const letters = WORD.split('');
+    const startX = W0() * 0.18;
+    letters.forEach((ch, i) => {
+      if (ch === ' ') return;
+      const el = h('div.sb-ltr', {
+        style: {
+          position: 'absolute',
+          fontSize: '72px', fontWeight: 800, color: '#ff4d2d',
+          lineHeight: 1, cursor: 'grab', userSelect: 'none',
+          willChange: 'transform', touchAction: 'none',
+          transformOrigin: '50% 50%',
+        },
+      }, ch);
+      stage.append(el);
+      const b = {
+        el, ch,
+        x: startX + i * 58,
+        y: H0() * 0.38,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: 0,
+        a: 0, va: 0,
+        r: 28,
+        grabbed: false,
+      };
+      bodies.push(b);
+      drag(el, {
+        start: (e) => {
+          b.grabbed = true; b.vx = 0; b.vy = 0;
+          el.style.cursor = 'grabbing';
+          b._lx = e.clientX; b._ly = e.clientY;
+        },
+        move: (e) => {
+          const pr = stage.getBoundingClientRect();
+          b.x = e.clientX - pr.left;
+          b.y = e.clientY - pr.top;
+          b.vx = (e.clientX - b._lx) * 0.6;
+          b.vy = (e.clientY - b._ly) * 0.6;
+          b._lx = e.clientX; b._ly = e.clientY;
+        },
+        end: () => { b.grabbed = false; el.style.cursor = 'grab'; },
+      });
+    });
+  };
+
+  let scrollDistort = 0;
+  let targetDistort = 0;
+  let pointer = { x: -9999, y: -9999 };
+
+  stage.addEventListener('pointermove', (e) => {
+    const r = stage.getBoundingClientRect();
+    pointer.x = e.clientX - r.left;
+    pointer.y = e.clientY - r.top;
+  });
+
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    targetDistort = clamp(targetDistort + e.deltaY * 0.0025, -1.2, 1.2);
+  }, { passive: false });
+
+  // click impulse
+  stage.addEventListener('pointerdown', (e) => {
+    if (e.target.classList?.contains('sb-ltr')) return;
+    const r = stage.getBoundingClientRect();
+    const px = e.clientX - r.left, py = e.clientY - r.top;
+    for (const b of bodies) {
+      const dx = b.x - px, dy = b.y - py;
+      const d = Math.hypot(dx, dy) || 1;
+      const f = 1800 / (d + 40);
+      b.vx += (dx / d) * f * 0.04;
+      b.vy += (dy / d) * f * 0.04;
+      b.va += (Math.random() - 0.5) * 0.2;
+    }
+  });
+
+  const step = () => {
+    scrollDistort += (targetDistort - scrollDistort) * 0.08;
+    targetDistort *= 0.985;
+    const W = W0(), H = H0();
+    const g = 0.35;
+    for (const b of bodies) {
+      if (!b.grabbed) {
+        // pointer spring repulsion
+        const dx = b.x - pointer.x, dy = b.y - pointer.y;
+        const d = Math.hypot(dx, dy);
+        if (d < 140 && d > 1) {
+          const f = (140 - d) / 140;
+          b.vx += (dx / d) * f * 1.2;
+          b.vy += (dy / d) * f * 1.2;
+        }
+        b.vy += g;
+        b.vx *= 0.99; b.vy *= 0.99; b.va *= 0.98;
+        b.x += b.vx; b.y += b.vy; b.a += b.va;
+        // walls
+        if (b.x < b.r) { b.x = b.r; b.vx *= -0.65; }
+        if (b.x > W - b.r) { b.x = W - b.r; b.vx *= -0.65; }
+        if (b.y > H - b.r - 8) { b.y = H - b.r - 8; b.vy *= -0.55; b.vx *= 0.9; if (Math.abs(b.vy) < 0.8) b.vy = 0; }
+        if (b.y < b.r + 8) { b.y = b.r + 8; b.vy *= -0.5; }
+      }
+      // letter-letter collision soft
+      for (const o of bodies) {
+        if (o === b) continue;
+        const dx = o.x - b.x, dy = o.y - b.y;
+        const d = Math.hypot(dx, dy);
+        const min = b.r + o.r - 8;
+        if (d < min && d > 0) {
+          const p = (min - d) / 2;
+          const nx = dx / d, ny = dy / d;
+          if (!b.grabbed) { b.x -= nx * p; b.y -= ny * p; }
+          if (!o.grabbed) { o.x += nx * p; o.y += ny * p; }
+        }
+      }
+      const skewY = scrollDistort * 18;
+      const scaleY = 1 + Math.abs(scrollDistort) * 0.55;
+      const scaleX = 1 - Math.abs(scrollDistort) * 0.18;
+      const wave = Math.sin(b.x * 0.02 + scrollDistort * 4) * scrollDistort * 14;
+      b.el.style.transform =
+        `translate(${b.x - 20}px, ${b.y - 36 + wave}px) rotate(${b.a}rad) skewY(${skewY}deg) scale(${scaleX}, ${scaleY})`;
+    }
+    // ambient floating label with distort
+    brand.style.transform = `rotate(180deg) skewY(${scrollDistort * 8}deg)`;
+    roles.style.transform = `skewX(${scrollDistort * -6}deg) translateY(${scrollDistort * 10}px)`;
+    requestAnimationFrame(step);
+  };
+
+  const resetBtn = h('button', {
+    style: {
+      position: 'absolute', right: '28px', bottom: '28px', zIndex: 5,
+      background: 'transparent', border: '1px solid #ff4d2d66', color: '#ff4d2d',
+      borderRadius: '4px', padding: '8px 12px', fontSize: '11px', letterSpacing: '.12em',
+      cursor: 'pointer', fontFamily: 'inherit',
+    },
+    onclick: () => { mkBodies(); targetDistort = 0; scrollDistort = 0; toast('reset stage'); },
+  }, 'RESET');
+
+  const award = h('div', {
+    style: {
+      position: 'absolute', left: '28px', top: '70px', zIndex: 4,
+      fontSize: '10px', letterSpacing: '.14em', opacity: .4, lineHeight: 1.6,
+    },
+  }, 'AWARDS NOMINEE · INDEPENDENT OF THE YEAR \'25', h('br'), 'SCROLL · DRAG · CLICK BLAST');
+
+  root.append(stage, brand, roles, hint, resetBtn, award);
+
+  // defer body spawn until laid out
+  requestAnimationFrame(() => { mkBodies(); requestAnimationFrame(step); });
+
+  window.__demoProof = async () => {
+    if (!bodies.length) mkBodies();
+    targetDistort = 0.9;
+    await sleep(180);
+    // fling first letter
+    if (bodies[0]) { bodies[0].vx = 14; bodies[0].vy = -18; bodies[0].va = 0.25; }
+    if (bodies[3]) { bodies[3].vx = -10; bodies[3].vy = -12; }
+    await sleep(400);
+    targetDistort = -0.5;
+    await sleep(200);
+    targetDistort = 0;
+    return 'scroll-distort + letter physics fling · settling';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }
