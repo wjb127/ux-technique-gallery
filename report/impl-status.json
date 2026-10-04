@@ -2167,5 +2167,86 @@
   "proof": "placed Africa, Greenland, Russia, Japan; drag+search exercised",
   "demoNodes": 24,
   "errors": []
+ },
+ "brushie-painterly-canvas": {
+  "url": "https://ux-technique-gallery.vercel.app/t/brushie-painterly-canvas/",
+  "ok": true,
+  "at": "2026-10-04T11:55:00.649Z",
+  "http": 200,
+  "proof": "painted stroke, hand/zoom exercised, room status toggled",
+  "demoNodes": 32,
+  "errors": []
+ },
+ "purl-visual-game-engine": {
+  "url": "https://ux-technique-gallery.vercel.app/t/purl-visual-game-engine/",
+  "ok": true,
+  "at": "2026-10-04T11:55:00.631Z",
+  "http": 200,
+  "proof": "opened blank project, added action+sprite nodes, returned home",
+  "demoNodes": 36,
+  "errors": []
+ },
+ "fluidshader-gradient-desk": {
+  "url": "https://ux-technique-gallery.vercel.app/t/fluidshader-gradient-desk/",
+  "ok": true,
+  "at": "2026-10-04T11:55:00.636Z",
+  "http": 200,
+  "proof": "cycled Fluid→Aurora→Caustics with dither patterns; restored Fluid·simplex",
+  "demoNodes": 73,
+  "errors": []
+ },
+ "motionforge-motion-exhibition": {
+  "url": "https://ux-technique-gallery.vercel.app/t/motionforge-motion-exhibition/",
+  "ok": true,
+  "at": "2026-10-04T16:06:44.577Z",
+  "http": 200,
+  "proof": "filtered All→WebGL→physics→All; selected Liquid Reality restored",
+  "demoNodes": 237,
+  "errors": []
+ },
+ "tweakcn-theme-editor-desk": {
+  "url": "https://ux-technique-gallery.vercel.app/t/tweakcn-theme-editor-desk/",
+  "ok": true,
+  "at": "2026-10-04T16:06:44.586Z",
+  "http": 200,
+  "proof": "recolored primary→violet, preview Cards→Dashboard→Cards, restored Default",
+  "demoNodes": 181,
+  "errors": []
+ },
+ "canvasui-shader-dom-playground": {
+  "url": "https://ux-technique-gallery.vercel.app/t/canvasui-shader-dom-playground/",
+  "ok": true,
+  "at": "2026-10-04T16:06:44.566Z",
+  "http": 200,
+  "proof": "cycled Liquid→Ripple→Glass→Liquid with param tweaks; restored defaults",
+  "demoNodes": 100,
+  "errors": []
+ },
+ "squeezy-variable-font-playground": {
+  "url": "https://ux-technique-gallery.vercel.app/t/squeezy-variable-font-playground/",
+  "ok": true,
+  "at": "2026-10-04T19:48:08.930Z",
+  "http": 200,
+  "proof": "cursor width axis squish→stretch→center · glyph K",
+  "demoNodes": 23,
+  "errors": []
+ },
+ "stabondar-physics-portfolio-stage": {
+  "url": "https://ux-technique-gallery.vercel.app/t/stabondar-physics-portfolio-stage/",
+  "ok": true,
+  "at": "2026-10-04T19:48:08.945Z",
+  "http": 200,
+  "proof": "scroll-distort + letter physics fling · settling",
+  "demoNodes": 20,
+  "errors": []
+ },
+ "kolesidis-frivobrutalism-playground": {
+  "url": "https://ux-technique-gallery.vercel.app/t/kolesidis-frivobrutalism-playground/",
+  "ok": true,
+  "at": "2026-10-04T19:48:08.948Z",
+  "http": 200,
+  "proof": "duck bounce + sticker nudge · frivobrutalism playground",
+  "demoNodes": 31,
+  "errors": []
  }
 }
