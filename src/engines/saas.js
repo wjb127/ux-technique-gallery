@@ -669,4 +669,213 @@ V['ponpon-interactive-comic'] = (root, T) => {
   };
 };
 
+V['lenis-smooth-scroll-stage'] = (root, T) => {
+  theme(root, T, { bg: '#0a0a0a', fg: '#ffffff', panel: '#141010', ac: '#ff8a8a', dark: true, line: '#ffffff14' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+  root.style.background = '#0a0a0a';
+
+  const ACC = '#ff8a8a';
+  let lerpAmt = 0.12;
+  let targetY = 0;
+  let currentY = 0;
+
+  const particles = h('canvas', {
+    style: { position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 },
+  });
+  const pg = particles.getContext('2d');
+  const dots = Array.from({ length: 90 }, () => ({
+    x: Math.random(), y: Math.random(), r: 0.6 + Math.random() * 1.8,
+    a: 0.15 + Math.random() * 0.55, s: 0.02 + Math.random() * 0.06,
+  }));
+  const paintDots = () => {
+    const r = root.getBoundingClientRect();
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    particles.width = Math.max(1, Math.floor(r.width * dpr));
+    particles.height = Math.max(1, Math.floor(r.height * dpr));
+    pg.setTransform(dpr, 0, 0, dpr, 0, 0);
+    pg.clearRect(0, 0, r.width, r.height);
+    for (const d of dots) {
+      d.y -= d.s * 0.002;
+      if (d.y < -0.02) d.y = 1.02;
+      pg.beginPath();
+      pg.fillStyle = `rgba(255,138,138,${d.a})`;
+      pg.arc(d.x * r.width, d.y * r.height, d.r, 0, Math.PI * 2);
+      pg.fill();
+    }
+    requestAnimationFrame(paintDots);
+  };
+
+  const viewport = h('div', {
+    style: { position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 1 },
+  });
+  const scroller = h('div', { style: { willChange: 'transform', paddingBottom: '80px' } });
+
+  const navLink = (t) => h('span', {
+    style: { fontSize: '11px', letterSpacing: '.14em', fontWeight: 700, opacity: .85, cursor: 'pointer' },
+  }, t);
+
+  const intensityLab = h('span', {
+    style: {
+      border: '1px solid #ffffff22', borderRadius: '99px', padding: '10px 14px',
+      fontSize: '12px', fontFamily: 'monospace', opacity: .7,
+    },
+  }, 'lerp 0.12');
+
+  const sections = {};
+
+  const nav = h('div', {
+    style: {
+      display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'start',
+      padding: '22px 28px 8px', gap: '12px', position: 'relative', zIndex: 2,
+    },
+  },
+    h('div', { style: { display: 'grid', gap: '6px' } },
+      h('div.k-row', { style: { gap: '18px', flexWrap: 'wrap' } }, navLink('SHOWCASE'), navLink('TEMPLATES'), navLink('SUBMIT')),
+      h('div', { style: { fontSize: '10px', opacity: .4, letterSpacing: '.06em', maxWidth: '260px' } },
+        'THE SMOOTH SCROLL LIBRARY BY ', h('span', { style: { textDecoration: 'underline' } }, 'DARKROOM.ENGINEERING')),
+    ),
+    h('div', {
+      style: {
+        width: '42px', height: '42px', background: ACC, borderRadius: '4px',
+        display: 'grid', placeItems: 'center', color: '#111',
+        fontFamily: 'Georgia, serif', fontWeight: 900, fontSize: '26px', lineHeight: 1,
+      },
+    }, 'L'),
+    h('div', { style: { justifySelf: 'end', display: 'grid', gap: '10px', justifyItems: 'end' } },
+      h('div.k-row', { style: { gap: '18px' } }, navLink('DOCUMENTATION'), navLink('SPONSOR')),
+      h('div.k-row', { style: { gap: '8px' } },
+        h('button', {
+          style: {
+            background: ACC, color: '#111', border: 0, borderRadius: '99px',
+            padding: '10px 16px', fontWeight: 800, fontSize: '11px', letterSpacing: '.08em', cursor: 'pointer',
+          },
+          onclick: () => toast('Documentation stub'),
+        }, '⊞ DOCUMENTATION'),
+        h('button', {
+          style: {
+            background: ACC, color: '#111', border: 0, borderRadius: '99px',
+            padding: '10px 16px', fontWeight: 800, fontSize: '11px', letterSpacing: '.08em', cursor: 'pointer',
+          },
+          onclick: () => { targetY = sections.features.offsetTop; },
+        }, '↗ SHOWCASE'),
+      ),
+    ),
+  );
+
+  const hero = h('div', {
+    style: {
+      display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '24px',
+      padding: '48px 28px 80px', alignItems: 'end', minHeight: '70vh',
+    },
+  },
+    h('div', {},
+      h('div', {
+        style: {
+          fontSize: 'clamp(52px, 11vw, 104px)', fontWeight: 900, lineHeight: 0.92,
+          letterSpacing: '-.04em', textTransform: 'uppercase',
+        },
+      }, 'WHY', h('br'), 'SMOOTH', h('br'), 'SCROLL?'),
+    ),
+    h('div', { style: { paddingBottom: '12px' } },
+      h('div', {
+        style: { color: ACC, fontSize: '12px', letterSpacing: '.16em', fontWeight: 800, marginBottom: '12px' },
+      }, 'CREATE MORE IMMERSIVE INTERFACES'),
+      h('p', {
+        style: { fontSize: '14px', lineHeight: 1.65, opacity: .72, margin: 0, maxWidth: '36ch' },
+      }, 'Smooth scroll used to be a hard sell — hacky, heavy, inaccessible. Not anymore. Lenis settled the debate and quietly became the standard behind some of the web’s most ambitious work.'),
+    ),
+  );
+
+  const FEATURES = [
+    ['Silky inertia', 'Lerp-driven motion that feels physical, not tweened.'],
+    ['Touch ready', 'Trackpad, wheel, and touch all settle into one feel.'],
+    ['Nested friendly', 'Scroll containers without fighting the page.'],
+    ['Accessibility', 'Respects reduced-motion and keeps focus sane.'],
+    ['Tiny footprint', 'Craft-grade feel without a heavyweight runtime.'],
+    ['Creative control', 'Tune lerp intensity live — like this stage.'],
+  ];
+
+  sections.why = h('section', { style: { padding: '40px 28px 20px' } },
+    h('div', { style: { fontSize: '11px', letterSpacing: '.2em', color: ACC, fontWeight: 800, marginBottom: '10px' } }, '01 — WHY'),
+    h('h2', { style: { fontSize: '36px', fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 12px', maxWidth: '16ch' } }, 'As it should be'),
+    h('p', { style: { opacity: .65, maxWidth: '52ch', lineHeight: 1.6 } }, 'Smoothing the scroll pulls users into the flow so deeply they forget they are navigating a page.'),
+  );
+
+  sections.features = h('section', { style: { padding: '20px 28px 40px' } },
+    h('div', { style: { fontSize: '11px', letterSpacing: '.2em', color: ACC, fontWeight: 800, marginBottom: '16px' } }, '02 — FEATURES'),
+    h('div', {
+      style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '12px' },
+    }, ...FEATURES.map(([t, d]) => h('div', {
+      style: {
+        border: '1px solid #ffffff14', borderRadius: '14px', padding: '16px',
+        background: '#ffffff06',
+      },
+    },
+      h('div', { style: { fontWeight: 800, marginBottom: '6px' } }, t),
+      h('div', { style: { fontSize: '12.5px', opacity: .55, lineHeight: 1.5 } }, d),
+    ))),
+  );
+
+  sections.feel = h('section', { style: { padding: '20px 28px 100px' } },
+    h('div', { style: { fontSize: '11px', letterSpacing: '.2em', color: ACC, fontWeight: 800, marginBottom: '10px' } }, '03 — FEEL'),
+    h('h2', { style: { fontSize: '32px', fontWeight: 800, letterSpacing: '-.03em', margin: '0 0 14px' } }, 'Dial the silk'),
+    h('p', { style: { opacity: .6, marginBottom: '16px', maxWidth: '48ch' } }, 'CTA toggles lerp intensity. Wheel or trackpad to feel the difference.'),
+    h('div.k-row', { style: { gap: '10px', flexWrap: 'wrap' } },
+      h('button', {
+        style: {
+          background: ACC, color: '#111', border: 0, borderRadius: '99px',
+          padding: '12px 18px', fontWeight: 800, cursor: 'pointer', letterSpacing: '.06em', fontSize: '12px',
+        },
+        onclick: () => {
+          lerpAmt = lerpAmt < 0.2 ? 0.28 : 0.08;
+          intensityLab.textContent = `lerp ${lerpAmt.toFixed(2)}`;
+          toast(lerpAmt > 0.2 ? 'snappier' : 'silkier');
+        },
+      }, 'TOGGLE LERP'),
+      intensityLab,
+    ),
+  );
+
+  scroller.append(nav, hero, sections.why, sections.features, sections.feel);
+  viewport.append(scroller);
+
+  const maxY = () => Math.max(0, scroller.scrollHeight - viewport.clientHeight);
+  viewport.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    targetY = clamp(targetY + e.deltaY, 0, maxY());
+  }, { passive: false });
+
+  const tick = () => {
+    currentY += (targetY - currentY) * lerpAmt;
+    if (Math.abs(targetY - currentY) < 0.05) currentY = targetY;
+    scroller.style.transform = `translate3d(0, ${-currentY}px, 0)`;
+    requestAnimationFrame(tick);
+  };
+
+  const dock = h('div.k-row', {
+    style: {
+      position: 'absolute', left: '20px', bottom: '18px', zIndex: 5, gap: '10px',
+      fontSize: '10px', letterSpacing: '.14em', fontWeight: 700, opacity: .5,
+    },
+  }, 'SCROLL TO EXPLORE');
+
+  root.append(particles, viewport, dock);
+  requestAnimationFrame(paintDots);
+  requestAnimationFrame(tick);
+
+  window.__demoProof = async () => {
+    const prev = lerpAmt;
+    lerpAmt = 0.22; intensityLab.textContent = `lerp ${lerpAmt.toFixed(2)}`;
+    targetY = sections.features.offsetTop;
+    await sleep(450);
+    targetY = sections.feel.offsetTop;
+    await sleep(400);
+    targetY = 0;
+    await sleep(350);
+    lerpAmt = prev; intensityLab.textContent = `lerp ${lerpAmt.toFixed(2)}`;
+    return 'smooth-scrolled why→features→feel→top · toggled lerp · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

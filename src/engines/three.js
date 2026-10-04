@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { h, drag, clamp, toast, sleep, noise2, fitCanvas, blip, audio } from '../lib.js';
+import { h, drag, clamp, toast, sleep, noise2, fitCanvas, blip, audio, rng } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
 function stage(el, { bg = null, ortho = false, alpha = false } = {}) {
@@ -1680,6 +1680,191 @@ V['toootegram-playlist-zoo'] = (root, T) => {
     selectTrack(0, false);
     landing.style.display = 'grid'; inZoo = false;
     return 'entered zoo · switched animals · melody · restored landing';
+  };
+};
+
+V['lusion-3d-studio-stage'] = (root, T) => {
+  theme(root, T, { bg: '#e8e6ec', fg: '#121214', panel: '#f4f3f7', ac: '#2f6bff', dark: false, line: '#00000014' });
+  root.style.overflow = 'hidden';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+  root.style.background = '#e8e6ec';
+
+  const ACCENTS = [
+    { id: 'blue', label: 'Electric', hex: 0x2f6bff, chip: '#2f6bff' },
+    { id: 'coral', label: 'Coral', hex: 0xff5c6c, chip: '#ff5c6c' },
+    { id: 'mint', label: 'Mint', hex: 0x3dd6a5, chip: '#3dd6a5' },
+    { id: 'violet', label: 'Violet', hex: 0x7c5cff, chip: '#7c5cff' },
+  ];
+  let accentI = 0;
+  let seed = 7;
+  const rand = rng(seed);
+
+  const frame = h('div', {
+    style: {
+      position: 'absolute', left: '4%', right: '4%', top: '11%', bottom: '14%',
+      borderRadius: '36px', overflow: 'hidden', background: '#0c0c0e',
+      boxShadow: '0 28px 80px #00000022, 0 2px 0 #ffffff88 inset',
+    },
+  });
+  const S = stage(frame, { bg: '#0c0c0e' });
+  S.cam.position.set(0, 1.2, 7.2);
+  S.cam.fov = 42; S.cam.updateProjectionMatrix();
+  S.r.toneMapping = THREE.ACESFilmicToneMapping;
+  S.r.toneMappingExposure = 1.15;
+  S.r.shadowMap.enabled = true;
+
+  S.scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+  const key = new THREE.DirectionalLight(0xffffff, 2.2);
+  key.position.set(4.5, 8, 5); key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  S.scene.add(key);
+  const fill = new THREE.DirectionalLight(0xa8b4ff, 0.55);
+  fill.position.set(-5, 2, -3); S.scene.add(fill);
+  const rim = new THREE.PointLight(0xffffff, 18, 20);
+  rim.position.set(-2, 3, 4); S.scene.add(rim);
+
+  const cluster = new THREE.Group();
+  S.scene.add(cluster);
+  const pieces = [];
+
+  const matFor = (c) => new THREE.MeshPhysicalMaterial({
+    color: c, metalness: 0.15, roughness: 0.18, clearcoat: 1, clearcoatRoughness: 0.08,
+    reflectivity: 0.9,
+  });
+
+  const makeJack = (color, scale = 1) => {
+    const g = new THREE.Group();
+    const arm = (axis) => {
+      const cyl = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.18 * scale, 0.18 * scale, 1.35 * scale, 24),
+        matFor(color),
+      );
+      cyl.castShadow = true; cyl.receiveShadow = true;
+      if (axis === 'x') cyl.rotation.z = Math.PI / 2;
+      if (axis === 'z') cyl.rotation.x = Math.PI / 2;
+      g.add(cyl);
+      // flat end caps with recessed hole
+      [-1, 1].forEach((s) => {
+        const cap = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.22 * scale, 0.22 * scale, 0.06 * scale, 24),
+          matFor(color),
+        );
+        cap.castShadow = true;
+        if (axis === 'y') cap.position.y = s * 0.68 * scale;
+        if (axis === 'x') { cap.rotation.z = Math.PI / 2; cap.position.x = s * 0.68 * scale; }
+        if (axis === 'z') { cap.rotation.x = Math.PI / 2; cap.position.z = s * 0.68 * scale; }
+        g.add(cap);
+        const hole = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.07 * scale, 0.07 * scale, 0.08 * scale, 16),
+          new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.9 }),
+        );
+        if (axis === 'y') hole.position.y = s * 0.7 * scale;
+        if (axis === 'x') { hole.rotation.z = Math.PI / 2; hole.position.x = s * 0.7 * scale; }
+        if (axis === 'z') { hole.rotation.x = Math.PI / 2; hole.position.z = s * 0.7 * scale; }
+        g.add(hole);
+      });
+    };
+    arm('x'); arm('y'); arm('z');
+    const core = new THREE.Mesh(new THREE.SphereGeometry(0.28 * scale, 24, 24), matFor(color));
+    core.castShadow = true; g.add(core);
+    return g;
+  };
+
+  const COLORS = () => [0x111111, 0xf4f4f6, ACCENTS[accentI].hex];
+
+  const rebuild = (newSeed = seed) => {
+    seed = newSeed;
+    const r = rng(seed);
+    while (pieces.length) {
+      const p = pieces.pop();
+      cluster.remove(p);
+      p.traverse((o) => { if (o.geometry) o.geometry.dispose(); if (o.material) o.material.dispose?.(); });
+    }
+    const cols = COLORS();
+    const N = 11;
+    for (let i = 0; i < N; i++) {
+      const c = cols[i % cols.length];
+      const jack = makeJack(c, 0.55 + r() * 0.55);
+      const ang = r() * Math.PI * 2;
+      const rad = 0.3 + r() * 1.9;
+      jack.position.set(Math.cos(ang) * rad, (r() - 0.45) * 1.6, Math.sin(ang) * rad * 0.85);
+      jack.rotation.set(r() * Math.PI, r() * Math.PI, r() * Math.PI);
+      cluster.add(jack);
+      pieces.push(jack);
+    }
+  };
+  rebuild();
+
+  const oc = new OrbitControls(S.cam, S.r.domElement);
+  oc.enableDamping = true; oc.dampingFactor = 0.06;
+  oc.minDistance = 4; oc.maxDistance = 14;
+  oc.autoRotate = true; oc.autoRotateSpeed = 0.55;
+  oc.target.set(0, 0.2, 0);
+  S.on(() => oc.update());
+
+  const wordmark = h('div', {
+    style: {
+      position: 'absolute', top: '22px', left: '28px', zIndex: 4,
+      fontWeight: 800, letterSpacing: '.18em', fontSize: '13px', color: '#121214',
+    },
+  }, 'LUSION');
+
+  const chips = h('div.k-row', {
+    style: {
+      position: 'absolute', left: '50%', bottom: '28px', transform: 'translateX(-50%)',
+      gap: '8px', zIndex: 4, flexWrap: 'wrap', justifyContent: 'center',
+    },
+  });
+  const paintChips = () => {
+    chips.replaceChildren(
+      ...ACCENTS.map((a, i) => h('button', {
+        style: {
+          border: i === accentI ? '2px solid #121214' : '1px solid #00000022',
+          background: i === accentI ? a.chip : '#ffffffcc',
+          color: i === accentI ? '#fff' : '#121214',
+          borderRadius: '99px', padding: '8px 14px', fontWeight: 700, fontSize: '12px', cursor: 'pointer',
+          backdropFilter: 'blur(8px)',
+        },
+        onclick: () => { accentI = i; rebuild(seed); paintChips(); toast(a.label + ' accent'); },
+      }, a.label)),
+      h('button', {
+        style: {
+          border: '1px solid #00000022', background: '#121214', color: '#fff',
+          borderRadius: '99px', padding: '8px 14px', fontWeight: 700, fontSize: '12px', cursor: 'pointer',
+        },
+        onclick: () => { rebuild((seed * 1103515245 + 12345) >>> 0); toast('reshuffled'); },
+      }, 'Reshuffle ✦'),
+    );
+  };
+  paintChips();
+
+  const hint = h('div', {
+    style: {
+      position: 'absolute', right: '28px', top: '22px', zIndex: 4,
+      fontSize: '11px', opacity: .45, fontWeight: 600, letterSpacing: '.04em',
+    },
+  }, 'drag to orbit · chips recolor');
+
+  const foot = h('div', {
+    style: {
+      position: 'absolute', left: '28px', bottom: '28px', zIndex: 4,
+      fontSize: '11px', opacity: .4, fontWeight: 600,
+    },
+  }, 'Studio stage · glossy jack cluster');
+
+  root.append(wordmark, frame, chips, hint, foot);
+
+  window.__demoProof = async () => {
+    const prev = accentI;
+    const prevSeed = seed;
+    accentI = 1; rebuild(42); paintChips();
+    oc.autoRotateSpeed = 1.4;
+    await sleep(350);
+    accentI = 2; rebuild(99); paintChips();
+    await sleep(200);
+    accentI = prev; rebuild(prevSeed); paintChips();
+    oc.autoRotateSpeed = 0.55;
+    return 'orbit stage · accent chips · reshuffle · restored';
   };
 };
 

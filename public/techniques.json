@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-lusion-3d-studio-stage",
+  "slug": "lusion-3d-studio-stage",
+  "name": "Lusion 3D Interactive Studio Stage",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lusion.co/",
+  "domain": "lusion.co",
+  "product": "Lusion",
+  "checkpoints": [
+   "Lusion 3D Interactive Studio Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Lusion 3D Interactive Studio Stage",
+  "ko": "Lusion 스타일 3D 스테이지 클론",
+  "engine": "three",
+  "variant": "lusion-3d-studio-stage",
+  "path": "/t/lusion-3d-studio-stage/",
+  "built": true
+ },
+ {
+  "id": "clone-utopia-fluid-type-calculator",
+  "slug": "utopia-fluid-type-calculator",
+  "name": "Utopia Fluid Type Scale Calculator Desk",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://utopia.fyi/type/calculator/",
+  "domain": "utopia.fyi",
+  "product": "Utopia",
+  "checkpoints": [
+   "Utopia Fluid Type Scale Calculator Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Utopia Fluid Type Scale Calculator Desk",
+  "ko": "Utopia 스타일 타이포 클론",
+  "engine": "type",
+  "variant": "utopia-fluid-type-calculator",
+  "path": "/t/utopia-fluid-type-calculator/",
+  "built": true
+ },
+ {
+  "id": "clone-lenis-smooth-scroll-stage",
+  "slug": "lenis-smooth-scroll-stage",
+  "name": "Lenis Smooth Scroll Craft Stage",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lenis.dev/",
+  "domain": "lenis.dev",
+  "product": "Lenis",
+  "checkpoints": [
+   "Lenis Smooth Scroll Craft Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Lenis Smooth Scroll Craft Stage",
+  "ko": "Lenis 스타일 인터랙션 클론",
+  "engine": "saas",
+  "variant": "lenis-smooth-scroll-stage",
+  "path": "/t/lenis-smooth-scroll-stage/",
+  "built": true
+ },
+ {
   "id": "clone-fontbox-typo-sequencer",
   "slug": "fontbox-typo-sequencer",
   "name": "Fontbox Typographic Musical Sequencer",

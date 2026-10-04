@@ -920,5 +920,222 @@ V['spacetype-kinetic-type-desk'] = (root, T) => {
   };
 };
 
+V['utopia-fluid-type-calculator'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#001f35', panel: '#f7f7f5', ac: '#b08a4a', dark: false, line: '#001f3518' });
+  root.style.overflow = 'auto';
+  root.style.fontFamily = "'Inter Variable', system-ui, sans-serif";
+  root.classList.add('scroll');
+
+  const P = {
+    minW: 360, maxW: 1240,
+    minFs: 18, maxFs: 20,
+    minRatio: 1.2, maxRatio: 1.25,
+    stepsNeg: 2, stepsPos: 5,
+    previewW: 760,
+  };
+  const RAT_LABELS = {
+    1.067: 'Minor Second', 1.125: 'Major Second', 1.2: 'Minor Third', 1.25: 'Major Third',
+    1.333: 'Perfect Fourth', 1.414: 'Augmented Fourth', 1.5: 'Perfect Fifth', 1.618: 'Golden Ratio',
+  };
+  const ratioName = (r) => RAT_LABELS[Math.round(r * 1000) / 1000] || (r.toFixed(3));
+
+  const fluid = (minPx, maxPx) => {
+    const minW = P.minW, maxW = P.maxW;
+    const slope = (maxPx - minPx) / (maxW - minW);
+    const yInt = minPx - slope * minW;
+    const vw = (slope * 100).toFixed(4);
+    const rem = (yInt / 16).toFixed(4);
+    return {
+      minPx, maxPx,
+      clamp: `clamp(${(minPx / 16).toFixed(4)}rem, ${vw}vw + ${rem}rem, ${(maxPx / 16).toFixed(4)}rem)`,
+      at: (w) => minPx + (maxPx - minPx) * ((w - minW) / (maxW - minW)),
+    };
+  };
+
+  const steps = () => {
+    const out = [];
+    for (let i = -P.stepsNeg; i <= P.stepsPos; i++) {
+      const minPx = P.minFs * (P.minRatio ** i);
+      const maxPx = P.maxFs * (P.maxRatio ** i);
+      out.push({ step: i, ...fluid(minPx, maxPx) });
+    }
+    return out;
+  };
+
+  const cssText = () => {
+    const lines = steps().map((s) => `  --step-${s.step}: ${s.clamp};`);
+    return `:root {\n${lines.join('\n')}\n}`;
+  };
+
+  const header = h('div.k-row', {
+    style: { padding: '18px 28px', borderBottom: '1px solid #001f3512', gap: '18px' },
+  },
+    h('div', {},
+      h('div', { style: { fontFamily: FR, fontWeight: 700, fontSize: '20px', letterSpacing: '.02em' } }, 'UTOPIA.'),
+      h('div', { style: { fontSize: '10px', letterSpacing: '.14em', color: '#b08a4a', fontWeight: 600 } }, 'FLUID RESPONSIVE DESIGN'),
+    ),
+    h('span', { style: { flex: 1 } }),
+    ...['Type', 'Space', 'Grid', 'Clamp', 'Blog', 'Showcase', 'Merch'].map((l, i) =>
+      h('span', { style: { fontSize: '13px', color: i === 0 ? '#b08a4a' : '#6a7a88', fontWeight: i === 0 ? 700 : 500, cursor: 'pointer' } }, l)),
+  );
+
+  const title = h('h1', {
+    style: {
+      fontFamily: FR, fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 700,
+      letterSpacing: '.04em', margin: '28px 28px 18px', textTransform: 'uppercase',
+    },
+  }, 'Fluid Type Scale Calculator');
+
+  const band = h('div', {
+    style: {
+      background: '#001f35', color: '#fff', padding: '28px',
+      display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px',
+    },
+  });
+
+  const numField = (label, key, min, max, step, suffix = '') => {
+    const lab = h('div', { style: { fontSize: '11px', letterSpacing: '.12em', color: '#c4a46a', marginBottom: '6px', fontWeight: 600 } }, label);
+    const inp = h('input', {
+      type: 'number', value: P[key], min, max, step,
+      style: {
+        width: '100%', background: '#001627', color: '#fff', border: '1px solid #ffffff33',
+        borderRadius: '4px', padding: '12px 14px', fontSize: '22px', fontWeight: 600,
+        fontFamily: "'JetBrains Mono Variable', monospace",
+      },
+      oninput: (e) => { P[key] = +e.target.value; draw(); },
+    });
+    const wrap = h('div', {}, lab, h('div.k-row', { style: { gap: '8px', alignItems: 'center' } }, inp,
+      suffix ? h('span', { style: { opacity: .5, fontSize: '13px' } }, suffix) : null));
+    wrap.input = inp;
+    return wrap;
+  };
+
+  const minCol = h('div', {},
+    h('div', { style: { fontSize: '12px', letterSpacing: '.16em', color: '#c4a46a', marginBottom: '16px', fontWeight: 700 } }, 'MIN VIEWPORT'),
+  );
+  const maxCol = h('div', {},
+    h('div', { style: { fontSize: '12px', letterSpacing: '.16em', color: '#c4a46a', marginBottom: '16px', fontWeight: 700 } }, 'MAX VIEWPORT'),
+  );
+  const fMinW = numField('Width', 'minW', 200, 900, 1, 'px');
+  const fMinFs = numField('Font size', 'minFs', 10, 32, 0.5, 'px');
+  const fMinR = numField('Type scale', 'minRatio', 1.05, 1.8, 0.001);
+  const minRatioLab = h('div', { style: { fontSize: '12px', color: '#c4a46a', marginTop: '6px' } }, ratioName(P.minRatio));
+  const fMaxW = numField('Width', 'maxW', 800, 2000, 1, 'px');
+  const fMaxFs = numField('Font size', 'maxFs', 12, 40, 0.5, 'px');
+  const fMaxR = numField('Type scale', 'maxRatio', 1.05, 1.8, 0.001);
+  const maxRatioLab = h('div', { style: { fontSize: '12px', color: '#c4a46a', marginTop: '6px' } }, ratioName(P.maxRatio));
+  minCol.append(fMinW, h('div', { style: { height: '12px' } }), fMinFs, h('div', { style: { height: '12px' } }), fMinR, minRatioLab);
+  maxCol.append(fMaxW, h('div', { style: { height: '12px' } }), fMaxFs, h('div', { style: { height: '12px' } }), fMaxR, maxRatioLab);
+  band.append(minCol, maxCol);
+
+  const stepCountLab = h('span', { style: { fontFamily: 'monospace', fontWeight: 700, minWidth: '72px', textAlign: 'center' } }, '−2 … +5');
+  const stepRow = h('div.k-row', {
+    style: { padding: '14px 28px', gap: '14px', borderBottom: '1px solid #001f3512', flexWrap: 'wrap' },
+  },
+    h('span', { style: { fontSize: '12px', fontWeight: 700, opacity: .55 } }, 'STEPS'),
+    btn('− Neg', () => { P.stepsNeg = clamp(P.stepsNeg - 1, 0, 4); draw(); }),
+    btn('+ Neg', () => { P.stepsNeg = clamp(P.stepsNeg + 1, 0, 4); draw(); }),
+    stepCountLab,
+    btn('− Pos', () => { P.stepsPos = clamp(P.stepsPos - 1, 1, 8); draw(); }),
+    btn('+ Pos', () => { P.stepsPos = clamp(P.stepsPos + 1, 1, 8); draw(); }),
+  );
+
+  const tableWrap = h('div', { style: { padding: '24px 28px' } });
+  const specimen = h('div', {
+    style: {
+      margin: '0 28px 20px', padding: '22px 24px', border: '1px solid #001f3514',
+      borderRadius: '10px', background: '#fafaf8',
+    },
+  });
+  const codePre = h('pre', {
+    style: {
+      margin: '0 28px 28px', padding: '16px 18px', background: '#001f35', color: '#e8f0f8',
+      borderRadius: '10px', fontSize: '12.5px', lineHeight: 1.55,
+      fontFamily: "'JetBrains Mono Variable', monospace", overflow: 'auto',
+    },
+  });
+  const copyRow = h('div.k-row', { style: { padding: '0 28px 40px', gap: '10px' } },
+    btn('Copy CSS', () => copy(cssText(), 'CSS'), 'pri'),
+    h('span', { style: { fontSize: '12px', opacity: .45 } }, 'Live clamp() tokens update as you edit'),
+  );
+
+  const previewSl = slider('Simulated viewport', 320, 1600, P.previewW, 1, (v) => { P.previewW = v; draw(); }, (v) => v + 'px');
+  previewSl.style.padding = '0 28px 8px';
+
+  const draw = () => {
+    minRatioLab.textContent = ratioName(P.minRatio);
+    maxRatioLab.textContent = ratioName(P.maxRatio);
+    stepCountLab.textContent = `−${P.stepsNeg} … +${P.stepsPos}`;
+    const st = steps();
+    const head = h('div', {
+      style: {
+        display: 'grid', gridTemplateColumns: '90px 1fr 1fr 1.4fr', gap: '8px',
+        fontSize: '11px', letterSpacing: '.08em', color: '#b08a4a', fontWeight: 700,
+        marginBottom: '10px', textTransform: 'uppercase',
+      },
+    }, 'Step', 'Min px', 'Max px', 'Preview @ ' + P.previewW + 'px');
+    const rows = st.map((s) => {
+      const at = s.at(P.previewW);
+      return h('div', {
+        style: {
+          display: 'grid', gridTemplateColumns: '90px 1fr 1fr 1.4fr', gap: '8px',
+          alignItems: 'baseline', padding: '8px 0', borderTop: '1px solid #001f3510',
+        },
+      },
+        h('code', { style: { fontWeight: 700 } }, `step${s.step >= 0 ? s.step : s.step}`),
+        h('span', {}, s.minPx.toFixed(2)),
+        h('span', {}, s.maxPx.toFixed(2)),
+        h('span', {
+          style: {
+            fontSize: Math.max(10, Math.min(48, at)) + 'px',
+            fontFamily: FR, lineHeight: 1.15, whiteSpace: 'nowrap', overflow: 'hidden',
+          },
+        }, 'Almost before we knew it'),
+      );
+    });
+    tableWrap.replaceChildren(
+      h('h2', { style: { fontFamily: FR, fontSize: '22px', letterSpacing: '.04em', textTransform: 'uppercase', margin: '0 0 10px' } }, 'Calculated Font Sizes'),
+      h('p', { style: { fontSize: '14px', lineHeight: 1.6, maxWidth: '640px', opacity: .75, margin: '0 0 16px' } },
+        'Min/max columns show sizes at the viewport extremes. Drag the simulated viewport to preview fluid values between them.'),
+      head, ...rows,
+    );
+    const heroStep = st.find((s) => s.step === 2) || st[st.length - 1];
+    const bodyStep = st.find((s) => s.step === 0) || st[0];
+    specimen.replaceChildren(
+      h('div', { style: { fontSize: '11px', letterSpacing: '.1em', color: '#b08a4a', marginBottom: '8px', fontWeight: 700 } }, 'SPECIMEN'),
+      h('div', {
+        style: {
+          fontFamily: FR, fontWeight: 700, lineHeight: 1.1, letterSpacing: '-.02em',
+          fontSize: heroStep.at(P.previewW) + 'px', marginBottom: '10px',
+        },
+      }, 'Fluid type that breathes with the viewport'),
+      h('p', {
+        style: { fontSize: bodyStep.at(P.previewW) + 'px', lineHeight: 1.55, opacity: .8, margin: 0, maxWidth: '52ch' },
+      }, 'Utopia-style clamp() scales keep hierarchy intact from phone to ultrawide — no breakpoint jumps.'),
+    );
+    codePre.textContent = cssText();
+  };
+
+  // wire ratio label updates via draw; also sync number inputs when proof mutates
+  const syncInputs = () => {
+    fMinW.input.value = P.minW; fMinFs.input.value = P.minFs; fMinR.input.value = P.minRatio;
+    fMaxW.input.value = P.maxW; fMaxFs.input.value = P.maxFs; fMaxR.input.value = P.maxRatio;
+  };
+
+  root.append(header, title, band, stepRow, previewSl, specimen, tableWrap, codePre, copyRow);
+  draw();
+
+  window.__demoProof = async () => {
+    const snap = { ...P };
+    P.minFs = 16; P.maxFs = 22; P.minRatio = 1.25; P.maxRatio = 1.333; P.previewW = 980;
+    syncInputs(); previewSl.set(980); draw();
+    await sleep(200);
+    copy(cssText(), 'CSS');
+    await sleep(150);
+    Object.assign(P, snap); syncInputs(); previewSl.set(P.previewW); draw();
+    return 'tweaked scale + viewport · copied clamp CSS · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

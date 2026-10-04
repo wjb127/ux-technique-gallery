@@ -1,4 +1,34 @@
 {
+ "lusion-3d-studio-stage": {
+  "bg": "#000000",
+  "fg": "#f0f1fa",
+  "panel": "#1c1d22",
+  "dark": true,
+  "ac": "#091089",
+  "ac2": "#0d0f41",
+  "ac3": "#242961",
+  "coverage": 0.29
+ },
+ "utopia-fluid-type-calculator": {
+  "bg": "#ffffff",
+  "fg": "#001f35",
+  "panel": "#eceeef",
+  "dark": false,
+  "ac": "#001f35",
+  "ac2": "#153146",
+  "ac3": "#06243a",
+  "coverage": 0.61
+ },
+ "lenis-smooth-scroll-stage": {
+  "bg": "#000000",
+  "fg": "#ff98a2",
+  "panel": "#372123",
+  "dark": true,
+  "ac": "#ff98a2",
+  "ac2": "#fd9aa4",
+  "ac3": "#372123",
+  "coverage": 0.31
+ },
  "fontbox-typo-sequencer": {
   "bg": "#ffffff",
   "fg": "#2c2520",

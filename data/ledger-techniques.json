@@ -1,5 +1,53 @@
 [
  {
+  "id": "clone-lusion-3d-studio-stage",
+  "slug": "lusion-3d-studio-stage",
+  "name": "Lusion 3D Interactive Studio Stage",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lusion.co/",
+  "domain": "lusion.co",
+  "product": "Lusion",
+  "checkpoints": [
+   "Lusion 3D Interactive Studio Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-utopia-fluid-type-calculator",
+  "slug": "utopia-fluid-type-calculator",
+  "name": "Utopia Fluid Type Scale Calculator Desk",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://utopia.fyi/type/calculator/",
+  "domain": "utopia.fyi",
+  "product": "Utopia",
+  "checkpoints": [
+   "Utopia Fluid Type Scale Calculator Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
+  "id": "clone-lenis-smooth-scroll-stage",
+  "slug": "lenis-smooth-scroll-stage",
+  "name": "Lenis Smooth Scroll Craft Stage",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lenis.dev/",
+  "domain": "lenis.dev",
+  "product": "Lenis",
+  "checkpoints": [
+   "Lenis Smooth Scroll Craft Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null
+ },
+ {
   "id": "clone-fontbox-typo-sequencer",
   "slug": "fontbox-typo-sequencer",
   "name": "Fontbox Typographic Musical Sequencer",

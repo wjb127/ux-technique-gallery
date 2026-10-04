@@ -1,5 +1,101 @@
 [
  {
+  "id": "clone-lusion-3d-studio-stage",
+  "slug": "lusion-3d-studio-stage",
+  "name": "Lusion 3D Interactive Studio Stage",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lusion.co/",
+  "domain": "lusion.co",
+  "product": "Lusion",
+  "checkpoints": [
+   "Lusion 3D Interactive Studio Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Lusion 3D Interactive Studio Stage",
+  "ko": "Lusion 스타일 3D 스테이지 클론",
+  "engine": "three",
+  "variant": "lusion-3d-studio-stage",
+  "theme": {
+   "bg": "#000000",
+   "fg": "#f0f1fa",
+   "panel": "#1c1d22",
+   "dark": true,
+   "ac": "#091089",
+   "ac2": "#0d0f41",
+   "ac3": "#242961",
+   "coverage": 0.29
+  },
+  "path": "/t/lusion-3d-studio-stage/",
+  "built": true
+ },
+ {
+  "id": "clone-utopia-fluid-type-calculator",
+  "slug": "utopia-fluid-type-calculator",
+  "name": "Utopia Fluid Type Scale Calculator Desk",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://utopia.fyi/type/calculator/",
+  "domain": "utopia.fyi",
+  "product": "Utopia",
+  "checkpoints": [
+   "Utopia Fluid Type Scale Calculator Desk"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Utopia Fluid Type Scale Calculator Desk",
+  "ko": "Utopia 스타일 타이포 클론",
+  "engine": "type",
+  "variant": "utopia-fluid-type-calculator",
+  "theme": {
+   "bg": "#ffffff",
+   "fg": "#001f35",
+   "panel": "#eceeef",
+   "dark": false,
+   "ac": "#001f35",
+   "ac2": "#153146",
+   "ac3": "#06243a",
+   "coverage": 0.61
+  },
+  "path": "/t/utopia-fluid-type-calculator/",
+  "built": true
+ },
+ {
+  "id": "clone-lenis-smooth-scroll-stage",
+  "slug": "lenis-smooth-scroll-stage",
+  "name": "Lenis Smooth Scroll Craft Stage",
+  "date": "2026-10-04",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lenis.dev/",
+  "domain": "lenis.dev",
+  "product": "Lenis",
+  "checkpoints": [
+   "Lenis Smooth Scroll Craft Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Lenis Smooth Scroll Craft Stage",
+  "ko": "Lenis 스타일 인터랙션 클론",
+  "engine": "saas",
+  "variant": "lenis-smooth-scroll-stage",
+  "theme": {
+   "bg": "#000000",
+   "fg": "#ff98a2",
+   "panel": "#372123",
+   "dark": true,
+   "ac": "#ff98a2",
+   "ac2": "#fd9aa4",
+   "ac3": "#372123",
+   "coverage": 0.31
+  },
+  "path": "/t/lenis-smooth-scroll-stage/",
+  "built": true
+ },
+ {
   "id": "clone-fontbox-typo-sequencer",
   "slug": "fontbox-typo-sequencer",
   "name": "Fontbox Typographic Musical Sequencer",
