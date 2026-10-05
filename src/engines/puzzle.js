@@ -1,3 +1,5 @@
+import '@fontsource-variable/roboto-flex/full.css';
+import '@fontsource/press-start-2p';
 import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',monospace";
@@ -614,6 +616,86 @@ V['purl-visual-game-engine'] = (root, T) => {
     mode = 'home'; render();
     return 'opened blank project, added action+sprite nodes, returned home';
   };
+};
+
+// ---------- TETR.IO game client menu system (2026-10-05 12:00 KST)
+V['tetrio-game-client-menu'] = (root, T) => {
+  theme(root, T, { bg: '#000000', fg: '#ffffff', ac: '#e04fb0', dark: true });
+  const CON = "'Roboto Flex Variable', 'Roboto Flex', Arial Narrow, sans-serif", PIX = "'Press Start 2P', monospace";
+  root.style.background = '#000'; root.style.color = '#fff'; root.style.fontFamily = CON; root.style.overflow = 'hidden';
+  root.append(h('style', {}, `
+    .tt *{box-sizing:border-box}
+    .tt{position:absolute;inset:0;font-family:${CON};font-variation-settings:'wdth' 30;text-transform:uppercase}
+    .tt-sky{position:absolute;left:0;right:0;height:70px;pointer-events:none;opacity:.9}
+    .tt-top{position:absolute;left:0;right:0;top:0;height:64px;display:flex;align-items:center;padding:0 22px;z-index:3;background:#000}
+    .tt-logo{font:400 34px/1 ${PIX};letter-spacing:-2px;color:#fff;text-shadow:3px 3px 0 #555;margin-right:40px;transform:scaleY(1.15)}
+    .tt-logo i{font-style:normal;color:#fff;opacity:.9}
+    .tt-nav a{position:relative;display:inline-block;padding:22px 22px;font:700 19px/1 ${CON};font-variation-settings:'wdth' 60;letter-spacing:.03em;color:#fff;cursor:pointer;text-decoration:none}
+    .tt-nav a.on::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:#fff}
+    .tt-nav a:hover{background:#ffffff12}
+    .tt-ic{margin-left:auto;display:flex;gap:18px;font-size:20px;color:#888}.tt-ic span{cursor:pointer}.tt-ic span:hover{color:#fff}
+    .tt-beta{position:absolute;left:22px;top:82px;font:700 64px/1 ${CON};font-variation-settings:'wdth' 70;color:#ffffff10;letter-spacing:.02em}
+    .tt-stats{position:absolute;left:50%;top:180px;transform:translateX(-50%);display:flex;gap:64px;text-align:center}
+    .tt-stats b{display:block;font:600 34px/1 ${CON};font-variation-settings:'wdth' 40;color:#bdbdbd;letter-spacing:.02em}.tt-stats small{font:500 11px ${CON};color:#555;letter-spacing:.08em}
+    .tt-dlg{position:absolute;left:50%;top:292px;transform:translateX(-50%);width:646px;background:#ececec;color:#111;box-shadow:0 0 60px #ffffff22;transition:opacity .35s,transform .35s}
+    .tt-dlg h3{margin:0;padding:10px 12px 2px;font:700 23px/1 ${CON};font-variation-settings:'wdth' 45;letter-spacing:.04em}
+    .tt-dlg p{margin:0;padding:4px 12px 10px;font:500 11.5px/1.45 ${CON};color:#444;letter-spacing:.03em;border-bottom:2px solid #d0d0d0}
+    .tt-dlg label{display:block;padding:10px 12px 6px;font:700 13px ${CON};letter-spacing:.05em}
+    .tt-dlg input{display:block;margin:0 6px;width:calc(100% - 12px);height:30px;background:#202020;border:0;color:#fff;font:500 18px ${CON};font-variation-settings:'wdth' 40;padding:0 8px;text-transform:uppercase;outline:none}
+    .tt-dlg input::placeholder{color:#777}.tt-dlg input:focus{box-shadow:0 0 0 2px #e04fb0}
+    .tt-dlg .tos{padding:7px 12px;font:600 10.5px ${CON};color:#555;letter-spacing:.04em}.tt-dlg .tos a{color:#2a4bd7}
+    .tt-dlg button{display:block;width:100%;height:40px;border:0;background:#cfcfcf;font:600 26px/1 ${CON};font-variation-settings:'wdth' 50;letter-spacing:.06em;color:#222;cursor:pointer}
+    .tt-dlg button:hover{background:#fff}
+    .tt-foot{position:absolute;left:22px;bottom:16px;display:flex;align-items:center;gap:6px;font:500 13px ${CON};color:#bbb;z-index:2}.tt-foot b{font:900 26px/1 Arial;letter-spacing:-1px;color:#fff;text-transform:lowercase}
+    .tt-menu{position:absolute;inset:64px 0 0 0;display:none;background:radial-gradient(ellipse at 70% 20%,#1d1630,#07060b 70%)}
+    .tt-menu.show{display:block}
+    .tt-user{position:absolute;left:24px;top:20px;display:flex;gap:12px;align-items:center}
+    .tt-av{width:52px;height:52px;background:linear-gradient(135deg,#ff6ac1,#7b4dff);display:grid;place-items:center;font:400 18px ${PIX}}
+    .tt-user b{display:block;font:700 26px/1 ${CON};font-variation-settings:'wdth' 50}.tt-user small{font:600 12px ${CON};color:#9b8fc0;letter-spacing:.06em}
+    .tt-xp{width:180px;height:5px;background:#ffffff1a;margin-top:6px}.tt-xp i{display:block;height:100%;width:38%;background:#ffd23f}
+    .tt-list{position:absolute;right:0;top:96px;width:min(820px,70%);display:grid;gap:10px}
+    .tt-it{position:relative;height:98px;display:flex;align-items:center;gap:22px;padding:0 30px;cursor:pointer;transform:translateX(var(--x,40px));opacity:0;transition:transform .32s cubic-bezier(.2,.9,.2,1.2),opacity .3s,filter .2s;clip-path:polygon(18px 0,100% 0,100% 100%,0 100%);overflow:hidden}
+    .tt-it.in{opacity:1;--x:0px}.tt-it:hover{--x:-26px;filter:brightness(1.25)}
+    .tt-it::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#ffffff30,transparent 45%,#00000030);pointer-events:none}
+    .tt-it .g{font:400 40px/1 ${PIX};opacity:.85;width:60px;text-align:center}
+    .tt-it b{display:block;font:800 46px/1 ${CON};font-variation-settings:'wdth' 40;letter-spacing:.02em}
+    .tt-it small{display:block;font:600 14px/1.2 ${CON};letter-spacing:.06em;opacity:.8;margin-top:4px}
+    .tt-it .n{margin-left:auto;font:700 14px ${CON};opacity:.7;letter-spacing:.06em}
+    .tt-back{position:absolute;left:24px;bottom:28px;padding:10px 26px;background:#2a2433;font:800 22px ${CON};font-variation-settings:'wdth' 45;letter-spacing:.06em;cursor:pointer;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);display:none}
+    .tt-back:hover{background:#3d3550}
+    .tt-crumb{position:absolute;left:24px;top:96px;font:800 64px/1 ${CON};font-variation-settings:'wdth' 35;color:#ffffff14;letter-spacing:.02em}
+    .tt-go{position:absolute;inset:0;display:none;place-items:center;font:900 150px/1 ${CON};font-variation-settings:'wdth' 35;color:#fff;text-shadow:0 0 40px #e04fb0;background:#000a;z-index:5}
+  `));
+  const sky = (top) => { const c = h('canvas.tt-sky', { width: 1440, height: 70, style: { [top ? 'top' : 'bottom']: top ? '52px' : '0px' } }); const g = c.getContext('2d'); const R = rng(top ? 3 : 9); for (let x = 0; x < 1440; x += 8) { const hh = top ? 4 + Math.floor(R() * 4) * 4 * (R() < .5 ? 1 : 0) : 6 + Math.floor(R() * 5) * 4; g.fillStyle = `rgba(255,255,255,${top ? .12 : .1})`; if (top) g.fillRect(x, 0, 8, hh); else g.fillRect(x, 70 - hh, 8, hh); if (R() < .3) { g.fillStyle = 'rgba(255,255,255,.05)'; g.fillRect(x, top ? hh : 70 - hh - 8, 8, 8); } } return c; };
+  const tick = (f = 660) => blip(f, 0.06, 'square', 0.04);
+  const W = h('div.tt'); root.append(W);
+  const navA = (t, on) => h('a' + (on ? '.on' : ''), { onmouseenter: () => tick(880), onclick: () => tick(520) }, t);
+  W.append(sky(true), sky(false), h('div.tt-top', {}, h('div.tt-logo', {}, 'TETR', h('i', {}, '.IO')), h('nav.tt-nav', {}, navA('PLAY', 1), navA('TETRA CHANNEL'), navA('MERCH'), navA('ABOUT')), h('div.tt-ic', {}, ...['⤓', '𝕏', '◉', '⌂', '★'].map((x) => h('span', { onmouseenter: () => tick(990) }, x)))));
+  const beta = h('div.tt-beta', {}, 'BETA');
+  const stat = (n, l) => { const b = h('b', {}, n.toLocaleString('en-US')); return [h('div', {}, b, h('small', {}, l)), b, n]; };
+  const S = [stat(9755378, 'TOTAL PLAYERS'), stat(1089820244, 'GAMES PLAYED'), stat(51945494, 'HOURS PLAYED')];
+  const statsEl = h('div.tt-stats', {}, ...S.map((x) => x[0]));
+  const inp = h('input', { placeholder: 'USERNAME', maxlength: 16, onkeydown: (e) => { if (e.key === 'Enter') join(); else tick(400 + Math.random() * 300); } });
+  const dlg = h('div.tt-dlg', {}, h('h3', {}, 'WELCOME TO TETR.IO'), h('p', {}, 'PUZZLE TOGETHER IN THIS MODERN YET FAMILIAR ONLINE STACKER. PLAY AGAINST FRIENDS AND FOES ALL OVER THE WORLD, OR CLAIM A SPOT ON THE LEADERBOARDS - THE STACKER FUTURE IS YOURS!'), h('label', {}, 'ENTER A USERNAME TO JOIN, OR LEAVE IT BLANK TO GET A RANDOM ONE'), inp, h('div.tos', { html: 'BY JOINING, YOU ACCEPT THE <a>TERMS OF USE</a>, <a>PRIVACY POLICY</a> AND <a>RULES</a>' }), h('button', { onclick: () => join(), onmouseenter: () => tick(780) }, 'JOIN'));
+  const foot = h('div.tt-foot', {}, h('b', {}, 'osk'), '©2019-2026');
+  // main menu
+  const user = h('b', {}, 'GUEST'); const menu = h('div.tt-menu'); const list = h('div.tt-list'); const crumb = h('div.tt-crumb', {}, 'HOME');
+  const back = h('div.tt-back', { onclick: () => { tick(330); show('home'); } }, '◀ BACK'); const go = h('div.tt-go');
+  menu.append(crumb, h('div.tt-user', {}, h('div.tt-av', {}, '☺'), h('div', {}, user, h('small', {}, 'LV 7 · 1,204 XP'), h('div.tt-xp', {}, h('i')))), list, back, go);
+  const MENUS = {
+    home: [['MULTIPLAYER', 'PLAY ONLINE WITH FRIENDS AND FOES', '⚔', 'linear-gradient(90deg,#8a1f6c,#c2459b)', 'multi', '1,204 ONLINE'], ['SOLO', 'CHALLENGE YOURSELF AND TOP THE LEADERBOARDS', '◆', 'linear-gradient(90deg,#4a2aa0,#7a5ae0)', 'solo', '4 MODES'], ['TETRA CHANNEL', 'VIEW LEADERBOARDS, REPLAYS AND RECORDS', '▤', 'linear-gradient(90deg,#1c6c55,#33a37f)', null, 'LIVE'], ['CONFIG', 'TWEAK YOUR TETR.IO EXPERIENCE', '⚙', 'linear-gradient(90deg,#31405a,#53698f)', null, ''], ['ABOUT', 'ALL ABOUT TETR.IO AND HOW TO SUPPORT IT', '?', 'linear-gradient(90deg,#3b3b3b,#5c5c5c)', null, '']],
+    solo: [['40 LINES', 'CLEAR 40 LINES AS QUICKLY AS POSSIBLE', '▮', 'linear-gradient(90deg,#1d4f9e,#3c7fe0)', 'play', 'PB 1:02.418'], ['BLITZ', 'A TWO-MINUTE RACE AGAINST THE CLOCK', '⚡', 'linear-gradient(90deg,#a2430f,#e2752a)', 'play', 'PB 142,880'], ['QUICK PLAY', 'CLIMB AS HIGH AS YOU CAN', '▲', 'linear-gradient(90deg,#7a1a2a,#c33a4f)', 'play', 'FLOOR 6'], ['ZEN', 'RELAX, NO PRESSURE, NO END', '◌', 'linear-gradient(90deg,#256067,#3f9aa4)', 'play', 'LV 12'], ['CUSTOM', 'SET YOUR OWN RULES', '✎', 'linear-gradient(90deg,#3a3a46,#5c5c70)', 'play', '']],
+    multi: [['QUICK PLAY', 'JOIN THE ENDLESS FREE-FOR-ALL', '▲', 'linear-gradient(90deg,#7a1a2a,#c33a4f)', 'play', '311 PLAYING'], ['TETRA LEAGUE', 'COMPETE 1V1 TO CLIMB THE RANKS', '♛', 'linear-gradient(90deg,#8a6a10,#d0a52a)', 'play', 'RANK S-'], ['CUSTOM ROOM', 'CREATE OR JOIN A PRIVATE ROOM', '⌂', 'linear-gradient(90deg,#3a3a46,#5c5c70)', 'play', '']],
+  };
+  let screen = 'welcome', where = 'home';
+  const show = async (key) => { where = key; crumb.textContent = key === 'home' ? 'HOME' : key.toUpperCase() === 'SOLO' ? 'SOLO' : 'MULTIPLAYER'; back.style.display = key === 'home' ? 'none' : 'block'; list.replaceChildren(...MENUS[key].map(([t, sub, g, bg, to, n], i) => { const el = h('div.tt-it', { style: { background: bg }, onmouseenter: () => tick(560 + i * 70), onclick: () => { tick(990); if (to === 'play') launch(t); else if (to) show(to); else toast(t + ' (demo)'); } }, h('div.g', {}, g), h('div', {}, h('b', {}, t), h('small', {}, sub)), h('div.n', {}, n)); setTimeout(() => el.classList.add('in'), 40 + i * 55); return el; })); };
+  const launch = async (t) => { go.style.display = 'grid'; for (const x of ['3', '2', '1', 'GO!']) { go.textContent = x; blip(x === 'GO!' ? 880 : 440, 0.15, 'square', 0.06); await sleep(380); } go.style.display = 'none'; toast(t + ' — replay will not be saved'); };
+  const join = () => { const n = inp.value.trim() || 'GUEST-' + Math.floor(1000 + Math.random() * 9000); user.textContent = n.toUpperCase(); tick(990); blip(1320, 0.12, 'square', 0.05, 0.08); dlg.style.opacity = 0; dlg.style.transform = 'translateX(-50%) translateY(-20px)'; setTimeout(() => { [beta, statsEl, dlg].forEach((e) => (e.style.display = 'none')); menu.classList.add('show'); screen = 'menu'; show('home'); }, 300); };
+  const reset = () => { screen = 'welcome'; menu.classList.remove('show'); [beta, statsEl, dlg].forEach((e) => (e.style.display = '')); dlg.style.opacity = 1; dlg.style.transform = 'translateX(-50%)'; inp.value = ''; };
+  W.append(beta, statsEl, dlg, menu, foot);
+  // live-ish counters
+  const iv = setInterval(() => { if (!root.isConnected) return clearInterval(iv); S.forEach((x, i) => { x[2] += Math.floor(Math.random() * [3, 40, 6][i]); x[1].textContent = x[2].toLocaleString('en-US'); }); }, 1200);
+  window.__demoProof = async () => { inp.value = 'junbok'; join(); await sleep(420); const a = list.children.length; await show('solo'); await sleep(200); const b = list.children.length; await show('home'); reset(); return `joined → home menu (${a} panels) → solo submenu (${b} modes) → back; reset to welcome`; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

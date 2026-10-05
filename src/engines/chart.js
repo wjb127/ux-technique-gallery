@@ -102,4 +102,77 @@ V['ladybug-effects-studio'] = (root, T) => {
   draw();
   window.__demoProof = async () => { P.amt = 0.7; draw(); return 'halftone effect tuned live'; };
 };
+// ---------- R2D3 scrollytelling ML explainer (2026-10-05 12:00 KST)
+V['r2d3-scrollytelling-ml-explainer'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#111111', ac: '#5aa33e', dark: false, line: '#0000001a' });
+  const SANS = "'Inter Variable', Helvetica, Arial, sans-serif";
+  root.style.background = '#fff'; root.style.color = '#222'; root.style.fontFamily = SANS; root.style.overflowY = 'auto'; root.style.overflowX = 'hidden'; root.style.scrollBehavior = 'smooth';
+  const NY = '#1d5a8a', SF = '#5fa83f';
+  root.append(h('style', {}, `
+    .rd-wrap{display:grid;grid-template-columns:minmax(380px,560px) 1fr;max-width:1440px;margin:0 auto;padding:0 0 0 150px;position:relative}
+    .rd-logo{position:absolute;left:150px;top:14px;width:40px;height:40px;border:3px solid #111;font:500 13px/14px ${SANS};padding:3px 5px;box-sizing:border-box;z-index:3;background:#fff}
+    .rd-step{min-height:88vh;padding:0 40px 0 0;display:flex;flex-direction:column;justify-content:center;opacity:.28;transition:opacity .5s}
+    .rd-step.on{opacity:1}.rd-step:first-child{opacity:1;min-height:calc(100vh - 60px);justify-content:flex-start;padding-top:110px}
+    .rd-step h1{font:400 44px/1.08 ${SANS};letter-spacing:-.01em;margin:0 0 30px;color:#111;max-width:330px}
+    .rd-step p{font:400 16px/1.6 ${SANS};color:#333;max-width:330px;margin:0 0 16px}
+    .rd-step h2{font:600 22px/1.25 ${SANS};margin:0 0 14px;color:#111;max-width:330px}
+    .rd-lang{font-size:12px;color:#666;margin:0 0 22px;display:flex;gap:6px;align-items:center}.rd-lang select{font-size:12px;border:1px solid #999;width:108px}
+    .rd-scroll{font:700 14px ${SANS};letter-spacing:.04em;text-align:center;width:330px;margin-top:8px;cursor:pointer}.rd-scroll i{display:block;width:0;height:0;margin:6px auto;border:14px solid transparent;border-top:8px solid #111;border-bottom:0;animation:rdB 1.6s ease-in-out infinite}
+    @keyframes rdB{50%{transform:translateY(5px)}}
+    .rd-viz{position:sticky;top:0;height:calc(100vh - 44px);display:grid;place-items:center start}
+    .rd-viz svg{width:min(640px,100%);height:auto;overflow:visible}
+    .rd-viz .d{transition:transform 1s cubic-bezier(.6,0,.3,1),opacity .6s}
+    .rd-viz .fade{transition:opacity .7s}
+    .rd-ax{font:11px ${SANS};fill:#888}.rd-lab{font:600 12px ${SANS};fill:#333}
+    .rd-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:grid;gap:8px;z-index:4}
+    .rd-dots b{width:8px;height:8px;border-radius:50%;background:#ccc;cursor:pointer;transition:all .3s}.rd-dots b.on{background:#111;transform:scale(1.3)}
+    .k-root .rd-node{font:600 12px ${SANS}}
+  `));
+  const R = rng(11);
+  const homes = Array.from({ length: 140 }, (_, i) => { const sf = i % 2 === 0; const ele = sf ? Math.max(1, 10 + R() ** 1.2 * 230 - (R() < .3 ? 30 : 0)) : Math.max(1, R() ** 2.3 * 75); return { sf, ele, ppsf: sf ? 450 + R() * 1100 : 620 + R() ** .8 * 1500, beds: 1 + Math.floor(R() * 4), bath: 1 + Math.floor(R() * 3), year: 1890 + Math.floor(R() * 125), sqft: 500 + R() ** 1.5 * 3500, price: 0.3 + R() ** 2 * 4 }; });
+  const W = 640, H = 620, FEAT = ['beds', 'bath', 'price', 'year', 'sqft', 'ppsf'];
+  const ext = (k) => [Math.min(...homes.map((d) => d[k])), Math.max(...homes.map((d) => d[k]))];
+  const EX = Object.fromEntries([...FEAT, 'ele'].map((k) => [k, ext(k)]));
+  const nrm = (k, v) => (v - EX[k][0]) / (EX[k][1] - EX[k][0] || 1);
+  // scatterplot matrix (upper-right triangle, like the intro)
+  const CS = 78, matrix = s('g', { class: 'fade' });
+  FEAT.forEach((fy, r) => FEAT.forEach((fx, c) => { if (c < r) return; const x0 = c * (CS + 6), y0 = r * (CS + 6); homes.forEach((d) => { const jx = (R() - .5) * 4, jy = (R() - .5) * 4; matrix.append(s('circle', { cx: x0 + 4 + nrm(fx, d[fx]) * (CS - 8) + jx, cy: y0 + CS - 4 - nrm(fy === fx ? 'ele' : fy, fy === fx ? d.ele : d[fy]) * (CS - 8) + jy, r: 1.6, fill: d.sf ? SF : NY, opacity: .55 })); }); }));
+  const axes = s('g', { class: 'fade', opacity: 0 }), deco = s('g', { class: 'fade', opacity: 0 });
+  const dots = homes.map((d) => s('circle', { class: 'd', r: 4, cx: 0, cy: 0, fill: d.sf ? SF : NY, opacity: 0, stroke: '#fff', 'stroke-width': .6 }));
+  const svg = s('svg', { viewBox: `-10 -10 ${W + 20} ${H + 20}` }, matrix, axes, deco, s('g', {}, ...dots));
+  const X = (e) => 40 + (e / 250) * (W - 80);
+  const put = (el, x, y, o = .9) => { el.style.transform = `translate(${x}px,${y}px)`; el.setAttribute('opacity', o); };
+  const axisX = (label, y) => [s('line', { x1: 40, x2: W - 40, y1: y, y2: y, stroke: '#bbb' }), ...[0, 50, 100, 150, 200, 250].map((v) => s('g', {}, s('line', { x1: X(v), x2: X(v), y1: y, y2: y + 5, stroke: '#bbb' }), s('text', { class: 'rd-ax', x: X(v), y: y + 18, 'text-anchor': 'middle' }, v + 'm'))), s('text', { class: 'rd-lab', x: W / 2, y: y + 38, 'text-anchor': 'middle' }, label)];
+  const legend = (y) => s('g', {}, s('circle', { cx: 48, cy: y, r: 5, fill: NY }), s('text', { class: 'rd-ax', x: 58, y: y + 4 }, 'New York'), s('circle', { cx: 130, cy: y, r: 5, fill: SF }), s('text', { class: 'rd-ax', x: 140, y: y + 4 }, 'San Francisco'));
+  const SPLIT = 73;
+  const acc = () => { const L = homes.filter((d) => d.ele <= SPLIT), Rr = homes.filter((d) => d.ele > SPLIT); return { L, Rr, ok: (L.filter((d) => !d.sf).length + Rr.filter((d) => d.sf).length) / homes.length }; };
+  const STAGES = [
+    () => { matrix.setAttribute('opacity', 1); axes.setAttribute('opacity', 0); deco.setAttribute('opacity', 0); homes.forEach((d, i) => put(dots[i], 5 * (CS + 6) + 4 + nrm('sqft', d.sqft) * (CS - 8), 5 * (CS + 6) + CS - 4 - nrm('ppsf', d.ppsf) * (CS - 8), 0)); },
+    () => { matrix.setAttribute('opacity', 0); axes.replaceChildren(...axisX('Elevation', 470), legend(20)); axes.setAttribute('opacity', 1); deco.setAttribute('opacity', 0); const R2 = rng(5); homes.forEach((d, i) => put(dots[i], X(d.ele), 300 + (R2() - .5) * 200)); },
+    () => { matrix.setAttribute('opacity', 0); axes.replaceChildren(...axisX('Elevation', 470), legend(20)); axes.setAttribute('opacity', 1); deco.setAttribute('opacity', 0); const bins = {}; [...homes].sort((a, b) => a.sf - b.sf).forEach((d) => { const b = Math.floor(d.ele / 10); const n = (bins[b] = (bins[b] || 0) + 1); put(dots[homes.indexOf(d)], X(b * 10 + 5), 462 - n * 9); }); },
+    () => { STAGES[2](); const x = X(SPLIT); deco.replaceChildren(s('rect', { x, y: 40, width: W - 40 - x, height: 430, fill: SF, opacity: .08 }), s('line', { x1: x, x2: x, y1: 40, y2: 470, stroke: '#111', 'stroke-dasharray': '4 4' }), s('text', { class: 'rd-lab', x: x + 8, y: 64 }, `elevation > ${SPLIT}m`), s('text', { class: 'rd-ax', x: x + 8, y: 82 }, '→ classify as San Francisco')); deco.setAttribute('opacity', 1); },
+    () => { matrix.setAttribute('opacity', 0); const Y = (p) => 450 - ((p - 400) / 1800) * 400; axes.replaceChildren(...axisX('Elevation', 470), s('line', { x1: 40, x2: 40, y1: 40, y2: 470, stroke: '#bbb' }), ...[500, 1000, 1500, 2000].map((p) => s('text', { class: 'rd-ax', x: 34, y: Y(p) + 4, 'text-anchor': 'end' }, '$' + p)), s('text', { class: 'rd-lab', x: -14, y: 250, transform: 'rotate(-90 -14 250)', 'text-anchor': 'middle' }, 'Price per sqft'), legend(20)); axes.setAttribute('opacity', 1); const x = X(SPLIT), yy = Y(1776); deco.replaceChildren(s('rect', { x, y: 40, width: W - 40 - x, height: 430, fill: SF, opacity: .08 }), s('rect', { x: 40, y: 40, width: x - 40, height: yy - 40, fill: NY, opacity: .08 }), s('line', { x1: x, x2: x, y1: 40, y2: 470, stroke: '#111', 'stroke-dasharray': '4 4' }), s('line', { x1: 40, x2: x, y1: yy, y2: yy, stroke: '#111', 'stroke-dasharray': '4 4' }), s('text', { class: 'rd-ax', x: 46, y: yy - 8 }, '> $1,776 / sqft → New York')); deco.setAttribute('opacity', 1); homes.forEach((d, i) => put(dots[i], X(d.ele), Y(d.ppsf))); },
+    () => { matrix.setAttribute('opacity', 0); axes.setAttribute('opacity', 0); const { L, Rr, ok } = acc(); deco.replaceChildren(s('rect', { x: W / 2 - 90, y: 30, width: 180, height: 34, rx: 4, fill: '#111' }), s('text', { class: 'rd-node', x: W / 2, y: 52, fill: '#fff', 'text-anchor': 'middle' }, `elevation > ${SPLIT}m ?`), s('path', { d: `M${W / 2} 64 C ${W / 2} 120, 170 110, 170 170`, fill: 'none', stroke: '#999', 'stroke-width': 2 }), s('path', { d: `M${W / 2} 64 C ${W / 2} 120, 470 110, 470 170`, fill: 'none', stroke: '#999', 'stroke-width': 2 }), s('text', { class: 'rd-ax', x: 210, y: 120 }, 'no'), s('text', { class: 'rd-ax', x: 420, y: 120 }, 'yes'), s('text', { class: 'rd-lab', x: 170, y: 560, 'text-anchor': 'middle' }, `${L.length} homes · mostly New York`), s('text', { class: 'rd-lab', x: 470, y: 560, 'text-anchor': 'middle' }, `${Rr.length} homes · San Francisco`), s('text', { class: 'rd-lab', x: W / 2, y: 600, 'text-anchor': 'middle', fill: '#111' }, `accuracy ${Math.round(ok * 100)}%`)); deco.setAttribute('opacity', 1); const place = (arr, cx) => [...arr].sort((a, b) => a.sf - b.sf).forEach((d, k) => put(dots[homes.indexOf(d)], cx - 66 + (k % 12) * 12, 530 - Math.floor(k / 12) * 12)); place(L, 170); place(Rr, 470); },
+  ];
+  const TXT = [null,
+    ['First, some intuition', 'Let\'s say you had to determine whether a home is in San Francisco or in New York. In machine-learning terms, categorizing data points is a classification task.', 'Since San Francisco is relatively hilly, the elevation of a home may be a good way to distinguish the two cities.'],
+    ['Adding nuance', 'Based on the home-elevation data, homes above a certain elevation tend to be in San Francisco. A histogram makes the overlap easier to read.'],
+    ['Drawing boundaries', `A simple rule: if a home sits higher than ${SPLIT} m, call it San Francisco. Everything to the right of the dashed line is classified as SF.`],
+    ['Adding a dimension', 'Adding price per square foot gives a second boundary. Expensive low-elevation homes are very likely New York. Statistical learning finds these boundaries automatically.'],
+    ['Your first fork', 'A decision tree applies these if-then splits one after another. Each home falls down the tree into a bucket; the share sorted correctly is the model\'s accuracy.', 'Scroll back up to watch the data re-form.'],
+  ];
+  const steps = [h('section.rd-step.on', {}, h('h1', {}, 'A Visual Introduction to Machine Learning'), h('div.rd-lang', {}, '🌐', h('select', {}, ...['English', '한국어', '日本語', 'Español', 'Français'].map((l) => h('option', {}, l)))), h('p', { html: 'In machine learning, computers apply <b>statistical learning</b> techniques to automatically identify patterns in data. These techniques can be used to make highly accurate predictions.' }), h('p', { html: '<i>Keep scrolling.</i> Using a data set about homes, we will create a machine learning model to distinguish homes in New York from homes in San Francisco.' }), h('div.rd-scroll', { onclick: () => go(1) }, 'SCROLL', h('i')))];
+  TXT.slice(1).forEach(([t, ...ps]) => steps.push(h('section.rd-step', {}, h('h2', {}, t), ...ps.map((p) => h('p', {}, p)))));
+  steps.push(h('section', { style: { minHeight: '40vh' } }));
+  const nav = h('div.rd-dots', {}, ...STAGES.map((_, i) => h('b', { onclick: () => go(i), title: 'step ' + (i + 1) })));
+  root.append(h('div.rd-wrap', {}, h('div.rd-logo', {}, 'R2', h('br'), 'D3'), h('div', {}, ...steps), h('div.rd-viz', {}, svg)), nav);
+  let cur = -1;
+  const set = (i) => { if (i === cur) return; cur = i; STAGES[i](); steps.forEach((el, k) => el.classList && k < STAGES.length && el.classList.toggle('on', k === i || (k === 0 && i === 0))); [...nav.children].forEach((b, k) => b.classList.toggle('on', k === i)); };
+  const go = (i) => { root.style.scrollBehavior = 'smooth'; root.scrollTop = steps[i].offsetTop - (i ? root.clientHeight * 0.15 : 0); };
+  const onScroll = () => { const mid = root.scrollTop + root.clientHeight * 0.55; let i = 0; steps.slice(0, STAGES.length).forEach((el, k) => { if (el.offsetTop <= mid) i = k; }); set(i); };
+  root.addEventListener('scroll', onScroll, { passive: true });
+  set(0);
+  window.__demoProof = async () => { const seen = []; for (const i of [1, 2, 3, 4, 5]) { root.style.scrollBehavior = 'auto'; root.scrollTop = steps[i].offsetTop - root.clientHeight * 0.15; onScroll(); seen.push(cur); await sleep(60); } const a = Math.round(acc().ok * 100); root.scrollTop = 0; onScroll(); await sleep(50); return `scrolled stages ${seen.join(',')} (tree accuracy ${a}%), back to intro stage ${cur}`; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['alg0-step-visualizer'])(root, T); }

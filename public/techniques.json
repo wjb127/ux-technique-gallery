@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-r2d3-scrollytelling-ml-explainer",
+  "slug": "r2d3-scrollytelling-ml-explainer",
+  "name": "R2D3 Scrollytelling ML Explainer",
+  "date": "2026-10-05",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://r2d3.us/visual-intro-to-machine-learning-part-1/",
+  "domain": "r2d3.us",
+  "product": "R2d3",
+  "checkpoints": [
+   "R2D3 Scrollytelling ML Explainer"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "R2D3 Scrollytelling ML Explainer",
+  "ko": "R2d3 스타일 인터랙션 클론",
+  "engine": "chart",
+  "variant": "r2d3-scrollytelling-ml-explainer",
+  "path": "/t/r2d3-scrollytelling-ml-explainer/",
+  "built": true
+ },
+ {
+  "id": "clone-te-op1-field-product-page",
+  "slug": "te-op1-field-product-page",
+  "name": "Teenage Engineering OP–1 field Product Page",
+  "date": "2026-10-05",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://teenage.engineering/products/op-1",
+  "domain": "teenage.engineering",
+  "product": "Teenage",
+  "checkpoints": [
+   "Teenage Engineering OP–1 field Product Page"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Teenage Engineering OP–1 field Product Page",
+  "ko": "Teenage 스타일 인터랙션 클론",
+  "engine": "audio",
+  "variant": "te-op1-field-product-page",
+  "path": "/t/te-op1-field-product-page/",
+  "built": true
+ },
+ {
+  "id": "clone-tetrio-game-client-menu",
+  "slug": "tetrio-game-client-menu",
+  "name": "TETR.IO Game Client Menu System",
+  "date": "2026-10-05",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://tetr.io/",
+  "domain": "tetr.io",
+  "product": "Tetr",
+  "checkpoints": [
+   "TETR.IO Game Client Menu System"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "TETR.IO Game Client Menu System",
+  "ko": "Tetr 스타일 퍼즐/게임 클론",
+  "engine": "puzzle",
+  "variant": "tetrio-game-client-menu",
+  "path": "/t/tetrio-game-client-menu/",
+  "built": true
+ },
+ {
   "id": "clone-mmm-page-sticker-site-builder",
   "slug": "mmm-page-sticker-site-builder",
   "name": "mmm.page Sticker Site Builder",

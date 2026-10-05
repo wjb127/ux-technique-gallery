@@ -24,7 +24,7 @@ async function one(t) {
   try {
     const r = await page.goto(url, { waitUntil: 'load', timeout: 35000 }).catch((e) => { rec.navError = String(e.message).slice(0, 160); return null; });
     rec.http = r ? r.status() : null;
-    await page.waitForTimeout(mode === 'ref' ? 4000 : 900);
+    await page.waitForTimeout(mode === 'ref' ? +(process.env.REF_WAIT || 4000) : 900);
     if (mode === 'impl') {
       rec.proof = await page.evaluate(async () => (window.__demoProof ? await window.__demoProof() : 'no-proof-hook')).catch((e) => 'proof-error: ' + e.message);
       await page.waitForTimeout(500);

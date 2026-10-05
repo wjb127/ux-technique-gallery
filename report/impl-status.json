@@ -2275,5 +2275,32 @@
   "proof": "view one→two→grid · dock magnify true · unlock true · combobox 2 hits → Banana · hold-delete true · stickers+testimonials · restored",
   "demoNodes": 262,
   "errors": []
+ },
+ "te-op1-field-product-page": {
+  "url": "http://localhost:4173/t/te-op1-field-product-page/",
+  "ok": true,
+  "at": "2026-10-05T03:52:33.782Z",
+  "http": 200,
+  "proof": "played C-E-G-C on the keyboard, encoder 12→40→12, tape cleared",
+  "demoNodes": 210,
+  "errors": []
+ },
+ "tetrio-game-client-menu": {
+  "url": "http://localhost:4173/t/tetrio-game-client-menu/",
+  "ok": true,
+  "at": "2026-10-05T03:52:33.784Z",
+  "http": 200,
+  "proof": "joined → home menu (5 panels) → solo submenu (5 modes) → back; reset to welcome",
+  "demoNodes": 83,
+  "errors": []
+ },
+ "r2d3-scrollytelling-ml-explainer": {
+  "url": "http://localhost:4173/t/r2d3-scrollytelling-ml-explainer/",
+  "ok": true,
+  "at": "2026-10-05T03:52:33.763Z",
+  "http": 200,
+  "proof": "scrolled stages 1,2,3,4,5 (tree accuracy 81%), back to intro stage 0",
+  "demoNodes": 3171,
+  "errors": []
  }
 }

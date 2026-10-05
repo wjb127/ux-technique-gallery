@@ -1568,4 +1568,88 @@ V['muted-circle-of-fifths-desk'] = (root, T) => {
   };
 };
 
+// ---------- Teenage Engineering OP–1 field product page (2026-10-05 12:00 KST)
+V['te-op1-field-product-page'] = (root, T) => {
+  theme(root, T, { bg: '#cfd0d2', fg: '#111', ac: '#e8452c', dark: false, line: '#00000018' });
+  const SANS = "'Inter Variable', 'Helvetica Neue', Arial, sans-serif";
+  root.style.background = '#cfd0d2'; root.style.color = '#111'; root.style.fontFamily = SANS; root.style.overflowY = 'auto';
+  root.append(h('style', {}, `
+    .te-nav{display:flex;align-items:flex-start;gap:38px;padding:10px 46px 0;color:#8d8e91;font-weight:300;height:84px}
+    .te-nav .brand{font:300 19px/22px ${SANS};color:#8a8b8e;width:110px}
+    .te-nav .it{display:flex;gap:10px;cursor:pointer}.te-nav .it:hover{color:#333}.te-nav .it:hover svg{stroke:#333}
+    .te-nav .it b{display:block;font:300 18px/20px ${SANS};margin-bottom:8px}.te-nav .it small{display:block;font:300 9.5px/10.5px ${SANS};letter-spacing:.01em}
+    .te-nav svg{stroke:#8d8e91;fill:none;stroke-width:1.1}
+    .te-jp{font:300 7.5px/9.5px ${SANS};width:66px;color:#8d8e91}
+    .te-h{text-align:center;font:400 34px/1 ${SANS};letter-spacing:-.01em;margin:40px 0 50px;color:#111}
+    .te-dev{width:446px;margin:0 auto 80px;background:linear-gradient(90deg,#b9bbbe,#d8d9db 6%,#c8c9cc 50%,#d6d7d9 94%,#b5b7ba);border-radius:12px;padding:16px;box-shadow:0 40px 60px -30px #0006,inset 0 0 0 1px #ffffff80,0 0 0 1px #9c9ea2;display:grid;grid-template-columns:repeat(6,64px);grid-auto-rows:64px;gap:4px;position:relative}
+    .te-k{background:#cfccc6;border-radius:6px;box-shadow:inset 0 0 0 1px #00000014,0 1px 0 #fff8;display:grid;place-items:center;cursor:pointer;position:relative;user-select:none}
+    .te-k::after{content:'';position:absolute;inset:7px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#e3e1dc,#c9c6c0 70%);box-shadow:0 3px 4px #0003,inset 0 -2px 2px #0001}
+    .te-k span{position:relative;z-index:1;font:300 15px ${SANS};color:#333}
+    .te-k.on::after,.te-k:active::after{transform:translateY(2px) scale(.97);box-shadow:0 1px 1px #0003;background:radial-gradient(circle at 50% 40%,#d8d5cf,#bfbcb6 70%)}
+    .te-k.red span{color:#d43a22;font-size:20px}
+    .te-k.pill::after{inset:9px 7px;border-radius:30px}
+    .te-k.flat::after{border-radius:8px}
+    .te-spk{grid-column:span 2;grid-row:span 2;background:radial-gradient(circle,#4a4a4a 1.4px,transparent 1.8px) 0 0/9px 9px,#cfccc6;border-radius:6px;background-clip:content-box;padding:12px;box-shadow:inset 0 0 0 1px #00000014;background-origin:content-box}
+    .te-knob{display:grid;place-items:center;background:#cfccc6;border-radius:6px;cursor:ns-resize}
+    .te-knob i{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,#e8e8e8 40%,#bbb 90%);box-shadow:0 4px 6px #0004,inset 0 0 0 1px #0001;position:relative}
+    .te-knob i::after{content:'';position:absolute;left:50%;top:5px;width:2px;height:9px;margin-left:-1px;background:#888;border-radius:2px}
+    .te-blk{background:#cfccc6;border-radius:6px;display:grid;place-items:center;cursor:pointer}.te-blk i{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 45% 35%,#333,#050505 70%);box-shadow:0 3px 5px #0006}
+    .te-blk.on i{transform:scale(.94);background:#222}
+    .te-scr{grid-column:span 2;grid-row:span 2;background:#050505;border-radius:4px;border:6px solid #cfccc6;overflow:hidden}
+    .te-scr canvas{width:100%;height:100%;display:block}
+    .te-spec{max-width:900px;margin:0 auto 120px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#b4b5b8;border:1px solid #b4b5b8}
+    .te-spec div{background:#cfd0d2;padding:22px 20px;font:300 13px/1.5 ${SANS};color:#444}.te-spec b{display:block;font:400 22px/1.1 ${SANS};color:#111;margin-bottom:8px}
+    .te-cap{text-align:center;font:300 13px ${SANS};color:#666;margin:-60px 0 60px}
+    .te-big{text-align:center;font:200 120px/1 ${SANS};letter-spacing:-.04em;margin:0 0 40px;color:#111}
+  `));
+  const ico = (d, w = 30, hh = 56) => s('svg', { width: w, height: hh, viewBox: `0 0 ${w} ${hh}` }, ...d);
+  const navItem = (svgEl, title, ...sub) => h('div.it', {}, svgEl, h('div', {}, h('b', {}, title), h('small', {}, ...sub.flatMap((x) => [x, h('br')]))));
+  root.append(h('div.te-nav', {}, h('div.brand', {}, 'teenage', h('br'), 'engineering'),
+    navItem(ico([s('circle', { cx: 10, cy: 9, r: 6 }), s('circle', { cx: 20, cy: 9, r: 6 }), s('circle', { cx: 10, cy: 19, r: 6 }), s('circle', { cx: 20, cy: 19, r: 6 }), s('line', { x1: 15, y1: 14, x2: 15, y2: 56 })]), 'products', 'instruments', 'audio', 'designs'),
+    navItem(ico([s('rect', { x: 2, y: 2, width: 26, height: 50 }), s('path', { d: 'M2 12h26M8 2v10M22 2v10' })]), 'store', 'visit store', 'cart & checkout', 'deals'),
+    navItem(ico([s('rect', { x: 1, y: 1, width: 56, height: 56 }), s('rect', { x: 6, y: 6, width: 46, height: 46 })], 58, 58), 'latest', 'newsletter', 'instagram', 'now'),
+    navItem(ico([s('path', { d: 'M2 2l22 22M2 14h12M14 2v12' }), s('rect', { x: 30, y: 2, width: 22, height: 22, fill: '#8d8e91' }), s('circle', { cx: 14, cy: 42, r: 10 }), s('circle', { cx: 42, cy: 42, r: 11, 'stroke-dasharray': '2 2' })], 56, 56), 'finder', 'guides & downloads', 'support', 'search'),
+    h('div.te-jp', {}, '10代工学は未来の製品とコミュニケーションを生み出すスタジオです。私たちのミッションは高品質なデザインの製品を作り出すことです。'),
+    h('div', { style: { marginLeft: 'auto' } }, s('svg', { width: 130, height: 64, viewBox: '0 0 130 64', fill: 'none', stroke: '#8d8e91', 'stroke-width': 1.1 }, s('path', { d: 'M4 20h26v-14h18v14h10v14h-10v24h-18v-24h-26z' }), s('path', { d: 'M86 4l26 0 14 28-14 28h-26l-14-28z' }), s('circle', { cx: 99, cy: 32, r: 10 })))));
+  root.append(h('div.te-h', {}, 'the beauty of evolution.'));
+  // device: keys grid (portrait, like the hero render)
+  const cv = h('canvas', { width: 260, height: 260 });
+  let enc = 12, rec = false, playing = false, tape = [], t0 = 0, lastNote = -1, lvl = 0, mode = 'DELAY';
+  const note = (n) => { const f = 220 * Math.pow(2, n / 12); blip(f, 0.4 + enc / 60, 'triangle', 0.12); blip(f * 2.003, 0.25, 'sine', 0.04); lastNote = n; lvl = 1; if (rec) tape.push([performance.now() - t0, n]); };
+  const K = (label, cls = '', on) => h('div.te-k' + (cls ? '.' + cls : ''), { onpointerdown: (e) => { e.currentTarget.classList.add('on'); on && on(); }, onpointerup: (e) => e.currentTarget.classList.remove('on'), onpointerleave: (e) => e.currentTarget.classList.remove('on') }, h('span', {}, label));
+  const recKey = K('●', 'red', () => { rec = !rec; if (rec) { tape = []; t0 = performance.now(); } toast(rec ? 'tape: recording' : `tape: ${tape.length} notes`); });
+  const playKey = K('▼', '', () => playback());
+  const stopKey = K('■', '', () => { rec = false; playing = false; });
+  const playback = async () => { if (!tape.length || playing) return; playing = true; const st = performance.now(); for (const [t, n] of tape) { const w = t - (performance.now() - st); if (w > 0) await sleep(w); if (!playing) break; const f = 220 * Math.pow(2, n / 12); blip(f, 0.4, 'triangle', 0.12); lastNote = n; lvl = 1; } playing = false; };
+  const knob = h('div.te-knob', {}, h('i'));
+  let ky = 0, ke = 0; drag(knob, { start: (e) => { ky = e.clientY; ke = enc; }, move: (ev) => { enc = clamp(Math.round(ke + (ky - ev.clientY) / 4), 0, 99); knob.firstChild.style.transform = `rotate(${enc * 3.3}deg)`; } });
+  knob.addEventListener('wheel', (e) => { e.preventDefault(); enc = clamp(enc + (e.deltaY < 0 ? 1 : -1), 0, 99); knob.firstChild.style.transform = `rotate(${enc * 3.3}deg)`; }, { passive: false });
+  const WK = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19];
+  const blkFor = { 0: 1, 1: 3, 3: 6, 4: 8, 5: 10, 7: 13, 8: 15 };
+  const dev = h('div.te-dev', {},
+    K('↑'), recKey, K('|→'), K('∫∫'), h('div.te-spk'),
+    K('↓'), playKey, K('|←'), K('⊙'),
+    K('shift', '', () => { mode = mode === 'DELAY' ? 'FREQ' : 'DELAY'; }), stopKey, K('✂'), K('oo'), K('(o)'), knob);
+  const blackKey = (n) => h('div.te-blk', { onpointerdown: (e) => { e.currentTarget.classList.add('on'); note(n); }, onpointerup: (e) => e.currentTarget.classList.remove('on') }, h('i'));
+  const white = (n, span = 2) => { const el = K('', 'pill', () => note(n)); el.style.gridColumn = `span ${span}`; return el; };
+  // keyboard rows (rotated piano): white pill + black dot + function keys / screen
+  const rows = WK.map((n, r) => { const kids = [white(n)]; kids.push(blkFor[r] != null ? blackKey(blkFor[r]) : h('div', { style: { background: '#cfccc6', borderRadius: '6px' } })); if (r === 0) kids.push(K('≡'), K('◁'), K('▢', 'flat')); else if (r === 1) kids.push(K('—'), h('div.te-scr', {}, cv)); else if (r === 2) kids.push(K('◇')); else kids.push(K(['', '1', '2', '3', '4', 'T1', 'T2', 'T3', 'T4'][r - 2] || ''), K(['', '', '', 'M1', 'M2', '♪', '⌁', '◎', '✦'][r - 2] || ''), K('')); return kids; });
+  rows.forEach((k) => dev.append(...k));
+  root.append(dev, h('div.te-cap', {}, 'click the keys or play A W S E D F T G Y H U J K · drag the white encoder · ● record ▼ play ■ stop · shift toggles the screen'));
+  root.append(h('div.te-big', {}, 'op–1 field'), h('div.te-spec', {}, ...[['synthesizer', 'multiple synth engines with a dedicated encoder per parameter.'], ['sampler', 'record anything through the built-in mic or line input.'], ['tape', 'a four-track tape machine with cut, lift and drop.'], ['sequencers', 'pattern, arpeggio and finger-style sequencers.'], ['fm radio', 'tune in, sample and resample the air.'], ['portable', 'aluminium unibody, built-in speaker and battery.']].map(([t, d]) => h('div', {}, h('b', {}, t), d))));
+  const KEYMAP = { a: 0, w: 1, s: 2, e: 3, d: 4, f: 5, t: 6, g: 7, y: 8, h: 9, u: 10, j: 11, k: 12 };
+  const onKey = (e) => { if (!root.isConnected) return removeEventListener('keydown', onKey); const n = KEYMAP[e.key]; if (n != null && !e.repeat) note(n); };
+  addEventListener('keydown', onKey);
+  const g = cv.getContext('2d');
+  const draw = (ts) => { if (!root.isConnected) return; g.fillStyle = '#050505'; g.fillRect(0, 0, 260, 260); g.save(); g.translate(130, 130); g.rotate(-Math.PI / 2); g.translate(-130, -130);
+    g.font = "300 20px 'Inter Variable'"; g.fillStyle = '#f39a2b'; g.fillText(mode, 18, 40); g.font = "200 64px 'Inter Variable'"; g.fillStyle = '#e9e9e9'; g.fillText(String(enc).padStart(2, '0'), 18, 104);
+    g.strokeStyle = '#3aa6ff'; g.lineWidth = 3; g.beginPath(); g.arc(196, 62, 30, Math.PI * .75, Math.PI * .75 + (enc / 99) * Math.PI * 1.5); g.stroke(); g.strokeStyle = '#333'; g.beginPath(); g.arc(196, 62, 22, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = '#3aa6ff'; g.font = "300 12px 'Inter Variable'"; g.fillText(mode === 'DELAY' ? 'FREQ' : 'DELAY', 176, 112);
+    lvl *= 0.94; g.strokeStyle = '#e9e9e9'; g.lineWidth = 1.5; g.beginPath(); for (let x = 0; x < 230; x++) { const y = 190 + Math.sin(x * (0.06 + (lastNote + 1) * 0.008) + ts / 160) * (6 + lvl * 34) * Math.sin(x / 230 * Math.PI); x ? g.lineTo(15 + x, y) : g.moveTo(15, y); } g.stroke();
+    g.fillStyle = rec ? '#ff3b2f' : '#444'; g.beginPath(); g.arc(232, 236, 6, 0, 7); g.fill(); g.fillStyle = '#888'; g.font = "300 11px 'Inter Variable'"; g.fillText(`tape ${tape.length}${playing ? ' ▶' : ''}`, 18, 240);
+    g.restore(); requestAnimationFrame(draw); };
+  requestAnimationFrame(draw);
+  window.__demoProof = async () => { const e0 = enc; [0, 4, 7, 12].forEach((n, i) => setTimeout(() => note(n), i * 60)); await sleep(300); enc = 40; await sleep(120); enc = e0; tape = []; rec = false; return `played C-E-G-C on the keyboard, encoder ${e0}→40→${e0}, tape cleared`; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

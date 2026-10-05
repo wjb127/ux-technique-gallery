@@ -233,7 +233,8 @@
   "alg0-step-visualizer",
   "timezone-timeline-scrubber",
   "waveform-audio-editor",
-  "ladybug-effects-studio"
+  "ladybug-effects-studio",
+  "r2d3-scrollytelling-ml-explainer"
  ],
  "puzzle": [
   "css-grid-garden-puzzle",
@@ -247,7 +248,8 @@
   "voxel-sculpture-merge-puzzle",
   "math-manipulatives-playground",
   "timeguessr-historic-photo-quiz",
-  "purl-visual-game-engine"
+  "purl-visual-game-engine",
+  "tetrio-game-client-menu"
  ],
  "audio": [
   "key-av-instrument",
@@ -273,7 +275,8 @@
   "blob-opera-drag-choir-desk",
   "typatone-type-music-desk",
   "plaza-vaporwave-radio-desk",
-  "muted-circle-of-fifths-desk"
+  "muted-circle-of-fifths-desk",
+  "te-op1-field-product-page"
  ],
  "desk": [
   "parody-desktop-os-sandbox",
