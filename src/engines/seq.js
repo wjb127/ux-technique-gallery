@@ -1,3 +1,4 @@
+import '@fontsource-variable/inter';
 import { h, s, css, blip, drum, midi, SCALE, audio, toast, sleep, clamp } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 css(`.sq-cell{cursor:pointer;transition:background .08s, box-shadow .08s}.sq-play{box-shadow:inset 0 0 0 999px #ffffff22}`);
@@ -662,4 +663,98 @@ V['fontbox-typo-sequencer'] = (root, T) => {
   };
 };
 
+V['drumbit-step-sequencer-drum-machine'] = (root, T) => {
+  theme(root, T, { bg: '#151515', fg: '#cfcfcf', ac: '#3cc6c6', dark: true });
+  const TEAL = '#3cc6c6', SANS = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const ROWS = ['crash', 'high tom', 'medium tom', 'low tom', 'open hihat', 'closed Hihat', 'snare', 'kick'], RC = ['#e3c65b', '#8f6fd6', '#7b8fe0', '#5aa0d8', '#3cc6c6', '#43d39b', '#e2567a', '#ee8a3b'];
+  Object.assign(root.style, { fontFamily: SANS, overflow: 'auto', background: 'radial-gradient(circle at 50% 50%, #000 1.6px, transparent 2.2px) 0 0/7px 7px, radial-gradient(circle at 50% 50%, #000 1.6px, transparent 2.2px) 3.5px 3.5px/7px 7px, linear-gradient(#2a2a2a,#1c1c1c)', color: '#cfcfcf' });
+  root.append(h('style', {}, `.db-pad{width:100%;aspect-ratio:1;border-radius:4px;background:#1b1b1b;box-shadow:inset 0 1px 2px #000a,0 1px 0 #ffffff0d;cursor:pointer;transition:background .06s,box-shadow .06s}.db-pad.on{box-shadow:inset 0 0 0 1px #ffffff40,0 0 10px var(--c)}.db-col{background:#2a2a2a}.db-col.on{filter:brightness(1.45)}.db-r input[type=range],.db-ctl input[type=range]{accent-color:${TEAL};height:14px}.db-sel{background:#2b2b2b;color:#ddd;border:1px solid #111;border-radius:3px;padding:6px 8px;font:12px ${SANS};box-shadow:0 1px 0 #ffffff12}.db-ib{background:#2b2b2b;color:#ddd;border:1px solid #111;border-radius:3px;width:32px;height:26px;font-size:13px;cursor:pointer;box-shadow:0 1px 0 #ffffff12}.db-ib.on{background:#b5243c;color:#fff}.db-tab{white-space:nowrap;background:#2b2b2b;color:#bbb;border:1px solid #111;border-radius:3px;padding:3px 8px;font:11px ${SANS};cursor:pointer}.db-tab.on{color:#fff;border-color:${TEAL}}.db-n{color:${TEAL};font-size:10px;text-align:center}`));
+  const DEMOS = {
+    Rock: ['x...............', '..............x.', '............x...', '..........x.....', '', 'x.x.x.x.x.x.x.x.', '....x.......x...', 'x.......x.x.....'],
+    Funk: ['', '', '', '', '..........x.....', 'x.xxx.x.x.x.xxx.', '....x..x.x..x..x', 'x.x...x...x..x..'],
+    'Bossa Nova': ['', '', '', '', '', 'xxxxxxxxxxxxxxxx', 'x..x..x...x..x..', 'x..xx..xx..xx..x'],
+    'Hip-Hop': ['x...............', '', '', '', '......x.......x.', 'x.x.x.x.x.x.x...', '....x.......x...', 'x......x.xx.....'],
+    House: ['x...............', '', '', '', '..x...x...x...x.', 'x...x...x...x...', '....x.......x...', 'x...x...x...x...'] };
+  const empty = () => ROWS.map(() => Array(16).fill(0));
+  const KEY = 'drumbit-ish-v1';
+  let S = { slots: [empty(), empty(), empty(), empty()], slot: 0, bpm: 80, swing: 0, vol: 0.7, rv: ROWS.map(() => 0.8), rp: ROWS.map(() => 0.5), pan: ROWS.map(() => 0), low: false, high: false, comp: false, kit: 'Kit 1' };
+  try { const j = JSON.parse(localStorage.getItem(KEY)); if (j?.slots) S = { ...S, ...j }; } catch {}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+  let clip = null, pos = -1, tid = null, panMode = false, filt = 1;
+  const G = () => S.slots[S.slot];
+  // ---- audio graph
+  let master, lp, hp, comp;
+  const graph = () => { const ac = audio(); if (!ac) return null; if (!master) { master = ac.createGain(); lp = ac.createBiquadFilter(); lp.type = 'lowpass'; hp = ac.createBiquadFilter(); hp.type = 'highpass'; comp = ac.createDynamicsCompressor(); master.connect(lp).connect(hp).connect(comp).connect(ac.destination); } master.gain.value = S.vol; lp.frequency.value = S.low ? 300 + 2200 * filt : 20000; hp.frequency.value = S.high ? 200 + 2400 * (1 - filt) : 10; comp.threshold.value = S.comp ? -28 : 0; comp.ratio.value = S.comp ? 8 : 1; return ac; };
+  const voice = (r, when = 0) => {
+    const ac = graph(); if (!ac) return; const t = ac.currentTime + when, pitch = 0.5 + S.rp[r] * 1.0, kit2 = S.kit === 'Kit 2' ? 0.8 : 1;
+    const g = ac.createGain(); const pn = ac.createStereoPanner ? ac.createStereoPanner() : null; if (pn) { pn.pan.value = S.pan[r]; g.connect(pn).connect(master); } else g.connect(master);
+    const vol = S.rv[r];
+    const noise = (len, type, f, gain, dec) => { const b = ac.createBuffer(1, ac.sampleRate * len, ac.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; const src = ac.createBufferSource(); src.buffer = b; const fl = ac.createBiquadFilter(); fl.type = type; fl.frequency.value = f * pitch; const gg = ac.createGain(); gg.gain.setValueAtTime(gain * vol, t); gg.gain.exponentialRampToValueAtTime(0.001, t + dec); src.connect(fl).connect(gg).connect(g); src.start(t); src.stop(t + len); };
+    const tone = (f0, f1, dec, gain, type = 'sine') => { const o = ac.createOscillator(); o.type = type; o.frequency.setValueAtTime(f0 * pitch * kit2, t); o.frequency.exponentialRampToValueAtTime(f1 * pitch * kit2, t + dec * 0.6); const gg = ac.createGain(); gg.gain.setValueAtTime(gain * vol, t); gg.gain.exponentialRampToValueAtTime(0.001, t + dec); o.connect(gg).connect(g); o.start(t); o.stop(t + dec + 0.05); };
+    [() => noise(1.4, 'highpass', 5000, 0.25, 1.3), () => tone(300, 180, 0.35, 0.5), () => tone(220, 130, 0.4, 0.5), () => tone(150, 85, 0.45, 0.55), () => noise(0.5, 'highpass', 7500, 0.22, 0.45), () => noise(0.08, 'highpass', 8000, 0.25, 0.06), () => { noise(0.22, 'bandpass', 1800, 0.45, 0.2); tone(220, 160, 0.1, 0.25, 'triangle'); }, () => tone(150, 42, 0.38, 0.9)][r]();
+    hits[r] = 1;
+  };
+  // ---- grid
+  const pads = ROWS.map(() => []);
+  const gridEl = h('div', { style: { display: 'grid', gridTemplateColumns: '80px repeat(16, 1fr) 128px', columnGap: '4px', rowGap: '4px', alignItems: 'center' } });
+  let paint = null;
+  window.addEventListener('pointerup', () => (paint = null));
+  gridEl.append(h('div'), ...Array.from({ length: 16 }, (_, i) => h('div.db-n', {}, i % 4 === 0 ? String(i / 4 + 1) : '')), h('div'));
+  const sliders = [];
+  ROWS.forEach((name, r) => {
+    gridEl.append(h('div', { style: { fontSize: '11px', textAlign: 'right', paddingRight: '8px', color: '#bbb' } }, name));
+    for (let c = 0; c < 16; c++) { const p = h('div.db-pad', { style: { '--c': RC[r] } }); p.style.setProperty('--c', RC[r]); const set = (v) => { G()[r][c] = v; drawPad(r, c); save(); };
+      p.addEventListener('pointerdown', (e) => { e.preventDefault(); paint = G()[r][c] ? 0 : 1; set(paint); if (paint) voice(r); });
+      p.addEventListener('pointerenter', () => { if (paint != null) set(paint); });
+      pads[r].push(p); gridEl.append(p); }
+    const a = h('input', { type: 'range', min: 0, max: 1, step: 0.01, style: { width: '62px' } }), b = h('input', { type: 'range', min: 0, max: 1, step: 0.01, style: { width: '52px' } });
+    a.value = S.rv[r]; a.oninput = () => { S.rv[r] = +a.value; save(); };
+    b.oninput = () => { if (panMode) S.pan[r] = +b.value * 2 - 1; else S.rp[r] = +b.value; save(); };
+    sliders.push(b); gridEl.append(h('div.db-r', { style: { display: 'flex', gap: '6px', paddingLeft: '10px' } }, a, b));
+  });
+  const botLab = h('span', {}, 'Pitch');
+  gridEl.append(h('div'), ...Array.from({ length: 16 }, (_, i) => h('div.db-n', {}, String(i + 1))), h('div', { style: { display: 'flex', gap: '22px', paddingLeft: '18px', fontSize: '10px', color: '#aaa' } }, h('span', {}, 'Volume'), botLab));
+  const syncSliders = () => sliders.forEach((b, r) => (b.value = panMode ? (S.pan[r] + 1) / 2 : S.rp[r]));
+  const drawPad = (r, c) => { const p = pads[r][c], on = G()[r][c]; p.classList.toggle('on', !!on); p.style.background = on ? RC[r] : c === pos ? '#2c2c2c' : (Math.floor(c / 4) % 2 ? '#1b1b1b' : '#202020'); p.style.filter = c === pos ? 'brightness(1.5)' : ''; };
+  const drawAll = () => { for (let r = 0; r < ROWS.length; r++) for (let c = 0; c < 16; c++) drawPad(r, c); slotBs.forEach((b, i) => b.classList.toggle('on', i === S.slot)); };
+  // ---- transport
+  const stepMs = () => 60000 / S.bpm / 4;
+  const tick = () => { const prev = pos; pos = (pos + 1) % 16; const sw = pos % 2 ? (S.swing * stepMs()) / 1000 * 0.5 : 0; G().forEach((row, r) => row[pos] && voice(r, sw)); for (let r = 0; r < ROWS.length; r++) { if (prev >= 0) drawPad(r, prev); drawPad(r, pos); } };
+  const play = () => { if (tid) return; graph(); tid = setInterval(tick, stepMs()); playB.textContent = '■'; playB.classList.add('on'); };
+  const stop = () => { clearInterval(tid); tid = null; const pv = pos; pos = -1; if (pv >= 0) for (let r = 0; r < ROWS.length; r++) drawPad(r, pv); playB.textContent = '▶'; playB.classList.remove('on'); };
+  const retime = () => { if (tid) { clearInterval(tid); tid = setInterval(tick, stepMs()); } };
+  const onKey = (e) => { if (!root.isConnected) return window.removeEventListener('keydown', onKey); if (e.code === 'Space' && !/INPUT|SELECT/.test(e.target.tagName)) { e.preventDefault(); tid ? stop() : play(); } };
+  window.addEventListener('keydown', onKey);
+  // ---- controls
+  const rng = (v, on, w = '186px') => { const i = h('input', { type: 'range', min: 0, max: 1, step: 0.01, style: { width: w } }); i.value = v; i.oninput = () => on(+i.value); return i; };
+  const bpmIn = h('input', { type: 'number', min: 40, max: 240, value: S.bpm, style: { width: '46px', background: '#1d1d1d', color: '#eee', border: '1px solid #111', borderRadius: '3px', padding: '3px 4px', font: `12px ${SANS}` }, oninput: (e) => { S.bpm = clamp(+e.target.value || 80, 40, 240); retime(); save(); } });
+  const sel = (opts, v, on) => { const s2 = h('select.db-sel', { onchange: (e) => on(e.target.value) }, opts.map((o) => h('option', { value: o, selected: o === v }, o))); return s2; };
+  const demoSel = sel(['No Demo', ...Object.keys(DEMOS)], 'No Demo', (v) => loadDemo(v));
+  const loadDemo = (v) => { if (!DEMOS[v]) return; S.slots[S.slot] = DEMOS[v].map((str) => Array.from({ length: 16 }, (_, i) => (str[i] === 'x' ? 1 : 0))); S.bpm = { Rock: 96, Funk: 100, 'Bossa Nova': 128, 'Hip-Hop': 88, House: 124 }[v]; bpmIn.value = S.bpm; retime(); save(); drawAll(); toast(`Demo loaded: ${v}`); };
+  const chk = (label, k) => h('label', { style: { display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: '#aaa', cursor: 'pointer', whiteSpace: 'nowrap' } }, h('input', { type: 'checkbox', checked: !!S[k], onchange: (e) => { S[k] = e.target.checked; graph(); save(); } }), label);
+  const leftCtl = h('div.db-ctl', { style: { display: 'grid', gap: '10px', alignContent: 'start' } },
+    h('div', { style: { fontSize: '12px' } }, '🔊 Master volume', h('div', {}, rng(S.vol, (v) => { S.vol = v; graph(); save(); }))),
+    h('div', { style: { display: 'flex', gap: '22px' } }, h('div', { style: { fontSize: '12px' } }, '♩ Tempo', h('div', { style: { display: 'flex', gap: '6px', alignItems: 'center', marginTop: '4px', fontSize: '12px' } }, bpmIn, 'bpm')), h('div', { style: { fontSize: '12px' } }, 'Swing', h('div', { style: { marginTop: '6px' } }, rng(S.swing, (v) => { S.swing = v; save(); }, '96px')))),
+    h('div', { style: { display: 'flex', gap: '6px' } }, sel(['Kit 1', 'Kit 2'], S.kit, (v) => { S.kit = v; save(); }), sel(['No Effect', 'Low Pass', 'High Pass'], 'No Effect', (v) => { S.low = v === 'Low Pass'; S.high = v === 'High Pass'; graph(); })),
+    h('div', { style: { display: 'flex', gap: '10px', alignItems: 'start' } }, demoSel, h('div', { style: { display: 'grid', gap: '3px' } }, h('div', { style: { display: 'flex', gap: '8px' } }, chk('Low', 'low'), chk('High Pass', 'high')), chk('Compressor', 'comp'))));
+  // display screen (visualizer)
+  const cv = h('canvas', { width: 480, height: 230, style: { width: '100%', height: '100%', display: 'block' } });
+  const hits = ROWS.map(() => 0);
+  const screen = h('div', { style: { background: '#1c1c1c', borderRadius: '6px', boxShadow: 'inset 0 2px 8px #000', height: '140px', position: 'relative', overflow: 'hidden' } }, cv, h('div', { style: { position: 'absolute', top: '8px', right: '10px', display: 'flex', gap: '5px' } }, ...['#2aa198', '#6c4f8c', '#7d7a2c', '#d33a5a'].map((c) => h('span', { style: { width: '12px', height: '5px', borderRadius: '3px', background: c } }))));
+  const tabs = [['⇆ Panning', () => { panMode = !panMode; botLab.textContent = panMode ? 'Pan' : 'Pitch'; syncSliders(); return panMode; }], ['⏷ Filters', () => { const on = !(S.low || S.high); S.low = on; graph(); return on; }], ['⚙ Preferences', () => { toast('Preferences saved to this browser'); return false; }], ['? Help', () => { toast('Click/drag pads · Space = play/stop · slots 1–4 · copy/paste'); return false; }]].map(([t, fn]) => { const b = h('button.db-tab', { onclick: () => b.classList.toggle('on', fn()) }, t); return b; });
+  const mid = h('div', { style: { display: 'grid', gap: '6px' } }, screen, h('div', { style: { display: 'flex', gap: '4px', justifyContent: 'center' } }, ...tabs));
+  const playB = h('button.db-ib', { onclick: () => (tid ? stop() : play()) }, '▶');
+  const slotBs = [0, 1, 2, 3].map((i) => h('button.db-ib', { onclick: () => { S.slot = i; save(); drawAll(); } }, String(i + 1)));
+  const tools = [['📂', () => { demoSel.value = 'Rock'; loadDemo('Rock'); }, 'Load'], ['⧉', () => { clip = G().map((r) => [...r]); toast(`Pattern ${S.slot + 1} copied`); }, 'Copy'], ['📋', () => { if (!clip) return toast('Copy a pattern first'); S.slots[S.slot] = clip.map((r) => [...r]); save(); drawAll(); toast(`Pasted into pattern ${S.slot + 1}`); }, 'Paste'], ['↺', () => { S.slots[S.slot] = empty(); save(); drawAll(); }, 'Clear'], ['●', () => toast('Recording… tap pads live while playing'), 'Rec']].map(([ic, fn, t]) => h('button.db-ib', { onclick: fn, title: t }, ic));
+  const rightCtl = h('div', { style: { display: 'grid', gap: '10px', justifyItems: 'end', alignContent: 'start' } }, h('div', { style: { textAlign: 'right' } }, h('div', { style: { color: TEAL, fontSize: '34px', fontWeight: 300, letterSpacing: '-.5px', lineHeight: 1, whiteSpace: 'nowrap' } }, 'drumbit', h('span', { style: { fontSize: '15px', opacity: .7 } }, '-ish')), h('div', { style: { fontSize: '11px', color: '#aaa' } }, 'online drum machine')), h('div', { style: { display: 'flex', gap: '4px' } }, ...tools), h('div', { style: { display: 'flex', gap: '4px' } }, ...slotBs, playB));
+  const machine = h('div', { style: { background: 'linear-gradient(#3b3b3b,#333)', borderRadius: '10px', padding: '16px 18px 18px', boxShadow: '0 10px 40px #000c, inset 0 1px 0 #ffffff14', width: '720px', display: 'grid', gap: '16px' } }, h('div', { style: { display: 'grid', gridTemplateColumns: '236px 1fr 160px', gap: '14px' } }, leftCtl, mid, rightCtl), gridEl);
+  const top = h('div', { style: { display: 'flex', alignItems: 'center', padding: '10px 18px', gap: '26px' } }, h('div', {}, h('div', { style: { color: TEAL, fontSize: '28px', fontWeight: 300, lineHeight: 1 } }, 'drumbit'), h('div', { style: { fontSize: '9px', color: '#999', marginLeft: '20px' } }, 'online drum machine')), h('div', { style: { flex: 1, display: 'flex', justifyContent: 'center', gap: '22px', fontSize: '12.5px', color: '#bbb' } }, ...['♡ Give back', '⌨ Shortcuts', '👥 Club', 'ⓘ About', '? Help Page'].map((x) => h('span', {}, x))), h('div', { style: { width: '120px' } }));
+  root.append(top, h('div', { style: { display: 'flex', justifyContent: 'center', padding: '6px 0 16px' } }, machine), h('div', { style: { textAlign: 'center', fontSize: '11.5px', color: '#999', paddingBottom: '20px' } }, 'Space = play/stop · drag across pads to paint · state is saved in localStorage', h('br'), '© drumbit-ish — a practice clone of drumbit by João Santos'));
+  syncSliders(); drawAll();
+  // visualizer loop
+  const ctx = cv.getContext('2d'); let lev = ROWS.map(() => 0);
+  const loop = () => { if (!root.isConnected) return; ctx.clearRect(0, 0, 480, 230); const bw = 480 / ROWS.length; ROWS.forEach((_, r) => { lev[r] = Math.max(lev[r] * 0.9, hits[r]); hits[r] = 0; const hh = lev[r] * 170; const g = ctx.createLinearGradient(0, 230, 0, 230 - hh); g.addColorStop(0, RC[r] + '22'); g.addColorStop(1, RC[r]); ctx.fillStyle = g; ctx.fillRect(r * bw + 10, 220 - hh, bw - 20, hh); }); ctx.fillStyle = '#ffffff55'; ctx.font = '13px monospace'; ctx.fillText(`${tid ? '▶ PLAY' : '■ STOP'}  ${S.bpm} BPM  P${S.slot + 1}  step ${pos < 0 ? '--' : String(pos + 1).padStart(2, '0')}/16`, 14, 26); requestAnimationFrame(loop); };
+  loop();
+  window.__demoProof = async () => { S.slot = 0; demoSel.value = 'Funk'; loadDemo('Funk'); tools[1].click(); slotBs[1].click(); tools[2].click(); const pasted = G().flat().filter(Boolean).length; play(); await sleep(1300); const at = pos; return `loaded Funk demo, copied pattern 1 → pasted into slot 2 (${pasted} steps), playing at ${S.bpm} BPM, playhead at step ${at + 1}`; };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['music-grid-sequencer'])(root, T); }

@@ -1,3 +1,5 @@
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/jetbrains-mono';
 import { h, s, css, rng, drag, localPos, clamp, copy, toast, sleep, hexToRgb, rgbToHex, hsl, gesture } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle, codebox } from '../kit.js';
 const shade = (hex, amt) => { const [r, g, b] = hexToRgb(hex); return rgbToHex(r + amt, g + amt, b + amt); };
@@ -756,4 +758,91 @@ V['pokeholo-holographic-card-tilt'] = (root, T) => {
   };
 };
 
+V['animejs-live-feature-demo-home'] = (root, T) => {
+  theme(root, T, { bg: '#252423', fg: '#f6f4f2', ac: '#ff4b4b', dark: true });
+  const G = "'Space Grotesk Variable','Inter Variable',sans-serif", M = "'JetBrains Mono Variable',monospace";
+  const BG = '#252423', RED = '#ff4b4b', LINE = '#3a3836';
+  root.classList.add('scroll'); Object.assign(root.style, { overflow: 'auto', background: BG, color: '#f6f4f2', fontFamily: G });
+  root.append(h('style', {}, `.aj-nav a{color:#d8d5d2;font:600 11px ${M};letter-spacing:.08em;text-decoration:none;cursor:pointer;display:flex;gap:6px;align-items:center}.aj-nav a:hover{color:#fff}.aj-sec{max-width:1100px;margin:0 auto;padding:90px 48px;display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:center;border-top:1px solid ${LINE}}.aj-h{font-size:40px;font-weight:700;line-height:1.02;letter-spacing:-.02em;margin:0 0 16px}.aj-p{color:#b9b5b1;font-size:16px;line-height:1.5}.aj-code{font:12.5px/1.65 ${M};background:#1d1c1b;border:1px solid ${LINE};border-radius:6px;padding:14px 16px;color:#d8d5d2;white-space:pre;margin-top:18px;overflow-x:auto}.aj-code b{color:#ff8a6b;font-weight:400}.aj-code i{color:#8fd19e;font-style:normal}.aj-stage{background:#1d1c1b;border:1px solid ${LINE};border-radius:10px;height:340px;position:relative;overflow:hidden}.aj-tag{position:absolute;left:14px;top:12px;font:11px ${M};color:#8a8580;letter-spacing:.06em}.aj-btn{font:600 11px ${M};letter-spacing:.08em;color:#d8d5d2;border:1px solid #57534f;background:transparent;border-radius:4px;padding:0 16px;height:46px;cursor:pointer;display:inline-flex;align-items:center;gap:10px}`));
+  // ---- nav (sticky, blurs on scroll)
+  const verBtn = h('a', {}, 'V4.2.2 ▾'); const verMenu = h('div', { style: { position: 'absolute', top: '44px', right: '0', background: '#1d1c1b', border: `1px solid ${LINE}`, borderRadius: '6px', padding: '6px', display: 'none', minWidth: '140px', zIndex: 30 } }, ...['v4.2.2 (latest)', 'v4.1.0', 'v3.2.2 (legacy)'].map((v, i) => h('div', { style: { padding: '8px 10px', font: `12px ${M}`, color: i ? '#b9b5b1' : '#fff', cursor: 'pointer', borderRadius: '4px' }, onclick: () => { verBtn.textContent = v.split(' ')[0].toUpperCase() + ' ▾'; verMenu.style.display = 'none'; toast(`Docs switched to ${v}`); } }, v)));
+  verBtn.onclick = () => (verMenu.style.display = verMenu.style.display === 'none' ? 'block' : 'none');
+  const nav = h('div.aj-nav', { style: { position: 'sticky', top: 0, zIndex: 20, display: 'flex', alignItems: 'center', gap: '28px', padding: '0 22px', height: '52px', transition: 'background .3s, backdrop-filter .3s, border-color .3s', borderBottom: '1px solid transparent' } },
+    h('div', { style: { fontWeight: 800, fontSize: '19px', letterSpacing: '-.03em', fontStyle: 'italic' } }, 'anime', h('span', { style: { fontWeight: 400 } }, 'js'), h('sup', { style: { color: RED, fontSize: '10px' } }, '●')), h('span', { style: { flex: 1 } }),
+    h('div', { style: { position: 'relative' } }, verBtn, verMenu), h('a', {}, '▭ DOCS'), h('a', {}, '∫ EASINGS'), h('a', {}, '▷ LEARN'), h('a', {}, '◇'), h('a', {}, '⌥'), h('a', { style: { background: '#4a2324', color: RED, padding: '9px 12px', borderRadius: '4px' } }, '♥ SPONSOR'));
+  root.addEventListener('scroll', () => { const on = root.scrollTop > 12; nav.style.background = on ? '#252423b3' : 'transparent'; nav.style.backdropFilter = nav.style.webkitBackdropFilter = on ? 'blur(14px) saturate(1.4)' : 'none'; nav.style.borderBottomColor = on ? LINE : 'transparent'; });
+  // ---- hero: rotating multicolour rings + stagger diamond + dotted wave
+  const R = 300, ARC = ['#ff4b4b', '#ff9f2e', '#33e27a', '#18d9d9', '#3b82ff', '#2bd1a0', '#f5d02b', '#7be04b'];
+  const arcPath = (r, a0, a1) => { const p = (a) => [R + r * Math.cos(a), R + r * Math.sin(a)]; const [x0, y0] = p(a0), [x1, y1] = p(a1); return `M${x0} ${y0}A${r} ${r} 0 0 1 ${x1} ${y1}`; };
+  const outer = s('g', {}, ...ARC.map((c, i) => s('path', { d: arcPath(272, (i / 8) * Math.PI * 2 + 0.03, ((i + 1) / 8) * Math.PI * 2 - 0.03), stroke: c, 'stroke-width': 7, fill: 'none', 'stroke-linecap': 'round', style: `filter:drop-shadow(0 0 6px ${c})` })));
+  const ticks = s('g', {}, ...Array.from({ length: 180 }, (_, i) => { const a = (i / 180) * Math.PI * 2, r0 = i % 5 ? 252 : 246; return s('line', { x1: R + r0 * Math.cos(a), y1: R + r0 * Math.sin(a), x2: R + 258 * Math.cos(a), y2: R + 258 * Math.sin(a), stroke: i > 20 && i < 60 ? '#ff6b5b' : '#5b5753', 'stroke-width': 1.2 }); }));
+  const inner = s('g', {}, s('circle', { cx: R, cy: R, r: 236, fill: '#1e1d1c', stroke: '#3a3836', 'stroke-width': 2 }), s('path', { d: arcPath(222, 3.4, 4.6), stroke: '#6b6763', 'stroke-width': 14, fill: 'none', opacity: 0.6, 'stroke-linecap': 'round' }), s('path', { d: arcPath(214, 0.2, 1.4), stroke: '#ffb199', 'stroke-width': 3, fill: 'none' }), s('path', { d: arcPath(204, 0.3, 1.2), stroke: '#ffb199', 'stroke-width': 2, fill: 'none', opacity: 0.6 }), s('circle', { cx: R, cy: R, r: 196, fill: 'none', stroke: '#2f2d2b', 'stroke-width': 1 }));
+  const lines = Array.from({ length: 56 }, (_, i) => { const y = R - 150 + i * (300 / 55); const half = 150 - Math.abs(y - R); return s('line', { x1: R - half, x2: R + half, y1: y, y2: y, stroke: '#e0473f', 'stroke-width': 2.2, opacity: 0.85, 'data-h': half }); });
+  const dots = Array.from({ length: 34 }, () => s('circle', { r: 5.5, fill: '#ff3d3d', style: 'filter:drop-shadow(0 0 4px #ff3d3d)' }));
+  const hero = s('svg', { viewBox: `0 0 ${R * 2} ${R * 2}`, style: 'width:min(560px,46vw);height:auto;display:block;cursor:pointer' }, s('g', { id: 'aj-outer' }, outer), ticks, inner, ...lines, ...dots);
+  let t0 = performance.now(), burst = 0;
+  hero.addEventListener('click', () => { burst = performance.now(); });
+  const npm = h('button.aj-btn', { onclick: () => copy('npm i animejs', 'npm i animejs copied'), style: { background: '#2f2d2b', borderColor: '#2f2d2b', textTransform: 'none', fontWeight: 400, fontSize: '13px' } }, 'npm i animejs', h('span', { style: { opacity: 0.7 } }, '⧉'));
+  const learn = h('button.aj-btn', { onclick: () => secs[0].scrollIntoView({ behavior: 'smooth' }) }, 'LEARN MORE', h('span', {}, '↓'));
+  const word = h('h1', { style: { fontSize: '68px', fontWeight: 700, lineHeight: 0.98, letterSpacing: '-.035em', margin: 0 } }, ...'All-in-one animation engine.'.split(' ').map((w, i) => h('span', { style: { display: 'inline-block', marginRight: '.22em', opacity: 0, transform: 'translateY(40px)' } }, w)));
+  const heroEl = h('div', { style: { position: 'relative', minHeight: 'calc(100% - 52px)', display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', padding: '0 44px 30px', marginTop: '-10px' } },
+    h('div', { style: { alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '40px 0 10px', maxWidth: '320px' } }, h('div', {}, word, h('p', { style: { fontSize: '19px', color: '#e2dfdc', lineHeight: 1.35, marginTop: '14px' } }, 'A fast and flexible JavaScript library to animate the web.')), h('div', { style: { display: 'flex', gap: '10px' } }, npm, learn)),
+    hero, h('div', { style: { alignSelf: 'end', justifySelf: 'end', textAlign: 'center', font: `11px ${G}`, color: '#8a8580' } }, 'Sponsored by', h('div', { style: { width: '34px', height: '34px', border: '1px solid #8a8580', borderRadius: '6px', margin: '8px auto 0' } })));
+  [...word.children].forEach((el, i) => el.animate([{ opacity: 0, transform: 'translateY(40px) rotate(4deg)' }, { opacity: 1, transform: 'none' }], { duration: 900, delay: 120 + i * 90, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' }));
+  const heroLoop = (now) => { if (!root.isConnected) return; const t = (now - t0) / 1000, b = burst ? Math.max(0, 1 - (now - burst) / 1200) : 0;
+    root.querySelector('#aj-outer')?.setAttribute('transform', `rotate(${(t * 12) % 360} ${R} ${R})`); ticks.setAttribute('transform', `rotate(${-(t * 5) % 360} ${R} ${R})`);
+    lines.forEach((l, i) => { const hf = +l.getAttribute('data-h'); const k = 0.55 + 0.45 * Math.sin(t * 2.2 - i * 0.22) + b * Math.sin(i * 0.9) * 0.4; l.setAttribute('x1', R - hf * k); l.setAttribute('x2', R + hf * k); });
+    dots.forEach((d, i) => { const u = i / 33 - 0.5; const x = R + u * 320, y = R - u * 210 + Math.sin(t * 3 - i * 0.35) * (14 + b * 40); d.setAttribute('cx', x); d.setAttribute('cy', y); });
+    requestAnimationFrame(heroLoop); };
+  requestAnimationFrame(heroLoop);
+  // ---- feature sections
+  const secs = [];
+  const section = (title, body, code, stage) => { const el = h('section.aj-sec', {}, h('div', {}, h('h2.aj-h', {}, title), h('p.aj-p', {}, body), code ? h('div.aj-code', { html: code }) : null), stage); secs.push(el); return el; };
+  // 1 intuitive API
+  const sq = Array.from({ length: 6 }, (_, i) => h('div', { style: { width: '40px', height: '40px', borderRadius: '6px', background: ARC[i], position: 'absolute', left: '40px', top: `${44 + i * 46}px` } }));
+  const s1 = h('div.aj-stage', {}, h('div.aj-tag', {}, 'animate()'), ...sq);
+  sq.forEach((el, i) => el.animate([{ transform: 'translateX(0) rotate(0)' }, { transform: 'translateX(min(30vw,420px)) rotate(1turn)' }], { duration: 1250, delay: i * 65, easing: 'cubic-bezier(.86,0,.07,1)', iterations: Infinity, direction: 'alternate' }));
+  // 2 stagger grid
+  const COLS = 17, ROWSN = 9; const cells = [];
+  const gridEl = h('div', { style: { position: 'absolute', inset: '40px 30px 24px', display: 'grid', gridTemplateColumns: `repeat(${COLS},1fr)`, placeItems: 'center' } });
+  for (let i = 0; i < COLS * ROWSN; i++) { const c = h('div', { style: { width: '12px', height: '12px', borderRadius: '50%', background: '#4b4744', cursor: 'pointer' }, onclick: () => ripple(i) }); cells.push(c); gridEl.append(c); }
+  const ripple = (from) => { const fx = from % COLS, fy = Math.floor(from / COLS); cells.forEach((c, i) => { const x = i % COLS, y = Math.floor(i / COLS), d = Math.hypot(x - fx, y - fy); c.animate([{ transform: 'scale(1)', background: '#4b4744' }, { transform: 'scale(1.9) translateY(-6px)', background: ARC[Math.floor(d) % 8] }, { transform: 'scale(1)', background: '#4b4744' }], { duration: 900, delay: d * 55, easing: 'cubic-bezier(.34,1.56,.64,1)' }); }); };
+  const s2 = h('div.aj-stage', {}, h('div.aj-tag', {}, 'stagger(50, { grid: [17, 9], from: index }) — click a dot'), gridEl);
+  // 3 svg toolset: line drawing + morph
+  const P1 = 'M60 220 C120 60 220 60 280 160 S440 300 520 120', SH = [[[310, 60], [380, 120], [370, 210], [290, 230], [250, 140]], [[320, 50], [400, 90], [400, 210], [300, 250], [240, 150]], [[300, 70], [420, 150], [340, 240], [260, 230], [280, 100]]];
+  const path = s('path', { d: P1, fill: 'none', stroke: '#33e27a', 'stroke-width': 4, 'stroke-linecap': 'round' });
+  const poly = s('polygon', { points: SH[0].join(' '), fill: '#3b82ff33', stroke: '#3b82ff', 'stroke-width': 3 });
+  const runner = s('circle', { r: 8, fill: '#ff4b4b' });
+  const s3svg = s('svg', { viewBox: '0 0 580 300', style: 'position:absolute;inset:30px 10px 10px;width:calc(100% - 20px);height:calc(100% - 40px)' }, poly, path, runner);
+  const s3 = h('div.aj-stage', { style: { cursor: 'pointer' }, onclick: () => drawSvg() }, h('div.aj-tag', {}, 'svg.createDrawable() · svg.morphTo() · svg.createMotionPath()'), s3svg);
+  let morphI = 0, drawn = false;
+  const drawSvg = () => { drawn = true; const L = path.getTotalLength(); path.style.strokeDasharray = L; path.animate([{ strokeDashoffset: L }, { strokeDashoffset: 0 }], { duration: 1600, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' }); const a = SH[morphI % 3], b2 = SH[(morphI + 1) % 3]; morphI++; const st = performance.now(); const step = (now) => { const k = Math.min(1, (now - st) / 1600), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; poly.setAttribute('points', a.map((p, i) => [p[0] + (b2[i][0] - p[0]) * e, p[1] + (b2[i][1] - p[1]) * e].join(',')).join(' ')); const pt = path.getPointAtLength(L * e); runner.setAttribute('cx', pt.x); runner.setAttribute('cy', pt.y); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); };
+  // 4 springs: drag & snap back
+  const ball = h('div', { style: { position: 'absolute', left: '50%', top: '50%', width: '74px', height: '74px', margin: '-37px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 30%,#ffd0c4,#ff4b4b 60%,#b52a2a)', boxShadow: '0 10px 30px #ff4b4b55', cursor: 'grab', touchAction: 'none' } });
+  const tether = s('line', { x1: 0, y1: 0, x2: 0, y2: 0, stroke: '#ff4b4b88', 'stroke-width': 2, 'stroke-dasharray': '4 5' });
+  const s4svg = s('svg', { style: 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none' }, tether);
+  let bx = 0, by = 0, vx = 0, vy = 0, held = false, stiff = 180, damp = 9;
+  const s4 = h('div.aj-stage', {}, h('div.aj-tag', {}, 'createSpring({ stiffness, damping }) — drag the ball'), s4svg, ball);
+  const sp = h('div', { style: { position: 'absolute', right: '14px', bottom: '12px', display: 'flex', gap: '14px', font: `11px ${M}`, color: '#8a8580' } }, h('label', {}, 'stiffness ', h('input', { type: 'range', min: 40, max: 400, value: stiff, oninput: (e) => (stiff = +e.target.value), style: { accentColor: RED, width: '90px' } })), h('label', {}, 'damping ', h('input', { type: 'range', min: 2, max: 30, value: damp, oninput: (e) => (damp = +e.target.value), style: { accentColor: RED, width: '90px' } })));
+  s4.append(sp);
+  drag(ball, { start: (e) => { held = true; ball.style.cursor = 'grabbing'; ball._o = { x: e.clientX - bx, y: e.clientY - by }; }, move: (e) => { bx = e.clientX - ball._o.x; by = e.clientY - ball._o.y; vx = vy = 0; }, end: () => { held = false; ball.style.cursor = 'grab'; } });
+  let last = performance.now();
+  const spring = (now) => { if (!root.isConnected) return; const dt = Math.min(0.033, (now - last) / 1000); last = now; if (!held) { vx += (-stiff * bx - damp * vx) * dt; vy += (-stiff * by - damp * vy) * dt; bx += vx * dt; by += vy * dt; } ball.style.transform = `translate(${bx}px,${by}px) scale(${1 + Math.min(0.25, Math.hypot(vx, vy) / 4000)})`; const r = s4.getBoundingClientRect(); tether.setAttribute('x1', r.width / 2); tether.setAttribute('y1', r.height / 2); tether.setAttribute('x2', r.width / 2 + bx); tether.setAttribute('y2', r.height / 2 + by); requestAnimationFrame(spring); };
+  requestAnimationFrame(spring);
+  // 5 scroll observer
+  const bar = h('div', { style: { position: 'absolute', left: '30px', right: '30px', bottom: '40px', height: '4px', background: '#3a3836', borderRadius: '2px' } }, h('div', { style: { height: '100%', width: '0%', background: RED, borderRadius: '2px' } }));
+  const shapes = ARC.slice(0, 5).map((c, i) => h('div', { style: { position: 'absolute', left: `${40 + i * 70}px`, top: '120px', width: '50px', height: '50px', background: c, borderRadius: i % 2 ? '50%' : '8px' } }));
+  const pctEl = h('div', { style: { position: 'absolute', right: '30px', top: '12px', font: `11px ${M}`, color: '#d8d5d2' } }, '0%');
+  const s5 = h('div.aj-stage', {}, h('div.aj-tag', {}, 'onScroll({ sync: true })'), ...shapes, bar, pctEl);
+  root.addEventListener('scroll', () => { const r = s5.getBoundingClientRect(), vr = root.getBoundingClientRect(); const k = clamp((vr.bottom - r.top) / (vr.height + r.height), 0, 1); bar.firstChild.style.width = k * 100 + '%'; pctEl.textContent = Math.round(k * 100) + '%'; shapes.forEach((el, i) => (el.style.transform = `translate(${k * 220}px, ${Math.sin(k * Math.PI * 2 + i) * 50}px) rotate(${k * 360 * (i % 2 ? -1 : 1)}deg)`)); });
+  root.append(nav, heroEl,
+    section('Intuitive API', 'Animate faster with an easy-to-use, yet powerful animation API. Per-property parameters, flexible keyframes, built-in easings and more.', "<b>import</b> { animate, stagger } <b>from</b> <i>'animejs'</i>;\n\nanimate(<i>'.square'</i>, {\n  x: <i>'15rem'</i>, rotate: <i>'1turn'</i>,\n  duration: 1250, delay: stagger(65),\n  ease: <i>'inOutQuint'</i>,\n  loop: <b>true</b>, alternate: <b>true</b>\n});", s1),
+    section('Staggering', 'Animate multiple elements with follow-through and overlapping actions using the built-in stagger utility — from the first, last, centre or any clicked index of a grid.', "animate(<i>'.dot'</i>, {\n  scale: [1, 1.9, 1],\n  delay: stagger(50, { grid: [17, 9], from: index })\n});", s2),
+    section('SVG toolset', 'Morph shapes, follow motion paths and draw lines easily with the built-in SVG utilities. Plays when the stage scrolls into view — click to replay.', "animate(svg.createDrawable(<i>'.line'</i>), { draw: <i>'0 1'</i> });\nanimate(<i>'.shape'</i>, { points: svg.morphTo(<i>'.next'</i>) });", s3),
+    section('Springs', 'Physics-based easing that reacts to velocity. Drag the ball and release it — the spring snaps it back with the stiffness and damping you set.', "animate(<i>'.ball'</i>, {\n  x: 0, y: 0,\n  ease: createSpring({ stiffness: 180, damping: 9 })\n});", s4),
+    section('Scroll Observer', 'Synchronise and trigger animations on scroll with the Scroll Observer API. The progress bar below is driven by this section\u2019s position in the viewport.', "animate(<i>'.shape'</i>, {\n  x: <i>'14rem'</i>, rotate: 360,\n  autoplay: onScroll({ sync: <b>true</b> })\n});", s5),
+    h('div', { style: { textAlign: 'center', padding: '50px 0 70px', borderTop: `1px solid ${LINE}`, color: '#8a8580', font: `12px ${M}` } }, 'anime.js-ish — a practice clone of animejs.com (v4 homepage)'));
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting && !drawn) drawSvg(); }), { root, threshold: 0.4 }); io.observe(s3);
+  window.__demoProof = async () => { burst = performance.now(); root.scrollTop = 40; root.dispatchEvent(new Event('scroll')); ripple(4 * COLS + 8); await sleep(700); const blurred = nav.style.backdropFilter.includes('blur'); return `scrolled → sticky nav blurred=${blurred}; stagger ripple fired from centre dot (${cells.length} dots); hero burst triggered`; };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['neumorph-softui-generator'])(root, T); }

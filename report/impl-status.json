@@ -2383,5 +2383,32 @@
   "proof": "one-away wrong guess (mistakes 3/4) → purple band solved (1) → all 4 solved, end screen=true, share grid 5 rows; reset",
   "demoNodes": 58,
   "errors": []
+ },
+ "animejs-live-feature-demo-home": {
+  "url": "http://localhost:4173/t/animejs-live-feature-demo-home/",
+  "ok": true,
+  "at": "2026-10-05T19:58:46.629Z",
+  "http": 200,
+  "proof": "scrolled → sticky nav blurred=true; stagger ripple fired from centre dot (153 dots); hero burst triggered",
+  "demoNodes": 555,
+  "errors": []
+ },
+ "drumbit-step-sequencer-drum-machine": {
+  "url": "http://localhost:4173/t/drumbit-step-sequencer-drum-machine/",
+  "ok": true,
+  "at": "2026-10-05T19:59:09.481Z",
+  "http": 200,
+  "proof": "loaded Funk demo, copied pattern 1 → pasted into slot 2 (21 steps), playing at 100 BPM, playhead at step 8",
+  "demoNodes": 281,
+  "errors": []
+ },
+ "seeing-theory-coin-flip-frequency": {
+  "url": "http://localhost:4173/t/seeing-theory-coin-flip-frequency/",
+  "ok": true,
+  "at": "2026-10-05T19:58:10.445Z",
+  "http": 200,
+  "proof": "dragged P(H) to 0.75 → flipped 100 times: 78/100 heads (freq 0.78), convergence line drawn, side-nav highlights \"Chance Events\"",
+  "demoNodes": 80,
+  "errors": []
  }
 }

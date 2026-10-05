@@ -1,3 +1,4 @@
+import '@fontsource-variable/source-sans-3';
 import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, audio, fitCanvas } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 import { scene } from './imagefx.js';
@@ -175,4 +176,71 @@ V['r2d3-scrollytelling-ml-explainer'] = (root, T) => {
   window.__demoProof = async () => { const seen = []; for (const i of [1, 2, 3, 4, 5]) { root.style.scrollBehavior = 'auto'; root.scrollTop = steps[i].offsetTop - root.clientHeight * 0.15; onScroll(); seen.push(cur); await sleep(60); } const a = Math.round(acc().ok * 100); root.scrollTop = 0; onScroll(); await sleep(50); return `scrolled stages ${seen.join(',')} (tree accuracy ${a}%), back to intro stage ${cur}`; };
 };
 
+V['seeing-theory-coin-flip-frequency'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#2b2b2b', ac: '#64bcff', dark: false });
+  const SANS = "'Source Sans 3 Variable','Source Sans Pro',Helvetica,sans-serif", SERIF = "Times,'Times New Roman',serif";
+  const BLUE = '#64bcff', ORANGE = '#ffad5c', SKY = '#d6eefa';
+  Object.assign(root.style, { fontFamily: SANS, display: 'grid', gridTemplateColumns: 'minmax(360px,400px) 1fr', background: '#fff', color: '#2b2b2b' });
+  root.append(h('style', {}, `@keyframes st-flip{0%{transform:rotateY(0) scale(1)}50%{transform:rotateY(540deg) scale(1.18)}100%{transform:rotateY(1080deg) scale(1)}}.st-b{font:14px ${SANS};background:#fff;border:1px solid #c9d9e3;border-radius:4px;padding:9px 0;width:100px;cursor:pointer;color:#333;transition:background .15s}.st-b:hover{background:#eef7fd}.st-p{font-size:15px;line-height:1.38;margin:0 0 14px}.st-nav a{display:block;padding:9px 18px;color:#555;text-decoration:none;font-size:15px;border-left:3px solid transparent;cursor:pointer}.st-nav a.on{color:#000;border-left-color:${BLUE};background:#eef7fd;font-weight:600}`));
+  let p = 0.5, n = 0, heads = 0, run = [], busy = false;
+  // ---- left column
+  const left = h('div', { style: { background: SKY, overflowY: 'auto', position: 'relative', height: '100%' } });
+  const prog = h('div', { style: { position: 'sticky', top: 0, height: '4px', background: BLUE, width: '0%', zIndex: 3, transition: 'width .1s' } });
+  const crumb = h('div', { style: { position: 'sticky', top: '4px', zIndex: 2, background: SKY, display: 'flex', alignItems: 'center', gap: '16px', padding: '14px 22px', fontSize: '13px', color: '#666' } });
+  const nav = h('div.st-nav', { style: { position: 'absolute', left: 0, top: 0, bottom: 0, width: '260px', background: '#fff', boxShadow: '4px 0 18px #0002', zIndex: 9, transform: 'translateX(-105%)', transition: 'transform .3s cubic-bezier(.2,.8,.2,1)', paddingTop: '18px' } });
+  const SECS = ['Chance Events', 'Expectation', 'Variance'];
+  const secEls = [];
+  const navLinks = SECS.map((t, i) => h('a', { onclick: () => { left.scrollTo({ top: secEls[i].offsetTop - 50, behavior: 'smooth' }); nav.style.transform = 'translateX(-105%)'; } }, t));
+  nav.append(h('div', { style: { padding: '0 18px 12px', fontWeight: 700, fontSize: '16px', display: 'flex', justifyContent: 'space-between' } }, 'Chapter 1: Basic Probability', h('span', { style: { cursor: 'pointer' }, onclick: () => (nav.style.transform = 'translateX(-105%)') }, '✕')), ...navLinks, h('div', { style: { padding: '18px', fontSize: '13px', color: '#999', lineHeight: 1.6 } }, 'Chapter 2: Compound Probability', h('br'), 'Chapter 3: Probability Distributions', h('br'), 'Chapter 4: Frequentist Inference'));
+  const burger = h('span', { style: { fontSize: '24px', color: '#111', cursor: 'pointer', lineHeight: 1 }, onclick: () => (nav.style.transform = 'none') }, '☰');
+  const crumbT = h('span', {}, 'Chapter 1: Basic Probability');
+  crumb.append(burger, crumbT);
+  const coin = h('div', { style: { width: '58px', height: '58px', borderRadius: '50%', border: '2px solid #222', boxShadow: 'inset 0 0 0 3px #fff, inset 0 0 0 4.5px #222', background: '#fff', display: 'grid', placeItems: 'center', fontSize: '27px', fontWeight: 700, color: '#111' } }, 'H');
+  const flipB = h('button.st-b', { onclick: () => flip(1) }, 'Flip the Coin'), flip100 = h('button.st-b', { onclick: () => flip(100) }, 'Flip 100 times');
+  const sec = (title, ...kids) => { const el = h('section', { style: { padding: '8px 30px 30px' } }, h('h2', { style: { fontWeight: 400, fontSize: '27px', margin: '10px 0 16px', color: '#111' } }, title), ...kids); secEls.push(el); return el; };
+  left.append(prog, crumb,
+    h('div', { style: { padding: '40px 30px 70px' } }, h('div', { style: { fontSize: '13px' } }, 'Chapter 1'), h('div', { style: { fontSize: '21px', fontWeight: 600, margin: '10px 0 14px' } }, 'Basic Probability'), h('div', { style: { fontSize: '20px', fontWeight: 300, lineHeight: 1.4 } }, 'This chapter is an introduction to the basic concepts of probability theory.')),
+    sec('Chance Events', h('p.st-p', {}, 'Randomness is all around us. Probability theory is the mathematical framework that allows us to analyze chance events in a logically sound manner. The probability of an event is a number indicating how likely that event will occur. This number is always between 0 and 1, where 0 indicates impossibility and 1 indicates certainty.'), h('p.st-p', {}, 'A classic example of a probabilistic experiment is a fair coin toss, in which the two possible outcomes are heads or tails. In this case, the probability of flipping a head or a tail is 1/2. In an actual series of coin tosses, we may get more or less than exactly 50% heads. But as the number of flips increases, the long-run frequency of heads is bound to get closer and closer to 50%.'),
+      h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', margin: '22px 0', perspective: '400px' } }, coin, h('div', { style: { display: 'grid', gap: '8px' } }, flipB, flip100)),
+      h('p.st-p', {}, 'For an unfair or weighted coin, the two outcomes are not equally likely. You can change the weight or distribution of the coin by dragging the true probability bars (on the right in ', h('span', { style: { color: BLUE } }, 'blue'), ') up or down. If we assign numbers to the outcomes — say, 1 for heads, 0 for tails — then we have created the mathematical object known as a ', h('i', {}, 'random variable'), '.')),
+    sec('Expectation', h('p.st-p', {}, 'The expectation of a random variable is a number that attempts to capture the center of that random variable\u2019s distribution. It can be interpreted as the long-run average of many independent samples from the given distribution.'), h('div', { style: { textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: '20px', margin: '14px 0' } }, 'E[X] = Σ x P(x)'), h('p.st-p', {}, 'For our coin, E[X] = 1·P(H) + 0·P(T) — so the expectation is exactly the weight you dragged onto heads. Watch the running mean on the right converge to it.')),
+    sec('Variance', h('p.st-p', {}, 'Whereas expectation provides a measure of centrality, the variance of a random variable quantifies the spread of that random variable\u2019s distribution.'), h('div', { style: { textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontSize: '20px', margin: '14px 0' } }, 'Var(X) = E[(X − E[X])²]'), h('p.st-p', {}, 'For a coin, Var(X) = p(1 − p): it peaks for a fair coin and shrinks to zero as the coin becomes certain.'), h('div', { style: { height: '260px' } })), nav);
+  const onScroll = () => { const m = left.scrollHeight - left.clientHeight; prog.style.width = (m > 0 ? (left.scrollTop / m) * 100 : 0) + '%'; let cur = -1; secEls.forEach((el, i) => { if (left.scrollTop + 120 >= el.offsetTop) cur = i; }); navLinks.forEach((a, i) => a.classList.toggle('on', i === cur)); crumbT.textContent = cur < 0 ? 'Chapter 1: Basic Probability' : SECS[cur]; };
+  left.addEventListener('scroll', onScroll);
+  // ---- right panel (sticky chart)
+  const W = 560, BASE = 300, SC = 280;
+  const svg = s('svg', { viewBox: `0 0 ${W} 520`, style: 'width:100%;max-width:640px;overflow:visible;user-select:none;touch-action:none' });
+  const bar = (x, c) => s('rect', { x, width: 58, y: BASE, height: 0, fill: c, style: 'transition:y .25s,height .25s' });
+  const oH = bar(66, ORANGE), oT = bar(165, ORANGE), tH = bar(329, BLUE), tT = bar(428, BLUE);
+  [tH, tT].forEach((r) => (r.style.cursor = 'ns-resize'));
+  const lab = (x, t) => s('g', {}, s('circle', { cx: x, cy: BASE + 36, r: 15, fill: '#fff', stroke: '#222', 'stroke-width': 1.4 }), s('circle', { cx: x, cy: BASE + 36, r: 12.5, fill: 'none', stroke: '#222', 'stroke-width': 0.8 }), s('text', { x, y: BASE + 41.5, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 700, 'font-family': SANS }, t));
+  const txt = (x, y, t, o = {}) => { const e = s('text', { x, y, 'text-anchor': 'middle', 'font-size': 10, 'font-family': SERIF, fill: '#222', ...o }); e.textContent = t; return e; };
+  const pctO = [txt(95, BASE - 6, ''), txt(194, BASE - 6, '')], pctT = [txt(359, BASE - 6, '', { fill: '#1d6fae' }), txt(458, BASE - 6, '', { fill: '#1d6fae' })];
+  const conv = s('polyline', { fill: 'none', stroke: ORANGE, 'stroke-width': 2 }), target = s('line', { x1: 40, x2: 520, stroke: BLUE, 'stroke-dasharray': '4 4', 'stroke-width': 1.5 });
+  const cnt = txt(280, 386, 'No flips yet — press Flip the Coin', { 'font-size': 13, 'font-family': SANS, fill: '#555' });
+  svg.append(s('line', { x1: 0, x2: W, y1: BASE, y2: BASE, stroke: '#111', 'stroke-width': 1.2 }), ...[0, 145, 408, W].map((x) => s('line', { x1: x, x2: x, y1: BASE - 4, y2: BASE + 4, stroke: '#111' })), oH, oT, tH, tT, ...pctO, ...pctT, txt(145, BASE + 14, 'Observed outcomes'), txt(408, BASE + 14, 'True probabilities'), lab(95, 'H'), lab(194, 'T'), lab(359, 'H'), lab(458, 'T'), cnt,
+    s('rect', { x: 40, y: 400, width: 480, height: 100, fill: '#f6fbfe', stroke: '#e1edf4' }), target, conv, txt(280, 516, 'running frequency of heads vs. true P(H) — converges as flips accumulate', { 'font-size': 10.5, 'font-family': SANS, fill: '#888' }));
+  const right = h('div', { style: { display: 'grid', placeItems: 'center', padding: '20px 40px', overflow: 'hidden' } }, svg);
+  root.append(left, right);
+  const draw = () => {
+    const fo = n ? [heads / n, (n - heads) / n] : [0, 0];
+    [[oH, fo[0]], [oT, fo[1]], [tH, p], [tT, 1 - p]].forEach(([r, v]) => { r.setAttribute('y', BASE - v * SC); r.setAttribute('height', v * SC); });
+    pctO.forEach((e, i) => { e.textContent = n ? fo[i].toFixed(2) : ''; e.setAttribute('y', BASE - fo[i] * SC - 6); });
+    pctT.forEach((e, i) => { const v = i ? 1 - p : p; e.textContent = v.toFixed(2); e.setAttribute('y', BASE - v * SC - 6); });
+    const yy = (v) => 500 - v * 100; target.setAttribute('y1', yy(p)); target.setAttribute('y2', yy(p));
+    const pts = run.length > 1 ? run.map((v, i) => `${40 + (i / (run.length - 1)) * 480},${yy(v)}`).join(' ') : ''; conv.setAttribute('points', pts);
+    if (n) cnt.textContent = `${n} flips · ${heads} heads · ${n - heads} tails · |freq − p| = ${Math.abs(heads / n - p).toFixed(3)}`;
+  };
+  const once = () => { const r = Math.random() < p; n++; if (r) heads++; run.push(heads / n); if (run.length > 400) run = run.filter((_, i) => i % 2 === 0); coin.textContent = r ? 'H' : 'T'; return r; };
+  const flip = async (k) => {
+    if (busy) return; busy = true;
+    if (k === 1) { coin.style.animation = 'none'; void coin.offsetWidth; coin.style.animation = 'st-flip .6s cubic-bezier(.3,.7,.3,1)'; await sleep(300); const r = once(); blip(r ? 660 : 440, 0.08, 'sine', 0.05); draw(); await sleep(300); }
+    else for (let i = 0; i < k; i++) { once(); if (i % 2 === 0) draw(); coin.style.transform = `rotateY(${(i % 2) * 180}deg)`; await sleep(18); }
+    coin.style.transform = ''; draw(); busy = false;
+  };
+  const toP = (e, isH) => { const r = svg.getBoundingClientRect(); const y = ((e.clientY - r.top) / r.height) * 520; const v = clamp((BASE - y) / SC, 0.02, 0.98); p = isH ? v : 1 - v; draw(); };
+  [[tH, true], [tT, false]].forEach(([r, isH]) => r.addEventListener('pointerdown', (e) => { r.setPointerCapture(e.pointerId); r.style.transition = 'none'; const mv = (ev) => toP(ev, isH); const up = () => { r.removeEventListener('pointermove', mv); r.removeEventListener('pointerup', up); r.style.transition = 'y .25s,height .25s'; }; r.addEventListener('pointermove', mv); r.addEventListener('pointerup', up); }));
+  draw();
+  window.__demoProof = async () => { p = 0.75; draw(); await flip(100); left.scrollTop = secEls[0].offsetTop - 40; onScroll(); return `dragged P(H) to 0.75 → flipped 100 times: ${heads}/${n} heads (freq ${(heads / n).toFixed(2)}), convergence line drawn, side-nav highlights "${crumbT.textContent}"`; };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['alg0-step-visualizer'])(root, T); }

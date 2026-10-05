@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-seeing-theory-coin-flip-frequency",
+  "slug": "seeing-theory-coin-flip-frequency",
+  "name": "Draggable-Probability Coin Flip with Live Frequency Bars (Seeing Theory)",
+  "date": "2026-10-06",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://seeing-theory.brown.edu/basic-probability/index.html",
+  "domain": "seeing-theory.brown.edu",
+  "product": "Seeing Theory — Brown University",
+  "checkpoints": [
+   "Two-column chapter layout: serif explainer text left, sticky interactive panel right",
+   "Flip / Flip 100 times buttons with an animated coin flip",
+   "Live bar chart comparing observed frequency (orange) vs true probability (blue)",
+   "Drag the blue true-probability bars to weight the coin; bars stay normalized to 1",
+   "Running count and a convergence line that settles as flips accumulate",
+   "Chapter side-nav that highlights the current section on scroll"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-drumbit-step-sequencer-drum-machine",
+  "slug": "drumbit-step-sequencer-drum-machine",
+  "name": "16-Step Drum Machine Sequencer with Kits and FX (drumbit)",
+  "date": "2026-10-06",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://drumbit.app/",
+  "domain": "drumbit.app",
+  "product": "drumbit — online drum machine by João Santos",
+  "checkpoints": [
+   "Hardware-style panel: rows per instrument, 16 pad steps grouped in fours",
+   "Click/drag to toggle steps; playhead column lights up in time with Web Audio",
+   "Tempo (BPM) and swing controls plus a master volume knob",
+   "Demo pattern dropdown (Rock, Funk, Bossa Nova, Hip-Hop, House) that loads presets",
+   "Pattern slots 1–4 with copy/paste and Space to play/stop",
+   "Per-row volume/pan plus a low/high-pass filter section, state saved to localStorage"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-animejs-live-feature-demo-home",
+  "slug": "animejs-live-feature-demo-home",
+  "name": "Animation-Library Home with Live Feature Demos (Anime.js v4)",
+  "date": "2026-10-06",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://animejs.com/",
+  "domain": "animejs.com",
+  "product": "Anime.js — JavaScript Animation Engine",
+  "checkpoints": [
+   "Dark hero with an animated wordmark and a copyable npm i animejs pill",
+   "Feature sections (Intuitive API, Enhanced transforms, Scroll Observer, Stagger, SVG toolset, Springs) each with a live demo stage",
+   "Stagger grid demo that ripples from the clicked cell",
+   "SVG line-drawing and shape-morph demo triggered on scroll into view",
+   "Spring demo with draggable element that snaps back",
+   "Version switcher and sticky top nav that blurs on scroll"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-townscaper-procedural-town-builder",
   "slug": "townscaper-procedural-town-builder",
   "name": "Procedural Click-to-Build Island Town (Townscaper)",
