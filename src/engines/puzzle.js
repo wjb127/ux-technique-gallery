@@ -1,3 +1,4 @@
+import '@fontsource-variable/fraunces';
 import '@fontsource-variable/roboto-flex/full.css';
 import '@fontsource/press-start-2p';
 import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip } from '../lib.js';
@@ -696,6 +697,51 @@ V['tetrio-game-client-menu'] = (root, T) => {
   // live-ish counters
   const iv = setInterval(() => { if (!root.isConnected) return clearInterval(iv); S.forEach((x, i) => { x[2] += Math.floor(Math.random() * [3, 40, 6][i]); x[1].textContent = x[2].toLocaleString('en-US'); }); }, 1200);
   window.__demoProof = async () => { inp.value = 'junbok'; join(); await sleep(420); const a = list.children.length; await show('solo'); await sleep(200); const b = list.children.length; await show('home'); reset(); return `joined → home menu (${a} panels) → solo submenu (${b} modes) → back; reset to welcome`; };
+};
+
+V['nyt-connections-word-group-grid'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#000', ac: '#000', dark: false });
+  const SANS = "'Roboto Flex Variable','Inter Variable',Helvetica,sans-serif"; root.style.fontFamily = SANS; root.style.overflow = 'auto';
+  const st = document.createElement('style'); st.textContent = `@keyframes cx-hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes cx-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}@keyframes cx-pop{0%{transform:scale(.9);opacity:.2}100%{transform:scale(1);opacity:1}}@keyframes cx-fade{0%{opacity:0;transform:translate(-50%,-6px)}15%,85%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}`; root.append(st);
+  const GROUPS = [
+    { c: '#f9df6d', name: 'THINGS WITH KEYS', w: ['PIANO', 'LOCKSMITH', 'MAP', 'KEYBOARD'] },
+    { c: '#a0c35a', name: 'SHADES OF BLUE', w: ['NAVY', 'TEAL', 'AZURE', 'COBALT'] },
+    { c: '#b0c4ef', name: 'COFFEE ORDERS', w: ['LATTE', 'MOCHA', 'CORTADO', 'FLAT WHITE'] },
+    { c: '#ba81c5', name: '___BOARD', w: ['SKATE', 'DASH', 'CLIP', 'SURF'] }];
+  const WC = Object.fromEntries(GROUPS.flatMap((g, i) => g.w.map((w) => [w, i])));
+  let words, sel, solved, mistakes, hist, busy;
+  const sq = ['🟨', '🟩', '🟦', '🟪'];
+  const solvedEl = h('div', { style: { display: 'grid', gap: '8px' } }); const gridEl = h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '8px' } });
+  const dots = h('div.k-row', { style: { gap: '10px' } }); const toastEl = h('div', { style: { position: 'absolute', left: '50%', top: '128px', background: '#000', color: '#fff', padding: '12px 16px', borderRadius: '4px', fontWeight: 700, fontSize: '15px', opacity: 0, pointerEvents: 'none', zIndex: 5, transform: 'translateX(-50%)' } });
+  const say = (t) => { toastEl.textContent = t; toastEl.style.animation = 'none'; void toastEl.offsetWidth; toastEl.style.animation = 'cx-fade 2s forwards'; };
+  const pillB = (t, on) => { const b = h('button', { onclick: on, style: { border: '1px solid #000', background: '#fff', color: '#000', borderRadius: '99px', padding: '0 18px', height: '48px', minWidth: '118px', fontWeight: 600, fontSize: '16px', fontFamily: SANS } }, t); return b; };
+  const shuffleB = pillB('Shuffle', () => { words = words.sort(() => Math.random() - 0.5); draw(); }), deselB = pillB('Deselect All', () => { sel.clear(); draw(); }), subB = pillB('Submit', () => submit());
+  const tiles = new Map();
+  const draw = () => {
+    solvedEl.replaceChildren(...solved.map((gi) => { const g = GROUPS[gi]; return h('div', { style: { background: g.c, borderRadius: '6px', height: '80px', display: 'grid', placeContent: 'center', textAlign: 'center', animation: 'cx-pop .35s ease-out', gridColumn: '1/-1' } }, h('div', { style: { fontWeight: 800, fontSize: '20px', fontVariationSettings: "'wdth' 80" } }, g.name), h('div', { style: { fontSize: '19px', marginTop: '2px' } }, g.w.join(', '))); }));
+    tiles.clear(); gridEl.replaceChildren(...words.map((w) => { const on = sel.has(w); const el = h('button', { onclick: () => { if (busy) return; if (on) sel.delete(w); else if (sel.size < 4) sel.add(w); draw(); }, style: { height: '80px', border: 0, borderRadius: '6px', background: on ? '#5a594e' : '#efefe6', color: on ? '#fff' : '#000', fontFamily: SANS, fontWeight: 800, fontSize: w.length > 8 ? '15px' : '20px', fontVariationSettings: "'wdth' 75", letterSpacing: '.01em', transition: 'background .12s, transform .12s', textTransform: 'uppercase' } }, w); tiles.set(w, el); return el; }));
+    dots.replaceChildren(h('span', { style: { fontSize: '16px', marginRight: '4px' } }, 'Mistakes Remaining:'), ...Array.from({ length: 4 }, (_, i) => h('span', { style: { width: '16px', height: '16px', borderRadius: '50%', background: '#5a594e', opacity: i < mistakes ? 1 : 0, transition: 'opacity .4s, transform .4s', transform: i < mistakes ? 'scale(1)' : 'scale(.2)' } })));
+    const can = sel.size === 4 && !busy; subB.style.background = can ? '#000' : '#fff'; subB.style.color = can ? '#fff' : '#000'; subB.style.opacity = can || sel.size === 4 ? 1 : 0.45; deselB.style.opacity = sel.size ? 1 : 0.45;
+  };
+  const submit = async () => {
+    if (sel.size !== 4 || busy) return; busy = true; const picked = words.filter((w) => sel.has(w)); const key = [...picked].sort().join('|');
+    if (hist.some((x) => x.key === key)) { say('Already guessed!'); busy = false; return; }
+    for (const [i, w] of picked.entries()) { await sleep(110); const t = tiles.get(w); t.style.animation = 'none'; void t.offsetWidth; t.style.animation = 'cx-hop .32s ease'; blip(520 + i * 70, 0.06, 'sine', 0.05); }
+    await sleep(380); const cnt = [0, 0, 0, 0]; picked.forEach((w) => cnt[WC[w]]++); const best = Math.max(...cnt), gi = cnt.indexOf(best); hist.push({ key, row: picked.map((w) => WC[w]) });
+    if (best === 4) { solved.push(gi); words = words.filter((w) => !sel.has(w)); sel.clear(); blip(880, 0.15, 'triangle', 0.07); }
+    else { picked.forEach((w) => { const t = tiles.get(w); t.style.animation = 'none'; void t.offsetWidth; t.style.animation = 'cx-shake .4s'; }); await sleep(420); mistakes--; if (best === 3) say('One away...'); blip(180, 0.2, 'sawtooth', 0.04); }
+    busy = false; draw();
+    if (solved.length === 4 || mistakes === 0) { if (mistakes === 0) { for (const g of GROUPS.map((_, i) => i).filter((i) => !solved.includes(i))) { await sleep(450); solved.push(g); words = words.filter((w) => WC[w] !== g); draw(); } } await sleep(600); end(); }
+  };
+  const result = () => `Connections-ish\nPuzzle #${T.date || ''}\n` + hist.map((x) => x.row.map((i) => sq[i]).join('')).join('\n');
+  const modal = h('div', { style: { position: 'absolute', inset: 0, background: '#ffffffd9', display: 'none', placeItems: 'center', zIndex: 6 } });
+  const end = () => { const win = solved.length === 4 && mistakes > 0; modal.replaceChildren(h('div', { style: { background: '#fff', boxShadow: '0 6px 30px #0003', borderRadius: '8px', padding: '36px 56px', textAlign: 'center', minWidth: '360px', animation: 'cx-pop .3s' } }, h('div', { style: { textAlign: 'right', marginTop: '-20px', marginRight: '-36px' } }, h('button', { onclick: () => (modal.style.display = 'none'), style: { border: 0, background: 'none', fontSize: '20px' } }, '✕')), h('div', { style: { fontFamily: "'Fraunces Variable',Georgia,serif", fontWeight: 800, fontSize: '34px' } }, win ? (mistakes === 4 ? 'Perfect!' : 'Great!') : 'Next Time!'), h('div', { style: { margin: '6px 0 18px', fontSize: '16px' } }, `Connections-ish #${T.date || ''}`), h('div', { style: { fontSize: '26px', lineHeight: 1.15, letterSpacing: '2px' } }, ...hist.map((x) => h('div', {}, x.row.map((i) => sq[i]).join('')))), h('div.k-row', { style: { justifyContent: 'center', marginTop: '22px', gap: '10px' } }, h('button', { onclick: () => copy(result(), 'Results copied'), style: { background: '#000', color: '#fff', border: 0, borderRadius: '99px', height: '48px', padding: '0 28px', fontWeight: 700, fontSize: '16px' } }, 'Share Your Results'), pillB('Play Again', () => { modal.style.display = 'none'; reset(); })))); modal.style.display = 'grid'; };
+  const reset = () => { words = GROUPS.flatMap((g) => g.w).sort(() => Math.random() - 0.5); sel = new Set(); solved = []; mistakes = 4; hist = []; busy = false; modal.style.display = 'none'; draw(); };
+  const top = h('div', { style: { borderBottom: '1px solid #dcdcdc', height: '52px', display: 'flex', alignItems: 'center', padding: '0 20px', gap: '14px' } }, h('span', { style: { fontSize: '20px' } }, '☰'), h('b', { style: { fontFamily: "'Fraunces Variable',Georgia,serif", fontSize: '22px', fontWeight: 800 } }, 'T | Games-ish'), h('span', { style: { flex: 1 } }), h('span', { style: { fontSize: '20px' } }, '⚙︎'), h('span', { style: { fontSize: '18px' } }, '?'));
+  const head = h('div', { style: { borderBottom: '1px solid #dcdcdc', padding: '14px 0' } }, h('div', { style: { maxWidth: '660px', margin: '0 auto', display: 'flex', alignItems: 'baseline', gap: '12px', padding: '0 10px' } }, h('b', { style: { fontFamily: "'Fraunces Variable',Georgia,serif", fontWeight: 900, fontSize: '30px', letterSpacing: '-.01em' } }, 'Connections-ish'), h('span', { style: { fontSize: '22px', fontWeight: 300 } }, 'October 6, 2026')));
+  const body = h('div', { style: { maxWidth: '640px', margin: '0 auto', padding: '22px 10px', display: 'grid', gap: '8px', justifyItems: 'stretch' } }, h('div', { style: { textAlign: 'center', fontSize: '17px', margin: '4px 0 14px' } }, 'Create four groups of four!'), solvedEl, gridEl, h('div', { style: { display: 'flex', justifyContent: 'center', margin: '18px 0 8px' } }, dots), h('div.k-row', { style: { justifyContent: 'center', gap: '10px', marginTop: '10px' } }, shuffleB, deselB, subB));
+  root.append(top, head, body, toastEl, modal); reset();
+  window.__demoProof = async () => { const near = [...GROUPS[0].w.slice(0, 3), GROUPS[1].w[0]]; sel = new Set(near); draw(); await submit(); const afterWrong = mistakes; sel = new Set(GROUPS[3].w); draw(); await submit(); const bands = solved.length; for (const g of [0, 1, 2]) { sel = new Set(GROUPS[g].w); draw(); await submit(); } await sleep(700); const ended = modal.style.display === 'grid'; const share = result().split('\n').length; reset(); return `one-away wrong guess (mistakes ${afterWrong}/4) → purple band solved (${bands}) → all 4 solved, end screen=${ended}, share grid ${share - 2} rows; reset`; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

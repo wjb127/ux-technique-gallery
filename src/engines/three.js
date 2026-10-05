@@ -1980,4 +1980,81 @@ V['abeto-messenger-tiny-planet'] = (root, T) => {
   };
 };
 
+V['townscaper-procedural-town-builder'] = (root, T) => {
+  theme(root, T, { bg: '#bfe0dc', fg: '#24474a', ac: '#e8846b', dark: false });
+  root.style.fontFamily = "'Roboto Flex Variable','Inter Variable',system-ui,sans-serif";
+  const BG = 0xbfe0dc; const S = stage(root, { bg: '#bfe0dc' }); S.scene.fog = new THREE.Fog(BG, 24, 62);
+  S.r.shadowMap.enabled = true; S.r.shadowMap.type = THREE.PCFSoftShadowMap;
+  const d = lights(S.scene, 1.05); d.position.set(9, 15, 6); Object.assign(d.shadow.camera, { left: -14, bottom: -14, right: 14, top: 14 }); d.shadow.bias = -0.0006;
+  const HOME = [13, 11, 15]; S.cam.position.set(...HOME);
+  const ctl = new OrbitControls(S.cam, S.r.domElement); ctl.enableDamping = true; ctl.target.set(0.5, 1, 0.5); ctl.minDistance = 7; ctl.maxDistance = 45; ctl.maxPolarAngle = 1.42; ctl.enablePan = false; ctl.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: -1 };
+  const water = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0x8fd0c9, roughness: 0.3, metalness: 0.05 })); water.rotation.x = -Math.PI / 2; water.receiveShadow = true; S.scene.add(water);
+  const N = 7; const grid = new THREE.GridHelper(N * 2, N * 2, 0xffffff, 0xffffff); grid.material.transparent = true; grid.material.opacity = 0.22; grid.position.set(0, 0.012, 0); S.scene.add(grid);
+  const PAL = ['#f6e7c8', '#f4b8a2', '#ea8d7c', '#f6d67a', '#b9d98d', '#8fc6d9', '#aaa6e2', '#fbf7ef', '#d8b48e'];
+  let cur = 1; const town = new Map(); const K = (x, y, z) => `${x},${y},${z}`; const has = (x, y, z) => town.has(K(x, y, z));
+  const mats = {}; const mat = (c) => (mats[c] ||= new THREE.MeshStandardMaterial({ color: c, roughness: 0.82 }));
+  const darker = (c, k = 0.72) => '#' + new THREE.Color(c).multiplyScalar(k).getHexString();
+  const G = { box: new THREE.BoxGeometry(1, 1, 1), plinth: new THREE.BoxGeometry(1.1, 0.16, 1.1), win: new THREE.BoxGeometry(0.24, 0.32, 0.05), sill: new THREE.BoxGeometry(0.32, 0.05, 0.09), post: new THREE.BoxGeometry(0.06, 0.24, 0.06), rail: new THREE.BoxGeometry(1, 0.05, 0.05), slab: new THREE.BoxGeometry(1.06, 0.08, 1.06), chim: new THREE.BoxGeometry(0.16, 0.36, 0.16) };
+  const arch = new THREE.Shape(); arch.moveTo(-0.5, -0.5); arch.lineTo(-0.5, 0.5); arch.lineTo(0.5, 0.5); arch.lineTo(0.5, -0.5); arch.lineTo(0.32, -0.5); arch.absarc(0, -0.5, 0.32, 0, Math.PI, false); arch.lineTo(-0.5, -0.5);
+  G.arch = new THREE.ExtrudeGeometry(arch, { depth: 1, bevelEnabled: false, curveSegments: 18 }); G.arch.translate(0, 0, -0.5);
+  const tri = new THREE.Shape(); tri.moveTo(-0.6, 0); tri.lineTo(0.6, 0); tri.lineTo(0, 0.56); tri.lineTo(-0.6, 0); G.roof = new THREE.ExtrudeGeometry(tri, { depth: 1.12, bevelEnabled: false }); G.roof.translate(0, 0, -0.56);
+  const DIRS = [[1, 0], [-1, 0], [0, 1], [0, -1]]; const hash = (x, y, z) => Math.abs((x * 73856093) ^ (y * 19349663) ^ (z * 83492791)) % 97;
+  const townG = new THREE.Group(); S.scene.add(townG); let groups = new Map(); const anims = [];
+  const part = (g, geo, color, x, y, z, ry = 0) => { const m = new THREE.Mesh(geo, mat(color)); m.position.set(x, y, z); m.rotation.y = ry; m.castShadow = m.receiveShadow = true; g.add(m); return m; };
+  const build = (popKey) => {
+    townG.clear(); groups = new Map();
+    for (const [key, ci] of town) {
+      const [x, y, z] = key.split(',').map(Number); const c = PAL[ci]; const g = new THREE.Group(); g.position.set(x + 0.5, y + 0.5, z + 0.5); g.userData.key = key;
+      const below = y > 0 && !has(x, y - 1, z), above = has(x, y + 1, z);
+      if (below) { const alongX = has(x - 1, y, z) || has(x + 1, y, z); part(g, G.arch, c, 0, 0, 0, alongX ? 0 : Math.PI / 2); }
+      else part(g, G.box, c, 0, 0, 0);
+      if (y === 0) part(g, G.plinth, '#d9d2c3', 0, -0.47, 0);
+      for (const [dx, dz] of DIRS) if (!has(x + dx, y, z + dz) && !below) { const w = part(g, G.win, '#3e5a63', dx * 0.5, 0.06, dz * 0.5, dx ? Math.PI / 2 : 0); const sl = part(g, G.sill, '#ffffff', dx * 0.52, -0.13, dz * 0.52, dx ? Math.PI / 2 : 0); w.castShadow = sl.castShadow = false; }
+      if (!above) {
+        const terrace = DIRS.some(([dx, dz]) => has(x + dx, y + 1, z + dz));
+        if (terrace) { part(g, G.slab, '#efe9dc', 0, 0.52, 0); for (const [dx, dz] of DIRS) if (!has(x + dx, y + 1, z + dz) && !has(x + dx, y, z + dz)) { part(g, G.rail, '#ffffff', dx * 0.48, 0.78, dz * 0.48, dx ? Math.PI / 2 : 0); for (const o of [-0.42, 0, 0.42]) part(g, G.post, '#ffffff', dx * 0.48 + (dx ? 0 : o), 0.66, dz * 0.48 + (dz ? 0 : o)); } }
+        else { const hh = hash(x, y, z); part(g, G.roof, darker(ci === 2 ? '#c75a48' : '#d26a52', 1 - (hh % 3) * 0.06), 0, 0.5, 0, hh % 2 ? Math.PI / 2 : 0); if (hh % 4 === 0) part(g, G.chim, '#b8b0a2', 0.22, 0.86, 0.18); }
+      }
+      townG.add(g); groups.set(key, g);
+      if (key === popKey) { g.scale.setScalar(0.01); anims.push({ g, t0: performance.now(), kind: 'in' }); }
+    }
+  };
+  const cursor = new THREE.Mesh(new THREE.BoxGeometry(1.02, 1.02, 1.02), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.35, depthWrite: false })); cursor.visible = false; S.scene.add(cursor);
+  const ray = new THREE.Raycaster(), mv = new THREE.Vector2();
+  const target = (e, remove) => {
+    const r = S.r.domElement.getBoundingClientRect(); mv.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); ray.setFromCamera(mv, S.cam);
+    const hit = ray.intersectObjects([townG, water], true)[0]; if (!hit) return null;
+    if (hit.object === water) { const x = Math.floor(hit.point.x), z = Math.floor(hit.point.z); if (remove || x < -N || x >= N || z < -N || z >= N) return null; return { add: [x, 0, z] }; }
+    let o = hit.object; while (o && !o.userData.key) o = o.parent; if (!o) return null; const [bx, by, bz] = o.userData.key.split(',').map(Number);
+    if (remove) return { del: o.userData.key, at: [bx, by, bz] };
+    const n = hit.face.normal.clone().transformDirection(hit.object.matrixWorld); let t;
+    if (n.y > 0.45) t = [bx, by + 1, bz]; else if (n.y < -0.6) t = [bx, by - 1, bz]; else t = Math.abs(n.x) > Math.abs(n.z) ? [bx + Math.sign(n.x), by, bz] : [bx, by, bz + Math.sign(n.z)];
+    if (t[1] < 0 || t[1] > 9 || t[0] < -N || t[0] >= N || t[2] < -N || t[2] >= N || has(...t)) return null; return { add: t };
+  };
+  const addAt = (x, y, z, ci = cur) => { town.set(K(x, y, z), ci); build(K(x, y, z)); blip(480 + y * 70 + Math.random() * 40, 0.09, 'triangle', 0.07); upd(); };
+  const delAt = (key) => { const g = groups.get(key); town.delete(key); if (g) { townG.remove(g); S.scene.add(g); anims.push({ g, t0: performance.now(), kind: 'out' }); } build(); blip(260, 0.08, 'sine', 0.06); upd(); };
+  let down = null; const cv = S.r.domElement; cv.style.cursor = 'pointer';
+  cv.addEventListener('contextmenu', (e) => e.preventDefault());
+  cv.addEventListener('pointerdown', (e) => (down = { x: e.clientX, y: e.clientY, b: e.button }));
+  cv.addEventListener('pointerup', (e) => { if (!down) return; const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y) > 5, b = down.b; down = null; if (moved) return; const t = target(e, b === 2 || e.shiftKey); if (!t) return; t.del ? delAt(t.del) : addAt(...t.add); });
+  cv.addEventListener('pointermove', (e) => { if (e.buttons) { cursor.visible = false; return; } const t = target(e, false); cursor.visible = !!t; if (t) cursor.position.set(t.add[0] + 0.5, t.add[1] + 0.5, t.add[2] + 0.5); });
+  cv.addEventListener('pointerleave', () => (cursor.visible = false));
+  S.on((t) => { ctl.target.y = 1 + Math.sin(t * 0.7) * 0.09; ctl.update(); const now = performance.now();
+    for (let i = anims.length - 1; i >= 0; i--) { const a = anims[i], k = (now - a.t0) / 1000; if (a.kind === 'in') { const sc = k > 1.2 ? 1 : 1 - Math.exp(-7 * k) * Math.cos(13 * k); a.g.scale.setScalar(Math.max(0.01, sc)); if (k > 1.2) anims.splice(i, 1); } else { const sc = Math.max(0.01, 1 - k / 0.2) * (1 + Math.sin(Math.min(1, k / 0.2) * Math.PI) * 0.15); a.g.scale.setScalar(sc); if (k > 0.2) { S.scene.remove(a.g); anims.splice(i, 1); } } } });
+  const SEED = [[0, 0, 0, 0], [1, 0, 0, 1], [2, 0, 0, 2], [0, 0, 1, 3], [1, 0, 1, 0], [-1, 0, 0, 4], [-1, 1, 0, 4], [0, 1, 0, 7], [0, 2, 0, 7], [2, 0, 1, 5], [2, 1, 1, 5], [3, 0, 1, 1], [3, 1, 1, 1], [4, 1, 1, 7], [5, 0, 1, 6], [5, 1, 1, 6], [-2, 0, 2, 6], [-1, 0, 2, 6], [-1, 0, 3, 2], [1, 1, 1, 0], [1, 2, 1, 3], [-2, 0, -1, 8], [-2, 1, -1, 8], [-3, 0, -1, 3], [0, 0, -2, 1], [1, 0, -2, 1], [1, 1, -2, 2]];
+  const seed = () => { town.clear(); SEED.forEach(([x, y, z, c]) => town.set(K(x, y, z), c)); build(); upd(); };
+  const resetView = () => { S.cam.position.set(...HOME); ctl.target.set(0.5, 1, 0.5); ctl.update(); };
+  const sw = PAL.map((c, i) => h('button', { title: c, onclick: () => { cur = i; sw.forEach((b, j) => (b.style.transform = j === cur ? 'translateY(-8px) scale(1.12)' : '')); blip(660 + i * 30, 0.05, 'sine', 0.04); }, style: { width: '38px', height: '38px', borderRadius: '50%', border: '3px solid #fff', background: c, boxShadow: '0 4px 10px #2a4f5233', transition: 'transform .25s cubic-bezier(.3,1.6,.5,1)', padding: 0 } }));
+  sw[cur].style.transform = 'translateY(-8px) scale(1.12)';
+  const count = h('span');
+  const upd = () => (count.textContent = `${town.size} blocks`);
+  const chip = (t, on) => h('button', { onclick: on, style: { border: 0, background: '#ffffffcc', color: '#24474a', borderRadius: '99px', padding: '8px 14px', fontWeight: 700, fontSize: '12px', boxShadow: '0 4px 12px #2a4f5222' } }, t);
+  root.append(
+    h('div', { style: { position: 'absolute', left: '22px', top: '18px', zIndex: 2, color: '#fff', textShadow: '0 2px 8px #2a4f5244' } }, h('div', { style: { font: "900 26px 'Press Start 2P',monospace", letterSpacing: '.18em', fontSize: '18px' } }, 'TOWNSCAPER-ish'), h('div', { style: { fontSize: '12px', marginTop: '8px', opacity: .95, fontWeight: 600 } }, '클릭 = 블록 놓기 · 블록 위 클릭 = 쌓기 · 우클릭(Shift+클릭) = 지우기 · 드래그 = 회전 · 휠 = 줌')),
+    h('div.k-row', { style: { position: 'absolute', right: '20px', top: '18px', zIndex: 2 } }, h('span', { style: { fontSize: '12px', fontWeight: 700, color: '#24474a', marginRight: '6px' } }, count), chip('⟲ 시점 리셋', resetView), chip('🏝 예시 마을', seed), chip('🗑 모두 지우기', () => { town.clear(); build(); upd(); })),
+    h('div.k-row', { style: { position: 'absolute', left: '50%', bottom: '22px', transform: 'translateX(-50%)', zIndex: 2, gap: '12px', background: '#ffffff55', padding: '12px 18px 10px', borderRadius: '99px', backdropFilter: 'blur(6px)' } }, ...sw));
+  seed();
+  window.__demoProof = async () => { const n0 = town.size; addAt(-5, 0, -4, 5); await sleep(120); addAt(-5, 1, -4, 2); await sleep(120); const roofed = !has(-5, 2, -4); addAt(-4, 1, -4, 7); await sleep(120); const archOk = town.has(K(-4, 1, -4)) && !has(-4, 0, -4); const n1 = town.size; delAt(K(-4, 1, -4)); delAt(K(-5, 1, -4)); delAt(K(-5, 0, -4)); await sleep(300); seed(); resetView(); return `placed 3 blocks (stack + arch=${archOk}, roof on top=${roofed}) ${n0}→${n1}, removed them → ${town.size}; restored seed town`; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }

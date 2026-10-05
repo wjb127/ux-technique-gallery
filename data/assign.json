@@ -252,7 +252,8 @@
   "math-manipulatives-playground",
   "timeguessr-historic-photo-quiz",
   "purl-visual-game-engine",
-  "tetrio-game-client-menu"
+  "tetrio-game-client-menu",
+  "nyt-connections-word-group-grid"
  ],
  "audio": [
   "key-av-instrument",
@@ -305,7 +306,8 @@
   "georgeandjonathan-album-experience",
   "toootegram-playlist-zoo",
   "lusion-3d-studio-stage",
-  "abeto-messenger-tiny-planet"
+  "abeto-messenger-tiny-planet",
+  "townscaper-procedural-town-builder"
  ],
  "saas": [
   "pricing-tier-cards",
@@ -328,7 +330,8 @@
   "ponpon-interactive-comic",
   "lenis-smooth-scroll-stage",
   "aesop-editorial-fragrance-shop",
-  "flighty-live-flight-notification-hero"
+  "flighty-live-flight-notification-hero",
+  "rsw-random-essay-page-gallery"
  ],
  "ux": [
   "5-state-gate",

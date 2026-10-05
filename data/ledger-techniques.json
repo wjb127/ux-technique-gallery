@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-townscaper-procedural-town-builder",
+  "slug": "townscaper-procedural-town-builder",
+  "name": "Procedural Click-to-Build Island Town (Townscaper)",
+  "date": "2026-10-06",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://oskarstalberg.com/Townscaper/",
+  "domain": "oskarstalberg.com",
+  "product": "Townscaper (Oskar Stålberg)",
+  "checkpoints": [
+   "Pastel sea plane with soft fog and a gentle bobbing camera",
+   "Grid cells on the water: click to drop a block, click on top to stack, right-click to remove",
+   "Neighbor-aware auto shapes: top block gets a roof, stacked gaps become arches, edge blocks get railings",
+   "Bottom color palette (8–10 pastel swatches) that tints the next block",
+   "Spring pop-in/pop-out animation on add/remove with a soft click sound",
+   "Drag to orbit, wheel to zoom, and a reset/clear button"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-nyt-connections-word-group-grid",
+  "slug": "nyt-connections-word-group-grid",
+  "name": "4x4 Word-Group Puzzle Grid (NYT Connections)",
+  "date": "2026-10-06",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.nytimes.com/games/connections",
+  "domain": "nytimes.com",
+  "product": "Connections — The New York Times Games",
+  "checkpoints": [
+   "4x4 grid of rounded word tiles in a bold condensed sans",
+   "Select up to 4 tiles (dark fill), Shuffle / Deselect all / Submit buttons",
+   "On submit, selected tiles hop in sequence before the verdict",
+   "Wrong guess shakes the row and removes one of 4 mistake dots; \"One away…\" toast",
+   "Correct group collapses into a colored band (yellow/green/blue/purple) with category name",
+   "End screen with emoji-style colored result grid and a share/copy button"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-rsw-random-essay-page-gallery",
+  "slug": "rsw-random-essay-page-gallery",
+  "name": "Randomized Essay First-Page Gallery (Read Something Wonderful)",
+  "date": "2026-10-06",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://readsomethingwonderful.com/",
+  "domain": "readsomethingwonderful.com",
+  "product": "Read Something Wonderful (by Matter)",
+  "checkpoints": [
+   "Warm paper-toned canvas with a serif masthead and short manifesto intro",
+   "Gallery of article \"first page\" cards rendered like printed pages (title, author, year, opening paragraphs)",
+   "Order is shuffled on every visit (seeded random, with a reshuffle button)",
+   "Hover lifts a card with soft shadow; click opens a reader overlay with the full first page and an outbound link",
+   "Lazy reveal of cards on scroll with staggered fade-up",
+   "Curator credits footer and a \"read later\" save toggle persisted to localStorage"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-pokeholo-holographic-card-tilt",
   "slug": "pokeholo-holographic-card-tilt",
   "name": "Holographic Trading Card Tilt (poke-holo)",
