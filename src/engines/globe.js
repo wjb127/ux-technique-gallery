@@ -1,7 +1,7 @@
 import { geoDistance, geoOrthographic, geoEquirectangular, geoPath, geoGraticule10, geoInterpolate, geoMercator } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import countries110 from 'world-atlas/countries-110m.json';
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas, blip } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas, blip, fire } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const LAND = feature(countries110, countries110.objects.land); const COUNTRIES = feature(countries110, countries110.objects.countries); const BORDERS = mesh(countries110, countries110.objects.countries, (a, b) => a !== b);
 const CITIES = [['Seoul', 126.98, 37.57], ['Tokyo', 139.69, 35.69], ['New York', -74, 40.71], ['London', -0.13, 51.5], ['Paris', 2.35, 48.86], ['Berlin', 13.4, 52.52], ['São Paulo', -46.63, -23.55], ['Lagos', 3.38, 6.52], ['Cairo', 31.24, 30.04], ['Mumbai', 72.88, 19.08], ['Sydney', 151.21, -33.87], ['Mexico City', -99.13, 19.43], ['Los Angeles', -118.24, 34.05], ['Nairobi', 36.82, -1.29], ['Reykjavík', -21.9, 64.15], ['Buenos Aires', -58.38, -34.6], ['Jakarta', 106.85, -6.21], ['Istanbul', 28.98, 41.01], ['Toronto', -79.38, 43.65], ['Cape Town', 18.42, -33.92]];
@@ -1240,6 +1240,99 @@ V['citylines-transit-history-map'] = (root, T) => {
     play(); await sleep(450); const py = year; stop(); setYear(2026, true);
     return `1950: ${a.open} lines ${Math.round(a.km)} km → 1995: ${b.open} lines → 2026: ${c.open} lines ${Math.round(c.km)} km, ${c.st} stations; Yamanote toggle off → ${d.open}; playback reached ${py}`;
   };
+};
+
+V['cobe-globe-demo-carousel'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#111', ac: '#1f3dff', dark: false });
+  const M = "'JetBrains Mono Variable',ui-monospace,monospace", BLUE = '#1f3dff';
+  root.classList.add('scroll'); Object.assign(root.style, { overflow: 'auto', background: '#fff', color: '#222', fontFamily: M });
+  root.append(h('style', {}, `.cb-lab{position:absolute;transform:translate(-50%,-100%);font:600 9px ${M};letter-spacing:.08em;padding:4px 6px;white-space:nowrap;pointer-events:none;transition:opacity .2s}.cb-lab:after{content:'';position:absolute;left:50%;bottom:-6px;width:5px;height:5px;border-radius:50%;background:${BLUE};transform:translateX(-50%)}.cb-arcl{position:absolute;transform:translate(-50%,-50%);font:600 8.5px ${M};letter-spacing:.08em;padding:4px 6px;background:#fff;color:${BLUE};box-shadow:0 1px 6px #0002;white-space:nowrap;pointer-events:none}.cb-nav{width:30px;height:30px;border:1px solid #ccc;background:#fff;cursor:pointer;font:14px ${M};color:#333}.cb-nav:hover{border-color:${BLUE};color:${BLUE}}.cb-tab{font:10px ${M};padding:6px 10px;cursor:pointer;color:#b8c3ff;letter-spacing:.04em}.cb-tab.on{color:#fff}.cb-lnk{color:${BLUE};text-decoration:none;cursor:pointer}.cb-lnk:hover{text-decoration:underline}`));
+  // land mask -> dot list (equal-area-ish sampling)
+  const mask = document.createElement('canvas'); mask.width = 720; mask.height = 360; const mx = mask.getContext('2d');
+  mx.fillStyle = '#000'; mx.beginPath(); geoPath(geoEquirectangular().scale(720 / (2 * Math.PI)).translate([360, 180]), mx)(LAND); mx.fill();
+  const md = mx.getImageData(0, 0, 720, 360).data; const DOTS = []; const inv = md[((180 - 20) * 720 + (360 + 40)) * 4 + 3] < 100; // Chad (20E,10N) must be land; flip if winding inverted
+  for (let lat = -58; lat <= 82; lat += 1.55) { const step = 1.55 / Math.max(0.2, Math.cos((lat * Math.PI) / 180)); for (let lon = -180; lon < 180; lon += step) { const x = Math.floor(((lon + 180) / 360) * 720), y = Math.floor(((90 - lat) / 180) * 360); if ((md[(y * 720 + x) * 4 + 3] > 100) !== inv) DOTS.push([lon, lat]); } }
+  const PL = { sf: ['SAN FRANCISCO', -122.42, 37.77], ny: ['NEW YORK', -74, 40.71], sp: ['SÃO PAULO', -46.63, -23.55], tk: ['TOKYO', 139.69, 35.69], ld: ['LONDON', -0.13, 51.5], sy: ['SYDNEY', 151.2, -33.87], sl: ['SEOUL', 126.98, 37.57], lg: ['LAGOS', 3.38, 6.52], mb: ['MUMBAI', 72.88, 19.08] };
+  const DEMOS = [
+    { n: 'COBE V2', labels: ['sf', 'ny', 'sp'], arcs: [['sf', 'tk', 'SF → TOKYO'], ['ny', 'ld', 'NYC → LONDON']], ring: true, word: true },
+    { n: 'STICKERS', stickers: { sf: '🌉', ny: '🗽', ld: '💂', tk: '🗼', sy: '🦘', sp: '⚽' } },
+    { n: 'LABELS', labels: ['sf', 'ny', 'ld', 'tk', 'sl', 'sp'] },
+    { n: 'FLIGHTS', arcs: [['sf', 'tk', 'SFO → HND'], ['ny', 'ld', 'JFK → LHR'], ['ld', 'mb', 'LHR → BOM'], ['sp', 'lg', 'GRU → LOS']], planes: true },
+    { n: 'PULSE', pulse: ['sf', 'ny', 'ld', 'tk', 'sy', 'sp', 'lg', 'mb', 'sl'] },
+    { n: 'WEATHER', weather: { sf: '☀ 18°', ny: '☁ 12°', ld: '☂ 9°', tk: '☀ 21°', sy: '⛅ 24°', sp: '☂ 26°' } },
+    { n: 'DARK', dark: true, labels: ['ny', 'ld'], ring: true },
+    { n: 'GLOW', glow: true, pulse: ['tk', 'sl', 'sy'] },
+    { n: 'RINGS', ring: true, word: true },
+    { n: 'SATELLITE', sat: true },
+    { n: 'HEATMAP', heat: true },
+    { n: 'MONO', mono: true, labels: ['sf', 'tk'] },
+    { n: 'SUNRISE', sun: true, pulse: ['ld', 'lg'] },
+  ];
+  let di = 0; const st = { lam: 72, phi: -18, v: 0.18, vy: 0 }, W = 560, Hh = 460, cx = W / 2, cy = Hh / 2 - 6, R = 150;
+  const cv = h('canvas', { width: W * 2, height: Hh * 2, style: { width: W + 'px', height: Hh + 'px', display: 'block', cursor: 'grab', touchAction: 'none' } }); const g = cv.getContext('2d'); g.scale(2, 2);
+  const layer = h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } });
+  const word = h('div', { style: { position: 'absolute', left: '50%', top: cy + 'px', transform: 'translate(-50%,-50%)', font: `300 64px ${M}`, letterSpacing: '.12em', color: 'transparent', WebkitTextStroke: `1.2px ${BLUE}`, backgroundImage: `repeating-linear-gradient(0deg, ${BLUE} 0 1.5px, transparent 1.5px 4px)`, WebkitBackgroundClip: 'text', backgroundClip: 'text', pointerEvents: 'none', transition: 'opacity .3s' } }, 'COBE');
+  const stage = h('div', { style: { position: 'relative', width: W + 'px', height: Hh + 'px', margin: '28px auto 0' } }, cv, word, layer);
+  let dragging = false, lx = 0, ly = 0;
+  drag(cv, { start: (e) => { dragging = true; lx = e.clientX; ly = e.clientY; st.v = 0; cv.style.cursor = 'grabbing'; }, move: (e) => { const dx = e.clientX - lx, dy = e.clientY - ly; lx = e.clientX; ly = e.clientY; st.lam += dx * 0.35; st.phi = clamp(st.phi - dy * 0.25, -60, 60); st.v = dx * 0.35; st.vy = -dy * 0.25; }, end: () => { dragging = false; cv.style.cursor = 'grab'; } });
+  const proj = geoOrthographic().clipAngle(90).translate([cx, cy]);
+  const labEls = {}; const arcEls = [];
+  const ringTxt = 'THE 5KB GLOBE LIB · THE 5KB GLOBE LIB · THE 5KB GLOBE LIB · ';
+  let t0 = performance.now();
+  const frame = (now) => {
+    if (!root.isConnected) return; const t = (now - t0) / 1000, D = DEMOS[di];
+    if (!dragging) { st.lam += st.v; st.v += (0.18 - st.v) * 0.02; st.phi += st.vy; st.vy *= 0.92; st.phi += (-18 - st.phi) * 0.004; }
+    proj.rotate([st.lam, st.phi]).scale(R); const ctr = [-st.lam, -st.phi];
+    g.clearRect(0, 0, W, Hh);
+    const dark = !!D.dark; const dotC = D.mono ? '#1f3dff' : dark ? '#e8ecff' : '#111';
+    // halo + sphere
+    const halo = g.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.28); halo.addColorStop(0, D.glow ? '#7d8dff66' : dark ? '#1f3dff33' : '#00000012'); halo.addColorStop(1, '#0000'); g.fillStyle = halo; g.beginPath(); g.arc(cx, cy, R * 1.28, 0, 7); g.fill();
+    const sph = g.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R * 1.02); if (dark) { sph.addColorStop(0, '#2a2f45'); sph.addColorStop(1, '#0b0d16'); } else if (D.sun) { sph.addColorStop(0, '#fff6e6'); sph.addColorStop(1, '#f2d7c2'); } else { sph.addColorStop(0, '#ffffff'); sph.addColorStop(0.7, '#f4f4f6'); sph.addColorStop(1, '#e2e2e6'); }
+    g.fillStyle = sph; g.beginPath(); g.arc(cx, cy, R, 0, 7); g.fill(); g.strokeStyle = dark ? '#3a4060' : '#ffffff'; g.lineWidth = 3; g.stroke();
+    // dots
+    for (let i = 0; i < DOTS.length; i++) { const p = DOTS[i]; const d = geoDistance(p, ctr); if (d > 1.52) continue; const xy = proj(p); if (!xy) continue; const f = Math.cos(d); let c = dotC; if (D.heat) { const hv = (Math.sin(p[0] * 0.07 + t) + Math.cos(p[1] * 0.09)) * 0.5; c = hv > 0.45 ? '#ff3b30' : hv > 0 ? '#ff9f0a' : '#1f3dff'; } g.globalAlpha = 0.25 + 0.75 * f; g.fillStyle = c; g.fillRect(xy[0] - 0.8, xy[1] - 0.8, 1.2 + f * 0.6, 1.2 + f * 0.6); }
+    g.globalAlpha = 1;
+    // ring text (tilted ellipse) — marquee ribbon
+    if (D.ring) { g.font = `600 8px ${M}`; g.fillStyle = BLUE; const n = ringTxt.length; for (let k = 0; k < n; k++) { const a = (k / n) * Math.PI * 2 + t * 0.35; const x = cx + Math.cos(a) * R * 1.13, y = cy + Math.sin(a) * R * 0.36 + Math.cos(a) * 18; const front = Math.sin(a) > 0; g.globalAlpha = front ? 1 : 0.28; g.save(); g.translate(x, y); g.rotate(Math.atan2(Math.cos(a) * R * 0.36, -Math.sin(a) * R * 1.13) + Math.PI); g.fillText(ringTxt[k], 0, 0); g.restore(); } g.globalAlpha = 1; }
+    // satellite orbit
+    if (D.sat) { const a = t * 0.9; g.strokeStyle = '#1f3dff55'; g.setLineDash([2, 4]); g.beginPath(); g.ellipse(cx, cy, R * 1.25, R * 0.45, -0.4, 0, 7); g.stroke(); g.setLineDash([]); const x = cx + Math.cos(a) * R * 1.25 * Math.cos(-0.4) - Math.sin(a) * R * 0.45 * Math.sin(-0.4), y = cy + Math.cos(a) * R * 1.25 * Math.sin(-0.4) + Math.sin(a) * R * 0.45 * Math.cos(-0.4); g.fillStyle = BLUE; g.fillRect(x - 6, y - 2, 12, 4); g.fillRect(x - 2, y - 4, 4, 8); }
+    // arcs
+    const arcs = D.arcs || []; arcs.forEach(([a, b, lab], ai) => { const A = PL[a], B = PL[b]; const ip = geoInterpolate([A[1], A[2]], [B[1], B[2]]); g.strokeStyle = BLUE; g.lineWidth = 1.4; g.beginPath(); let pen = false, mid = null; for (let k = 0; k <= 48; k++) { const u = k / 48, pt = ip(u), alt = 1 + 0.32 * Math.sin(Math.PI * u); const vis = geoDistance(pt, ctr) < 1.57 + (alt - 1) * 1.2; const xy = proj(pt); if (!xy || !vis) { pen = false; continue; } const x = cx + (xy[0] - cx) * alt, y = cy + (xy[1] - cy) * alt; pen ? g.lineTo(x, y) : g.moveTo(x, y); pen = true; if (k === 24) mid = [x, y]; } g.stroke();
+      if (D.planes) { const u = (t * 0.25 + ai * 0.27) % 1, pt = ip(u), alt = 1 + 0.32 * Math.sin(Math.PI * u), xy = proj(pt); if (xy && geoDistance(pt, ctr) < 1.6) { g.fillStyle = BLUE; g.beginPath(); g.arc(cx + (xy[0] - cx) * alt, cy + (xy[1] - cy) * alt, 3, 0, 7); g.fill(); } }
+      const el = arcEls[ai] || (arcEls[ai] = layer.appendChild(h('div.cb-arcl'))); el.textContent = lab; el.style.display = mid ? 'block' : 'none'; if (mid) { el.style.left = mid[0] + 'px'; el.style.top = mid[1] - 12 + 'px'; } });
+    arcEls.forEach((el, i) => { if (i >= arcs.length) el.style.display = 'none'; });
+    // pulses
+    (D.pulse || []).forEach((k, i) => { const p = [PL[k][1], PL[k][2]]; if (geoDistance(p, ctr) > 1.5) return; const [x, y] = proj(p); const ph = (t * 0.8 + i * 0.13) % 1; g.strokeStyle = D.glow ? '#7d8dff' : BLUE; g.globalAlpha = 1 - ph; g.lineWidth = 1.5; g.beginPath(); g.arc(x, y, 3 + ph * 16, 0, 7); g.stroke(); g.globalAlpha = 1; g.fillStyle = BLUE; g.beginPath(); g.arc(x, y, 2.6, 0, 7); g.fill(); });
+    if (D.sun) { const sx = cx - R * 0.95, sy = cy - R * 0.95; const sg = g.createRadialGradient(sx, sy, 0, sx, sy, 70); sg.addColorStop(0, '#ffb34788'); sg.addColorStop(1, '#ffb34700'); g.fillStyle = sg; g.beginPath(); g.arc(sx, sy, 70, 0, 7); g.fill(); }
+    // HTML labels / stickers / weather pinned to positions
+    const want = {}; (D.labels || []).forEach((k) => (want[k] = { t: PL[k][0], kind: 'lab' })); Object.entries(D.stickers || {}).forEach(([k, e]) => (want[k] = { t: e, kind: 'stk' })); Object.entries(D.weather || {}).forEach(([k, e]) => (want[k] = { t: `${PL[k][0]}  ${e}`, kind: 'wx' }));
+    for (const k of Object.keys(PL)) { const w = want[k]; let el = labEls[k]; if (!w) { if (el) el.style.opacity = 0; continue; } if (!el) el = labEls[k] = layer.appendChild(h('div.cb-lab')); const p = [PL[k][1], PL[k][2]]; const d = geoDistance(p, ctr); const xy = proj(p); el.textContent = w.t; Object.assign(el.style, w.kind === 'stk' ? { background: 'transparent', color: '#000', fontSize: '22px', padding: 0 } : w.kind === 'wx' ? { background: '#fff', color: '#111', border: `1px solid ${BLUE}`, fontSize: '9px', padding: '4px 6px' } : { background: BLUE, color: '#fff', fontSize: '9px', padding: '4px 6px' }); el.style.opacity = d < 1.45 && xy ? 1 : 0; if (xy) { el.style.left = xy[0] + 'px'; el.style.top = xy[1] - 8 + 'px'; } }
+    word.style.opacity = D.word ? 1 : 0; root.style.background = dark ? '#05060c' : '#fff'; titleEl.style.color = dark ? '#9fb0ff' : BLUE;
+    requestAnimationFrame(frame);
+  };
+  // carousel
+  const titleEl = h('div', { style: { textAlign: 'center', font: `500 11px ${M}`, letterSpacing: '.08em', color: BLUE, marginTop: '4px' } });
+  const dotsRow = h('div', { style: { display: 'flex', gap: '6px', justifyContent: 'center', marginTop: '16px' } });
+  const prog = h('div', { style: { height: '2px', background: BLUE, width: '0%' } });
+  const count = h('span', { style: { font: `10px ${M}`, color: '#666', minWidth: '52px', textAlign: 'center' } });
+  let autoT = performance.now(); const AUTO = 7000;
+  const go = (i) => { di = (i + DEMOS.length) % DEMOS.length; autoT = performance.now(); titleEl.textContent = DEMOS[di].n; count.textContent = `${di + 1} / ${DEMOS.length}`; [...dotsRow.children].forEach((d, k) => (d.style.background = k === di ? BLUE : '#d6d6dc')); };
+  DEMOS.forEach((d, i) => dotsRow.append(h('span', { title: d.n, onclick: () => go(i), style: { width: '6px', height: '6px', borderRadius: '50%', cursor: 'pointer', transition: 'background .2s' } })));
+  const tick = () => { if (!root.isConnected) return; const u = (performance.now() - autoT) / AUTO; if (u >= 1) go(di + 1); prog.style.width = Math.min(100, u * 100) + '%'; requestAnimationFrame(tick); };
+  root.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') go(di + 1); if (e.key === 'ArrowLeft') go(di - 1); }); root.tabIndex = 0;
+  // install pill
+  const CMD = { prompt: 'Add cobe@latest (https://cobe.vercel.app) to my app.', npm: 'npm i cobe', pnpm: 'pnpm add cobe', yarn: 'yarn add cobe', bun: 'bun add cobe' };
+  let tab = 'prompt'; const cmdEl = h('span', { style: { flex: 1 } });
+  const tabs = h('div', { style: { display: 'flex', background: BLUE, padding: '0 4px' } }, ...[['prompt', 'Copy Prompt'], ['npm', 'npm'], ['pnpm', 'pnpm'], ['yarn', 'yarn'], ['bun', 'bun']].map(([k, l]) => h('span.cb-tab', { 'data-k': k, onclick: () => setTab(k) }, l)));
+  const setTab = (k) => { tab = k; cmdEl.textContent = CMD[k]; [...tabs.children].forEach((c) => c.classList.toggle('on', c.dataset.k === k)); };
+  const code = h('pre', { style: { margin: '18px 0 0', font: `11.5px/1.7 ${M}`, color: '#333', background: '#f6f7ff', border: '1px solid #e1e5ff', padding: '16px 18px', overflow: 'auto' }, html: `<span style="color:${BLUE}">import</span> createGlobe <span style="color:${BLUE}">from</span> <span style="color:#0a7d3c">'cobe'</span>\n\n<span style="color:${BLUE}">const</span> globe = createGlobe(canvas, {\n  devicePixelRatio: 2, width: 1000, height: 1000,\n  phi: 0, theta: 0.3, dark: 0, diffuse: 1.2,\n  mapSamples: 16000, mapBrightness: 6,\n  baseColor: [1, 1, 1], markerColor: [0.12, 0.24, 1],\n  markers: [{ location: [37.77, -122.42], size: 0.05 }],\n  onRender: (state) => { state.phi += 0.005 },\n})` });
+  root.append(stage, titleEl, dotsRow, h('div', { style: { width: '142px', height: '2px', background: '#e4e4ea', margin: '10px auto 0' } }, prog),
+    h('div', { style: { display: 'flex', gap: '12px', alignItems: 'center', justifyContent: 'center', marginTop: '10px' } }, h('button.cb-nav', { onclick: () => go(di - 1), 'aria-label': 'prev' }, '←'), count, h('button.cb-nav', { onclick: () => go(di + 1), 'aria-label': 'next' }, '→')),
+    h('div', { style: { textAlign: 'center', marginTop: '34px', font: `14px 'Inter Variable',sans-serif`, color: '#555' } }, 'COBE: The 5KB WebGL globe'),
+    h('div', { style: { textAlign: 'center', marginTop: '14px', font: `11px 'Inter Variable',sans-serif`, color: '#aaa' } }, h('a.cb-lnk', { href: 'https://github.com/shuding/cobe', target: '_blank' }, 'GitHub'), '  /  ', h('a.cb-lnk', { href: 'https://twitter.com/shuding_', target: '_blank' }, '@shuding'), '  /  ', h('a.cb-lnk', { onclick: () => code.scrollIntoView({ behavior: 'smooth' }) }, 'Tech Details →')),
+    h('div', { style: { width: '456px', margin: '30px auto 70px' } }, h('div', { style: { border: `1px solid ${BLUE}` } }, tabs, h('div', { style: { display: 'flex', alignItems: 'center', padding: '12px 12px', font: `11px ${M}`, color: '#222' } }, cmdEl, h('span', { style: { cursor: 'pointer', fontSize: '9px', color: '#666', letterSpacing: '.06em' }, onclick: () => copy(CMD[tab], 'Copied') }, 'COPY'))), code));
+  setTab('prompt'); go(0); requestAnimationFrame(frame); requestAnimationFrame(tick);
+  window.__demoProof = async () => { const l0 = st.lam; go(3); const c3 = count.textContent; fire(cv, 'pointerdown', 200, 200); fire(cv, 'pointermove', 260, 210); fire(cv, 'pointerup', 260, 210); await sleep(60); const spun = st.lam !== l0; setTab('pnpm'); const pn = cmdEl.textContent; setTab('prompt'); go(0); await sleep(120); const labs = layer.querySelectorAll('.cb-lab').length; return `carousel→${c3} (${DEMOS[3].n}), drag spins=${spun}, tab pnpm="${pn}", dots=${DOTS.length}, labels=${labs}; restored to 1 / 13`; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }

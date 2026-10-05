@@ -1303,5 +1303,69 @@ V['squeezy-variable-font-playground'] = (root, T) => {
   };
 };
 
+V['fontshare-live-type-catalog'] = (root, T) => {
+  theme(root, T, { bg: '#fefee6', fg: '#111', ac: '#111', dark: false });
+  const FAM = [
+    ['Satoshi', 'satoshi', 'Sans', 10, true], ['Clash Display', 'clash-display', 'Display', 6, true], ['General Sans', 'general-sans', 'Sans', 12, true], ['Zodiak', 'zodiak', 'Serif', 12, true], ['Cabinet Grotesk', 'cabinet-grotesk', 'Sans', 9, true], ['Bespoke Slab', 'bespoke-slab', 'Slab', 12, true],
+    ['Switzer', 'switzer', 'Sans', 18, true], ['Gambetta', 'gambetta', 'Serif', 8, true], ['Panchang', 'panchang', 'Display', 7, true], ['Sentient', 'sentient', 'Serif', 12, true], ['Tanker', 'tanker', 'Display', 1, false], ['Erode', 'erode', 'Slab', 12, true], ['Boska', 'boska', 'Serif', 12, true], ['Chillax', 'chillax', 'Display', 7, true], ['Comico', 'comico', 'Handwritten', 1, false],
+  ];
+  if (!document.getElementById('fs-css')) document.head.append(h('link', { id: 'fs-css', rel: 'stylesheet', href: 'https://api.fontshare.com/v2/css?' + FAM.map((f) => `f[]=${f[1]}@1,400`).join('&') + '&display=swap' }));
+  const UI = "'Satoshi','General Sans','Inter Variable',sans-serif";
+  const KEY = 'fs-preview-theme'; let dark = localStorage.getItem(KEY) === 'dark';
+  const P = { size: 120, text: '', mode: 'names', cat: 'All', sort: 'Popular', q: '', align: 'left' };
+  const CITIES = ['Mumbai', 'Lisbon', 'Kyoto', 'Reykjavík', 'Oaxaca', 'Seoul', 'Marrakesh', 'Helsinki', 'Valparaíso', 'Tbilisi', 'Hanoi', 'Montréal', 'Zanzibar', 'Bergen', 'Cusco'];
+  const EXC = ['The quick brown fox jumps over the lazy dog', 'Typography is the craft of endowing human language with a durable visual form', 'Sphinx of black quartz, judge my vow', 'Good design is as little design as possible'];
+  root.classList.add('scroll'); Object.assign(root.style, { overflow: 'auto', fontFamily: UI });
+  root.append(h('style', {}, `.fs{--bg:#fefee6;--fg:#111;--mut:#9a9a8a;--ln:#e6e6c8;background:var(--bg);color:var(--fg);min-height:100%;transition:background .25s,color .25s}.fs.dk{--bg:#111;--fg:#fefee6;--mut:#77776a;--ln:#2a2a24}.fs-cell{border-right:1px solid var(--ln);display:flex;flex-direction:column;justify-content:center;padding:0 16px;font-size:13px;font-weight:500;cursor:pointer;position:relative}.fs-cell small{position:absolute;left:16px;bottom:14px;font-size:9px}.fs-m{color:var(--mut);font-size:11px}.fs-chip{font-size:11px;color:var(--mut);cursor:pointer;margin-right:14px}.fs-chip.on{color:var(--fg)}.fs-row{border:1px solid var(--ln);border-top:0;padding:30px 28px 22px;position:relative;cursor:pointer;transition:background .15s}.fs-row:first-child{border-top:1px solid var(--ln)}.fs-row:hover{background:color-mix(in srgb,var(--fg) 3%,transparent)}.fs-act{position:absolute;right:28px;bottom:20px;display:flex;gap:8px;opacity:0;transform:translateY(4px);transition:.18s}.fs-row:hover .fs-act,.fs-row.hov .fs-act{opacity:1;transform:none}.fs-btn{border:1px solid var(--fg);background:transparent;color:var(--fg);font:500 11px ${UI};padding:8px 14px;border-radius:99px;cursor:pointer}.fs-btn.blk{background:var(--fg);color:var(--bg)}.fs-in{background:transparent;border:0;border-bottom:1px solid var(--ln);color:var(--fg);font:12px ${UI};padding:10px 0 10px 18px;outline:0;width:100%}.fs-sample{line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:18px 0 32px}input[type=range].fs-r{-webkit-appearance:none;appearance:none;height:1px;background:var(--fg);width:140px}input[type=range].fs-r::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border:1.5px solid var(--fg);border-radius:50%;background:var(--bg)}`));
+  const shell = h('div.fs' + (dark ? '.dk' : ''));
+  const sizeLab = h('span', { style: { fontSize: '11px', width: '46px' } }, '120px');
+  const sizeR = h('input.fs-r', { type: 'range', min: 24, max: 220, value: 120, oninput: (e) => { P.size = +e.target.value; sizeLab.textContent = P.size + 'px'; draw(); } });
+  const txt = h('input.fs-in', { placeholder: 'Your Text', oninput: (e) => { P.text = e.target.value; draw(); } });
+  const search = h('input.fs-in', { placeholder: 'Search', oninput: (e) => { P.q = e.target.value.toLowerCase(); draw(); } });
+  const chipRow = (opts, key) => { const wrap = h('span'); const upd = () => [...wrap.children].forEach((c) => c.classList.toggle('on', c.dataset.v === P[key])); opts.forEach((o) => wrap.append(h('span.fs-chip', { 'data-v': o, onclick: () => { P[key] = o; upd(); draw(); } }, o[0].toUpperCase() + o.slice(1)))); upd(); wrap.upd = upd; return wrap; };
+  const cats = chipRow(['All', 'Sans', 'Serif', 'Slab', 'Display', 'Handwritten'], 'cat'), modes = chipRow(['cities', 'excerpts', 'names'], 'mode'), sorts = chipRow(['New', 'Popular', 'Hot', 'Alphabetical'], 'sort');
+  const themeBtn = h('span', { title: 'Light/Dark preview', onclick: () => setDark(!dark), style: { cursor: 'pointer', display: 'inline-flex', gap: '8px', alignItems: 'center' } }, h('span', { style: { width: '12px', height: '12px', borderRadius: '50%', background: '#f7e7a1', border: '1px solid #111' } }), h('span', { style: { width: '12px', height: '12px', borderRadius: '50%', background: 'linear-gradient(90deg,currentColor 50%,transparent 50%)', border: '1.5px solid currentColor' } }));
+  const setDark = (v) => { dark = v; localStorage.setItem(KEY, v ? 'dark' : 'light'); shell.classList.toggle('dk', v); };
+  const alignBtns = h('span', { style: { display: 'inline-flex', gap: '14px' } }, ...['left', 'center', 'right'].map((a) => h('span', { title: 'align ' + a, onclick: () => { P.align = a; draw(); }, style: { cursor: 'pointer', fontSize: '12px', color: 'var(--mut)' } }, a === 'left' ? '☰' : a === 'center' ? '≡' : '☷')));
+  const countEl = h('span', { style: { fontSize: '17px', fontWeight: 500 } });
+  const list = h('div');
+  const tabCell = (l, n, on) => h('div.fs-cell', { style: on ? { background: 'var(--fg)', color: 'var(--bg)' } : {}, onclick: () => toast(`${l} — demo`) }, h('span', { style: { textAlign: 'center' } }, l), n ? h('small', {}, n) : null);
+  const header = h('div', { style: { display: 'grid', gridTemplateColumns: '1.1fr .5fr .5fr .5fr .5fr 1fr', height: '112px', borderBottom: '1px solid var(--ln)' } },
+    h('div', { style: { display: 'flex', alignItems: 'center', padding: '0 28px', fontSize: '25px', fontWeight: 700, letterSpacing: '-.02em' } }, 'Fontshare', h('sup', { style: { fontSize: '11px', fontWeight: 700 } }, 'TM')), tabCell('Fonts', '100', true), tabCell('Pairs', '59'), tabCell('Licenses'), h('div.fs-cell', { style: { alignItems: 'center' } }, h('span', { style: { width: '38px', height: '9px', borderTop: '2px solid currentColor', borderBottom: '2px solid currentColor' } })), h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', color: 'var(--mut)' } }, 'No styles selected'));
+  const lbl = (t) => h('span', { style: { fontSize: '11px', color: 'var(--mut)' } }, t);
+  const filters = h('div', { style: { padding: '42px 28px 0' } },
+    h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', alignItems: 'center', borderBottom: '1px solid var(--ln)', paddingBottom: '6px' } }, search, h('div', { style: { paddingLeft: '14px' } }, lbl('Categories ◂ '), cats), lbl('Properties ◂'), h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px' } }, sizeLab, sizeR)),
+    h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', alignItems: 'center', paddingTop: '6px' } }, txt, h('div', { style: { paddingLeft: '14px' } }, lbl('Personality ◂')), modes, h('div', { style: { display: 'flex', alignItems: 'center', gap: '24px', justifyContent: 'space-between', fontSize: '11px' } }, alignBtns, themeBtn, h('span', { onclick: () => reset(), style: { cursor: 'pointer', color: 'var(--mut)' } }, 'Reset All'))),
+    h('div', { style: { display: 'flex', alignItems: 'baseline', gap: '14px', margin: '72px 0 26px', fontSize: '11px' } }, countEl, h('span', {}, 'List view'), h('span', { style: { color: 'var(--mut)', marginRight: '90px' } }, 'Grid view'), lbl('Top 20   Hot 20   Variable'), h('span', { style: { flex: 1 } }), lbl('Sort by ——— '), sorts));
+  const sampleFor = (f, i) => P.text || (P.mode === 'cities' ? CITIES[i % CITIES.length] : P.mode === 'excerpts' ? EXC[i % EXC.length] : f[0]);
+  const draw = () => {
+    let fs = FAM.map((f, i) => [f, i]).filter(([f]) => (P.cat === 'All' || f[2] === P.cat) && (!P.q || f[0].toLowerCase().includes(P.q)));
+    if (P.sort === 'Alphabetical') fs.sort((a, b) => a[0][0].localeCompare(b[0][0])); else if (P.sort === 'New') fs.reverse(); else if (P.sort === 'Hot') fs.sort((a, b) => b[0][3] - a[0][3]);
+    countEl.textContent = fs.length;
+    list.replaceChildren(...fs.map(([f, i]) => h('div.fs-row', { onclick: (e) => { if (!e.target.closest('.fs-act')) openDetail(f); } },
+      h('div', { style: { display: 'flex', fontSize: '9.5px', color: 'var(--mut)', gap: '40px' } }, h('span', { style: { flex: 1, fontWeight: 600 } }, `${f[0]} ☆`), h('span', {}, `${f[3]} style${f[3] > 1 ? 's' : ''}`), h('span', {}, f[4] ? 'Variable' : f[2]), h('span', {}, 'Closed Source')),
+      h('div.fs-sample', { style: { fontFamily: `'${f[0]}', ${UI}`, fontSize: (P.mode === 'excerpts' && !P.text ? P.size * 0.5 : P.size) + 'px', textAlign: P.align } }, sampleFor(f, i)),
+      h('div.fs-m', { style: { fontSize: '9.5px' } }, 'Designed by Indian Type Foundry'),
+      h('div.fs-act', {}, h('button.fs-btn', { onclick: () => openDetail(f) }, 'View'), h('button.fs-btn.blk', { onclick: () => toast(`${f[0]} — download (demo)`) }, '↓ Download')))));
+    if (!fs.length) list.append(h('div', { style: { padding: '60px', textAlign: 'center', color: 'var(--mut)' } }, 'No fonts match these filters.'));
+  };
+  // detail page with weight ladder + variable slider
+  const detail = h('div', { style: { position: 'absolute', inset: 0, background: 'var(--bg)', color: 'var(--fg)', display: 'none', overflow: 'auto', zIndex: 5 } });
+  const openDetail = (f) => {
+    const W = [[300, 'Light'], [400, 'Regular'], [500, 'Medium'], [700, 'Bold'], [900, 'Black']]; const fam = `'${f[0]}', ${UI}`;
+    const big = h('div', { style: { fontFamily: fam, fontSize: '150px', lineHeight: 1, fontWeight: 400, transition: 'font-weight .05s' } }, 'Aa');
+    const wl = h('span', { style: { fontSize: '11px' } }, '400');
+    detail.replaceChildren(h('div', { style: { display: 'flex', alignItems: 'center', padding: '28px', borderBottom: '1px solid var(--ln)', gap: '20px' } }, h('button.fs-btn', { onclick: () => (detail.style.display = 'none') }, '← All fonts'), h('b', { style: { fontSize: '20px', fontFamily: fam } }, f[0]), h('span.fs-m', {}, `${f[2]} · ${f[3]} styles${f[4] ? ' · Variable' : ''}`), h('span', { style: { flex: 1 } }), h('button.fs-btn.blk', { onclick: () => toast('Download family (demo)') }, '↓ Download family')),
+      h('div', { style: { display: 'grid', gridTemplateColumns: '380px 1fr', gap: '40px', padding: '40px 28px' } },
+        h('div', {}, big, h('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', marginTop: '24px' } }, h('span.fs-m', {}, 'Weight'), h('input.fs-r.fs-wght', { type: 'range', min: 300, max: 900, value: 400, oninput: (e) => { big.style.fontWeight = e.target.value; wl.textContent = e.target.value; } }), wl), h('p.fs-m', { style: { marginTop: '20px', lineHeight: 1.6, maxWidth: '300px' } }, `${f[0]} is a ${f[2].toLowerCase()} family from Indian Type Foundry, free for personal and commercial use.`)),
+        h('div', {}, ...W.map(([w, n]) => h('div', { style: { display: 'flex', alignItems: 'baseline', gap: '24px', borderTop: '1px solid var(--ln)', padding: '14px 0' } }, h('span.fs-m', { style: { width: '90px' } }, `${n} ${w}`), h('span', { style: { fontFamily: fam, fontWeight: w, fontSize: '40px', whiteSpace: 'nowrap', overflow: 'hidden' } }, P.text || 'Sphinx of black quartz'))))));
+    detail.style.display = 'block'; detail.scrollTop = 0;
+  };
+  const reset = () => { Object.assign(P, { size: 120, text: '', mode: 'names', cat: 'All', sort: 'Popular', q: '', align: 'left' }); sizeR.value = 120; sizeLab.textContent = '120px'; txt.value = ''; search.value = ''; cats.upd(); modes.upd(); sorts.upd(); draw(); };
+  shell.append(header, filters, h('div', { style: { padding: '0 28px 80px' } }, list));
+  root.style.position = 'relative'; root.append(shell, detail); draw();
+  window.__demoProof = async () => { txt.value = 'Hello Seoul'; txt.dispatchEvent(new Event('input')); sizeR.value = 60; sizeR.dispatchEvent(new Event('input')); const s0 = list.querySelector('.fs-sample'); const live = s0.textContent === 'Hello Seoul' && s0.style.fontSize === '60px'; cats.querySelector('[data-v=Serif]').click(); const nSerif = list.children.length; const row = list.querySelector('.fs-row'); row.classList.add('hov'); const acts = getComputedStyle(row.querySelector('.fs-act')).display !== 'none'; row.classList.remove('hov'); openDetail(FAM[0]); const lad = detail.querySelectorAll('[style*="font-weight"]').length; detail.querySelector('.fs-wght').value = 800; detail.querySelector('.fs-wght').dispatchEvent(new Event('input')); detail.style.display = 'none'; const was = dark; setDark(!was); const stored = localStorage.getItem(KEY); setDark(was); reset(); return `preview text+size live on all rows=${live}, Serif filter→${nSerif} rows, hover actions=${acts}, detail ladder+wght slider ok (${lad}), theme persisted=${stored}; restored`; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

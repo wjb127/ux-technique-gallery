@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-cobe-globe-demo-carousel",
+  "slug": "cobe-globe-demo-carousel",
+  "name": "Dotted WebGL Globe Hero with Demo Carousel (COBE v2)",
+  "date": "2026-10-06",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://cobe.vercel.app/",
+  "domain": "cobe.vercel.app",
+  "product": "COBE — 5KB WebGL globe (shuding)",
+  "checkpoints": [
+   "Big dotted globe canvas that auto-rotates; drag to spin with inertia",
+   "City markers (SF, NYC, Tokyo, London…) with HTML labels pinned to globe positions",
+   "Animated arcs between cities (SF→Tokyo, NYC→London)",
+   "Prev/next carousel \"1 / 13\" switching demo variants (Stickers, Labels, Flights, Pulse, Weather…)",
+   "Marquee ribbon \"The 5KB Globe Lib ·\" scrolling across the header",
+   "npm/pnpm/yarn/bun tab install pill with Copy and a code usage block"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-fontshare-live-type-catalog",
+  "slug": "fontshare-live-type-catalog",
+  "name": "Live Type-Tester Font Catalog (Fontshare)",
+  "date": "2026-10-06",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.fontshare.com/",
+  "domain": "fontshare.com",
+  "product": "Fontshare — free fonts by Indian Type Foundry",
+  "checkpoints": [
+   "Catalog list where every row renders the font name/sample in its own typeface",
+   "Global editable preview text + size slider that updates all rows live",
+   "Category filter chips (Sans, Serif, Slab, Display, Handwritten…) and style-count badges",
+   "Hover row reveals Download / View actions",
+   "Font detail page with weight specimen ladder and variable-weight slider",
+   "Light/dark preview toggle persisted to localStorage"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-nothing-dotmatrix-brand-store",
+  "slug": "nothing-dotmatrix-brand-store",
+  "name": "Dot-Matrix Brand Store Home (Nothing)",
+  "date": "2026-10-06",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://nothing.tech/",
+  "domain": "nothing.tech",
+  "product": "Nothing — official store",
+  "checkpoints": [
+   "Monochrome canvas with dot-matrix display headings and red accent",
+   "Full-bleed campaign hero (sale story copy + Shop sale CTA)",
+   "Shop-by-category rail (Earbuds, Headphones, Phones, CMF)",
+   "Product feature tiles with hover image swap and Discover links",
+   "Benefit strip (Free delivery, 30-day returns, Price match…) with icons",
+   "Newsletter sign-up with inline success state and store/language footer"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-seeing-theory-coin-flip-frequency",
   "slug": "seeing-theory-coin-flip-frequency",
   "name": "Draggable-Probability Coin Flip with Live Frequency Bars (Seeing Theory)",
