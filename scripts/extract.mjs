@@ -52,7 +52,7 @@ function checkpointsFromName(name) {
 
 export function extract() {
   const L = JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
-  const techById = Object.fromEntries(L.used_techniques.map((t) => [t.id, t]));
+  const techById = Object.fromEntries(L.used_techniques.map((t) => (typeof t === 'string' ? { id: t, name: t } : t)).map((t) => [t.id, t]));
   const secs = mdSections();
   const seen = new Map();
   for (const b of L.briefings) {
@@ -66,15 +66,15 @@ export function extract() {
         id, slug: slugOf(id), name: t.name,
         date: b.date, slot: /^\d\d:\d\d$/.test(b.slot || '') ? b.slot : (b.slot || '—'),
         lens: b.lens, url, domain: h,
-        product: sec?.product?.split('(')[0].trim() || productFromName(t.name, url),
-        checkpoints: sec?.checkpoints?.length ? sec.checkpoints.slice(0, 6) : checkpointsFromName(t.name),
-        checkpoint_source: sec?.checkpoints?.length ? `briefing:${sec.file}` : 'derived-from-ledger-name',
+        product: t.product || sec?.product?.split('(')[0].trim() || productFromName(t.name, url),
+        checkpoints: sec?.checkpoints?.length ? sec.checkpoints.slice(0, 6) : (t.checkpoints?.length ? t.checkpoints.slice(0, 6) : checkpointsFromName(t.name)),
+        checkpoint_source: sec?.checkpoints?.length ? `briefing:${sec.file}` : (t.checkpoints?.length ? 'ledger' : 'derived-from-ledger-name'),
         prompt: sec?.prompt || null,
       });
     });
   }
   // Foundational techniques that were never attached to a briefing slot.
-  for (const t of L.used_techniques) if (!seen.has(t.id)) seen.set(t.id, {
+  for (const t of L.used_techniques.map((x) => (typeof x === 'string' ? { id: x, name: x } : x))) if (!seen.has(t.id)) seen.set(t.id, {
     id: t.id, slug: slugOf(t.id), name: t.name, date: t.first_seen, slot: '—', lens: 'foundational-principle',
     url: '', domain: '', product: 'UX principle', checkpoints: checkpointsFromName(t.name),
     checkpoint_source: 'derived-from-ledger-name', prompt: null,

@@ -1,3 +1,4 @@
+import '@fontsource-variable/fraunces';
 import { h, s, drag, clamp, toast, sleep, rng, pick, copy, css, blip, audio, midi } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
@@ -876,6 +877,129 @@ V['lenis-smooth-scroll-stage'] = (root, T) => {
     lerpAmt = prev; intensityLab.textContent = `lerp ${lerpAmt.toFixed(2)}`;
     return 'smooth-scrolled why→features→feel→top · toggled lerp · restored';
   };
+};
+
+
+// ---------- Aesop editorial fragrance shop: PDP + mega-menu + bag drawer (2026-10-05 16:00 KST)
+V['aesop-editorial-fragrance-shop'] = (root, T) => {
+  theme(root, T, { bg: '#fffef2', fg: '#333', ac: '#333', dark: false });
+  const SANS = "'Inter Variable', 'Helvetica Neue', Arial, sans-serif", SERIF = "'Fraunces Variable', Georgia, serif";
+  root.style.background = '#fffef2'; root.style.color = '#333'; root.style.fontFamily = SANS; root.style.minHeight = 'calc(100vh - 38px)';
+  root.append(h('style', {}, `
+    .ae{font:400 13px/1.5 ${SANS};color:#333;position:relative;overflow-x:hidden}
+    .ae button{font:inherit;color:inherit}
+    .ae .ann{background:#333;color:#fffef2;text-align:center;font-size:12px;height:30px;line-height:30px;position:relative}
+    .ae .ann u{font-weight:600;cursor:pointer}.ae .ann .x{all:unset;position:absolute;right:16px;top:0;cursor:pointer;font-size:18px}
+    .ae .hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 52px 4px;font-size:11.5px}
+    .ae .hd .r{justify-self:end;display:flex;gap:20px}.ae .hd .l{display:flex;gap:16px}
+    .ae .hd span{cursor:pointer}.ae .hd span:hover{text-decoration:underline}
+    .ae .logo{font:380 36px/1 ${SERIF};font-variation-settings:'opsz' 72,'SOFT' 0,'WONK' 0;letter-spacing:-.01em;color:#333;cursor:pointer}
+    .ae .logo sup{font-size:10px;vertical-align:top;margin-left:1px}
+    .ae .nav{display:flex;justify-content:center;gap:26px;padding:14px 0 10px;font-size:12px;position:relative;z-index:6}
+    .ae .nav span{cursor:pointer;padding-bottom:6px;border-bottom:1px solid transparent}.ae .nav span.on,.ae .nav span:hover{border-color:#333}
+    .ae .nav .sep{width:1px;background:#ccc;height:34px;margin-top:-10px;border:0;cursor:default}
+    .ae .mega{position:absolute;left:0;right:0;top:100%;background:#fffef2;border-top:1px solid #e3e1d6;border-bottom:1px solid #e3e1d6;display:none;grid-template-columns:200px 200px 1fr;gap:40px;padding:30px 120px 40px;z-index:5;box-shadow:0 30px 40px -30px #0002}
+    .ae .mega.on{display:grid;animation:aeIn .25s ease}@keyframes aeIn{from{opacity:0;transform:translateY(-6px)}}
+    .ae .mega h5{font:600 11px ${SANS};margin:0 0 12px;color:#666;letter-spacing:.02em}.ae .mega a{display:block;margin:0 0 9px;cursor:pointer;font-size:13px}.ae .mega a:hover{text-decoration:underline}
+    .ae .mega .gift{background:#ebeadf;padding:20px;display:flex;gap:18px;align-items:center}
+    .ae .crumb{padding:4px 96px 0;font-size:10.5px;color:#555;display:flex;gap:8px}.ae .crumb span{cursor:pointer}
+    .ae .pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;padding:0 96px 0 40px;min-height:500px}
+    .ae .stage{display:grid;place-items:center;position:relative;height:480px;background:radial-gradient(ellipse at 50% 60%,#f6f4e8,#fffef2 70%)}
+    .ae .btl{position:relative;width:160px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+    .ae .cap{height:110px;width:140px;margin:0 auto;background:linear-gradient(90deg,#0b0b0b,#2a2a2a 30%,#111 60%,#000);border-radius:3px 3px 0 0}
+    .ae .glass{height:240px;border-radius:2px 2px 16px 16px;position:relative;background:linear-gradient(90deg,var(--g1),var(--g2) 25%,var(--g3) 55%,var(--g1));box-shadow:0 30px 30px -20px #0004}
+    .ae .glass::before{content:'';position:absolute;left:14px;top:8px;bottom:20px;width:10px;background:linear-gradient(#ffffff40,transparent);border-radius:8px}
+    .ae .lab{position:absolute;inset:26px 0 0;text-align:center;color:#f4ede0}
+    .ae .lab .lg{font:380 22px ${SERIF}}.ae .lab .nm{font:300 15px ${SANS};margin-top:22px}.ae .lab .ty{font:500 6.5px ${SANS};position:absolute;bottom:30px;left:0;right:0}
+    .ae .shadow{position:absolute;bottom:34px;width:300px;height:30px;background:radial-gradient(ellipse,#0002,transparent 70%)}
+    .ae .thumbs{position:absolute;left:20px;top:40px;display:flex;flex-direction:column;gap:8px}.ae .thumbs i{width:6px;height:6px;border-radius:50%;border:1px solid #333;cursor:pointer}.ae .thumbs i.on{background:#333}
+    .ae .info{padding-top:6px;max-width:300px}
+    .ae .info h2{font:400 24px/1.3 ${SANS};margin:0 0 14px}.ae .price{font-size:19px;margin-bottom:20px}
+    .ae .sizes{display:grid;gap:8px;margin-bottom:12px}
+    .ae .sz{border:1px solid #c6c4b8;padding:8px;text-align:center;cursor:pointer;background:transparent}.ae .sz b{display:block;font-weight:600}.ae .sz small{color:#666}
+    .ae .sz.on{border:2px solid #333;padding:7px}
+    .ae .add{all:unset;display:block;text-align:center;background:#333;color:#fffef2!important;padding:9px 0;cursor:pointer;margin-bottom:14px;transition:background .2s;box-sizing:border-box;width:100%}.ae .add:hover{background:#000}
+    .ae .promo{background:#ebeadf;padding:8px 10px;font-size:10.5px;font-weight:600;line-height:1.35}
+    .ae .acc{margin-top:22px;border-top:1px solid #d6d4c8}.ae .acc details{border-bottom:1px solid #d6d4c8;padding:11px 0}.ae .acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-weight:500}.ae .acc summary::after{content:'+'}.ae .acc details[open] summary::after{content:'−'}.ae .acc p{margin:8px 0 0;color:#555}
+    .ae .fam{padding:60px 96px 30px;border-top:1px solid #e3e1d6;margin-top:30px}
+    .ae .fam h3{font:400 26px ${SANS};margin:0 0 6px}.ae .fam .chips{display:flex;gap:8px;margin:18px 0 26px}
+    .ae .chip{border:1px solid #333;padding:6px 14px;border-radius:30px;cursor:pointer;background:transparent;font-size:12px}.ae .chip.on{background:#333;color:#fffef2}
+    .ae .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .ae .card{cursor:pointer}.ae .card .ph{height:220px;background:#f4f2e6;display:grid;place-items:center;margin-bottom:10px;transition:background .3s}.ae .card:hover .ph{background:#ebe9db}
+    .ae .card .mini{width:60px;height:110px;position:relative}.ae .card .mini::before{content:'';position:absolute;left:6px;right:6px;top:0;height:36px;background:#111}.ae .card .mini::after{content:'';position:absolute;left:0;right:0;top:36px;bottom:0;background:var(--g);border-radius:0 0 6px 6px}
+    .ae .card b{display:block;font-weight:500}.ae .card small{color:#666}
+    .ae .ed{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:50px 96px 90px}.ae .ed q{font:380 30px/1.25 ${SERIF};quotes:none;display:block}.ae .ed p{color:#555;font-size:14px;line-height:1.7}
+    .ae .scrim{position:fixed;inset:38px 0 0;background:#0005;opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}.ae .scrim.on{opacity:1;pointer-events:auto}
+    .ae .bag{position:fixed;top:38px;right:0;bottom:0;width:380px;background:#fffef2;z-index:41;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);padding:26px 28px;display:flex;flex-direction:column}
+    .ae .bag.on{transform:none}.ae .bag h4{font:400 18px ${SANS};margin:0 0 20px;display:flex;justify-content:space-between}.ae .bag h4 span{cursor:pointer}
+    .ae .line{display:grid;grid-template-columns:56px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid #e3e1d6;align-items:center}
+    .ae .line .mini{width:28px;height:56px;margin:auto;position:relative}.ae .line .mini::before{content:'';position:absolute;inset:0 3px 38px;background:#111}.ae .line .mini::after{content:'';position:absolute;left:0;right:0;top:18px;bottom:0;background:var(--g);border-radius:0 0 4px 4px}
+    .ae .qty{display:flex;gap:10px;align-items:center;margin-top:4px}.ae .qty span{cursor:pointer;border:1px solid #ccc;width:20px;text-align:center}
+    .ae .tot{margin-top:auto;border-top:1px solid #333;padding-top:14px;display:flex;justify-content:space-between;font-size:15px}
+    .ae .chat{position:fixed;right:10px;bottom:16px;background:#333;color:#fff;border-radius:6px;padding:12px 14px;font-size:12px;width:190px;z-index:30;cursor:pointer}
+  `));
+  const P = [
+    { n: '우라논 오 드 퍼퓸', en: 'Ouranon', fam: 'woody', g: ['#4a1f05', '#8a4310', '#6a3008'], note: '우디 · 레더리 · 앰버', d: '고대 신화에서 영감을 받은, 수지와 가죽 향이 감도는 깊은 우디 향.' },
+    { n: '휠 오 드 퍼퓸', en: 'Hwyl', fam: 'woody', g: ['#3b1a06', '#7b3d0e', '#5a2a08'], note: '우디 · 스모키 · 그린', d: '일본 숲의 사찰에서 영감을 받은, 연기와 이끼의 향.' },
+    { n: '테싯 오 드 퍼퓸', en: 'Tacit', fam: 'fresh', g: ['#4d2305', '#93501a', '#6d360b'], note: '시트러스 · 허브 · 그린', d: '유자와 바질이 어우러진 맑고 생기 있는 향.' },
+    { n: '로주 오 드 퍼퓸', en: 'Rōzu', fam: 'floral', g: ['#4f2207', '#9a521b', '#71380c'], note: '플로럴 · 프레시 · 우디', d: '장미 정원을 거니는 듯한 섬세하고 푸른 플로럴 향.' },
+    { n: '마라케시 인텐스', en: 'Marrakech Intense', fam: 'opulent', g: ['#401a04', '#86400f', '#5f2b07'], note: '스파이시 · 우디 · 플로럴', d: '향신료 시장의 온기를 담은 풍부하고 관능적인 향.' },
+    { n: '글롬 오 드 퍼퓸', en: 'Gloam', fam: 'floral', g: ['#4a2006', '#8e4914', '#673209'], note: '플로럴 · 스파이시 · 파우더리', d: '해 질 녘의 고요함을 닮은 파우더리 플로럴 향.' },
+    { n: '카르스트 오 드 퍼퓸', en: 'Karst', fam: 'fresh', g: ['#45200a', '#8c4a16', '#64330c'], note: '아쿠아틱 · 우디 · 스파이시', d: '바닷바람과 석회암 해안을 떠올리게 하는 향.' },
+    { n: '미라세티 오 드 퍼퓸', en: 'Miraceti', fam: 'opulent', g: ['#3d1803', '#7f3a0c', '#5a2806'], note: '앰버 · 우디 · 스파이시', d: '바다의 전설에서 영감을 받은 따뜻한 앰버 향.' }];
+  const FAM = { all: '전체', woody: '우디', floral: '플로럴', fresh: '프레시', opulent: '오퓰런트' };
+  let cur = 0, size = 50, fam = 'woody', bag = [];
+  const won = (n) => n.toLocaleString('ko-KR') + '원';
+  const priceOf = (sz) => (sz === 50 ? 225000 : 330000);
+  const wrap = h('div.ae');
+  const ann = h('div.ann', {}, '한정 기간 전 구매 대상, 신제품 언포어신 아에르 오 드 퍼퓸 시향지 증정 (주문 건당 증정) ', h('u', { onclick: () => toast('프로모션 상세 (demo)') }, '자세히 알아보기'), h('button.x', { onclick: () => ann.remove() }, '×'));
+  const bagCount = h('span', { onclick: () => openBag(true) }, '장바구니 (0)');
+  const hd = h('div.hd', {}, h('div.l', {}, h('span', {}, '매장 찾기'), h('span', {}, '문의하기')), h('div.logo', { onclick: () => scrollTo({ top: 0, behavior: 'smooth' }) }, 'Aēsop', h('sup', {}, '.')), h('div.r', {}, h('span', {}, '마이페이지'), bagCount));
+  // mega menu (fragrance)
+  const mega = h('div.mega', {},
+    h('div', {}, h('h5', {}, '향 계열'), ...Object.entries(FAM).filter(([k]) => k !== 'all').map(([k, v]) => h('a', { onclick: () => { setFam(k); closeMega(); fs.scrollIntoView({ behavior: 'smooth' }); } }, v))),
+    h('div', {}, h('h5', {}, '향수'), ...P.slice(0, 6).map((p, i) => h('a', { onclick: () => { setCur(i); closeMega(); } }, p.en))),
+    h('div.gift', {}, h('div.mini', { style: { '--g': '#7b3d0e', width: '40px', height: '80px', position: 'relative' } }), h('div', {}, h('b', {}, '기프트 파인더'), h('div', { style: { color: '#555', margin: '4px 0 10px' } }, '받는 분의 취향에 맞는 향을 찾아보세요.'), h('button.chip', { onclick: () => { closeMega(); setFam(pick(['woody', 'floral', 'fresh', 'opulent'])); fs.scrollIntoView({ behavior: 'smooth' }); toast('추천 향 계열을 골랐어요'); } }, '시작하기'))));
+  const NAV = ['기프트 가이드', '신제품 & 추천 제품', '스킨 케어', '핸드 & 바디', '향수', '홈', '헤어', '트래블', '라이브러리', '경험하기'];
+  let megaT; const openMega = () => { clearTimeout(megaT); mega.classList.add('on'); }; const closeMega = () => { mega.classList.remove('on'); };
+  const nav = h('div.nav', { onmouseleave: () => { megaT = setTimeout(closeMega, 150); } }, ...NAV.map((n) => h('span' + (n === '향수' ? '.on' : ''), n === '향수' ? { onmouseenter: openMega, onclick: () => mega.classList.toggle('on') } : { onmouseenter: () => { megaT = setTimeout(closeMega, 150); } }, n)), h('span.sep'), h('span', {}, '⌕  검색'), mega);
+  mega.addEventListener('mouseenter', openMega);
+  const crumb = h('div.crumb');
+  const btl = h('div.btl'), title = h('h2'), price = h('div.price'), sizes = h('div.sizes'), addBtn = h('button.add', { onclick: () => addToBag() }), acc = h('div.acc');
+  const thumbs = h('div.thumbs', {}, ...[0, 1, 2].map((i) => h('i' + (i ? '' : '.on'), { onclick: (e) => { [...thumbs.children].forEach((x) => x.classList.remove('on')); e.target.classList.add('on'); btl.style.transform = ['none', 'rotate(-6deg) scale(1.08)', 'translateY(-10px) scale(.9)'][i]; } })));
+  const pdp = h('div.pdp', {}, h('div.stage', {}, thumbs, h('div.shadow'), btl), h('div.info', {}, title, price, sizes, addBtn, h('div.promo', {}, '☐ 한정 기간 5만 원 이상 구매 시, 신제품 언포어신 아에르 오 드 퍼퓸 바이알 샘플을 선물로 드립니다. *주문 건당 1개 증정'), acc));
+  const chips = h('div.chips'), grid = h('div.grid');
+  const fs = h('div.fam', {}, h('h3', {}, '향 계열로 찾아보기'), h('div', { style: { color: '#666' } }, '우디, 플로럴, 프레시, 오퓰런트 — 계열을 선택해 향을 비교해 보세요.'), chips, grid);
+  const ed = h('div.ed', {}, h('q', {}, '“향은 기억의 가장 오래된 언어입니다.”'), h('p', {}, '각각의 향은 문학과 건축, 여행에서 받은 영감을 바탕으로 조향사와 함께 오랜 시간 다듬어집니다. 매장에서 직접 시향해 보시거나, 온라인 상담을 통해 취향에 맞는 향을 찾아보세요. (클론 연습용 예시 문구)'));
+  const scrim = h('div.scrim', { onclick: () => openBag(false) }), bagEl = h('div.bag');
+  const chat = h('div.chat', { onclick: () => toast('상담 연결 (demo)') }, '도움이 필요하신가요?', h('br'), '저희가 도와드리겠습니다.');
+  wrap.append(ann, hd, nav, crumb, pdp, fs, ed, scrim, bagEl, chat);
+  root.append(wrap);
+  const setCur = (i) => { cur = i; renderPdp(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const setFam = (f) => { fam = f; renderFam(); };
+  const renderPdp = () => { const p = P[cur];
+    crumb.replaceChildren(...['홈', '향수', FAM[p.fam], p.n].flatMap((x, i, a) => [h('span', { onclick: i === 2 ? () => { setFam(p.fam); fs.scrollIntoView({ behavior: 'smooth' }); } : null }, x), i < a.length - 1 ? h('span', {}, '❯') : null]).filter(Boolean));
+    btl.style.setProperty('--g1', p.g[0]); btl.style.setProperty('--g2', p.g[1]); btl.style.setProperty('--g3', p.g[2]);
+    btl.replaceChildren(h('div.cap'), h('div.glass', {}, h('div.lab', {}, h('div.lg', {}, 'Aēsop.'), h('div.nm', {}, p.en), h('div.ty', {}, 'Eau de Parfum'))));
+    title.textContent = p.n; price.textContent = won(priceOf(size));
+    sizes.replaceChildren(...[50, 100].map((sz) => h('button.sz' + (sz === size ? '.on' : ''), { onclick: () => { size = sz; renderPdp(); } }, h('b', {}, `${sz} mL`), h('small', {}, won(priceOf(sz))))));
+    addBtn.textContent = `${won(priceOf(size))}  —  장바구니에 담기`;
+    acc.replaceChildren(h('details', { open: true }, h('summary', {}, '제품 설명'), h('p', {}, p.d)), h('details', {}, h('summary', {}, '향 노트'), h('p', {}, p.note)), h('details', {}, h('summary', {}, '사용 방법'), h('p', {}, '맥박이 뛰는 부위에 가볍게 분사하세요.')));
+  };
+  const renderFam = () => {
+    chips.replaceChildren(...Object.entries(FAM).map(([k, v]) => h('button.chip' + (k === fam ? '.on' : ''), { onclick: () => setFam(k) }, v)));
+    grid.replaceChildren(...P.map((p, i) => [p, i]).filter(([p]) => fam === 'all' || p.fam === fam).map(([p, i]) => h('div.card', { onclick: () => setCur(i) }, h('div.ph', {}, h('div.mini', { style: { '--g': p.g[1] } })), h('b', {}, p.n), h('small', {}, `${FAM[p.fam]} · ${p.note}`), h('div', {}, won(225000)))));
+  };
+  const addToBag = () => { const p = P[cur]; const ex = bag.find((b) => b.i === cur && b.sz === size); ex ? ex.q++ : bag.push({ i: cur, sz: size, q: 1 }); addBtn.textContent = '장바구니에 담았습니다 ✓'; setTimeout(renderPdp, 900); renderBag(); openBag(true); };
+  const openBag = (on) => { bagEl.classList.toggle('on', on); scrim.classList.toggle('on', on); };
+  const renderBag = () => { const n = bag.reduce((a, b) => a + b.q, 0); bagCount.textContent = `장바구니 (${n})`;
+    bagEl.replaceChildren(h('h4', {}, `장바구니 (${n})`, h('span', { onclick: () => openBag(false) }, '×')),
+      ...(bag.length ? bag.map((b, k) => h('div.line', {}, h('div.mini', { style: { '--g': P[b.i].g[1] } }), h('div', {}, h('div', {}, P[b.i].n), h('small', { style: { color: '#666' } }, `${b.sz} mL`), h('div.qty', {}, h('span', { onclick: () => { b.q--; if (!b.q) bag.splice(k, 1); renderBag(); } }, '−'), b.q, h('span', { onclick: () => { b.q++; renderBag(); } }, '+'))), h('div', {}, won(priceOf(b.sz) * b.q)))) : [h('p', { style: { color: '#666' } }, '장바구니가 비어 있습니다.')]),
+      h('div.tot', {}, h('span', {}, '소계'), h('b', {}, won(bag.reduce((a, b) => a + priceOf(b.sz) * b.q, 0)))),
+      h('button.add', { style: { marginTop: '14px' }, onclick: () => toast('결제 단계 (demo) — 실제 결제 없음') }, '결제하기'));
+  };
+  renderPdp(); renderFam(); renderBag();
+  window.__demoProof = async () => { size = 100; renderPdp(); addToBag(); await sleep(60); const c = bagCount.textContent; bag = []; renderBag(); openBag(false); size = 50; setFam('floral'); const n = grid.children.length; setFam('woody'); renderPdp(); openMega(); await sleep(30); const m = mega.classList.contains('on'); closeMega(); return `100 mL added → ${c}; floral chip shows ${n} cards; mega-menu opens=${m}`; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

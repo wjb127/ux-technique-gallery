@@ -205,7 +205,8 @@
   "dwitter-140char-demo-stage",
   "vertexshaderart-live-stage",
   "canvasui-shader-dom-playground",
-  "tweakcn-theme-editor-desk"
+  "tweakcn-theme-editor-desk",
+  "zenpen-zen-writing-editor"
  ],
  "globe": [
   "globe-radio-discover",
@@ -276,7 +277,8 @@
   "typatone-type-music-desk",
   "plaza-vaporwave-radio-desk",
   "muted-circle-of-fifths-desk",
-  "te-op1-field-product-page"
+  "te-op1-field-product-page",
+  "mfp-terminal-music-player"
  ],
  "desk": [
   "parody-desktop-os-sandbox",
@@ -322,7 +324,8 @@
   "transformer-attention-explainer",
   "sonner-toast-desk",
   "ponpon-interactive-comic",
-  "lenis-smooth-scroll-stage"
+  "lenis-smooth-scroll-stage",
+  "aesop-editorial-fragrance-shop"
  ],
  "ux": [
   "5-state-gate",

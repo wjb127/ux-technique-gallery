@@ -1652,4 +1652,85 @@ V['te-op1-field-product-page'] = (root, T) => {
   window.__demoProof = async () => { const e0 = enc; [0, 4, 7, 12].forEach((n, i) => setTimeout(() => note(n), i * 60)); await sleep(300); enc = 40; await sleep(120); enc = e0; tape = []; rec = false; return `played C-E-G-C on the keyboard, encoder ${e0}→40→${e0}, tape cleared`; };
 };
 
+
+// ---------- musicForProgramming(); monospace terminal episode player (2026-10-05 16:00 KST)
+V['mfp-terminal-music-player'] = (root, T) => {
+  theme(root, T, { bg: '#1a1a1a', fg: '#cfcfcf', ac: '#2bd9a3', dark: true });
+  const MONO = "'JetBrains Mono Variable', 'IBM Plex Mono', ui-monospace, monospace";
+  root.style.background = '#1a1a1a'; root.style.color = '#cfcfcf'; root.style.fontFamily = MONO; root.style.minHeight = 'calc(100vh - 38px)';
+  root.append(h('style', {}, `
+    .mfp{display:grid;grid-template-columns:230px 1fr 230px;gap:36px;padding:34px 36px 60px;font:400 12.5px/18px ${MONO};letter-spacing:-.01em}
+    .mfp a,.mfp .ln{cursor:pointer;text-decoration:none}
+    .mfp .kw{color:#3aa0ff;font-style:italic}.mfp .fn{color:#2bd9a3}.mfp .ar{color:#ff8a3d;font-style:italic}.mfp .st{color:#e3d34a}.mfp .rt{color:#c04bd8}.mfp .pu{color:#a26bff}.mfp .dim{color:#7d7d7d}
+    .mfp .rule{color:#2bd9a3;margin:80px 0 16px;letter-spacing:-.12em;overflow:hidden;white-space:nowrap}
+    .mfp .ln:hover{background:#cfcfcf;color:#1a1a1a!important}
+    .mfp .ctl .ln{display:inline-block}
+    .mfp .bl{color:#3aa0ff}.mfp .or{color:#ff8a3d}.mfp .pk{color:#e04ba0}
+    .mfp h1{font:200 44px/50px ${MONO};margin:0 0 34px;color:#d8d8d8;letter-spacing:-.02em}
+    .mfp .tl div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mfp .eps div{color:#2bd9a3;font-style:italic;white-space:nowrap}
+    .mfp .eps div.cur{color:#a26bff}
+    .mfp .bar{color:#555;letter-spacing:-.05em;margin:2px 0 12px;user-select:none;cursor:pointer;white-space:nowrap;overflow:hidden}
+    .mfp .bar b{color:#2bd9a3;font-weight:400}
+    .mfp .cur-blink::after{content:'_';animation:mfpb 1s steps(1) infinite}@keyframes mfpb{50%{opacity:0}}
+    .mfp.inv{filter:invert(1) hue-rotate(180deg)}
+  `));
+  const EPS = ['Corticyte', 'Datassette', 'Phonaut', 'Material Object', 'Datassette', 'NCW', '[ln]anace', 'Freddy Cyclone', 'Neon Genesis', 'THINGS DISAPPEAR', 'Pearl River Sound', 'no data available', 'Datassette', 'Conrad Clipper', 'Matt Whitehead', 'Strepsil', 'T-FLX', 'Our Grey Lives', 'Linnley', 'TUNDRA', 'Miunau', 'OliSUn', 'Hainbach', 'Forest Drive West', '20 Jazz Funk Greats', 'HLER', 'Beb Welten', 'Inchindown', 'Mücha', 'Misc.', 'Julien Mier', 'Michael Hicks', 'Abe Mangger', 'Jo Johnson'];
+  const EP79 = ['아버지 - reflection', 'Thomas Köner - Untitled', 'Francisco López - Untitled #218', 'Tod Dockstader - Tremblar', 'Thomas Köner - Novaya Zemlya 1', 'Jana Winderen - Energy Field (excerpt)', 'William Basinski - Watermusic (excerpt)', 'Pete Namlook & Tetsu Inoue - 62 Eulengasse', 'Harold Budd - As long as I can hold my breath', 'Judo Notomi Goro Yamaguchi - Shakuhachi (excerpt)', 'corticyte - VR1 (excerpt)', 'Andrew Chalk - Crescent', 'Gas - Untitled', 'Laraaji - Meditation #1 (excerpt)', 'Yasmin Hannah King - Slumber', 'Iasos - The Royal Court of Goddess Vesta (excerpt)', 'Electric Indigo - Ferrum 1_2', 'Fenn O\'Berg - Part I', 'Fennesz - Black Sea', 'Aphex Twin - red calx (slo)', 'Pub - Summer', 'St. GIGA - 山岳湿原・昼のまどろみ'];
+  const POOL = EP79.map((x) => x.split(' - ')[0]);
+  const TITLES = ['Untitled', 'Drift', 'Signal Path', 'Low Tide', 'Interior', 'Tape Loop 3', 'Halflight', 'Field (excerpt)', 'Morning Static', 'Glass', 'Ritual', 'Night Bus'];
+  const tracksFor = (n) => { if (n === 79) return EP79; const r = rng(n * 977); return Array.from({ length: 12 + Math.floor(r() * 9) }, () => `${pick(POOL, r)} - ${pick(TITLES, r)}`); };
+  const durFor = (n) => n === 79 ? 4 * 3600 : 3600 + Math.floor(rng(n * 31)() * 5400);
+  const fmt = (t) => [Math.floor(t / 3600), Math.floor(t / 60) % 60, Math.floor(t) % 60].map((x) => String(x).padStart(2, '0')).join(':').replace(/^0/, '');
+  let ep = 79, pos = 0, playing = false, vol = +(localStorage.getItem('mfp-vol') ?? 0.6), fav = new Set(JSON.parse(localStorage.getItem('mfp-fav') || '[]'));
+  const L = (cls, txt, fn) => h('span.ln.' + cls, { onclick: fn }, txt);
+  const left = h('div', {},
+    h('div', {}, h('span.kw', {}, 'function'), ' ', h('span.fn', {}, 'musicFor'), '(', h('span.ar', {}, 'task'), ' = ', h('span.st', {}, "'programming'"), ') { ', h('span.rt', {}, 'return'), ' ', h('span.pu', {}, '`A series of mixes intended for listening while ${'), 'task', h('span.pu', {}, '} to focus the brain and inspire the mind.`'), '; }'),
+    h('div.rule', {}, '_'.repeat(60)));
+  const timeLine = h('div.dim', {}), barEl = h('div.bar', {});
+  const ctl = h('div.ctl', {},
+    h('div', {}, L('dim', '[-30]', () => seek(-30)), ' ', L('dim', '[+30]', () => seek(30)), ' ', L('dim', '[vol-]', () => setVol(vol - 0.1)), ' ', L('dim', '[vol+]', () => setVol(vol + 0.1))),
+    timeLine, barEl,
+    h('div', {}, L('pu', '[random]', () => load(1 + Math.floor(Math.random() * 79), true))), h('br'),
+    h('div', {}, L('bl', '[about]', () => toast('a series of mixes for focus · clone demo')), ' ', L('bl', '[credits]', () => toast('credits: Datassette & guests')), ' ', L('bl', '[rss.xml]', () => toast('rss link copied (demo)'))),
+    h('div', {}, L('or', '[patreon]', () => toast('patreon (demo)')), ' ', L('or', '[podcasts.apple]', () => toast('podcasts (demo)'))),
+    h('div', {}, L('pk', '[folder.jpg]', () => toast('folder.jpg (demo)')), ' ', L('pk', '[enterprise mode]', () => { wrap.classList.toggle('ent'); toast('enterprise mode: ' + (wrap.classList.contains('ent') ? 'on' : 'off')); })),
+    h('div', {}, L('pk', '[invert]', () => wrap.classList.toggle('inv')), ' ', L('pk', '[fullscreen]', () => (document.fullscreenElement ? document.exitFullscreen() : root.requestFullscreen?.()))), h('br'),
+    h('div.dim', {}, '// 79 episodes'), h('div.dim', {}, '// 1380 tracks'), h('div.dim', {}, '// 120 hours'), h('div.dim', {}, '// 25 minutes'), h('div.dim', {}, '// 11 seconds'));
+  left.append(ctl);
+  const title = h('h1'), meta = h('div', { style: { marginBottom: '22px' } }), tl = h('div.tl');
+  const mid = h('div', {}, title, meta, tl);
+  const eps = h('div.eps');
+  const wrap = h('div.mfp', {}, left, mid, eps);
+  root.append(wrap);
+  // generative ambient drone stands in for the mp3 stream
+  let ac, master, voices = [];
+  const startAudio = () => { ac = audio(); if (!ac) return; master = ac.createGain(); master.gain.value = vol * 0.12; master.connect(ac.destination); const r = rng(ep * 13); const root0 = 55 * Math.pow(2, Math.floor(r() * 12) / 12);
+    voices = [1, 1.5, 2, 3, 4.01].map((m, i) => { const o = ac.createOscillator(); const g = ac.createGain(); const lfo = ac.createOscillator(); const lg = ac.createGain(); o.type = i % 2 ? 'sine' : 'triangle'; o.frequency.value = root0 * m; g.gain.value = 0.2 / (i + 1); lfo.frequency.value = 0.05 + r() * 0.2; lg.gain.value = 0.15 / (i + 1); lfo.connect(lg).connect(g.gain); o.connect(g).connect(master); o.start(); lfo.start(); return [o, lfo]; }); };
+  const stopAudio = () => { voices.forEach(([o, l]) => { try { o.stop(); l.stop(); } catch {} }); voices = []; master?.disconnect(); };
+  const setVol = (v) => { vol = clamp(Math.round(v * 10) / 10, 0, 1); localStorage.setItem('mfp-vol', vol); if (master) master.gain.value = vol * 0.12; toast(`volume ${Math.round(vol * 100)}%`); render(); };
+  const seek = (d) => { pos = clamp(pos + d, 0, durFor(ep)); render(); };
+  const toggle = () => { playing = !playing; playing ? startAudio() : stopAudio(); render(); };
+  const load = (n, autoplay = false) => { stopAudio(); ep = n; pos = 0; playing = false; if (autoplay) toggle(); else render(); };
+  const render = () => {
+    title.textContent = `Episode ${ep}: ${EPS[79 - ep] || 'Datassette'}`;
+    const d = durFor(ep);
+    meta.replaceChildren(
+      h('div', {}, L('fn', playing ? '[pause]' : '[play]', toggle), ' ', h('span.dim' + (playing ? '.cur-blink' : ''), {}, playing ? `${fmt(pos)} / ${fmt(d)}` : fmt(d))),
+      h('div', {}, L('pu', '[source]', () => toast(`episode ${ep} mp3 (demo)`)), ' ', h('span.dim', {}, `${Math.round(d / 34)} MB`)),
+      h('div', {}, L('st', fav.has(ep) ? '[unfavourite]' : '[favourite]', () => { fav.has(ep) ? fav.delete(ep) : fav.add(ep); localStorage.setItem('mfp-fav', JSON.stringify([...fav])); render(); })));
+    tl.replaceChildren(...tracksFor(ep).map((t) => h('div', {}, t)));
+    const pct = pos / d, n = 30, k = Math.round(pct * n);
+    barEl.replaceChildren(h('b', {}, '#'.repeat(k)), '-'.repeat(n - k));
+    timeLine.textContent = `${fmt(pos).padStart(8, '-')} [vol ${String(Math.round(vol * 100)).padStart(3, ' ')}%] ${playing ? '>>>>' : '....'}`;
+    eps.replaceChildren(...Array.from({ length: 79 }, (_, i) => 79 - i).map((n) => h('div.ln' + (n === ep ? '.cur' : ''), { onclick: () => load(n, true) }, `${n}: ${EPS[79 - n] || ['Datassette', 'Misc.', 'Silent Servant', 'Uchu', 'Hivemind'][n % 5]}${fav.has(n) ? ' *' : ''}`)));
+  };
+  barEl.addEventListener('click', (e) => { const r = barEl.getBoundingClientRect(); pos = clamp((e.clientX - r.left) / r.width, 0, 1) * durFor(ep); render(); });
+  const tick = setInterval(() => { if (!root.isConnected) { clearInterval(tick); stopAudio(); return; } if (playing) { pos = Math.min(pos + 1, durFor(ep)); render(); } }, 1000);
+  const onKey = (e) => { if (!root.isConnected) return removeEventListener('keydown', onKey); if (e.code === 'Space') { e.preventDefault(); toggle(); } if (e.key === 'ArrowLeft') seek(-30); if (e.key === 'ArrowRight') seek(30); };
+  addEventListener('keydown', onKey);
+  render();
+  window.__demoProof = async () => { load(62); await sleep(50); seek(30); seek(30); const p = pos; load(79); return `loaded ep 62 (${tl.children.length} tracks), +30 +30 → ${p}s, back to ep 79 with ${tracksFor(79).length} tracks, volume ${vol}`; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

@@ -1,3 +1,7 @@
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/400-italic.css';
+import '@fontsource/lora/700.css';
+import '@fontsource/lora/700-italic.css';
 import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, drum, blip, midi, fitCanvas, noise2, hexToRgb, oklchToHex, hexToOklch } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',ui-monospace,monospace";
@@ -1386,6 +1390,89 @@ V['tweakcn-theme-editor-desk'] = (root, T) => {
     paintColors(); paintPreviewTabs(); paintPreview();
     return 'recolored primary→violet, preview Cards→Dashboard→Cards, restored Default';
   };
+};
+
+
+// ---------- ZenPen minimal writing editor with selection bubble (2026-10-05 16:00 KST)
+V['zenpen-zen-writing-editor'] = (root, T) => {
+  theme(root, T, { bg: '#fcfcfc', fg: '#111', ac: '#1eb1e4', dark: false });
+  const SERIF = "'Lora', Georgia, serif";
+  root.style.minHeight = 'calc(100vh - 38px)'; root.style.position = 'relative';
+  root.append(h('style', {}, `
+    .zp{--zbg:#fcfcfc;--zfg:#111;--zui:#a8a8a8;background:var(--zbg);color:var(--zfg);min-height:calc(100vh - 38px);font-family:${SERIF};transition:background .4s,color .4s;position:relative}
+    .zp.dark{--zbg:#111;--zfg:#e7e7e7;--zui:#555}
+    .zp .side{position:fixed;left:16px;top:56px;display:flex;flex-direction:column;gap:7px;z-index:5;opacity:.85;transition:opacity .4s}
+    .zp.typing .side,.zp.typing .cup{opacity:0}
+    .zp .side button,.zp .cup{all:unset;cursor:pointer;width:16px;height:16px;display:grid;place-items:center;color:var(--zui)}
+    .zp .side button:hover{color:var(--zfg)}
+    .zp .side svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6}
+    .zp .cup{position:fixed;left:16px;bottom:18px;font-size:16px;width:20px}
+    .zp .col{width:430px;margin:0 auto;padding:30px 0 120px}
+    .zp h1{font:700 26px/1.25 ${SERIF};margin:0 0 20px;outline:none}
+    .zp article{font:400 16px/1.36 ${SERIF};outline:none}
+    .zp article p{margin:0 0 16px}
+    .zp article a{color:#1eb1e4;text-decoration:none}
+    .zp article blockquote{margin:0 0 16px -14px;padding-left:11px;border-left:3px solid #1eb1e4}
+    .zp .bub{position:absolute;z-index:20;display:none;background:#111;border-radius:5px;padding:0 4px;height:34px;align-items:center;gap:2px;box-shadow:0 2px 8px #0003;transform:translate(-50%,-100%);margin-top:-10px}
+    .zp .bub::after{content:'';position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#111}
+    .zp .bub.on{display:flex}
+    .zp .bub button{all:unset;cursor:pointer;color:#ddd;width:30px;height:30px;display:grid;place-items:center;font:700 15px ${SERIF};border-radius:3px}
+    .zp .bub button.act,.zp .bub button:hover{color:#1eb1e4}
+    .zp .bub input{display:none;background:transparent;border:0;outline:0;color:#fff;font:13px ${SERIF};width:180px;padding:0 6px}
+    .zp .bub.url button{display:none}.zp .bub.url input{display:block}
+    .zp .prog{position:fixed;left:0;top:38px;height:3px;background:#1eb1e4;width:0;transition:width .3s;z-index:6}
+    .zp .wc{position:fixed;left:44px;bottom:20px;font:italic 13px ${SERIF};color:var(--zui)}
+    .zp .ov{position:fixed;inset:38px 0 0;background:color-mix(in srgb,var(--zbg) 92%,transparent);display:none;place-items:center;z-index:30}
+    .zp .ov.on{display:grid}
+    .zp .box{background:var(--zbg);border:1px solid var(--zui);padding:24px 28px;min-width:320px;text-align:center}
+    .zp .box h3{font:700 18px ${SERIF};margin:0 0 14px}
+    .zp .box input{font:400 28px ${SERIF};width:140px;text-align:center;border:0;border-bottom:2px solid var(--zui);background:transparent;color:var(--zfg);outline:0}
+    .zp .box .row{display:flex;gap:10px;justify-content:center;margin-top:14px}
+    .zp .box button{all:unset;cursor:pointer;padding:6px 12px;border:1px solid var(--zui);font:14px ${SERIF}}
+    .zp .box button.on,.zp .box button:hover{background:var(--zfg);color:var(--zbg)}
+    .zp .box textarea{width:420px;height:180px;margin-top:12px;font:12px/1.5 ui-monospace,monospace;background:transparent;color:var(--zfg);border:1px solid var(--zui);padding:8px}
+  `));
+  const ic = (d) => s('svg', { viewBox: '0 0 16 16' }, ...d.map((x) => (typeof x === 'string' ? s('path', { d: x }) : x)));
+  const saved = JSON.parse(localStorage.getItem('zp-doc') || 'null');
+  const DEF_H = 'This is ZenPen';
+  const DEF_B = `<p>A minimalist writing zone, where you can block out all distractions and get to what's important. The writing!</p><p>To get started, all you need to do is delete this text (seriously, just highlight it and hit delete), and fill the page with your own fantastic words. You can even change the title!</p><p>You can use <b>bold</b>, <i>italics</i>, <b><i>both</i></b> and <a href="https://zenpen.io">urls</a> just by highlighting the text and selecting them from the tiny options box that appears above it.</p><blockquote>Quotes are easy to add too!</blockquote><p>If you're using ZenPen, and want to contribute a few dollars, there's a small donate button on the bottom left.</p><p>Happy Typing! ~ <b>Tim Holman (@twholman)</b></p>`;
+  const title = h('h1', { contenteditable: 'true', spellcheck: 'false' }, saved?.t ?? DEF_H);
+  const art = h('article', { contenteditable: 'true', html: saved?.b ?? DEF_B });
+  const prog = h('div.prog'), wc = h('div.wc');
+  let target = +(localStorage.getItem('zp-target') || 0), fmtSel = 'md';
+  const words = () => (art.innerText.trim().match(/\S+/g) || []).length;
+  const upd = () => { const n = words(); wc.textContent = target ? `${n} / ${target} words` : `${n} words`; prog.style.width = target ? Math.min(100, (n / target) * 100) + '%' : '0'; localStorage.setItem('zp-doc', JSON.stringify({ t: title.innerText, b: art.innerHTML })); };
+  const wrap = h('div.zp' + (localStorage.getItem('zp-dark') === '1' ? '.dark' : ''));
+  // selection bubble
+  const urlIn = h('input', { placeholder: 'Paste or type a link', onkeydown: (e) => { if (e.key === 'Enter') { e.preventDefault(); restore(); if (urlIn.value) document.execCommand('createLink', false, urlIn.value); else document.execCommand('unlink'); bub.classList.remove('url', 'on'); upd(); } if (e.key === 'Escape') bub.classList.remove('url', 'on'); } });
+  let range = null; const restore = () => { if (range) { const sl = getSelection(); sl.removeAllRanges(); sl.addRange(range); } };
+  const cmd = (c) => (e) => { e.preventDefault(); restore(); if (c === 'quote') { const bq = document.queryCommandValue('formatBlock').toLowerCase() === 'blockquote'; document.execCommand('formatBlock', false, bq ? 'p' : 'blockquote'); } else if (c === 'link') { bub.classList.add('url'); urlIn.value = ''; setTimeout(() => urlIn.focus(), 0); return; } else document.execCommand(c); place(); upd(); };
+  const bB = h('button', { onmousedown: cmd('bold'), title: 'bold' }, 'B'), bI = h('button', { onmousedown: cmd('italic'), title: 'italic', style: { fontStyle: 'italic' } }, 'i'), bQ = h('button', { onmousedown: cmd('quote'), title: 'quote', style: { fontSize: '22px', paddingTop: '8px' } }, '“'), bL = h('button', { onmousedown: cmd('link'), title: 'link' }, s('svg', { viewBox: '0 0 16 16', width: 15, height: 15, fill: 'none', stroke: 'currentColor', 'stroke-width': 1.8 }, s('path', { d: 'M7 9a3 3 0 0 0 4.2 0l2.3-2.3a3 3 0 0 0-4.2-4.2L8.6 3.2M9 7a3 3 0 0 0-4.2 0L2.5 9.3a3 3 0 0 0 4.2 4.2l.7-.7' })));
+  const bub = h('div.bub', {}, bB, bI, bQ, bL, urlIn);
+  const place = () => { const sl = getSelection(); if (!sl.rangeCount || sl.isCollapsed || !art.contains(sl.anchorNode)) { if (!bub.classList.contains('url')) bub.classList.remove('on'); return; } range = sl.getRangeAt(0).cloneRange(); const r = range.getBoundingClientRect(), w = wrap.getBoundingClientRect(); bub.style.left = (r.left + r.width / 2 - w.left) + 'px'; bub.style.top = (r.top - w.top) + 'px'; bub.classList.add('on');
+    bB.classList.toggle('act', document.queryCommandState('bold')); bI.classList.toggle('act', document.queryCommandState('italic')); bQ.classList.toggle('act', document.queryCommandValue('formatBlock').toLowerCase() === 'blockquote'); bL.classList.toggle('act', !!sl.anchorNode.parentElement?.closest('a')); };
+  document.addEventListener('selectionchange', () => { if (root.isConnected && document.activeElement !== urlIn) place(); });
+  // overlays
+  const tIn = h('input', { type: 'number', min: 0, value: target || 500 });
+  const ovT = h('div.ov', { onclick: (e) => e.target === ovT && ovT.classList.remove('on') }, h('div.box', {}, h('h3', {}, 'Word target'), tIn, h('div.row', {}, h('button', { onclick: () => { target = +tIn.value || 0; localStorage.setItem('zp-target', target); ovT.classList.remove('on'); upd(); } }, 'Set target'), h('button', { onclick: () => { target = 0; localStorage.setItem('zp-target', 0); ovT.classList.remove('on'); upd(); } }, 'Clear'))));
+  const ta = h('textarea', { readonly: true });
+  const toMd = () => `# ${title.innerText}\n\n` + [...art.children].map((el) => { let t = el.innerHTML.replace(/<b><i>(.*?)<\/i><\/b>|<i><b>(.*?)<\/b><\/i>/g, '***$1$2***').replace(/<(b|strong)>(.*?)<\/\1>/g, '**$2**').replace(/<(i|em)>(.*?)<\/\1>/g, '*$2*').replace(/<a href="(.*?)">(.*?)<\/a>/g, '[$2]($1)').replace(/<br>/g, '\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&'); return el.tagName === 'BLOCKQUOTE' ? '> ' + t : t; }).join('\n\n');
+  const exportText = () => (fmtSel === 'md' ? toMd() : fmtSel === 'html' ? `<h1>${title.innerText}</h1>\n${art.innerHTML.replace(/<\/(p|blockquote)>/g, '</$1>\n')}` : `${title.innerText}\n\n${art.innerText}`);
+  const fb = (k, l) => h('button' + (k === fmtSel ? '.on' : ''), { 'data-k': k, onclick: (e) => { fmtSel = k; [...e.target.parentNode.children].forEach((b) => b.classList.toggle('on', b.dataset.k === k)); ta.value = exportText(); } }, l);
+  const ovS = h('div.ov', { onclick: (e) => e.target === ovS && ovS.classList.remove('on') }, h('div.box', {}, h('h3', {}, 'Save your work'), h('div.row', {}, fb('md', 'Markdown'), fb('html', 'HTML'), fb('txt', 'Plain text')), ta,
+    h('div.row', {}, h('button', { onclick: () => { copy(ta.value, 'copied to clipboard'); } }, 'Copy'), h('button', { onclick: () => { const a = h('a', { href: URL.createObjectURL(new Blob([ta.value], { type: 'text/plain' })), download: `zenpen.${fmtSel === 'md' ? 'md' : fmtSel}` }); a.click(); } }, 'Download'))));
+  const side = h('div.side', {},
+    h('button', { title: 'fullscreen', onclick: () => (document.fullscreenElement ? document.exitFullscreen() : root.requestFullscreen?.()) }, ic(['M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4', 'M2 2l4 4M14 2l-4 4M14 14l-4-4M2 14l4-4'])),
+    h('button', { title: 'invert', onclick: () => { wrap.classList.toggle('dark'); localStorage.setItem('zp-dark', wrap.classList.contains('dark') ? '1' : '0'); } }, s('svg', { viewBox: '0 0 16 16' }, s('circle', { cx: 8, cy: 8, r: 6.5 }), s('path', { d: 'M8 1.5a6.5 6.5 0 0 1 0 13z', fill: 'currentColor' }))),
+    h('button', { title: 'word target', onclick: () => { ovT.classList.add('on'); tIn.focus(); } }, s('svg', { viewBox: '0 0 16 16' }, s('circle', { cx: 8, cy: 8, r: 6 }), s('circle', { cx: 8, cy: 8, r: 2.5 }), s('path', { d: 'M8 0v4M8 12v4M0 8h4M12 8h4' }))),
+    h('button', { title: 'save', onclick: () => { ta.value = exportText(); ovS.classList.add('on'); } }, ic(['M2 2h10l2 2v10H2z', 'M5 2v4h6V2M5 14V9h6v5'])));
+  const cup = h('button.cup', { title: 'donate', onclick: () => toast('☕ thanks! (demo)') }, '☕');
+  let idle; const typing = () => { wrap.classList.add('typing'); clearTimeout(idle); idle = setTimeout(() => wrap.classList.remove('typing'), 1400); upd(); };
+  art.addEventListener('input', upd); title.addEventListener('input', upd); art.addEventListener('keydown', (e) => { if (e.key.length === 1) typing(); }); title.addEventListener('keydown', typing);
+  art.addEventListener('keydown', (e) => { if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); cmd('link')(e); } });
+  wrap.append(prog, side, h('div.col', {}, title, art), bub, wc, cup, ovT, ovS);
+  root.append(wrap); upd();
+  window.__demoProof = async () => { const p = art.querySelector('p'); const r = document.createRange(); r.selectNodeContents(p.firstChild); r.setEnd(p.firstChild, 13); const sl = getSelection(); sl.removeAllRanges(); sl.addRange(r); art.focus(); place(); await sleep(80); const shown = bub.classList.contains('on'); document.execCommand('bold'); document.execCommand('bold'); sl.removeAllRanges(); fmtSel = 'md'; const md = toMd(); return `bubble ${shown ? 'shown' : 'hidden'} on selection, ${words()} words, markdown export ${md.length} chars`; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }
