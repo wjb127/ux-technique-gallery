@@ -487,4 +487,154 @@ V['singlediv-css-art-museum'] = (root, T) => {
   };
 };
 
+// ---------- Rauno craft — interaction-prototype shelf (2026-10-05 08:00 KST)
+V['rauno-craft-interaction-shelf'] = (root, T) => {
+  theme(root, T, { bg: '#f9f9f9', fg: '#1a1a1a', panel: '#ffffff', ac: '#fff200', dark: false, line: '#00000012' });
+  root.classList.add('scroll'); root.style.overflow = 'auto'; root.style.background = '#f9f9f9'; root.style.color = '#1a1a1a';
+  const SANS = "'Inter Variable', system-ui, sans-serif"; root.style.fontFamily = SANS;
+  const OR = '#ff4f00', YE = '#fff200';
+  root.append(h('style', {}, `
+    .rc-top{height:146px;display:grid;place-items:center}
+    .rc-bar{display:flex;align-items:center;gap:7px}
+    .rc-bar button{border:1.5px solid #9a9a9a;background:transparent;height:16px;padding:0;cursor:pointer;border-radius:1px;transition:all .25s cubic-bezier(.2,.8,.2,1)}
+    .rc-bar button.sq{width:28px}.rc-bar button.on{background:${YE};border-color:${YE};width:30px}
+    .rc-bar button:hover{border-color:#333}.rc-bar i{width:1.5px;height:16px;background:#9a9a9a;display:block}
+    .rc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 8px 40px;align-items:start;transition:all .3s}
+    .rc-grid.one{grid-template-columns:minmax(0,560px);justify-content:center}.rc-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .rc-col{display:grid;gap:8px}
+    .rc-card{background:#fff;border:1px solid #ececec;border-radius:12px;padding:4px;display:flex;flex-direction:column;box-shadow:0 1px 0 #00000005}
+    .rc-card.grey{background:#ececec;border-color:#e4e4e4}
+    .rc-hd{display:flex;justify-content:space-between;padding:12px 12px 0;font-size:12px;color:#222;font-weight:450}
+    .rc-hd span:last-child{color:#7a7a7a}
+    .rc-body{position:relative;min-height:150px;display:grid;place-items:center;overflow:hidden;border-radius:9px}
+    .rc-ft{margin-top:4px;height:38px;border-radius:8px;background:#f3f3f3;border:0;font:500 13px ${SANS};color:#222;cursor:pointer;transition:background .15s}
+    .rc-ft:hover{background:#ebebeb}.rc-ft:active{transform:scale(.99)}
+    .rc-cap{position:absolute;left:12px;bottom:8px;font-size:12px;color:#222}.rc-cap2{position:absolute;right:12px;bottom:8px;font-size:12px;color:#7a7a7a}
+    .rc-post{width:100px;height:150px;background:#fff;box-shadow:0 1px 2px #0002;transition:transform .35s cubic-bezier(.2,.9,.3,1.3);cursor:zoom-in;position:relative;overflow:hidden}
+    .rc-post:hover{transform:translateY(-6px) rotate(-2deg)}
+    .rc-post.big{transform:scale(2.1) translateY(4px);z-index:5;box-shadow:0 10px 30px #0003;cursor:zoom-out}
+    .rc-dock{display:flex;align-items:flex-end;gap:8px;height:110px;padding:0 14px 10px;background:#ffffffaa;border:1px solid #ececec;border-radius:18px;backdrop-filter:blur(8px)}
+    .rc-dock b{width:42px;height:42px;border-radius:11px;display:block;transform-origin:bottom center;transition:width .08s,height .08s;box-shadow:inset 0 -2px 0 #0002,0 2px 6px #0001}
+    .rc-stk{position:absolute;background:${YE};color:#111;font:500 22px/1 ${SANS};letter-spacing:-.02em;padding:6px 8px;border:1px solid #111;cursor:grab;user-select:none;touch-action:none;box-shadow:0 1px 0 #111}
+    .rc-stk:active{cursor:grabbing}
+    .rc-tcard{position:absolute;width:76%;padding:16px;border-radius:12px;background:#fff;border:1px solid #e6e6e6;font-size:13px;line-height:1.45;color:#333;box-shadow:0 8px 24px #0000000d;transition:transform .45s cubic-bezier(.2,.9,.3,1),opacity .3s;cursor:pointer}
+    .rc-tcard b{display:block;font-size:12px;color:#111;margin-top:8px}
+    .rc-cb{width:78%;position:relative}.rc-cb input{width:100%;height:38px;border:1px solid #e3e3e3;border-radius:9px;padding:0 12px;font:13px ${SANS};outline:none;background:#fff;color:#111}
+    .rc-cb input:focus{border-color:#bbb;box-shadow:0 0 0 3px #0000000a}
+    .rc-cb ul{list-style:none;margin:6px 0 0;padding:4px;border:1px solid #ececec;border-radius:10px;background:#fff;box-shadow:0 10px 30px #0000000f;max-height:150px;overflow:auto}
+    .rc-cb li{padding:8px 10px;border-radius:7px;font-size:13px;display:flex;justify-content:space-between;cursor:pointer;color:#222}
+    .rc-cb li.act{background:#f2f2f2}.rc-cb li .ck{color:${OR}}
+    .rc-hold{position:relative;height:44px;padding:0 22px;border-radius:99px;border:0;background:#f1f1f1;font:500 14px ${SANS};color:#d92d20;cursor:pointer;overflow:hidden;user-select:none}
+    .rc-hold .fill{position:absolute;inset:0;background:#ffdbd6;clip-path:inset(0 100% 0 0);display:flex;align-items:center;justify-content:center;color:#b42318}
+    .rc-ic{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px;padding:18px 10px;width:100%}
+    .rc-ic div{height:52px;display:grid;place-items:center;cursor:pointer;border-radius:8px}.rc-ic div:hover{background:#f6f6f6}
+    .rc-shim{background:linear-gradient(90deg,#999 0%,#111 40%,#999 60%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rcSh 1.4s linear infinite}
+    @keyframes rcSh{from{background-position:200% 0}to{background-position:-200% 0}}
+    @keyframes rcOrb{to{transform:rotate(360deg)}} @keyframes rcSw{50%{transform:rotate(-28deg)}} @keyframes rcSl{50%{transform:translateX(14px)}} @keyframes rcBl{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}} @keyframes rcPu{50%{r:6}}
+    .rc-ic .spin{animation:rcOrb 3s linear infinite;transform-origin:center}.rc-ic .sw{animation:rcSw 2s ease-in-out infinite;transform-origin:30px 6px}.rc-ic .sl{animation:rcSl 1.8s ease-in-out infinite}.rc-ic .bl{animation:rcBl 3s infinite;transform-origin:center}
+    .rc-ic div:hover .spin{animation-duration:.8s}.rc-ic div:hover .sl{animation-duration:.6s}
+  `));
+  const card = (title, date, body, foot, cls = '') => h('div.rc-card' + cls, {}, title ? h('div.rc-hd', {}, h('span', {}, title), h('span', {}, date)) : null, body, foot ? h('button.rc-ft', { onclick: () => toast(foot + ' →') }, foot) : null);
+  // top bar (view switch)
+  let view = 'grid';
+  const vb = { one: h('button.sq', { title: 'Single column' }), grid: h('button.sq.on', { title: 'Grid' }), two: h('button.sq', { title: 'Two columns' }) };
+  const bar = h('div.rc-bar', {}, vb.one, h('i'), h('i'), h('i'), h('i'), vb.grid, h('i'), h('i'), vb.two, h('i'), h('i'));
+  const setView = (v) => { view = v; Object.entries(vb).forEach(([k, b]) => b.classList.toggle('on', k === v)); grid.className = 'rc-grid' + (v === 'grid' ? '' : ' ' + v); };
+  Object.entries(vb).forEach(([k, b]) => b.addEventListener('click', () => setView(k)));
+  // 1. posters
+  const P1 = () => h('div', { style: { padding: '6px 4px', font: `500 21px/0.82 ${SANS}`, letterSpacing: '-.03em', position: 'relative' } }, 'MAKE SOFT WARE MAKE SOFT WARE MAKE'.split(' ').map((w) => h('div', {}, w)), s('svg', { viewBox: '0 0 70 108', style: 'position:absolute;inset:0' }, s('path', { d: 'M4 20 C 30 10, 50 40, 66 22 M6 60 C 30 50, 40 80, 64 70', stroke: '#3a5bd9', fill: 'none', 'stroke-width': 1.4 }), s('path', { d: 'M10 40 C 20 30, 50 60, 60 46', stroke: '#e0403a', fill: 'none', 'stroke-width': 1.4 })));
+  const P2 = () => s('svg', { viewBox: '0 0 70 108', width: 100, height: 150 }, s('path', { d: 'M28 0 L28 30 C 28 36, 40 36, 40 30 L40 0', fill: '#e7b48f' }), s('path', { d: 'M26 52 h4 v-10 h4 v14 h4 v-4 h4 v4 h4 v4 h4 v14 h-4 v6 h-20 v-6 h-4 v-6 h-4 v-6 h4 v4 h4 Z', fill: '#fff', stroke: '#111', 'stroke-width': 2 }));
+  const P3 = () => h('div', { style: { padding: '6px 4px', font: `400 18px/1.05 ${SANS}`, position: 'relative', textAlign: 'center' } }, s('svg', { viewBox: '0 0 70 108', style: 'position:absolute;inset:0' }, s('path', { d: 'M18 30 L36 92', stroke: YE, 'stroke-width': 14 })), h('div', { style: { position: 'relative' } }, 'HISTORY', h('br'), 'OF', h('br'), 'SOFT-', h('br'), 'WARE', h('br'), 'DESIGN'));
+  const P4 = () => s('svg', { viewBox: '0 0 70 108', width: 100, height: 150 }, ...Array.from({ length: 22 }, (_, i) => { const a = Math.PI * (0.1 + (i / 21) * 0.8); return s('circle', { cx: 35 + Math.cos(a) * 26, cy: 46 + Math.sin(a) * 22, r: 2.6, fill: 'none', stroke: '#4a4ad0', 'stroke-width': 1 }); }), ...[24, 46].map((x) => s('path', { d: `M${x} 20 v18`, stroke: '#4a4ad0', 'stroke-width': 4, 'stroke-dasharray': '2 1.5' })));
+  const posters = h('div', { style: { display: 'flex', gap: '8px', padding: '16px 12px 34px' } }, [P1, P2, P3, P4].map((f) => { const p = h('div.rc-post', { onclick: () => { const on = !p.classList.contains('big'); postersAll().forEach((x) => x.classList.remove('big')); p.classList.toggle('big', on); } }, f()); return p; }));
+  const postersAll = () => [...posters.children];
+  const cPosters = card(null, null, h('div.rc-body', { style: { minHeight: '170px', overflow: 'visible' } }, posters, h('div.rc-cap', {}, 'Posters'), h('div.rc-cap2', {}, 'August 2026')), null, '.grey');
+  // 2. slide to unlock phone
+  let unlocked = false;
+  const knobP = h('div', { style: { position: 'absolute', left: '3px', top: '3px', width: '34px', height: '22px', borderRadius: '5px', background: 'linear-gradient(#fdfdfd,#cfcfcf)', display: 'grid', placeItems: 'center', fontSize: '12px', color: '#777', cursor: 'grab', touchAction: 'none' } }, '➜');
+  const track = h('div', { style: { position: 'absolute', left: '12px', right: '12px', bottom: '14px', height: '28px', borderRadius: '7px', background: '#0009', border: '1px solid #ffffff22' } }, h('div.rc-shim', { style: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', font: `400 11px ${SANS}`, background: 'linear-gradient(90deg,#666 0%,#fff 45%,#666 60%)', backgroundSize: '200% 100%', WebkitBackgroundClip: 'text', color: 'transparent', paddingLeft: '26px' } }, 'slide to unlock'), knobP);
+  const apps = h('div', { style: { position: 'absolute', inset: '30px 10px 50px', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '8px', opacity: 0, transform: 'scale(1.15)', transition: 'all .45s cubic-bezier(.2,.9,.3,1)', pointerEvents: 'none' } }, ['#5ac8fa', '#4cd964', '#ff9500', '#ff2d55', '#ffcc00', '#8e8e93', '#34aadc', '#ff3b30', '#5856d6', '#4cd964', '#007aff', '#ff9500'].map((c) => h('i', { style: { aspectRatio: 1, borderRadius: '6px', background: `linear-gradient(${c},${c}bb)`, boxShadow: 'inset 0 1px 0 #fff6' } })));
+  const clock = h('div', { style: { position: 'absolute', top: '22px', left: 0, right: 0, textAlign: 'center', color: '#fff', font: `200 30px/1 ${SANS}`, textShadow: '0 1px 2px #0006', transition: 'opacity .3s' } }, '9:41', h('div', { style: { font: `400 9px ${SANS}`, marginTop: '4px' } }, 'Monday, October 5'));
+  const screen = h('div', { style: { position: 'absolute', inset: '26px 9px 40px', borderRadius: '3px', overflow: 'hidden', background: 'radial-gradient(circle at 40% 40%,#ff7a2e,#c4361a 30%,#1d6b3a 60%,#0c2b1c)' } }, clock, apps, track);
+  const phone = h('div', { style: { position: 'relative', width: '150px', height: '270px', borderRadius: '22px', background: 'linear-gradient(135deg,#3a3a3a,#0d0d0d)', boxShadow: '0 0 0 2px #b9b9b9, 0 18px 40px #0003', transform: 'rotate(-14deg) skewX(4deg)' } }, screen, h('div', { style: { position: 'absolute', bottom: '8px', left: '50%', width: '24px', height: '24px', marginLeft: '-12px', borderRadius: '50%', border: '1.5px solid #555', cursor: 'pointer' }, onclick: () => lock() }));
+  const setUnlock = (on) => { unlocked = on; apps.style.opacity = on ? 1 : 0; apps.style.transform = on ? 'scale(1)' : 'scale(1.15)'; clock.style.opacity = on ? 0 : 1; track.style.opacity = on ? 0 : 1; track.style.pointerEvents = on ? 'none' : ''; knobP.style.transition = 'left .3s'; knobP.style.left = '3px'; };
+  const lock = () => setUnlock(false);
+  let kx0 = 0; drag(knobP, { start: (e) => { kx0 = e.clientX; knobP.style.transition = 'none'; }, move: (e) => { const max = track.clientWidth - 40; knobP.style.left = clamp(3 + e.clientX - kx0, 3, max) + 'px'; }, end: () => { const max = track.clientWidth - 40; if (parseFloat(knobP.style.left) >= max - 4) { setUnlock(true); toast('Unlocked'); } else { knobP.style.transition = 'left .3s'; knobP.style.left = '3px'; } } });
+  const cPhone = card('History of Software Design', 'February 2026', h('div.rc-body', { style: { minHeight: '300px' } }, phone, h('div', { style: { position: 'absolute', bottom: '6px', fontSize: '8px', color: '#999', letterSpacing: '.02em' } }, 'Fig. 1 — slide to unlock (2007) · drag the knob · tap home to lock')), 'View Production');
+  // 3. icon micro-interactions
+  const st = { stroke: '#111', 'stroke-width': 1.5, fill: 'none' };
+  const ICONS = [
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('g', { class: 'spin', style: 'transform-origin:30px 20px' }, s('circle', { cx: 12, cy: 20, r: 3, fill: OR }), s('circle', { cx: 48, cy: 14, r: 2.5, ...st })), s('path', { d: 'M12 20 L30 8 L48 14 L36 32 Z', ...st })),
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('rect', { x: 18, y: 6, width: 22, height: 28, ...st }), s('rect', { x: 24, y: 14, width: 10, height: 6, fill: OR, class: 'bl' })),
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('path', { d: 'M14 8 L46 20 L14 32', ...st }), s('circle', { cx: 30, cy: 20, r: 4, fill: OR, class: 'sl' })),
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('g', { class: 'sw' }, s('path', { d: 'M30 6 L30 30', ...st }), s('circle', { cx: 30, cy: 32, r: 4, fill: OR })), s('path', { d: 'M8 34 C 20 40, 40 40, 52 34', ...st, 'stroke-dasharray': '2 3' })),
+    () => { let on = false; const k = s('circle', { cx: 22, cy: 20, r: 6, fill: '#111' }); const bg = s('rect', { x: 12, y: 12, width: 36, height: 16, rx: 8, ...st }); const g = s('svg', { width: 60, height: 40, viewBox: '0 0 60 40', style: 'cursor:pointer' }, bg, k); g.addEventListener('click', () => { on = !on; k.setAttribute('cx', on ? 38 : 22); k.setAttribute('fill', on ? OR : '#111'); }); k.style.transition = 'cx .25s cubic-bezier(.3,1.6,.5,1)'; return g; },
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('path', { d: 'M8 20 C 18 4, 28 36, 38 20', ...st }), s('circle', { cx: 44, cy: 20, r: 5, ...st }), s('circle', { cx: 20, cy: 14, r: 4, fill: OR, class: 'sl' })),
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('rect', { x: 10, y: 15, width: 40, height: 10, rx: 5, ...st }), s('circle', { cx: 18, cy: 20, r: 6, fill: OR, class: 'sl' })),
+    () => s('svg', { width: 60, height: 40, viewBox: '0 0 60 40' }, s('ellipse', { cx: 30, cy: 20, rx: 22, ry: 10, ...st }), s('g', { class: 'spin', style: 'transform-origin:30px 20px' }, s('circle', { cx: 52, cy: 20, r: 3, fill: OR })), s('ellipse', { cx: 30, cy: 20, rx: 12, ry: 5, ...st, 'stroke-dasharray': '2 2' })),
+  ];
+  const icons = h('div.rc-ic', {}, ICONS.concat(ICONS).map((f, i) => h('div', { title: 'micro-interaction ' + (i + 1), onclick: (e) => { const d = e.currentTarget; d.animate([{ transform: 'scale(1)' }, { transform: 'scale(.86)' }, { transform: 'scale(1)' }], { duration: 260, easing: 'cubic-bezier(.3,1.6,.5,1)' }); } }, f())));
+  const cIcons = card(null, null, h('div.rc-body', { style: { minHeight: '200px' } }, icons));
+  // 4. dock magnification
+  const DCOL = ['#ff6b6b', '#ffa94d', '#ffd43b', '#69db7c', '#38d9a9', '#4dabf7', '#9775fa', '#f783ac'];
+  const dockIcons = DCOL.map((c) => h('b', { style: { background: `linear-gradient(160deg,${c},${c}aa)` } }));
+  const dock = h('div.rc-dock', {}, dockIcons);
+  const magnify = (x) => dockIcons.forEach((b) => { const r = b.getBoundingClientRect(); const d = x == null ? 999 : Math.abs(x - (r.left + r.width / 2)); const k = 1 + Math.max(0, 1 - d / 110) * 0.85; b.style.width = b.style.height = 42 * k + 'px'; });
+  dock.addEventListener('pointermove', (e) => magnify(e.clientX)); dock.addEventListener('pointerleave', () => magnify(null));
+  const cDock = card('DD System', 'June 2026', h('div.rc-body', { style: { minHeight: '190px', background: 'linear-gradient(180deg,#fafafa,#efefef)' } }, dock), 'View Production');
+  // 5. novelty stickers
+  const novBody = h('div.rc-body', { style: { minHeight: '210px', cursor: 'copy' } });
+  const STK0 = [[-70, -40, -14], [10, -52, 8], [-40, -8, 12], [50, -14, -6], [-90, 22, 4], [0, 26, -12], [70, 30, 10], [-20, 54, 3], [40, 60, -9]];
+  const stickers = [];
+  const mkStk = (x, y, r) => { const el = h('div.rc-stk', { style: { left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)`, transform: `translate(-50%,-50%) rotate(${r}deg)` } }, 'Novelty'); const o = { el, x, y, r }; let p0, s0; drag(el, { start: (e) => { e.stopPropagation(); p0 = { x: e.clientX, y: e.clientY }; s0 = { x: o.x, y: o.y }; novBody.append(el); }, move: (e) => { o.x = s0.x + e.clientX - p0.x; o.y = s0.y + e.clientY - p0.y; el.style.left = `calc(50% + ${o.x}px)`; el.style.top = `calc(50% + ${o.y}px)`; } }); el.addEventListener('pointerdown', (e) => e.stopPropagation()); stickers.push(o); novBody.append(el); return o; };
+  const resetNov = () => { stickers.splice(0).forEach((o) => o.el.remove()); STK0.forEach((a) => mkStk(...a)); };
+  novBody.addEventListener('pointerdown', (e) => { if (e.target !== novBody) return; const r = novBody.getBoundingClientRect(); const o = mkStk(Math.round(e.clientX - r.left - r.width / 2), Math.round(e.clientY - r.top - r.height / 2), Math.round((Math.random() - 0.5) * 30)); o.el.animate([{ transform: o.el.style.transform + ' scale(1.4)', opacity: 0 }, { transform: o.el.style.transform, opacity: 1 }], { duration: 220, easing: 'cubic-bezier(.2,.9,.3,1.3)' }); });
+  resetNov();
+  const cNov = card(null, null, h('div', {}, novBody, h('div.rc-hd', { style: { paddingBottom: '10px' } }, h('span', {}, 'Novelty'), h('span', {}, 'February 2026'))), 'Read Essay');
+  // 6. testimonials stack
+  const QUOTES = [['“The details are the design. Every interaction here feels considered.”', 'Emil K. — Design Engineer'], ['“Rauno’s prototypes taught me how motion carries meaning.”', 'Paco C. — Designer'], ['“A shelf of tiny, perfect things.”', 'Jhey T. — Developer']];
+  const tBody = h('div.rc-body', { style: { minHeight: '210px' } }); let order = [0, 1, 2];
+  const tcards = QUOTES.map(([q, a]) => h('div.rc-tcard', { onclick: () => cycle() }, q, h('b', {}, a)));
+  const layoutT = () => order.forEach((qi, depth) => { const c = tcards[qi]; c.style.zIndex = 10 - depth; c.style.transform = `translateY(${depth * 12}px) scale(${1 - depth * 0.05})`; c.style.opacity = depth > 2 ? 0 : 1 - depth * 0.15; });
+  const cycle = () => { const top = order.shift(); order.push(top); const c = tcards[top]; c.style.transform = 'translateY(-40px) rotate(-6deg) scale(.95)'; c.style.opacity = 0; setTimeout(layoutT, 180); };
+  tBody.append(...tcards); layoutT();
+  const cTest = card('Testimonials', 'September 2025', tBody);
+  // 7. agent streaming
+  const ANS = 'Found 3 issues in checkout.tsx. Fixed the race in useCart, memoized the price list, and added a skeleton for the slow request. Opening a PR…';
+  const out = h('div', { style: { fontSize: '13px', lineHeight: 1.5, color: '#222', minHeight: '60px' } });
+  const thinking = h('div.rc-shim', { style: { fontSize: '13px', fontWeight: 500 } }, 'Thinking…');
+  const ask = h('div', { style: { display: 'flex', gap: '6px', alignItems: 'center', border: '1px solid #e6e6e6', borderRadius: '10px', padding: '6px 6px 6px 12px', fontSize: '13px', color: '#888', background: '#fff' } }, h('span', { style: { flex: 1 } }, 'Review my checkout flow'), h('button', { style: { width: '28px', height: '28px', borderRadius: '7px', border: 0, background: '#111', color: '#fff', cursor: 'pointer' }, onclick: () => runAgent() }, '↑'));
+  let agentT = 0; const runAgent = async () => { const my = ++agentT; out.textContent = ''; thinking.style.display = ''; await sleep(700); if (my !== agentT) return; thinking.style.display = 'none'; for (const w of ANS.split(' ')) { if (my !== agentT) return; out.textContent += w + ' '; await sleep(45); } };
+  const cAgent = card('Vercel Agent', 'May 2026', h('div.rc-body', { style: { minHeight: '230px', placeItems: 'stretch', padding: '14px', alignContent: 'start', gap: '10px', background: 'linear-gradient(#fff,#fafafa)' } }, ask, thinking, out));
+  setTimeout(runAgent, 600);
+  // 8. combobox
+  const FR = ['Apple', 'Apricot', 'Banana', 'Blueberry', 'Cherry', 'Dragonfruit', 'Fig', 'Grape', 'Kiwi', 'Lemon', 'Mango', 'Peach'];
+  let act = 0, chosen = null; const inp = h('input', { placeholder: 'Search fruit…', autocomplete: 'off' }); const ul = h('ul');
+  const renderCb = () => { const q = inp.value.toLowerCase(); const items = FR.filter((f) => f.toLowerCase().includes(q)); act = clamp(act, 0, Math.max(0, items.length - 1)); ul.replaceChildren(...(items.length ? items.map((f, i) => h('li' + (i === act ? '.act' : ''), { onmouseenter: () => { act = i; renderCb(); }, onmousedown: (e) => { e.preventDefault(); choose(f); } }, f, chosen === f ? h('span.ck', {}, '✓') : '')) : [h('li', { style: { color: '#999' } }, 'No results')])); ul.items = items; };
+  const choose = (f) => { chosen = f; inp.value = f; renderCb(); toast('Selected ' + f); };
+  inp.addEventListener('input', () => { act = 0; renderCb(); });
+  inp.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown') { act++; renderCb(); e.preventDefault(); } if (e.key === 'ArrowUp') { act = Math.max(0, act - 1); renderCb(); e.preventDefault(); } if (e.key === 'Enter' && ul.items?.[act]) choose(ul.items[act]); if (e.key === 'Escape') { inp.value = ''; renderCb(); } });
+  renderCb();
+  const cCombo = card('Combobox', 'December 2025', h('div.rc-body', { style: { minHeight: '260px', alignContent: 'start', paddingTop: '18px' } }, h('div.rc-cb', {}, inp, ul)));
+  // 9. hold to delete
+  const fill = h('div.fill', {}, 'Hold to Delete'); const hold = h('button.rc-hold', {}, 'Hold to Delete', fill); let hp = 0, holding = false, raf = 0;
+  const holdTick = () => { hp = clamp(hp + (holding ? 0.022 : -0.06), 0, 1); fill.style.clipPath = `inset(0 ${100 - hp * 100}% 0 0)`; if (hp >= 1) { holding = false; hp = 0; fill.style.clipPath = 'inset(0 100% 0 0)'; hold.animate([{ transform: 'scale(1)' }, { transform: 'scale(.94)' }, { transform: 'scale(1)' }], { duration: 250 }); toast('Deleted ✓'); deletedN++; } if (holding || hp > 0) raf = requestAnimationFrame(holdTick); else raf = 0; };
+  let deletedN = 0; const startHold = () => { holding = true; if (!raf) raf = requestAnimationFrame(holdTick); }; const stopHold = () => { holding = false; };
+  hold.addEventListener('pointerdown', startHold); ['pointerup', 'pointerleave'].forEach((ev) => hold.addEventListener(ev, stopHold));
+  const cHold = card('Hold to Delete', 'October 2025', h('div.rc-body', { style: { minHeight: '170px', background: 'radial-gradient(circle at 50% 120%,#f3f3f3,#fff 70%)' } }, hold));
+  const grid = h('div.rc-grid', {}, h('div.rc-col', {}, cPosters, cPhone, cIcons), h('div.rc-col', {}, cDock, cNov, cTest), h('div.rc-col', {}, cAgent, cCombo, cHold));
+  root.append(h('div.rc-top', {}, bar), grid);
+  window.__demoProof = async () => {
+    const res = [];
+    setView('one'); await sleep(120); setView('two'); await sleep(120); setView('grid'); res.push('view one→two→grid');
+    const r = dock.getBoundingClientRect(); dock.dispatchEvent(new PointerEvent('pointermove', { clientX: r.left + r.width * 0.4, clientY: r.top + 40 })); await sleep(100); const big = parseFloat(dockIcons[3].style.width) > 50; magnify(null); res.push('dock magnify ' + big);
+    setUnlock(true); await sleep(200); res.push('unlock ' + unlocked); lock();
+    inp.value = 'an'; inp.dispatchEvent(new Event('input')); const n = ul.items.length; choose(ul.items[0]); res.push(`combobox ${n} hits → ${chosen}`); inp.value = ''; chosen = null; renderCb();
+    const d0 = deletedN; startHold(); await sleep(1300); stopHold(); res.push('hold-delete ' + (deletedN > d0));
+    stickers[0].x += 40; resetNov(); cycle(); await sleep(250); order = [0, 1, 2]; layoutT(); res.push('stickers+testimonials');
+    postersAll()[2].classList.add('big'); await sleep(150); postersAll()[2].classList.remove('big');
+    return res.join(' · ') + ' · restored';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['neumorph-softui-generator'])(root, T); }

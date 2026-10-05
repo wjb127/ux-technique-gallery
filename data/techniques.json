@@ -1,5 +1,101 @@
 [
  {
+  "id": "clone-mmm-page-sticker-site-builder",
+  "slug": "mmm-page-sticker-site-builder",
+  "name": "mmm.page Sticker Site Builder",
+  "date": "2026-10-05",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://mmm.page/",
+  "domain": "mmm.page",
+  "product": "Mmm",
+  "checkpoints": [
+   "mmm.page Sticker Site Builder"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "mmm.page Sticker Site Builder",
+  "ko": "Mmm 스타일 인터랙션 클론",
+  "engine": "desk",
+  "variant": "mmm-page-sticker-site-builder",
+  "theme": {
+   "bg": "#ffffff",
+   "fg": "#7113e2",
+   "panel": "#fdfdfc",
+   "dark": false,
+   "ac": "#66df9c",
+   "ac2": "#7113e2",
+   "ac3": "#190b27",
+   "coverage": 0.62
+  },
+  "path": "/t/mmm-page-sticker-site-builder/",
+  "built": true
+ },
+ {
+  "id": "clone-abeto-messenger-tiny-planet",
+  "slug": "abeto-messenger-tiny-planet",
+  "name": "Abeto Messenger Tiny-Planet World",
+  "date": "2026-10-05",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://messenger.abeto.co/",
+  "domain": "messenger.abeto.co",
+  "product": "Messenger",
+  "checkpoints": [
+   "Abeto Messenger Tiny-Planet World"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Abeto Messenger Tiny-Planet World",
+  "ko": "Messenger 스타일 인터랙션 클론",
+  "engine": "three",
+  "variant": "abeto-messenger-tiny-planet",
+  "theme": {
+   "bg": "#65c1bc",
+   "fg": "#141414",
+   "panel": "#8e9489",
+   "dark": false,
+   "ac": "#65c1bc",
+   "ac2": "#6ecbc1",
+   "ac3": "#446e54",
+   "coverage": 0.68
+  },
+  "path": "/t/abeto-messenger-tiny-planet/",
+  "built": true
+ },
+ {
+  "id": "clone-rauno-craft-interaction-shelf",
+  "slug": "rauno-craft-interaction-shelf",
+  "name": "Rauno Craft Interaction Shelf",
+  "date": "2026-10-05",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://rauno.me/craft",
+  "domain": "rauno.me",
+  "product": "Rauno",
+  "checkpoints": [
+   "Rauno Craft Interaction Shelf"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "prompt": null,
+  "short": "Rauno Craft Interaction Shelf",
+  "ko": "Rauno 스타일 인터랙션 클론",
+  "engine": "cssfx",
+  "variant": "rauno-craft-interaction-shelf",
+  "theme": {
+   "bg": "#ffffff",
+   "fg": "#6f6751",
+   "panel": "#fcfcfc",
+   "dark": false,
+   "ac": "#ece952",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.19
+  },
+  "path": "/t/rauno-craft-interaction-shelf/",
+  "built": true
+ },
+ {
   "id": "clone-squeezy-variable-font-playground",
   "slug": "squeezy-variable-font-playground",
   "name": "Squeezy Variable Font Playground",

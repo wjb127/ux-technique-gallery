@@ -1,5 +1,131 @@
 [
  {
+  "id": "clone-mmm-page-sticker-site-builder",
+  "slug": "mmm-page-sticker-site-builder",
+  "name": "mmm.page Sticker Site Builder",
+  "date": "2026-10-05",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://mmm.page/",
+  "domain": "mmm.page",
+  "product": "Mmm",
+  "checkpoints": [
+   "mmm.page Sticker Site Builder"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "mmm.page Sticker Site Builder",
+  "ko": "Mmm 스타일 인터랙션 클론",
+  "engine": "desk",
+  "variant": "mmm-page-sticker-site-builder",
+  "path": "/t/mmm-page-sticker-site-builder/",
+  "built": true
+ },
+ {
+  "id": "clone-abeto-messenger-tiny-planet",
+  "slug": "abeto-messenger-tiny-planet",
+  "name": "Abeto Messenger Tiny-Planet World",
+  "date": "2026-10-05",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://messenger.abeto.co/",
+  "domain": "messenger.abeto.co",
+  "product": "Messenger",
+  "checkpoints": [
+   "Abeto Messenger Tiny-Planet World"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Abeto Messenger Tiny-Planet World",
+  "ko": "Messenger 스타일 인터랙션 클론",
+  "engine": "three",
+  "variant": "abeto-messenger-tiny-planet",
+  "path": "/t/abeto-messenger-tiny-planet/",
+  "built": true
+ },
+ {
+  "id": "clone-rauno-craft-interaction-shelf",
+  "slug": "rauno-craft-interaction-shelf",
+  "name": "Rauno Craft Interaction Shelf",
+  "date": "2026-10-05",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://rauno.me/craft",
+  "domain": "rauno.me",
+  "product": "Rauno",
+  "checkpoints": [
+   "Rauno Craft Interaction Shelf"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Rauno Craft Interaction Shelf",
+  "ko": "Rauno 스타일 인터랙션 클론",
+  "engine": "cssfx",
+  "variant": "rauno-craft-interaction-shelf",
+  "path": "/t/rauno-craft-interaction-shelf/",
+  "built": true
+ },
+ {
+  "id": "clone-squeezy-variable-font-playground",
+  "slug": "squeezy-variable-font-playground",
+  "name": "Squeezy Variable Font Playground",
+  "date": "2026-10-05",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://squeezy.overnice.com/",
+  "domain": "squeezy.overnice.com",
+  "product": "Squeezy",
+  "checkpoints": [
+   "Squeezy Variable Font Playground"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Squeezy Variable Font Playground",
+  "ko": "Squeezy 스타일 타이포 클론",
+  "engine": "type",
+  "variant": "squeezy-variable-font-playground",
+  "path": "/t/squeezy-variable-font-playground/",
+  "built": true
+ },
+ {
+  "id": "clone-kolesidis-frivobrutalism-playground",
+  "slug": "kolesidis-frivobrutalism-playground",
+  "name": "Kolesidis Frivobrutalism Portfolio Playground",
+  "date": "2026-10-05",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://michaelkolesidis.com/",
+  "domain": "michaelkolesidis.com",
+  "product": "Michaelkolesidis",
+  "checkpoints": [
+   "Kolesidis Frivobrutalism Portfolio Playground"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Kolesidis Frivobrutalism Portfolio Playground",
+  "ko": "Michaelkolesidis 스타일 인터랙션 클론",
+  "engine": "gen",
+  "variant": "kolesidis-frivobrutalism-playground",
+  "path": "/t/kolesidis-frivobrutalism-playground/",
+  "built": true
+ },
+ {
+  "id": "clone-stabondar-physics-portfolio-stage",
+  "slug": "stabondar-physics-portfolio-stage",
+  "name": "Stabondar Physics Portfolio Stage",
+  "date": "2026-10-05",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.stabondar.com/",
+  "domain": "stabondar.com",
+  "product": "Stabondar",
+  "checkpoints": [
+   "Stabondar Physics Portfolio Stage"
+  ],
+  "checkpoint_source": "derived-from-ledger-name",
+  "short": "Stabondar Physics Portfolio Stage",
+  "ko": "Stabondar 스타일 시뮬레이션 클론",
+  "engine": "sim",
+  "variant": "stabondar-physics-portfolio-stage",
+  "path": "/t/stabondar-physics-portfolio-stage/",
+  "built": true
+ },
+ {
   "id": "clone-canvasui-shader-dom-playground",
   "slug": "canvasui-shader-dom-playground",
   "name": "Canvas UI Shader-over-DOM Playground",

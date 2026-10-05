@@ -2,7 +2,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { h, drag, clamp, toast, sleep, noise2, fitCanvas, blip, audio, rng } from '../lib.js';
+import '@fontsource/press-start-2p';
+import { h, s, drag, clamp, toast, sleep, noise2, fitCanvas, blip, audio, rng, pick } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
 const V = {};
 function stage(el, { bg = null, ortho = false, alpha = false } = {}) {
@@ -1865,6 +1866,117 @@ V['lusion-3d-studio-stage'] = (root, T) => {
     accentI = prev; rebuild(prevSeed); paintChips();
     oc.autoRotateSpeed = 0.55;
     return 'orbit stage · accent chips · reshuffle · restored';
+  };
+};
+
+// ---------- Abeto Messenger tiny-planet delivery world (2026-10-05 08:00 KST)
+V['abeto-messenger-tiny-planet'] = (root, T) => {
+  theme(root, T, { bg: '#65c1bc', fg: '#1d2a28', panel: '#ffffffd9', ac: '#f2c94c', dark: false, line: '#00000022' });
+  root.style.overflow = 'hidden';
+  root.style.background = 'radial-gradient(circle at 50% 46%, #7fd3cb 0 22%, #69c4be 38%, #61bdb8 70%)';
+  const PX = "'Press Start 2P', monospace";
+  root.append(h('style', {}, `
+    .ab-specks{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#d9fff8 1.2px,transparent 1.6px),radial-gradient(#bff3ea 1px,transparent 1.4px);background-size:97px 89px,61px 71px;background-position:13px 7px,40px 30px;opacity:.7}
+    .ab-cloud{position:absolute;border-radius:50%;background:#7ed3ca;filter:blur(2px);opacity:.55;pointer-events:none}
+    .ab-title{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);display:grid;grid-template-columns:repeat(3,96px);gap:8px 14px;pointer-events:none;z-index:3;transition:opacity .6s, transform .8s}
+    .ab-title span{font:400 84px/96px ${PX};text-align:center;color:#f4f2e8;-webkit-text-stroke:3px #2f3433;text-shadow:5px 5px 0 #c9c7bb,6px 6px 0 #2f3433,9px 9px 0 #2f343355}
+    .ab-begin{position:absolute;left:50%;top:calc(47% + 268px);transform:translate(-50%,0) rotate(-1.5deg);z-index:4;background:#f2c84b;border:3px solid #a8822b;border-radius:3px;box-shadow:0 5px 0 #a8822b,0 10px 18px #0002;font:400 15px/1 ${PX};color:#fff8e2;-webkit-text-stroke:1px #8a6a20;padding:16px 34px;cursor:pointer;letter-spacing:.06em;transition:transform .15s, opacity .5s}
+    .ab-begin:hover{transform:translate(-50%,-3px) rotate(-1.5deg)}
+    .ab-load{position:absolute;inset:0;background:#fff;display:grid;place-items:center;z-index:9;transition:opacity .5s}
+    .ab-load div{font:400 11px/1 ${PX};color:#555;letter-spacing:.08em;text-align:center}
+    .ab-hud{position:absolute;left:18px;top:16px;z-index:5;display:none;gap:10px;align-items:center;background:#fffbea;border:3px solid #2f3433;border-radius:6px;padding:10px 14px;font:400 12px/1 ${PX};color:#2f3433;box-shadow:4px 4px 0 #2f3433}
+    .ab-tip{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:5;display:none;font:400 10px/1.6 ${PX};color:#fffbea;text-shadow:2px 2px 0 #2f3433;text-align:center;pointer-events:none}
+    .ab-pad{position:absolute;right:28px;bottom:28px;width:120px;height:120px;border-radius:50%;background:#fffbea55;border:3px solid #2f3433aa;z-index:5;display:none;touch-action:none;cursor:grab}
+    .ab-pad i{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px;border-radius:50%;background:#f2c84b;border:3px solid #2f3433}
+    .ab-menu{position:absolute;right:18px;top:16px;z-index:5;display:none;gap:8px}
+    .ab-menu button{font:400 10px/1 ${PX};background:#fffbea;border:3px solid #2f3433;border-radius:6px;padding:9px 10px;cursor:pointer;box-shadow:3px 3px 0 #2f3433;color:#2f3433}
+  `));
+  root.append(h('div.ab-specks'), ...[[8, 70, 220, 90], [70, 12, 260, 110], [80, 78, 200, 80], [14, 20, 180, 70]].map(([x, y, w, hh]) => h('div.ab-cloud', { style: { left: x + '%', top: y + '%', width: w + 'px', height: hh + 'px' } })));
+  const S = stage(root, { alpha: true }); S.r.setClearColor(0x000000, 0); S.r.domElement.style.zIndex = 1;
+  const scene = S.scene, cam = S.cam;
+  scene.add(new THREE.HemisphereLight(0xfffff4, 0x3f7f78, 1.25)); const sun = new THREE.DirectionalLight(0xffffff, 1.5); sun.position.set(6, 12, 9); scene.add(sun);
+  const R = 5; const world = new THREE.Group(); scene.add(world);
+  const toon = (c) => new THREE.MeshToonMaterial({ color: c });
+  const INK = new THREE.MeshBasicMaterial({ color: 0x2f3433, side: THREE.BackSide });
+  const inked = (geo, mat, k = 1.06) => { const g = new THREE.Group(); const m = new THREE.Mesh(geo, mat); const o = new THREE.Mesh(geo, INK); o.scale.setScalar(k); g.add(m, o); return g; };
+  // planet with painted patches
+  const pg = new THREE.IcosahedronGeometry(R, 5); const nz = noise2(9); const col = []; const pos = pg.attributes.position; const cc = new THREE.Color();
+  for (let i = 0; i < pos.count; i++) { const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i); const n = nz(x * 0.35 + 3, y * 0.35 + z * 0.3); const n2 = nz(z * 0.5 + 9, x * 0.5 - y * 0.2);
+    cc.set(n > 0.62 ? '#c9b48c' : n2 > 0.68 ? '#b3a989' : n < 0.32 ? '#3f7d45' : '#5c9e4e'); col.push(cc.r, cc.g, cc.b); }
+  pg.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  const planet = inked(pg, new THREE.MeshToonMaterial({ vertexColors: true }), 1.025); world.add(planet);
+  const shallow = new THREE.Mesh(new THREE.SphereGeometry(R * 1.32, 48, 32), new THREE.MeshBasicMaterial({ color: 0x8fdccf, transparent: true, opacity: 0.45, depthWrite: false, side: THREE.BackSide })); shallow.renderOrder = -1; scene.add(shallow);
+  const rnd = rng(42); const up = new THREE.Vector3(0, 1, 0);
+  const placeOn = (obj, dir, lift = 0) => { dir = dir.clone().normalize(); obj.position.copy(dir).multiplyScalar(R + lift); obj.quaternion.setFromUnitVectors(up, dir); obj.rotateY(rnd() * Math.PI * 2); world.add(obj); return obj; };
+  const randDir = () => new THREE.Vector3(rnd() * 2 - 1, rnd() * 2 - 1, rnd() * 2 - 1).normalize();
+  const WALLS = ['#f4efe2', '#f2c9c0', '#e8e2cf', '#cfe3e6', '#f6dca8', '#d7d1e8'], ROOFS = ['#c9524a', '#8a6e5a', '#4f7da0', '#d98f4e', '#6b8f71'];
+  function house(big) { const g = new THREE.Group(); const w = big ? 0.7 + rnd() * 0.35 : 0.6 + rnd() * 0.3, hh = big ? 1.0 + rnd() * 0.9 : 0.55 + rnd() * 0.3;
+    const body = inked(new THREE.BoxGeometry(w, hh, w * (0.8 + rnd() * 0.4)), toon(pick(WALLS, rnd)), 1.05); body.position.y = hh / 2; g.add(body);
+    if (!big) { const roof = inked(new THREE.ConeGeometry(w * 0.82, 0.5, 4), toon(pick(ROOFS, rnd)), 1.06); roof.position.y = hh + 0.25; roof.rotation.y = Math.PI / 4; g.add(roof); }
+    else { for (let k = 0; k < 3; k++) { const win = new THREE.Mesh(new THREE.BoxGeometry(w * 1.01, 0.12, w * 0.5), toon('#4d5b63')); win.position.y = 0.5 + k * hh * 0.28; g.add(win); } const tank = inked(new THREE.CylinderGeometry(0.15, 0.15, 0.3, 8), toon('#8fc7a0')); tank.position.set(w * 0.2, hh + 0.15, 0); g.add(tank); }
+    return g; }
+  function tree() { const g = new THREE.Group(); const t = inked(new THREE.CylinderGeometry(0.06, 0.09, 0.45, 6), toon('#7a5a3c')); t.position.y = 0.22; const c = inked(new THREE.IcosahedronGeometry(0.32 + rnd() * 0.2, 0), toon(pick(['#3f8a46', '#5aa34f', '#2f7a43'], rnd))); c.position.y = 0.62; g.add(t, c); return g; }
+  const used = [up.clone(), up.clone()];
+  const free = (d, min) => used.every((u) => u.angleTo(d) > min);
+  for (let i = 0; i < 26; i++) { let d; let k = 0; do { d = randDir(); } while (!free(d, 0.32) && ++k < 40); used.push(d); placeOn(house(i % 3 === 0), d); }
+  for (let i = 0; i < 70; i++) { let d; let k = 0; do { d = randDir(); } while (!free(d, 0.16) && ++k < 30); used.push(d); placeOn(tree(), d); }
+  // delivery targets: mailboxes with floating envelopes
+  const targets = [];
+  const envGeo = new THREE.BoxGeometry(0.5, 0.34, 0.06);
+  for (let i = 0; i < 5; i++) { let d; let k = 0; do { d = randDir(); } while ((!free(d, 0.3) || d.y > 0.85) && ++k < 60); used.push(d);
+    const g = new THREE.Group(); const hs = house(false); g.add(hs); const post = inked(new THREE.CylinderGeometry(0.04, 0.04, 0.5, 6), toon('#555')); post.position.set(0.65, 0.25, 0.2); const box = inked(new THREE.BoxGeometry(0.22, 0.18, 0.3), toon('#d64a3a')); box.position.set(0.65, 0.55, 0.2); g.add(post, box);
+    const env = new THREE.Group(); const e1 = inked(envGeo, toon('#fffbea'), 1.12); const flap = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.16, 3), toon('#e6dcc0')); flap.rotation.z = Math.PI; flap.position.set(0, 0.06, 0.04); flap.scale.z = 0.2; env.add(e1, flap); env.position.y = 1.9; g.add(env);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.75, 0.95, 32), new THREE.MeshBasicMaterial({ color: 0xf2c84b, transparent: true, opacity: 0.8, side: THREE.DoubleSide })); ring.rotation.x = -Math.PI / 2; ring.position.y = 0.03; g.add(ring);
+    placeOn(g, d); targets.push({ g, env, ring, dir: d.clone(), done: false }); }
+  // courier character (stays at the top of the planet; the world turns beneath)
+  const hero = new THREE.Group(); const body = inked(new THREE.CapsuleGeometry(0.22, 0.32, 4, 10), toon('#3c6fb6')); body.position.y = 0.42;
+  const head = inked(new THREE.SphereGeometry(0.2, 14, 10), toon('#f2d2b0')); head.position.y = 0.92; const cap = inked(new THREE.CylinderGeometry(0.21, 0.21, 0.1, 14), toon('#e0473a')); cap.position.y = 1.06; const brim = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.03, 0.16), toon('#e0473a')); brim.position.set(0, 1.03, 0.2);
+  const bag = inked(new THREE.BoxGeometry(0.28, 0.24, 0.12), toon('#c99a5b')); bag.position.set(0.18, 0.42, -0.16); bag.rotation.y = 0.4;
+  const legs = [-0.09, 0.09].map((x) => { const l = inked(new THREE.CylinderGeometry(0.06, 0.06, 0.24, 6), toon('#2b3d5c')); l.position.set(x, 0.12, 0); return l; });
+  hero.add(body, head, cap, brim, bag, ...legs); hero.position.set(0, R, 0); hero.visible = false; scene.add(hero);
+  const shadow = new THREE.Mesh(new THREE.CircleGeometry(0.32, 20), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.22 })); shadow.rotation.x = -Math.PI / 2; shadow.position.set(0, R + 0.02, 0); shadow.visible = false; scene.add(shadow);
+  // UI
+  const title = h('div.ab-title', {}, [...'MESSENGER'].map((c) => h('span', {}, c)));
+  const begin = h('button.ab-begin', { onclick: () => start() }, 'BEGIN');
+  const hud = h('div.ab-hud', {}, h('span', { style: { fontSize: '16px' } }, '✉'), h('span', {}, 'LETTERS '), h('b', {}, '0/5'));
+  const tip = h('div.ab-tip', {}, 'WASD / ARROWS or drag the pad to walk', h('br'), 'deliver ✉ to the glowing mailboxes');
+  const knob = h('i'); const pad = h('div.ab-pad', {}, knob);
+  const menu = h('div.ab-menu', {}, h('button', { onclick: () => reset(true) }, '⟲ TITLE'), h('button', { onclick: () => toast('Messenger — a tiny planet by Abeto') }, 'ⓘ'));
+  const load = h('div.ab-load', {}, h('div', {}, s('svg', { width: 60, height: 50, viewBox: '0 0 60 50', style: 'display:block;margin:0 auto 12px' }, s('path', { d: 'M8 12 L52 9 L53 42 L9 44 Z M8 12 L30 30 L52 9', fill: 'none', stroke: '#555', 'stroke-width': 2.4, 'stroke-linejoin': 'round' })), 'LOADING'));
+  root.append(title, begin, hud, tip, pad, menu, load);
+  setTimeout(() => { load.style.opacity = 0; setTimeout(() => load.remove(), 500); }, 700);
+  // state
+  let mode = 'title', heading = 0, delivered = 0; const keys = new Set(); const joy = { x: 0, y: 0 };
+  const camTitle = { p: new THREE.Vector3(0, 0, 25), l: new THREE.Vector3(0, 0, 0) }, camGame = { p: new THREE.Vector3(0, R + 6.4, 8.6), l: new THREE.Vector3(0, R - 0.8, 0) };
+  const camP = camTitle.p.clone(), camL = camTitle.l.clone(); let tw = 0;
+  const hudN = hud.querySelector('b');
+  function start() { if (mode === 'game') return; mode = 'game'; title.style.opacity = 0; title.style.transform = 'translate(-50%,-50%) scale(1.15)'; begin.style.opacity = 0; begin.style.pointerEvents = 'none'; hero.visible = shadow.visible = true; [hud, menu].forEach((e) => (e.style.display = 'flex')); tip.style.display = 'block'; pad.style.display = 'block'; tw = 0; try { blip(660, 0.12, 'square', 0.05); } catch {} }
+  function reset(toTitle) { world.quaternion.identity(); heading = 0; delivered = 0; hudN.textContent = '0/5'; targets.forEach((t) => { t.done = false; t.env.visible = true; t.ring.visible = true; t.env.scale.setScalar(1); }); if (toTitle) { mode = 'title'; title.style.opacity = 1; title.style.transform = 'translate(-50%,-50%)'; begin.style.opacity = 1; begin.style.pointerEvents = ''; hero.visible = shadow.visible = false; [hud, menu, tip, pad].forEach((e) => (e.style.display = 'none')); tw = 0; } }
+  addEventListener('keydown', (e) => { const k = e.key.toLowerCase(); if (['arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'w', 'a', 's', 'd'].includes(k)) { keys.add(k); if (mode === 'game') e.preventDefault(); } if (k === 'enter' && mode === 'title') start(); });
+  addEventListener('keyup', (e) => keys.delete(e.key.toLowerCase()));
+  drag(pad, { move: (e) => { const r = pad.getBoundingClientRect(); let x = (e.clientX - r.left - r.width / 2) / 45, y = (e.clientY - r.top - r.height / 2) / 45; const m = Math.hypot(x, y); if (m > 1) { x /= m; y /= m; } joy.x = x; joy.y = y; knob.style.transform = `translate(${x * 36}px,${y * 36}px)`; }, end: () => { joy.x = joy.y = 0; knob.style.transform = ''; } });
+  // title-mode orbit drag on the canvas
+  let spinV = 0.12; drag(S.r.domElement, { move: (e) => { if (mode !== 'title') return; const q = new THREE.Quaternion().setFromAxisAngle(up, e.movementX * 0.01); const q2 = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), e.movementY * 0.01); world.quaternion.premultiply(q).premultiply(q2); spinV = 0; }, end: () => (spinV = 0.12) });
+  const tmp = new THREE.Vector3(), heroTop = new THREE.Vector3(0, R, 0);
+  function step(dt, fwd, turn) { heading += turn * dt * 2.6; hero.rotation.y = heading; if (fwd) { const d = new THREE.Vector3(Math.sin(heading), 0, Math.cos(heading)); const axis = new THREE.Vector3().crossVectors(d, up).normalize(); world.quaternion.premultiply(new THREE.Quaternion().setFromAxisAngle(axis, (fwd * dt * 2.4) / R)); } }
+  function check() { for (const t of targets) { if (t.done) continue; t.g.getWorldPosition(tmp); if (tmp.distanceTo(heroTop) < 1.25) { t.done = true; delivered++; hudN.textContent = `${delivered}/5`; t.ring.visible = false; toast(delivered === 5 ? 'All letters delivered! ✉✉✉✉✉' : `Letter delivered ✉ ${delivered}/5`); try { blip(880, 0.1, 'square', 0.05); blip(1320, 0.12, 'square', 0.05, 0.08); } catch {} } } }
+  let last = 0;
+  S.on((t) => { const dt = Math.min(0.05, last ? t - last : 0.016); last = t;
+    if (mode === 'title') { world.quaternion.premultiply(new THREE.Quaternion().setFromAxisAngle(up, spinV * dt)); }
+    else { const f = (keys.has('w') || keys.has('arrowup') ? 1 : 0) - (keys.has('s') || keys.has('arrowdown') ? 1 : 0) - joy.y; const tr = (keys.has('a') || keys.has('arrowleft') ? 1 : 0) - (keys.has('d') || keys.has('arrowright') ? 1 : 0) - joy.x; step(dt, clamp(f, -1, 1), clamp(tr, -1, 1)); const walking = Math.abs(f) > 0.05; legs[0].rotation.x = walking ? Math.sin(t * 14) * 0.6 : 0; legs[1].rotation.x = -legs[0].rotation.x; body.position.y = 0.42 + (walking ? Math.abs(Math.sin(t * 14)) * 0.05 : 0); check(); }
+    targets.forEach((tg, i) => { if (!tg.done) { tg.env.position.y = 1.9 + Math.sin(t * 2.5 + i) * 0.15; tg.env.rotation.y = t * 1.5; tg.ring.material.opacity = 0.5 + Math.sin(t * 4) * 0.3; } else if (tg.env.visible) { tg.env.position.y += dt * 4; tg.env.scale.multiplyScalar(0.94); if (tg.env.scale.x < 0.05) tg.env.visible = false; } });
+    tw = Math.min(1, tw + dt * 0.9); const goal = mode === 'game' ? camGame : camTitle; const k = 1 - Math.pow(1 - tw, 3); camP.lerp(goal.p, 0.04 + k * 0.08); camL.lerp(goal.l, 0.04 + k * 0.08); cam.position.copy(camP); cam.lookAt(camL);
+    shallow.visible = mode === 'title' || camP.distanceTo(camTitle.p) < 6; });
+  window.__demoProof = async () => {
+    start(); await sleep(120);
+    // walk forward for a few frames + turn
+    for (let i = 0; i < 20; i++) step(0.03, 1, i < 10 ? 0.6 : 0);
+    // travel to first mailbox: rotate the world so its normal points up
+    const tg = targets[0]; const nWorld = tg.dir.clone().applyQuaternion(world.quaternion).normalize();
+    world.quaternion.premultiply(new THREE.Quaternion().setFromUnitVectors(nWorld, up)); check(); await sleep(250);
+    const got = delivered;
+    reset(true); await sleep(150);
+    return `begin → walked tiny planet (rotate world) → delivered ${got}/5 → reset to title`;
   };
 };
 
