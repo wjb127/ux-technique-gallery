@@ -5,7 +5,7 @@ const assign = JSON.parse(fs.readFileSync('data/assign.json', 'utf8'));
 const pal = fs.existsSync('data/ref-palettes.json') ? JSON.parse(fs.readFileSync('data/ref-palettes.json', 'utf8')) : {};
 const engineOf = {}; for (const [e, list] of Object.entries(assign)) for (const s of list) engineOf[s] = e;
 const KO = [[/gradient/i, '그라디언트'], [/palette|color|colour|hue|tone/i, '컬러'], [/paint|brush|draw|sketch|canvas/i, '드로잉'], [/sequencer|beat|drum|synth|audio|music|sound|piano|melody|instrument|radio|player|mixer/i, '사운드'],
-  [/node|graph|patch|schema|circuit|logic/i, '노드 그래프'], [/font|type|glyph|kerning|text/i, '타이포'], [/pixel|grid|tile|mosaic|ascii/i, '그리드/타일'], [/map|globe|earth|star|solar|orbit/i, '지도/지구'],
+  [/node|graph(?!ic)|patch|schema|circuit|logic/i, '노드 그래프'], [/font|type|glyph|kerning|text/i, '타이포'], [/pixel|grid|tile|mosaic|ascii/i, '그리드/타일'], [/map|globe|earth|star|solar|orbit/i, '지도/지구'],
   [/pricing|checkout|wallet|booking/i, 'SaaS 화면'], [/css|clip|shadow|glass|neumorph|clay|radius|bezier|easing|anim/i, 'CSS 생성기'], [/svg|wave|blob|shape|qr|icon|avatar/i, 'SVG 생성기'],
   [/photo|image|dither|duotone|mockup|screenshot|code-snippet|code image|video/i, '이미지 스튜디오'], [/puzzle|game|level|battle|quiz/i, '퍼즐/게임'], [/code|repl|editor|livecode|regex|api/i, '라이브 코딩'],
   [/3d|voxel|mesh|origami|isometric/i, '3D 스테이지'], [/desktop|os|win95|retro/i, '레트로 데스크톱'], [/sim|sand|fluid|diffusion|ecosystem|physics/i, '시뮬레이션'], [/chart|timeline|scrub|data/i, '데이터/타임라인']];

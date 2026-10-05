@@ -81,7 +81,8 @@
   "svgartista-stroke-draw",
   "bradwoods-css-layout-generator",
   "singlediv-css-art-museum",
-  "rauno-craft-interaction-shelf"
+  "rauno-craft-interaction-shelf",
+  "pokeholo-holographic-card-tilt"
  ],
  "svggen": [
   "shapedivider-preview-export",
@@ -225,7 +226,8 @@
   "kepler-gl-geospatial-layer-desk",
   "maputnik-map-style-editor",
   "musicmap-genre-carta-desk",
-  "truesize-country-compare-map"
+  "truesize-country-compare-map",
+  "citylines-transit-history-map"
  ],
  "chart": [
   "bubble-chart-time-scrubber",
@@ -325,7 +327,8 @@
   "sonner-toast-desk",
   "ponpon-interactive-comic",
   "lenis-smooth-scroll-stage",
-  "aesop-editorial-fragrance-shop"
+  "aesop-editorial-fragrance-shop",
+  "flighty-live-flight-notification-hero"
  ],
  "ux": [
   "5-state-gate",

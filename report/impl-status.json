@@ -2329,5 +2329,32 @@
   "proof": "100 mL added → 장바구니 (1); floral chip shows 2 cards; mega-menu opens=true",
   "demoNodes": 128,
   "errors": []
+ },
+ "citylines-transit-history-map": {
+  "url": "http://localhost:4173/t/citylines-transit-history-map/",
+  "ok": true,
+  "at": "2026-10-05T11:54:53.612Z",
+  "http": 200,
+  "proof": "1950: 4 lines 102 km → 1995: 16 lines → 2026: 18 lines 464 km, 265 stations; Yamanote toggle off → 17; playback reached 1904",
+  "demoNodes": 532,
+  "errors": []
+ },
+ "pokeholo-holographic-card-tilt": {
+  "url": "http://localhost:4173/t/pokeholo-holographic-card-tilt/",
+  "ok": true,
+  "at": "2026-10-05T11:54:53.597Z",
+  "http": 200,
+  "proof": "tilt rx=10.3° glare=0.98; pop scale=2.50 dim=true; search \"char\" → 1 card; rarities=common/holo/rainbow/gold",
+  "demoNodes": 372,
+  "errors": []
+ },
+ "flighty-live-flight-notification-hero": {
+  "url": "http://localhost:4173/t/flighty-live-flight-notification-hero/",
+  "ok": true,
+  "at": "2026-10-05T11:52:32.742Z",
+  "http": 200,
+  "proof": "at-airport: 6 toasts stacked (amber gate-change=true), progress 21%; after-landing card=\"Landed\"; reducedMotion=false",
+  "demoNodes": 200,
+  "errors": []
  }
 }

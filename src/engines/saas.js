@@ -1002,4 +1002,123 @@ V['aesop-editorial-fragrance-shop'] = (root, T) => {
   window.__demoProof = async () => { size = 100; renderPdp(); addToBag(); await sleep(60); const c = bagCount.textContent; bag = []; renderBag(); openBag(false); size = 50; setFam('floral'); const n = grid.children.length; setFam('woody'); renderPdp(); openMega(); await sleep(30); const m = mega.classList.contains('on'); closeMega(); return `100 mL added → ${c}; floral chip shows ${n} cards; mega-menu opens=${m}`; };
 };
 
+
+// ---------- Flighty: live flight notification hero (2026-10-05 20:00 KST)
+V['flighty-live-flight-notification-hero'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#0b0b0f', ac: '#ffcc00', dark: false });
+  root.style.overflow = 'auto'; root.style.background = '#fff';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.append(h('style', {}, `
+    .fl{font:400 15px/1.5 'Inter Variable',system-ui,sans-serif;color:#0b0b0f;min-height:100%;position:relative}
+    .fl .ann{background:linear-gradient(90deg,#1e1b7a,#2c2a9c 50%,#1e1b7a);color:#fff;font-size:13px;font-weight:600;height:36px;display:flex;align-items:center;justify-content:center;gap:10px;position:relative}
+    .fl .ann b{font-weight:600;opacity:.9}.fl .ann u{text-decoration:none;cursor:pointer}.fl .ann .x{all:unset;position:absolute;right:18px;cursor:pointer;font-size:20px}
+    .fl nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1100px;margin:0 auto;padding:16px 28px}
+    .fl .logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:17px}.fl .logo i{width:28px;height:28px;border-radius:7px;background:#111;display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px}
+    .fl nav .mid{display:flex;gap:32px;font-size:13.5px;color:#333}.fl nav .mid span{cursor:pointer}.fl nav .mid span:hover{color:#000}
+    .fl nav .r{justify-self:end;font-size:13.5px;font-weight:600;cursor:pointer}
+    .fl h1{font:700 clamp(40px,5.4vw,74px)/1.05 'Inter Variable';letter-spacing:-.035em;text-align:center;margin:26px 0 18px}
+    .fl .lede{max-width:600px;margin:0 auto;text-align:center;color:#444;font-size:16px;line-height:1.55}
+    .fl .awards{display:flex;justify-content:center;gap:40px;margin:22px 0 30px;font-size:12px}.fl .awards div{display:flex;gap:9px;align-items:center}.fl .awards b{display:block;font-weight:600}.fl .awards small{color:#666}
+    .fl .awards i{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font-style:normal}
+    .fl .stage{position:relative;height:560px;max-width:1180px;margin:0 auto;overflow:hidden}
+    .fl .phone{position:absolute;left:50%;top:20px;width:250px;height:520px;margin-left:-125px;border-radius:42px;background:#111;padding:9px;box-shadow:0 40px 80px -30px #0007,inset 0 0 0 2px #444;z-index:3}
+    .fl .scr{width:100%;height:100%;border-radius:34px;overflow:hidden;position:relative;background:#cfe7f7}
+    .fl .scr .sb{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:10px 22px;font:600 11px 'Inter Variable';z-index:2}
+    .fl .scr svg{position:absolute;inset:0}
+    .fl .sheet{position:absolute;left:0;right:0;bottom:0;height:56%;background:#fff;border-radius:20px 20px 0 0;padding:12px;box-shadow:0 -6px 20px #0002;z-index:2}
+    .fl .sheet h4{margin:0 0 8px;font-size:15px;font-weight:700}.fl .sheet .q{background:#f1f1f4;border-radius:9px;padding:6px 10px;font-size:10px;color:#888;margin-bottom:10px}
+    .fl .lv{border-radius:14px;background:#0f1115;color:#fff;padding:10px 11px;font-variant-numeric:tabular-nums}
+    .fl .lv .row{display:flex;justify-content:space-between;align-items:baseline}.fl .lv .big{font:700 22px 'Inter Variable';letter-spacing:-.02em}.fl .lv small{font-size:9px;opacity:.6}
+    .fl .lv .st{font-size:10px;font-weight:700}.fl .lv .bar{height:4px;background:#ffffff26;border-radius:4px;margin:9px 0 6px;position:relative}.fl .lv .bar b{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--sc)}.fl .lv .bar i{position:absolute;top:-7px;font-style:normal;font-size:12px;transform:translateX(-50%) rotate(45deg)}
+    .fl .lv .ap{display:flex;justify-content:space-between;font:700 11px 'Inter Variable'}.fl .lv .ap span small{display:block;font-weight:500}
+    .fl .fl2{margin-top:8px;display:flex;justify-content:space-between;font-size:10px;color:#333;padding:8px 2px;border-top:1px solid #eee}
+    .fl .nt{position:absolute;width:300px;background:#fffffff2;border-radius:16px;box-shadow:0 10px 30px -8px #0003,0 0 0 1px #0000000a;padding:12px 14px;display:flex;gap:12px;align-items:center;font-size:13px;z-index:2;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s,filter .7s}
+    .fl .nt b{display:block;font-weight:600;font-size:14px}.fl .nt span{color:#555}.fl .nt .ic{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:16px}
+    .fl .nt.in{opacity:1}.fl .nt.out{opacity:0;transform:translateY(24px) scale(.96)}.fl .nt.faint{opacity:.35;filter:blur(.2px);box-shadow:none}
+    .fl .tabs{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:#111111e6;backdrop-filter:blur(10px);border-radius:14px;padding:5px;display:flex;gap:4px;z-index:5}
+    .fl .tabs button{all:unset;cursor:pointer;color:#ddd;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:10px;display:flex;gap:7px;align-items:center;transition:background .25s,color .25s}.fl .tabs button.on{background:#ffc400;color:#111}
+    .fl .feat{max-width:1100px;margin:70px auto 30px;padding:0 28px}.fl .feat h2{font:700 40px/1.1 'Inter Variable';letter-spacing:-.03em;margin:0 0 30px;text-align:center}
+    .fl .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .fl .fc{border-radius:24px;background:#f5f5f7;padding:24px;min-height:210px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}.fl .fc.vis{opacity:1;transform:none}
+    .fl .fc .k{font:800 44px/1 'Inter Variable';letter-spacing:-.04em;font-variant-numeric:tabular-nums}.fl .fc h3{margin:16px 0 6px;font-size:17px}.fl .fc p{margin:0;color:#555;font-size:14px}
+    .fl .cookie{position:absolute;right:16px;bottom:16px;width:250px;background:#fff;border-radius:12px;box-shadow:0 8px 30px #0002;padding:14px;font-size:12px;display:flex;gap:10px;align-items:center;z-index:6}
+    .fl .cookie button{all:unset;background:#eee;border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600}
+    .fl .rm{position:absolute;right:20px;top:110px;font-size:11px;color:#666;display:flex;gap:6px;align-items:center;cursor:pointer;z-index:6}
+    @media (prefers-reduced-motion: reduce){.fl .nt,.fl .fc{transition:none}}
+  `));
+  const SC = { on: '#30d158', delay: '#ff9f0a', cancel: '#ff453a' };
+  const SETS = {
+    pre: [['🛫', '#e8f0ff', 'AUS ✈ ORD • 70° ☀️', 'Good morning! Your flight today is on time.', 'on'], ['🧾', '#fff1f1', 'Check In is now open', 'You can check-in at united.com', 'on'], ['⏱', '#fff4e5', 'AUS ✈ ORD • Delayed 45m', '↗ Inbound from DEN 6:30pm (45m late)', 'delay'], ['🛩', '#eef8ff', 'Your plane is on its way', 'N37502 departed DEN for AUS', 'on'], ['👩', '#ffeef3', 'Mom booked AUS ✈ ORD', 'Shared her flight with you', 'on']],
+    air: [['🚪', '#eef5ff', 'Gate changed', 'Changed to ORD Terminal 2 • Gate 7', 'delay'], ['🎫', '#ecfbef', 'Boarding started', 'Group 3 boards in ~12m', 'on'], ['🛄', '#f4f4f6', 'AUS ✈ ORD • Departed Gate', 'Taxiing for 13m, for take off at 5:34PM', 'on'], ['⚠️', '#fff0ef', 'AUS ✈ DFW • Cancelled', 'We found 3 rebooking options', 'cancel'], ['🛬', '#fff4e5', 'Arrival forecast', 'Likely 12m early based on winds', 'on']],
+    land: [['🛬', '#ecfbef', 'AUS ✈ ORD • Landed', "It's 6:32am (22m early) and ☀️ 88°", 'on'], ['🧳', '#f4f4f6', 'Bags on Carousel 6', 'Arriving in ~9 minutes', 'on'], ['👩', '#ffeef3', 'Mom landed in New York', '6:32am (22m early) and ☀️ 88°', 'on'], ['🚕', '#fff8e0', 'Connection is tight', 'ORD ✈ JFK leaves in 48m from B12', 'delay'], ['🏆', '#eef5ff', 'Passport updated', '214 flights • 312,450 miles', 'on']],
+  };
+  const POS = [[-470, 30], [-520, 110], [-490, 195], [-540, 280], [-470, 370], [180, 40], [215, 125], [175, 205], [225, 290], [190, 375]];
+  const wrap = h('div.fl'); const stage = h('div.stage');
+  const ann = h('div.ann', {}, '🗼', h('b', {}, 'NEW! Flighty Airports'), h('span', { style: { opacity: .5 } }, '|'), h('u', { onclick: () => toast('Airports (demo)') }, 'View Live →'), h('button.x', { onclick: () => ann.remove() }, '×'));
+  const nav = h('nav', {}, h('div.logo', {}, h('i', {}, '✈'), 'Flighty'), h('div.mid', {}, ...['Pricing', 'Gift Cards', 'Passport', 'Airports', 'Help Center'].map((x) => h('span', {}, x))), h('div.r', {}, 'Get the app ▯'));
+  // phone: map + live activity card
+  const W = 232, Hm = 230; const route = 'M 46 150 C 90 70, 160 60, 188 92';
+  const map = s('svg', { viewBox: `0 0 ${W} ${Hm}`, preserveAspectRatio: 'xMidYMid slice' },
+    s('rect', { width: W, height: Hm, fill: '#b9dcf2' }),
+    s('path', { d: 'M -10 60 C 30 30, 90 20, 150 30 C 200 36, 240 60, 250 80 L 250 200 C 200 220, 150 210, 120 200 C 80 190, 40 210, -10 190 Z', fill: '#d5e8b8' }),
+    s('path', { d: 'M 20 120 C 60 100, 100 130, 130 110 C 160 95, 190 120, 230 110 L 230 200 L 20 200 Z', fill: '#c8dfa3', opacity: .8 }),
+    s('path', { d: 'M 120 40 C 150 60, 170 50, 210 60', stroke: '#9cc6e6', 'stroke-width': 6, fill: 'none', opacity: .6 }),
+    s('text', { x: 60, y: 60, 'font-size': 9, 'font-weight': 700, fill: '#7a8a6a', 'letter-spacing': 2 }, 'NORTH AMERICA'),
+    s('path', { d: route, stroke: '#5b7bd6', 'stroke-width': 2, fill: 'none', 'stroke-dasharray': '4 3' }),
+    s('circle', { cx: 46, cy: 150, r: 3.5, fill: '#fff', stroke: '#2b4bb0', 'stroke-width': 1.5 }), s('circle', { cx: 188, cy: 92, r: 3.5, fill: '#fff', stroke: '#2b4bb0', 'stroke-width': 1.5 }));
+  const planeG = s('text', { 'font-size': 13, 'text-anchor': 'middle', 'dominant-baseline': 'middle' }, '✈'); map.append(planeG);
+  const pathEl = map.querySelector('path[stroke-dasharray]');
+  const lvBig = h('span.big'), lvSt = h('span.st'), lvBar = h('b'), lvPlane = h('i', {}, '✈'), lvSmall = h('small');
+  const lv = h('div.lv', {}, h('div.row', {}, h('span', {}, lvBig, ' ', lvSmall), lvSt), h('div.bar', {}, lvBar, lvPlane), h('div.ap', {}, h('span', {}, 'AUS', h('small', { style: { color: SC.on } }, '17:10')), h('span', { style: { textAlign: 'right' } }, 'ORD', h('small', { style: { color: SC.on } }, '20:05'))));
+  const phone = h('div.phone', {}, h('div.scr', {}, h('div.sb', {}, '09:41', h('span', {}, '▂▄▆ ◉')), map, h('div.sheet', {}, h('h4', {}, 'My Flights ⌄'), h('div.q', {}, '⌕  Search to add flights'), lv, h('div.fl2', {}, h('span', {}, 'UA 1693  SFO 09:10 → JFK 17:25'), h('span', { style: { color: SC.on, fontWeight: 700 } }, 'On Time')))));
+  stage.append(phone);
+  let tab = 'pre', nts = [], timers = [];
+  const statusText = { on: 'On Time', delay: 'Delayed', cancel: 'Cancelled' };
+  const mkNote = ([ic, bg, t, d, st], i) => { const [x, y] = POS[i]; const n = h('div.nt.out', { style: { left: `calc(50% + ${x}px)`, top: y + 'px' } }, h('div.ic', { style: { background: bg } }, ic), h('div', {}, h('b', {}, t), h('span', { style: st !== 'on' ? { color: SC[st], fontWeight: 600 } : {} }, d))); n.dataset.st = st; return n; };
+  const showSet = (k, instant) => {
+    tab = k; timers.forEach(clearTimeout); timers = []; nts.forEach((n) => { n.classList.add('out'); setTimeout(() => n.remove(), 700); });
+    const items = SETS[k]; nts = [...items, ...items.slice().reverse()].slice(0, 10).map((it, i) => mkNote(it, i)); nts.forEach((n) => stage.append(n));
+    const order = [0, 5, 1, 6, 2, 7, 3, 8, 4, 9];
+    order.forEach((idx, j) => { const go = () => { nts[idx]?.classList.remove('out'); if (j >= 5) nts[idx]?.classList.add('faint'); if (j > 0 && j < 5) nts[order[j - 1]]?.classList.add('faint'); }; instant ? go() : timers.push(setTimeout(go, 250 + j * 520)); });
+    tabsEl.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.k === k));
+    // flight phase drives the live activity
+    phase = { pre: 0.0, air: 0.08, land: 1 }[k]; status = k === 'pre' ? 'delay' : 'on'; t0 = performance.now();
+  };
+  const tabsEl = h('div.tabs', {}, ...[['pre', '🛫 Preflight'], ['air', '🧳 At the airport'], ['land', '🛬 After landing'], ['dl', '▦ Download']].map(([k, l]) => h('button', { 'data-k': k, onclick: () => (k === 'dl' ? toast('App Store (demo)') : showSet(k)) }, l)));
+  stage.append(tabsEl);
+  let phase = 0, status = 'delay', t0 = performance.now(), auto = true;
+  const L = pathEl.getTotalLength ? pathEl : null;
+  const render = () => {
+    const el = (performance.now() - t0) / 1000;
+    let p = phase; if (tab === 'air') p = clamp(0.08 + el * 0.04, 0, 0.98);
+    const st = status; lvBar.style.width = (p * 100).toFixed(1) + '%'; lvBar.style.setProperty('--sc', SC[st]); root.style.setProperty('--sc', SC[st]); lvBar.style.background = SC[st]; lvPlane.style.left = (p * 100).toFixed(1) + '%';
+    const minsLeft = Math.max(0, Math.round((1 - p) * 175)); const hh = Math.floor(minsLeft / 60), mm = minsLeft % 60;
+    lvBig.textContent = tab === 'pre' ? `${1 + Math.floor((3600 - (el % 3600)) / 3600)}h ${String(59 - Math.floor(el / 60) % 60).padStart(2, '0')}m` : tab === 'land' ? 'Landed' : `${hh}h ${String(mm).padStart(2, '0')}m`;
+    lvSmall.textContent = tab === 'pre' ? 'until departure' : tab === 'land' ? '22m early' : 'remaining';
+    lvSt.textContent = tab === 'pre' ? 'Delayed 45m' : statusText[st]; lvSt.style.color = SC[st];
+    if (L) { const pt = L.getPointAtLength(L.getTotalLength() * Math.max(p, 0.001)); planeG.setAttribute('x', pt.x); planeG.setAttribute('y', pt.y); }
+    if (!RM) requestAnimationFrame(render);
+  };
+  // auto-cycle tabs like the site's hero carousel
+  let cyc = setInterval(() => { if (!auto || RM) return; const ks = ['pre', 'air', 'land']; showSet(ks[(ks.indexOf(tab) + 1) % 3]); }, 9000);
+  tabsEl.addEventListener('click', () => { auto = false; });
+  const STATS = [['8,500+', 'Predicted delays before the airline', 'Flighty watches your inbound plane, so you know about delays up to 6 hours earlier.'], ['15s', 'Fastest alerts', 'Gate changes, boarding and baggage — pushed seconds after they happen.'], ['Live', 'Live Activities', 'Your flight on the Lock Screen and Dynamic Island, with a countdown to every step.'], ['214', 'Flighty Passport', 'Every flight you have ever taken, mapped and summarised beautifully.'], ['3', 'Rebooking options', 'When a flight cancels, see alternatives before the queue forms.'], ['Free', 'Share with friends', 'Friends get updates on your flights without downloading anything.']];
+  const fcs = STATS.map(([k, t, d]) => h('div.fc', {}, h('div.k', {}, k), h('h3', {}, t), h('p', {}, d)));
+  const feat = h('div.feat', {}, h('h2', {}, 'Everything about your flight, before anyone else'), h('div.cards', {}, ...fcs));
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const i = fcs.indexOf(e.target); setTimeout(() => e.target.classList.add('vis'), RM ? 0 : (i % 3) * 120); io.unobserve(e.target); } }), { root, threshold: 0.2 });
+  fcs.forEach((f) => io.observe(f));
+  const cookie = h('div.cookie', {}, h('div', {}, 'We use cookies to personalize content, run ads, and analyze traffic.'), h('button', { onclick: () => cookie.remove() }, 'Okay'));
+  wrap.append(ann, nav, h('h1', {}, 'Get the truth when you travel'), h('p.lede', {}, "The only app that tells you everything about your flight. Get real-time updates, the fastest alerts, and delay predictions so you're always the first to know and rebook—all in a sleek, easy-to-use app. Perfect for frequent flyers and simple enough for everyone."),
+    h('div.awards', {}, h('div', {}, h('i', { style: { background: '#f1f1f1' } }, '⬡'), h('div', {}, h('b', {}, 'Apple Design Award'), h('small', {}, '❨ Winner 2023 ❩'))), h('div', {}, h('i', { style: { background: '#1f6bff', color: '#fff' } }, 'A'), h('div', {}, h('b', {}, 'App of the Year'), h('small', {}, '❨ Finalist 2023 ❩')))),
+    stage, feat, cookie);
+  root.append(wrap);
+  showSet('pre', RM); render(); if (RM) { render(); fcs.forEach((f) => f.classList.add('vis')); }
+  window.__demoProof = async () => {
+    auto = false; showSet('air'); await sleep(2900); const shown = nts.filter((n) => !n.classList.contains('out')).length; const amber = nts.some((n) => n.dataset.st === 'delay' && !n.classList.contains('out'));
+    await sleep(300); const w = parseFloat(lvBar.style.width); showSet('land'); await sleep(200); const landed = lvBig.textContent;
+    fcs.forEach((f) => f.classList.add('vis')); showSet('pre');
+    return `at-airport: ${shown} toasts stacked (amber gate-change=${amber}), progress ${w.toFixed(0)}%; after-landing card="${landed}"; reducedMotion=${RM}`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

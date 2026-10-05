@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-pokeholo-holographic-card-tilt",
+  "slug": "pokeholo-holographic-card-tilt",
+  "name": "Holographic Trading Card Tilt (poke-holo)",
+  "date": "2026-10-05",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://poke-holo.simey.me/",
+  "domain": "poke-holo.simey.me",
+  "product": "Pokémon Cards CSS Holographic Effect (Simon Goellner)",
+  "checkpoints": [
+   "Card grid; pointer position maps to CSS vars (--mx, --my, --rx, --ry)",
+   "3D tilt with perspective + spring easing back to rest on leave",
+   "Glare layer: radial-gradient following the pointer with mix-blend-mode",
+   "Holo foil layer: repeating rainbow linear-gradient + color-dodge, shifting with pointer",
+   "Click to pop the card to center, enlarged, with backdrop dim",
+   "At least 3 rarity variants (holo / rainbow / secret-gold) as CSS presets"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-flighty-live-flight-notification-hero",
+  "slug": "flighty-live-flight-notification-hero",
+  "name": "Live Flight Notification Hero (Flighty)",
+  "date": "2026-10-05",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://flighty.com/",
+  "domain": "flighty.com",
+  "product": "Flighty",
+  "checkpoints": [
+   "Dark hero with phone frame and big headline",
+   "iOS-style notification toasts stacking in on a timer (landed / gate changed / delay)",
+   "Live-activity flight card: route AUS→ORD, progress bar plane moving, countdown",
+   "Status colors (on time green, delay amber, cancelled red) with tabular numbers",
+   "Scroll section: feature cards reveal with stagger",
+   "Reduced-motion fallback that shows the final stacked state"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-citylines-transit-history-map",
+  "slug": "citylines-transit-history-map",
+  "name": "Transit History Map with Year Playback (citylines)",
+  "date": "2026-10-05",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.citylines.co/tokyo",
+  "domain": "citylines.co",
+  "product": "citylines.co",
+  "checkpoints": [
+   "Full-bleed muted map with colored transit lines drawn as SVG/canvas paths",
+   "Side panel: system list with per-line color chip toggles",
+   "Year slider + play button that animates network growth over time",
+   "Lines appear only when opening year <= current year, with draw-in animation",
+   "Hover a line or station to show name / opening year tooltip",
+   "Stats counter (km of network, station count) updating with the year"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-mfp-terminal-music-player",
   "slug": "mfp-terminal-music-player",
   "name": "Monospace Terminal Music Player (musicforprogramming.net)",

@@ -1,4 +1,4 @@
-import { h, s, css, drag, localPos, clamp, copy, toast, sleep, hexToRgb, rgbToHex, hsl, gesture } from '../lib.js';
+import { h, s, css, rng, drag, localPos, clamp, copy, toast, sleep, hexToRgb, rgbToHex, hsl, gesture } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle, codebox } from '../kit.js';
 const shade = (hex, amt) => { const [r, g, b] = hexToRgb(hex); return rgbToHex(r + amt, g + amt, b + amt); };
 const V = {};
@@ -634,6 +634,125 @@ V['rauno-craft-interaction-shelf'] = (root, T) => {
     stickers[0].x += 40; resetNov(); cycle(); await sleep(250); order = [0, 1, 2]; layoutT(); res.push('stickers+testimonials');
     postersAll()[2].classList.add('big'); await sleep(150); postersAll()[2].classList.remove('big');
     return res.join(' · ') + ' · restored';
+  };
+};
+
+
+// ---------- poke-holo: holographic trading card tilt (2026-10-05 20:00 KST)
+V['pokeholo-holographic-card-tilt'] = (root, T) => {
+  theme(root, T, { bg: '#33373f', fg: '#e8e8e8', ac: '#0aa5a5', dark: true });
+  root.style.overflow = 'auto'; root.style.fontFamily = "'Roboto Flex Variable','Inter Variable',sans-serif";
+  root.append(h('style', {}, `
+    .ph{max-width:1040px;margin:0 auto;padding:40px 40px 120px;color:#e8e8e8;font:300 15px/1.55 'Roboto Flex Variable',sans-serif}
+    .ph .top{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start;min-height:420px}
+    .ph h1{font:700 32px/1.1 'Roboto Flex Variable';font-stretch:80%;margin:0 0 40px;color:#fff}.ph h1 sup{font-size:12px;font-weight:400;margin-left:6px}
+    .ph .by{font-size:13px;margin-bottom:40px}.ph .by a{color:#5ad4e6;font-style:italic;text-decoration:underline;margin:0 4px}
+    .ph mark{background:#0d6e6e;color:#fff;font-weight:700;font-style:italic;padding:0 4px;border-radius:3px}
+    .ph .cta{font:300 19px 'Roboto Flex Variable';margin:44px 0 12px;color:#fff;border-bottom:1px solid #fff3;padding-bottom:14px}
+    .ph .small{font-size:11px;color:#ccc}
+    .ph .search{margin:60px 0 10px;width:350px;display:flex;align-items:center;background:#2a2d34;border:1px solid #fff1;border-radius:8px;box-shadow:0 4px 18px #0004;padding:0 12px}
+    .ph .search input{all:unset;flex:1;height:44px;font-size:16px;color:#ddd}.ph .search input::placeholder{color:#888}
+    .ph h2{font:700 20px 'Roboto Flex Variable';font-stretch:85%;color:#fff;margin:64px 0 4px}.ph .sub{font-style:italic;font-size:13px;color:#ddd;margin:0 0 22px}
+    .ph .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+    .ph .hint{position:fixed;right:24px;bottom:22px;background:#4fd3ea;color:#0b2b33;font-weight:600;border-radius:20px;padding:7px 16px;font-size:13px;cursor:pointer;z-index:5;box-shadow:0 2px 10px #0006}
+    .pc{--mx:50%;--my:50%;--rx:0deg;--ry:0deg;--o:0;--bgx:50%;--bgy:50%;--s:1;--tx:0px;--ty:0px;aspect-ratio:.716;perspective:600px;position:relative;cursor:pointer;z-index:1}
+    .pc .rot{position:absolute;inset:0;transform:translate(var(--tx),var(--ty)) scale(var(--s)) rotateY(var(--rx)) rotateX(var(--ry));transform-style:preserve-3d;border-radius:4.5% / 3.5%;will-change:transform;box-shadow:0 10px 20px -5px #000a}
+    .pc.act .rot{box-shadow:0 0 6px 2px var(--glow,#fff8),0 0 22px 8px var(--glow,#fff4),0 30px 50px -10px #000c}
+    .pc .face{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:var(--frame,#e9d36a);padding:5.5% 5%;display:flex;flex-direction:column}
+    .pc .hd{display:flex;align-items:baseline;gap:5px;font:800 9.5px/1 'Inter Variable';color:#111;padding:2px 2px 4px}.pc .hd b{font-size:12px}.pc .hd .hp{margin-left:auto;font-size:12px}.pc .hd .hp small{font-size:7px;margin-right:2px}
+    .pc .bas{font:700 6px 'Inter Variable';background:linear-gradient(#fff,#bbb);border-radius:6px;padding:1px 4px;color:#333}
+    .pc .art{height:46%;border:3px solid #c9c9c9;box-shadow:inset 0 0 0 1px #0003;background:var(--art);position:relative;overflow:hidden}
+    .pc .art i{position:absolute;border-radius:50%;filter:blur(.3px)}
+    .pc .info{font:italic 600 5.5px 'Inter Variable';background:linear-gradient(90deg,#c9a83a,#f3e39a,#c9a83a);margin:3px 6px;text-align:center;color:#333;padding:1px}
+    .pc .atk{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:4px 4px 0;color:#111}
+    .pc .atk div{display:flex;align-items:center;gap:5px;font:700 10px 'Inter Variable'}.pc .atk div span{margin-left:auto;font-size:12px}
+    .pc .atk p{font:400 6.5px/1.3 'Inter Variable';margin:0}
+    .pc .en{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff8,var(--en,#f5c400) 60%);border:1px solid #0004;display:inline-block;flex:none}
+    .pc .ft{display:flex;justify-content:space-between;font:600 5px 'Inter Variable';color:#333;border-top:1px solid #0002;padding-top:3px}
+    .pc .shine,.pc .glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;transform:translateZ(1px)}
+    .pc .glare{background:radial-gradient(farthest-corner circle at var(--mx) var(--my),#ffffffcc 8%,#ffffff55 22%,#0000 60%);mix-blend-mode:overlay;opacity:calc(var(--o) * .9)}
+    .pc[data-r=common] .shine{display:none}
+    .pc[data-r=holo] .shine{background:repeating-linear-gradient(110deg,#ff0080 0%,#ff8c00 4%,#ffe600 8%,#00ff8c 12%,#00c8ff 16%,#8000ff 20%,#ff0080 24%);background-size:400% 400%;background-position:var(--bgx) var(--bgy);mix-blend-mode:color-dodge;opacity:calc(var(--o) * .55);filter:brightness(.7) contrast(1.4) saturate(1.2);clip-path:inset(10% 8% 52% 8%)}
+    .pc[data-r=rainbow] .shine{background:repeating-linear-gradient(-45deg,#ff2a6d 0 5%,#ffd319 5% 10%,#3cff9e 10% 15%,#2ab7ff 15% 20%,#b45cff 20% 25%),repeating-linear-gradient(45deg,#0000 0 3px,#fff3 3px 4px);background-size:300% 300%,auto;background-position:var(--bgx) var(--bgy),0 0;mix-blend-mode:color-dodge;opacity:calc(.25 + var(--o) * .6);filter:brightness(.6) contrast(1.6) saturate(1.4)}
+    .pc[data-r=gold] .shine{background:radial-gradient(circle at var(--mx) var(--my),#fff6,#0000 40%),repeating-linear-gradient(120deg,#8a6a10 0%,#ffe9a0 6%,#b8901c 12%,#fff4c8 18%,#8a6a10 24%);background-size:auto,300% 300%;background-position:0 0,var(--bgx) var(--bgy);mix-blend-mode:color-dodge;opacity:calc(.18 + var(--o) * .42);filter:contrast(1.3)}
+    .pc[data-r=gold] .face{background:linear-gradient(135deg,#a8862b,#f6e7a6,#b99331,#fff1c2,#a07c22)}
+    .pc[data-r=gold] .art{border-color:#d9bf6a}
+    .ph-dim{position:fixed;inset:38px 0 0;background:#000a;backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .35s;z-index:20}.ph-dim.on{opacity:1;pointer-events:auto}
+    .pc.pop{z-index:30}
+    .ph .tag{position:absolute;left:8px;top:-22px;font:600 10px 'Inter Variable';letter-spacing:.06em;text-transform:uppercase;color:#9aa}
+  `));
+  const MON = [
+    { n: 'Pikachu', hp: 70, t: 'Lightning', en: '#f5c400', art: 'linear-gradient(160deg,#ffe36e,#ff7ab6 45%,#7a5cff)', blobs: ['#ffd400', '#ff4f9a', '#5b3fd1'], atk: 'Wild Charge', dmg: 90, glow: '#ffe14a', r: 'gold' },
+    { n: 'Charizard', hp: 180, t: 'Fire', en: '#f2552c', art: 'linear-gradient(160deg,#ffb45c,#e2401f 55%,#5a1206)', blobs: ['#ff8a00', '#ffd27a', '#8e1d05'], atk: 'Burning Dark', dmg: 180, glow: '#ff7a3d', r: 'rainbow' },
+    { n: 'Gyarados', hp: 160, t: 'Water', en: '#2e8ef0', art: 'linear-gradient(170deg,#9fe8ff,#2a7ad6 55%,#0b2a66)', blobs: ['#3cc3ff', '#fff', '#1a3fa0'], atk: 'Tidal Rage', dmg: 140, glow: '#59c7ff', r: 'holo' },
+    { n: 'Venusaur', hp: 190, t: 'Grass', en: '#3cb04a', art: 'linear-gradient(160deg,#d9ff9c,#3fa24a 55%,#103d1c)', blobs: ['#ff7aa8', '#9be36b', '#1d6b2c'], atk: 'Solar Beam', dmg: 160, glow: '#7dff8a', r: 'holo' },
+    { n: 'Mewtwo', hp: 130, t: 'Psychic', en: '#a64bd6', art: 'linear-gradient(160deg,#f1c4ff,#9b4bd8 55%,#2c0b4f)', blobs: ['#ffb3ff', '#7b2fd0', '#fff'], atk: 'Psystrike', dmg: 150, glow: '#d68bff', r: 'rainbow' },
+    { n: 'Eevee', hp: 60, t: 'Colorless', en: '#ddd', art: 'linear-gradient(160deg,#fff2d6,#c8955a 60%,#5e3a1a)', blobs: ['#f7d29a', '#8a5a2b', '#fff'], atk: 'Tackle', dmg: 30, glow: '#fff', r: 'common' },
+    { n: 'Snorlax', hp: 150, t: 'Colorless', en: '#ddd', art: 'linear-gradient(160deg,#cdeeff,#5a8fa8 60%,#1d3a4a)', blobs: ['#f6e3c3', '#2f5f73', '#fff'], atk: 'Body Slam', dmg: 80, glow: '#fff', r: 'common' },
+    { n: 'Gengar', hp: 130, t: 'Psychic', en: '#a64bd6', art: 'linear-gradient(160deg,#c8a8ff,#4b2a8a 55%,#120526)', blobs: ['#ff3d6e', '#7a4bd1', '#2b1252'], atk: 'Shadow Ball', dmg: 120, glow: '#b07bff', r: 'gold' },
+    { n: 'Lapras', hp: 110, t: 'Water', en: '#2e8ef0', art: 'linear-gradient(170deg,#e0fbff,#56b6e8 55%,#14507a)', blobs: ['#5ad0ff', '#f0e6c8', '#1b5f9a'], atk: 'Ice Beam', dmg: 70, glow: '#9ae5ff', r: 'common' },
+    { n: 'Dragonite', hp: 170, t: 'Dragon', en: '#c9a227', art: 'linear-gradient(160deg,#ffe6a8,#ef9a2b 55%,#4c2a08)', blobs: ['#ffb84a', '#7fd0ff', '#a3560c'], atk: 'Dragon Rush', dmg: 170, glow: '#ffd27a', r: 'rainbow' },
+    { n: 'Lucario', hp: 120, t: 'Fighting', en: '#b5532a', art: 'linear-gradient(160deg,#cfe3ff,#3a65b8 55%,#111c3d)', blobs: ['#1f2f6b', '#ffcf3a', '#9fc4ff'], atk: 'Aura Sphere', dmg: 110, glow: '#7ab0ff', r: 'holo' },
+    { n: 'Jigglypuff', hp: 60, t: 'Colorless', en: '#ddd', art: 'linear-gradient(160deg,#fff,#ffb0d0 55%,#d04b86)', blobs: ['#ffc3dd', '#5fd0ff', '#fff'], atk: 'Sing', dmg: 20, glow: '#ffc3dd', r: 'common' }];
+  const R = rng(7);
+  const cards = [];
+  const mk = (m, big) => {
+    const blobs = m.blobs.map((c, i) => h('i', { style: { background: c, width: `${30 + R() * 50}%`, aspectRatio: '1', left: `${R() * 70}%`, top: `${R() * 60}%`, opacity: i ? .75 : .95, filter: `blur(${i ? 6 : 1}px)` } }));
+    const face = h('div.face', {}, h('div.hd', {}, h('span.bas', {}, 'BASIC'), h('b', {}, m.n), h('span.hp', {}, h('small', {}, 'HP'), m.hp), h('span.en', { style: { '--en': m.en } })),
+      h('div.art', { style: { '--art': m.art } }, ...blobs, h('i', { style: { left: '38%', top: '30%', width: '24%', aspectRatio: '1', background: 'radial-gradient(circle at 40% 35%,#fff,#0000 60%)', filter: 'none' } })),
+      h('div.info', {}, `NO. ${String(25 + cards.length * 13).padStart(4, '0')}  ${m.t} Pokémon  HT: 1'04"  WT: 13.2 lbs`),
+      h('div.atk', {}, h('div', {}, h('span.en', { style: { '--en': m.en } }), h('span.en', { style: { '--en': '#ddd' } }), m.atk, h('span', {}, m.dmg)), h('p', {}, `This Pokémon also does 30 damage to itself. Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed.`)),
+      h('div.ft', {}, h('span', {}, 'weakness ×2'), h('span', {}, 'resistance'), h('span', {}, 'retreat ●'), h('span', {}, `${String(cards.length + 1).padStart(3, '0')}/159 ★`)));
+    const el = h('div.pc', { 'data-r': m.r, style: { '--glow': m.glow } }, h('div.rot', {}, face, h('div.shine'), h('div.glare')));
+    const st = { rx: 0, ry: 0, mx: 50, my: 50, o: 0, s: 1, tx: 0, ty: 0, trx: 0, try: 0, tmx: 50, tmy: 50, to: 0, ts: 1, ttx: 0, tty: 0, vrx: 0, vry: 0, raf: 0, popped: false, auto: 0 };
+    const apply = () => { el.style.setProperty('--rx', st.rx.toFixed(2) + 'deg'); el.style.setProperty('--ry', st.ry.toFixed(2) + 'deg'); el.style.setProperty('--mx', st.mx.toFixed(1) + '%'); el.style.setProperty('--my', st.my.toFixed(1) + '%'); el.style.setProperty('--o', st.o.toFixed(3)); el.style.setProperty('--bgx', (37 + st.mx * 0.26).toFixed(1) + '%'); el.style.setProperty('--bgy', (33 + st.my * 0.34).toFixed(1) + '%'); el.style.setProperty('--s', st.s.toFixed(3)); el.style.setProperty('--tx', st.tx.toFixed(1) + 'px'); el.style.setProperty('--ty', st.ty.toFixed(1) + 'px'); };
+    const tick = () => { // spring (stiffness .066, damping .25 like the original svelte springs)
+      let moving = false;
+      for (const k of ['rx', 'ry', 'mx', 'my', 'o', 's', 'tx', 'ty']) { const tk = 't' + k, vk = 'v' + k; st[vk] = ((st[vk] || 0) + (st[tk] - st[k]) * 0.08) * 0.78; st[k] += st[vk]; if (Math.abs(st[tk] - st[k]) > 0.01 || Math.abs(st[vk]) > 0.01) moving = true; }
+      apply(); st.raf = moving ? requestAnimationFrame(tick) : 0;
+    };
+    const kick = () => { if (!st.raf) st.raf = requestAnimationFrame(tick); };
+    const point = (px, py) => { st.tmx = px * 100; st.tmy = py * 100; st.trx = (px - 0.5) * 30; st.try = -(py - 0.5) * 30; st.to = 1; el.classList.add('act'); kick(); };
+    const rest = () => { if (st.popped) return; st.tmx = 50; st.tmy = 50; st.trx = 0; st.try = 0; st.to = 0; el.classList.remove('act'); kick(); };
+    el.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); point(clamp((e.clientX - r.left) / r.width, 0, 1), clamp((e.clientY - r.top) / r.height, 0, 1)); });
+    el.addEventListener('pointerleave', rest);
+    el.addEventListener('click', () => (st.popped ? unpop() : pop(el)));
+    const c = { el, st, point, rest, kick, m }; el._c = c; cards.push(c); return c;
+  };
+  const dim = h('div.ph-dim', { onclick: () => unpop() });
+  let popped = null, spin = 0;
+  const pop = (el) => { unpop(); const c = el._c; const r = el.getBoundingClientRect(); const W = root.clientWidth, H = root.clientHeight, rr = root.getBoundingClientRect(); const sc = Math.min((H * 0.8) / r.height, 2.6); c.st.popped = true; c.st.ts = sc; c.st.ttx = rr.left + W / 2 - (r.left + r.width / 2); c.st.tty = rr.top + H / 2 - (r.top + r.height / 2); c.st.trx = 360; c.st.rx = 0; c.st.to = 1; el.classList.add('pop', 'act'); dim.classList.add('on'); popped = c; c.kick(); setTimeout(() => { if (popped === c) { c.st.rx -= 360; c.st.trx = 0; } }, 900); };
+  const unpop = () => { if (!popped) return; const c = popped; popped = null; c.st.popped = false; c.st.ts = 1; c.st.ttx = 0; c.st.tty = 0; dim.classList.remove('on'); c.el.classList.remove('act'); c.rest(); setTimeout(() => c.el.classList.remove('pop'), 600); };
+  root.addEventListener('pointermove', (e) => { if (!popped) return; const W = innerWidth, H = innerHeight; popped.point(clamp(e.clientX / W, 0, 1), clamp(e.clientY / H, 0, 1)); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') unpop(); });
+  const hero = mk(MON[0]); hero.el.style.width = '300px';
+  // idle showcase: hero card wobbles until the user touches it
+  let idle = true; const idleT = () => { if (!idle) return; const t = performance.now() / 1000; hero.point(0.5 + Math.sin(t * 0.9) * 0.35, 0.5 + Math.cos(t * 0.7) * 0.3); requestAnimationFrame(idleT); };
+  hero.el.addEventListener('pointerenter', () => { idle = false; }); requestAnimationFrame(idleT);
+  const sections = [
+    ['Common & Uncommon', 'All cards get a 3d rotation with CSS based on the cursor position. The default basic non-holo cards simply apply a flare/glare effect to the card which follows the mouse.', 'common'],
+    ['Holofoil', 'The holo foil sits only on the illustration window — a repeating rainbow linear-gradient with mix-blend-mode: color-dodge whose background-position follows the pointer.', 'holo'],
+    ['Rainbow Rare', 'The whole card is foiled: two layered repeating gradients (diagonal rainbow + fine etched lines) shifting against each other.', 'rainbow'],
+    ['Secret Gold', 'Gold frame, metallic sweep and a pointer-following spotlight — the rarest preset.', 'gold']];
+  const grids = {};
+  const q = h('input', { placeholder: 'eg: Morpeko or Marnie', oninput: () => filter() });
+  const filter = () => { const v = q.value.trim().toLowerCase(); cards.forEach((c) => { if (c === hero) return; c.el.style.display = !v || c.m.n.toLowerCase().includes(v) || c.m.t.toLowerCase().includes(v) ? '' : 'none'; }); };
+  const wrap = h('div.ph', {},
+    h('div.top', {}, h('div', {}, h('h1', {}, 'Pokemon Cards', h('sup', {}, 'V2')), h('div.by', {}, 'By ', h('a', {}, '@simeydotme'), '|', h('a', {}, 'Simon Goellner')),
+      h('p', {}, 'A collection of ', h('mark', {}, 'advanced CSS'), ' styles to create ', h('mark', {}, 'realistic-looking effects'), ' for the faces of Pokemon cards. The cards use ', h('mark', {}, '3d transforms'), ', ', h('mark', {}, 'filters'), ', ', h('mark', {}, 'blend modes'), ', ', h('mark', {}, 'css gradients'), ' and interactions to provide a unique experience when taking a closer look!'),
+      h('div.cta', {}, 'Click on a Card to take a Closer look!'),
+      h('div.small', {}, 'Pointer position is written to CSS custom properties (--mx, --my, --rx, --ry) on every move; a spring eases each value, which in turn drives the 3d transform and every shine layer. (clone practice — art is CSS-only)')), hero.el),
+    h('div.search', {}, q, h('span', { style: { opacity: .6 } }, '⌕')), h('div', { style: { fontSize: '13px' } }, 'Browse cards below, Or search for your favourite!'),
+    ...sections.flatMap(([t, d, r]) => { const g = h('div.grid'); grids[r] = g; MON.filter((m) => m.r === r && m !== MON[0]).forEach((m) => g.append(mk(m).el)); return [h('h2', {}, t), h('p.sub', {}, d), g]; }));
+  root.append(wrap, dim, h('div.hint', { onclick: () => root.scrollTo({ top: 0, behavior: 'smooth' }) }, 'Back to Top'));
+  apply0(); function apply0() { cards.forEach((c) => c.kick()); }
+  window.__demoProof = async () => {
+    idle = false; const c = cards.find((x) => x.m.r === 'rainbow'); c.point(0.85, 0.2); await sleep(500);
+    const rx = parseFloat(c.el.style.getPropertyValue('--rx')), o = parseFloat(c.el.style.getPropertyValue('--o')); c.rest();
+    pop(c.el); await sleep(700); const s1 = parseFloat(c.el.style.getPropertyValue('--s')); const dimOn = dim.classList.contains('on'); unpop(); await sleep(500);
+    q.value = 'char'; filter(); const vis = cards.filter((x) => x !== hero && x.el.style.display !== 'none').length; q.value = ''; filter();
+    idle = true; requestAnimationFrame(idleT);
+    return `tilt rx=${rx.toFixed(1)}° glare=${o.toFixed(2)}; pop scale=${s1.toFixed(2)} dim=${dimOn}; search "char" → ${vis} card; rarities=${Object.keys(grids).join('/')}`;
   };
 };
 

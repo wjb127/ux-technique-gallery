@@ -1136,5 +1136,111 @@ V['truesize-country-compare-map'] = (root, T) => {
   };
 };
 
+
+// ---------- citylines.co: transit history map with year playback (2026-10-05 20:00 KST)
+V['citylines-transit-history-map'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#222', ac: '#2b7de9', dark: false });
+  root.style.fontFamily = "'Roboto Flex Variable','Inter Variable',Arial,sans-serif";
+  root.append(h('style', {}, `
+    .cl{position:absolute;inset:0;display:grid;grid-template-rows:40px 1fr;font:14px/1.35 'Roboto Flex Variable',Arial,sans-serif;color:#222}
+    .cl header{background:#111;color:#fff;display:flex;align-items:center;gap:12px;padding-right:20px}
+    .cl header .hb{width:40px;height:40px;background:#7a96a8;display:grid;place-items:center;font-size:18px;cursor:pointer}
+    .cl header .brand{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:500}.cl header .brand i{width:22px;height:22px;border:2px solid #fff;border-radius:50%;font-style:normal;display:grid;place-items:center;font-size:11px}
+    .cl header .r{margin-left:auto;display:flex;gap:26px;font-size:13.5px}.cl header .r span{cursor:pointer}
+    .cl .body{display:grid;grid-template-columns:270px 1fr;min-height:0}
+    .cl aside{overflow:auto;padding:14px 12px 80px;border-right:1px solid #ddd;background:#fff}
+    .cl aside h2{font-weight:400;font-size:20px;margin:4px 0 12px}.cl .lk{display:flex;gap:10px;font-size:12px;color:#2b7de9;margin-bottom:14px}.cl .lk span{cursor:pointer}
+    .cl .yr{display:flex;border:1px solid #ccc;border-radius:3px;overflow:hidden;height:30px}.cl .yr input{all:unset;flex:1;padding:0 8px;font-size:13px}.cl .yr button{all:unset;width:30px;background:#e9e9e9;display:grid;place-items:center;cursor:pointer;color:#555;border-left:1px solid #ccc}
+    .cl input[type=range]{width:100%;margin:10px 0 8px;accent-color:#888}
+    .cl .bdg{display:inline-block;font-size:11px;font-weight:600;color:#fff;border-radius:3px;padding:3px 6px;margin:0 0 4px}
+    .cl .sys{margin-top:14px}.cl .sys .sh{display:flex;align-items:center;gap:6px;color:#2b7de9;font-size:13px;cursor:pointer;margin:10px 0 4px}.cl .sys .sh .cv{color:#777;font-size:10px;transition:transform .2s}.cl .sys .closed .cv{transform:rotate(-90deg)}.cl .sys .closed .lines{display:none}
+    .cl .ln{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:3px 0 3px 18px;cursor:pointer}.cl .ln:hover{background:#f5f7fa}
+    .cl .sw{display:inline-block;width:30px;height:12px;border-radius:7px;background:var(--c);position:relative;flex:none;transition:background .2s}.cl .sw::after{content:'';position:absolute;right:-2px;top:-3px;width:17px;height:17px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0006;transition:right .2s}
+    .cl .ln.off .sw{background:#bbb}.cl .ln.off .sw::after{right:15px}.cl .ln.off{color:#999}
+    .cl .ln small{margin-left:auto;color:#999;font-size:10.5px}
+    .cl main{position:relative;overflow:hidden;background:#f3f3f1;cursor:grab}.cl main.drag{cursor:grabbing}
+    .cl main svg{position:absolute;inset:0;width:100%;height:100%}
+    .cl .ctl{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;background:#fff;border-radius:4px;box-shadow:0 0 0 2px #0001}.cl .ctl button{all:unset;width:29px;height:29px;display:grid;place-items:center;cursor:pointer;font-size:16px;border-bottom:1px solid #ddd}
+    .cl .tip{position:absolute;pointer-events:none;background:#fff;border-radius:3px;box-shadow:0 1px 6px #0004;padding:6px 9px;font-size:12px;display:none;z-index:4;white-space:nowrap}.cl .tip b{display:block}
+    .cl .ck{position:absolute;left:0;right:0;bottom:0;background:#f1efe6;padding:12px 16px;font-size:13px;display:flex;align-items:center;z-index:6}.cl .ck u{color:#2b7de9;display:block}.cl .ck button{all:unset;margin-left:auto;background:#2b7de9;color:#fff;border-radius:3px;padding:7px 12px;cursor:pointer}
+    .cl .bigyr{position:absolute;left:18px;bottom:66px;font:700 64px/1 'Roboto Flex Variable';color:#0000001c;font-variant-numeric:tabular-nums;pointer-events:none}
+    .cl path.line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  `));
+  // Stylised Tokyo network (practice data: approximate opening years, hand-drawn geometry, not survey-accurate)
+  const SYS = [
+    ['JR East', [['Yamanote Line', '#9acd32', 1925, [[440, 120], [560, 110], [650, 150], [690, 250], [680, 360], [640, 440], [560, 500], [470, 500], [400, 450], [370, 360], [370, 250], [400, 160], [440, 120]]], ['Chuo Line', '#f15a22', 1904, [[40, 270], [200, 285], [370, 300], [470, 310], [600, 300], [690, 300]]], ['Keihin-Tohoku Line', '#00b2e5', 1914, [[620, 20], [650, 150], [700, 260], [690, 380], [650, 460], [610, 560], [580, 700]]]]],
+    ['Tokyo Metro', [['Ginza Line', '#f39700', 1927, [[420, 440], [480, 400], [560, 380], [610, 330], [660, 260], [720, 200], [770, 170]]], ['Marunouchi Line', '#e60012', 1954, [[90, 330], [250, 315], [370, 300], [470, 270], [560, 230], [620, 290], [640, 360], [590, 420], [520, 380], [470, 300], [430, 210], [400, 120]]], ['Hibiya Line', '#9caeb7', 1961, [[330, 520], [420, 470], [520, 450], [600, 420], [650, 340], [700, 260], [780, 190], [860, 150]]], ['Tozai Line', '#009bbf', 1964, [[20, 220], [180, 230], [330, 240], [470, 250], [610, 330], [720, 380], [860, 400], [1000, 420]]], ['Chiyoda Line', '#00a650', 1969, [[340, 470], [430, 380], [520, 340], [590, 310], [650, 230], [710, 140], [760, 40]]], ['Yurakucho Line', '#c1a470', 1974, [[120, 40], [280, 110], [400, 180], [500, 240], [590, 330], [650, 430], [720, 520], [800, 560]]], ['Hanzomon Line', '#8f76d6', 1978, [[300, 480], [420, 420], [520, 360], [600, 330], [680, 300], [790, 280], [900, 230]]], ['Namboku Line', '#00ada9', 1991, [[340, 560], [400, 470], [450, 400], [510, 300], [560, 200], [600, 100], [620, 10]]], ['Fukutoshin Line', '#9c5e31', 2008, [[130, 60], [300, 130], [400, 170], [380, 280], [370, 380], [400, 470]]]]],
+    ['Toei Subway', [['Asakusa Line', '#e85298', 1960, [[380, 640], [460, 560], [560, 500], [640, 430], [700, 330], [760, 230], [820, 190]]], ['Mita Line', '#0079c2', 1968, [[330, 600], [420, 520], [500, 420], [560, 330], [580, 230], [560, 120], [530, 20]]], ['Shinjuku Line', '#6cbb5a', 1978, [[60, 300], [220, 300], [370, 300], [480, 280], [600, 300], [720, 300], [880, 330], [1000, 340]]], ['Oedo Line', '#b6007a', 1991, [[100, 140], [230, 220], [370, 290], [400, 380], [470, 480], [560, 520], [650, 470], [700, 380], [690, 270], [620, 190], [520, 180], [430, 230], [370, 290]]]]],
+    ['Rinkai / Yurikamome', [['Yurikamome', '#1a6ba8', 1995, [[600, 470], [650, 540], [720, 600], [820, 620], [880, 560]]], ['Rinkai Line', '#00418e', 1996, [[440, 640], [560, 650], [700, 640], [820, 600], [900, 520]]]]],
+  ];
+  const cr = (pts) => { let d = `M ${pts[0][0]} ${pts[0][1]}`; for (let i = 0; i < pts.length - 1; i++) { const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2; d += ` C ${p1[0] + (p2[0] - p0[0]) / 6} ${p1[1] + (p2[1] - p0[1]) / 6}, ${p2[0] - (p3[0] - p1[0]) / 6} ${p2[1] - (p3[1] - p1[1]) / 6}, ${p2[0]} ${p2[1]}`; } return d; };
+  const KM_PER_UNIT = 0.034;
+  const lines = []; SYS.forEach(([sys, ls]) => ls.forEach(([n, c, y, pts]) => lines.push({ sys, n, c, y, d: cr(pts), on: true })));
+  const W = 1000, H = 700; const R = rng(11);
+  const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: 'xMidYMid slice' });
+  const g = s('g');
+  // basemap: land, bay, river, grey street mesh, district labels
+  g.append(s('rect', { x: -500, y: -500, width: 2000, height: 1700, fill: '#f2f2ef' }));
+  const streets = s('g', { stroke: '#e1e1dc', 'stroke-width': 1.2, fill: 'none' }); for (let i = 0; i < 70; i++) { const x = R() * W, y = R() * H, a = R() * Math.PI, l = 60 + R() * 220; streets.append(s('path', { d: `M ${x} ${y} q ${Math.cos(a) * l / 2 + (R() - .5) * 40} ${Math.sin(a) * l / 2} ${Math.cos(a) * l} ${Math.sin(a) * l}` })); }
+  [[0, 330, 1000, 360], [470, 0, 520, 700], [0, 200, 1000, 120]].forEach(([x1, y1, x2, y2]) => streets.append(s('path', { d: `M ${x1} ${y1} L ${x2} ${y2}`, stroke: '#d9d9d2', 'stroke-width': 3 })));
+  g.append(streets);
+  g.append(s('path', { d: 'M 640 700 C 660 600, 700 560, 760 520 C 800 480, 860 470, 900 430 C 940 390, 1000 380, 1200 380 L 1200 900 L 640 900 Z', fill: '#aad3f0' }));
+  g.append(s('path', { d: 'M 700 650 l 60 -20 l 30 30 l -50 25 Z M 800 590 l 50 -15 l 20 40 l -55 10 Z M 880 520 l 40 -10 l 15 30 l -45 10 Z', fill: '#e9e9e4', stroke: '#d7d7d0' }));
+  g.append(s('path', { d: 'M 760 0 C 740 120, 780 220, 760 320 C 750 380, 720 450, 730 520', stroke: '#aad3f0', 'stroke-width': 12, fill: 'none' }));
+  [['新宿 Shinjuku', 300, 300], ['渋谷 Shibuya', 340, 470], ['池袋 Ikebukuro', 360, 120], ['東京 Tokyo', 620, 320], ['上野 Ueno', 640, 180], ['品川 Shinagawa', 520, 610], ['お台場 Odaiba', 780, 560], ['浅草 Asakusa', 740, 160]].forEach(([t, x, y]) => g.append(s('text', { x, y, 'font-size': 11, fill: '#9a9a92', 'font-family': 'Roboto Flex Variable,sans-serif' }, t)));
+  const lg = s('g'), stg = s('g'); g.append(lg, stg); svg.append(g);
+  lines.forEach((L) => { L.casing = s('path', { d: L.d, class: 'line', stroke: '#fff', 'stroke-width': 7.5 }); L.el = s('path', { d: L.d, class: 'line', stroke: L.c, 'stroke-width': 4.5 }); L.hit = s('path', { d: L.d, class: 'line', stroke: 'transparent', 'stroke-width': 16, style: 'cursor:pointer' }); lg.append(L.casing, L.el, L.hit); });
+  const main = h('main', {}, svg); const tip = h('div.tip'); main.append(tip);
+  const bigyr = h('div.bigyr'); main.append(bigyr);
+  requestAnimationFrame(() => lines.forEach((L) => { L.len = L.el.getTotalLength(); L.km = L.len * KM_PER_UNIT; for (const p of [L.el, L.casing]) { p.style.strokeDasharray = L.len; p.style.strokeDashoffset = L.len; } L.st = []; const n = Math.max(4, Math.round(L.len / 55)); for (let i = 0; i <= n; i++) { const pt = L.el.getPointAtLength((L.len * i) / n); const c = s('circle', { cx: pt.x, cy: pt.y, r: 3.2, fill: '#fff', stroke: '#222', 'stroke-width': 1.4, opacity: 0, style: 'cursor:pointer' }); c._L = L; c._name = `${L.n} · Station ${i + 1}`; c._y = L.y + Math.round((i / n) * Math.min(12, 2026 - L.y)); stg.append(c); L.st.push(c); } }) || setYear(year, true));
+  // sidebar
+  let year = 2026, playing = false, raf = 0;
+  const yIn = h('input', { value: year, onchange: () => setYear(clamp(+yIn.value || 2026, 1900, 2026)) });
+  const playB = h('button', { onclick: () => toggle() }, '▶');
+  const range = h('input', { type: 'range', min: 1900, max: 2026, value: year, oninput: () => { stop(); setYear(+range.value); } });
+  const opB = h('span.bdg', { style: { background: '#4caf50' } }), ucB = h('span.bdg', { style: { background: '#3c4043' } }), stB = h('div', { style: { fontSize: '11px', color: '#666', marginTop: '4px' } });
+  const sysEl = h('div.sys', {}, ...SYS.map(([sys]) => { const ls = lines.filter((l) => l.sys === sys); const box = h('div'); const hdr = h('div.sh', { onclick: () => box.classList.toggle('closed') }, h('span.cv', {}, '❯'), sys, h('small', { style: { marginLeft: '6px', color: '#999' } }, `${ls.length}`)); const allRow = h('div.ln', { onclick: () => { const on = !ls.every((l) => l.on); ls.forEach((l) => (l.on = on)); paintList(); setYear(year, true); } }, h('span.sw', { style: { '--c': '#999' } }), 'All the lines'); box.append(hdr, h('div.lines', {}, allRow, ...ls.map((L) => (L.row = h('div.ln', { onclick: () => { L.on = !L.on; paintList(); setYear(year, true); }, onmouseenter: () => hl(L), onmouseleave: () => hl(null) }, h('span.sw', { style: { '--c': L.c } }), L.n, h('small', {}, L.y)))))); return box; }));
+  const paintList = () => lines.forEach((L) => L.row.classList.toggle('off', !L.on));
+  const aside = h('aside', {}, h('h2', {}, 'Tokyo'), h('div.lk', {}, ...['Edit', 'Compare', 'Data', 'Settings', 'Share'].map((x) => h('span', { onclick: () => toast(x + ' (demo)') }, x))), h('div.yr', {}, yIn, playB), range, h('div', {}, opB), h('div', {}, ucB), stB, sysEl,
+    h('div', { style: { fontSize: '10.5px', color: '#999', marginTop: '18px' } }, 'Clone-practice data: approximate opening years, stylised geometry.'));
+  const hl = (L) => lines.forEach((x) => { x.el.style.opacity = !L || x === L ? 1 : 0.25; x.casing.style.opacity = !L || x === L ? 1 : 0.25; });
+  const setYear = (y, instant) => {
+    year = Math.round(y); yIn.value = year; range.value = year; bigyr.textContent = year;
+    let km = 0, uc = 0, st = 0, open = 0;
+    lines.forEach((L) => { if (L.len == null) return; const vis = L.on && L.y <= year; const building = L.on && !vis && L.y - year <= 4;
+      const off = vis ? 0 : L.len; for (const p of [L.el, L.casing]) { p.style.transition = instant ? 'none' : 'stroke-dashoffset 1.1s cubic-bezier(.3,.7,.2,1)'; p.style.strokeDashoffset = off; }
+      L.hit.style.display = vis ? '' : 'none';
+      L.st.forEach((c) => { const sv = vis && c._y <= year; c.setAttribute('opacity', sv ? 1 : 0); if (sv) st++; });
+      if (vis) { km += L.km; open++; } else if (building) uc += L.km; });
+    opB.textContent = `Operative: ${Math.round(km).toLocaleString('en')} km`; ucB.textContent = `Under construction: ${Math.round(uc)} km`; stB.textContent = `${open} lines · ${st} stations`;
+    return { km, st, open };
+  };
+  const tick = () => { if (!playing) return; if (year >= 2026) { stop(); return; } setYear(year + 1); raf = setTimeout(tick, 140); };
+  const toggle = () => (playing ? stop() : play());
+  const play = () => { if (year >= 2026) setYear(1900, true); playing = true; playB.textContent = '❚❚'; tick(); };
+  const stop = () => { playing = false; playB.textContent = '▶'; clearTimeout(raf); };
+  // hover tooltip
+  const showTip = (e, html) => { const r = main.getBoundingClientRect(); tip.innerHTML = html; tip.style.display = 'block'; tip.style.left = e.clientX - r.left + 12 + 'px'; tip.style.top = e.clientY - r.top + 12 + 'px'; };
+  svg.addEventListener('pointermove', (e) => { const t = e.target; if (t._L) showTip(e, `<b>${t._name}</b>opened ${t._y}`); else { const L = lines.find((l) => l.hit === t); if (L) { showTip(e, `<b style="color:${L.c}">${L.n}</b>${L.sys} · opened ${L.y} · ${L.km.toFixed(1)} km`); hl(L); } else { tip.style.display = 'none'; hl(null); } } });
+  svg.addEventListener('pointerleave', () => { tip.style.display = 'none'; hl(null); });
+  // pan + zoom
+  let vx = 0, vy = 0, z = 1; const xf = () => g.setAttribute('transform', `translate(${vx} ${vy}) scale(${z})`);
+  const zoom = (f, cx = W / 2, cy = H / 2) => { const nz = clamp(z * f, 0.7, 4); vx = cx - (cx - vx) * (nz / z); vy = cy - (cy - vy) * (nz / z); z = nz; xf(); };
+  main.addEventListener('wheel', (e) => { e.preventDefault(); const r = svg.getBoundingClientRect(); const sc = Math.max(W / r.width, H / r.height); zoom(e.deltaY < 0 ? 1.15 : 1 / 1.15, (e.clientX - r.left) * sc, (e.clientY - r.top) * sc); }, { passive: false });
+  let p0 = null; main.addEventListener('pointerdown', (e) => { if (e.target.closest('.ctl')) return; p0 = { x: e.clientX, y: e.clientY, vx, vy }; main.classList.add('drag'); });
+  addEventListener('pointermove', (e) => { if (!p0) return; const r = svg.getBoundingClientRect(); const sc = Math.max(W / r.width, H / r.height); vx = p0.vx + (e.clientX - p0.x) * sc; vy = p0.vy + (e.clientY - p0.y) * sc; xf(); });
+  addEventListener('pointerup', () => { p0 = null; main.classList.remove('drag'); });
+  main.append(h('div.ctl', {}, h('button', { onclick: () => zoom(1.3) }, '+'), h('button', { onclick: () => zoom(1 / 1.3) }, '−'), h('button', { onclick: () => { vx = vy = 0; z = 1; xf(); } }, '⟲')));
+  const ck = h('div.ck', {}, h('div', {}, 'This website uses cookies. If you continue to use this website you accept our cookies policy.', h('u', {}, 'Information about our cookies policy')), h('button', { onclick: () => ck.remove() }, 'Accept'));
+  const hdr = h('header', {}, h('div.hb', {}, '☰'), h('div.brand', {}, h('i', {}, '✲'), 'citylines.co'), h('div.r', {}, h('span', {}, 'Compare'), h('span', {}, 'Data'), h('span', {}, 'Log in')));
+  root.append(h('div.cl', {}, hdr, h('div.body', {}, aside, main), ck));
+  window.__demoProof = async () => {
+    await sleep(50); const a = setYear(1950, true); await sleep(20); const b = setYear(1995, true); const c = setYear(2026);
+    lines[0].on = false; paintList(); const d = setYear(2026, true); lines[0].on = true; paintList(); setYear(2026, true);
+    play(); await sleep(450); const py = year; stop(); setYear(2026, true);
+    return `1950: ${a.open} lines ${Math.round(a.km)} km → 1995: ${b.open} lines → 2026: ${c.open} lines ${Math.round(c.km)} km, ${c.st} stations; Yamanote toggle off → ${d.open}; playback reached ${py}`;
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }
 
