@@ -2358,27 +2358,27 @@
   "errors": []
  },
  "rsw-random-essay-page-gallery": {
-  "url": "http://localhost:4173/t/rsw-random-essay-page-gallery/",
+  "url": "https://ux-technique-gallery.vercel.app/t/rsw-random-essay-page-gallery/",
   "ok": true,
-  "at": "2026-10-05T15:56:03.095Z",
+  "at": "2026-10-05T15:57:14.879Z",
   "http": 200,
   "proof": "reshuffle=true, scrolled to card 3 (right meta synced), save→localStorage=true, reader overlay with outbound link=true; restored",
   "demoNodes": 213,
   "errors": []
  },
  "townscaper-procedural-town-builder": {
-  "url": "http://localhost:4173/t/townscaper-procedural-town-builder/",
+  "url": "https://ux-technique-gallery.vercel.app/t/townscaper-procedural-town-builder/",
   "ok": true,
-  "at": "2026-10-05T15:56:03.086Z",
+  "at": "2026-10-05T15:57:39.123Z",
   "http": 200,
   "proof": "placed 3 blocks (stack + arch=true, roof on top=true) 27→30, removed them → 27; restored seed town",
   "demoNodes": 20,
   "errors": []
  },
  "nyt-connections-word-group-grid": {
-  "url": "http://localhost:4173/t/nyt-connections-word-group-grid/",
+  "url": "https://ux-technique-gallery.vercel.app/t/nyt-connections-word-group-grid/",
   "ok": true,
-  "at": "2026-10-05T15:56:03.091Z",
+  "at": "2026-10-05T15:57:14.876Z",
   "http": 200,
   "proof": "one-away wrong guess (mistakes 3/4) → purple band solved (1) → all 4 solved, end screen=true, share grid 5 rows; reset",
   "demoNodes": 58,
