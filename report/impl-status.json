@@ -2248,5 +2248,32 @@
   "proof": "duck bounce + sticker nudge · frivobrutalism playground",
   "demoNodes": 31,
   "errors": []
+ },
+ "mmm-page-sticker-site-builder": {
+  "url": "https://ux-technique-gallery.vercel.app/t/mmm-page-sticker-site-builder/",
+  "ok": true,
+  "at": "2026-10-05T00:03:41.923Z",
+  "http": 200,
+  "proof": "edit mode · dragged logo (true) · rotated headline · +2 stickers (14 items) · bg swap · undo×all · restored",
+  "demoNodes": 432,
+  "errors": []
+ },
+ "abeto-messenger-tiny-planet": {
+  "url": "https://ux-technique-gallery.vercel.app/t/abeto-messenger-tiny-planet/",
+  "ok": true,
+  "at": "2026-10-05T00:03:41.950Z",
+  "http": 200,
+  "proof": "begin → walked tiny planet (rotate world) → delivered 1/5 → reset to title",
+  "demoNodes": 29,
+  "errors": []
+ },
+ "rauno-craft-interaction-shelf": {
+  "url": "https://ux-technique-gallery.vercel.app/t/rauno-craft-interaction-shelf/",
+  "ok": true,
+  "at": "2026-10-05T00:03:41.945Z",
+  "http": 200,
+  "proof": "view one→two→grid · dock magnify true · unlock true · combobox 2 hits → Banana · hold-delete true · stickers+testimonials · restored",
+  "demoNodes": 262,
+  "errors": []
  }
 }
