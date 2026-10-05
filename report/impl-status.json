@@ -2410,5 +2410,32 @@
   "proof": "dragged P(H) to 0.75 → flipped 100 times: 69/100 heads (freq 0.69), convergence line drawn, side-nav highlights \"Chance Events\"",
   "demoNodes": 80,
   "errors": []
+ },
+ "nothing-dotmatrix-brand-store": {
+  "url": "https://ux-technique-gallery.vercel.app/t/nothing-dotmatrix-brand-store/",
+  "ok": true,
+  "at": "2026-10-05T23:54:22.271Z",
+  "http": 200,
+  "proof": "dot-matrix circles=1158, Phones filter→2 tiles, hover swap=true, newsletter invalid=true success=true, menu drawer=true; restored",
+  "demoNodes": 1529,
+  "errors": []
+ },
+ "fontshare-live-type-catalog": {
+  "url": "https://ux-technique-gallery.vercel.app/t/fontshare-live-type-catalog/",
+  "ok": true,
+  "at": "2026-10-05T23:54:22.274Z",
+  "http": 200,
+  "proof": "preview text+size live on all rows=true, Serif filter→4 rows, hover actions=true, detail ladder+wght slider ok (6), theme persisted=dark; restored",
+  "demoNodes": 259,
+  "errors": []
+ },
+ "cobe-globe-demo-carousel": {
+  "url": "https://ux-technique-gallery.vercel.app/t/cobe-globe-demo-carousel/",
+  "ok": true,
+  "at": "2026-10-05T23:54:22.248Z",
+  "http": 200,
+  "proof": "carousel→4 / 13 (FLIGHTS), drag spins=true, tab pnpm=\"pnpm add cobe\", dots=4583, labels=3; restored to 1 / 13",
+  "demoNodes": 54,
+  "errors": []
  }
 }
