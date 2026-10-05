@@ -2302,5 +2302,32 @@
   "proof": "scrolled stages 1,2,3,4,5 (tree accuracy 81%), back to intro stage 0",
   "demoNodes": 3171,
   "errors": []
+ },
+ "mfp-terminal-music-player": {
+  "url": "https://ux-technique-gallery.vercel.app/t/mfp-terminal-music-player/",
+  "ok": true,
+  "at": "2026-10-05T07:56:51.019Z",
+  "http": 200,
+  "proof": "loaded ep 62 (22 tracks), +30 +30 → 60s, back to ep 79 with 22 tracks, volume 0.6",
+  "demoNodes": 157,
+  "errors": []
+ },
+ "zenpen-zen-writing-editor": {
+  "url": "https://ux-technique-gallery.vercel.app/t/zenpen-zen-writing-editor/",
+  "ok": true,
+  "at": "2026-10-05T07:56:51.032Z",
+  "http": 200,
+  "proof": "bubble shown on selection, 109 words, markdown export 671 chars",
+  "demoNodes": 64,
+  "errors": []
+ },
+ "aesop-editorial-fragrance-shop": {
+  "url": "https://ux-technique-gallery.vercel.app/t/aesop-editorial-fragrance-shop/",
+  "ok": true,
+  "at": "2026-10-05T07:56:51.031Z",
+  "http": 200,
+  "proof": "100 mL added → 장바구니 (1); floral chip shows 2 cards; mega-menu opens=true",
+  "demoNodes": 128,
+  "errors": []
  }
 }
