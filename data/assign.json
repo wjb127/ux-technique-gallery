@@ -242,7 +242,8 @@
   "waveform-audio-editor",
   "ladybug-effects-studio",
   "r2d3-scrollytelling-ml-explainer",
-  "seeing-theory-coin-flip-frequency"
+  "seeing-theory-coin-flip-frequency",
+  "ptable-property-heatmap-table"
  ],
  "puzzle": [
   "css-grid-garden-puzzle",
@@ -294,7 +295,8 @@
   "winamp-skinned-player-chrome",
   "retro-media-player-chrome",
   "cyanbanister-vaporwave-os-desk",
-  "mmm-page-sticker-site-builder"
+  "mmm-page-sticker-site-builder",
+  "posthog-desktop-os-marketing-site"
  ],
  "three": [
   "3d-blob-param-mixer",
@@ -337,7 +339,8 @@
   "aesop-editorial-fragrance-shop",
   "flighty-live-flight-notification-hero",
   "rsw-random-essay-page-gallery",
-  "nothing-dotmatrix-brand-store"
+  "nothing-dotmatrix-brand-store",
+  "mymind-manifesto-masonry-landing"
  ],
  "ux": [
   "5-state-gate",

@@ -2437,5 +2437,32 @@
   "proof": "carousel→4 / 13 (FLIGHTS), drag spins=true, tab pnpm=\"pnpm add cobe\", dots=4583, labels=3; restored to 1 / 13",
   "demoNodes": 54,
   "errors": []
+ },
+ "posthog-desktop-os-marketing-site": {
+  "url": "http://localhost:4173/t/posthog-desktop-os-marketing-site/",
+  "ok": true,
+  "at": "2026-10-06T03:55:44.059Z",
+  "http": 200,
+  "proof": "icons=13, dblclick opened changelog (windows=2, active=true), focus raises z=true, maximize width=1428, menu dropdown=true, taskbar items=2, positions saved=true; restored",
+  "demoNodes": 159,
+  "errors": []
+ },
+ "ptable-property-heatmap-table": {
+  "url": "http://localhost:4173/t/ptable-property-heatmap-table/",
+  "ok": true,
+  "at": "2026-10-06T03:55:44.076Z",
+  "http": 200,
+  "proof": "cells=118, EN heat F=rgb(238, 47, 47) vs Cs=rgb(160, 173, 238), 400K Hg=l Ga=l, search fe→hit 2 dim 116, dark=true, detail card Fe=true; restored",
+  "demoNodes": 718,
+  "errors": []
+ },
+ "mymind-manifesto-masonry-landing": {
+  "url": "http://localhost:4173/t/mymind-manifesto-masonry-landing/",
+  "ok": true,
+  "at": "2026-10-06T03:55:44.073Z",
+  "http": 200,
+  "proof": "filter blue→2/15 cards, hover lift=true, manifesto words lit=47/51, strikethrough=6; restored",
+  "demoNodes": 246,
+  "errors": []
  }
 }

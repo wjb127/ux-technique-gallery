@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-posthog-desktop-os-marketing-site",
+  "slug": "posthog-desktop-os-marketing-site",
+  "name": "Desktop-OS Windowed Marketing Site (PostHog)",
+  "date": "2026-10-06",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://posthog.com/",
+  "domain": "posthog.com",
+  "product": "PostHog — product analytics platform website",
+  "checkpoints": [
+   "Wallpaper desktop with labeled icons (Home, Pricing, Docs, Changelog, Store, Trash)",
+   "Double-click icon opens draggable window with title bar + close/min/max",
+   "Focus raises window (z-index) and active title-bar styling",
+   "Top menu bar with dropdown menus and a taskbar listing open windows",
+   "Window resize from corner, maximize toggle, positions saved to localStorage",
+   "Mobile fallback: windows become full-screen sheets"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-mymind-manifesto-masonry-landing",
+  "slug": "mymind-manifesto-masonry-landing",
+  "name": "Calm Manifesto Landing + Masonry Mind Board (mymind)",
+  "date": "2026-10-06",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://mymind.com/",
+  "domain": "mymind.com",
+  "product": "mymind — private AI bookmark & inspiration app",
+  "checkpoints": [
+   "Oversized serif headline \"Remember everything. Organize nothing.\" with soft fade-in",
+   "Masonry board of mixed cards (image, quote, note, link, color swatch)",
+   "Hover card lifts and reveals auto-tags chip row",
+   "Manifesto section with word-by-word scroll reveal",
+   "\"We promise no...\" list with strikethrough animation",
+   "Search bar that filters board by tag/color with layout re-flow"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-ptable-property-heatmap-table",
+  "slug": "ptable-property-heatmap-table",
+  "name": "Periodic Table Property Heatmap Explorer (Ptable)",
+  "date": "2026-10-06",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ptable.com/",
+  "domain": "ptable.com",
+  "product": "Ptable — interactive periodic table",
+  "checkpoints": [
+   "18-column CSS grid table with lanthanide/actinide rows and series colors",
+   "Hover element enlarges detail card in the empty top-center area",
+   "Property tabs (Electronegativity, Melting point, Radius) recolor cells as a heatmap with legend",
+   "Temperature slider changing state (solid/liquid/gas) styling live",
+   "Search box highlights matching elements and dims others",
+   "Dark/light toggle and wide/compact layout switch"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-cobe-globe-demo-carousel",
   "slug": "cobe-globe-demo-carousel",
   "name": "Dotted WebGL Globe Hero with Demo Carousel (COBE v2)",
