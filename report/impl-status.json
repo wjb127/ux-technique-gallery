@@ -2493,27 +2493,27 @@
   "errors": []
  },
  "partiful-invite-theme-customizer": {
-  "url": "http://localhost:4173/t/partiful-invite-theme-customizer/",
+  "url": "https://ux-technique-gallery.vercel.app/t/partiful-invite-theme-customizer/",
   "ok": true,
-  "at": "2026-10-06T11:54:08.104Z",
+  "at": "2026-10-06T11:55:41.021Z",
   "http": 200,
   "proof": "tab=Fonts; title font=\"Fraunces Variable\"; card bg=Sunset; effect replays=6, particles=46; rsvp=true; template editor open=true url=partiful.com/create?effect=ghosts&titleFont=shout&poster=pumpkin&theme=midnight; restored",
   "demoNodes": 134,
   "errors": []
  },
  "pudding-sticker-story-index": {
-  "url": "http://localhost:4173/t/pudding-sticker-story-index/",
+  "url": "https://ux-technique-gallery.vercel.app/t/pudding-sticker-story-index/",
   "ok": true,
-  "at": "2026-10-06T11:54:08.129Z",
+  "at": "2026-10-06T11:55:41.038Z",
   "http": 200,
   "proof": "tagline cycled \"explains ideas with visual essays\" → \"debates with data\"; filter video → #221,#217; audio order desc=true; search \"pixel\" → 1; newsletter in grid=true; mobile layout=true; restored",
   "demoNodes": 131,
   "errors": []
  },
  "oxide-ascii-figure-product-page": {
-  "url": "http://localhost:4173/t/oxide-ascii-figure-product-page/",
+  "url": "https://ux-technique-gallery.vercel.app/t/oxide-ascii-figure-product-page/",
   "ok": true,
-  "at": "2026-10-06T11:54:08.130Z",
+  "at": "2026-10-06T11:55:41.040Z",
   "http": 200,
   "proof": "tab API typed=\"-> curl \n▌\"; tab Console active=true; SSO signed=true; compare=Public cloud, bar=\"5#\"; ci-runner-03 → running; back → stopped; sidebar → Disks; nav sticky=sticky; restored",
   "demoNodes": 200,
