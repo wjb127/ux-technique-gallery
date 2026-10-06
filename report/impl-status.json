@@ -2520,27 +2520,27 @@
   "errors": []
  },
  "playdate-yellow-handheld-spoiler-reveal": {
-  "url": "http://localhost:4173/t/playdate-yellow-handheld-spoiler-reveal/",
+  "url": "https://ux-technique-gallery.vercel.app/t/playdate-yellow-handheld-spoiler-reveal/",
   "ok": true,
-  "at": "2026-10-06T16:08:41.305Z",
+  "at": "2026-10-06T16:10:07.711Z",
   "http": 200,
   "proof": "crank 0°→↻ 540°; button=\"Wait! No spoilers, please!\", games=24, hidden=false; hover overlay=true; toggle back=\"Show me the games!\"; words lit=13/13; sticky price=sticky; restored",
   "demoNodes": 232,
   "errors": []
  },
  "paper-shaders-live-tile-gallery-props-panel": {
-  "url": "http://localhost:4173/t/paper-shaders-live-tile-gallery-props-panel/",
+  "url": "https://ux-technique-gallery.vercel.app/t/paper-shaders-live-tile-gallery-props-panel/",
   "ok": true,
-  "at": "2026-10-06T16:07:59.789Z",
+  "at": "2026-10-06T16:10:07.694Z",
   "http": 200,
   "proof": "webgl=true, programs=12/12; live tiles=5/12; detail=liquid-metal; code has repetition={7}: true; shape→metaballs; preset Noir tweened colorBack=#0e0e10; frames rendered=true; restored",
   "demoNodes": 203,
   "errors": []
  },
  "granola-notes-enhance-toggle-hero": {
-  "url": "http://localhost:4173/t/granola-notes-enhance-toggle-hero/",
+  "url": "https://ux-technique-gallery.vercel.app/t/granola-notes-enhance-toggle-hero/",
   "ok": true,
-  "at": "2026-10-06T16:07:59.797Z",
+  "at": "2026-10-06T16:10:07.721Z",
   "http": 200,
   "proof": "enhanced: headings=3, user lines=2, ai lines=6; my notes lines=4; status pill=\"Enhancing notes\"; After ask=\"What did we decide on pricing?\" answer=true; Before brief cards=2; restored",
   "demoNodes": 111,
