@@ -2464,5 +2464,32 @@
   "proof": "filter blue→2/15 cards, hover lift=true, manifesto words lit=47/51, strikethrough=6; restored",
   "demoNodes": 246,
   "errors": []
+ },
+ "cuberto-context-cursor-agency-home": {
+  "url": "https://ux-technique-gallery.vercel.app/t/cuberto-context-cursor-agency-home/",
+  "ok": true,
+  "at": "2026-10-06T07:58:28.999Z",
+  "http": 200,
+  "proof": "hero lines revealed=true; link cursor=arrow w=80; reel cursor=play; showreel open=true cursor=times; work card idle=true, hover-play frames=+23, paused after leave=true, cursor=\"View\"; service preview=true; magnetic CTA translate(26.6px, 26.6px); testimonial next→2, faq toggle=true; restored",
+  "demoNodes": 107,
+  "errors": []
+ },
+ "lofi-cafe-station-tv-room": {
+  "url": "https://ux-technique-gallery.vercel.app/t/lofi-cafe-station-tv-room/",
+  "ok": true,
+  "at": "2026-10-06T07:58:28.995Z",
+  "http": 200,
+  "proof": "started=true, buffering=true; playing=true; → station 1→2 \"lofi hip hop radio 📚 …\", TV static=true; list 10 stations → picked #5; G gif 0→1; vol=8; pomodoro 1500s→1499s running=true; low-power toggle=true, shortcuts disabled blocks keys=true, space pause=true, localStorage=true; restored",
+  "demoNodes": 82,
+  "errors": []
+ },
+ "igloo-scroll-ice-world": {
+  "url": "https://ux-technique-gallery.vercel.app/t/igloo-scroll-ice-world/",
+  "ok": true,
+  "at": "2026-10-06T07:58:28.981Z",
+  "http": 200,
+  "proof": "scroll→stop 3 (prog=2.00), cam.y=70.0; title decoded=true \"NETWORK\"; plexus lines=76; hover tip=true, click opened card=true (ABSTRACT); sound toggle=true→off; restored stop 1",
+  "demoNodes": 39,
+  "errors": []
  }
 }
