@@ -4,3 +4,4 @@ t/
 .vercel
 report/ref-status.json
 .env*
+.tmp/
