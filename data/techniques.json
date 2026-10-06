@@ -20,7 +20,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Newspaper-Column Daily Puzzle Hub with Live Mini Game Boards",
-  "ko": "Puzzmo — daily puzzles by Orta, Zach Gage & friends 스타일 퍼즐/게임 클론",
+  "ko": "Puzzmo 스타일 퍼즐/게임 클론",
   "engine": "saas",
   "variant": "puzzmo-daily-puzzle-newspaper-hub",
   "theme": {
@@ -57,7 +57,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Pink 3D-Coin Neo-Brutalist Creator Landing with Marquee + Way Tabs",
-  "ko": "Gumroad — sell digital products online 스타일 3D 스테이지 클론",
+  "ko": "Gumroad 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "gumroad-pink-coin-brutalist-landing",
   "theme": {
@@ -94,7 +94,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Calm App Feature Tour with Mac/iOS Device Toggle and To-Do Expand",
-  "ko": "Things 3 — Cultured Code task manager for Mac & iOS 스타일 레트로 데스크톱 클론",
+  "ko": "Things 3 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "things-app-tour-mac-ios-toggle",
   "theme": {
@@ -131,7 +131,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Live Shader Tile Gallery + Leva Props Panel with Code Sync",
-  "ko": "Paper Shaders — zero-dependency React/GLSL shader components by Paper 스타일 그리드/타일 클론",
+  "ko": "Paper Shaders 스타일 그리드/타일 클론",
   "engine": "saas",
   "variant": "paper-shaders-live-tile-gallery-props-panel",
   "theme": {
@@ -168,7 +168,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Raw-Notes to AI-Enhanced Notepad Hero with Status Pills",
-  "ko": "Granola — AI notepad for back-to-back meetings 스타일 인터랙션 클론",
+  "ko": "Granola 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "granola-notes-enhance-toggle-hero",
   "theme": {
@@ -205,7 +205,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Yellow 1-bit Handheld Product Story with Spoiler-Reveal Games Grid",
-  "ko": "Playdate — Panic's yellow handheld with a crank 스타일 그리드/타일 클론",
+  "ko": "Playdate 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "playdate-yellow-handheld-spoiler-reveal",
   "theme": {
@@ -242,7 +242,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Playful Invite Customizer with Background/Font/Effect Tabs",
-  "ko": "Partiful — online party invitations with RSVP 스타일 타이포 클론",
+  "ko": "Partiful 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "partiful-invite-theme-customizer",
   "theme": {
@@ -279,7 +279,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "ASCII-Animated Figure Product Page with Mock Console",
-  "ko": "Oxide Computer Company — on-prem cloud computer 스타일 그리드/타일 클론",
+  "ko": "Oxide Computer Company 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "oxide-ascii-figure-product-page",
   "theme": {
@@ -316,7 +316,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Sticker-Wordmark Visual-Essay Index with Filter Tabs",
-  "ko": "The Pudding — visual essays publication 스타일 인터랙션 클론",
+  "ko": "The Pudding 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "pudding-sticker-story-index",
   "theme": {
@@ -353,7 +353,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Scroll-Driven 3D Ice-Block World with Particle Plexus",
-  "ko": "Igloo Inc. (WebGL by Abeto) 스타일 3D 스테이지 클론",
+  "ko": "Igloo Inc. 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "igloo-scroll-ice-world",
   "theme": {
@@ -427,7 +427,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Context-Icon Cursor + Video-Reveal Work Grid Agency Home",
-  "ko": "Cuberto — digital design & development agency 스타일 타이포 클론",
+  "ko": "Cuberto 스타일 랜딩 페이지 클론",
   "engine": "cssfx",
   "variant": "cuberto-context-cursor-agency-home",
   "theme": {
@@ -464,7 +464,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Desktop-OS Windowed Marketing Site",
-  "ko": "PostHog — product analytics platform website 스타일 레트로 데스크톱 클론",
+  "ko": "PostHog 스타일 레트로 데스크톱 클론",
   "engine": "desk",
   "variant": "posthog-desktop-os-marketing-site",
   "theme": {
@@ -501,7 +501,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Calm Manifesto Landing + Masonry Mind Board",
-  "ko": "mymind — private AI bookmark & inspiration app 스타일 인터랙션 클론",
+  "ko": "mymind 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "mymind-manifesto-masonry-landing",
   "theme": {
@@ -538,7 +538,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Periodic Table Property Heatmap Explorer",
-  "ko": "Ptable — interactive periodic table 스타일 지도/지구 클론",
+  "ko": "Ptable 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "ptable-property-heatmap-table",
   "theme": {
@@ -575,7 +575,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Dotted WebGL Globe Hero with Demo Carousel",
-  "ko": "COBE — 5KB WebGL globe (shuding) 스타일 지도/지구 클론",
+  "ko": "COBE 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "cobe-globe-demo-carousel",
   "theme": {
@@ -612,7 +612,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Live Type-Tester Font Catalog",
-  "ko": "Fontshare — free fonts by Indian Type Foundry 스타일 타이포 클론",
+  "ko": "Fontshare 스타일 타이포 클론",
   "engine": "type",
   "variant": "fontshare-live-type-catalog",
   "theme": {
@@ -649,7 +649,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Dot-Matrix Brand Store Home",
-  "ko": "Nothing — official store 스타일 인터랙션 클론",
+  "ko": "Nothing 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "nothing-dotmatrix-brand-store",
   "theme": {
@@ -686,7 +686,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Draggable-Probability Coin Flip with Live Frequency Bars",
-  "ko": "Seeing Theory — Brown University 스타일 인터랙션 클론",
+  "ko": "Seeing Theory 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "seeing-theory-coin-flip-frequency",
   "theme": {
@@ -723,7 +723,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "16-Step Drum Machine Sequencer with Kits and FX",
-  "ko": "drumbit — online drum machine by João Santos 스타일 사운드 클론",
+  "ko": "drumbit 스타일 사운드 클론",
   "engine": "seq",
   "variant": "drumbit-step-sequencer-drum-machine",
   "theme": {
@@ -760,7 +760,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Animation-Library Home with Live Feature Demos",
-  "ko": "Anime.js — JavaScript Animation Engine 스타일 CSS 생성기 클론",
+  "ko": "Anime.js 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "animejs-live-feature-demo-home",
   "theme": {
@@ -797,7 +797,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Procedural Click-to-Build Island Town",
-  "ko": "Townscaper (Oskar Stålberg) 스타일 인터랙션 클론",
+  "ko": "Townscaper 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "townscaper-procedural-town-builder",
   "theme": {
@@ -834,7 +834,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "4x4 Word-Group Puzzle Grid",
-  "ko": "Connections — The New York Times Games 스타일 그리드/타일 클론",
+  "ko": "Connections 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "nyt-connections-word-group-grid",
   "theme": {
@@ -871,7 +871,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Randomized Essay First-Page Gallery",
-  "ko": "Read Something Wonderful (by Matter) 스타일 인터랙션 클론",
+  "ko": "Read Something Wonderful 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "rsw-random-essay-page-gallery",
   "theme": {
@@ -908,7 +908,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Holographic Trading Card Tilt",
-  "ko": "Pokémon Cards CSS Holographic Effect (Simon Goellner) 스타일 인터랙션 클론",
+  "ko": "Pokémon Cards CSS Holographic Effect 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "pokeholo-holographic-card-tilt",
   "theme": {
@@ -945,7 +945,7 @@
   "checkpoint_source": "ledger",
   "prompt": null,
   "short": "Live Flight Notification Hero",
-  "ko": "Flighty 스타일 인터랙션 클론",
+  "ko": "Flighty 스타일 랜딩 페이지 클론",
   "engine": "saas",
   "variant": "flighty-live-flight-notification-hero",
   "theme": {
@@ -1125,7 +1125,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "R2D3 Scrollytelling ML Explainer",
-  "ko": "R2d3 스타일 인터랙션 클론",
+  "ko": "R2d3 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "r2d3-scrollytelling-ml-explainer",
   "theme": {
@@ -1157,7 +1157,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Teenage Engineering OP–1 field Product Page",
-  "ko": "Teenage 스타일 인터랙션 클론",
+  "ko": "Teenage 스타일 사운드 클론",
   "engine": "audio",
   "variant": "te-op1-field-product-page",
   "theme": {
@@ -1253,7 +1253,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Abeto Messenger Tiny-Planet World",
-  "ko": "Messenger 스타일 인터랙션 클론",
+  "ko": "Messenger 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "abeto-messenger-tiny-planet",
   "theme": {
@@ -1349,7 +1349,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Kolesidis Frivobrutalism Portfolio Playground",
-  "ko": "Michaelkolesidis 스타일 인터랙션 클론",
+  "ko": "Michaelkolesidis 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "kolesidis-frivobrutalism-playground",
   "theme": {
@@ -1413,7 +1413,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Canvas UI Shader-over-DOM Playground",
-  "ko": "Canvasui 스타일 드로잉 클론",
+  "ko": "Canvasui 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "canvasui-shader-dom-playground",
   "theme": {
@@ -1445,7 +1445,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "MOTIONFORGE Motion Systems Exhibition",
-  "ko": "Motionforge-2 스타일 인터랙션 클론",
+  "ko": "Motionforge-2 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "motionforge-motion-exhibition",
   "theme": {
@@ -1669,7 +1669,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Lenis Smooth Scroll Craft Stage",
-  "ko": "Lenis 스타일 인터랙션 클론",
+  "ko": "Lenis 스타일 스크롤 인터랙션 클론",
   "engine": "saas",
   "variant": "lenis-smooth-scroll-stage",
   "theme": {
@@ -1733,7 +1733,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "TOOOTEGRAM Playable Playlist Zoo",
-  "ko": "Toootegram 스타일 인터랙션 클론",
+  "ko": "Toootegram 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "toootegram-playlist-zoo",
   "theme": {
@@ -1829,7 +1829,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "George & Jonathan Interactive Album Experience",
-  "ko": "Georgeandjonathan 스타일 인터랙션 클론",
+  "ko": "Georgeandjonathan 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "georgeandjonathan-album-experience",
   "theme": {
@@ -1893,7 +1893,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Whorl Generative Motion Design Desk",
-  "ko": "Design 스타일 인터랙션 클론",
+  "ko": "Design 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "whorl-generative-motion-desk",
   "theme": {
@@ -1957,7 +1957,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Vertex Shader Art Live Stage",
-  "ko": "Vertexshaderart 스타일 인터랙션 클론",
+  "ko": "Vertexshaderart 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "vertexshaderart-live-stage",
   "theme": {
@@ -1989,7 +1989,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Muted Circle of Fifths Desk",
-  "ko": "Muted 스타일 인터랙션 클론",
+  "ko": "Muted 스타일 사운드 클론",
   "engine": "audio",
   "variant": "muted-circle-of-fifths-desk",
   "theme": {
@@ -2021,7 +2021,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Blush Illustration Remix Desk",
-  "ko": "Blush 스타일 인터랙션 클론",
+  "ko": "Blush 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "blush-illustration-remix-desk",
   "theme": {
@@ -2085,7 +2085,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Dwitter 140-Char JS Demo Stage",
-  "ko": "Dwitter 스타일 인터랙션 클론",
+  "ko": "Dwitter 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "dwitter-140char-demo-stage",
   "theme": {
@@ -2181,7 +2181,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Lordicon Animated Icon Customizer Desk",
-  "ko": "Lordicon 스타일 CSS 생성기 클론",
+  "ko": "Lordicon 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "lordicon-animated-icon-desk",
   "theme": {
@@ -2245,7 +2245,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "TimeGuessr Historic Photo Year-Location Quiz",
-  "ko": "Timeguessr 스타일 이미지 스튜디오 클론",
+  "ko": "Timeguessr 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "timeguessr-historic-photo-quiz",
   "theme": {
@@ -2282,7 +2282,7 @@
   "checkpoint_source": "briefing:2026-10-03-12.md",
   "prompt": "Build a Cyan Banister–inspired vaporwave OS anti-portfolio desk (inspired by\nhttps://cyanbanister.com/). Teal/magenta surreal desktop with floating icons.\nOpen ≥3 draggable windows (Terminal stub, Folders/lore chips, About). Terminal\naccepts a few toy commands. After-dark toggle shifts the palette. Aesthetic:\nvaporwave OS playground — not a plain Win95 clone, not a SaaS landing, not a\npricing page. No real Cyan Banister logos/LLM contact form. Scope 60–90 min.",
   "short": "Cyan Banister Vaporwave OS Anti-Portfolio Desk",
-  "ko": "Cyanbanister 스타일 SVG 생성기 클론",
+  "ko": "Cyanbanister 스타일 레트로 데스크톱 클론",
   "engine": "desk",
   "variant": "cyanbanister-vaporwave-os-desk",
   "theme": {
@@ -2356,7 +2356,7 @@
   "checkpoint_source": "briefing:2026-10-03-12.md",
   "prompt": "Build a Colliding Scopes–inspired liquid shape distortions desk (inspired by\nhttps://collidingscopes.github.io/liquid-shape-distortions/). Full-bleed animated\nliquid/distort canvas. Corner controls: randomize, pause/play, screenshot stub.\n≥3 sliders (warp, speed, hue). Aesthetic: psychedelic liquid motion art stage —\nnot Photoshop, not a Shadertoy catalog, not a pricing page. No real Colliding\nScopes logos/music. Scope 45–75 min.",
   "short": "Colliding Scopes Liquid Shape Distortions Desk",
-  "ko": "Collidingscopes 스타일 SVG 생성기 클론",
+  "ko": "Collidingscopes 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "collidingscopes-liquid-distort-desk",
   "theme": {
@@ -2393,7 +2393,7 @@
   "checkpoint_source": "briefing:2026-10-03-08.md",
   "prompt": "Build a Paper Planes–inspired fold/stamp/throw/catch world desk (inspired by\nhttps://paperplanes.world/). Soft sky-blue pastel stage with a drifting flock of\npaper planes. Fold UI → Stamp message chip → Throw arc into flock → Catch\n(click) another plane to reveal its stamp. Aesthetic: gentle sky flock ritual —\nnot a flight simulator, not Google Earth, not a pricing page. No real Paper\nPlanes logos/servers. Scope 60–90 min.",
   "short": "Paper Planes Throw Catch World Desk",
-  "ko": "Paperplanes 스타일 인터랙션 클론",
+  "ko": "Paperplanes 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "paperplanes-throw-catch-world",
   "theme": {
@@ -2541,7 +2541,7 @@
   "checkpoint_source": "briefing:2026-10-03-04.md",
   "prompt": "Build a Typatone–inspired type-to-music writing desk (inspired by\nhttps://typatone.com/). Full-stage canvas; click/first key unlocks AudioContext.\nEach A–Z key maps to a fixed pitch (pentatonic or chromatic stub), plays a short\nWeb Audio oscillator envelope, and flashes/trails the glyph on canvas. Mute\ntoggle, Clear, one-line typed preview. Aesthetic: writing-as-performance craft\nchrome — not a DAW, not Patatap drum pads, not a MIDI piano roll. No real\nTypatone logos. Scope 45–75 min.",
   "short": "Typatone Type-to-Music Writing Desk",
-  "ko": "Typatone 스타일 컬러 클론",
+  "ko": "Typatone 스타일 사운드 클론",
   "engine": "audio",
   "variant": "typatone-type-music-desk",
   "theme": {
@@ -2578,7 +2578,7 @@
   "checkpoint_source": "briefing:2026-10-03-04.md",
   "prompt": "Build a Particular Drift–inspired image-to-particle desk (inspired by\nhttps://particular-drift.netlify.app/). Full-stage canvas + Controls panel.\nUpload (or preload) an image; seed particles from edge/luminance samples.\nSliders: Speed, Attraction, Edge threshold, Flow amount. Palette chips +\nRandomize (dice). Space=pause, R=randomize, S=PNG screenshot stub. Aesthetic:\nhypnotic silhouette-particle craft chrome — not falling-sand, not a generative\nart prompt studio, not a marketing landing. No real Particular Drift logos.\nScope 60–90 min.",
   "short": "Particular Drift Image Particle Flow Desk",
-  "ko": "Particular-drift 스타일 이미지 스튜디오 클론",
+  "ko": "Particular-drift 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "particulardrift-image-particle-desk",
   "theme": {
@@ -2643,7 +2643,7 @@
   "checkpoint_source": "briefing:2026-10-03-00.md",
   "prompt": "Build a Stitch Fiddle–inspired knitting/cross-stitch chart desk (inspired by\nhttps://www.stitchfiddle.com/en/chart/create/knitting). Step 1: craft chips\n(Knitting / Cross stitch / Crochet). Step 2 for Knitting: project-kind cards\n(Colors/Fair Isle, Lace, Cables stubs). Main desk: stitch grid (default 40×40)\nwith click-drag paint/erase, yarn palette chips (8–12 colors), grid width/height,\nClear, Export PNG stub. Aesthetic: digital knitting-pattern paper craft chrome —\nnot a pixel-game maker, not MS Paint. No signup wall, no real Stitch Fiddle\nlogos. Scope 45–75 min.",
   "short": "Stitch Fiddle Knit Chart Desk",
-  "ko": "Stitchfiddle 스타일 데이터/타임라인 클론",
+  "ko": "Stitchfiddle 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "stitchfiddle-knit-chart-desk",
   "theme": null,
@@ -2699,7 +2699,7 @@
   "checkpoint_source": "briefing:2026-10-02-20.md",
   "prompt": "Build a Voanh-inspired generative art studio desk (inspired by https://voanh.com/).\nDark full-stage canvas preview + Controls panel. Three generators: Flow Field,\nDomain Warp marbling, Circle Packing — each with live sliders. Aspect presets\n(1:1, 16:9, 9:16, 4:5). Curated dark palettes + color mode chips. Grain,\nvignette, bloom post controls. Seed display with Roll and Lock. Export PNG\n(and SVG stub for flow/packing). Aesthetic: private local-render gallery craft\nchrome, not a marketing landing. No Cloudflare wall, no real Voanh logos.\nScope 60–90 min.",
   "short": "Voanh Generative Art Studio Desk",
-  "ko": "Voanh 스타일 인터랙션 클론",
+  "ko": "Voanh 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "voanh-generative-art-studio-desk",
   "theme": {
@@ -2773,7 +2773,7 @@
   "checkpoint_source": "briefing:2026-10-02-20.md",
   "prompt": "Build a Blob Opera–inspired drag choir stage (inspired by\nhttps://artsandculture.google.com/experiment/blob-opera/AAHWrq360NcGbw).\nSoft gradient opera-house stage with four jelly blobs (Bass, Mezzo, Tenor,\nSoprano). Drag a blob vertically to change pitch, horizontally to morph vowel /\nmouth shape. While dragging one, the other three gently follow in harmony\n(thirds/fifths) and sing via simple oscillators. Hint text, Reset pose, Record\nstub. Aesthetic: playful ML-choir toy stage — not a DAW. No real ML model, no\nGoogle logos. Scope 45–75 min.",
   "short": "Blob Opera Drag Choir Desk",
-  "ko": "Artsandculture 스타일 SVG 생성기 클론",
+  "ko": "Artsandculture 스타일 사운드 클론",
   "engine": "audio",
   "variant": "blob-opera-drag-choir-desk",
   "theme": {
@@ -2810,7 +2810,7 @@
   "checkpoint_source": "briefing:2026-10-02-16.md",
   "prompt": "Build a Mosh-Lite–inspired real-time glitch effect mixer desk (inspired by\nhttps://moshpro.app/lite/). Dark full-stage preview + Effects stack panel.\nLoad 2–3 sample images (webcam/upload can be stubs). Primary “Mosh” button\nrandomizes a seed and several effect intensities. Implement at least RGB\nSplit, Scanlines, Noise, Wave, Pixelate (Canvas 2D stand-ins OK) each with\nenable toggle + intensity slider. Show seed + reroll. Export PNG stub with\noptional watermark text. Aesthetic: VJ/glitch mixer chrome, not a marketing\nlanding. No login, no real Mosh runtime/logos. Scope 45–75 min.",
   "short": "Mosh-Lite real-time glitch effect mixer desk",
-  "ko": "Moshpro 스타일 사운드 클론",
+  "ko": "Moshpro 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "moshlite-glitch-effect-mixer-desk",
   "theme": {
@@ -2847,7 +2847,7 @@
   "checkpoint_source": "briefing:2026-10-02-16.md",
   "prompt": "Build a Musicmap-inspired genre genealogy Carta explorer (inspired by\nhttps://www.musicmap.info/). Full-canvas map: vertical axis = time\n(top=past), horizontal = color-coded super-genres. Place ~8–12 super-genre\ncolumns and ~30–40 main genre nodes with influence links. Drag to pan,\nwheel to zoom; zoomed-out shows super-genres, zoomed-in shows nodes/links.\nHover highlights related links; click opens a detail panel (name, year,\nsuper-genre tag, short blurb, 3 example track stubs). Aesthetic: scholarly\nmap/carta, soft decade lines, vivid super-genre bands — not a plain force\ngraph. No YouTube embeds, no full 234-genre dump. Scope 60–90 min.",
   "short": "Musicmap genre genealogy carta explorer",
-  "ko": "Musicmap 스타일 사운드 클론",
+  "ko": "Musicmap 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "musicmap-genre-carta-desk",
   "theme": {
@@ -2958,7 +2958,7 @@
   "checkpoint_source": "briefing:2026-10-02-12.md",
   "prompt": "Build a Shader Park–inspired JS SDF live sculpt desk (inspired by\nhttps://shaderpark.com/new). Dual-pane: monospace code editor + WebGL or\ncanvas preview. Load 2–3 example “sculpt” snippets via chips (blob sphere,\ntwisted torus, noisy terrain — raymarch SDF stub OR metaball stand-in is\nfine). Auto Update toggle with debounce + manual Run. Controls panel with\nat least two uniform sliders (size, noise) bound to the preview. Drag to\norbit. Show a small compile/error banner on failure. Aesthetic: dark\ncreative-coding stage, generous preview, compact chrome — not a marketing\nlanding page. No login/save/community crawl. Scope 45–75 min.",
   "short": "Shader Park JS SDF live sculpt desk",
-  "ko": "Shaderpark 스타일 인터랙션 클론",
+  "ko": "Shaderpark 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "shaderpark-js-sdf-sculpt-desk",
   "theme": {
@@ -3217,7 +3217,7 @@
   "checkpoint_source": "briefing:2026-10-02-04.md",
   "prompt": "Build a Tone.js Simple Synth–inspired examples desk. Layout: title \"Synth\",\n  oscillator type select (sine/square/sawtooth/triangle), ADSR envelope sliders\n  (attack/decay/sustain/release), volume, and an on-screen keyboard (C4–C5) that\n  triggers notes via Web Audio API (OscillatorNode + Gain envelope). No Tone.js\n  dependency required. Aesthetic: clean Tone.js docs/examples craft, light or\n  soft-dark panels, monospace labels. Scope 45–75 min.",
   "short": "Tone.js Simple Synth examples desk",
-  "ko": "Tone.js 스타일 컬러 클론",
+  "ko": "Tone.js 스타일 사운드 클론",
   "engine": "audio",
   "variant": "tonejs-simple-synth-desk",
   "theme": {
@@ -3254,7 +3254,7 @@
   "checkpoint_source": "briefing:2026-10-02-00.md",
   "prompt": "Build a Rive-inspired motion/state-machine editor desk. Dark craft chrome:\n  top toolbar, left hierarchy, center artboard stage with a simple animated\n  shape, bottom timeline with scrubbable playhead and keyframe ticks, and a\n  state-machine panel (Idle → Hover → Pressed) with clickable states. Play/Pause\n  drives the stage; property panel edits x/y/scale/opacity. No real Rive runtime —\n  CSS/canvas stand-in. Scope 60–90 min.",
   "short": "Rive motion state-machine editor",
-  "ko": "Rive 스타일 라이브 코딩 클론",
+  "ko": "Rive 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "rive-motion-state-editor",
   "theme": {
@@ -3286,7 +3286,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Hydra live-coding visual synth",
-  "ko": "Hydra 스타일 사운드 클론",
+  "ko": "Hydra 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "hydra-live-visual-synth",
   "theme": {
@@ -3397,7 +3397,7 @@
   "checkpoint_source": "briefing:2026-10-01-20.md",
   "prompt": "Clone a Don McCurdy–style glTF Viewer desk with Three.js. Full-viewport dark\n  canvas, empty-state \"Drag glTF 2.0 file here\", Sample model button that loads\n  a built-in mesh group (box/sphere/torus as stand-in). OrbitControls, auto-rotate\n  toggle, wireframe toggle, 2–3 env/background presets, and a small info badge\n  (name, triangles). No backend. Aesthetic: minimal dark lab, thin chrome.\n  Scope 45–75 min.",
   "short": "Don McCurdy glTF drop viewer",
-  "ko": "Gltf-viewer 스타일 인터랙션 클론",
+  "ko": "Gltf-viewer 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "donmccurdy-gltf-drop-viewer",
   "theme": {
@@ -3471,7 +3471,7 @@
   "checkpoint_source": "briefing:2026-10-01-16.md",
   "prompt": "Build a Kepler.gl-inspired geospatial layer desk (React + MapLibre or Leaflet).\n  Dark full-viewport map, left glass dock with tabs: Layers / Filters / Base map.\n  Include: (1) Add Data modal with 2–3 built-in sample GeoJSON sets, (2) layer cards\n  with visibility toggle and type badge, (3) one range filter that live-filters points\n  on the map, (4) layer reorder + blend mode select. No backend. Aesthetic: dense\n  cartography UI, muted neutrals, thin borders, compact controls. Scope 60–90 min.",
   "short": "Kepler.gl geospatial layer desk",
-  "ko": "Kepler 스타일 레트로 데스크톱 클론",
+  "ko": "Kepler 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "kepler-gl-geospatial-layer-desk",
   "theme": {
@@ -3619,7 +3619,7 @@
   "checkpoint_source": "briefing:2026-10-01-12.md",
   "prompt": "Build an Ancient Earth–inspired deep-time globe (see https://dinosaurpictures.org/ancient-earth). Black space backdrop, full-viewport rotatable globe (Three.js sphere with swapable textures OR stylized canvas globe). Top HUD: “What did Earth look like” + select of geologic ages in Ma (at least 8 steps from 750→0). Right controls: “Jump to…” select with milestone labels (first shells, first flowers, first primates, etc.) that sets the same age state; checkboxes Rotate globe + Clouds. Drag to orbit; age change crossfades terrain colors (deep blue / shallow blue / green / tan / brown / white elevation legend). Aesthetic: cinematic minimal overlay, bold white headline, quiet charcoal control chips — the globe is the craft. No login, no real paleomap licensing copy. 60–90 min.",
   "short": "Ancient Earth geologic deep-time globe",
-  "ko": "Dinosaurpictures 스타일 노드 그래프 클론",
+  "ko": "Dinosaurpictures 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "ancient-earth-deep-time-globe",
   "theme": {
@@ -3841,7 +3841,7 @@
   "checkpoint_source": "briefing:2026-10-01-04.md",
   "prompt": "Clone a Web Audio Studio-style live node-graph desk. Dark full-bleed patch canvas. Nodes: Oscillator, Gain, Destination as draggable cards with ports. Frequency and gain knobs/sliders on the Oscillator/Gain cards. SVG cables between ports. Play/Stop starts a Web Audio OscillatorNode through a GainNode. No login. Aesthetic: dark modular studio, subtle grid, neon-ish port accents, dense instrument chrome.",
   "short": "Web Audio Studio live node-graph desk",
-  "ko": "Web Audio Studio 스타일 사운드 클론",
+  "ko": "Web Audio Studio 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "webaudio-studio-graph-desk",
   "theme": {
@@ -3878,7 +3878,7 @@
   "checkpoint_source": "briefing:2026-10-01-04.md",
   "prompt": "Clone a jsfxr/sfxr.me-style 8-bit SFX parameter desk. Preset chip rail (Pickup/Coin, Laser/Shoot, Explosion, Powerup, Hit/Hurt, Jump, Blip/Select). Dense parameter slider grid (wave type, attack, sustain, decay, base frequency, slide, vibrato…). Play, Mutate, Randomize, Export WAV buttons. Web Audio generates a short retro blip from the params. No login. Aesthetic: retro tool craft, dense sliders, playful preset chips, clear Play CTA.",
   "short": "jsfxr 8-bit SFX parameter desk",
-  "ko": "jsfxr 스타일 인터랙션 클론",
+  "ko": "jsfxr 스타일 사운드 클론",
   "engine": "audio",
   "variant": "sfxr-8bit-sound-desk",
   "theme": {
@@ -4063,7 +4063,7 @@
   "checkpoint_source": "briefing:2026-09-30-20.md",
   "prompt": "Clone an Icônes-style icon explorer. Light minimal chrome with a serif “Icônes” wordmark and a search field. Home: responsive cards for icon collections (name, author, license, count + a 3×3 preview of sample glyphs). Collection view: left sidebar listing collections with counts; main pane dense icon grid + Search; buttons Load More / Load All. Click an icon → right drawer with live SVG, size/color controls, Copy SVG, Copy React JSX, Download SVG. Top-right: GitHub stub, settings, dark-mode sun/moon toggle. Seed 2–3 local icon JSON packs (e.g. a Lucide-like subset). No login. Aesthetic: utility-first whitespace, monochrome glyphs, crisp cards, instant fuzzy filter feel.",
   "short": "Icônes-style icon explorer",
-  "ko": "Icônes 스타일 드로잉 클론",
+  "ko": "Icônes 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "icones-icon-explorer-desk",
   "theme": {
@@ -4100,7 +4100,7 @@
   "checkpoint_source": "briefing:2026-09-30-20.md",
   "prompt": "Clone a three.js-editor-style 3D scene desk. Neutral gray DCC chrome. Center: WebGL viewport with ground grid, orbit controls, top-right CAMERA / SOLID selects, RGB axis gizmo, bottom-left stats (objects/vertices). Bottom-center floating toolbar: Move / Rotate / Scale. Bottom playback strip: play/pause/stop + time readout (can spin selected object when playing). Top menu: File, Edit, Add (Box, Sphere, Plane, DirectionalLight), View, Help; autosave checkbox stub. Right sidebar tabs Scene | Project | Settings — Scene shows hierarchy (Camera, Scene, added meshes) and fields for Background / Environment / Fog; selecting a mesh reveals position/rotation/scale inputs + material color. Use TransformControls bound to the selection. No login. Aesthetic: dense tool gray, tiny UI type, color only for axes and active states — not a marketing landing page.",
   "short": "three.js editor-style 3D scene desk",
-  "ko": "three.js editor 스타일 라이브 코딩 클론",
+  "ko": "three.js editor 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "threejs-scene-editor-desk",
   "theme": {
@@ -4174,7 +4174,7 @@
   "checkpoint_source": "briefing:2026-09-30-16.md",
   "prompt": "Clone a NoiseCraft-style modular audio node graph. Dark charcoal infinite canvas, top bar with red “NoiseCraft” wordmark, text actions New/Open/Save/Share/Browse/Help, and a green Play button (+ Stop). Click empty space → modal grid of node types (Sine, Saw, Noise, Knob, Add, Mul, Filter, ADSR, Clock, MonoSeq stub, AudioOut). Nodes are rounded dark cards with title drag handle, numeric/knob controls, orange/colored square ports (inputs left, outputs right). Click an output then an input to create a color-coded Bezier wire; clicking an occupied input rewires. Play walks the graph into Web Audio (oscillators, GainNode, BiquadFilterNode, destination). Seed one demo “Dual Saw” patch via JSON. Aesthetic: dense pro-tool minimalism, no skeuomorphic wood panels — clarity via wire color and spacing. Works without login.",
   "short": "NoiseCraft-style modular audio node graph",
-  "ko": "NoiseCraft 스타일 드로잉 클론",
+  "ko": "NoiseCraft 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "noisecraft-node-audio-graph",
   "theme": {
@@ -4211,7 +4211,7 @@
   "checkpoint_source": "briefing:2026-09-30-16.md",
   "prompt": "Build a Grid Garden–style CSS grid puzzle. Full-page medium-green background. Left pane: bold “GRID GARDEN” title, Level N of M control, short instructions highlighting the property to learn, and a light code editor with line numbers containing a locked #garden grid definition plus an editable #water rule. Right pane: 5×5 soil grid with carrot icons on target cells and a translucent blue “water” layer whose grid-column/grid-row come from parsing the user’s #water CSS (support grid-column-start, grid-column, span, grid-row-start, grid-area for later levels). Next button unlocks when water covers all carrot cells and no weeds. Include Reset and a level dropdown. Aesthetic: playful vector carrots, brown soil cells, thick plot border, friendly sans headings — educational but crafted. No login; persist level in localStorage.",
   "short": "Grid Garden-style CSS grid puzzle",
-  "ko": "Grid Garden 스타일 그리드/타일 클론",
+  "ko": "Grid Garden 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "css-grid-garden-puzzle",
   "theme": {
@@ -4350,7 +4350,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "TinkerSynth Slopes-style generative desk",
-  "ko": "TinkerSynth Slopes 스타일 드로잉 클론",
+  "ko": "TinkerSynth Slopes 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "tinkersynth-slopes-synth-desk",
   "theme": {
@@ -4385,7 +4385,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Mondrian And Me-style partition canvas",
-  "ko": "Mondrian And Me 스타일 컬러 클론",
+  "ko": "Mondrian And Me 스타일 드로잉 클론",
   "engine": "sim",
   "variant": "mondrian-partition-canvas",
   "theme": {
@@ -4492,7 +4492,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Neato Marble-style generative fluid studio",
-  "ko": "Neato Marble 스타일 컬러 클론",
+  "ko": "Neato Marble 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "neato-marble-shader-desk",
   "theme": {
@@ -4528,7 +4528,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Threelab-style generative pattern deck",
-  "ko": "Threelab 스타일 인터랙션 클론",
+  "ko": "Threelab 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "threelab-generative-pattern-deck",
   "theme": {
@@ -4639,7 +4639,7 @@
   "checkpoint_source": "briefing:2026-09-30-00.md",
   "prompt": "Build a Personas-style SVG avatar composer. Center: large rounded square stage with a flat SVG character. Left rail: categories Hair / Facial hair / Body / Eyes / Mouth / Nose / Accessories / Background. Each category lists style chips and a row of hex color swatches. Selection updates the SVG layers immediately and syncs to URL query params (hair, hairColor, eyes, mouth, body, bodyColor, bgColor, …). Randomize fills every category from curated lists. Buttons: Copy link, Download PNG (svg→canvas), Download SVG. No account. Aesthetic: playful flat illustration, saturated but friendly palette, soft gray page background, rounded chips, Inter/system UI. Keep layer order stable so hair sits above face, accessories last.",
   "short": "Personas-style SVG avatar composer",
-  "ko": "Personas by Draftbit 스타일 컬러 클론",
+  "ko": "Personas by Draftbit 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "personas-svg-avatar-composer",
   "theme": {
@@ -4674,7 +4674,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Strudel-style live-coding music REPL",
-  "ko": "Strudel 스타일 사운드 클론",
+  "ko": "Strudel 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "strudel-tidal-repl-stage",
   "theme": {
@@ -4710,7 +4710,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "classic MS Paint desk",
-  "ko": "JS Paint 스타일 컬러 클론",
+  "ko": "JS Paint 스타일 드로잉 클론",
   "engine": "paint",
   "variant": "jspaint-classic-paint-desk",
   "theme": {
@@ -4745,7 +4745,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "organic SVG blob sculptor",
-  "ko": "Blobmaker 스타일 컬러 클론",
+  "ko": "Blobmaker 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "blobmaker-organic-svg-desk",
   "theme": {
@@ -4782,7 +4782,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Neon Patcher modular synth desk",
-  "ko": "Neon Patcher 스타일 사운드 클론",
+  "ko": "Neon Patcher 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "neon-patcher-cable-synth",
   "theme": {
@@ -4819,7 +4819,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Tesselchet seamless tile plate",
-  "ko": "Tesselchet 스타일 컬러 클론",
+  "ko": "Tesselchet 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "tesselchet-truchet-plate",
   "theme": {
@@ -4855,7 +4855,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Ritmo generative studio shell",
-  "ko": "Ritmo 스타일 SVG 생성기 클론",
+  "ko": "Ritmo 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "ritmo-simplex-wave-studio",
   "theme": {
@@ -4959,7 +4959,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "full-viewport emoji sound garden",
-  "ko": "drawing.garden 스타일 드로잉 클론",
+  "ko": "drawing.garden 스타일 사운드 클론",
   "engine": "audio",
   "variant": "drawing-garden-sound-canvas",
   "theme": {
@@ -4994,7 +4994,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "SVG wave generator",
-  "ko": "Get Waves 스타일 컬러 클론",
+  "ko": "Get Waves 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "svg-wave-floating-control-bar",
   "theme": {
@@ -5064,7 +5064,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "CSS battle daily-targets desk",
-  "ko": "CSSBattle 스타일 CSS 생성기 클론",
+  "ko": "CSSBattle 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "cssbattle-daily-targets-desk",
   "theme": {
@@ -5135,7 +5135,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "circle-of-fifths visual music desk",
-  "ko": "Chromatone fifths 스타일 컬러 클론",
+  "ko": "Chromatone fifths 스타일 사운드 클론",
   "engine": "audio",
   "variant": "circle-of-fifths-instrument",
   "theme": {
@@ -5206,7 +5206,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "modular glyph/ASCII grid editor",
-  "ko": "Glyph Drawing Club 스타일 컬러 클론",
+  "ko": "Glyph Drawing Club 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "modular-glyph-grid-editor",
   "theme": {
@@ -5243,7 +5243,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "reaction-diffusion playground",
-  "ko": "Jason Webb RD 스타일 드로잉 클론",
+  "ko": "Jason Webb RD 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "reaction-diffusion-playground",
   "theme": {
@@ -5312,7 +5312,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Carbon-style code image studio",
-  "ko": "carbon.now.sh 스타일 CSS 생성기 클론",
+  "ko": "carbon.now.sh 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "carbon-code-image-studio",
   "theme": {
@@ -5384,7 +5384,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "fffuel llleaves-style organic SVG desk",
-  "ko": "Fffuel 스타일 타이포 클론",
+  "ko": "Fffuel 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "fffuel-organic-leaf-svg",
   "theme": {
@@ -5490,7 +5490,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "isometric island hotbar builder",
-  "ko": "Isometric Island 스타일 드로잉 클론",
+  "ko": "Isometric Island 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "isometric-island-hotbar-builder",
   "theme": {
@@ -5524,7 +5524,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "constellation signal garden",
-  "ko": "Signal Garden 스타일 이미지 스튜디오 클론",
+  "ko": "Signal Garden 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "constellation-signal-garden",
   "theme": {
@@ -5559,7 +5559,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "photo→grout mosaic desk",
-  "ko": "Collage Recipes Mosaic 스타일 그리드/타일 클론",
+  "ko": "Collage Recipes Mosaic 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "photo-grout-mosaic-composer",
   "theme": {
@@ -5594,7 +5594,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "drifting art attic canvas",
-  "ko": "Drifting Atelier 스타일 드로잉 클론",
+  "ko": "Drifting Atelier 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "drifting-art-attic-canvas",
   "theme": {
@@ -5664,7 +5664,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "procedural dungeon theme stage",
-  "ko": "RPG Map Editor 스타일 지도/지구 클론",
+  "ko": "RPG Map Editor 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "procedural-dungeon-theme-stage",
   "theme": {
@@ -5699,7 +5699,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "knot mosaic tile composer",
-  "ko": "Knot Mosaic Maker 스타일 컬러 클론",
+  "ko": "Knot Mosaic Maker 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "knot-mosaic-tile-composer",
   "theme": {
@@ -5736,7 +5736,7 @@
   "checkpoint_source": "briefing:2026-09-28-04.md",
   "prompt": "Build a Polypad-inspired math manipulatives playground. Soft pastel infinite canvas, left tray with Fraction Bars / Number Cubes / Dice / Polygon tiles. Drag from tray to place; select shows a gentle ring; drag to move; R to rotate 15°; Cmd/Ctrl+D duplicate; Delete removes with undo toast. Adjacent fraction bars of equal height glow a connect hint when edges are within 8px. No login. Mobile-friendly touch drag. Aesthetic: chalk-soft colors, rounded tiles, airy whitespace, Nunito-like sans.",
   "short": "virtual math manipulatives playground",
-  "ko": "Polypad 스타일 드로잉 클론",
+  "ko": "Polypad 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "math-manipulatives-playground",
   "theme": {
@@ -5773,7 +5773,7 @@
   "checkpoint_source": "briefing:2026-09-28-04.md",
   "prompt": "Clone a Wick Editor–style mini animation studio. Layout: top tool rail (Cursor, Brush, Rectangle, Ellipse, Fill Bucket), center white stage, bottom timeline with one layer and a playhead, right inspector for fill/stroke. Click empty timeline cells to add frames; drawing is stored per frame. Onion skin (key 0) composites the previous frame at 30% opacity behind the current. Enter plays preview looping at 12fps. Soft teal accents, Nunito UI, rounded panels. No account. Persist project to localStorage as JSON.",
   "short": "frame-timeline animation studio",
-  "ko": "Wick Editor 스타일 CSS 생성기 클론",
+  "ko": "Wick Editor 스타일 드로잉 클론",
   "engine": "paint",
   "variant": "frame-timeline-animation-studio",
   "theme": {
@@ -5810,7 +5810,7 @@
   "checkpoint_source": "briefing:2026-09-28-04.md",
   "prompt": "Build a Tennessine-style flag designer desk. Center: 3:2 SVG flag stage with a light safe-zone guide. Left: shape palette (horizontal bar, vertical pale, Nordic cross, saltire, canton square, circle, 5-point star, crescent). Click to add centered shapes as layers. Select a layer to show transform handles and a right inspector for fill, opacity, x, y, width, height, rotation. Buttons: bring forward, send back, delete. Top: 3 template chips (French tricolor, Nordic cross, Japan circle). Download PNG and SVG of the stage only. No login, no print upsell in the clone. Aesthetic: crisp whites, saturated fills, compact icon toolbar, Inter/system UI.",
   "short": "heraldic flag canvas desk",
-  "ko": "Tennessine Flag Designer 스타일 컬러 클론",
+  "ko": "Tennessine Flag Designer 스타일 드로잉 클론",
   "engine": "paint",
   "variant": "heraldic-flag-canvas-desk",
   "theme": {
@@ -5844,7 +5844,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "liquid typography motion toy",
-  "ko": "Liquid Type 스타일 드로잉 클론",
+  "ko": "Liquid Type 스타일 타이포 클론",
   "engine": "type",
   "variant": "liquid-type-motion-toy",
   "theme": {
@@ -5912,7 +5912,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "browser VFX effects studio",
-  "ko": "Ladybug 스타일 사운드 클론",
+  "ko": "Ladybug 스타일 이미지 스튜디오 클론",
   "engine": "chart",
   "variant": "ladybug-effects-studio",
   "theme": {
@@ -5947,7 +5947,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "origami crease-fold studio",
-  "ko": "Origami Simulator 스타일 컬러 클론",
+  "ko": "Origami Simulator 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "origami-crease-fold-studio",
   "theme": {
@@ -5982,7 +5982,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "image→weave loom desk",
-  "ko": "The Loom 스타일 컬러 클론",
+  "ko": "The Loom 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "image-weave-loom-desk",
   "theme": {
@@ -6084,7 +6084,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "markdown↔mindmap dual-pane",
-  "ko": "Markmap 스타일 지도/지구 클론",
+  "ko": "Markmap 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "markdown-mindmap-dualpane",
   "theme": {
@@ -6119,7 +6119,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "data→chart mapping studio",
-  "ko": "RAWGraphs 스타일 노드 그래프 클론",
+  "ko": "RAWGraphs 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "data-chart-mapping-studio",
   "theme": {
@@ -6151,7 +6151,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Isometric cutaway room recolor studio",
-  "ko": "Ptthe13 스타일 컬러 클론",
+  "ko": "Ptthe13 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "isometric-cutaway-room-studio",
   "theme": {
@@ -6183,7 +6183,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Hand-drawn build/play physics sandbox",
-  "ko": "Scribblerig 스타일 드로잉 클론",
+  "ko": "Scribblerig 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "handdrawn-physics-sandbox",
   "theme": {
@@ -6215,7 +6215,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Video frame-grid contact-sheet studio",
-  "ko": "Timegri 스타일 그리드/타일 클론",
+  "ko": "Timegri 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "video-framegrid-contact-sheet",
   "theme": {
@@ -6250,7 +6250,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "canvas FX param+export deck",
-  "ko": "Canvas Code 스타일 드로잉 클론",
+  "ko": "Canvas Code 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "canvas-fx-param-export",
   "theme": {
@@ -6284,7 +6284,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "generative pattern/symmetry playground",
-  "ko": "Rhythm 스타일 그라디언트 클론",
+  "ko": "Rhythm 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "pattern-symmetry-playground",
   "theme": {
@@ -6317,7 +6317,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "turtle-graphics plotter livecode studio",
-  "ko": "Turtletoy 스타일 드로잉 클론",
+  "ko": "Turtletoy 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "turtle-plotter-livecode",
   "theme": {
@@ -6351,7 +6351,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "live-coding video synth",
-  "ko": "Hydra 스타일 사운드 클론",
+  "ko": "Hydra 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "hydra-livecode-video-synth",
   "theme": {
@@ -6420,7 +6420,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "cozy voxel sculpture merge puzzle",
-  "ko": "Cubelets 스타일 CSS 생성기 클론",
+  "ko": "Cubelets 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "voxel-sculpture-merge-puzzle",
   "theme": {
@@ -6454,7 +6454,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "hardware keymap layer configurator",
-  "ko": "Oryx 스타일 지도/지구 클론",
+  "ko": "Oryx 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "hardware-keymap-layer-configurator",
   "theme": {
@@ -6522,7 +6522,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "glTF material/lighting studio",
-  "ko": "model-viewer Editor 스타일 라이브 코딩 클론",
+  "ko": "model-viewer Editor 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "gltf-material-lighting-studio",
   "theme": {
@@ -6557,7 +6557,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "ER schema canvas",
-  "ko": "drawDB 스타일 드로잉 클론",
+  "ko": "drawDB 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "er-schema-canvas",
   "theme": {
@@ -6727,7 +6727,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "SVG stroke-draw animation studio",
-  "ko": "SVG Artista 스타일 드로잉 클론",
+  "ko": "SVG Artista 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "svgartista-stroke-draw",
   "theme": {
@@ -6761,7 +6761,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "markdown timeline workspace",
-  "ko": "Meridiem/Markwhen 스타일 SVG 생성기 클론",
+  "ko": "Meridiem/Markwhen 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "markdown-timeline-workspace",
   "theme": {
@@ -6829,7 +6829,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "NAND logic build game",
-  "ko": "NandGame 스타일 드로잉 클론",
+  "ko": "NandGame 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "nand-logic-build-game",
   "theme": {
@@ -6932,7 +6932,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "algorithm step visualizer",
-  "ko": "alg0 스타일 라이브 코딩 클론",
+  "ko": "alg0 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "alg0-step-visualizer",
   "theme": {
@@ -6965,7 +6965,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "cutaway mechanism explainer",
-  "ko": "Ciechanowski Mechanical Watch 스타일 지도/지구 클론",
+  "ko": "Ciechanowski Mechanical Watch 스타일 스크롤 인터랙션 클론",
   "engine": "saas",
   "variant": "mechanical-watch-explainer",
   "theme": {
@@ -6999,7 +6999,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "full-bleed satellite weather map HUD",
-  "ko": "Zoom Earth 스타일 드로잉 클론",
+  "ko": "Zoom Earth 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "satellite-weather-map-hud",
   "theme": {
@@ -7205,7 +7205,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "GIS simplify workspace",
-  "ko": "Mapshaper 스타일 드로잉 클론",
+  "ko": "Mapshaper 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "gis-simplify-slider-workspace",
   "theme": {
@@ -7272,7 +7272,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "transformer attention explainer",
-  "ko": "Onehop 스타일 인터랙션 클론",
+  "ko": "Onehop 스타일 스크롤 인터랙션 클론",
   "engine": "saas",
   "variant": "transformer-attention-explainer",
   "theme": {
@@ -7341,7 +7341,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "pixel favicon grid studio",
-  "ko": "pxicons 스타일 드로잉 클론",
+  "ko": "pxicons 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "pixel-favicon-grid-studio",
   "theme": {
@@ -7375,7 +7375,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "SVG path command studio",
-  "ko": "SvgPathEditor 스타일 드로잉 클론",
+  "ko": "SvgPathEditor 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "svg-path-command-studio",
   "theme": {
@@ -7476,7 +7476,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "freehand stroke-param studio",
-  "ko": "Perfect Freehand 스타일 인터랙션 클론",
+  "ko": "Perfect Freehand 스타일 드로잉 클론",
   "engine": "paint",
   "variant": "freehand-stroke-param-studio",
   "theme": {
@@ -7610,7 +7610,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "generative CSS doodle playground",
-  "ko": "css-doodle 스타일 CSS 생성기 클론",
+  "ko": "css-doodle 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "css-doodle-playground",
   "theme": {
@@ -7642,7 +7642,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "dual-pane map/GeoJSON editor",
-  "ko": "geojson.io 스타일 드로잉 클론",
+  "ko": "geojson.io 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "geojson-dual-pane",
   "theme": {
@@ -7676,7 +7676,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "CSS keyframe timeline studio",
-  "ko": "KeyframePad 스타일 드로잉 클론",
+  "ko": "KeyframePad 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "css-keyframe-timeline-studio",
   "theme": {
@@ -7779,7 +7779,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "WebGL fluid paint stage",
-  "ko": "Pavel Dobryakov Fluid 스타일 드로잉 클론",
+  "ko": "Pavel Dobryakov Fluid 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "webgl-fluid-paint-stage",
   "theme": {
@@ -7813,7 +7813,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "fantasy map generator workspace",
-  "ko": "Azgaar FMG 스타일 드로잉 클론",
+  "ko": "Azgaar FMG 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "fantasy-map-generator-workspace",
   "theme": {
@@ -7847,7 +7847,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "city-roads line-art explorer",
-  "ko": "City Roads 스타일 드로잉 클론",
+  "ko": "City Roads 스타일 제너레이티브 아트 클론",
   "engine": "gen",
   "variant": "city-roads-lineart-explorer",
   "theme": {
@@ -7880,7 +7880,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "keycap layout canvas",
-  "ko": "Keyboard Layout Editor 스타일 컬러 클론",
+  "ko": "Keyboard Layout Editor 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "keycap-layout-canvas",
   "theme": {
@@ -7913,7 +7913,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "styled QR parametric studio",
-  "ko": "QR Code Styling 스타일 컬러 클론",
+  "ko": "QR Code Styling 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "styled-qr-param-studio",
   "theme": {
@@ -7981,7 +7981,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "ASCII diagram canvas",
-  "ko": "AsciiFlow 스타일 드로잉 클론",
+  "ko": "AsciiFlow 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "ascii-diagram-canvas",
   "theme": {
@@ -8016,7 +8016,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "animated bubble-chart explorer",
-  "ko": "Gapminder Tools 스타일 컬러 클론",
+  "ko": "Gapminder Tools 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "bubble-chart-time-scrubber",
   "theme": {
@@ -8050,7 +8050,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Mermaid dual-pane live editor",
-  "ko": "Mermaid Live 스타일 SVG 생성기 클론",
+  "ko": "Mermaid Live 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "mermaid-dualpane-live-editor",
   "theme": {
@@ -8085,7 +8085,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "neural-net playground",
-  "ko": "TensorFlow Playground 스타일 드로잉 클론",
+  "ko": "TensorFlow Playground 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "neural-net-playground",
   "theme": {
@@ -8154,7 +8154,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "creative-code IDE",
-  "ko": "p5.js Editor 스타일 드로잉 클론",
+  "ko": "p5.js Editor 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "creative-code-ide",
   "theme": {
@@ -8223,7 +8223,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "low-poly/voxel model editor",
-  "ko": "Blockbench 스타일 드로잉 클론",
+  "ko": "Blockbench 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "voxel-model-editor-workspace",
   "theme": {
@@ -8257,7 +8257,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "duotone photo studio",
-  "ko": "ShapeFactory Duotone 스타일 컬러 클론",
+  "ko": "ShapeFactory Duotone 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "duotone-photo-studio",
   "theme": {
@@ -8291,7 +8291,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "living ecosystem terrarium",
-  "ko": "Orb.Farm 스타일 레트로 데스크톱 클론",
+  "ko": "Orb.Farm 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "orb-farm-ecosystem-terrarium",
   "theme": {
@@ -8325,7 +8325,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "git branching tutor",
-  "ko": "Learn Git Branching 스타일 노드 그래프 클론",
+  "ko": "Learn Git Branching 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "git-branching-graph-terminal",
   "theme": {
@@ -8359,7 +8359,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "CSS shadow palette studio",
-  "ko": "Josh Comeau Shadow Palette 스타일 컬러 클론",
+  "ko": "Josh Comeau Shadow Palette 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "css-shadow-palette-studio",
   "theme": {
@@ -8427,7 +8427,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "maskable PWA icon studio",
-  "ko": "Maskable.app 스타일 드로잉 클론",
+  "ko": "Maskable.app 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "maskable-pwa-icon-studio",
   "theme": {
@@ -8461,7 +8461,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "Tone Matrix click-grid",
-  "ko": "Tone Matrix 스타일 컬러 클론",
+  "ko": "Tone Matrix 스타일 사운드 클론",
   "engine": "seq",
   "variant": "tonematrix-click-grid",
   "theme": {
@@ -8528,7 +8528,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "waveform audio editor workspace",
-  "ko": "AudioMass 스타일 드로잉 클론",
+  "ko": "AudioMass 스타일 사운드 클론",
   "engine": "chart",
   "variant": "waveform-audio-editor",
   "theme": {
@@ -8563,7 +8563,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "SVG optimize studio",
-  "ko": "SVGOMG 스타일 그리드/타일 클론",
+  "ko": "SVGOMG 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "svg-optimize-toggle-studio",
   "theme": {
@@ -8631,7 +8631,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "seamless pattern generator",
-  "ko": "DOODAD 스타일 컬러 클론",
+  "ko": "DOODAD 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "seamless-pattern-generator",
   "theme": {
@@ -8666,7 +8666,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "photo relight light-stage",
-  "ko": "Clipdrop Relight 스타일 컬러 클론",
+  "ko": "Clipdrop Relight 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "photo-relight-light-stage",
   "theme": {
@@ -8701,7 +8701,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "classic Winamp-skinned player chrome",
-  "ko": "Webamp 스타일 사운드 클론",
+  "ko": "Webamp 스타일 레트로 데스크톱 클론",
   "engine": "desk",
   "variant": "winamp-skinned-player-chrome",
   "theme": {
@@ -8736,7 +8736,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "pixel sprite editor workspace",
-  "ko": "Piskel 스타일 컬러 클론",
+  "ko": "Piskel 스타일 그리드/타일 클론",
   "engine": "pixel",
   "variant": "pixel-sprite-editor-workspace",
   "theme": {
@@ -8770,7 +8770,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "interactive explainer game stages",
-  "ko": "Evolution of Trust 스타일 사운드 클론",
+  "ko": "Evolution of Trust 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "interactive-trust-explainer-game",
   "theme": {
@@ -8838,7 +8838,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "glassmorphism CSS studio",
-  "ko": "css.glass 스타일 컬러 클론",
+  "ko": "css.glass 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "glassmorphism-css-studio",
   "theme": {
@@ -8872,7 +8872,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "textmode live-code stage",
-  "ko": "ertdfgcvb Play 스타일 타이포 클론",
+  "ko": "ertdfgcvb Play 스타일 라이브 코딩 클론",
   "engine": "code",
   "variant": "textmode-livecode-stage",
   "theme": {
@@ -8975,7 +8975,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "neumorphic soft-UI generator",
-  "ko": "Neumorphism.io 스타일 컬러 클론",
+  "ko": "Neumorphism.io 스타일 CSS 생성기 클론",
   "engine": "cssfx",
   "variant": "neumorph-softui-generator",
   "theme": {
@@ -9042,7 +9042,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "graphing calculator workspace",
-  "ko": "Desmos 스타일 드로잉 클론",
+  "ko": "Desmos 스타일 데이터/타임라인 클론",
   "engine": "chart",
   "variant": "graphing-calc-workspace",
   "theme": {
@@ -9110,7 +9110,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "typing ritual",
-  "ko": "Monkeytype 스타일 타이포 클론",
+  "ko": "Monkeytype 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "typing-ritual-live-wpm",
   "theme": {
@@ -9144,7 +9144,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "CSS flexbox pond level puzzle",
-  "ko": "Flexbox Froggy 스타일 CSS 생성기 클론",
+  "ko": "Flexbox Froggy 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "flexbox-pond-level-puzzle",
   "theme": {
@@ -9177,7 +9177,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "vision contrast simulator",
-  "ko": "Who Can Use 스타일 시뮬레이션 클론",
+  "ko": "Who Can Use 스타일 컬러 클론",
   "engine": "palette",
   "variant": "vision-contrast-sim-cards",
   "theme": {
@@ -9241,7 +9241,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "spatial sticky-card thinking canvas",
-  "ko": "Kinopio 스타일 드로잉 클론",
+  "ko": "Kinopio 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "spatial-sticky-card-canvas",
   "theme": {
@@ -9307,7 +9307,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "rhythm-tap performance stage",
-  "ko": "Touch Pianist 스타일 인터랙션 클론",
+  "ko": "Touch Pianist 스타일 사운드 클론",
   "engine": "audio",
   "variant": "rhythm-tap-performance-stage",
   "theme": {
@@ -9408,7 +9408,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "device screenshot mockup studio",
-  "ko": "Shots 스타일 드로잉 클론",
+  "ko": "Shots 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "device-mockup-studio",
   "theme": {
@@ -9441,7 +9441,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "falling-sand particle paint sandbox",
-  "ko": "Sandspiel 스타일 드로잉 클론",
+  "ko": "Sandspiel 스타일 시뮬레이션 클론",
   "engine": "sim",
   "variant": "falling-sand-particle-sandbox",
   "theme": {
@@ -9543,7 +9543,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "procedural vector editor",
-  "ko": "Graphite 스타일 드로잉 클론",
+  "ko": "Graphite 스타일 노드 그래프 클론",
   "engine": "nodes",
   "variant": "procedural-vector-node-editor",
   "theme": {
@@ -9677,7 +9677,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "alchemy combine discovery",
-  "ko": "Little Alchemy 2 스타일 인터랙션 클론",
+  "ko": "Little Alchemy 2 스타일 퍼즐/게임 클론",
   "engine": "puzzle",
   "variant": "alchemy-combine-discovery",
   "theme": {
@@ -9711,7 +9711,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "3D blob param mixer",
-  "ko": "Blobmixer 스타일 드로잉 클론",
+  "ko": "Blobmixer 스타일 3D 스테이지 클론",
   "engine": "three",
   "variant": "3d-blob-param-mixer",
   "theme": {
@@ -9980,7 +9980,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "dither image studio",
-  "ko": "Dither it 스타일 컬러 클론",
+  "ko": "Dither it 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "dither-param-studio",
   "theme": {
@@ -10048,7 +10048,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "symmetric generative silk canvas",
-  "ko": "Silk 스타일 컬러 클론",
+  "ko": "Silk 스타일 드로잉 클론",
   "engine": "paint",
   "variant": "symmetric-silk-canvas",
   "theme": {
@@ -10083,7 +10083,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "star-map explorer",
-  "ko": "Stellarium Web 스타일 드로잉 클론",
+  "ko": "Stellarium Web 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "star-map-explorer",
   "theme": {
@@ -10117,7 +10117,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "keyboard audiovisual instrument",
-  "ko": "Patatap 스타일 컬러 클론",
+  "ko": "Patatap 스타일 사운드 클론",
   "engine": "audio",
   "variant": "key-av-instrument",
   "theme": {
@@ -10222,7 +10222,7 @@
   "checkpoint_source": "briefing:manual-clone-v4-2026-09-20.md",
   "prompt": "https://www.cosmos.so/explore 와 https://www.cosmos.so/ 를 옆에 띄우고, Cosmos 감성의 비주얼 모자이크 디스커버 UI를 클론해줘. (로그인/업로드/실API 없이 목 이미지)\n\n필수 (미학 + 인터랙션):\n1) 24~36 타일 메이슨리/모자이크 그리드 (이미지 중심, 조용한 크롬)\n2) 상단 color chip 필터 6~8개 + 선택적 카테고리 탭 — 즉시 필터\n3) 타일 hover: 살짝 lift + Save/♡ 어포던스\n4) 클릭 → 디테일 시트: 큰 이미지, 제목/태그, Save to collection (목 컬렉션)\n5) no-results 빈 상태 (에러 빨강 금지)\n6) Desktop-first, 45–90분. 프라이싱/유틸리티 그레이 갤러리 금지 — 영감 프로덕트 톤.\n로고·상표 복제 금지.",
   "short": "visual mosaic discover",
-  "ko": "Cosmos 스타일 컬러 클론",
+  "ko": "Cosmos 스타일 그리드/타일 클론",
   "engine": "saas",
   "variant": "visual-mosaic-discover",
   "theme": {
@@ -10259,7 +10259,7 @@
   "checkpoint_source": "briefing:manual-clone-v4-2026-09-20.md",
   "prompt": "https://pitch.com/ 와 https://pitch.com/product 를 옆에 띄우고, Pitch 감성의 슬라이드 덱 워크스페이스 크롬을 클론해줘. (AI생성·협업·실export 없이 목 덱)\n\n필수 인터랙션:\n1) 상단: 덱 타이틀 편집 + Present/Share stub\n2) 좌측 필름스트립: 슬라이드 썸네일 선택, + 추가, duplicate/delete\n3) 중앙 캔버스: 제목/본문 편집이 슬라이드별로 유지\n4) 우측 프로퍼티: Theme 칩 3~4개로 배경/액센트 즉시 변경\n5) ↑↓ 선택, Present 모드 stub + Esc\n6) Desktop-first, 45–90분. 프라이싱 페이지 복제 금지 — 에디터 UI만.\n톤: 세련된 프레젠테이션 툴 (스프레드시트/어드민 느낌 금지). 로고·상표 복제 금지.",
   "short": "slide-deck workspace",
-  "ko": "Pitch 스타일 드로잉 클론",
+  "ko": "Pitch 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "slide-deck-workspace",
   "theme": {
@@ -10296,7 +10296,7 @@
   "checkpoint_source": "briefing:manual-clone-v4-2026-09-20.md",
   "prompt": "https://www.craft.do/ 를 옆에 띄우고, Craft 감성의 우아한 블록 문서 에디터 크롬을 클론해줘. (동기화·퍼블리시·DB 없이 로컬 목 문서)\n\n필수 (미학 + 인터랙션):\n1) 커버(프리셋) + 큰 타이틀 + 읽기 좋은 본문 폭(~680–720px)\n2) 블록: paragraph / heading / to-do / divider — hover 시 +·핸들\n3) + 또는 / 메뉴로 아래 블록 삽입\n4) to-do 체크 시 취소선 + remaining 카운트\n5) Enter로 새 paragraph, 빈 블록 Backspace 삭제(최소 1블록 유지)\n6) Desktop-first, 45–90분. 프라이싱/노션 복제 잡다함 금지 — 조용하고 예쁜 문서 톤.\n로고·상표 복제 금지.",
   "short": "elegant block doc editor",
-  "ko": "Craft 스타일 라이브 코딩 클론",
+  "ko": "Craft 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "elegant-doc-blocks",
   "theme": {
@@ -10333,7 +10333,7 @@
   "checkpoint_source": "briefing:manual-clone-v3-2026-09-20.md",
   "prompt": "https://pika.style/templates/screenshot-editor 를 옆에 띄우고, 로그인 없이 쓰는 스크린샷 뷰티파이 스튜디오를 클론해줘.\n\n필수 (미학 + 인터랙션):\n1) 빈 스튜디오: 큰 프리뷰 스테이지 + Add image / Paste / Try demo\n2) 이미지 로드 후: 패딩·라운드·그림자·그라디언트 배경이 실시간 반영되는 캔버스\n3) 사이드 인스펙터: Background preset 칩 4~6개, Padding/Roundness 슬라이더, Shadow, Frame(None/macOS)\n4) Canvas size preset (Square / Twitter / OG)\n5) Copy/Download는 stub/toCanvas OK. URL 캡처 API·Pro 템플릿 제외.\n6) Desktop-first, 45–90분. 프라이싱 페이지 금지 — 에디터 UI만.\n톤: 예쁘고 고급스러운 마케팅 이미지 툴 (유틸리티 그레이 UI 금지).",
   "short": "screenshot beautify studio",
-  "ko": "Pika 스타일 드로잉 클론",
+  "ko": "Pika 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "beautify-studio-inspector",
   "theme": {
@@ -10370,7 +10370,7 @@
   "checkpoint_source": "briefing:manual-clone-v3-2026-09-20.md",
   "prompt": "https://www.raycast.com/ 를 옆에 띄우고, Raycast 스타일 커맨드 팔레트 런처 크롬을 클론해줘. (실제 OS 연동 없이 목 데이터)\n\n필수 인터랙션:\n1) 중앙 플로팅 팔레트 + 검색 autofocus\n2) 결과 리스트(아이콘/타이틀/서브타이틀) — 타이핑 필터, ↑↓ 선택, Enter 실행(토스트 stub)\n3) 선택행 하이라이트 + trailing 액션 힌트(↵ Open 등)\n4) idle / no-results 상태\n5) 비주얼: 다크 글래스, 헤어라인 보더, 소프트 섀도, 타이트 타이포 — 예쁜 프로덕트 느낌\n6) Desktop-first, 45–90분. 프라이싱/마케팅 랜딩 풀페이지 복제 금지 — 팔레트 UI만.",
   "short": "command-palette launcher",
-  "ko": "Raycast 스타일 컬러 클론",
+  "ko": "Raycast 스타일 인터랙션 클론",
   "engine": "saas",
   "variant": "cmd-palette-launcher",
   "theme": {
@@ -10444,7 +10444,7 @@
   "checkpoint_source": "briefing:manual-clone-v2-2026-09-20.md",
   "prompt": "Squoosh.app 클론 연습용 미니 앱을 만들어줘. 사이드바이사이드로 https://squoosh.app/ 를 열고 같은 인터랙션을 재현한다.\n\n필수:\n1) 빈 화면: 큰 드롭존 + 샘플 이미지 칩 3~4개\n2) 이미지 로드 후: 좌(원본)/우(압축) split view + 세로 드래그 핸들로 before/after 비교\n3) 사이드 패널: codec 셀렉트(모의 2개 이상), quality 슬라이더, 실시간 파일사이즈 배지(모의 계산 OK)\n4) Download 버튼(준비되면만 활성)\n5) 백엔드/실제 코덱 WASM 불필요. Canvas 또는 CSS로 미리보기 차이만 내도 됨.\n6) Desktop-first, Tailwind, 45–90분 분량. 프라이싱/마케팅 랜딩 금지 — 도구 UI만.",
   "short": "before/after compare slider + side inspector",
-  "ko": "Squoosh 스타일 레트로 데스크톱 클론",
+  "ko": "Squoosh 스타일 이미지 스튜디오 클론",
   "engine": "imagefx",
   "variant": "compare-slider-inspector",
   "theme": {
@@ -10716,7 +10716,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "globe radio discover",
-  "ko": "Radio Garden 스타일 사운드 클론",
+  "ko": "Radio Garden 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "globe-radio-discover",
   "theme": {
@@ -10785,7 +10785,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "scroll-depth narrative explorer",
-  "ko": "Neal.fun Deep Sea 스타일 레트로 데스크톱 클론",
+  "ko": "Neal.fun Deep Sea 스타일 스크롤 인터랙션 클론",
   "engine": "saas",
   "variant": "scroll-depth-explorer",
   "theme": {
@@ -10822,7 +10822,7 @@
   "checkpoint_source": "briefing:slot-1600-2026-09-20.md",
   "prompt": "https://www.poolsuite.net/ 를 옆에 띄우고, Poolsuite 감성의 레트로 미디어/라디오 플레이어 크롬을 클론해줘. (실스트림·계정·PoolCam 없이 목 트랙)\n\n필수 (미학 + 인터랙션):\n1) 레트로 윈도우 셸 + Now Playing 스테이지 (VHS/그라데이션 stub OK)\n2) Play/Pause, Prev/Next stub, volume + waveform/progress\n3) 채널 5~7개 선택 시 메타/액센트 즉시 변경\n4) Favorite/Share 마이크로피드백\n5) 선택: theme preset 3~4로 크롬 리컬러\n6) Desktop-first, 45–90분. 프라이싱/유틸 그레이 오디오 위젯 금지 — 여름 라이프스타일 플레이어 톤.\n로고·상표·실제 음원 복제 금지.",
   "short": "retro media/radio player chrome",
-  "ko": "Poolsuite 스타일 사운드 클론",
+  "ko": "Poolsuite 스타일 레트로 데스크톱 클론",
   "engine": "desk",
   "variant": "retro-media-player-chrome",
   "theme": {
@@ -10859,7 +10859,7 @@
   "checkpoint_source": "briefing:slot-1600-2026-09-20.md",
   "prompt": "https://felt.com/gallery/commuter-flow-explorer 와 https://felt.com/ 를 옆에 띄우고, Felt 감성의 맵/익스플로어 UI를 클론해줘. (실GIS·업로드·계정 없이 목 지역/플로우)\n\n필수 인터랙션:\n1) 풀블리드 맵 캔버스 + zoom/reset stub\n2) 지역/핀 클릭 → 우측 디테일 패널 (통계 3~5 + Close)\n3) 필터 칩 2~3개로 레이어/플로우 즉시 변경\n4) Legend 토글이 맵 레이어와 동기화\n5) no-selection 조용한 빈 상태 (에러 빨강 금지)\n6) Desktop-first, 45–90분. 유틸리티-only 회색 어드민 GIS 금지 — 모던 카토그래픽 프로덕트 톤.\n로고·상표 복제 금지.",
   "short": "map/explore",
-  "ko": "Felt 스타일 드로잉 클론",
+  "ko": "Felt 스타일 지도/지구 클론",
   "engine": "globe",
   "variant": "map-explore-side-panel",
   "theme": {
@@ -10964,7 +10964,7 @@
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null,
   "short": "parametric SVG studio",
-  "ko": "Haikei 스타일 드로잉 클론",
+  "ko": "Haikei 스타일 SVG 생성기 클론",
   "engine": "svggen",
   "variant": "svg-generator-studio",
   "theme": {

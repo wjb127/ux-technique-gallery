@@ -4,12 +4,50 @@ const led = JSON.parse(fs.readFileSync('data/ledger-techniques.json', 'utf8'));
 const assign = JSON.parse(fs.readFileSync('data/assign.json', 'utf8'));
 const pal = fs.existsSync('data/ref-palettes.json') ? JSON.parse(fs.readFileSync('data/ref-palettes.json', 'utf8')) : {};
 const engineOf = {}; for (const [e, list] of Object.entries(assign)) for (const s of list) engineOf[s] = e;
-const KO = [[/gradient/i, '그라디언트'], [/palette|color|colour|hue|tone/i, '컬러'], [/paint|brush|draw|sketch|canvas/i, '드로잉'], [/sequencer|beat|drum|synth|audio|music|sound|piano|melody|instrument|radio|player|mixer/i, '사운드'],
-  [/node|graph(?!ic)|patch|schema|circuit|logic/i, '노드 그래프'], [/font|type|glyph|kerning|text/i, '타이포'], [/pixel|grid|tile|mosaic|ascii/i, '그리드/타일'], [/map|globe|earth|star|solar|orbit/i, '지도/지구'],
-  [/pricing|checkout|wallet|booking/i, 'SaaS 화면'], [/css|clip|shadow|glass|neumorph|clay|radius|bezier|easing|anim/i, 'CSS 생성기'], [/svg|wave|blob|shape|qr|icon|avatar/i, 'SVG 생성기'],
-  [/photo|image|dither|duotone|mockup|screenshot|code-snippet|code image|video/i, '이미지 스튜디오'], [/puzzle|game|level|battle|quiz/i, '퍼즐/게임'], [/code|repl|editor|livecode|regex|api/i, '라이브 코딩'],
-  [/3d|voxel|mesh|origami|isometric/i, '3D 스테이지'], [/desktop|os|win95|retro/i, '레트로 데스크톱'], [/sim|sand|fluid|diffusion|ecosystem|physics/i, '시뮬레이션'], [/chart|timeline|scrub|data/i, '데이터/타임라인']];
-const koOf = (t) => { if (t.lens === 'foundational-principle' || !t.id.startsWith('clone-')) return 'UX 원칙 데모'; const hit = KO.find(([re]) => re.test(t.name)); return `${t.product || t.domain} 스타일 ${hit ? hit[1] : '인터랙션'} 클론`; };
+// Korean category label for each clone. Resolution order (first hit wins):
+//   1. explicit `category` on the ledger entry (Korean label or an engine key), if the ledger ever supplies one
+//   2. LABEL_OVERRIDE by slug (hand-fixed cases where the engine is a poor description of the technique)
+//   3. the curated engine from data/assign.json (except the catch-all 'saas' engine)
+//   4. whole-word keyword RULES on the technique name (\b-bounded; no bare 'os' / 'sim' / 'data' / 'sand' substrings)
+//   5. fallback '인터랙션'
+const ENGINE_LABEL = { gradient: '그라디언트', palette: '컬러', paint: '드로잉', seq: '사운드', audio: '사운드', nodes: '노드 그래프', type: '타이포',
+  pixel: '그리드/타일', globe: '지도/지구', cssfx: 'CSS 생성기', svggen: 'SVG 생성기', imagefx: '이미지 스튜디오', puzzle: '퍼즐/게임', code: '라이브 코딩',
+  three: '3D 스테이지', desk: '레트로 데스크톱', sim: '시뮬레이션', chart: '데이터/타임라인', gen: '제너레이티브 아트' };
+const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-partition-canvas': '드로잉', 'social-meta-preview-studio': '인터랙션',
+  'cuberto-context-cursor-agency-home': '랜딩 페이지', 'rauno-craft-interaction-shelf': '인터랙션', 'lofi-cafe-station-tv-room': '사운드',
+  'drifting-art-attic-canvas': '인터랙션', 'partiful-invite-theme-customizer': '인터랙션', 'zenpen-zen-writing-editor': '타이포',
+  'mmm-page-sticker-site-builder': '인터랙션', 'lospec-pixel-palette-browser': '컬러', 'waveform-audio-editor': '사운드', 'ladybug-effects-studio': '이미지 스튜디오' };
+const RULES = [
+  [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
+  [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
+  [/\b(desktop|win95|windows 9[58]|retro os|vaporwave os)\b/i, '레트로 데스크톱'],
+  [/\b(landing|hero|product (page|story)|brand store|feature tour|agency home|marketing site)\b/i, '랜딩 페이지'],
+  [/\b(puzzles?|games?|quiz)\b/i, '퍼즐/게임'],
+  [/\b(3d|three\.js|voxels?|isometric|origami|gltf)\b/i, '3D 스테이지'],
+  [/\bgradients?\b/i, '그라디언트'],
+  [/\b(pixel|ascii|mosaic|tiles?)\b/i, '그리드/타일'],
+  [/\b(colou?rs?|(?<!command-)palettes?|hues?)\b/i, '컬러'],
+  [/\b(paint|brush(es)?|drawing|sketch(es)?|whiteboard)\b/i, '드로잉'],
+  [/\b(sequencer|drums?|synth|audio|music|sound|piano|melody|radio)\b/i, '사운드'],
+  [/\b(node[- ]graph|node editor|patcher|schema|circuit)\b/i, '노드 그래프'],
+  [/\b(fonts?|typography|typeface|glyphs?|kerning|type[- ]scale)\b/i, '타이포'],
+  [/\b(maps?|geospatial|globe|earth|star-map|solar-system|orbital)\b/i, '지도/지구'],
+  [/\b(css|clip-path|box-shadow|glassmorphism|neumorphi\w*|claymorphi\w*|border-radius|easing|bezier)\b/i, 'CSS 생성기'],
+  [/\b(svg|blobs?|waves?|qr|icons?|avatars?)\b/i, 'SVG 생성기'],
+  [/\b(photo|image|dither|duotone|mockup|screenshot)\b/i, '이미지 스튜디오'],
+  [/\b(repl|live-?cod(e|ing)|code editor|regex|api)\b/i, '라이브 코딩'],
+  [/\b(simulat\w*|sandbox|fluid|reaction-diffusion|ecosystem|physics|particles?)\b/i, '시뮬레이션'],
+  [/\b(charts?|timeline|data-?viz|visuali[sz]ation|heatmap)\b/i, '데이터/타임라인'],
+  [/\b(generative|procedural)\b/i, '제너레이티브 아트'],
+];
+const ruleLabel = (name) => (RULES.find(([re]) => re.test(name)) || [])[1] || null;
+const categoryOf = (t, engine) => {
+  if (t.category) { const c = String(t.category).trim(); if (ENGINE_LABEL[c]) return ENGINE_LABEL[c]; if (/[가-힣]/.test(c)) return c; }
+  return LABEL_OVERRIDE[t.slug] || (engine && engine !== 'saas' && ENGINE_LABEL[engine]) || ruleLabel(t.name) || '인터랙션';
+};
+// "Things 3 — Cultured Code task manager for Mac & iOS" -> "Things 3"; "Igloo Inc. (WebGL by Abeto)" -> "Igloo Inc."
+const brandOf = (t) => (String(t.product || t.domain).split(/\s+[—–|]\s+/)[0].replace(/\s*\([^)]*\)\s*$/, '').trim() || t.domain);
+const koOf = (t) => { if (t.lens === 'foundational-principle' || !t.id.startsWith('clone-')) return 'UX 원칙 데모'; return `${brandOf(t)} 스타일 ${categoryOf(t, engineOf[t.slug])} 클론`; };
 const shortOf = (t) => t.name.replace(/^Clone\s+/i, '').split(':')[0].replace(/\s*\([^)]*\)\s*$/, '').trim();
 const out = led.map((t) => ({ ...t, short: shortOf(t), ko: koOf(t), engine: engineOf[t.slug] || null, variant: t.slug, theme: pal[t.slug] || null,
   path: `/t/${t.slug}/`, built: !!engineOf[t.slug] }));
