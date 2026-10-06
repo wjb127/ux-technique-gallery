@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-partiful-invite-theme-customizer",
+  "slug": "partiful-invite-theme-customizer",
+  "name": "Playful Invite Customizer with Background/Font/Effect Tabs (Partiful)",
+  "date": "2026-10-06",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://partiful.com/",
+  "domain": "partiful.com",
+  "product": "Partiful — online party invitations with RSVP",
+  "checkpoints": [
+   "Loud hero \"Parties are back\" with a tilted invite-card preview and Create invite CTA",
+   "Tab row Backgrounds / Fonts / Animations / Posters that swaps the preview demo",
+   "Live invite card: title, date, host, RSVP emoji row re-styled by selected theme",
+   "Effect layer (confetti burst, falling emoji) that replays on switch",
+   "Infinite press-quote marquee strip",
+   "Trending Templates grid whose cards open the editor with preset params (?effect=&titleFont=&poster=)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-oxide-ascii-figure-product-page",
+  "slug": "oxide-ascii-figure-product-page",
+  "name": "ASCII-Animated Figure Product Page with Mock Console (Oxide)",
+  "date": "2026-10-06",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://oxide.computer/",
+  "domain": "oxide.computer",
+  "product": "Oxide Computer Company — on-prem cloud computer",
+  "checkpoints": [
+   "Dark technical layout with numbered \"Fig. 1 / Fig. 2\" captions and mono labels",
+   "CLI / API / Console radix-style tabs, each with an ASCII dot-field animation behind the panel",
+   "\"Rack 6 Initialized\" boot card with a Sign in with SSO step",
+   "Two-column comparison (Traditional on-prem vs Public cloud) with ASCII # column bars",
+   "Embedded mock web console: sidebar (Instances, Disks, VPCs…) + instance table with running/stopped pills",
+   "Spec chips row (Elastic Storage, NVMe, Triple-Mirror…) and sticky top nav"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-pudding-sticker-story-index",
+  "slug": "pudding-sticker-story-index",
+  "name": "Sticker-Wordmark Visual-Essay Index with Filter Tabs (The Pudding)",
+  "date": "2026-10-06",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://pudding.cool/",
+  "domain": "pudding.cool",
+  "product": "The Pudding — visual essays publication",
+  "checkpoints": [
+   "Puffy sticker-style SVG wordmark with stacked drop shadows and peel-off sticker links (About, Subscribe, Donate, Pitch us)",
+   "\"A digital publication that…\" tagline whose ending cycles through phrases",
+   "Filter buttons Our Faves / Popular / Updating / Your Input / Video / Audio / All with active state",
+   "Numbered story cards (#225 · Oct 2026 · title · one-line tease) with screenshot and play icon for video",
+   "Filter switch animates cards out/in (FLIP) and keeps number order",
+   "Newsletter interstitial inside the grid plus separate mobile story layout"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-igloo-scroll-ice-world",
   "slug": "igloo-scroll-ice-world",
   "name": "Scroll-Driven 3D Ice-Block World with Particle Plexus (Igloo Inc.)",
