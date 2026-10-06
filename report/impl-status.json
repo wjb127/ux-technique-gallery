@@ -2545,5 +2545,32 @@
   "proof": "enhanced: headings=3, user lines=2, ai lines=6; my notes lines=4; status pill=\"Enhancing notes\"; After ask=\"What did we decide on pricing?\" answer=true; Before brief cards=2; restored",
   "demoNodes": 111,
   "errors": []
+ },
+ "things-app-tour-mac-ios-toggle": {
+  "url": "https://ux-technique-gallery.vercel.app/t/things-app-tour-mac-ios-toggle/",
+  "ok": true,
+  "at": "2026-10-06T20:11:57.159Z",
+  "http": 200,
+  "proof": "sidebar → \"Today\" (9 to-dos); check done=true; to-do expanded=true h=245px; today toggle=ios phoneVisible=true macHidden=true; reschedule: Friday 0→1 to-dos (DOM 1/1); upcoming toggle=ios; restored",
+  "demoNodes": 753,
+  "errors": []
+ },
+ "gumroad-pink-coin-brutalist-landing": {
+  "url": "https://ux-technique-gallery.vercel.app/t/gumroad-pink-coin-brutalist-landing/",
+  "ok": true,
+  "at": "2026-10-06T20:11:57.165Z",
+  "http": 200,
+  "proof": "nav pill → Pricing (left=174px); coin parallax translate(-14.4px, -9px); coin spin=true; way tab \"Learn Quickly\": \"We want you to try the…\"→\"Ship it, see what stic…\" guy@1004px; → Get Better Together active=true; marquee hover paused=paused; stat=$2,276,095; restored",
+  "demoNodes": 685,
+  "errors": []
+ },
+ "puzzmo-daily-puzzle-newspaper-hub": {
+  "url": "https://ux-technique-gallery.vercel.app/t/puzzmo-daily-puzzle-newspaper-hub/",
+  "ok": true,
+  "at": "2026-10-06T20:11:57.138Z",
+  "http": 200,
+  "proof": "menu open=true; date→\"Tuesday, Oct 6\" title \"🍬 Stretching the Joke\"→\"🎈 Hot Air\"; crossword typed \"P\" sel=1 status=In progress; flipart flipped 4 → Picture complete! (Solved ✓); hue swap tile ok=true; circuits HIGH ok=true status=In progress; typeshift word=SPARK found=[SPARK]; countdown 58→57; news more=true; restored",
+  "demoNodes": 1215,
+  "errors": []
  }
 }
