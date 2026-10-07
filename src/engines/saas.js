@@ -2402,4 +2402,390 @@ box-shadow:0 0 6px 3px #e8742a,0 0 22px 8px #d0581acc,0 0 60px 18px #c1501a55,in
     toIntro(); await sleep(50); return out.join('; ') + '; restored';
   };
 };
+V['ia-writer-focus-mode-typewriter-hero'] = (root, T) => {
+  import('@fontsource/ibm-plex-mono/400.css'); import('@fontsource/ibm-plex-mono/500.css');
+  import('@fontsource/ibm-plex-sans/400.css'); import('@fontsource/ibm-plex-sans/500.css'); import('@fontsource/ibm-plex-sans/600.css'); import('@fontsource/ibm-plex-sans/700.css');
+  theme(root, T, { bg: '#f7f7f7', fg: '#222', ac: '#1ea6e8', dark: false }); scroll(root);
+  const SANS = "'IBM Plex Sans',system-ui,sans-serif", MN = "'IBM Plex Mono',ui-monospace,monospace", CY = '#19b6e9', BLUE = '#1ea6e8';
+  root.append(h('style', {}, `.ia{background:#f7f7f7;color:#222;font:400 17px/1.65 ${SANS};min-height:100%}.ia button{font-family:${SANS};cursor:pointer}
+.ia-nav{position:sticky;top:0;z-index:5;height:48px;background:#f7f7f7e8;backdrop-filter:blur(10px)}.ia-nav>div{max-width:1024px;margin:0 auto;height:100%;display:flex;align-items:center;gap:22px;font-size:17px}
+.ia-nav a{color:#222;text-decoration:none;cursor:pointer}.ia-nav .sp{flex:1}.ia-get{background:${BLUE};color:#fff!important;font-weight:700;border-radius:99px;padding:3px 17px;letter-spacing:.05em;font-size:15.5px}
+.ia-hero{text-align:center;padding:44px 0 0}.ia-hero h1{font:700 58px/1 ${SANS};letter-spacing:-.012em;margin:0;display:inline-flex;align-items:center;gap:20px}
+.ia-ic{width:50px;height:50px;border-radius:12px;background:linear-gradient(#fff,#f1f1f1);box-shadow:0 1px 2px #0002,0 6px 14px #0000001a;display:flex;align-items:center;justify-content:center}.ia-ic i{width:6px;height:27px;border-radius:3px;background:linear-gradient(#5fd4ff,${BLUE})}
+.ia-hero p{font:500 22.5px/1.38 ${SANS};margin:26px auto 0;max-width:420px}
+.ia-card{position:relative;max-width:1024px;height:760px;margin:62px auto 0;background:#f9f9f9;border-radius:10px;box-shadow:0 40px 70px -30px #0000003a,0 2px 8px #0000000f;overflow:hidden;cursor:text}
+.ia-view{position:absolute;inset:0 0 58px 0;overflow:hidden}
+.ia-col{position:absolute;left:50%;width:684px;margin-left:-342px;top:110px;transition:transform .2s cubic-bezier(.2,.7,.3,1)}
+.ia-r,.ia-ta{font:400 18px/30px ${MN};white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;margin:0;padding:0;border:0;width:100%;letter-spacing:0;tab-size:4;font-variant-ligatures:none}
+.ia-r{color:#1c1c1c}.ia-ta{position:absolute;inset:0;background:transparent;color:transparent;caret-color:transparent;resize:none;outline:none;overflow:hidden;display:block}.ia-ta::selection{background:${BLUE}38;color:transparent}
+.ia-r span{transition:color .3s}.ia-r .d{color:#c9c9c9}.ia-r .p{color:#2f8fd8}.ia-r .p.d{color:#b9d9f2}.ia-r .s{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:#a0a0a0;color:#8b8b8b}.ia-r .s.d{color:#d5d5d5}
+.ia-car{display:inline-block;width:0;height:30px;vertical-align:top;position:relative}.ia-car:after{content:'';position:absolute;left:1px;top:3px;width:3px;height:25px;border-radius:1px;background:${CY};animation:iabl 1.06s steps(1) infinite}
+.ia-card.typing .ia-car:after{animation:none}@keyframes iabl{50%{opacity:0}}
+.ia-bar{position:absolute;left:0;right:0;bottom:0;height:58px;display:flex;align-items:center;gap:18px;padding:0 26px;font:500 13px ${SANS};color:#a3a3a3;border-top:1px solid #00000008;background:#f9f9f9}
+.ia-seg{display:flex;gap:2px;background:#efefef;border-radius:7px;padding:2px}.ia-seg button,.ia-tg{border:0;background:none;color:#9a9a9a;font:500 13px ${SANS};padding:4px 10px;border-radius:5px}
+.ia-seg button.on{background:#fff;color:#222;box-shadow:0 1px 2px #0002}.ia-tg{display:flex;align-items:center;gap:7px;padding:4px 4px}.ia-tg i{width:24px;height:14px;border-radius:7px;background:#ddd;position:relative;transition:background .2s}.ia-tg i:after{content:'';position:absolute;top:2px;left:2px;width:10px;height:10px;border-radius:50%;background:#fff;transition:transform .2s}
+.ia-tg.on{color:#222}.ia-tg.on i{background:${BLUE}}.ia-tg.on i:after{transform:translateX(10px)}.ia-paste{border:1px solid #e3e3e3;background:#fff;color:#2f8fd8;border-radius:6px;padding:4px 10px;font:500 12.5px ${SANS};display:none}.ia-paste.on{display:block}
+.ia-bar .sp{flex:1}.ia-wc{font-variant-numeric:tabular-nums}
+.ia-band{background:#2a2a2a;color:#fff;margin-top:110px;padding:80px 0 76px;text-align:center}.ia-band h2{font:700 44px/1.1 ${SANS};margin:0}.ia-band p{color:#bdbdbd;font-size:19px;margin:12px 0 44px}
+.ia-dl{display:flex;justify-content:center;gap:18px}.ia-dl div{display:flex;flex-direction:column;align-items:center;gap:12px}.ia-dl button{height:53px;border:0;border-radius:99px;background:#f7f7f7;color:#222;font:600 18.5px ${SANS};padding:0 26px;display:flex;align-items:center;gap:9px;transition:transform .15s}.ia-dl button:hover{transform:translateY(-2px)}.ia-dl small{font-size:12px;color:#9a9a9a}
+.ia-min{text-align:center;padding:84px 20px 120px}.ia-min h2{font:700 44px/1.08 ${SANS};margin:0 0 26px}.ia-min p{font:400 21px/1.5 ${SANS};max-width:560px;margin:0 auto 18px;color:#333}.ia-min .k{font-size:17px;color:#666;max-width:620px}
+`));
+  const P0 = 'Writing well is not a matter of the right app, the perfect font or a certain tool. It requires focus—good writing needs your full, undivided attention. If you want to write well—in fact, if you want to do anything well—you need to concentrate.\n\nThere are many ways to succeed at writing, and there are even more ways to fail. However, successful writing is never a matter of luck. To write well, you need to be fully awake, dead serious and unconditionally enjoy what you do—like a child, when it plays.';
+  const AI = ' Honestly, writing is basically just a really powerful tool that can actually unlock a lot of value in order to help you thrive.';
+  const FILLER = /\b(very|really|just|actually|basically|literally|quite|simply|totally|honestly|in order to|a lot|kind of|sort of)\b/gi;
+  let mode = 'paragraph', tw = true, authOn = false, styleOn = false, auth = Array(P0.length).fill(0), typT = 0;
+  const r = h('div.ia-r'), ta = h('textarea.ia-ta', { spellcheck: false, 'aria-label': 'iA Writer editor' }); ta.value = P0;
+  const col = h('div.ia-col', {}, r, ta), view = h('div.ia-view', {}, col);
+  const segB = ['Sentence', 'Paragraph', 'Off'].map((m) => h('button', { onclick: () => setMode(m.toLowerCase()) }, m));
+  const tg = (label, get, set) => { const b = h('button.ia-tg', { onclick: () => { set(!get()); } }, h('i'), label); return b; };
+  const twB = tg('Typewriter', () => tw, (v) => { tw = v; render(); }), auB = tg('Authorship', () => authOn, (v) => { authOn = v; render(); }), stB = tg('Style Check', () => styleOn, (v) => { styleOn = v; render(); });
+  const pasteB = h('button.ia-paste', { onclick: (e) => { e.stopPropagation(); pasteAI(); } }, '⌘V  Paste AI text'), wc = h('span.ia-wc');
+  const bar = h('div.ia-bar', { onmousedown: (e) => e.preventDefault() }, h('span', {}, 'Focus'), h('div.ia-seg', {}, segB), twB, auB, pasteB, stB, h('span.sp'), wc);
+  const card = h('div.ia-card', { onmousedown: (e) => { if (e.target === ta || bar.contains(e.target)) return; e.preventDefault(); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); render(); } }, view, bar);
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  let act = [0, 0];
+  const activeRange = (v, c) => {
+    if (mode === 'off') return [0, v.length];
+    const ps = v.lastIndexOf('\n', c - 1) + 1; let pe = v.indexOf('\n', c); if (pe < 0) pe = v.length;
+    if (mode === 'paragraph') return [ps, pe];
+    const para = v.slice(ps, pe), rel = c - ps, re = /[^.!?…]*[.!?…]+[”"'’)\]]*\s*|[^.!?…]+$/g, arr = []; let m;
+    while ((m = re.exec(para)) && m[0].length) arr.push([m.index, m.index + m[0].length]);
+    const f = arr.find(([x, y]) => rel >= x && rel < y) || arr[arr.length - 1] || [0, 0];
+    return [ps + f[0], ps + f[1]];
+  };
+  const render = () => {
+    const v = ta.value, collapsed = ta.selectionStart === ta.selectionEnd, c = ta.selectionEnd;
+    act = activeRange(v, c); const [a, b] = act;
+    const sty = new Uint8Array(v.length); if (styleOn) for (const m of v.matchAll(FILLER)) sty.fill(1, m.index, m.index + m[0].length);
+    let html = '', cur = -1, buf = '';
+    const flush = () => { if (buf) html += cur ? `<span class="${[cur & 1 ? 'd' : '', cur & 2 ? 'p' : '', cur & 4 ? 's' : ''].join(' ').trim()}">${esc(buf)}</span>` : esc(buf); buf = ''; };
+    for (let i = 0; i <= v.length; i++) {
+      if (i === c && collapsed) { flush(); html += '<span class="ia-car"></span>'; }
+      if (i === v.length) break;
+      const f = (i < a || i >= b ? 1 : 0) | (authOn && auth[i] ? 2 : 0) | (sty[i] ? 4 : 0);
+      if (f !== cur) { flush(); cur = f; } buf += v[i];
+    }
+    flush(); r.innerHTML = html + '\u200b';
+    ta.style.height = r.offsetHeight + 'px';
+    const car = r.querySelector('.ia-car'), center = (view.clientHeight || 700) / 2;
+    col.style.transform = tw && car ? `translateY(${Math.round(center - 15 - 110 - car.offsetTop)}px)` : 'none';
+    view.scrollTop = 0;
+    const words = v.trim() ? v.trim().split(/\s+/).length : 0; wc.textContent = `${words} words · ${Math.max(1, Math.round(words / 220))} min`;
+    segB.forEach((x) => x.classList.toggle('on', x.textContent.toLowerCase() === mode)); twB.classList.toggle('on', tw); auB.classList.toggle('on', authOn); stB.classList.toggle('on', styleOn); pasteB.classList.toggle('on', authOn);
+  };
+  const setMode = (m) => { mode = m; render(); };
+  let prev = ta.value;
+  ta.addEventListener('input', (e) => {
+    const v = ta.value; let p = 0; while (p < prev.length && p < v.length && prev[p] === v[p]) p++;
+    let s = 0; while (s < prev.length - p && s < v.length - p && prev[prev.length - 1 - s] === v[v.length - 1 - s]) s++;
+    const ins = v.length - p - s, flag = e.inputType === 'insertFromPaste' || e.inputType === 'insertFromDrop' ? 1 : 0;
+    auth = auth.slice(0, p).concat(Array(ins).fill(flag), auth.slice(prev.length - s)); prev = v;
+    card.classList.add('typing'); clearTimeout(typT); typT = setTimeout(() => card.classList.remove('typing'), 650); render();
+  });
+  ['keyup', 'click', 'select', 'focus'].forEach((ev) => ta.addEventListener(ev, () => render()));
+  ta.addEventListener('blur', () => card.classList.add('blur')); ta.addEventListener('focus', () => card.classList.remove('blur'));
+  document.addEventListener('selectionchange', () => { if (document.activeElement === ta) render(); });
+  view.addEventListener('scroll', () => { view.scrollTop = 0; });
+  ta.addEventListener('keydown', (e) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'd') { e.preventDefault(); setMode(mode === 'off' ? 'sentence' : mode === 'sentence' ? 'paragraph' : 'off'); } });
+  const insert = (text, type) => { const st = ta.selectionStart, en = ta.selectionEnd; ta.setRangeText(text, st, en, 'end'); ta.dispatchEvent(new InputEvent('input', { inputType: type, data: text, bubbles: true })); };
+  const pasteAI = () => { ta.focus(); insert(AI, 'insertFromPaste'); };
+  const icon = (d) => `<svg width="17" height="19" viewBox="0 0 17 20" fill="currentColor">${d}</svg>`;
+  const APPLE = icon('<path d="M14 10.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9C3.700 5 2.100 6 1.200 7.500-.6 10.700.7 15.400 2.500 18c.9 1.200 1.900 2.600 3.200 2.500 1.300-.1 1.800-.8 3.300-.8s2 .8 3.300.8c1.400 0 2.300-1.300 3.100-2.500 1-1.400 1.400-2.800 1.400-2.900 0 0-2.800-1-2.800-4.500ZM11.600 3.200c.7-.8 1.200-2 1-3.200-1 0-2.300.7-3 1.500-.7.700-1.300 1.900-1.100 3.100 1.200.1 2.300-.6 3.100-1.400Z"/>'), WIN = '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 0h7.4v7.4H0zM8.6 0H16v7.4H8.6zM0 8.6h7.4V16H0zM8.6 8.6H16V16H8.6z"/></svg>';
+  const dl = h('div.ia-dl', {}, [['Mac', APPLE, 'Free Trial'], ['Windows', WIN, 'Free Trial'], ['iPad/iPhone', APPLE, 'One-time payment']].map(([n, ic, s2]) => h('div', {}, h('button', { onclick: () => toast(`${n}: ${s2}`) }, h('span', { html: ic, style: { display: 'flex' } }), n), h('small', {}, s2))));
+  const ia = h('div.ia', {},
+    h('div.ia-nav', {}, h('div', {}, h('a', {}, h('b', {}, 'iA'), ' / Writer'), h('span.sp'), h('a', {}, 'How To'), h('a', {}, 'Support'), h('a.ia-get', { onclick: () => dl.scrollIntoView({ behavior: 'smooth', block: 'center' }) }, 'GET'))),
+    h('div.ia-hero', {}, h('h1', {}, h('span.ia-ic', {}, h('i')), 'iA Writer'), h('p', {}, 'Keep your hands on the keys and your mind in the text.')),
+    card,
+    h('div.ia-band', {}, h('h2', {}, '7-Day Free Trial'), h('p', {}, 'Download now. No credit card required.'), dl),
+    h('div.ia-min', {}, h('h2', {}, 'Minimal Design', h('br'), 'Maximum Focus'), h('p', {}, 'Every feature in iA Writer earns its place. Nothing competes with your words.'),
+      h('p.k', {}, 'Focus Mode keeps you in the flow. It highlights the sentence or paragraph you’re working on and fades everything else. Try it above — Focus: Sentence, Paragraph or Off (⌘D), Typewriter keeps the current line centered.')));
+  root.append(ia);
+  ta.setSelectionRange(ta.value.length, ta.value.length); requestAnimationFrame(render); render();
+  const dimChars = () => [...r.querySelectorAll('.d')].reduce((n, e) => n + e.textContent.length, 0);
+  const caretY = () => { const c = r.querySelector('.ia-car'); return c ? Math.round(c.getBoundingClientRect().top - view.getBoundingClientRect().top) : -1; };
+  window.__demoProof = async () => {
+    const out = [], end = () => ta.value.length; const place = (i) => { ta.setSelectionRange(i, i); render(); };
+    setMode('paragraph'); place(end()); out.push(`paragraph mode: caret in ¶2, dimmed=${dimChars()} chars (¶1 length ${P0.indexOf('\n')})`);
+    place(20); out.push(`caret→¶1: dimmed=${dimChars()} active="${ta.value.slice(...act).slice(0, 24)}…"`);
+    setMode('sentence'); place(P0.indexOf('However') + 5); out.push(`sentence mode active="${ta.value.slice(...act).trim()}"`);
+    setMode('off'); out.push(`off → dimmed=${dimChars()}`); setMode('sentence');
+    ta.focus(); place(end()); insert(' Write every day.', 'insertText'); out.push(`typed → active="${ta.value.slice(...act).trim()}" words=${wc.textContent}`);
+    const y0 = caretY(); insert('\n\nA new paragraph begins here and keeps the caret where your eyes are.\n\nAnd another one, line after line, the page moves — not your eyes.', 'insertText'); await sleep(260);
+    out.push(`typewriter: caret y ${y0}px → ${caretY()}px (view center ${Math.round(view.clientHeight / 2 - 15)}), col shift=${col.style.transform}`);
+    tw = false; render(); await sleep(260); out.push(`typewriter off → caret y=${caretY()}px`); tw = true;
+    authOn = true; render(); pasteAI(); out.push(`authorship: pasted chars colored=${[...r.querySelectorAll('.p')].reduce((n, e) => n + e.textContent.length, 0)}`);
+    styleOn = true; render(); out.push(`style check strikes=${[...r.querySelectorAll('.s')].map((e) => e.textContent.trim()).join(',')}`);
+    ta.value = P0; prev = P0; auth = Array(P0.length).fill(0); mode = 'paragraph'; tw = true; authOn = false; styleOn = false; ta.blur(); place(P0.length); await sleep(250);
+    return out.join('; ') + '; restored';
+  };
+};
+V['devouring-details-scroll-ruler-reference-manual'] = (root, T) => {
+  theme(root, T, { bg: '#ededed', fg: '#171717', ac: '#ff5c00', dark: false }); scroll(root);
+  const F = "'Inter Variable',-apple-system,system-ui,sans-serif", O = '#ff5500', SER = "'Fraunces Variable',Georgia,serif";
+  root.append(h('style', {}, `.dd{background:#ededed;min-height:100%;padding:128px 0 180px;font:450 24px/40px ${F};color:#000;letter-spacing:-.018em;font-feature-settings:'ss01','cv11'}.dd button{font-family:${F};cursor:pointer}
+.dd-sheet{width:1152px;margin:0 auto;background:#fff;padding:127px 128px 140px;position:relative}
+.dd-top{display:grid;grid-template-columns:464px 1fr}.dd-dot{width:20px;height:20px;border-radius:50%;background:${O};margin:6px 0 0 -2px}
+.dd-nav a{display:block;font:500 24px/32px ${F};color:#171717;cursor:pointer;width:max-content;transition:color .15s}.dd-nav a:hover{color:${O}}
+.dd-intro{display:grid;grid-template-columns:464px 1fr;margin-top:104px}.dd-intro p{margin:0;max-width:432px}
+.dd-media{margin-top:100px;height:540px;border:1px solid #f0f0f0;background:#fbfbfb;border-radius:24px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.dd-cap{text-align:center;font:400 16px/24px ${F};color:#666;margin:18px 0 0;letter-spacing:-.01em}
+.dd-play{position:absolute;width:64px;height:64px;border-radius:50%;border:0;background:#e3e3e3;display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}.dd-play:hover{background:#dadada;transform:scale(1.05)}.dd-play:active{transform:scale(.96)}
+.dd h2{font:450 30px/1.3 ${F};margin:120px 0 26px;letter-spacing:-.02em;position:relative}.dd h2 .o{position:absolute;left:-30px;top:13px;width:14px;height:14px;border-radius:50%;background:${O}}
+.dd p.b{font:450 22px/36px ${F};margin:0 0 24px}.dd p.b em{font:italic 400 23px ${SER}}.dd .mu{color:#8f8f8f}
+.dd-logos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:110px}.dd-logos div{height:180px;border-radius:16px;background:#f6f6f6;display:flex;align-items:center;justify-content:center;color:#888;transition:background .2s,color .2s}.dd-logos div:hover{background:#efefef;color:#555}
+.dd-logos b{font:700 33px ${F};letter-spacing:-.04em}.dd-cap2{display:flex;justify-content:center;align-items:center;gap:7px;font:400 16px ${F};color:#666;margin-top:20px}.dd-cap2 i{width:10px;height:10px;border-radius:50%;background:${O}}
+.dd-tst{font:500 29px/47px ${F};margin-top:110px;letter-spacing:-.02em}.dd-tst span{transition:filter .25s,opacity .25s}.dd-tst span.g{color:#8c8c8c}.dd-av{display:inline-block;width:26px;height:26px;border-radius:50%;vertical-align:-3px;margin-right:6px;border:2px solid #fff;box-shadow:0 0 0 1px #0001}
+.dd-rt{display:inline-flex;margin-top:26px;font:500 15px ${F};border:1px solid #e5e5e5;border-radius:99px;padding:6px 16px;color:#333;background:#fff}
+.dd-grid8{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:30px 0 56px}.dd-chip{height:96px;border-radius:12px;background:#f6f6f6;font:500 11.5px/1.2 'JetBrains Mono Variable',monospace;letter-spacing:.06em;color:#6b6b6b;padding:14px;display:flex;align-items:flex-end;position:relative;transition:background .2s,color .2s;cursor:pointer}.dd-chip:hover{background:#efefef;color:#111}
+.dd-free{position:absolute;right:10px;top:10px;font:600 10px 'JetBrains Mono Variable',monospace;color:${O};border:1px solid ${O}55;border-radius:4px;padding:2px 5px}
+.dd-pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:34px 0 56px}.dd-card{position:relative;height:360px;border-radius:18px;background:#f6f6f6;overflow:hidden}.dd-card>label{position:absolute;left:18px;bottom:16px;font:500 12px 'JetBrains Mono Variable',monospace;letter-spacing:.08em;color:#6b6b6b;pointer-events:none}
+.dd-check{display:flex;gap:12px;align-items:center;font:450 22px/36px ${F};margin:6px 0}.dd-check svg{flex:none}
+.dd-cta{display:flex;align-items:center;height:124px;border-radius:62px;background:${O};color:#fff;margin:44px 0 0;padding:0 22px 0 40px;font:450 50px/1 ${F};letter-spacing:-.035em;cursor:pointer;border:0;width:100%;transition:filter .2s}.dd-cta:hover{filter:brightness(1.05)}.dd-cta .sp{flex:1}
+.dd-cta .ar{width:88px;height:88px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;margin-left:30px;overflow:hidden;position:relative}.dd-cta .ar svg{transition:transform .35s cubic-bezier(.3,.7,.2,1)}.dd-cta:hover .ar svg{transform:translateX(6px)}
+.dd-faq{margin-top:20px}.dd-q{border:0;background:none;width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 0;font:450 23px/36px ${F};color:#000;text-align:left;letter-spacing:-.018em}
+.dd-q svg{transition:transform .3s cubic-bezier(.3,.7,.2,1);transform:rotate(45deg);flex:none}.dd-it.on .dd-q svg{transform:rotate(0)}
+.dd-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.3,.7,.2,1),opacity .3s;opacity:0}.dd-it.on .dd-a{grid-template-rows:1fr;opacity:1}.dd-a>div{overflow:hidden}.dd-a p{font:450 22px/36px ${F};color:#7a7a7a;margin:0 0 16px}
+.dd-foot{margin-top:90px;font:500 12px 'JetBrains Mono Variable',monospace;letter-spacing:.08em;color:${O};cursor:pointer}
+.dd-rul{position:fixed;left:32px;width:44px;z-index:30}.dd-tk{position:absolute;left:0;height:9px;width:44px;cursor:pointer;display:flex;align-items:center}.dd-tk i{display:block;height:1px;width:18px;background:#9b9b9b;transform-origin:left center;transition:width .18s cubic-bezier(.3,.7,.2,1),background .18s}
+.dd-tk.mj i{width:32px;background:#3a3a3a}.dd-tk:hover i{background:${O}}.dd-tk .tt{position:absolute;left:44px;font:500 10px 'JetBrains Mono Variable',monospace;letter-spacing:.08em;color:${O};opacity:0;transition:opacity .15s;white-space:nowrap;pointer-events:none}.dd-tk:hover .tt{opacity:1}
+.dd-line{position:fixed;left:14px;right:0;height:1px;background:${O};z-index:29;pointer-events:none;opacity:.85}.dd-line:before{content:'';position:absolute;left:0;top:-4px;border:4.5px solid transparent;border-left:6px solid ${O};border-right:0}
+.dd-tag{position:absolute;top:0;font:500 11px/16px 'JetBrains Mono Variable',monospace;letter-spacing:.08em;background:${O};color:#fff;padding:0 7px;pointer-events:auto;cursor:pointer}
+.dd-ms{position:absolute;inset:0}.dd-ms .tk{position:absolute;bottom:50%;width:1px;background:#999;transform-origin:bottom;transition:transform .12s}.dd-ms .pl{position:absolute;top:30%;bottom:25%;width:1px;background:${O}}.dd-ms .pl:before{content:'';position:absolute;left:-3px;top:-6px;border:3.5px solid transparent;border-top:5px solid ${O}}
+.dd-strip{position:absolute;left:0;top:50%;margin-top:-34px;display:flex;gap:4px;transition:transform .5s cubic-bezier(.2,.7,.3,1)}.dd-strip i{flex:none;width:44px;height:68px;border-radius:2px}
+.dd-morph{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;box-shadow:0 1px 2px #0000001a,0 4px 14px #0000000f;border-radius:20px;width:220px;height:40px;overflow:hidden;transition:width .45s cubic-bezier(.3,1.25,.4,1),height .45s cubic-bezier(.3,1.25,.4,1),border-radius .45s}
+.dd-morph.on{width:330px;height:190px;border-radius:16px}.dd-morph .row{display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;font:500 13px ${F};white-space:nowrap}.dd-morph .row i{width:12px;height:12px;border-radius:50%;background:${O}}.dd-morph .row button{margin-left:auto;border:0;background:none;color:#777;font:500 13px ${F}}
+.dd-morph textarea{display:block;margin:0 14px;width:calc(100% - 28px);height:94px;border:0;resize:none;outline:none;font:400 14px/1.5 ${F};background:#f7f7f7;border-radius:8px;padding:8px 10px;opacity:0;transition:opacity .2s}.dd-morph.on textarea{opacity:1;transition-delay:.15s}
+.dd-morph .snd{position:absolute;right:14px;bottom:10px;border:0;background:#111;color:#fff;border-radius:7px;padding:4px 12px;font:500 12px ${F};opacity:0;transition:opacity .2s}.dd-morph.on .snd{opacity:1;transition-delay:.2s}
+.dd-tm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;perspective:800px;cursor:pointer}.dd-tm div{position:absolute;width:210px;height:130px;border-radius:12px;background:#fff;box-shadow:0 1px 3px #0001,0 10px 24px #0000000d;transition:transform .5s cubic-bezier(.3,.7,.2,1),opacity .5s;font:500 12px 'JetBrains Mono Variable',monospace;color:#999;padding:12px}
+`));
+  const sheet = h('div.dd-sheet'), dd = h('div.dd', {}, sheet); root.append(dd);
+  const sec = {}, go = (k, beh = 'smooth') => { const el = sec[k]; if (el) root.scrollTo({ top: el.getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop - 140, behavior: beh }); };
+  const navI = ['Platform', 'Structure', 'Register', 'FAQ', 'Login'];
+  sheet.append(h('div.dd-top', {}, h('div.dd-dot'), h('nav.dd-nav', {}, navI.map((n) => h('a', { onclick: () => (n === 'Login' ? toast('Login → platform (demo)') : go(n)) }, n)))),
+    h('div.dd-intro', {}, h('p', {}, 'Have you ever noticed that some animation sequences can be improved with just a touch of delay? Or that some interactions just feel better without any motion at all?'), h('p', {}, 'Devouring Details is an interactive reference manual for interaction-curious designers, containing 23 chapters with 23 downloadable React components.')));
+  // radial timeline
+  const EV = [['Sketchpad', 1963], ['Mother of All Demos', 1968], ['Xerox Alto', 1973], ['Mac Icons', 1984], ['World Wide Web', 1989], ['Palm Pilot', 1996], ['Infinite Scroll', 2006], ['Hashtag', 2007], ['Like Button', 2009], ['Figma', 2016], ['iPhone X', 2017], ['Vision Pro', 2024]];
+  const N = 180, R0 = 168, CX = 300, CY = 270, ang = (y) => ((y - 1961) / 66) * Math.PI * 2 - Math.PI / 2;
+  const svgNS = 'http://www.w3.org/2000/svg', rt = document.createElementNS(svgNS, 'svg'); rt.setAttribute('viewBox', '0 0 600 540'); rt.setAttribute('width', '600'); rt.setAttribute('height', '540');
+  const ticks = []; for (let i = 0; i < N; i++) { const a = (i / N) * Math.PI * 2 - Math.PI / 2, l = i % 5 ? 7 : 12, ln = document.createElementNS(svgNS, 'line'); ln.setAttribute('x1', CX + Math.cos(a) * R0); ln.setAttribute('y1', CY + Math.sin(a) * R0); ln.setAttribute('x2', CX + Math.cos(a) * (R0 + l)); ln.setAttribute('y2', CY + Math.sin(a) * (R0 + l)); ln.setAttribute('stroke', '#c9c9c9'); ln.setAttribute('stroke-width', '1'); rt.append(ln); ticks.push([ln, a, l]); }
+  const labs = EV.map(([n, y]) => { const a = ang(y), g = document.createElementNS(svgNS, 'g'), r1 = R0 + 14, r2 = R0 + 38, x = CX + Math.cos(a) * (r2 + 8), yy = CY + Math.sin(a) * (r2 + 8), anc = Math.cos(a) > .3 ? 'start' : Math.cos(a) < -.3 ? 'end' : 'middle';
+    g.innerHTML = `<line x1="${CX + Math.cos(a) * r1}" y1="${CY + Math.sin(a) * r1}" x2="${CX + Math.cos(a) * r2}" y2="${CY + Math.sin(a) * r2}" stroke="#333" stroke-width="1"/><text x="${x}" y="${yy}" text-anchor="${anc}" font-family="${SER.replace(/"/g, '')}" font-style="italic" font-size="11" fill="#555">${n}</text><text x="${x}" y="${yy + 13}" text-anchor="${anc}" font-family="${SER.replace(/"/g, '')}" font-style="italic" font-size="10" fill="#999">${y}</text>`; rt.append(g); return [g, a]; });
+  let head = -Math.PI / 2, playing = false, hoverA = null;
+  const paintRT = () => { const hA = hoverA ?? head; for (const [ln, a, l] of ticks) { let d = Math.abs(Math.atan2(Math.sin(a - hA), Math.cos(a - hA))); const k = Math.max(0, 1 - d / 0.22); ln.setAttribute('x2', CX + Math.cos(a) * (R0 + l + k * 16)); ln.setAttribute('y2', CY + Math.sin(a) * (R0 + l + k * 16)); ln.setAttribute('stroke', k > 0.05 ? (k > .8 ? O : '#555') : '#c9c9c9'); }
+    for (const [g, a] of labs) { const d = Math.abs(Math.atan2(Math.sin(a - hA), Math.cos(a - hA))); g.style.opacity = d < 0.3 ? 1 : 0.55; } };
+  const playIc = '<svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 1.5v17L17 10Z" fill="#111"/></svg>', pauseIc = '<svg width="16" height="18" viewBox="0 0 16 18"><rect x="1" width="5" height="18" rx="1" fill="#111"/><rect x="10" width="5" height="18" rx="1" fill="#111"/></svg>';
+  const play = h('button.dd-play', { html: playIc, title: 'Play', onclick: () => setPlay(!playing) });
+  const setPlay = (v) => { playing = v; play.innerHTML = v ? pauseIc : playIc; };
+  const media = h('div.dd-media', { onmousemove: (e) => { const b = rt.getBoundingClientRect(), x = e.clientX - b.left - CX * b.width / 600, y = e.clientY - b.top - CY * b.height / 540, r = Math.hypot(x, y); hoverA = r > 120 && r < 260 ? Math.atan2(y, x) : null; paintRT(); }, onmouseleave: () => { hoverA = null; paintRT(); } }, rt, play);
+  sheet.append(media, h('p.dd-cap', {}, 'All footage is recorded of React components'));
+  // platform
+  const h2 = (k, dot) => { const e = h('h2', {}, dot ? h('span.o') : null, k); sec[k] = e; return e; };
+  const mockTwo = h('div.dd-media', { style: { height: '470px', marginTop: '40px', justifyContent: 'stretch', alignItems: 'stretch', display: 'grid', gridTemplateColumns: '1fr 1fr' } },
+    h('div', { style: { padding: '26px 28px', font: `450 12.5px/1.75 ${F}`, color: '#bbb', letterSpacing: '-.005em' } }, h('div', { style: { color: '#666', fontSize: '11px', marginBottom: '22px' } }, '▢  Principles  ·  Responsive interfaces'), h('p', { style: { margin: '0 0 12px' } }, 'Similarly, nearly all interactions you perform on a software system must respond with some form of feedback.'),
+      h('div', { style: { color: '#999', font: "500 10px 'JetBrains Mono Variable',monospace", letterSpacing: '.08em', margin: '40px 0 10px', display: 'flex', alignItems: 'center', gap: '8px' } }, h('i', { style: { width: '8px', height: '8px', borderRadius: '50%', background: O } }), 'INPUT-RESPONSE LOOP'),
+      h('p', { style: { color: '#222', margin: '0 0 12px' } }, 'This "input-response" loop is why the text caret starts blinking when you stop typing—it communicates that the system is still responsive to your next input, and did not suddenly freeze.'), h('p', { style: { color: '#222' } }, 'Loading indicators communicate that the system understood you and is currently thinking of a response.'),
+      h('div', { style: { color: '#bbb', font: "500 10px 'JetBrains Mono Variable',monospace", letterSpacing: '.08em', margin: '40px 0 10px' } }, 'EXAGGERATION'), h('p', {}, 'We can say that an interaction is jarring when the response on the screen was not appropriate for the input…')),
+    h('div', { style: { background: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '30px', font: `450 30px ${F}`, letterSpacing: '-.03em' } }, h('div', { html: 'the caret<span style="display:inline-block;width:2px;height:32px;background:' + O + ';vertical-align:-6px;margin:0 2px;animation:iabl2 1s steps(1) infinite"></span>is blinking' }), h('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', color: '#555' } }, 'please', h('span', { style: { width: '90px', height: '2px', background: `linear-gradient(90deg,${O} 40%,#ddd 40%)`, backgroundSize: '200% 100%', animation: 'ddload 1.6s linear infinite' } }), 'stand by')));
+  root.append(h('style', {}, '@keyframes iabl2{50%{opacity:0}}@keyframes ddload{from{background-position:100% 0}to{background-position:-100% 0}}'));
+  sheet.append(h2('Platform'), h('p.b', {}, 'Before working on this I thought to myself: “how have I learned myself?”'), h('p.b', { html: 'By trying to build an idea and realising it sucks in practice. With enough iterations and sometimes by accident I’ll get to a place where it feels really good and I\'ll suddenly be able to reason <em>why</em> it sucked.' }), h('p.b', {}, 'Devouring Details is your shortcut to those learning moments.'),
+    h('p.b', {}, 'This is not a course in the sense that it is not linearly progressive. You won’t solve code challenges, answer quizzes, or follow step-by-step tutorials. Instead, you’ll interact with prototypes on a custom platform and be exposed to details that I pay attention to.'), mockTwo, h('p.dd-cap', {}, 'Two column layouts offer better navigation through long-form content'),
+    h('p.b', { style: { marginTop: '48px' } }, 'Each chapter is digestible with bite-sized efforts through a scrollable experience that doesn\'t ask for too much at once.'), h('p.b', {}, 'I myself use this as a reference manual that I periodically revisit while designing. I would often return to copy some code or to reinforce my understanding of a concept.'));
+  const LOGO = [h('span', { html: '<svg width="34" height="40" viewBox="0 0 17 20" fill="currentColor"><path d="M14 10.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9C3.7 5 2.1 6 1.2 7.5-.6 10.7.7 15.4 2.5 18c.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1-2.8-4.5ZM11.6 3.2c.7-.8 1.2-2 1-3.2-1 0-2.3.7-3 1.5-.7.7-1.3 1.9-1.1 3.1 1.2.1 2.3-.6 3.1-1.4Z"/></svg>' }), h('b', {}, 'OpenAI'),
+    h('span', { html: '<svg width="40" height="44" viewBox="0 0 40 44" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M20 4c-3 0-4 3-7 10L5 31c-2 5 1 9 5 9 4 0 7-3 10-7 3 4 6 7 10 7 4 0 7-4 5-9l-8-17C24 7 23 4 20 4Z"/><path d="M20 33c-4-5-6-9-6-12a6 6 0 0 1 12 0c0 3-2 7-6 12Z"/></svg>' }), h('b', { style: { fontSize: '38px', letterSpacing: '-.05em' } }, 'stripe'),
+    h('span', { html: '<svg width="30" height="44" viewBox="0 0 30 44" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M8 2h7v13H8a6.5 6.5 0 0 1 0-13ZM15 2h7a6.5 6.5 0 0 1 0 13h-7ZM8 15h7v13H8a6.5 6.5 0 0 1 0-13ZM15 28v7.5A6.5 6.5 0 1 1 8 28Z"/><circle cx="21.5" cy="21.5" r="6.5"/></svg>' })];
+  sheet.append(h('div.dd-logos', {}, LOGO.map((l) => h('div', {}, l))), h('div.dd-cap2', {}, h('i'), 'DD is used by designers on world-class teams'));
+  const TST = [['Better than a course, it\'s a reference manual to making great work full of tactical secrets I haven\'t seen anywhere else.', '#f6c', '#fd5'], ['Notification came in. I didn’t hesitate. You shouldn’t either.', '#ddd', '#999'], ['Rauno is undoubtedly one of the best in the world at what he does. Strongly recommend his course.', '#c96', '#642'], ['This lowkey changed how I think about building software.', '#a6f', '#226'], ['I need to frame this at the office, wonderful work.', '#68a', '#234'], ['I started reading the intro and found myself opening the inspector like crazy.', '#999', '#333'], ['If even 1/10 of this craft rubs off on work I do, it\'s worth it.', '#d9b', '#965'], ['It\'s kind of like reading a beautifully designed interactive Medium article.', '#9cf', '#36a'], ['The bar he sets is ridiculous. Every company I know wants to work with him.', '#fb8', '#a52']];
+  const tst = h('div.dd-tst', {}, TST.map(([t, a, b], i) => h('span' + (i % 2 ? '.g' : ''), {}, h('i.dd-av', { style: { background: `linear-gradient(135deg,${a},${b})` } }), t + ' ')));
+  sheet.append(tst, h('div', {}, h('span.dd-rt', {}, 'Read testimonials')));
+  sheet.append(h2('Hello'), h('p.b', {}, 'My name is Rauno. I work as a Staff Design Engineer at Vercel on our platform, design system, marketing pages, and Next.js Dev Tools. Previously, I was at The Browser Company designing and building the Arc browser.'), h('p.b', { html: 'I have written acclaimed design essays like <u style="text-decoration-color:#ccc;text-underline-offset:5px">Invisible Details of Interaction Design</u> and shipped open source software like <u style="text-decoration-color:#ccc;text-underline-offset:5px">cmdk</u> that is downloaded millions of times per week to power command menu interfaces for the most modern productivity apps on the web.' }));
+  // structure
+  const chips = (arr) => h('div.dd-grid8', {}, arr.map((t) => h('div.dd-chip', { onclick: () => toast(`${t.replace(' FREE', '')} — chapter preview (demo)`) }, t.replace(' FREE', ''), /FREE/.test(t) ? h('span.dd-free', {}, 'FREE') : null)));
+  sheet.append(h2('Structure'), h('p.b', { html: 'Devouring Details is split into 3 units—<span class="mu">Principles</span>, <span class="mu">Prototypes</span>, and <span class="mu">Resources</span>.' }), h('p.b', { html: '<span class="mu">Principles</span> explores a design concept in depth with different examples from custom interfaces and production apps.' }),
+    chips(['INFERRING INTENT', 'INTERACTION METAPHORS', 'ERGONOMIC INTERACTIONS', 'SIMULATING PHYSICS', 'MOTION CHOREOGRAPHY', 'RESPONSIVE INTERFACES', 'CONTAINED GESTURES', 'DRAWING INSPIRATION']),
+    h('p.b', { html: '<span class="mu">Prototypes</span> are deep dives into a single component with references to <span class="mu">Principles</span> and <span class="mu">Resources</span>. Everything you see here includes downloadable source code.' }));
+  // prototype cards
+  const card = (label, body, extra = {}) => h('div.dd-card', extra, body, h('label', {}, label));
+  const ms = h('div.dd-ms'), msT = [...Array(44)].map((_, i) => { const t = h('i.tk', { style: { left: 70 + i * 7 + 'px', height: (i % 6 === 0 ? 30 : 20) + 'px', marginBottom: '-12px' } }); ms.append(t); return t; }), msP = h('i.pl', { style: { left: '70px' } }); ms.append(msP);
+  const msAt = (x) => { msP.style.left = x + 'px'; msT.forEach((t, i) => { const d = Math.abs(70 + i * 7 - x), k = Math.max(0, 1 - d / 36); t.style.transform = `scaleY(${1 + k * 0.9})`; t.style.background = k > .85 ? '#222' : '#9a9a9a'; }); };
+  const strip = h('div.dd-strip', {}, [...Array(30)].map((_, i) => h('i', { style: { background: `linear-gradient(${i * 37}deg,hsl(0 0% ${30 + ((i * 47) % 60)}%),hsl(0 0% ${70 + ((i * 13) % 28)}%))`, width: (i % 3 ? 44 : 30) + 'px' } })));
+  const mini = document.createElementNS(svgNS, 'svg'); mini.setAttribute('viewBox', '-110 -110 220 220'); Object.assign(mini.style, { position: 'absolute', left: '50%', top: '50%', width: '220px', height: '220px', margin: '-120px 0 0 -110px', transition: 'transform .8s cubic-bezier(.3,.7,.2,1)' });
+  mini.innerHTML = [...Array(96)].map((_, i) => { const a = (i / 96) * Math.PI * 2, l = i % 8 ? 5 : 11; return `<line x1="${Math.cos(a) * 80}" y1="${Math.sin(a) * 80}" x2="${Math.cos(a) * (80 + l)}" y2="${Math.sin(a) * (80 + l)}" stroke="${i % 8 ? '#bbb' : '#333'}"/>`; }).join('');
+  const morph = h('div.dd-morph'), mRow = h('div.row', {}, h('i'), 'Morph Surface', h('button', { onclick: (e) => { e.stopPropagation(); setMorph(!morph.classList.contains('on')); } }, 'Feedback')), mTa = h('textarea', { placeholder: 'Your feedback…' }), mSnd = h('button.snd', { onclick: (e) => { e.stopPropagation(); setMorph(false); toast('Feedback sent — thanks!'); } }, 'Send');
+  morph.append(mRow, mTa, mSnd); const setMorph = (v) => { morph.classList.toggle('on', v); mRow.lastChild.textContent = v ? 'Close' : 'Feedback'; if (v) setTimeout(() => mTa.focus({ preventScroll: true }), 200); };
+  const GP = [40, 52, 48, 70, 66, 90, 84, 110, 104, 130, 118, 150, 142, 170], gx = (i) => 60 + i * 34, gy = (v) => 280 - v;
+  const graph = h('div', { style: { position: 'absolute', inset: 0 }, html: `<svg width="100%" height="100%" viewBox="0 0 560 360" preserveAspectRatio="none"><polyline fill="none" stroke="#222" stroke-width="1.5" points="${GP.map((v, i) => gx(i) + ',' + gy(v)).join(' ')}"/><line class="gl" x1="0" x2="0" y1="70" y2="290" stroke="${O}" stroke-width="1" opacity="0"/><circle class="gd" r="4" fill="${O}" opacity="0"/><text class="gt" font-family="JetBrains Mono Variable,monospace" font-size="11" fill="#555" opacity="0"></text></svg>` });
+  const gMove = (e) => { const b = graph.getBoundingClientRect(), x = ((e.clientX - b.left) / b.width) * 560, i = Math.max(0, Math.min(GP.length - 1, Math.round((x - 60) / 34))); const [l, d, t] = ['.gl', '.gd', '.gt'].map((s2) => graph.querySelector(s2)); l.setAttribute('x1', gx(i)); l.setAttribute('x2', gx(i)); d.setAttribute('cx', gx(i)); d.setAttribute('cy', gy(GP[i])); t.setAttribute('x', gx(i) + 8); t.setAttribute('y', gy(GP[i]) - 10); t.textContent = `W${i + 1} · ${GP[i]}`; [l, d, t].forEach((n) => n.setAttribute('opacity', 1)); };
+  let tmI = 0; const tm = h('div.dd-tm', { onclick: () => { tmI++; paintTM(); } }, [...Array(4)].map((_, i) => h('div', {}, `SNAPSHOT ${['10:42', '10:31', '10:18', '09:57'][i]}`)));
+  const paintTM = () => [...tm.children].forEach((c, i) => { const k = (i - tmI % 4 + 4) % 4; c.style.transform = `translate(${k * 14}px,${-k * 14}px) scale(${1 - k * 0.06})`; c.style.zIndex = 10 - k; c.style.opacity = 1 - k * 0.2; }); paintTM();
+  sheet.append(h('div.dd-pgrid', {},
+    card('LINE MINIMAP', ms, { onmousemove: (e) => msAt(Math.max(70, Math.min(371, e.clientX - e.currentTarget.getBoundingClientRect().left))) }),
+    card('SCROLL STRIP', strip, { onmousemove: (e) => { const b = e.currentTarget.getBoundingClientRect(); strip.style.transform = `translateX(${-((e.clientX - b.left) / b.width) * 700}px)`; } }),
+    card('RADIAL TIMELINE', mini, { onmouseenter: () => { mini.style.transform = 'rotate(90deg)'; }, onmouseleave: () => { mini.style.transform = 'none'; } }),
+    card('MORPH SURFACE', morph), card('LINE GRAPH', graph, { onmousemove: gMove }), card('TIME MACHINE', tm)));
+  sheet.append(h('p.b', { html: '<span class="mu">Resources</span> contains useful code snippets, insights into my design process, private bookmarks, a downloadable component library, and more.' }),
+    chips(['BEHIND SCENES FREE', 'CODE SNIPPETS', 'DESIGN WORKFLOW', 'COMPONENT LIBRARY', 'PUBLIC BOOKMARKS', 'FREQUENT QUESTIONS', 'DESIGN PHILOSOPHIES', 'REACT HANDBOOK']));
+  const ck = '<svg width="20" height="20" viewBox="0 0 20 20"><path d="M3 10.5l4.5 4.5L17 4" fill="none" stroke="' + O + '" stroke-width="2"/></svg>';
+  sheet.append(h2('Register'), h('p.b', {}, 'Upon registering, you\'ll receive immediate access to:'), ['23 chapters with source code for 23 components', 'Future updates to Principles, Prototypes, and Resources', 'Private community to ask me questions and receive feedback', 'Behind the scenes of what I am working on'].map((t) => h('div.dd-check', {}, h('span', { html: ck, style: { display: 'flex' } }), t)),
+    h('button.dd-cta', { onclick: () => toast('Register Now — $249 (demo checkout)') }, 'Register Now', h('span.sp'), '$249', h('span.ar', { html: '<svg width="34" height="34" viewBox="0 0 24 24"><path d="M4 12h15m-6-7 7 7-7 7" fill="none" stroke="#000" stroke-width="2.2"/></svg>' })));
+  const FAQ = [['Who is this for?', 'For designers and engineers. There are a lot of code examples included. You can download many of the interactive components built with React, Tailwind, and Motion React (prev. Framer Motion). The code examples assume some knowledge of the web ecosystem, React, and Motion React.', 'That being said, the content will not go over your head if you\'re not familiar with said tools. The concepts and code examples can be applied in another language or framework.'], ['How do I use this?', 'Read it like a reference manual: jump to a principle or prototype when you need it, interact with the demos, then copy the source.'], ['What does this not cover?', 'It is not a step-by-step course on React fundamentals or a visual design curriculum.'], ['What format can I expect?', 'Long-form interactive chapters with embedded prototypes and downloadable components.'], ['Can I preview the platform?', 'Yes — a few chapters are marked FREE above.'], ['Is this a one-time purchase?', 'Yes, a single payment.'], ['Do I receive an invoice?', 'An invoice is issued with your purchase.'], ['Can I use this on mobile?', 'It is designed for larger screens, but it is readable on mobile.']];
+  const items = FAQ.map(([q, ...a]) => { const it = h('div.dd-it', {}, h('button.dd-q', { onclick: () => it.classList.toggle('on') }, q, h('span', { html: '<svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13" stroke="#111" stroke-width="1.6"/></svg>', style: { display: 'flex' } })), h('div.dd-a', {}, h('div', {}, a.map((p) => h('p', {}, p))))); return it; });
+  sheet.append(h2('FAQ', true), h('div.dd-faq', {}, items), h('div.dd-foot', { onclick: () => go('Register') }, 'REGISTER NOW'));
+  // ruler + scroll line
+  const RT = 254, RH = 316, NT = 33, rul = h('div.dd-rul', { style: { height: RH + 'px' } }), line = h('div.dd-line'), tag = h('span.dd-tag', { onclick: () => go('Register') }, 'REGISTER NOW'); line.append(tag); root.append(rul, line);
+  const SECS = ['Platform', 'Hello', 'Structure', 'Register', 'FAQ'];
+  const max = () => Math.max(1, root.scrollHeight - root.clientHeight);
+  const secFrac = (k) => (sec[k].getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop - 140) / max();
+  const buildRuler = () => { const maj = new Map(SECS.map((k) => [Math.max(0, Math.min(NT - 1, Math.round(secFrac(k) * (NT - 1)))), k]));
+    rul.replaceChildren(...[...Array(NT)].map((_, i) => { const k = maj.get(i); return h('div.dd-tk' + (k ? '.mj' : ''), { style: { top: (i / (NT - 1)) * RH - 4 + 'px' }, onclick: () => (k ? go(k) : root.scrollTo({ top: (i / (NT - 1)) * max(), behavior: 'smooth' })) }, h('i'), k ? h('span.tt', {}, k.toUpperCase()) : null); })); };
+  const place = () => { const rb = root.getBoundingClientRect(), top = rb.top + RT; rul.style.top = top + 'px'; const p = Math.min(1, root.scrollTop / max()); line.style.top = top + p * RH + 'px'; const sb = sheet.getBoundingClientRect(); tag.style.left = sb.right - 63 - 14 + 'px';
+    const vh = rb.bottom; [...tst.children].forEach((sp) => { const b = sp.getBoundingClientRect(), k = Math.max(0, Math.min(1, (b.top - (vh - 260)) / 220)); sp.style.filter = k > 0.02 ? `blur(${(k * 5).toFixed(1)}px)` : ''; sp.style.opacity = 1 - k * 0.6; });
+    [...rul.children].forEach((t, i) => { const d = Math.abs(i / (NT - 1) - p) * (NT - 1), k = Math.max(0, 1 - d / 2.5); t.firstChild.style.width = (t.classList.contains('mj') ? 32 : 18) + k * 10 + 'px'; }); return p; };
+  let raf = 0; root.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(place); }, { passive: true }); window.addEventListener('resize', () => { buildRuler(); place(); });
+  const loop = (t) => { if (playing) { head += 0.012; paintRT(); } requestAnimationFrame(loop); }; requestAnimationFrame(loop);
+  requestAnimationFrame(() => { buildRuler(); place(); msAt(110); paintRT(); }); setTimeout(() => { buildRuler(); place(); }, 800);
+  window.__demoProof = async () => {
+    const out = [], lt = () => Math.round(parseFloat(line.style.top)); buildRuler();
+    root.scrollTo({ top: 0, behavior: 'instant' }); place(); const t0 = lt(); out.push(`ruler ticks=${rul.children.length} majors=${rul.querySelectorAll('.mj').length} line@top y=${t0}`);
+    root.scrollTo({ top: max() / 2, behavior: 'instant' }); const p = place(); out.push(`scroll 50% → line y=${lt()} (Δ${lt() - t0}px of ${RH}, p=${p.toFixed(2)})`);
+    const faqTk = [...rul.querySelectorAll('.mj')].find((t) => t.textContent === 'FAQ'); go('FAQ', 'instant'); place(); out.push(`FAQ major tick present=${!!faqTk} → scrolled to FAQ, line y=${lt()}, section top≈${Math.round(sec.FAQ.getBoundingClientRect().top - root.getBoundingClientRect().top)}px`);
+    items[0].querySelector('.dd-q').click(); await sleep(400); out.push(`accordion open=${items[0].classList.contains('on')} answer h=${Math.round(items[0].querySelector('.dd-a').getBoundingClientRect().height)}px`);
+    items[0].querySelector('.dd-q').click(); await sleep(400); out.push(`closed h=${Math.round(items[0].querySelector('.dd-a').getBoundingClientRect().height)}px`);
+    setMorph(true); await sleep(500); out.push(`morph surface ${Math.round(morph.getBoundingClientRect().width)}×${Math.round(morph.getBoundingClientRect().height)}`); setMorph(false);
+    setPlay(true); await sleep(400); out.push(`radial timeline playing head=${head.toFixed(2)}rad`); setPlay(false); head = -Math.PI / 2; paintRT();
+    tmI = 0; paintTM(); root.scrollTo({ top: 0, behavior: 'instant' }); place(); await sleep(60); out.push(`back to top line y=${lt()}`);
+    return out.join('; ') + '; restored';
+  };
+};
+V['hey-screener-yes-no-gradient-inbox'] = (root, T) => {
+  import('@fontsource-variable/outfit'); import('@fontsource/lato/400.css'); import('@fontsource/lato/700.css'); import('@fontsource/lato/400-italic.css');
+  theme(root, T, { bg: '#ffffff', fg: '#231c33', ac: '#5522fa', dark: false }); scroll(root);
+  const D = "'Outfit Variable','Outfit',system-ui,sans-serif", B = "'Lato',system-ui,sans-serif", INK = '#231c33', P = '#5522fa', GR = 'linear-gradient(135deg,rgb(85,34,250),rgb(236,133,128))';
+  root.append(h('style', {}, `.hy{background:#fff;color:${INK};font:400 19px/1.45 ${B};min-height:100%;padding:31px 0 120px}.hy button{cursor:pointer;font-family:${D}}
+.hy .gt{background:${GR};-webkit-background-clip:text;background-clip:text;color:transparent}
+.hy-nav{position:sticky;top:31px;z-index:20;width:1147px;margin:0 auto;height:82px;background:#fff;border-radius:22px;box-shadow:0 6px 24px #231c3314,0 1px 3px #231c330d;display:flex;align-items:center;padding:0 20px 0 22px;gap:22px;font:500 18.5px ${D}}
+.hy-logo{display:flex;align-items:flex-end;gap:2px;color:${P};font:900 30px/1 ${D};letter-spacing:-.04em}.hy-logo small{display:block;font:600 8px ${D};letter-spacing:0;color:${INK};margin:0 0 2px 4px}
+.hy-nav a{color:${INK};cursor:pointer;position:relative}.hy-nav a:hover{color:${P}}.hy-new{position:absolute;left:-10px;top:-24px;background:#f0604f;color:#fff;font:800 10.5px ${D};padding:2px 6px;border-radius:7px;transform:rotate(-8deg)}
+.hy-nav .sp{flex:1}.hy-pill{border:0;border-radius:99px;font:800 14px ${D};letter-spacing:.06em;text-transform:uppercase;padding:0 22px;height:44px}.hy-si{background:#edeae6;color:${INK}}.hy-tr{background:${P};color:#fff}.hy-tr:hover,.hy-cta:hover{filter:brightness(1.08)}
+.hy-panel{width:1376px;margin:-50px auto 0;background:#f6f4f1;border-radius:44px;padding:88px 48px 70px}
+.hy-hero{background:#fff;border-radius:30px;box-shadow:0 30px 60px -36px #231c3340;padding:56px 0 0;text-align:center;overflow:hidden}
+.hy-q{display:flex;justify-content:center;gap:74px;font:italic 400 17px ${B};color:${INK}}.hy-q div{display:flex;flex-direction:column;align-items:center;gap:6px}.hy-q b{color:#f3c623;letter-spacing:3px;font:16px sans-serif}
+.hy h1{font:900 87px/.97 ${D};letter-spacing:-.04em;margin:30px auto 18px;max-width:960px}
+.hy-sub{font:800 41px/1.12 ${D};letter-spacing:-.025em;max-width:1070px;margin:0 auto}
+.hy-cta{display:inline-flex;align-items:center;height:62px;border-radius:99px;border:0;background:${GR};color:#fff;font:800 20px ${D};letter-spacing:.04em;text-transform:uppercase;padding:0 30px;margin-top:38px}
+.hy-no{font:italic 400 16px ${B};color:#555;margin:14px 0 40px}
+.hy-mock{position:relative;width:896px;margin:0 auto;height:420px;border-radius:26px 26px 0 0;overflow:hidden;background:#fff;text-align:left}
+.hy-mock .ov{position:absolute;inset:0;background:${GR};opacity:.82;mix-blend-mode:normal}.hy-see{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);z-index:2;height:52px;border:0;border-radius:99px;background:#fff;font:700 20px ${D};color:${INK};padding:0 26px;display:flex;align-items:center;gap:10px;box-shadow:0 6px 20px #0002}
+.hy-ml{padding:22px 60px}.hy-ml .t{display:flex;justify-content:space-between;align-items:center;font:600 13px ${B};color:#666}.hy-ml .scr{background:#eef0ff;border-radius:99px;padding:4px 12px;color:${P};cursor:pointer;position:relative;z-index:3}
+.hy-ml h3{text-align:center;font:800 30px ${D};margin:6px 0 14px;position:relative}.hy-ml h3 svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.hy-row{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid #eee;font:14px ${B};color:#444}.hy-row .av{width:30px;height:30px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font:800 11px ${D};color:#231c33}.hy-row b{font-weight:700;color:#222}.hy-row .dt{margin-left:auto;font-size:12px;color:#999;flex:none}
+.hy-sec{text-align:center;margin-top:120px}.hy h2{font:900 50px/1.08 ${D};letter-spacing:-.035em;margin:0 0 22px}.hy-sec>p{font:400 22px/1.42 ${B};max-width:560px;margin:0 auto}.hy-sec>p b{font-weight:700}
+.hy-ts{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 44px;margin-top:56px;text-align:left}.hy-tb{position:relative;background:linear-gradient(180deg,#dcecff,#eef5ff);border-radius:24px;padding:42px 30px 28px;font:400 16px/1.55 ${B};box-shadow:0 14px 24px -18px #2a4a9a40}.hy-tb .nm{position:absolute;left:-12px;top:-18px;display:flex;align-items:center;gap:8px;background:#fff;border-radius:99px;padding:4px 14px 4px 4px;font:700 13px ${B};box-shadow:0 2px 8px #0001}.hy-tb .nm i{width:30px;height:30px;border-radius:50%}
+.hy-sq{display:block;margin:70px auto 0}
+.hy-app{width:1152px;margin:48px auto 0;background:#fff;border-radius:22px;box-shadow:0 20px 50px -30px #231c3366,0 1px 3px #0000000d;text-align:left;overflow:hidden}
+.hy-chrome{height:58px;display:flex;align-items:center;gap:18px;padding:0 20px;font:500 15px ${B}}.hy-back{border:0;background:#c9f5e4;color:#0f5b45;border-radius:99px;height:34px;padding:0 14px;font:700 15px ${D};display:flex;align-items:center;gap:6px}
+.hy-chrome .ctr{flex:1;display:flex;justify-content:center;align-items:center;gap:6px;color:${P};font:900 21px ${D};letter-spacing:-.04em}.hy-me{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#d9a46a,#6a4b2e)}
+.hy-scr{width:1000px;margin:8px auto 0;background:#fff;border-radius:22px 22px 0 0;box-shadow:0 -4px 30px #231c3312;padding:20px 50px 30px;position:relative;min-height:420px}
+.hy-done{border:0;background:#c9f5e4;color:#0f5b45;border-radius:99px;height:34px;padding:0 15px;font:700 15px ${D}}.hy-scr h4{text-align:center;font:800 38px ${D};margin:-12px 0 8px;letter-spacing:-.015em}.hy-scr .ex{text-align:center;font:400 17px/1.45 ${B};color:#333;margin:0 0 30px}
+.hy-want{display:flex;align-items:center;gap:12px;font:800 13.5px ${D};letter-spacing:.03em;color:${INK}}.hy-want:after{content:'';flex:1;height:1px;background:#8d7dfa;order:1}.hy-want a{order:2;color:${P};font:500 14px ${B};letter-spacing:0;cursor:pointer}
+.hy-sr{display:flex;gap:18px;align-items:center;padding:12px 0;border-bottom:1px solid #e9e9ee;transition:transform .38s cubic-bezier(.4,0,.2,1),opacity .38s,max-height .38s .1s,padding .38s .1s;max-height:120px;overflow:visible;position:relative}
+.hy-sr.yes{transform:translateX(70px);opacity:0}.hy-sr.no{transform:translateX(-70px);opacity:0;filter:grayscale(1)}.hy-sr.gone{max-height:0;padding:0;border:0;overflow:hidden}
+.hy-yn{flex:none;width:76px;height:76px;border:0;border-radius:6px;background:#efecff;color:${P};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:700 13px ${D};position:relative;transition:background .15s,transform .1s}.hy-yn:hover{background:#e2dcff}.hy-yn:active{transform:scale(.96)}
+.hy-dd{position:absolute;right:4px;top:3px;border:0;background:none;color:${P};padding:2px;width:auto;height:auto}.hy-dest{font:600 10px ${B};color:#7a6ad8;margin-top:-2px}
+.hy-menu{position:absolute;left:0;top:84px;z-index:9;background:#fff;border-radius:12px;box-shadow:0 10px 30px #231c3330;padding:8px;width:250px;display:none}.hy-menu.on{display:block}.hy-menu div{padding:8px 10px;border-radius:8px;cursor:pointer;font:500 14px ${B};display:flex;gap:8px}.hy-menu div:hover{background:#f2efff}.hy-menu div small{display:block;color:#888;font-size:12px}.hy-menu .ck{width:14px;color:${P}}
+.hy-sr .av{width:44px;height:44px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font:900 15px ${D};color:${INK};margin-left:8px}.hy-sr .tx{min-width:0;font:400 15px/1.35 ${B};color:#222}.hy-sr .tx b{font:700 16px ${B}}.hy-sr .tx .em{color:#666}.hy-sr .tx .pv{color:#444;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hy-empty{text-align:center;padding:40px 0 10px;font:700 22px ${D};color:${INK}}.hy-empty a{display:block;margin-top:8px;color:${P};font:500 15px ${B};cursor:pointer}
+.hy-counts{display:flex;justify-content:center;gap:10px;margin:28px 0 0}.hy-cnt{border:0;border-radius:99px;background:#fff;padding:9px 16px;font:700 15px ${D};color:${INK};box-shadow:0 1px 3px #0000001a;display:flex;gap:8px;align-items:center;transition:transform .2s}.hy-cnt b{min-width:22px;height:22px;border-radius:11px;background:#efecff;color:${P};font:800 13px ${D};display:inline-flex;align-items:center;justify-content:center;padding:0 6px}.hy-cnt.on{background:${INK};color:#fff}.hy-cnt.on b{background:#ffffff26;color:#fff}.hy-cnt.bump{transform:scale(1.12)}
+.hy-box{width:1000px;margin:8px auto 0;background:#fff;border-radius:22px 22px 0 0;box-shadow:0 -4px 30px #231c3312;padding:22px 50px 30px;min-height:360px}.hy-box h4{text-align:center;font:800 38px ${D};margin:0 0 18px}
+.hy-new4{display:flex;align-items:center;gap:12px;font:800 13px ${D};letter-spacing:.03em;margin:8px 0 4px}.hy-new4:after{content:'';flex:1;height:1px;background:#8d7dfa}
+.hy-bi{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #eee;font:15px ${B};animation:hyin .45s cubic-bezier(.2,.7,.3,1)}.hy-bi .av{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font:900 13px ${D}}.hy-bi .dot{width:8px;height:8px;border-radius:50%;background:#f0604f;flex:none;margin-left:-22px}.hy-bi .dt{margin-left:auto;color:#999;font-size:13px;flex:none}.hy-bi .un{border:0;background:none;color:${P};font:600 13px ${B};margin-left:10px;white-space:nowrap;flex:none}.hy-bi>div{flex:1}.hy-bi .pv2{color:#777;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hy-app,.hy-sec{scroll-margin-top:130px}
+.hy-feed{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hy-fc{border:1px solid #eee;border-radius:14px;padding:16px;font:15px/1.45 ${B};animation:hyin .45s}.hy-fc b{display:block;font:800 17px ${D};margin:6px 0}
+@keyframes hyin{from{opacity:0;transform:translateY(-10px)}}
+.hy-sticky{position:fixed;right:34px;bottom:30px;z-index:40;height:62px;border:0;border-radius:99px;background:${GR};color:#fff;font:800 19px ${D};letter-spacing:.05em;padding:0 28px 0 18px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px #5522fa40;transition:transform .2s}.hy-sticky:hover{transform:translateY(-2px)}
+`));
+  const hand = (c = '#fff', s2 = 30) => `<svg width="${s2}" height="${s2}" viewBox="0 0 32 32" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17V7.5a1.8 1.8 0 0 1 3.6 0V15M13.6 14V5.2a1.8 1.8 0 0 1 3.6 0V14M17.2 14V6.3a1.8 1.8 0 0 1 3.6 0V16M20.8 15.5v-6a1.8 1.8 0 0 1 3.6 0V19c0 5-3.4 9-8.4 9-3.4 0-5.6-1.6-7.4-4.4L5 18.4a1.9 1.9 0 0 1 3.1-2.1L10 19"/><path d="M4 9c.6-2 1.6-3.4 3-4.4M26.5 4.5c1.6 1 2.6 2.6 3 4.5"/></svg>`;
+  const thumb = (up) => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${P}" stroke-width="1.7" stroke-linejoin="round" style="${up ? '' : 'transform:scaleY(-1)'}"><path d="M7 11v9H4v-9zM7 11l4-8c1.5 0 2.5 1 2.2 2.6L12.6 9H19a2 2 0 0 1 2 2.3l-1.2 6.8a2 2 0 0 1-2 1.9H7"/></svg>`;
+  const BOX = { imbox: 'Imbox', feed: 'The Feed', paper: 'Paper Trail', out: 'Screened Out' };
+  const SEND0 = [
+    { n: 'Sunny Vacations', e: 'sunnyvacations@example.com', s: 'Timeshare Investment Opportunity', p: 'Mrs. Young, Are timeshares a good investment? We think they are! We would love to speak with you about why we think that you and your family…', i: 'SV', c: '#d6f06a', to: 'imbox' },
+    { n: 'Luxe Salon Texas', e: 'luxesalontexas@gmail.com', s: 'Luxe Salon New Update', p: 'Hello all, We are reaching out to give you an update! We are offering color kits, shine bombs, and toners! If you are in need, please contact your stylist…', i: 'LST', c: '#f39a86', to: 'feed' },
+    { n: 'Todd Markham', e: 'bestinsurancepricingintexas@gmail.com', s: 'Re: Life Insurance Quote', p: 'Hello Mrs. Young, I hope all is well with you. I wanted to touch base with you on our conversation a few weeks ago. I’ve tried calling a few times…', i: 'TM', c: '#f6cf45', to: 'imbox' },
+    { n: 'Mr. Jeff Wolfe', e: '2ndgradestabes@gmail.com', s: 'Re: Cooper’s Parent/Teacher Conference', p: 'Mr. & Mrs. Young, This is just a reminder to schedule your parent/teacher conference with me. You can feel free to do that here…', i: 'MJW', c: '#f5e156', to: 'imbox' },
+    { n: 'Metro Transit', e: 'receipts@metrotransit.example', s: 'Your receipt — 30-day pass', p: 'Thanks for riding with us. Order #48213 · $98.00 charged to Visa ending 4242. Your pass is active until Nov 6.', i: 'MT', c: '#b9c8ff', to: 'paper' },
+  ];
+  const SEED = { imbox: [['Dinner Reservations Tonight', 'Jasmine Velasquez', 'Our dinner reservations for Clark’s is attached. Can’t wait to see you soon!', 'Sep 14', 'JV', '#ffd1dc'], ['Miami Airbnb Itinerary', 'Russell Young', 'Your reservation is confirmed — check-in after 3pm.', 'Sep 13', 'RY', '#cde7ff'], ['Piano Lessons (3)', 'Bruce Evans', 'I received your form submission. Our teacher Sara is available on Friday mornings.', 'Sep 12', 'BE', '#d8f5d0']],
+    feed: [['Field Notes Weekly', 'The quiet joy of a paper notebook', 'Fall edition is out: three new colors and a note from our founder…', 'Sep 14', 'FN', '#ffe6a8'], ['Kottke', 'The best links from around the web', 'A map of every tree in the city, a 1970s synth demo and more…', 'Sep 12', 'K', '#e0d7ff']],
+    paper: [['Your Lyft receipt', 'Lyft', '$18.40 · Sep 13 · Downtown → Home', 'Sep 13', 'L', '#ffd0ef'], ['Order shipped', 'Bookshop', 'Your order #10233 is on its way.', 'Sep 11', 'B', '#d9f2ff']], out: [] };
+  let senders = SEND0.map((x) => ({ ...x })), boxes = { imbox: [], feed: [], paper: [], out: [] }, view = 'imbox';
+  // nav + hero
+  const scrollTo = (el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const sticky = h('button.hy-sticky', { html: hand('#fff', 30) + 'TRY HEY FREE', onclick: () => toast('Try HEY free for 30 days (demo)') });
+  const scrCountMock = h('span');
+  const mockRows = [['Dinner Reservations Tonight', 'Jasmine Velasquez — Hey Julie- Our dinner reservations for Clark’s is attached. Can’t wait to see you soon!', 'Sep 14'], ['Miami Airbnb Itinerary', 'Russell Young — “ [ Airbnb ] Your reservation is confirmed. Check-in after 3pm…', 'Sep 13'], ['Les Misérables Tickets', 'Caroline Doubois — I’m so excited that you could join us for the show next month…', 'Sep 13'], ['Piano Lessons (3)', 'Bruce Evans — Hi Julie- I received your form submission. Our teacher Sara is available…', 'Sep 12'], ['Completed: Please DocuSign: Lucky Strike Event Contract', 'Adobe Andersen via DocuSign — Your document has been completed…', 'Sep 14']];
+  const hero = h('div.hy-hero', {},
+    h('div.hy-q', {}, ['Finally a privacy-respecting inbox', 'Email has been re-invented', 'I’m loving the HEY Calendar app'].map((q) => h('div', {}, h('b', {}, '★★★★★'), `“${q}”`))),
+    h('h1.gt', {}, 'We finally fixed your email + calendar!'),
+    h('div.hy-sub', {}, 'Gmail, Outlook, and Apple got complacent and took their eye off the ball. Then along came HEY.'),
+    h('button.hy-cta', { onclick: () => toast('Try HEY free for 30-days (demo)') }, 'Try HEY free for 30-days'), h('div.hy-no', {}, 'No obligation, no CC required.'),
+    h('div.hy-mock', {}, h('div.hy-ml', {}, h('div.t', {}, h('span.scr', { onclick: () => scrollTo(appEl) }, '👍 Screen ', scrCountMock, ' first-time senders'), h('span', {}, '＋ Write')),
+      h('h3', { html: 'Imbox<svg width="130" height="46" viewBox="0 0 130 46"><ellipse cx="65" cy="23" rx="62" ry="19" fill="none" stroke="#5522fa" stroke-width="3" transform="rotate(-2 65 23)"/></svg>' }),
+      h('div.hy-new4', { style: { color: '#666' } }, 'NEW FOR YOU'), mockRows.map(([s2, p, d]) => h('div.hy-row', {}, h('span.av', { style: { background: '#e8e3ff' } }, s2[0]), h('div', {}, h('b', {}, s2), h('div', { style: { fontSize: '12.5px', color: '#888', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '600px' } }, p)), h('span.dt', {}, d)))),
+      h('div.ov'), h('button.hy-see', { html: '<svg width="14" height="16" viewBox="0 0 14 16"><path d="M1 1v14l12-7Z" fill="#231c33"/></svg>See how HEY works', onclick: () => toast('▶ See how HEY works (video demo)') })));
+  const TS = [['Ryan Hoover', 'Just got a demo of HEY with <u>@jasonfried</u>. ❤️ <b>The level of product thinking</b> that’s gone into rebuilding email from scratch.', '#f8b26a'], ['Ezra Klein', 'Gmail and virtually all of its competitors assume anyone should be able to email you and then you should store and sort and search and categorize those messages. <b>HEY assumes that only the people you want email from should be able to email you.</b>', '#7a8ba3'], ['Kevin Rose', 'I just got an early demo of HEY from <u>@jasonfried</u>. I can confirm this will be my new default email over Gmail… <b>it’s a beautiful rethinking of everything wrong with email.</b>', '#9aa36b'], ['Darya Rose', 'In positive news, HEY seems to have finally solved email (!!!). <b>The relief is so real.</b> 🙌', '#c9876b'], ['Mike Davidson', 'If you designed email from scratch such that it vigorously protected your privacy and your time, <b>this is what it would look like.</b> 🏆', '#6b8fc9'], ['Andy Baio', 'Happy to say that HEY is every bit as clever as I expected, <b>a radical rethinking of email</b> and dramatically better in a dozen ways.', '#b36bc9']];
+  // screener
+  const list = h('div'), counts = h('div.hy-counts'), boxEl = h('div.hy-box'), boxH2 = h('h2.gt'), boxP = h('p');
+  let menuOpen = -1;
+  const renderScreener = () => {
+    scrCountMock.textContent = senders.length;
+    if (!senders.length) { list.replaceChildren(h('div.hy-empty', {}, 'You’re all caught up! 🎉', h('a', { onclick: () => reset() }, '↺ Reset the Screener demo'))); return; }
+    list.replaceChildren(...senders.map((x, i) => h('div.hy-sr', { 'data-i': i },
+      h('button.hy-yn', { title: `Yes — send to ${BOX[x.to]}`, onclick: () => decide(i, true) }, h('span', { html: thumb(true), style: { display: 'flex' } }), 'Yes', h('span.hy-dest', {}, x.to === 'imbox' ? '' : BOX[x.to].replace('The ', '')),
+        h('span.hy-dd', { html: '<svg width="11" height="7" viewBox="0 0 11 7"><path d="M1 1l4.5 4.5L10 1" stroke="#5522fa" stroke-width="1.6" fill="none"/></svg>', onclick: (e) => { e.stopPropagation(); menuOpen = menuOpen === i ? -1 : i; renderScreener(); } })),
+      h('button.hy-yn', { title: 'No — screen out', onclick: () => decide(i, false) }, h('span', { html: thumb(false), style: { display: 'flex' } }), 'No'),
+      h('div.hy-menu' + (menuOpen === i ? '.on' : ''), {}, [['imbox', 'Imbox', 'Important people & services'], ['feed', 'The Feed', 'Newsletters & long reads'], ['paper', 'Paper Trail', 'Receipts & transactions']].map(([k, t, d]) => h('div', { onclick: (e) => { e.stopPropagation(); setDest(i, k); } }, h('span.ck', {}, x.to === k ? '✓' : ''), h('span', {}, `Yes → ${t}`, h('small', {}, d))))),
+      h('span.av', { style: { background: x.c } }, x.i), h('div.tx', {}, h('div', {}, h('b', {}, x.n), ' ', h('span.em', {}, `<${x.e}>`)), h('div.pv', {}, h('span', { style: { fontWeight: 700 } }, x.s), ' – ', x.p)))));
+  };
+  const setDest = (i, k) => { senders[i].to = k; menuOpen = -1; renderScreener(); };
+  let busy = Promise.resolve();
+  const decide = (i, yes) => { const x = senders[i], row = list.querySelector(`[data-i="${i}"]`); if (!x || !row) return; menuOpen = -1; row.classList.add(yes ? 'yes' : 'no'); row.querySelectorAll('button').forEach((b) => (b.disabled = true));
+    busy = new Promise((res) => setTimeout(() => { row.classList.add('gone'); setTimeout(() => { senders = senders.filter((s2) => s2 !== x); const k = yes ? x.to : 'out'; boxes[k].unshift({ ...x, at: k }); renderScreener(); renderBoxes(k); toast(yes ? `✓ ${x.n} → ${BOX[k]}` : `✕ ${x.n} screened out — you won’t hear from them again`); res(); }, 260); }, 340)); return busy; };
+  const undo = (k, x) => { boxes[k] = boxes[k].filter((y) => y !== x); const o = SEND0.findIndex((s2) => s2.n === x.n); senders.push({ ...SEND0[o], to: x.to === 'out' ? SEND0[o].to : x.to }); senders.sort((a, b) => SEND0.findIndex((s2) => s2.n === a.n) - SEND0.findIndex((s2) => s2.n === b.n)); renderScreener(); renderBoxes(); };
+  const COPY = { imbox: ['The Imbox is for your important email', 'When you say “Yes”, their email lands in the <b>Imbox</b> by default. It’s the place for emails you actually want to read, from <b>im</b>portant people and services you absolutely want to hear from.'], feed: ['The Feed is for your casual, whenever reads', 'The Feed turns newsletters and long-reads into a browsable, casual newsfeed. Just scroll, everything’s open already.'], paper: ['A Paper Trail for receipts and transactions', 'Keep transactional email clutter in one place, out of your face. When you need to refer to a receipt, order confirmation, or service notification, just head over to the Paper Trail.'], out: ['Screened Out — never hear from them again', 'Say “No” in the Screener and that sender is gone. Changed your mind? Undo puts them back in The Screener.'] };
+  const renderBoxes = (bump) => {
+    counts.replaceChildren(...[['screener', 'The Screener', senders.length], ...Object.entries(BOX).map(([k, t]) => [k, t, boxes[k].length + (SEED[k] || []).length])].map(([k, t, n]) => { const b = h('button.hy-cnt' + (k === view ? '.on' : '') + (k === bump ? '.bump' : ''), { onclick: () => (k === 'screener' ? scrollTo(appEl) : (view = k, renderBoxes())) }, t, h('b', {}, String(n))); return b; }));
+    if (bump) setTimeout(() => counts.querySelector('.bump')?.classList.remove('bump'), 260);
+    boxH2.textContent = COPY[view][0]; boxP.innerHTML = COPY[view][1];
+    const fresh = boxes[view], seed = SEED[view] || [];
+    const item = (x) => h('div.hy-bi', {}, h('span.dot'), h('span.av', { style: { background: x.c } }, x.i), h('div', { style: { minWidth: 0 } }, h('b', {}, x.s), h('div.pv2', {}, `${x.n} — ${x.p}`)), h('span.dt', {}, 'Just now'), h('button.un', { onclick: () => undo(view, x) }, '↩ Undo'));
+    const seedRow = ([s2, n, p, d, i, c]) => h('div.hy-bi', { style: { animation: 'none' } }, h('span.av', { style: { background: c } }, i), h('div', { style: { minWidth: 0 } }, h('b', {}, s2), h('div.pv2', {}, `${n} — ${p}`)), h('span.dt', {}, d));
+    let body;
+    if (view === 'feed') body = h('div.hy-feed', {}, fresh.map((x) => h('div.hy-fc', {}, h('span', { style: { font: '700 12px Lato', color: '#5522fa' } }, 'NEW · ' + x.n), h('b', {}, x.s), x.p, h('div', {}, h('button.un', { style: { border: 0, background: 'none', color: P, padding: 0, marginTop: '8px', cursor: 'pointer' }, onclick: () => undo(view, x) }, '↩ Undo')))), seed.map(([s2, n, p]) => h('div.hy-fc', { style: { animation: 'none' } }, h('span', { style: { font: '700 12px Lato', color: '#999' } }, s2), h('b', {}, n), p)));
+    else body = h('div', {}, fresh.length ? h('div.hy-new4', {}, view === 'out' ? 'JUST SCREENED OUT' : 'NEW FOR YOU') : null, fresh.map(item), seed.length ? h('div.hy-new4', { style: { color: '#999', marginTop: '18px' } }, 'PREVIOUSLY SEEN') : null, seed.map(seedRow), !fresh.length && !seed.length ? h('div.hy-empty', { style: { color: '#999', fontSize: '17px' } }, 'Nobody here yet — say “No” to someone in The Screener.') : null);
+    boxEl.replaceChildren(h('h4', {}, BOX[view]), body);
+  };
+  const reset = () => { senders = SEND0.map((x) => ({ ...x })); boxes = { imbox: [], feed: [], paper: [], out: [] }; view = 'imbox'; menuOpen = -1; renderScreener(); renderBoxes(); };
+  const appEl = h('div.hy-app', {}, h('div.hy-chrome', {}, h('button.hy-back', { onclick: () => scrollTo(boxSec) }, '‹ Imbox'), h('span', {}, '⌕  Search'), h('span.ctr', { html: '<svg width="24" height="18" viewBox="0 0 24 18"><rect x="1" y="1" width="22" height="16" rx="2" fill="#eef" stroke="#c9c2f5"/></svg> · ✉HEY <svg width="11" height="7" viewBox="0 0 11 7"><path d="M1 1l4.5 4.5L10 1" stroke="#5522fa" stroke-width="1.6" fill="none"/></svg>' }), h('span.hy-me')),
+    h('div.hy-scr', { onclick: () => { if (menuOpen >= 0) { menuOpen = -1; renderScreener(); } } }, h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } }, h('button.hy-done', { onclick: () => scrollTo(boxSec) }, 'Done'), h('span', { html: '<svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11.5" fill="none" stroke="#5522fa" stroke-width="1.6"/><circle cx="10.5" cy="10.5" r="3.5" fill="none" stroke="#5522fa" stroke-width="1.6"/><path d="M13 13l6 6m-2-2 2-2" stroke="#5522fa" stroke-width="1.6"/></svg>' })),
+      h('h4', {}, 'The Screener'), h('p.ex', { html: 'The people below are trying to email you for the first time.<br>You get to decide if you want to hear from them.' }), h('div.hy-want', {}, 'WANT TO GET EMAILS FROM THEM?', h('a', { onclick: async () => { for (let k = senders.length - 1; k >= 0; k--) { decide(k, false); } } }, 'Clear all...')), list));
+  const boxSec = h('div.hy-sec', {}, boxH2, boxP, counts, h('div.hy-app', { style: { marginTop: '30px' } }, h('div.hy-chrome', {}, h('span', {}, '⌕  Search'), h('span.ctr', { html: '✉HEY' }), h('span.hy-me')), boxEl));
+  const hy = h('div.hy', {}, h('div.hy-nav', {}, h('div.hy-logo', { html: `${hand('#5522fa', 34)}<span>HEY<small>by 37signals</small></span>` }), h('span', { style: { width: '14px' } }), ...['Features', 'AI Agents & CLI', 'Calendar', 'For domains', 'Pricing', 'FAQs'].map((t) => h('a', { onclick: () => (t === 'Features' ? scrollTo(appEl) : toast(t)) }, t === 'AI Agents & CLI' ? h('span.hy-new', {}, 'NEW!') : null, t)), h('span.sp'), h('button.hy-pill.hy-si', {}, 'Sign in'), h('button.hy-pill.hy-tr', { onclick: () => toast('Try HEY free (demo)') }, 'Try HEY free')),
+    h('div.hy-panel', {}, hero,
+      h('div.hy-sec', {}, h('h2', { html: 'People <i>*really*</i> like HEY' }), h('p', { html: '<i>Tens of thousands</i> of people have already made the switch from Gmail, Yahoo Mail, Outlook, and other email + calendar services.' }),
+        h('div.hy-ts', {}, TS.map(([n, t, c]) => h('div.hy-tb', {}, h('span.nm', {}, h('i', { style: { background: `linear-gradient(135deg,${c},#333)` } }), n), h('div', { html: t })))),
+        h('span', { html: '<svg class="hy-sq" width="176" height="14" viewBox="0 0 176 14"><path d="M2 7q5.5-6 11 0t11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0 11 0" fill="none" stroke="#ccc" stroke-width="3" stroke-linecap="round"/></svg>' })),
+      h('div.hy-sec', { style: { marginTop: '60px' } }, h('h2.gt', {}, 'Screen emails like you screen your calls'), h('p', { html: 'The first time someone emails you they land in <b>The Screener</b>. You decide if you want to hear from them or not. <b>Yes</b> and they’re in, <b>No</b> and you’ll never hear from them again. You’re in control.' }), appEl),
+      boxSec), sticky);
+  root.append(hy); renderScreener(); renderBoxes();
+  window.__demoProof = async () => {
+    const out = [], c = () => [...counts.children].map((b) => `${b.firstChild.textContent}:${b.lastChild.textContent}`).join(' ');
+    out.push(`screener rows=${list.querySelectorAll('.hy-sr').length}; ${c()}`);
+    await decide(0, true); out.push(`Yes(Sunny) → imbox new=${boxes.imbox.length}`);
+    list.querySelectorAll('.hy-dd')[1].click(); out.push(`dest menu open=${!!list.querySelector('.hy-menu.on')}`); setDest(1, 'paper'); await decide(1, true); out.push(`Todd→Paper Trail new=${boxes.paper.length}`);
+    await decide(0, true); out.push(`Luxe(dest Feed) → feed new=${boxes.feed.length}`);
+    await decide(0, false); out.push(`No(Jeff) → screened out=${boxes.out.length}`);
+    view = 'feed'; renderBoxes(); out.push(`box switch Feed h2="${boxH2.textContent}" cards=${boxEl.querySelectorAll('.hy-fc').length}`);
+    view = 'out'; renderBoxes(); boxEl.querySelector('.un').click(); out.push(`undo → screener rows=${senders.length}; ${c()}`);
+    const gradOk = getComputedStyle(root.querySelector('h1.gt')).backgroundImage.includes('rgb(85, 34, 250)'); out.push(`h1 gradient=${gradOk} sticky pill=${getComputedStyle(sticky).position}`);
+    reset(); await sleep(50); return out.join('; ') + '; restored';
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

@@ -17,7 +17,8 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'cuberto-context-cursor-agency-home': '랜딩 페이지', 'rauno-craft-interaction-shelf': '인터랙션', 'lofi-cafe-station-tv-room': '사운드',
   'drifting-art-attic-canvas': '인터랙션', 'partiful-invite-theme-customizer': '인터랙션', 'zenpen-zen-writing-editor': '타이포',
   'mmm-page-sticker-site-builder': '인터랙션', 'lospec-pixel-palette-browser': '컬러', 'waveform-audio-editor': '사운드', 'ladybug-effects-studio': '이미지 스튜디오',
-  'duolingo-mascot-onboarding-quiz-flow': '온보딩 플로우', 'slowroads-zen-title-procedural-drive': '3D 스테이지', 'pixelthoughts-star-shrink-60s-ritual': '명상 인터랙션' };
+  'duolingo-mascot-onboarding-quiz-flow': '온보딩 플로우', 'slowroads-zen-title-procedural-drive': '3D 스테이지', 'pixelthoughts-star-shrink-60s-ritual': '명상 인터랙션',
+  'ia-writer-focus-mode-typewriter-hero': '글쓰기 에디터', 'devouring-details-scroll-ruler-reference-manual': '스크롤 인터랙션', 'hey-screener-yes-no-gradient-inbox': '인박스 인터랙션' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
