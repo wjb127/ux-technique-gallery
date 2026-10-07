@@ -2599,5 +2599,32 @@
   "proof": "intro visible=true; input phase, prompt=\"Put a stressful thought in the star\"; star text=\"I have too many deadlines\"; phase=run form hidden=true; star scale 0s:1.00 15s:0.83 30s:0.60 45s:0.34 59s:0.04; prompts \"....and breathe out\" → \"Your mind is holding them all at once\"; sound=true; end screen=true \"Hope you feel less stressed\"; restored",
   "demoNodes": 24,
   "errors": []
+ },
+ "ia-writer-focus-mode-typewriter-hero": {
+  "url": "https://ux-technique-gallery.vercel.app/t/ia-writer-focus-mode-typewriter-hero/",
+  "ok": true,
+  "at": "2026-10-07T04:07:56.692Z",
+  "http": 200,
+  "proof": "paragraph mode: caret in ¶2, dimmed=245 chars (¶1 length 243); caret→¶1: dimmed=260 active=\"Writing well is not a ma…\"; sentence mode active=\"However, successful writing is never a matter of luck.\"; off → dimmed=0; typed → active=\"Write every day.\" words=93 words · 1 min; typewriter: caret y 336px → 336px (view center 336), col shift=translateY(-224px); typewriter off → caret y=560px; authorship: pasted chars colored=128; style check strikes=Honestly,basically,just,really,actually,a lot,in order to; restored",
+  "demoNodes": 64,
+  "errors": []
+ },
+ "devouring-details-scroll-ruler-reference-manual": {
+  "url": "https://ux-technique-gallery.vercel.app/t/devouring-details-scroll-ruler-reference-manual/",
+  "ok": true,
+  "at": "2026-10-07T04:07:56.734Z",
+  "http": 200,
+  "proof": "ruler ticks=33 majors=5 line@top y=292; scroll 50% → line y=450 (Δ158px of 316, p=0.50); FAQ major tick present=true → scrolled to FAQ, line y=595, section top≈140px; accordion open=true answer h=284px; closed h=0px; morph surface 330×190; radial timeline playing head=-1.28rad; back to top line y=292; restored",
+  "demoNodes": 706,
+  "errors": []
+ },
+ "hey-screener-yes-no-gradient-inbox": {
+  "url": "https://ux-technique-gallery.vercel.app/t/hey-screener-yes-no-gradient-inbox/",
+  "ok": true,
+  "at": "2026-10-07T04:07:56.734Z",
+  "http": 200,
+  "proof": "screener rows=5; The Screener:5 Imbox:3 The Feed:2 Paper Trail:2 Screened Out:0; Yes(Sunny) → imbox new=1; dest menu open=true; Todd→Paper Trail new=1; Luxe(dest Feed) → feed new=1; No(Jeff) → screened out=1; box switch Feed h2=\"The Feed is for your casual, whenever reads\" cards=3; undo → screener rows=2; The Screener:2 Imbox:4 The Feed:3 Paper Trail:3 Screened Out:0; h1 gradient=true sticky pill=fixed; restored",
+  "demoNodes": 360,
+  "errors": []
  }
 }
