@@ -1,4 +1,4 @@
-import { geoDistance, geoOrthographic, geoEquirectangular, geoPath, geoGraticule10, geoInterpolate, geoMercator } from 'd3-geo';
+import { geoArea, geoCentroid, geoDistance, geoOrthographic, geoEquirectangular, geoPath, geoGraticule10, geoInterpolate, geoMercator } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import countries110 from 'world-atlas/countries-110m.json';
 import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas, blip, fire } from '../lib.js';
@@ -1333,6 +1333,122 @@ V['cobe-globe-demo-carousel'] = (root, T) => {
     h('div', { style: { width: '456px', margin: '30px auto 70px' } }, h('div', { style: { border: `1px solid ${BLUE}` } }, tabs, h('div', { style: { display: 'flex', alignItems: 'center', padding: '12px 12px', font: `11px ${M}`, color: '#222' } }, cmdEl, h('span', { style: { cursor: 'pointer', fontSize: '9px', color: '#666', letterSpacing: '.06em' }, onclick: () => copy(CMD[tab], 'Copied') }, 'COPY'))), code));
   setTab('prompt'); go(0); requestAnimationFrame(frame); requestAnimationFrame(tick);
   window.__demoProof = async () => { const l0 = st.lam; go(3); const c3 = count.textContent; fire(cv, 'pointerdown', 200, 200); fire(cv, 'pointermove', 260, 210); fire(cv, 'pointerup', 260, 210); await sleep(60); const spun = st.lam !== l0; setTab('pnpm'); const pn = cmdEl.textContent; setTab('prompt'); go(0); await sleep(120); const labs = layer.querySelectorAll('.cb-lab').length; return `carousel→${c3} (${DEMOS[3].n}), drag spins=${spun}, tab pnpm="${pn}", dots=${DOTS.length}, labels=${labs}; restored to 1 / 13`; };
+};
+
+V['globle-hot-cold-3d-globe-guess-game'] = (root, T) => {
+  import('@fontsource/montserrat/400.css'); import('@fontsource/montserrat/500.css'); import('@fontsource/noto-sans/400.css'); import('@fontsource/noto-sans/700.css');
+  theme(root, T, { bg: '#bfe6ee', fg: '#111', ac: '#1a47e5', dark: false }); root.classList.add('scroll'); root.style.overflow = 'auto';
+  const MS = "'Montserrat',system-ui,sans-serif", NS = "'Noto Sans',system-ui,sans-serif";
+  const ALIAS = { 'United States of America': 'United States', 'Dem. Rep. Congo': 'DR Congo', 'Dominican Rep.': 'Dominican Republic', 'Central African Rep.': 'Central African Republic', 'Eq. Guinea': 'Equatorial Guinea', 'Bosnia and Herz.': 'Bosnia and Herzegovina', 'S. Sudan': 'South Sudan', 'Solomon Is.': 'Solomon Islands', 'Falkland Is.': 'Falkland Islands', 'Fr. S. Antarctic Lands': 'French Southern Lands', 'W. Sahara': 'Western Sahara', 'N. Cyprus': 'Northern Cyprus', 'eSwatini': 'Eswatini', 'Macedonia': 'North Macedonia' };
+  const norm = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const EXTRA = { usa: 'United States', us: 'United States', america: 'United States', uk: 'United Kingdom', britain: 'United Kingdom', greatbritain: 'United Kingdom', drc: 'DR Congo', korea: 'South Korea', czechrepublic: 'Czechia', ivorycoast: "Côte d'Ivoire", uae: 'United Arab Emirates', burma: 'Myanmar', swaziland: 'Eswatini', holland: 'Netherlands' };
+  const ICE = new Set(['Antarctica', 'Greenland', 'French Southern Lands']);
+  const DESERT = new Set(['Algeria', 'Libya', 'Egypt', 'Mali', 'Niger', 'Chad', 'Mauritania', 'Western Sahara', 'Sudan', 'Saudi Arabia', 'Yemen', 'Oman', 'United Arab Emirates', 'Qatar', 'Kuwait', 'Iraq', 'Iran', 'Jordan', 'Syria', 'Afghanistan', 'Pakistan', 'Turkmenistan', 'Uzbekistan', 'Kazakhstan', 'Mongolia', 'Australia', 'Namibia', 'Botswana', 'Somalia', 'Djibouti', 'Eritrea', 'Tunisia', 'Morocco', 'Israel', 'Palestine']);
+  const JUNGLE = new Set(['Brazil', 'Colombia', 'Peru', 'Venezuela', 'Ecuador', 'Bolivia', 'Guyana', 'Suriname', 'DR Congo', 'Congo', 'Gabon', 'Cameroon', 'Central African Republic', 'Equatorial Guinea', 'Indonesia', 'Papua New Guinea', 'Malaysia', 'Myanmar', 'Laos', 'Vietnam', 'Cambodia', 'Thailand', 'Liberia', 'Sierra Leone', 'Guinea', "Côte d'Ivoire", 'Ghana', 'Nigeria', 'Madagascar']);
+  const biome = (n, lat) => ICE.has(n) ? '#eef2f3' : DESERT.has(n) ? (lat > 35 ? '#b8a578' : '#cdae7c') : JUNGLE.has(n) ? '#3f6f35' : Math.abs(lat) > 58 ? '#8e9878' : Math.abs(lat) > 45 ? '#6f8a52' : '#628c47';
+  const mainPart = (f) => { if (f.geometry.type !== 'MultiPolygon') return f; const ps = f.geometry.coordinates.map((c) => ({ c, a: geoArea({ type: 'Polygon', coordinates: c }), m: geoCentroid({ type: 'Polygon', coordinates: c }) })); const big = ps.reduce((a, b) => (b.a > a.a ? b : a)); return { type: 'Feature', properties: f.properties, geometry: { type: 'MultiPolygon', coordinates: ps.filter((p) => geoDistance(p.m, big.m) < 0.2).map((p) => p.c) } }; };
+  const C = COUNTRIES.features.filter((f) => f.geometry).map((f) => { const name = ALIAS[f.properties.name] || f.properties.name; const mp = mainPart(f); const cen = geoCentroid(mp); const pts = []; const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates; for (const p of polys) for (const ring of p) for (const [lo, la] of ring) { const a = (la * Math.PI) / 180, b = (lo * Math.PI) / 180; pts.push(Math.sin(a), Math.cos(a), b); } return { f, mp, name, key: norm(name), cen, pts, col: biome(name, cen[1]) }; });
+  const byKey = new Map(C.map((c) => [c.key, c])); for (const [k, v] of Object.entries(EXTRA)) byKey.set(k, byKey.get(norm(v)));
+  const findC = (q) => byKey.get(norm(q)) || null;
+  const km = (A, B) => { if (A === B) return 0; let best = -2; const a = A.pts, b = B.pts; for (let i = 0; i < a.length; i += 3) for (let j = 0; j < b.length; j += 3) { const c = a[i] * b[j] + a[i + 1] * b[j + 1] * Math.cos(a[i + 2] - b[j + 2]); if (c > best) best = c; } return best > 0.9999999 ? 0 : Math.acos(Math.min(1, best)) * 6371; };
+  const STOPS = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'];
+  const heat = (d) => { const t = clamp(1 - Math.sqrt(Math.min(d, 15000) / 15000), 0, 1) * (STOPS.length - 1); const i = Math.min(STOPS.length - 2, Math.floor(t)), u = t - i; const A = STOPS[i], B = STOPS[i + 1]; const p = (x, o) => parseInt(x.slice(o, o + 2), 16); return '#' + [1, 3, 5].map((o) => Math.round(p(A, o) + (p(B, o) - p(A, o)) * u).toString(16).padStart(2, '0')).join(''); };
+  const POOL = ['Japan', 'Kenya', 'Canada', 'Peru', 'Norway', 'Vietnam', 'Egypt', 'Mexico', 'Australia', 'India', 'Turkey', 'Argentina', 'Thailand', 'Morocco', 'Poland', 'Iran', 'Chile', 'Nigeria', 'Spain', 'Mongolia', 'Indonesia', 'Colombia', 'Sweden', 'Ethiopia', 'Madagascar', 'Kazakhstan', 'Italy', 'Germany', 'South Africa', 'Brazil'];
+  const DAY = Math.floor((Date.now() + 9 * 3600e3) / 864e5), DAYS = new Date(DAY * 864e5).toISOString().slice(0, 10);
+  const mystery = findC(POOL[DAY % POOL.length]);
+  const KS = 'tg-globle-stats', KG = 'tg-globle-day';
+  const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } };
+  let stats = load(KS, { won: 0, streak: 0, best: 0, last: null, guessesTotal: 0 });
+  let guesses = []; let won = false; let unit = 'km'; let statT = 0; let byOrder = false;
+  // ---------- texture (mottled land) ----------
+  const tex = document.createElement('canvas'); tex.width = tex.height = 192; { const g = tex.getContext('2d'); const N = noise2(11); const im = g.createImageData(192, 192); for (let y = 0; y < 192; y++) for (let x = 0; x < 192; x++) { const n = N(x / 9, y / 9) - 0.5, k = (y * 192 + x) * 4, c = n > 0 ? [196, 172, 118] : [34, 66, 30]; im.data[k] = c[0]; im.data[k + 1] = c[1]; im.data[k + 2] = c[2]; im.data[k + 3] = Math.min(255, Math.abs(n) * 600); } g.putImageData(im, 0, 0); }
+  const drawGlobe = (cv, rot, R, halo) => { const g = cv.getContext('2d'); const W = cv.width / cv.dpr, H = cv.height / cv.dpr; g.setTransform(cv.dpr, 0, 0, cv.dpr, 0, 0); g.clearRect(0, 0, W, H); const cx = W / 2, cy = H / 2;
+    const proj = geoOrthographic().clipAngle(90).translate([cx, cy]).scale(R).rotate(rot); const path = geoPath(proj, g);
+    if (halo) { g.beginPath(); g.arc(cx, cy, R + 16, 0, 7); g.fillStyle = 'rgba(150,212,234,.55)'; g.fill(); }
+    const oc = g.createRadialGradient(cx - R * 0.3, cy - R * 0.35, R * 0.1, cx, cy, R); oc.addColorStop(0, '#2b7fc2'); oc.addColorStop(0.7, '#135a9a'); oc.addColorStop(1, '#0a4580');
+    g.beginPath(); path({ type: 'Sphere' }); g.fillStyle = oc; g.fill();
+    const gm = new Map(guesses.map((x) => [x.c, x]));
+    for (const c of C) { if (gm.has(c)) continue; g.beginPath(); path(c.f); g.fillStyle = c.col; g.fill(); }
+    g.save(); g.beginPath(); path(LAND); g.clip(); g.globalAlpha = 0.32; g.fillStyle = cv.pat || (cv.pat = g.createPattern(tex, 'repeat')); g.fillRect(0, 0, W, H); g.restore();
+    g.beginPath(); path(BORDERS); g.strokeStyle = 'rgba(40,60,30,.25)'; g.lineWidth = 0.5; g.stroke();
+    for (const x of guesses) { g.beginPath(); path(x.c.f); g.fillStyle = x.col; g.fill(); g.strokeStyle = '#000'; g.lineWidth = 1.4; g.stroke(); }
+    const sh = g.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.05, cx, cy, R * 1.02); sh.addColorStop(0, 'rgba(255,255,255,.16)'); sh.addColorStop(0.55, 'rgba(255,255,255,0)'); sh.addColorStop(1, 'rgba(0,18,48,.42)');
+    g.beginPath(); path({ type: 'Sphere' }); g.fillStyle = sh; g.fill(); };
+  const mkCv = (px) => { const c = h('canvas'); c.dpr = Math.min(2, devicePixelRatio || 1); c.width = px * c.dpr; c.height = px * c.dpr; c.style.width = c.style.height = px + 'px'; return c; };
+  // ---------- styles ----------
+  root.append(h('style', {}, `.gb{min-height:100%;position:relative;overflow:hidden;background:linear-gradient(180deg,#86d5ee 0%,#a9def0 28%,#c4e6e2 58%,#d9e6cc 82%,#ece9d2 100%);color:#111;font:400 15px/1.55 ${NS}}
+.gb-cl{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.55),rgba(255,255,255,0));filter:blur(6px);pointer-events:none}
+.gb-in{position:relative;width:min(680px,calc(100% - 32px));margin:0 auto;padding:22px 0 30px}
+.gb-hd{display:flex;align-items:center;border-bottom:1.5px solid #333;padding-bottom:2px}.gb-hd h1{flex:1;text-align:center;margin:0;font:400 34px/1.2 ${MS};letter-spacing:.06em;cursor:pointer}
+.gb-ic{width:24px;height:24px;border-radius:50%;display:inline-block;margin-right:12px;box-shadow:inset -3px -3px 5px #0004}.gb-ib{width:30px;height:30px;border:0;background:none;cursor:pointer;display:grid;place-items:center;padding:0}
+.gb h2{font:400 25px ${MS};text-align:center;margin:16px 0 18px}.gb p{margin:0 0 18px}.gb .hot{color:#d7301f;font-weight:700}
+.gb-ex{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0 22px;text-align:center;font-weight:700}.gb-ex svg{display:block;margin:0 auto 6px}
+.gb-mini{display:grid;justify-items:center;gap:10px;margin:40px 0 46px;font-weight:700;cursor:pointer}.gb-mini canvas{transition:transform .25s}.gb-mini:hover canvas{transform:scale(1.06)}
+.gb-ft{font-size:12.5px;display:flex;justify-content:space-between;margin-top:28px}.gb-ft a{color:inherit}.gb-ft .v{color:#999;text-align:right}
+.gb-row{display:flex;justify-content:center;gap:14px;margin-top:16px}.gb-row input{width:250px;height:42px;border:1px solid #777;border-radius:3px;padding:0 10px;font:400 16px ${NS};background:#fff}.gb-row button{height:42px;padding:0 20px;border:0;border-radius:4px;background:#1a47e5;color:#fff;font:700 16px ${NS};cursor:pointer}.gb-row button:active{transform:translateY(1px)}
+.gb-msg{text-align:center;font-weight:700;margin:12px 0 4px;min-height:24px}.gb-msg.win{color:#15803d}
+.gb-stage{position:relative;display:grid;place-items:center;margin-top:4px}.gb-stage canvas{cursor:grab;touch-action:none}.gb-stage canvas:active{cursor:grabbing}
+.gb-list{width:300px;margin:10px auto 0}.gb-list h3{font:700 18px ${NS};text-align:center;margin:0 0 8px}.gb-list ul{list-style:none;margin:0;padding:0}.gb-list li{display:flex;align-items:center;gap:10px;padding:3px 0;cursor:pointer}.gb-list li i{width:18px;height:18px;border-radius:50%;border:1px solid #0006;flex:none}.gb-list li small{margin-left:auto;color:#444;font-variant-numeric:tabular-nums}
+.gb-bd{text-align:center;margin:12px 0 4px;display:flex;justify-content:center;align-items:center;gap:10px}.gb-sw{display:inline-flex;align-items:center;gap:6px;font-size:13px}.gb-sw span{width:34px;height:18px;border-radius:9px;background:#7aa1f0;position:relative;cursor:pointer}.gb-sw span:after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .2s}.gb-sw.mi span:after{left:18px}
+.gb-ord{display:flex;justify-content:center;gap:8px;font-size:14px;align-items:center}.gb-ord input{width:16px;height:16px}
+.gb-mod{position:fixed;inset:var(--tg-h,38px) 0 0 0;background:#0005;display:none;place-items:center;z-index:30}.gb-mod.on{display:grid}.gb-mod>div{background:#fff;border-radius:10px;padding:22px 26px;width:360px;box-shadow:0 20px 50px #0004}.gb-mod h3{font:500 22px ${MS};text-align:center;margin:0 0 14px}.gb-mod table{width:100%;border-collapse:collapse;font-size:14px}.gb-mod td{padding:6px 0;border-bottom:1px solid #eee}.gb-mod td:last-child{text-align:right;font-weight:700;font-size:18px}.gb-mod .bt{display:flex;gap:10px;margin-top:16px}.gb-mod .bt button{flex:1;height:36px;border-radius:5px;border:1px solid #1a47e5;background:#fff;color:#1a47e5;font:700 14px ${NS};cursor:pointer}.gb-mod .bt button.p{background:#1a47e5;color:#fff}`));
+  const gb = h('div.gb'); const R0 = rng(4); for (let i = 0; i < 9; i++) gb.append(h('div.gb-cl', { style: { left: R0() * 100 - 10 + '%', top: 30 + R0() * 70 + '%', width: 220 + R0() * 260 + 'px', height: 90 + R0() * 80 + 'px' } }));
+  const inner = h('div.gb-in'); gb.append(inner); root.append(gb);
+  const statsSvg = `<svg width="22" height="20" viewBox="0 0 22 20" fill="none" stroke="#111" stroke-width="2"><path d="M2 19V11h5v8M7 19V3h6v16M13 19V8h6v11M1 19h20"/></svg>`;
+  const gearSvg = `<svg width="20" height="20" viewBox="0 0 24 24"><path fill="#111" d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.7a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.7a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg>`;
+  const modal = h('div.gb-mod', { onclick: (e) => e.target === modal && modal.classList.remove('on') }); gb.append(modal);
+  const showStats = () => { const avg = stats.won ? (stats.guessesTotal / stats.won).toFixed(1) : '–'; modal.replaceChildren(h('div', {}, h('h3', {}, 'Statistics'), h('table', {}, [['Games won', stats.won], ['Current streak', stats.streak], ['Max streak', stats.best], ['Avg. guesses', avg], ["Today's guesses", guesses.length]].map(([a, b]) => h('tr', {}, h('td', {}, a), h('td', {}, String(b))))), h('div.bt', {}, h('button', { onclick: () => { stats = { won: 0, streak: 0, best: 0, last: null, guessesTotal: 0 }; localStorage.setItem(KS, JSON.stringify(stats)); showStats(); } }, 'Reset'), h('button.p', { onclick: () => copy(`🌎 ${DAYS} 🌍\n🔥 ${stats.streak} | Avg. Guesses: ${avg}\n${guesses.map((x) => (x.d === 0 ? '🟥' : x.d < 2000 ? '🟧' : '🟨')).join('')} = ${guesses.length}\n\ngloble-game.com (clone)`, 'Score copied') }, 'Share')))); modal.classList.add('on'); };
+  const showSettings = () => { modal.replaceChildren(h('div', {}, h('h3', {}, 'Settings'), h('div.gb-ord', { style: { justifyContent: 'space-between' } }, 'Distance unit', unitSw()), h('p', { style: { fontSize: '13px', color: '#555', margin: '14px 0 0' } }, 'Mystery country rotates daily (KST). Progress is saved in this browser (localStorage).'), h('div.bt', {}, h('button.p', { onclick: () => modal.classList.remove('on') }, 'Done')))); modal.classList.add('on'); };
+  const hd = h('div.gb-hd', {}, h('span.gb-ic', { title: 'Globle: Capitals', style: { background: 'radial-gradient(circle at 35% 35%,#ffd36b,#e8582b 45%,#b0311b 70%,#3f62c9 71%,#21409b)' } }), h('span.gb-ic', { title: 'Globle: Leagues', style: { background: 'radial-gradient(circle at 35% 35%,#ffe58a,#42a3d9 40%,#2066b3 65%,#f2b02f 66%,#d56a1b)' } }),
+    h('h1', { onclick: () => go('intro') }, 'GLOBLE'), h('button.gb-ib', { 'aria-label': 'Statistics', html: statsSvg, onclick: showStats }), h('button.gb-ib', { 'aria-label': 'Settings', html: gearSvg, onclick: showSettings }));
+  // ---------- intro ----------
+  const silo = (name, col) => { const c = findC(name); const W = 120, H = 92; const pr = geoMercator().fitSize([W, H], c.mp); return h('div', {}, h('div', { html: `<svg width="${W}" height="${H}"><path d="${geoPath(pr)(c.mp)}" fill="${col}" stroke="#000" stroke-width="1"/></svg>` }), name); };
+  const miniCv = mkCv(96); let miniRot = [60, -10];
+  const intro = h('div', {}, h('h2', {}, 'How to Play'),
+    h('p', { html: 'Every day, there is a new Mystery Country. Your goal is to guess which country it is using as few guesses as possible. Each incorrect guess will appear on the globe with a colour indicating how close it is to the Mystery Country. The <span class="hot">hotter</span> the colour, the closer you are to the answer.' }),
+    h('p', { html: 'For example, if the Mystery Country is <b>Japan</b>, then the following countries would appear with these colours if guessed:' }),
+    h('div.gb-ex', {}, ['France', 'Nepal', 'Mongolia', 'South Korea'].map((n) => silo(n, heat(km(findC(n), findC('Japan')))))),
+    h('p', {}, 'A new Mystery Country will be available every day!'),
+    h('div.gb-mini', { onclick: () => go('game') }, miniCv, 'Click the globe to play!'),
+    h('p', { style: { fontSize: '13.5px' }, html: 'Already found today\'s Mystery Country? Find the world\'s capital cities with <u>Globle: Capitals</u> or play against your friends with <u>Globle: Leagues</u>!' }));
+  // ---------- game ----------
+  const inp = h('input', { placeholder: 'Enter country name here', list: 'gb-dl', autocomplete: 'off', onkeydown: (e) => { if (e.key === 'Enter') submit(); } });
+  const dl = h('datalist', { id: 'gb-dl' }, C.map((c) => h('option', { value: c.name })).sort((a, b) => a.value.localeCompare(b.value)));
+  const msg = h('div.gb-msg'); const SZ = 560, GR = 228; const big = mkCv(SZ); let rot = [-10, -20], tween = null, R = GR;
+  let dragS = null; big.addEventListener('pointerdown', (e) => { dragS = [e.clientX, e.clientY]; tween = null; big.setPointerCapture?.(e.pointerId); }); big.addEventListener('pointermove', (e) => { if (!dragS) return; const k = 0.32 * (GR / R); rot = [rot[0] + (e.clientX - dragS[0]) * k, clamp(rot[1] - (e.clientY - dragS[1]) * k, -85, 85)]; dragS = [e.clientX, e.clientY]; }); big.addEventListener('pointerup', () => (dragS = null));
+  big.addEventListener('wheel', (e) => { e.preventDefault(); R = clamp(R * (e.deltaY > 0 ? 0.92 : 1.08), 150, 900); }, { passive: false });
+  const listUl = h('ul'), border = h('b'), list = h('div.gb-list', { style: { display: 'none' } });
+  const swEl = []; const unitSw = () => { const el = h('label.gb-sw' + (unit === 'mi' ? '.mi' : ''), {}, 'km', h('span', { onclick: () => setUnit(unit === 'km' ? 'mi' : 'km') }), 'miles'); swEl.push(el); return el; };
+  const ordCb = h('input', { type: 'checkbox', onchange: () => { byOrder = ordCb.checked; drawList(); } });
+  list.append(h('h3', {}, 'Closest'), listUl, h('div.gb-bd', {}, h('span', {}, 'Closest border: ', border), unitSw()), h('label.gb-ord', {}, ordCb, 'Sort by order of guesses'));
+  const fmt = (d) => (unit === 'km' ? Math.round(d) : Math.round(d * 0.621371)).toLocaleString('en-US');
+  const setUnit = (u) => { unit = u; swEl.forEach((el) => el.classList.toggle('mi', u === 'mi')); drawList(); };
+  const drawList = () => { list.style.display = guesses.length ? '' : 'none'; const arr = byOrder ? guesses : [...guesses].sort((a, b) => a.d - b.d); listUl.replaceChildren(...arr.map((x) => h('li', { onclick: () => spinTo(x.c) }, h('i', { style: { background: x.col } }), x.c.name, h('small', {}, `${fmt(x.d)} ${unit}`)))); const m = Math.min(...guesses.map((x) => x.d)); border.textContent = guesses.length ? fmt(m) : '–'; };
+  const spinTo = (c) => { const to = [-c.cen[0], clamp(-c.cen[1], -70, 70)]; const from = [...rot]; let dl0 = to[0] - from[0]; dl0 = ((dl0 + 540) % 360) - 180; tween = { from, to: [from[0] + dl0, to[1]], t0: performance.now(), dur: 1100 }; };
+  const save = () => localStorage.setItem(KG, JSON.stringify({ day: DAYS, guesses: guesses.map((x) => x.c.name) }));
+  const add = (c, silent) => { const d = km(c, mystery); const prev = guesses[guesses.length - 1]; guesses.push({ c, d, col: c === mystery ? '#7f0000' : heat(d) });
+    if (c === mystery) { won = true; msg.className = 'gb-msg win'; msg.textContent = `🎉 The Mystery Country is ${c.name}! (${guesses.length} guesses)`; inp.disabled = true; if (!silent) { stats.won++; stats.guessesTotal += guesses.length; stats.streak = stats.last === DAY - 1 ? stats.streak + 1 : 1; stats.best = Math.max(stats.best, stats.streak); stats.last = DAY; localStorage.setItem(KS, JSON.stringify(stats)); statT = setTimeout(showStats, 1400); } }
+    else { msg.className = 'gb-msg'; msg.textContent = prev ? `${c.name} is ${d < prev.d ? 'warmer' : 'cooler'}` : `${c.name} is ${d < 1500 ? 'hot' : d < 5000 ? 'warm' : 'cold'}`; }
+    spinTo(c); drawList(); save(); };
+  const submit = () => { const q = inp.value.trim(); if (!q || won) return; const c = findC(q); if (!c) { msg.className = 'gb-msg'; msg.textContent = `"${q}" not found in database.`; return; } if (guesses.some((x) => x.c === c)) { msg.className = 'gb-msg'; msg.textContent = `Already guessed ${c.name}!`; inp.value = ''; return; } inp.value = ''; add(c); };
+  const game = h('div', {}, h('div.gb-row', {}, inp, dl, h('button', { onclick: submit }, 'Enter')), msg, h('div.gb-stage', {}, big), list);
+  const foot = h('div.gb-ft', {}, h('div', {}, h('div', {}, 'by Trainwreck Labs ▦'), h('div', { style: { marginTop: '8px' } }, 'Find TWL on Discord ◉')), h('div.v', {}, h('div', { style: { color: '#111' } }, 'Have a question?'), h('u', { style: { color: '#111' } }, 'Check out the FAQ'), h('div', { style: { marginTop: '8px' } }, 'v1.10.8 (clone) · ', h('u', {}, 'Update'))));
+  const body = h('div'); inner.append(hd, body, foot);
+  let screen = 'intro'; const go = (sc) => { screen = sc; body.replaceChildren(sc === 'intro' ? intro : game); if (sc === 'game') setTimeout(() => inp.focus(), 50); };
+  // restore today's progress
+  const saved = load(KG, null); if (saved && saved.day === DAYS) for (const n of saved.guesses) { const c = findC(n); if (c && !guesses.some((x) => x.c === c)) add(c, true); }
+  if (!guesses.length) msg.textContent = '';
+  const loop = (now) => { if (!root.isConnected) return; if (screen === 'intro') { miniRot[0] += 0.35; drawGlobe(miniCv, miniRot, 44, false); } else { if (tween) { const u = clamp((now - tween.t0) / tween.dur, 0, 1), e = 1 - Math.pow(1 - u, 3); rot = [tween.from[0] + (tween.to[0] - tween.from[0]) * e, tween.from[1] + (tween.to[1] - tween.from[1]) * e]; if (u >= 1) tween = null; } drawGlobe(big, rot, R, true); } requestAnimationFrame(loop); };
+  go('intro'); requestAnimationFrame(loop);
+  window.__demoProof = async () => { const snapS = localStorage.getItem(KS), snapG = localStorage.getItem(KG); const g0 = guesses.slice(), w0 = won, rot0 = [...rot];
+    go('game'); guesses = []; won = false; inp.disabled = false; const tries = ['France', 'Brazil', 'Japan', 'Mexico'].filter((n) => findC(n) !== mystery).slice(0, 3); const log = [];
+    for (const n of tries) { inp.value = n; submit(); log.push(msg.textContent); await sleep(250); }
+    await sleep(1000); const last = findC(tries[2]); const rotOk = Math.abs((((rot[0] + last.cen[0]) % 360) + 540) % 360 - 180) < 3;
+    const listN = listUl.children.length, bd = border.textContent; setUnit('mi'); const bdMi = border.textContent; setUnit('km'); ordCb.checked = true; ordCb.dispatchEvent(new Event('change')); const firstByOrder = listUl.firstChild?.textContent; ordCb.checked = false; ordCb.dispatchEvent(new Event('change'));
+    inp.value = 'Atlantis'; submit(); const bad = msg.textContent; inp.value = mystery.name; submit(); const winMsg = msg.textContent;
+    await sleep(80); clearTimeout(statT); modal.classList.remove('on');
+    guesses = g0; won = w0; inp.disabled = w0; rot = rot0; tween = null; msg.textContent = ''; msg.className = 'gb-msg'; drawList(); if (snapS == null) localStorage.removeItem(KS); else localStorage.setItem(KS, snapS); if (snapG == null) localStorage.removeItem(KG); else localStorage.setItem(KG, snapG); stats = load(KS, stats); go('intro');
+    return `guesses ${tries.join('/')} → [${log.join(' | ')}]; globe rotated to ${last.name}=${rotOk}; Closest list=${listN}, closest border ${bd} km / ${bdMi} mi; order-sort first=${firstByOrder}; invalid → "${bad}"; win → "${winMsg}"; restored intro + localStorage`; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }

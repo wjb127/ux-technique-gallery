@@ -233,7 +233,8 @@
   "musicmap-genre-carta-desk",
   "truesize-country-compare-map",
   "citylines-transit-history-map",
-  "cobe-globe-demo-carousel"
+  "cobe-globe-demo-carousel",
+  "globle-hot-cold-3d-globe-guess-game"
  ],
  "chart": [
   "bubble-chart-time-scrubber",
@@ -364,7 +365,9 @@
   "opal-scroll-word-reveal-odometer-gems",
   "polestar-4-configurator-swatch-gallery-price-rail",
   "mercury-demo-banking-dashboard-persona-tour",
-  "zed-blueprint-grid-kbd-hint-command-palette"
+  "zed-blueprint-grid-kbd-hint-command-palette",
+  "arc-stitched-banner-grain-blue-quote-marquee",
+  "screen-studio-editor-timeline-hero-tabbed-zoom-clips"
  ],
  "ux": [
   "5-state-gate",
