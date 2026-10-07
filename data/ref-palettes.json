@@ -1,4 +1,24 @@
 {
+ "airpods-pro-highlights-carousel-sticky-localnav": {
+  "bg": "#f1f1f3",
+  "fg": "#666a70",
+  "panel": "#f6f6f6",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.3
+ },
+ "opal-scroll-word-reveal-odometer-gems": {
+  "bg": "#010101",
+  "fg": "#bcd2d7",
+  "panel": "#020202",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.2
+ },
  "ia-writer-focus-mode-typewriter-hero": {
   "bg": "#f7f7f7",
   "fg": "#141414",
