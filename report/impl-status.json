@@ -2626,5 +2626,59 @@
   "proof": "screener rows=5; The Screener:5 Imbox:3 The Feed:2 Paper Trail:2 Screened Out:0; Yes(Sunny) → imbox new=1; dest menu open=true; Todd→Paper Trail new=1; Luxe(dest Feed) → feed new=1; No(Jeff) → screened out=1; box switch Feed h2=\"The Feed is for your casual, whenever reads\" cards=3; undo → screener rows=2; The Screener:2 Imbox:4 The Feed:3 Paper Trail:3 Screened Out:0; h1 gradient=true sticky pill=fixed; restored",
   "demoNodes": 360,
   "errors": []
+ },
+ "mercury-demo-banking-dashboard-persona-tour": {
+  "url": "https://ux-technique-gallery.vercel.app/t/mercury-demo-banking-dashboard-persona-tour/",
+  "ok": true,
+  "at": "2026-10-07T11:57:53.927Z",
+  "http": 200,
+  "proof": "welcome=\"Welcome, Jane\" balance=$5,216,471.18; chart scrub → $4,375,501.70 September 22, 2026; persona Ecommerce tasks=4 first=\"$Pay suppliers internationally\"; coach-mark \"Pay contractors in a few clicks\" ring=true; step2 → \"Track every payment\"; task done=true; route Transactions rows=13; Money in filter rows=7; coach-mark \"We categorized past transactions for you\"; hide balances=true; restored",
+  "demoNodes": 223,
+  "errors": []
+ },
+ "zed-blueprint-grid-kbd-hint-command-palette": {
+  "url": "https://ux-technique-gallery.vercel.app/t/zed-blueprint-grid-kbd-hint-command-palette/",
+  "ok": true,
+  "at": "2026-10-07T11:57:53.919Z",
+  "http": 200,
+  "proof": "D→download=1 S→signup modal=true; C→open https://github.com/zed-industries/zed; Ctrl+Shift+P palette=true sections=Switch theme/Zed's brand/Navigation items=13; arrow highlight=\"Copy logo as SVG\"; filter \"dark\" → Turn dark mode on; return → dark=true bg=rgb(15, 16, 18) palette=false; label now \"Turn dark mode off\"; esc closes=true dark=false; restored",
+  "demoNodes": 207,
+  "errors": []
+ },
+ "stripe-press-3d-book-stack-catalog": {
+  "url": "https://ux-technique-gallery.vercel.app/t/stripe-press-3d-book-stack-catalog/",
+  "ok": true,
+  "at": "2026-10-07T11:57:53.932Z",
+  "http": 200,
+  "proof": "books=20 restGap=61; scroll spread gap=111 cover=36px activeTick=4; detail open bg=rgb(43, 39, 56) title=\"Built to Grow: A Handbook for \" cover=true; back restores scroll=true; restored",
+  "demoNodes": 248,
+  "errors": []
+ },
+ "opal-scroll-word-reveal-odometer-gems": {
+  "url": "https://ux-technique-gallery.vercel.app/t/opal-scroll-word-reveal-odometer-gems/",
+  "ok": true,
+  "at": "2026-10-07T11:57:53.928Z",
+  "http": 200,
+  "proof": "odometer 628,491,618 → 628,491,803 rolled=true; word reveal 12/23 white at 45%; all words=true; rule toggle on=3; timer running 24:00; stats 1h 23m / 94% 93% 90%; gems=48; restored",
+  "demoNodes": 366,
+  "errors": []
+ },
+ "airpods-pro-highlights-carousel-sticky-localnav": {
+  "url": "https://ux-technique-gallery.vercel.app/t/airpods-pro-highlights-carousel-sticky-localnav/",
+  "ok": true,
+  "at": "2026-10-07T11:57:53.927Z",
+  "http": 200,
+  "proof": "localnav sticky=sticky top=0 stuck=true; autoplay progress=13%; dot jump active=2 width=48px; paused holds=true; rail next scrollLeft=334; restored",
+  "demoNodes": 134,
+  "errors": []
+ },
+ "polestar-4-configurator-swatch-gallery-price-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/polestar-4-configurator-swatch-gallery-price-rail/",
+  "ok": true,
+  "at": "2026-10-07T11:57:53.926Z",
+  "http": 200,
+  "proof": "base price=$32,800 car=#c3c5c7; snow click → car=#f1f1ef skeleton=true continueDisabled=true; recalc price=$34,100; 21in Sport → view=3 transform=scale(3.1) translate(28.9%, -22%) price=$35,900; url state=true; matte → perf pack auto=true price=$38,600; continue drawer=true; restored price=$32,800",
+  "demoNodes": 313,
+  "errors": []
  }
 }
