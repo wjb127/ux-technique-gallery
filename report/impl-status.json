@@ -2572,5 +2572,32 @@
   "proof": "menu open=true; date→\"Tuesday, Oct 6\" title \"🍬 Stretching the Joke\"→\"🎈 Hot Air\"; crossword typed \"P\" sel=1 status=In progress; flipart flipped 4 → Picture complete! (Solved ✓); hue swap tile ok=true; circuits HIGH ok=true status=In progress; typeshift word=SPARK found=[SPARK]; countdown 58→57; news more=true; restored",
   "demoNodes": 1215,
   "errors": []
+ },
+ "slowroads-zen-title-procedural-drive": {
+  "url": "https://ux-technique-gallery.vercel.app/t/slowroads-zen-title-procedural-drive/",
+  "ok": true,
+  "at": "2026-10-07T00:08:43.301Z",
+  "http": 200,
+  "proof": "webgl ready=true; begin → overlay hidden=true hud=true; moved 2.8m speed=52km/h; manual steer u -1.90→-1.42; units → 35 mph; settings open, tod→noon sky rgb(172, 112, 80)→rgb(201, 203, 201); persisted=true; esc pause overlay=true; restored",
+  "demoNodes": 87,
+  "errors": []
+ },
+ "duolingo-mascot-onboarding-quiz-flow": {
+  "url": "https://ux-technique-gallery.vercel.app/t/duolingo-mascot-onboarding-quiz-flow/",
+  "ok": true,
+  "at": "2026-10-07T00:08:43.281Z",
+  "http": 200,
+  "proof": "course=Spanish step=welcome url=welcome; bubble typed \"Hi there! I’m Duo!\"; step=hdyhau continue disabled=true progress=10%; picked YouTube → continue on=true; reason travel → \"Best thing to pack is the local language!\"; proficiency bars filled=2; overview items=3 cont=true; goal=10 min / dayRegular; choosePath cards=2 progress=85%; back → dailyGoal (kept sel=1); final=done 100%; reset picker visible=true; restored",
+  "demoNodes": 265,
+  "errors": []
+ },
+ "pixelthoughts-star-shrink-60s-ritual": {
+  "url": "https://ux-technique-gallery.vercel.app/t/pixelthoughts-star-shrink-60s-ritual/",
+  "ok": true,
+  "at": "2026-10-07T00:08:43.300Z",
+  "http": 200,
+  "proof": "intro visible=true; input phase, prompt=\"Put a stressful thought in the star\"; star text=\"I have too many deadlines\"; phase=run form hidden=true; star scale 0s:1.00 15s:0.83 30s:0.60 45s:0.34 59s:0.04; prompts \"....and breathe out\" → \"Your mind is holding them all at once\"; sound=true; end screen=true \"Hope you feel less stressed\"; restored",
+  "demoNodes": 24,
+  "errors": []
  }
 }
