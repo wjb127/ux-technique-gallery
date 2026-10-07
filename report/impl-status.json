@@ -2707,5 +2707,32 @@
   "proof": "guesses France/Brazil/Japan → [France is hot | Brazil is cooler | Japan is warmer]; globe rotated to Japan=true; Closest list=3, closest border 824 km / 512 mi; order-sort first=France824 km; invalid → \"\"Atlantis\" not found in database.\"; win → \"🎉 The Mystery Country is Norway! (4 guesses)\"; restored intro + localStorage",
   "demoNodes": 62,
   "errors": []
+ },
+ "rhode-lip-tint-pdp-swatch-route-cart-drawer": {
+  "url": "https://ux-technique-gallery.vercel.app/t/rhode-lip-tint-pdp-swatch-route-cart-drawer/",
+  "ok": true,
+  "at": "2026-10-07T20:07:47.709Z",
+  "http": 200,
+  "proof": "swatch jelly bean → url=#/products/peptide-lip-tint-jelly-bean label=\"jelly bean - shimmery sheer pink\" hero swapped=true button=rgb(223, 158, 187); sold-out → \"SOLD OUT - NOTIFY ME\"; buy → drawer open=true 1 item, progress=44.4444%, \"add $25.00 more for FREE shipping\", nav CART (1); + pocket blush → subtotal $45.00, \"you’ve unlocked FREE shipping!\"; stepper + → 3 items; restored pretzel + cart(0) + url",
+  "demoNodes": 135,
+  "errors": []
+ },
+ "dinamo-favorit-fullscreen-variable-axis-tester": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dinamo-favorit-fullscreen-variable-axis-tester/",
+  "ok": true,
+  "at": "2026-10-07T20:07:47.704Z",
+  "http": 200,
+  "proof": "family dropdown=true (7); pill=\"Favorit Condensed\"; fullscreen open=true autoplay drift wdth 116→137 wght 552→784 slnt -0.4→-2.5; drag weight → playing=false label=\"Weight 900\" fvs=\"opsz\" 144, \"slnt\" -2.54, \"wdth\" 136.8, \"wght\" 900; typed → card text=\"Junbok clones Dinamo\"; reset → Slant 0/Width 100/Weight 400; closed=true; restored defaults",
+  "demoNodes": 286,
+  "errors": []
+ },
+ "flocus-gradient-focus-dashboard-mode-toggle": {
+  "url": "https://ux-technique-gallery.vercel.app/t/flocus-gradient-focus-dashboard-mode-toggle/",
+  "ok": true,
+  "at": "2026-10-07T20:07:47.694Z",
+  "http": 200,
+  "proof": "gate closed=true; focus: tabs=[FOCUS/SHORT BREAK/LONG BREAK] timer=25:00; short break=05:00; ran 1s → 24:59, reset → 25:00; ambient: widget=true FOCUS 25:00 bg=forest-illustration label=Ambient; tasks panel open=true rows=3 first=\"Ship the clone\"; +Add Task upsell=true; settings drawer open=true scenic thumbs=4 applied=Lofi Clouds; restored Home + Thermal",
+  "demoNodes": 249,
+  "errors": []
  }
 }
