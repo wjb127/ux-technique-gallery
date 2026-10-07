@@ -21,7 +21,8 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'ia-writer-focus-mode-typewriter-hero': '글쓰기 에디터', 'devouring-details-scroll-ruler-reference-manual': '스크롤 인터랙션', 'hey-screener-yes-no-gradient-inbox': '인박스 인터랙션',
   'stripe-press-3d-book-stack-catalog': '3D 카탈로그', 'airpods-pro-highlights-carousel-sticky-localnav': '제품 스토리 캐러셀', 'opal-scroll-word-reveal-odometer-gems': '스크롤 인터랙션',
   'polestar-4-configurator-swatch-gallery-price-rail': '차량 컨피규레이터', 'mercury-demo-banking-dashboard-persona-tour': '뱅킹 대시보드', 'zed-blueprint-grid-kbd-hint-command-palette': '커맨드 팔레트 랜딩',
-  'globle-hot-cold-3d-globe-guess-game': '지구본 추리 게임', 'arc-stitched-banner-grain-blue-quote-marquee': '브랜드 랜딩', 'screen-studio-editor-timeline-hero-tabbed-zoom-clips': '에디터 목업 랜딩' };
+  'globle-hot-cold-3d-globe-guess-game': '지구본 추리 게임', 'arc-stitched-banner-grain-blue-quote-marquee': '브랜드 랜딩', 'screen-studio-editor-timeline-hero-tabbed-zoom-clips': '에디터 목업 랜딩',
+  'flocus-gradient-focus-dashboard-mode-toggle': '집중 대시보드', 'dinamo-favorit-fullscreen-variable-axis-tester': '가변 폰트 테스터', 'rhode-lip-tint-pdp-swatch-route-cart-drawer': '뷰티 상품 상세(PDP)' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

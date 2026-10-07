@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-flocus-gradient-focus-dashboard-mode-toggle",
+  "slug": "flocus-gradient-focus-dashboard-mode-toggle",
+  "name": "Gradient Focus Dashboard with Home/Focus/Ambient Mode Toggle + Glass Widget Dock (Flocus)",
+  "date": "2026-10-08",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://app.flocus.com/",
+  "domain": "app.flocus.com",
+  "product": "Flocus focus dashboard",
+  "checkpoints": [
+   "Full-bleed purple-to-coral mesh gradient, flocus wordmark top-left, italic-free quote top-right, greeting + huge Degular-style clock centered",
+   "Bottom-left dock (Tasks / Music / Notepad) and bottom-right segmented mode toggle (Ambient / Home / Focus) + settings + fullscreen, with label under the active button",
+   "Focus mode: 'What do you want to focus on?', FOCUS / SHORT BREAK / LONG BREAK tabs with dot pager, 25:00 timer and play/reset/PiP buttons",
+   "Ambient mode: illustrated forest scene background with a small glass 25:00 widget top-right",
+   "Tasks glass panel with three 'Type your priority' rows and + Add Task (free tier shows a Plus upsell modal)",
+   "Settings drawer: left nav (Themes, Clock, Focus Timer, Stats...), Home/Focus/Ambient theme tabs, theme library chips and gradient thumbnails"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-dinamo-favorit-fullscreen-variable-axis-tester",
+  "slug": "dinamo-favorit-fullscreen-variable-axis-tester",
+  "name": "Expand-to-Fullscreen Variable Font Tester with Auto-Animating Slant/Width/Weight Sliders (Dinamo Favorit)",
+  "date": "2026-10-08",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://abcdinamo.com/typefaces/favorit",
+  "domain": "abcdinamo.com",
+  "product": "ABC Favorit by Dinamo Typefaces",
+  "checkpoints": [
+   "Hero: huge white pill 'Favorit ↕' family switcher on electric blue, playful fortune-cookie cookie banner hand",
+   "Sticky pill tab row (Families / Try / Features / Info / Glyphs / In Use / PDF Specimen / Trial fonts / Buy)",
+   "Rounded blue tester card 'He tried her best' with mono-labelled Slant / Width / Weight sliders",
+   "Try expands card to fullscreen with close X, family dropdown, 'What are Variable Fonts?' help pill",
+   "Axes auto-animate (values drift) with pause and reset buttons; dragging a slider takes over",
+   "Contenteditable text: typing replaces sample, font variation settings update live"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-rhode-lip-tint-pdp-swatch-route-cart-drawer",
+  "slug": "rhode-lip-tint-pdp-swatch-route-cart-drawer",
+  "name": "Soft-Beige Beauty PDP with Shade Swatch Routing + Free-Shipping Cart Drawer (rhode)",
+  "date": "2026-10-08",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.rhodeskin.com/products/peptide-lip-tint-pretzel",
+  "domain": "rhodeskin.com",
+  "product": "rhode peptide lip tint product page",
+  "checkpoints": [
+   "Beige rounded-card layout: floating rounded nav card (SHOP/ABOUT/FUTURES · rhode · SEARCH/ACCOUNT/CART), shipping strip above",
+   "Left large rounded hero photo with vertical thumbnail rail; right panel with Rektorat Heavy lowercase title, subtitle, stars (10,084), description",
+   "Shade line 'pretzel - shimmery warm mauve' with Limited Edition and Core Shades swatch rows (round chips, ring on active, sold-out state)",
+   "Clicking a swatch swaps URL (/products/peptide-lip-tint-jelly-bean), shade label and hero image without full reload",
+   "Full-width rounded mauve 'BUY LIP TINT - $20.00' pill + Afterpay line",
+   "Right cart drawer: free-shipping progress bar ('add $25.00 more'), qty stepper, 'Complete your rhode ROUTINE' upsell card, Checkout buttons"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-globle-hot-cold-3d-globe-guess-game",
   "slug": "globle-hot-cold-3d-globe-guess-game",
   "name": "Hot/Cold Heat-Color 3D Globe Guessing Game (Globle)",
