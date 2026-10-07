@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-polestar-4-configurator-swatch-gallery-price-rail",
+  "slug": "polestar-4-configurator-swatch-gallery-price-rail",
+  "name": "Car Configurator with Swatch-Driven Gallery + Sticky Price Rail (Polestar 4)",
+  "date": "2026-10-07",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.polestar.com/us/configure/polestar-4-coupe",
+  "domain": "polestar.com",
+  "product": "Polestar 4 coupe online configurator",
+  "checkpoints": [
+   "Two-column layout: large light-gray gallery stage (left) with prev/next arrows and 9-step pager, scrolling options column (right)",
+   "Motor selection cards (Rear / Dual) with orange selected border, struck-through original price and 'Limited offer' tag",
+   "Exterior section: 6 metallic + 2 matte square swatches; matte locked behind 'Performance pack' note; selected swatch gets orange outline and name/description line",
+   "Picking a swatch recolors the car image; picking a wheel card jumps the gallery to a wheel close-up",
+   "Sticky bottom rail: Estimated delivery + total price + 'Change payment' + Ask a question / Continue; skeleton shimmer while price recalculates",
+   "Build state serialized into the URL (?state=...) so a refresh restores the configuration"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-mercury-demo-banking-dashboard-persona-tour",
+  "slug": "mercury-demo-banking-dashboard-persona-tour",
+  "name": "Public Demo Banking Dashboard with Persona Tour Panel (Mercury)",
+  "date": "2026-10-07",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://demo.mercury.com/dashboard",
+  "domain": "demo.mercury.com",
+  "product": "Mercury public product demo",
+  "checkpoints": [
+   "Dark top demo banner ('Explore the Mercury Demo', 'Viewing as Admin' dropdown, Open account pill) above the app shell",
+   "Left sidebar with Banking/Books segmented toggle, nav with counts and 'New' tag, Bookmarks group with sub-balances",
+   "'Welcome, Jane' header + pill action row (Send primary, Transfer, Deposit, Request, Upload bill)",
+   "Balance card: big $5,216,471.18 with small superscript cents, 30-day area chart with soft lavender fill, line/table toggle, in/out deltas",
+   "Floating 'Try out Mercury for yourself' panel with persona tabs (Startup/Ecommerce/Agency/More) swapping a guided task list",
+   "Transactions route: Money in/out summary, filter chips, table with avatar initials, Failed tag, struck amount, and dismissible coach-mark tooltip"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-zed-blueprint-grid-kbd-hint-command-palette",
+  "slug": "zed-blueprint-grid-kbd-hint-command-palette",
+  "name": "Blueprint-Grid Dev Landing with Single-Key Shortcuts + Site Command Palette (Zed)",
+  "date": "2026-10-07",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://zed.dev/",
+  "domain": "zed.dev",
+  "product": "Zed code editor website",
+  "checkpoints": [
+   "Warm off-white page framed by thin blueprint guide lines with small crosshair markers at intersections",
+   "Centered italic serif (IBM Plex Serif) blue headline 'Your last next editor' + mono-ish body copy",
+   "Buttons carry <kbd> hint badges (D download, C clone source, S sign up); pressing the key fires the button (C opens GitHub in new tab)",
+   "Ctrl+Shift+P opens a centered 'Navigate…' palette with grouped sections (Switch theme / Zed's brand / Navigation), arrow-key highlight, esc/return footer hints",
+   "Three-column Fast / Agentic / Collaborative strip divided by hairlines",
+   "Editor screenshot window below with floating 'Watch Demo' chip"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-stripe-press-3d-book-stack-catalog",
   "slug": "stripe-press-3d-book-stack-catalog",
   "name": "3D Book-Spine Stack Catalog + Themed Book Detail (Stripe Press)",

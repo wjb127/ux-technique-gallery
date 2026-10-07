@@ -5,3 +5,4 @@ t/
 report/ref-status.json
 .env*
 .tmp/
+.tmpcheck/

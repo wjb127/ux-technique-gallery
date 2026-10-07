@@ -1,4 +1,44 @@
 {
+ "polestar-4-configurator-swatch-gallery-price-rail": {
+  "bg": "#787878",
+  "fg": "#ffffff",
+  "panel": "#7f7f7f",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.29
+ },
+ "mercury-demo-banking-dashboard-persona-tour": {
+  "bg": "#ffffff",
+  "fg": "#363644",
+  "panel": "#fbfcfd",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.51
+ },
+ "zed-blueprint-grid-kbd-hint-command-palette": {
+  "bg": "#f3f3f1",
+  "fg": "#141414",
+  "panel": "#f4f4f2",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.22
+ },
+ "stripe-press-3d-book-stack-catalog": {
+  "bg": "#201819",
+  "fg": "#9a8f5e",
+  "panel": "#000000",
+  "dark": true,
+  "ac": "#26303c",
+  "ac2": "#5e2337",
+  "ac3": "#9a8f5e",
+  "coverage": 0.53
+ },
  "airpods-pro-highlights-carousel-sticky-localnav": {
   "bg": "#f1f1f3",
   "fg": "#666a70",
