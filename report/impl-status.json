@@ -2680,5 +2680,32 @@
   "proof": "base price=$32,800 car=#c3c5c7; snow click → car=#f1f1ef skeleton=true continueDisabled=true; recalc price=$34,100; 21in Sport → view=3 transform=scale(3.1) translate(28.9%, -22%) price=$35,900; url state=true; matte → perf pack auto=true price=$38,600; continue drawer=true; restored price=$32,800",
   "demoNodes": 313,
   "errors": []
+ },
+ "arc-stitched-banner-grain-blue-quote-marquee": {
+  "url": "https://ux-technique-gallery.vercel.app/t/arc-stitched-banner-grain-blue-quote-marquee/",
+  "ok": true,
+  "at": "2026-10-07T16:09:06.637Z",
+  "http": 200,
+  "proof": "banner top per scrollY [0:76, 600:76m, 1200:76m, 1800:76m, 2600:76m] pinned=true; marquee animation=marquee, quotes=16 (4×4), moving=true; space Hobbies → \"MF ZINE v.013 — TAKE ROOT\"; split toggled; restored scroll + Work space",
+  "demoNodes": 195,
+  "errors": []
+ },
+ "screen-studio-editor-timeline-hero-tabbed-zoom-clips": {
+  "url": "https://ux-technique-gallery.vercel.app/t/screen-studio-editor-timeline-hero-tabbed-zoom-clips/",
+  "ok": true,
+  "at": "2026-10-07T16:09:06.639Z",
+  "http": 200,
+  "proof": "editor auto-zoom at 0:04=true, wallpaper swap=true; nav glass on scroll=true; Editing: Zoom=paused, Editing=playing; Clarity: Editing=paused(t frozen=true), Clarity=playing; pause button → paused; loupe lens=true, classic scale=true; restored Zoom tab playing + top",
+  "demoNodes": 434,
+  "errors": []
+ },
+ "globle-hot-cold-3d-globe-guess-game": {
+  "url": "https://ux-technique-gallery.vercel.app/t/globle-hot-cold-3d-globe-guess-game/",
+  "ok": true,
+  "at": "2026-10-07T16:09:06.624Z",
+  "http": 200,
+  "proof": "guesses France/Brazil/Japan → [France is hot | Brazil is cooler | Japan is warmer]; globe rotated to Japan=true; Closest list=3, closest border 824 km / 512 mi; order-sort first=France824 km; invalid → \"\"Atlantis\" not found in database.\"; win → \"🎉 The Mystery Country is Norway! (4 guesses)\"; restored intro + localStorage",
+  "demoNodes": 62,
+  "errors": []
  }
 }
