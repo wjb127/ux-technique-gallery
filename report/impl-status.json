@@ -2734,5 +2734,32 @@
   "proof": "gate closed=true; focus: tabs=[FOCUS/SHORT BREAK/LONG BREAK] timer=25:00; short break=05:00; ran 1s → 24:59, reset → 25:00; ambient: widget=true FOCUS 25:00 bg=forest-illustration label=Ambient; tasks panel open=true rows=3 first=\"Ship the clone\"; +Add Task upsell=true; settings drawer open=true scenic thumbs=4 applied=Lofi Clouds; restored Home + Thermal",
   "demoNodes": 249,
   "errors": []
+ },
+ "airbnb-segmented-search-pill-calendar-guests-map-pins": {
+  "url": "https://ux-technique-gallery.vercel.app/t/airbnb-segmented-search-pill-calendar-guests-map-pins/",
+  "ok": true,
+  "at": "2026-10-08T00:08:23.324Z",
+  "http": 200,
+  "proof": "where active=true pill gray=true button label visible=false suggestions=8; typing \"Seo\" → Seoul, South Korea; → When opened=true; range label=\"Nov 15 - 20\" band days=4 past disabled=7; ±2 chip → \"Nov 15 - 20 ± 2\"; Flexible tab → chips=Weekend/Week/Month month cards=12; children minus disabled at 0=true; + + → \"2 guests\" clear x shown=true; search → results \"Homes in SeoulNov 15 - 202 guests\" cards=10 pins=10; hover card 0 → pin $749 highlighted=true bg=rgb(255, 255, 255); left When popover open with the range for the screenshot",
+  "demoNodes": 728,
+  "errors": []
+ },
+ "nts-dual-live-channel-bar-expand-schedule-mixtape-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/nts-dual-live-channel-bar-expand-schedule-mixtape-rail/",
+  "ok": true,
+  "at": "2026-10-08T00:08:23.334Z",
+  "http": 200,
+  "proof": "ch1 play → stop square=true cur=ch1; ch2 play → ch1 stopped=true ch2 stop=true; hero play → cur=ep0, bar ch2 back to triangle=true; chevron → panel open=true height=205px titles=MOBILEGIRL | IN FOCUS: SOUL INNOVATORS next=\"NEXT ON 1 ›10:00 - 11:00MAKE-BELIEVE W/ OBJECT BLUE \"; next → 1 / 14 → 2 / 14 \"LEX WALTON\"; auto-advance → 3 / 14; /infinite-mixtapes grid tiles=10 hash=#/infinite-mixtapes; left ch1 in playing state (audio muted) with the now/next panel open",
+  "demoNodes": 322,
+  "errors": []
+ },
+ "basement-human-machine-toggle-3d-hq-ascii-index": {
+  "url": "https://ux-technique-gallery.vercel.app/t/basement-human-machine-toggle-3d-hq-ascii-index/",
+  "ok": true,
+  "at": "2026-10-08T00:08:23.338Z",
+  "http": 200,
+  "proof": "top bar online=(6) showcase sup=Showcase(26); pick at arcade px(660,487) → arcade; arcade click → zoomed, CRT list shown=true items=12 nav Lab orange=true crt=816.546pxx662.647px; ESC/back → home view=true; pointer tilt → look.x 0.20→0.28; MACHINE → ascii logo=true nav=/HOME /SERVICES /SHOWCASE first row=\"NAME ........BASEMENT.STUDIO (CLONE DEMO)\" orange=rgb(255, 77, 0); /SERVICES active=true; HUMAN restored hero visible=true logos=18 particles=2600",
+  "demoNodes": 145,
+  "errors": []
  }
 }
