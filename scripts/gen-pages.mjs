@@ -23,7 +23,8 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'polestar-4-configurator-swatch-gallery-price-rail': '차량 컨피규레이터', 'mercury-demo-banking-dashboard-persona-tour': '뱅킹 대시보드', 'zed-blueprint-grid-kbd-hint-command-palette': '커맨드 팔레트 랜딩',
   'globle-hot-cold-3d-globe-guess-game': '지구본 추리 게임', 'arc-stitched-banner-grain-blue-quote-marquee': '브랜드 랜딩', 'screen-studio-editor-timeline-hero-tabbed-zoom-clips': '에디터 목업 랜딩',
   'flocus-gradient-focus-dashboard-mode-toggle': '집중 대시보드', 'dinamo-favorit-fullscreen-variable-axis-tester': '가변 폰트 테스터', 'rhode-lip-tint-pdp-swatch-route-cart-drawer': '뷰티 상품 상세(PDP)',
-  'airbnb-segmented-search-pill-calendar-guests-map-pins': '숙소 검색 플로우', 'nts-dual-live-channel-bar-expand-schedule-mixtape-rail': '라이브 라디오 플레이어', 'basement-human-machine-toggle-3d-hq-ascii-index': '3D 에이전시 사이트' };
+  'airbnb-segmented-search-pill-calendar-guests-map-pins': '숙소 검색 플로우', 'nts-dual-live-channel-bar-expand-schedule-mixtape-rail': '라이브 라디오 플레이어', 'basement-human-machine-toggle-3d-hq-ascii-index': '3D 에이전시 사이트',
+  'a24-title-stack-hover-hero-swap-masonry-films': '영화 스튜디오 히어로', 'rijksmuseum-floating-search-dock-masonry-filter-drawer-deep-zoom': '미술관 컬렉션 탐색', 'copilot-blurred-tilted-category-pills-hero-split-glass-nav': '핀테크 앱 랜딩' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
