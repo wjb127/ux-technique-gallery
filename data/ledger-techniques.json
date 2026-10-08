@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-airbnb-segmented-search-pill-calendar-guests-map-pins",
+  "slug": "airbnb-segmented-search-pill-calendar-guests-map-pins",
+  "name": "Segmented Search Pill with Where/When/Who Popovers, Two-Month Range Calendar, Guest Steppers + Map Price Pins (Airbnb)",
+  "date": "2026-10-08",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.airbnb.com/",
+  "domain": "airbnb.com",
+  "product": "Airbnb homes search",
+  "checkpoints": [
+   "Header: coral airbnb logo, All/Homes/Experiences/Services tabs with 3D illustrated icons and underline on active",
+   "Three-segment search pill (Where / When / Who) with coral round search button; active segment becomes a raised white pill while the rest turn gray, button expands to 'Search' label",
+   "Where popover: Suggested destinations list with pastel icon tiles and one-line reasons",
+   "When popover: Dates/Flexible segmented tabs, two-month calendar, start/end black circles with gray range band, ±1/2/3/7/14 day chips, label updates to 'Nov 15 - 20'",
+   "Who popover: Adults/Children/Infants/Pets rows with circular -/+ steppers, minus disabled at 0, label '2 guests' and clear x",
+   "Results: compact pill (Homes in Seoul · Any week · 2 guests), amenity filter chips, card grid + sticky map with price pins; hovering a card enlarges/darkens its pin"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-nts-dual-live-channel-bar-expand-schedule-mixtape-rail",
+  "slug": "nts-dual-live-channel-bar-expand-schedule-mixtape-rail",
+  "name": "Dual Live Channel Bar with Expandable Now/Next Panel, Auto Hero Carousel + Infinite Mixtape Rail (NTS Radio)",
+  "date": "2026-10-08",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.nts.live/",
+  "domain": "nts.live",
+  "product": "NTS Radio",
+  "checkpoints": [
+   "Black top nav in Univers Condensed caps with white-box NTS SUPPORTERS pill and boxed NTS logo",
+   "Sticky LIVE NOW bar: red dot, channel 1 and 2 boxes with play buttons, show names and city on the right, chevron/schedule/queue/volume icon buttons",
+   "Play on channel 1 swaps play triangle to stop square and starts the stream; only one channel plays at a time",
+   "Chevron expands a two-column panel per channel: photo, time slot, big show title, description, FOLLOW pill, plus a NEXT ON 1 strip",
+   "Full-bleed hero carousel with black caption box (title, genre tags, blurb), progress line '1 / 14', prev/pause/next; auto-advances",
+   "Right rail of Infinite Mixtapes tiles (POOLSIDE, SLOW FOCUS, LOW KEY) with play icons and a down arrow; /infinite-mixtapes grid page with icon + caps title over duotone video"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-basement-human-machine-toggle-3d-hq-ascii-index",
+  "slug": "basement-human-machine-toggle-3d-hq-ascii-index",
+  "name": "HUMAN/MACHINE Toggle Between 3D Studio HQ Scene and Orange ASCII Machine-Readable Index (basement.studio)",
+  "date": "2026-10-08",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://basement.studio/",
+  "domain": "basement.studio",
+  "product": "basement.studio agency site",
+  "checkpoints": [
+   "Thin black top bar: bold 'basement.' wordmark, centered nav with superscript counts (Showcase 26, Blog 29), orange dot 'Online (n)' presence counter, Contact Us",
+   "Full-screen dark 3D HQ scene (stairs, arcade, hoop, neon sign, TV wall); objects act as navigation (arcade opens /lab with an orange CRT list of experiments)",
+   "Floating bottom capsule toggle HUMAN / MACHINE with orange active label",
+   "MACHINE mode: page swaps to an orange monospace terminal: ASCII BSMNT logo, /HOME /SERVICES slash nav, dotted key ... value ABOUT table",
+   "Scrolling human mode: logo wall grid with thin borders, huge 'Featured Projects' heading, particle/dot render project card",
+   "Press [/] to chat hint and cursor-reactive scene (camera eases with pointer)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-flocus-gradient-focus-dashboard-mode-toggle",
   "slug": "flocus-gradient-focus-dashboard-mode-toggle",
   "name": "Gradient Focus Dashboard with Home/Focus/Ambient Mode Toggle + Glass Widget Dock (Flocus)",
