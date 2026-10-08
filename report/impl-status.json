@@ -2815,5 +2815,32 @@
   "proof": "hero topo paths=14; sig mid → progress=0.54 drawn=100%,95%,0%,0%,0% headerDark=true; sig end → progress=1.00; manifesto lime serif words=3 lit=22/22; wall bg=rgb(183, 185, 174) photo0 y=translateY(-135.8px); ON TRACK hover → ln-tr l; menu open=true; restored",
   "demoNodes": 167,
   "errors": []
+ },
+ "wetransfer-floating-upload-panel-expiry-menu-wallpaper-swap": {
+  "url": "http://localhost:4173/t/wetransfer-floating-upload-panel-expiry-menu-wallpaper-swap/",
+  "ok": true,
+  "at": "2026-10-08T12:06:58.993Z",
+  "http": 200,
+  "proof": "rail=Send/Request/Albums/Showcase/Sign active=Send badge=3; terms card=\"You’realmost there\"; I agree → view=upload tiles=2 visible=true; dragenter → drop overlay=true \"Drop it like it’s hot\"; dragleave → false; file added → rows=1 \"junbok-test.txt5 Bytes · txt\" items=\"✓1 itemAdd more\" lim=\"3.0 GB remaining · ⚡ Increase limit\" title=junbok-test.txt; expiry menu open=true opts=7 free=2 checked=3 days above=true; 7 days (paid) → upsell=true expiry=3 days; 1 day (free) → label=1 day; email chip → chips=1 counter=1 of 3; wallpaper Make art, get paid. → Tides of life; Transfer → view=prog; → done pct=100 link=true; restored view=terms",
+  "demoNodes": 164,
+  "errors": []
+ },
+ "readymag-cycling-collage-hero-floating-cta-card-bento-stickers": {
+  "url": "http://localhost:4173/t/readymag-cycling-collage-hero-floating-cta-card-bento-stickers/",
+  "ok": true,
+  "at": "2026-10-08T12:06:58.990Z",
+  "http": 200,
+  "proof": "nav pills=Solutions/Pricing/Examples/Templates/Learn signup bg=rgb(255, 90, 0); Solutions ▾ open=true; collage tiles=7 swapped=3 unique=true wipe=clip-path .4s; card=\"Make the web more like you.\" cta=Try Readymag; sticker rot=true dots=4; hover → matrix=0; editor word websites → portfolios handles=8; drag \"anything\" Δ=-151,-103; clamped inside bento=true (left=0px top=0px); password Open → \"Unlocked ✓ (6 chars)\"; Get started roll=matrix(1, 0, 0, 1, 0, -44); restored",
+  "demoNodes": 303,
+  "errors": []
+ },
+ "daylight-sunlit-hero-leaf-shadow-scroll-word-fill-glass-pill-nav": {
+  "url": "http://localhost:4173/t/daylight-sunlit-hero-leaf-shadow-scroll-word-fill-glass-pill-nav/",
+  "ok": true,
+  "at": "2026-10-08T12:06:58.977Z",
+  "http": 200,
+  "proof": "glass nav backdrop=blur(16px) links=Home/Product/FAQ+ORDER NOW kidsBadge=true; hero tablet amber=false; scroll 200 → amber=true kidsCollapsed=false; leaf shadow blend=multiply op=0.34; word fill mid → progress=0.51 dark=9/17 first=rgb(28, 26, 23) last=rgb(201, 196, 187); end → dark=17/17; intro em font=\"Instrument Serif\" italic=italic; newsletter × → hidden=true stored=1; Product → view=product active=Product; + + → qty=3 total=$2,187; - → $1,458; thumb 4 → active=4; ADD TO CART → cart=2; restored",
+  "demoNodes": 420,
+  "errors": []
  }
 }
