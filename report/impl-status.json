@@ -2788,5 +2788,32 @@
   "proof": "home title=\"COLLECTION\" cookie=true tabs=ARTWORKS/LIBRARY/VISITOR STORIES; search → url query=Vermeer tiles=6 cols=3 gap=0px tab=\"ARTWORKS (1414)\"; filter → drawer open=true dock mini width=223px facets=10; OBJECT TYPE=painting → tiles=4 ARTWORKS (4); close → dock full width=1300px; artwork \"The Milkmaid\" url object=milkmaid zoom=100%; zoom in ×2 → 400%; fit → 100%; meta=Artwork type/Object number/Dimensions/Physical characteristics stories=3 pnts=3; restored landing + cookie banner",
   "demoNodes": 303,
   "errors": []
+ },
+ "brilliant-autoplay-demo-card-hero-koji-onboarding-steps": {
+  "url": "http://localhost:4173/t/brilliant-autoplay-demo-card-hero-koji-onboarding-steps/",
+  "ok": true,
+  "at": "2026-10-08T07:55:33.581Z",
+  "http": 200,
+  "proof": "demo B cos(π)=-1.00; demo A filled=9/9; toggle Coding → \"A coding coach that make…\" pill x=matrix(1, 0, 0, 1, 0, 0); onboarding step1 continueEnabled=true; motivation continueDisabled=true; pick → enabled=true; voice=Melodic; age step input=true progress=100%,100%,64%; restored",
+  "demoNodes": 132,
+  "errors": []
+ },
+ "mschf-numbered-drop-index-bottom-anchored-redacted-rows": {
+  "url": "http://localhost:4173/t/mschf-numbered-drop-index-bottom-anchored-redacted-rows/",
+  "ok": true,
+  "at": "2026-10-08T07:55:33.557Z",
+  "http": 200,
+  "proof": "loads at bottom: scrollTop=4820/4820; rows=124 redacted=11 dividers=6; hover #120 → color=rgb(222, 223, 224) arrow=\"↗\"; click → new-tab toast; divider click → highlighted 37 rows; scroll up through history → top row #1; restored bottom anchor",
+  "demoNodes": 564,
+  "errors": []
+ },
+ "lando-topo-hero-scroll-signature-draw-two-tone-manifesto": {
+  "url": "http://localhost:4173/t/lando-topo-hero-scroll-signature-draw-two-tone-manifesto/",
+  "ok": true,
+  "at": "2026-10-08T07:55:33.582Z",
+  "http": 200,
+  "proof": "hero topo paths=14; sig mid → progress=0.54 drawn=100%,95%,0%,0%,0% headerDark=true; sig end → progress=1.00; manifesto lime serif words=3 lit=22/22; wall bg=rgb(183, 185, 174) photo0 y=translateY(-388px); ON TRACK hover → ln-tr l; menu open=true; restored",
+  "demoNodes": 167,
+  "errors": []
  }
 }

@@ -4959,4 +4959,287 @@ V['copilot-blurred-tilted-category-pills-hero-split-glass-nav'] = (root, T) => {
     root.scrollTop = s0; onScroll(); await sleep(50); return out.join('; ') + '; restored top + review rows'; };
 };
 
+V['lando-topo-hero-scroll-signature-draw-two-tone-manifesto'] = (root, T) => {
+  import('@fontsource-variable/roboto-flex/full.css');
+  theme(root, T, { bg: '#f5f4ef', fg: '#1f2119', ac: '#d2ff00', dark: false }); scroll(root);
+  const G = "'Roboto Flex Variable','Inter Variable',Arial,sans-serif", S = "'Fraunces Variable',Georgia,serif";
+  const LIME = '#d2ff00', OLIVE = '#282b20', OFF = '#f5f4ef', SAGE = '#b9cf3f';
+  const vh = () => root.clientHeight || 800; const setVh = () => root.style.setProperty('--vh', vh() + 'px'); setVh(); addEventListener('resize', setVh);
+  // ---- topographic contours via marching squares over a seeded gaussian field ----
+  const topo = (W, H, seed, levels = 11, st = 12) => { const r = rng(seed), B = Array.from({ length: 10 }, () => [r() * W, r() * H, (r() - .45) * 2, 140 + r() * 320]);
+    const f = (x, y) => B.reduce((a, [cx, cy, A, w]) => a + A * Math.exp(-((x - cx) ** 2 + (y - cy) ** 2) / (w * w)), 0) + .18 * Math.sin(x / 210 + seed) * Math.cos(y / 170);
+    const nx = Math.ceil(W / st) + 1, ny = Math.ceil(H / st) + 1, v = []; let mn = 1e9, mx = -1e9;
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const q = f(i * st, j * st); v.push(q); mn = Math.min(mn, q); mx = Math.max(mx, q); }
+    const at = (i, j) => v[j * nx + i]; let d = '';
+    for (let k = 1; k <= levels; k++) { const L = mn + (mx - mn) * k / (levels + 1);
+      for (let j = 0; j < ny - 1; j++) for (let i = 0; i < nx - 1; i++) { const a = at(i, j), b = at(i + 1, j), c = at(i + 1, j + 1), e = at(i, j + 1); const id = (a > L) << 3 | (b > L) << 2 | (c > L) << 1 | (e > L); if (!id || id === 15) continue;
+        const t = (p, q) => (L - p) / (q - p), x0 = i * st, y0 = j * st;
+        const P = { T: [x0 + t(a, b) * st, y0], R: [x0 + st, y0 + t(b, c) * st], B: [x0 + t(e, c) * st, y0 + st], L: [x0, y0 + t(a, e) * st] };
+        const SEG = { 1: ['LB'], 2: ['BR'], 3: ['LR'], 4: ['TR'], 5: ['LT', 'BR'], 6: ['TB'], 7: ['LT'], 8: ['LT'], 9: ['TB'], 10: ['TR', 'LB'], 11: ['TR'], 12: ['LR'], 13: ['BR'], 14: ['LB'] }[id];
+        for (const sg of SEG) { const p = P[sg[0]], q = P[sg[1]]; d += `M${p[0].toFixed(1)} ${p[1].toFixed(1)}L${q[0].toFixed(1)} ${q[1].toFixed(1)}`; } } }
+    return d; };
+  const topoSvg = (seed, stroke, W = 1440, H = 900, extra = '') => `<svg class="ln-topo" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">${extra}<path d="${topo(W, H, seed)}" fill="none" stroke="${stroke}" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+  const blob = (cx, cy, rr, seed) => { const r = rng(seed), n = 9, pts = []; for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2, k = rr * (.65 + r() * .6); pts.push([cx + Math.cos(a) * k * 1.25, cy + Math.sin(a) * k]); }
+    let d = `M${pts[0]}`; for (let i = 0; i < n; i++) { const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n]; d += `C${p1[0] + (p2[0] - p0[0]) / 6},${p1[1] + (p2[1] - p0[1]) / 6} ${p2[0] - (p3[0] - p1[0]) / 6},${p2[1] - (p3[1] - p1[1]) / 6} ${p2}`; } return `<path d="${d}Z" fill="#e7e7e1"/>`; };
+  const BLOBS = blob(300, 120, 140, 3) + blob(90, 330, 120, 7) + blob(520, 290, 110, 11) + blob(1260, 300, 170, 5) + blob(150, 760, 170, 9) + blob(1150, 820, 120, 13);
+  const HELMET = `<g transform="translate(1000 470)"><path d="M-170 40C-190-120-40-210 110-180S330-40 300 110 140 260-20 240-160 180-170 40Z" fill="#e3e3dc"/><path d="M-40-30C20-62 150-58 215-18L200 36C120 14 20 14-48 36Z" fill="#f7f7f3"/><path d="M-20 60c60-14 150-12 200 6" stroke="#ededE7" stroke-width="14" fill="none" stroke-linecap="round"/></g>`;
+  const LN = (c = 'currentColor', sz = 26) => `<svg viewBox="0 0 40 40" width="${sz}" height="${sz}"><path d="M10 6h7l-5 22h9l-2 6H5zM24 6h11l-7 28h-6l5-22h-5z" fill="${c}"/></svg>`;
+  const LAUREL = (c) => `<svg viewBox="0 0 80 40" width="60" height="30"><g fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round"><path d="M14 36C4 28 4 12 12 4M66 36c10-8 10-24 2-32"/><path d="M10 12l-5-2M8 20l-5 0M10 28l-5 3M70 12l5-2M72 20h5M70 28l5 3"/></g><path d="M28 24c0-10 6-15 12-15s12 5 12 15v4H28z" fill="${c}"/><rect x="31" y="17" width="18" height="5" rx="2" fill="${OLIVE}"/></svg>`;
+  // ---- placeholder "photos" (generated; no real images of the athlete) ----
+  const PC = {}; const photo = (i, kind, W0 = 480, H0 = 600) => { const key = i + kind + W0; if (PC[key]) return PC[key]; const c = document.createElement('canvas'); c.width = W0; c.height = H0; const x = c.getContext('2d'), r = rng(i * 31 + 7);
+    const g = x.createLinearGradient(0, 0, 0, H0); const bg = { street: ['#cfd6da', '#7d8891'], podium: ['#2a4e66', '#0f1d26'], gala: ['#3a3a36', '#151513'], cockpit: ['#1d2430', '#090c11'], pit: ['#e7e3d8', '#9aa092'], helmet: ['#1d3a2a', '#0b120d'] }[kind] || ['#999', '#444'];
+    g.addColorStop(0, bg[0]); g.addColorStop(1, bg[1]); x.fillStyle = g; x.fillRect(0, 0, W0, H0); x.filter = 'blur(18px)';
+    for (let k = 0; k < 16; k++) { x.fillStyle = `hsla(${r() * 360} 30% ${30 + r() * 50}% / .5)`; x.beginPath(); x.arc(r() * W0, r() * H0 * .7, 20 + r() * 70, 0, 7); x.fill(); } x.filter = 'none';
+    const cx = W0 * (.42 + r() * .16), cy = H0 * .38, sz = H0 * .2;
+    if (kind === 'helmet') { const hg = x.createLinearGradient(cx - sz, 0, cx + sz, 0); hg.addColorStop(0, '#c8f000'); hg.addColorStop(.5, '#f4ff6a'); hg.addColorStop(1, '#2d6b1f'); x.fillStyle = hg; x.beginPath(); x.ellipse(cx, cy + sz * .4, sz * 1.3, sz * 1.25, 0, 0, 7); x.fill(); x.fillStyle = '#111'; x.beginPath(); x.ellipse(cx + sz * .1, cy + sz * .25, sz * .95, sz * .32, -.05, 0, 7); x.fill(); x.fillStyle = '#0a5'; for (let k = 0; k < 6; k++) { x.fillRect(cx - sz + r() * sz * 2, cy + sz * .8 + r() * sz * .6, sz * .4, 6); } }
+    else { x.fillStyle = { podium: '#0b0b0b', gala: '#0d0d0d', cockpit: '#1c2a3a', pit: '#ff7a1a' }[kind] || '#e8e1d2'; x.beginPath(); x.ellipse(cx, cy + sz * 2.3, sz * 1.5, sz * 1.25, 0, Math.PI, 0); x.fill(); x.fillRect(cx - sz * 1.5, cy + sz * 2.3, sz * 3, H0);
+      x.fillStyle = 'hsl(28 38% 62%)'; x.fillRect(cx - sz * .2, cy + sz * .5, sz * .4, sz * .8); x.beginPath(); x.ellipse(cx, cy + sz * .2, sz * .42, sz * .55, 0, 0, 7); x.fill();
+      x.fillStyle = '#2a1a10'; for (let k = 0; k < 60; k++) { const a = Math.PI * (1.05 + r() * .9), dd = sz * (.36 + r() * .2); x.beginPath(); x.arc(cx + Math.cos(a) * dd, cy + sz * .05 + Math.sin(a) * dd, sz * (.07 + r() * .07), 0, 7); x.fill(); }
+      if (kind === 'podium') { x.fillStyle = '#ff6a13'; x.beginPath(); x.ellipse(cx, cy - sz * .05, sz * .55, sz * .32, 0, Math.PI, 0); x.fill(); x.fillRect(cx, cy - sz * .1, sz * .8, sz * .12); }
+      if (kind === 'gala') { x.fillStyle = '#d9c27a'; x.fillRect(cx - sz * .9, cy + sz * 1.6, sz * .9, sz * .7); } }
+    const id = x.getImageData(0, 0, W0, H0), d = id.data; for (let p = 0; p < d.length; p += 4) { const n = (r() - .5) * 22; d[p] += n; d[p + 1] += n; d[p + 2] += n; } x.putImageData(id, 0, 0);
+    return (PC[key] = c.toDataURL('image/jpeg', .82)); };
+  css(`.ln{font:400 14px/1.4 ${G};color:#1f2119;-webkit-font-smoothing:antialiased}.ln button{font:inherit;cursor:pointer}
+.ln-hd{position:sticky;top:0;height:0;z-index:30}.ln-hd>*{position:absolute}
+.ln-wm{left:12px;top:12px;line-height:.86;color:#1f2119;transition:color .3s;cursor:pointer}.ln-wm i{display:block;font:300 25px/.9 ${S};font-style:normal;letter-spacing:-.02em;font-variation-settings:'opsz' 9}.ln-wm b{display:block;font:800 26px/.9 ${G};letter-spacing:-.02em;font-stretch:112%}
+.ln-hd.dk .ln-wm{color:${OFF}}.ln-mono{left:50%;top:16px;transform:translateX(-50%);color:#1f2119;transition:opacity .3s}.ln-hd.dk .ln-mono{opacity:0}
+.ln-store{right:62px;top:12px;height:42px;border:0;border-radius:6px;background:${LIME};color:#111;display:flex;align-items:center;gap:8px;padding:0 13px;font:800 13px ${G}!important;letter-spacing:.02em;font-stretch:110%!important}
+.ln-mb{right:12px;top:12px;width:42px;height:42px;border-radius:6px;border:1.5px solid #1f2119;background:#ffffffaa;display:grid;place-items:center;transition:background .3s,border-color .3s}.ln-hd.dk .ln-mb{background:${OFF};border-color:${OFF}}
+.ln-mb i{display:block;width:16px;height:7px;border-top:2px solid #1f2119;border-bottom:2px solid #1f2119;transform:scaleX(1);clip-path:polygon(40% 0,100% 0,100% 100%,0 100%,0 60%,40% 60%)}
+.ln-topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ln-hero{position:relative;height:var(--vh);background:${OFF};overflow:hidden}
+.ln-nr{position:absolute;left:12px;bottom:12px;font:700 7px/1.2 ${G};letter-spacing:.05em}.ln-nr>div{margin-top:5px;width:68px;height:142px;border:1px solid #9d9e98;border-radius:3px;clip-path:polygon(0 0,82% 0,100% 7%,100% 100%,0 100%);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12px 4px 6px;box-sizing:border-box;text-align:center;color:#55564f}
+.ln-sig{position:relative;height:calc(var(--vh) * 2.6);background:${OLIVE}}.ln-sig .stk{position:sticky;top:0;height:var(--vh);overflow:hidden}
+.ln-plate{position:absolute;left:50%;top:8%;width:33%;height:34%;transform:translateX(-50%);background:#4a4d41}
+.ln-sigsvg{position:absolute;left:50%;top:0;width:min(84%,880px);transform:translateX(-50%);overflow:visible}
+.ln-cap{position:absolute;left:50%;transform:translateX(-50%);color:${OFF};font:700 7px ${G};letter-spacing:.06em;text-align:center}
+.ln-man{position:relative;background:${OLIVE};color:#e6e8d8;text-align:center;padding:40px 7% 120px;overflow:hidden}
+.ln-man p{position:relative;margin:30px auto 0;font:700 clamp(40px,7.6vw,96px)/.95 ${G};letter-spacing:-.01em;text-transform:uppercase;font-stretch:125%;max-width:1100px}
+.ln-man p span{opacity:.16;transition:opacity .35s}.ln-man p span.on{opacity:1}.ln-man em{font:400 1.06em/.9 ${S};font-style:normal;color:${SAGE};letter-spacing:-.03em;font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 0}
+.ln-wall{position:relative;height:calc(var(--vh) * 3);background:${OLIVE};overflow:hidden}
+.ln-ph{position:absolute;will-change:transform}.ln-ph small{display:block;font:700 7px ${G};letter-spacing:.05em;margin-bottom:8px;color:inherit;opacity:.8}.ln-ph div{background-size:cover;background-position:center}
+.ln-ph.mono div{filter:grayscale(1) sepia(.35) hue-rotate(30deg) brightness(.85) contrast(.9)}
+.ln-q{position:absolute;font:400 15px/1.05 ${S};letter-spacing:.02em;max-width:300px;font-variation-settings:'opsz' 9}.ln-q b{font-weight:700}
+.ln-tr{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;background:${OFF};height:calc(var(--vh) * .9);box-sizing:border-box;transition:grid-template-columns .5s cubic-bezier(.6,0,.2,1)}
+.ln-tr.l{grid-template-columns:1.6fr 1fr}.ln-tr.r{grid-template-columns:1fr 1.6fr}.ln-tc{position:relative;border-radius:8px;overflow:hidden;background-size:cover;background-position:center;cursor:pointer}
+.ln-tc::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 45%,#000a)}.ln-tc b{position:absolute;left:22px;bottom:18px;z-index:1;color:${OFF};font:800 clamp(30px,4.5vw,64px)/.9 ${G};font-stretch:112%;text-transform:uppercase}.ln-tc b em{font:400 1em ${S};font-style:normal;color:${LIME}}
+.ln-tc span{position:absolute;right:18px;bottom:22px;z-index:1;width:40px;height:40px;border-radius:6px;background:${LIME};display:grid;place-items:center;font-weight:800}
+.ln-menu{position:fixed;inset:var(--tg-h) 0 0 0;background:${OLIVE};z-index:25;color:${OFF};display:flex;flex-direction:column;justify-content:center;padding:0 7%;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}.ln-menu.on{opacity:1;visibility:visible}
+.ln-menu button{background:none;border:0;color:${OFF};text-align:left;font:800 clamp(40px,7vw,90px)/1 ${G}!important;font-stretch:112%!important;text-transform:uppercase;transition:color .2s}.ln-menu button:hover{color:${LIME}}.ln-menu button:hover em{color:${LIME}}`);
+  const ln = h('div.ln');
+  // header
+  const menu = h('div.ln-menu', {}, ...['Home', 'On Track', 'Off Track', 'Calendar', 'Partners', 'Store'].map((t) => h('button', { onclick: () => { menu.classList.remove('on'); toast(`${t} (demo)`); } }, t)));
+  const mb = h('button.ln-mb', { title: 'Menu', onclick: () => menu.classList.toggle('on') }, h('i'));
+  const hd = h('div.ln-hd', {}, h('div.ln-wm', { onclick: () => { root.scrollTop = 0; } }, h('i', {}, 'LANDO'), h('b', {}, 'NORRIS')), h('div.ln-mono', { html: LN('#1f2119', 26) }),
+    h('button.ln-store', { onclick: () => toast('STORE (demo)'), html: '<svg width="13" height="14" viewBox="0 0 13 14"><path d="M2 4h9l1 9H1zM4 4a2.5 2.5 0 015 0" fill="none" stroke="#111" stroke-width="1.5"/></svg>STORE' }), mb);
+  // hero
+  const hero = h('section.ln-hero', { html: topoSvg(4, '#dcdcd5', 1440, 900, BLOBS + HELMET) },
+    h('div.ln-nr', {}, 'NEXT RACE', h('div', { html: `<svg viewBox="0 0 60 20" width="46" height="16"><path d="M4 12c6-8 14-2 20-4s10-5 18 0 12 6 14 2" fill="none" stroke="#8a8b85" stroke-width="2"/></svg><span>SINGAPORE &nbsp;GP</span><span style="border-top:1px solid #9d9e98;width:100%"></span>${LAUREL('#77786f')}<span>MCLAREN F1<br>SINCE 2019</span>` })));
+  // signature (scroll-scrubbed draw)
+  const SIG = ['M200 288C330 200 560 62 700 24C772 4 768 72 702 112C640 150 560 190 470 230', 'M405 362L640 -14', 'M470 318L522 226L546 252L582 160L602 204L612 150L645 186', 'M288 358C420 302 640 222 822 148', 'M782 70L748 132L815 122M774 96L760 184'];
+  const sigSvg = s('svg', { class: 'ln-sigsvg', viewBox: '150 -40 720 440' }); const sigPaths = SIG.map((d) => s('path', { d, fill: 'none', stroke: LIME, 'stroke-width': 13, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })); sigSvg.append(...sigPaths);
+  const sigStk = h('div.stk', { html: topoSvg(9, '#3d4131') }, h('div.ln-plate'), h('div.ln-cap', { style: { top: '3.5%' }, html: LN(OFF, 18) + '<div style="margin-top:6px">MESSAGE FROM LANDO</div>' }), sigSvg);
+  const sig = h('section.ln-sig', {}, sigStk);
+  // manifesto (key words swap to lime serif; words light up as you scroll)
+  const MAN = 'REDEFINING* LIMITS, FIGHTING FOR WINS*, BRINGING IT ALL IN ALL WAYS. DEFINING A LEGACY* IN FORMULA 1 ON AND OFF THE TRACK.'.split(' ');
+  const manP = h('p', {}, ...MAN.flatMap((w, i) => { const k = w.includes('*'), clean = w.replace('*', ''), m = clean.match(/^([A-Z]+)(.*)$/); return [h('span', {}, k ? [h('em', {}, m[1]), m[2]] : clean), i < MAN.length - 1 ? ' ' : '']; }));
+  const words = [...manP.querySelectorAll('span')];
+  const man = h('section.ln-man', { html: topoSvg(15, '#373a2c') }, h('div', { style: { position: 'relative' }, html: LAUREL('#c9cbbb') + `<div style="font:700 7px ${G};letter-spacing:.06em;margin-top:6px">MCLAREN F1 SINCE 2019</div>` }), manP);
+  // scattered photo wall with per-item scroll speeds; background drifts olive -> sage -> off-white
+  const PH = [[8, 6, 170, 212, 'QATAR, 2024', 'street', .25], [59, 15, 420, 330, 'MIAMI GP, 2024', 'podium', -.15], [30, 26, 188, 200, 'FIA PRIZE GIVING, 2024', 'gala', .35, 1], [80, 33, 120, 160, 'SILVERSTONE, 2024', 'pit', .5, 1], [0, 45, 170, 130, 'HELMET REVEAL, 2025', 'helmet', -.2], [67, 46, 150, 150, 'MONZA, 2024', 'helmet', .3], [21, 55, 390, 290, 'BEHIND THE LENS', 'cockpit', .1], [69, 63, 175, 160, 'US, 2024', 'pit', .45, 1], [8, 74, 130, 150, 'PADDOCK, 2023', 'street', -.1], [44, 80, 160, 130, 'HOME, 2024', 'street', .3, 1]];
+  const phEls = PH.map(([l, t, w, hh, cap, kind, sp, mono], i) => { const e = h('div.ln-ph' + (mono ? '.mono' : ''), { style: { left: l + '%', top: t + '%', width: w + 'px' } }, h('small', {}, cap), h('div', { style: { height: hh + 'px', backgroundImage: `url(${photo(i, kind, w * 2, hh * 2)})` } })); e._sp = sp; return e; });
+  const q1 = h('div.ln-q', { style: { left: '59%', top: '7%' }, html: 'It doesn’t matter <b>where</b> you start, it’s <b>how</b> you progress from there.' + `<svg viewBox="150 -40 720 440" width="42" height="26" style="display:block;margin-top:10px">${SIG.map((d) => `<path d="${d}" fill="none" stroke="${LIME}" stroke-width="22" stroke-linecap="round"/>`).join('')}</svg>` });
+  const q2 = h('div.ln-q', { style: { left: '21%', top: '68%' }, html: 'Since I was 7 years old and had my first experience with kart racing, I’ve worked tirelessly to make that dream come true.' + `<svg viewBox="150 -40 720 440" width="42" height="26" style="display:block;margin-top:10px">${SIG.map((d) => `<path d="${d}" fill="none" stroke="#1f2119" stroke-width="22" stroke-linecap="round"/>`).join('')}</svg>` });
+  const wallTopo = h('div', { html: topoSvg(21, '#ffffff22', 1440, 2700) }); wallTopo.firstChild.style.height = '100%';
+  const wall = h('section.ln-wall', {}, wallTopo, ...phEls, q1, q2);
+  // ON TRACK / OFF TRACK split cards
+  const trk = h('section.ln-tr'); const tc = (lbl, side, kind, i) => h('div.ln-tc', { style: { backgroundImage: `url(${photo(40 + i, kind, 900, 700)})` }, onmouseenter: () => trk.className = 'ln-tr ' + side, onmouseleave: () => trk.className = 'ln-tr', onclick: () => toast(`${lbl.replace(/\*/g, '')} (demo)`) }, h('b', { html: lbl.replace(/\*(\w+)\*/, '<em>$1</em>') }), h('span', {}, '↗'));
+  trk.append(tc('*On* Track', 'l', 'helmet', 0), tc('*Off* Track', 'r', 'street', 1));
+  const end = h('section.ln-hero', { style: { height: 'calc(var(--vh) * .7)' }, html: topoSvg(4, '#dcdcd5', 1440, 900, BLOBS) });
+  ln.append(hd, hero, sig, man, wall, trk, end, menu); root.append(ln);
+  // ---- scroll choreography ----
+  let lens = []; const measure = () => { lens = sigPaths.map((p) => p.getTotalLength()); sigPaths.forEach((p, i) => { p.style.strokeDasharray = lens[i]; }); };
+  const mix = (a, b, t) => '#' + [0, 2, 4].map((k) => Math.round(parseInt(a.slice(1 + k, 3 + k), 16) * (1 - t) + parseInt(b.slice(1 + k, 3 + k), 16) * t).toString(16).padStart(2, '0')).join('');
+  let sigP = 0;
+  const onScroll = () => { const y = root.scrollTop, H = vh();
+    // signature: progress over the sticky span
+    sigP = clamp((y - sig.offsetTop + H * .35) / (sig.offsetHeight - H * .9), 0, 1); const tot = lens.reduce((a, b) => a + b, 0) || 1; let acc = 0;
+    sigPaths.forEach((p, i) => { const a = acc / tot, b = (acc + lens[i]) / tot; acc += lens[i]; const lp = clamp((sigP - a) / (b - a), 0, 1); p.style.strokeDashoffset = lens[i] * (1 - lp); });
+    // manifesto words
+    const mp = clamp((y + H * .75 - man.offsetTop) / (man.offsetHeight * .8), 0, 1); words.forEach((w, i) => w.classList.toggle('on', i / words.length < mp * 1.05));
+    // wall: parallax + bg drift
+    const wp = clamp((y + H - wall.offsetTop) / (wall.offsetHeight + H), 0, 1); phEls.forEach((e) => { e.style.transform = `translateY(${(-(y - wall.offsetTop) * e._sp * .35).toFixed(1)}px)`; });
+    const bg = wp < .5 ? mix(OLIVE, '#8e9183', wp / .5) : mix('#8e9183', OFF, (wp - .5) / .5); wall.style.background = bg; const lightWall = wp > .55;
+    wall.style.color = lightWall ? '#1f2119' : OFF; q1.style.color = lightWall ? '#1f2119' : OFF;
+    // header tone: dark when the band under it is dark
+    const dark = (y >= sig.offsetTop - 30 && y < wall.offsetTop) || (y >= wall.offsetTop - 30 && y < trk.offsetTop - 30 && !lightWall);
+    hd.classList.toggle('dk', dark); };
+  root.addEventListener('scroll', onScroll); requestAnimationFrame(() => { measure(); onScroll(); }); document.fonts?.ready.then(() => { measure(); onScroll(); });
+  window.__demoProof = async () => { const out = []; const y0 = root.scrollTop; measure();
+    out.push(`hero topo paths=${hero.querySelectorAll('path').length}`);
+    root.scrollTop = sig.offsetTop + (sig.offsetHeight - vh()) * .35; onScroll(); out.push(`sig mid → progress=${sigP.toFixed(2)} drawn=${sigPaths.map((p, i) => Math.round((1 - parseFloat(p.style.strokeDashoffset) / lens[i]) * 100) + '%').join(',')} headerDark=${hd.classList.contains('dk')}`);
+    root.scrollTop = sig.offsetTop + sig.offsetHeight - vh(); onScroll(); out.push(`sig end → progress=${sigP.toFixed(2)}`);
+    root.scrollTop = man.offsetTop; onScroll(); out.push(`manifesto lime serif words=${manP.querySelectorAll('em').length} lit=${words.filter((w) => w.classList.contains('on')).length}/${words.length}`);
+    root.scrollTop = wall.offsetTop + wall.offsetHeight * .6; onScroll(); out.push(`wall bg=${wall.style.background} photo0 y=${phEls[0].style.transform}`);
+    trk.firstChild.dispatchEvent(new MouseEvent('mouseenter')); out.push(`ON TRACK hover → ${trk.className}`); trk.firstChild.dispatchEvent(new MouseEvent('mouseleave'));
+    mb.click(); out.push(`menu open=${menu.classList.contains('on')}`); mb.click();
+    root.scrollTop = y0; onScroll(); return out.join('; ') + '; restored'; };
+};
+V['brilliant-autoplay-demo-card-hero-koji-onboarding-steps'] = (root, T) => {
+  import('@fontsource-variable/dm-sans');
+  theme(root, T, { bg: '#f6f5f3', fg: '#111', ac: '#2bc84f', dark: false }); scroll(root);
+  const F = "'DM Sans Variable','Inter Variable',system-ui,sans-serif", S = "'Fraunces Variable',Georgia,serif";
+  const KOJI = (sz = 84, id = 'kj' + Math.random().toString(36).slice(2, 7)) => `<svg viewBox="0 0 100 100" width="${sz}" height="${sz}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset=".15" stop-color="#2fcf5a"/><stop offset="1" stop-color="#c9ec3c"/></linearGradient></defs><path d="M50 4C62 4 70 18 80 26S98 38 98 50 86 66 80 74 62 96 50 96 30 82 20 74 2 62 2 50 14 34 20 26 38 4 50 4Z" fill="url(#${id})"/><rect x="31" y="24" width="38" height="34" rx="9" fill="#fff"/><rect x="42" y="35" width="16" height="15" fill="#111"/></svg>`;
+  const LAUREL = (a, b, icon) => `<span class="br-lr"><svg viewBox="0 0 24 44" width="15" height="34"><g fill="none" stroke="#9a9894" stroke-width="2.2" stroke-linecap="round"><path d="M18 42C8 36 4 24 8 4"/><path d="M8 12l-5-2M7 20l-5-1M8 28l-5 1M11 35l-4 3"/></g></svg>${icon}<small>${a}<br>${b}</small><svg viewBox="0 0 24 44" width="15" height="34" style="transform:scaleX(-1)"><g fill="none" stroke="#9a9894" stroke-width="2.2" stroke-linecap="round"><path d="M18 42C8 36 4 24 8 4"/><path d="M8 12l-5-2M7 20l-5-1M8 28l-5 1M11 35l-4 3"/></g></svg></span>`;
+  css(`.br{font:400 15px/1.45 ${F};color:#111;background:#f6f5f3;-webkit-font-smoothing:antialiased}.br button{font:inherit;cursor:pointer}
+.br-nav{position:sticky;top:14px;z-index:20;margin:14px 4.4vw 0;height:clamp(44px,4.5vw,62px);border-radius:99px;background:#fff;border:1px solid #e3e1dd;display:flex;align-items:center;padding:0 7px 0 22px;gap:10px}
+.br-logo{font:650 clamp(20px,2.1vw,30px)/1 ${F};letter-spacing:-.03em;margin-right:auto}.br-si{border:1px solid #dcdad6;background:#fff;border-radius:99px;padding:7px 12px;font-weight:600!important;font-size:13px!important}
+.br-gs{border:0;background:#111;color:#fff;border-radius:99px;padding:8px 13px;font-weight:600!important;font-size:13px!important;transition:opacity .25s,transform .25s}.br-gs.off{opacity:0;transform:translateY(-4px);pointer-events:none;width:0;padding:0;overflow:hidden}
+.br-hero{display:grid;grid-template-columns:1fr 34.5vw;gap:5vw;padding:7vw 7vw 80px 7.3vw;box-sizing:border-box;position:relative;background:linear-gradient(transparent 70%,#f6f5f3),repeating-linear-gradient(45deg,#00000007 0 1px,transparent 1px 28px),repeating-linear-gradient(-45deg,#00000007 0 1px,transparent 1px 28px)}
+.br-h1{font:400 clamp(44px,6.2vw,90px)/1.06 ${S};max-width:7.6em;letter-spacing:-.025em;margin:34px 0 26px;font-variation-settings:'SOFT' 40,'WONK' 0,'opsz' 72}.br-sub{font-size:clamp(15px,1.6vw,22px);color:#7b7a77;line-height:1.6;max-width:22em}
+.br-ctas{display:flex;gap:14px;margin:34px 0 26px}.br-ctas button{width:clamp(200px,22vw,320px);height:clamp(46px,4.7vw,66px);border-radius:99px;font-size:clamp(15px,1.6vw,22px)!important;font-weight:550!important}
+.br-l{background:#2bc84f;color:#fff;border:0;box-shadow:0 3px 0 #1fa53e}.br-l:active{transform:translateY(2px);box-shadow:0 1px 0 #1fa53e}.br-p{background:#fff;color:#9a9894;border:0;box-shadow:0 3px 0 #e8e6e2}
+.br-lrs{display:flex;gap:18px}.br-lr{display:flex;align-items:center;gap:6px;color:#8a8884}.br-lr small{font-size:10px;line-height:1.15;font-weight:600}
+.br-card{position:relative;height:min(47vw,680px);margin-top:-1.5vw;background:#fff;border-radius:30px;overflow:hidden;box-shadow:0 1px 0 #e9e7e3}.br-dm{position:absolute;inset:0;display:grid;place-items:center;transition:opacity .5s}.br-dm.off{opacity:0}
+.br-cur{position:absolute;left:0;top:0;width:44px;height:44px;transition:transform .9s cubic-bezier(.5,0,.2,1);pointer-events:none;z-index:3;filter:drop-shadow(0 3px 3px #0004)}
+.br-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:6px}.br-dots i{width:7px;height:7px;border-radius:9px;background:#ddd;cursor:pointer}.br-dots i.on{background:#111}
+.br-ck{position:fixed;right:14px;bottom:14px;width:300px;background:#fffffff0;border-radius:16px;box-shadow:0 6px 30px #0002;padding:22px 20px 16px;font-size:13px;line-height:1.5;z-index:30}.br-ck button{display:block;margin:14px 0 0 auto;border:0;background:#555;color:#fff;border-radius:12px;padding:10px 20px;font-weight:600!important;box-shadow:0 3px 0 #333}
+.br-koji{text-align:center;padding:30px 0 70px;position:relative}.br-beam{position:absolute;left:50%;top:40px;width:84px;height:300px;transform:translateX(-50%);background:linear-gradient(#e2f7d0,transparent);opacity:.9}
+.br-koji .kj{position:relative;display:inline-block;animation:brb 3s ease-in-out infinite}@keyframes brb{50%{transform:translateY(-6px)}}
+.br-h2{position:relative;font:450 50px/1.1 ${S};letter-spacing:-.02em;margin:22px 0 40px;font-variation-settings:'SOFT' 40,'opsz' 72}
+.br-tg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;width:384px;height:54px;background:#efeeec;border-radius:99px;padding:4px;box-sizing:border-box}.br-tg i{position:absolute;left:4px;top:4px;bottom:4px;width:calc(50% - 4px);background:#111;border-radius:99px;transition:transform .35s cubic-bezier(.6,0,.2,1)}.br-tg.cd i{transform:translateX(100%)}
+.br-tg button{position:relative;border:0;background:none;font-weight:550!important;color:#8b8a87;transition:color .3s}.br-tg button.on{color:#fff}
+.br-two{display:grid;grid-template-columns:380px 1fr;gap:80px;padding:20px 68px 90px;text-align:left}.br-two h3{font:450 33px/1.15 ${F};letter-spacing:-.02em;margin:0 0 26px}.br-two p{color:#666;font-size:14.5px}
+.br-pv{background:#fbe9dc;border-radius:22px;height:340px;display:grid;place-items:center;transition:background .4s}.br-pv.cd{background:#e3eefc}.br-pv>div{background:#fff;border-radius:22px;width:330px;padding:24px;box-shadow:0 2px 0 #0000000d;font:500 22px/1.6 ${F};text-align:center}
+.br-pv code{display:block;text-align:left;font:500 14px/1.7 ${MONO};white-space:pre}.br-x{display:inline-block;background:#e9edff;color:#3a3ad0;border-radius:4px;padding:0 5px}.br-bx{display:inline-block;width:30px;height:26px;border:1.5px dashed #bbb;border-radius:6px;vertical-align:middle}
+.br-ob{position:fixed;inset:var(--tg-h) 0 0 0;background:#fff;z-index:40;display:none;font-family:${F}}.br-ob.on{display:block}
+.br-obt{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:640px;display:flex;align-items:center;gap:14px}.br-obt button{border:0;background:none;font-size:22px!important;width:28px;color:#222}
+.br-pg{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.br-pg span{height:6px;border-radius:9px;background:#e6e6e6;overflow:hidden}.br-pg b{display:block;height:100%;background:#2bc84f;transition:width .4s}
+.br-st{position:absolute;inset:70px 0 110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.br-st h4{font:650 19px/1.3 ${F};margin:0}
+.br-cont{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:224px;height:40px;border:0;border-radius:99px;background:#333;color:#fff;font-weight:600!important;box-shadow:0 3px 0 #111}.br-cont:disabled{background:#f2f2f2;color:#c3c3c3;box-shadow:none;cursor:not-allowed}
+.br-opts{display:flex;gap:10px;margin-top:70px}.br-opt{width:142px;height:182px;border-radius:14px;background:linear-gradient(#f4f4f4,#f0f0f0);border:2px solid transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:600!important;font-size:14px!important;position:relative;transition:border-color .2s,background .2s}
+.br-opt .em{font-size:40px}.br-opt.on{border-color:#2bc84f;background:#effbf1}.br-opt .pk{position:absolute;top:-38px;left:50%;transform:translateX(-50%);opacity:0;transition:opacity .25s}.br-opt.on .pk{opacity:1}
+.br-sw{width:38px;height:24px;border-radius:99px;background:#a7e3c1;position:relative;cursor:pointer;display:inline-block;vertical-align:middle;margin-left:8px}.br-sw::after{content:'';position:absolute;right:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:right .2s}.br-sw.off{background:#ddd}.br-sw.off::after{right:17px}
+.br-tile{display:inline-grid;place-items:center;width:30px;height:28px;border:1.5px solid #ccc;border-radius:6px;margin:0 4px;font:600 14px ${F};background:#fff;cursor:pointer;box-shadow:0 2px 0 #ddd}.br-tile.used{opacity:.25}
+.br-age{width:224px;height:40px;border:2px solid #111;border-radius:8px;padding:0 12px;font:15px ${F};box-sizing:border-box;margin-top:110px;outline:0}`);
+  const br = h('div.br');
+  // ---------- nav ----------
+  const gs = h('button.br-gs.off', { onclick: () => openOb() }, 'Get started');
+  const navEl = h('div.br-nav', {}, h('span.br-logo', {}, 'Brilliant'), h('button.br-si', { onclick: () => toast('Sign in (demo)') }, 'Sign in'), gs);
+  // ---------- hero demo card ----------
+  const card = h('div.br-card'); const cur = h('div.br-cur', { html: '<svg viewBox="0 0 40 40" width="44" height="44"><path d="M8 4l26 14-11 3-5 12z" fill="#111" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>' });
+  // demo A — square-fold puzzle: fill the white triangles of a rotated grid
+  const sq = s('svg', { viewBox: '0 0 260 260', style: 'width:68%;height:auto' });
+  const P = [[[10, 10], [130, 10], [10, 130]], [[130, 10], [190, 70], [130, 130], [70, 70]], [[190, 70], [250, 130], [190, 190], [130, 130]], [[10, 130], [70, 70], [130, 130], [70, 190]], [[10, 130], [70, 190], [10, 250]], [[70, 190], [130, 130], [190, 190], [130, 250]], [[130, 10], [250, 10], [250, 130], [190, 70]], [[190, 190], [250, 130], [250, 250], [130, 250]], [[10, 250], [70, 190], [130, 250]]];
+  const FILL0 = [1, 1, 0, 1, 1, 0, 0, 0, 1]; const polys = P.map((p, i) => s('polygon', { points: p.map((q) => q.join(',')).join(' '), fill: FILL0[i] ? '#b388f8' : '#fff', stroke: '#111', 'stroke-width': 2, 'stroke-linejoin': 'round', style: 'transition:fill .35s;cursor:pointer' }));
+  const chk2 = s('g', { opacity: 0, style: 'transition:opacity .3s' }, s('rect', { x: 238, y: -2, width: 22, height: 22, rx: 5, fill: '#2bc84f' }), s('path', { d: 'M243 9l4 4 8-8', stroke: '#fff', 'stroke-width': 3, fill: 'none', 'stroke-linecap': 'round' }));
+  sq.append(s('rect', { x: 10, y: 10, width: 240, height: 240, fill: 'none', stroke: '#111', 'stroke-width': 2 }), ...polys, chk2); sq.style.overflow = 'visible';
+  const targets = [2, 5, 6, 7]; polys.forEach((p, i) => p.addEventListener('click', () => { p.setAttribute('fill', p.getAttribute('fill') === '#fff' ? '#b388f8' : '#fff'); }));
+  const dmA = h('div.br-dm', {}, sq);
+  // demo B — f(θ)=cos(θ): unit circle + traced wave
+  const cv = s('svg', { viewBox: '0 0 300 300', style: 'width:84%;height:auto' });
+  const wave = Array.from({ length: 61 }, (_, i) => `${i ? 'L' : 'M'}${150 + i * 2.3} ${150 - Math.cos(i / 60 * Math.PI * 2) * 52}`).join(' ');
+  const pt = s('circle', { r: 7, fill: '#3b82f6', stroke: '#fff', 'stroke-width': 2 }), rad = s('line', { x1: 80, y1: 150, stroke: '#111', 'stroke-width': 2 }), proj = s('line', { stroke: '#3b82f6', 'stroke-width': 1.5, 'stroke-dasharray': '4 4' }), wp = s('circle', { r: 6, fill: '#3b82f6' }), th = s('text', { x: 20, y: 52, 'font-family': S, 'font-size': 22, fill: '#111' }, 'f(θ) = cos(θ)');
+  cv.append(th, s('circle', { cx: 80, cy: 150, r: 52, fill: 'none', stroke: '#111', 'stroke-width': 2 }), s('line', { x1: 150, x2: 292, y1: 150, y2: 150, stroke: '#ccc' }), s('path', { d: wave, fill: 'none', stroke: '#111', 'stroke-width': 2.4 }), rad, proj, pt, wp);
+  let ang = 0; const setAng = (a) => { ang = a; const x = 80 + Math.cos(a) * 52, y = 150 - Math.sin(a) * 52; pt.setAttribute('cx', x); pt.setAttribute('cy', y); rad.setAttribute('x2', x); rad.setAttribute('y2', y); const wx = 150 + ((a % (Math.PI * 2)) / (Math.PI * 2)) * 138, wy = 150 - Math.cos(a) * 52; wp.setAttribute('cx', wx); wp.setAttribute('cy', wy); proj.setAttribute('x1', x); proj.setAttribute('y1', 150 - Math.cos(a) * 52); proj.setAttribute('x2', wx); proj.setAttribute('y2', wy); th.textContent = `f(θ) = cos(θ) = ${Math.cos(a).toFixed(2)}`; };
+  setAng(.6); const dmB = h('div.br-dm.off', {}, cv);
+  const dots = h('div.br-dots'); card.append(dmA, dmB, cur, dots);
+  const DM = [dmA, dmB]; let di = 0, runId = 0;
+  const showDm = (i) => { di = i; DM.forEach((d, j) => d.classList.toggle('off', j !== i)); dots.replaceChildren(...DM.map((_, j) => h('i', { class: j === i ? 'on' : '', onclick: () => { runId++; loop(j); } }))); };
+  const moveCur = (x, y) => { cur.style.transform = `translate(${x}px,${y}px)`; };
+  const posOf = (el) => { const a = el.getBoundingClientRect(), b = card.getBoundingClientRect(); return [a.left - b.left + a.width / 2 - 6, a.top - b.top + a.height / 2 - 6]; };
+  const loop = async (start = 0) => { const id = ++runId; let i = start; while (id === runId && br.isConnected) { showDm(i);
+      if (i === 0) { polys.forEach((p, k) => p.setAttribute('fill', FILL0[k] ? '#b388f8' : '#fff')); chk2.setAttribute('opacity', 0); for (const t of targets) { if (id !== runId) return; moveCur(...posOf(polys[t])); await sleep(1000); polys[t].setAttribute('fill', '#b388f8'); await sleep(250); } chk2.setAttribute('opacity', 1); await sleep(1400); }
+      else { for (let k = 0; k <= 40 && id === runId; k++) { setAng(.6 + k / 40 * Math.PI * 2); moveCur(...posOf(pt)); await sleep(90); } await sleep(900); }
+      i = (i + 1) % DM.length; } };
+  cur.style.transition = 'transform .8s cubic-bezier(.5,0,.2,1)'; moveCur(300, 380);
+  const hero = h('div.br-hero', {}, h('div', {}, h('h1.br-h1', {}, 'Your personal tutor for math and coding'), h('p.br-sub', {}, 'A world-class tutor for every home. Built by top learning experts from MIT and Harvard.'),
+    h('div.br-ctas', {}, h('button.br-l', { onclick: () => openOb() }, 'I’m a learner'), h('button.br-p', { onclick: () => toast('Parent / teacher flow (demo)') }, 'I’m a parent or teacher')),
+    h('div.br-lrs', { html: LAUREL('Editors’', 'Choice', '<svg viewBox="0 0 24 24" width="18" height="18" fill="#9a9894"><path d="M16 12c0-3 2-4 2-4-1-2-3-2-4-2-1 0-2 1-3 1s-2-1-3-1C5 6 3 8 3 12c0 4 3 9 5 9 1 0 2-1 3-1s2 1 3 1c2 0 3-3 4-5-1 0-2-2-2-4zM14 4c1-1 1-2 1-3-1 0-2 1-3 2s-1 2-1 3c1 0 2-1 3-2z"/></svg>') + LAUREL('Featured', 'App', '<svg viewBox="0 0 24 24" width="16" height="16" fill="#9a9894"><path d="M4 2l11 10L4 22c-1 0-1-1-1-2V4c0-1 0-2 1-2zm12 11l3 2-3 2-2-2zm0-2l-2-2 2-2 3 2z"/></svg>') })), card);
+  // ---------- Meet Koji + Math/Coding toggle ----------
+  const COPY = { math: ['A visual, interactive tutor, not a cheating machine', 'Unlike other AI chatbots and homework help tools, Koji never just gives you the answer. He ensures you actually understand math.', 'You learn with Koji on a shared interactive canvas. He asks guiding questions and nudges you when you get stuck.'],
+    code: ['A coding coach that makes you write the code', 'Koji won’t paste a solution for you. He walks through each line with you until the logic clicks.', 'Run, break and fix real programs on a shared canvas, with hints only when you ask.'] }; // coding copy is an illustrative stand-in
+  const tg = h('div.br-tg'); const bM = h('button.on', {}, 'Math'), bC = h('button', {}, 'Coding'); tg.append(h('i'), bM, bC);
+  const t3 = h('h3'), p1 = h('p'), p2 = h('p'), pv = h('div.br-pv');
+  const setMode = (m) => { tg.classList.toggle('cd', m === 'code'); bM.classList.toggle('on', m === 'math'); bC.classList.toggle('on', m === 'code'); pv.classList.toggle('cd', m === 'code'); const c = COPY[m]; t3.textContent = c[0]; p1.textContent = c[1]; p2.textContent = c[2];
+    pv.replaceChildren(h('div', { html: m === 'math' ? '(<span class="br-x">x</span> + 4)(<span class="br-x">x</span> + 2)<br>= <span class="br-x">x</span><sup>2</sup> + <span class="br-bx"></span> + <span class="br-bx"></span> + <span class="br-bx"></span>' : '<code>def fizz(n):\n  for i in range(1, n + 1):\n    if i % 15 == 0:\n      print("FizzBuzz")\n    elif <span class="br-bx"></span> :\n      print("Fizz")</code>' })); mode = m; };
+  let mode = 'math'; bM.onclick = () => setMode('math'); bC.onclick = () => setMode('code'); setMode('math');
+  const koji = h('section.br-koji', {}, h('div.br-beam'), h('div.kj', { html: KOJI(86) }), h('h2.br-h2', {}, 'Meet Koji, your personal tutor'), tg, h('div.br-two', {}, h('div', {}, t3, p1, p2), pv));
+  const ck = h('div.br-ck', {}, 'We use cookies to keep the site running, understand how learners use Brilliant, improve lessons and features, and support advertising from us and our partners. You can manage your privacy choices at any time.', h('button', { onclick: () => ck.remove() }, 'Got It'));
+  // ---------- onboarding (/welcome) ----------
+  const ob = h('div.br-ob'), pg = h('div.br-pg', {}, ...[0, 1, 2, 3].map(() => h('span', {}, h('b', { style: { width: '0%' } })))), stage = h('div.br-st'), cont = h('button.br-cont', {}, 'Continue');
+  ob.append(h('div.br-obt', {}, h('button', { onclick: () => go(step - 1), title: 'Back' }, '‹'), pg, h('span', { style: { fontSize: '16px', width: '20px' } }, '🔊')), stage, cont);
+  let step = 0; const ans = { mot: null, voice: null, voiceOn: true, tiles: [], age: '' };
+  const STEPS = [
+    () => { cont.disabled = false; return [h('div', { html: KOJI(80) }), h('h4', { style: { marginTop: '18px' } }, 'Hi, I’m Koji!', h('br'), 'I’ll be your personal tutor.')]; },
+    () => { cont.disabled = !ans.mot; return [h('div', { style: { display: 'flex', alignItems: 'center', gap: '22px' } }, h('span', { html: KOJI(52) }), h('h4', {}, 'What motivates you to learn?')), h('div.br-opts', {}, ...[['📘', 'Excelling in school'], ['📈', 'Professional growth'], ['🎯', 'Staying sharp'], ['🚀', 'Helping my child learn']].map(([e, t]) => h('button.br-opt' + (ans.mot === t ? '.on' : ''), { onclick: () => { ans.mot = t; render(); } }, h('span.em', {}, e), t)))]; },
+    () => { cont.disabled = !ans.voice; return [h('h4', {}, 'How do you want me to sound?'), h('p', { style: { margin: '10px 0 0', fontSize: '14px' } }, 'Turn up your volume if you can’t hear me.'), h('div.br-opts', {}, ...['Melodic', 'Deep'].map((t) => h('button.br-opt' + (ans.voice === t ? '.on' : ''), { style: { justifyContent: 'flex-end', paddingBottom: '28px' }, onclick: () => { ans.voice = t; blip(t === 'Melodic' ? 660 : 220, .25, 'sine', ans.voiceOn ? .12 : 0); render(); } }, h('span.pk', { html: KOJI(48) }), t))), h('div', { style: { marginTop: '34px', fontSize: '14px' } }, 'Voice on', h('span.br-sw' + (ans.voiceOn ? '' : '.off'), { onclick: () => { ans.voiceOn = !ans.voiceOn; render(); } })) ]; },
+    () => { cont.disabled = false; const need = ['6x', '8']; const box = (i) => h('span.br-bx', { style: { width: 'auto', minWidth: '30px', padding: '0 4px', textAlign: 'center', font: `600 14px ${F}` } }, ans.tiles[i] || '');
+      return [h('h4', {}, 'I’m here to help if you ever get stuck.'), h('div', { style: { marginTop: '70px', display: 'flex', alignItems: 'center', gap: '0' } }, h('span', { html: KOJI(70), style: { transform: 'rotate(-14deg)', marginRight: '-18px', zIndex: 1 } }), h('div', { style: { border: '1px solid #ddd', borderRadius: '10px', padding: '10px 26px', font: `500 17px/1.8 ${F}`, background: '#fff' }, html: '(<span class="br-x">x</span> + 4)(<span class="br-x">x</span> + 2)<br>= <span class="br-x">x</span><sup>2</sup> + ' })),
+        h('div', { style: { marginTop: '6px', display: 'flex', gap: '4px' } }, box(0), ' + ', box(1), ' + ', box(2)),
+        h('div', { style: { marginTop: '18px', background: '#f5f5f5', borderRadius: '10px', padding: '10px' } }, ...['2x', '4x', '8x', '2', '4', '8'].map((t) => h('span.br-tile' + (ans.tiles.includes(t) ? '.used' : ''), { onclick: () => { if (ans.tiles.includes(t)) ans.tiles = ans.tiles.filter((q) => q !== t); else if (ans.tiles.length < 3) ans.tiles.push(t); render(); } }, t))),
+        h('small', { style: { marginTop: '14px', color: '#888' } }, ans.tiles.length === 3 ? (ans.tiles.join() === ['2x', '4x', '8'].join() || ans.tiles.join() === ['4x', '2x', '8'].join() ? 'Nice — that’s right! ✓' : 'Hmm, try again — Koji hints: multiply each term.') : 'Tap tiles to fill the boxes')]; },
+    () => { const inp = h('input.br-age', { placeholder: 'Your age', inputmode: 'numeric', value: ans.age, oninput: (e) => { ans.age = e.target.value.replace(/\D/g, '').slice(0, 3); e.target.value = ans.age; cont.disabled = !ans.age; } }); cont.disabled = !ans.age; setTimeout(() => inp.focus(), 50);
+      return [h('div', { style: { display: 'flex', alignItems: 'center', gap: '22px' } }, h('span', { html: KOJI(52) }), h('h4', {}, 'How old are you? ⓘ')), inp]; }];
+  const PROG = [.0, .17, .33, .5, .66];
+  const render = () => { [...pg.children].forEach((sp, i) => { sp.firstChild.style.width = clamp((PROG[step] * 4 - i) * 100, 0, 100) + '%'; }); stage.replaceChildren(...STEPS[step]()); };
+  const go = (n) => { if (n < 0) { ob.classList.remove('on'); return; } if (n >= STEPS.length) { toast('Clone stops here — no account is created (demo)'); return; } step = n; render(); };
+  cont.onclick = () => go(step + 1);
+  const openOb = () => { step = 0; ob.classList.add('on'); render(); };
+  br.append(navEl, hero, koji, h('div', { style: { height: '120px' } }), ck, ob); root.append(br);
+  const onScroll = () => gs.classList.toggle('off', root.scrollTop < 420); root.addEventListener('scroll', onScroll); onScroll();
+  setTimeout(() => loop(0), 400);
+  window.__demoProof = async () => { const out = []; runId++; showDm(1); setAng(Math.PI); out.push(`demo B cos(π)=${th.textContent.split('= ').pop()}`); showDm(0); targets.forEach((t) => polys[t].setAttribute('fill', '#b388f8')); out.push(`demo A filled=${polys.filter((p) => p.getAttribute('fill') !== '#fff').length}/9`); loop(0);
+    setMode('code'); out.push(`toggle Coding → "${t3.textContent.slice(0, 24)}…" pill x=${getComputedStyle(tg.firstChild).transform}`); setMode('math');
+    openOb(); out.push(`onboarding step1 continueEnabled=${!cont.disabled}`); go(1); out.push(`motivation continueDisabled=${cont.disabled}`); stage.querySelector('.br-opt').click(); out.push(`pick → enabled=${!cont.disabled}`); go(2); stage.querySelector('.br-opt').click(); out.push(`voice=${ans.voice}`); go(3); go(4); out.push(`age step input=${!!stage.querySelector('input')} progress=${pg.children[0].firstChild.style.width},${pg.children[1].firstChild.style.width},${pg.children[2].firstChild.style.width}`);
+    ob.classList.remove('on'); Object.assign(ans, { mot: null, voice: null, voiceOn: true, tiles: [], age: '' }); step = 0; return out.join('; ') + '; restored'; };
+};
+V['mschf-numbered-drop-index-bottom-anchored-redacted-rows'] = (root, T) => {
+  import('@fontsource-variable/geist-mono');
+  theme(root, T, { bg: '#000', fg: '#8e9196', ac: '#fff', dark: true }); scroll(root);
+  const M = "'Geist Mono Variable','JetBrains Mono Variable',ui-monospace,monospace";
+  // drop names 118-125 are the ones visible on mschf.com at research time; every other name is an invented stand-in (not MSCHF's real archive)
+  const REAL = { 118: 'REDACT A CHAT', 119: 'CLOUD TEE', 120: 'MSCHF MATERIAL VALUES', 121: 'ROCK CANDY', 123: '2×4 LOAFER', 124: 'AMG X MSCHF', 125: "KING SOLOMON'S BABY" };
+  const A = ['BLUE', 'RUBBER', 'TINY', 'GIANT', 'HOLY', 'SILENT', 'LOUD', 'FAKE', 'REAL', 'MINI', 'CURSED', 'LUCKY', 'NO', 'ONE', 'SOFT', 'HARD', 'SECRET', 'PUBLIC', 'BIG RED', 'WAVY', 'GOLDEN', 'PAPER', 'PLASTIC', 'TOXIC'];
+  const N = ['BOOT', 'SPOON', 'CHAIR', 'TICKET', 'LAWSUIT', 'CANDLE', 'SOCK', 'BRICK', 'STAMP', 'BAG', 'TOASTER', 'MAP', 'ALARM', 'COIN', 'HAT', 'PUZZLE', 'APP', 'BOT', 'RING', 'TROPHY', 'MASK', 'PILL', 'SNEAKER', 'BELT'];
+  const r = rng(1647); const CAT = { 37: ['APPLIED MSCHF', '#ffc400'], 74: ['GSCT', '#3d9cff'], 101: ['MADE BY MSCHF', '#ff2116'] };
+  const drops = []; for (let n = 1; n <= 125; n++) { if (n === 122) continue; drops.push({ n, t: REAL[n] || `${pick(A, r)} ${pick(N, r)}`, out: n === 125 || r() < .12 }); }
+  css(`.ms{min-height:100%;background:#000;color:#8e9196;font-family:${M};text-transform:uppercase;padding:0 0 0 12px;border-left:2px solid #c3121288;box-sizing:border-box;position:relative}
+.ms-r,.ms-d,.ms-q{display:grid;grid-template-columns:clamp(34px,3.5vw,50px) 1fr;align-items:end;cursor:pointer;text-decoration:none;color:inherit}
+.ms-g{font:400 11px/1 ${M};color:#6d7075;padding-bottom:6px;display:flex;flex-direction:column;gap:2px}.ms-g i{font-style:normal;font-size:12px}
+.ms-t{font:400 clamp(30px,4.5vw,66px)/.87 ${M};letter-spacing:.02em;white-space:nowrap;transition:color .08s}
+.ms-r:hover .ms-t,.ms-r.hv .ms-t{color:#fff}.ms-r .ms-t::after{content:'';}.ms-r:hover .ms-t::after,.ms-r.hv .ms-t::after,.ms-r.out .ms-t::after{content:'↗';font-size:.62em;vertical-align:.32em;margin-left:.04em}
+.ms-r.hl .ms-t{color:var(--cc)}
+.ms-d .ms-g{font-size:14px;letter-spacing:-.05em;padding-bottom:4px}.ms-d .ms-t{color:var(--cc)}.ms-d:hover .ms-t{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+.ms-q{cursor:default}.ms-q .ms-t{color:transparent;-webkit-text-stroke:1.1px #8b8b8b;letter-spacing:.015em;overflow:hidden}.ms-q .ms-g{color:#4f5156}
+.ms-shop{position:sticky;top:0;height:0;z-index:5}.ms-shop>div{position:absolute;right:28px;top:12px;display:flex;align-items:center;gap:10px;font:400 clamp(28px,3.9vw,56px)/1 ${M}}
+.ms-shop a{color:#8e9196;text-decoration:none;cursor:pointer}.ms-shop a:hover{color:#fff}.ms-shop b{background:#ffc400;color:#e3120b;font:800 30px/1 ${M};padding:4px 3px;letter-spacing:-.08em}
+.ms-tail{height:40px}`);
+  const root2 = h('div.ms'); const rows = [];
+  const shop = h('div.ms-shop', {}, h('div', {}, h('a', { onclick: () => toast('SHOP↗ (demo — would open the store in a new tab)') }, 'SHOP↗'), h('b', {}, '!!!')));
+  root2.append(shop);
+  const divider = (name, c) => { const d = h('div.ms-d', { title: 'click: highlight this category', onclick: () => { const on = !d.classList.contains('on'); root2.querySelectorAll('.ms-d').forEach((x) => x.classList.remove('on')); rows.forEach((x) => x.el.classList.remove('hl')); if (on) { d.classList.add('on'); rows.filter((x) => x.cat === name).forEach((x) => { x.el.classList.add('hl'); x.el.style.setProperty('--cc', c); }); toast(`/// ${name} — ${rows.filter((x) => x.cat === name).length} drops`); } } }, h('span.ms-g', { style: { color: c } }, '///'), h('span.ms-t', {}, name)); d.style.setProperty('--cc', c); return d; };
+  let cat = 'MSCHF';
+  for (const d of drops) {
+    if (CAT[d.n]) { cat = CAT[d.n][0]; root2.append(divider(...CAT[d.n])); }
+    const el = h('a.ms-r' + (d.out ? '.out' : ''), { onclick: (e) => { e.preventDefault(); toast(`#${d.n} ${d.t} ↗ opens the drop's own site in a new tab (demo)`); } }, h('span.ms-g', {}, h('i', {}, '#'), d.n), h('span.ms-t', {}, d.t));
+    rows.push({ ...d, el, cat }); root2.append(el);
+  }
+  // the three category dividers repeat just above the redacted future rows, as on the live page
+  for (const k of [37, 74, 101]) root2.append(divider(...CAT[k]));
+  const qs = []; for (let n = 126; n <= 136; n++) { const q = h('div.ms-q', {}, h('span.ms-g', {}, h('i', {}, '#'), n), h('span.ms-t', {}, '?'.repeat(30))); qs.push(q); root2.append(q); }
+  root2.append(h('div.ms-tail'));
+  root.append(root2);
+  const toBottom = () => { root.scrollTop = root.scrollHeight; };
+  requestAnimationFrame(() => requestAnimationFrame(toBottom)); setTimeout(toBottom, 300); document.fonts?.ready.then(toBottom);
+  window.__demoProof = async () => { const out = []; toBottom(); await sleep(60);
+    out.push(`loads at bottom: scrollTop=${Math.round(root.scrollTop)}/${root.scrollHeight - root.clientHeight}`);
+    out.push(`rows=${rows.length} redacted=${qs.length} dividers=${root2.querySelectorAll('.ms-d').length}`);
+    const row = rows.find((x) => x.n === 120).el; row.classList.add('hv'); await sleep(30); out.push(`hover #120 → color=${getComputedStyle(row.querySelector('.ms-t')).color} arrow=${getComputedStyle(row.querySelector('.ms-t'), '::after').content}`); row.classList.remove('hv');
+    row.click(); out.push('click → new-tab toast');
+    const dv = root2.querySelector('.ms-d'); dv.click(); out.push(`divider click → highlighted ${rows.filter((x) => x.el.classList.contains('hl')).length} rows`); dv.click();
+    root.scrollTop = 0; await sleep(30); out.push(`scroll up through history → top row #${rows[0].n}`); toBottom();
+    return out.join('; ') + '; restored bottom anchor'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
