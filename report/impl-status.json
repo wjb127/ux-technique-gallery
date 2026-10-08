@@ -2763,29 +2763,29 @@
   "errors": []
  },
  "a24-title-stack-hover-hero-swap-masonry-films": {
-  "url": "http://localhost:4173/t/a24-title-stack-hover-hero-swap-masonry-films/",
+  "url": "https://ux-technique-gallery.vercel.app/t/a24-title-stack-hover-hero-swap-masonry-films/",
   "ok": true,
-  "at": "2026-10-08T04:01:00.462Z",
+  "at": "2026-10-08T04:01:39.523Z",
   "http": 200,
-  "proof": "modal visible=true; X → hidden=true remembered=1; auto-cycle tick 0→1 \"Misty Green\" dimmed=true slideOn=true; incoming slide blur=blur(24.3268px); hover \"Club Kid\" → cur=3 held after tick=true; leave → hold=false; MENU → overlay links=7; Films → hash=#/films heading=Upcoming tiles=5 label=\"COMING SOON\" ratios=1.17/1.17/0.66/0.66/1.17; restored home + first-visit modal",
+  "proof": "modal visible=true; X → hidden=true remembered=1; auto-cycle tick 0→1 \"Misty Green\" dimmed=true slideOn=true; incoming slide blur=blur(23.6133px); hover \"Club Kid\" → cur=3 held after tick=true; leave → hold=false; MENU → overlay links=7; Films → hash=#/films heading=Upcoming tiles=5 label=\"COMING SOON\" ratios=1.17/1.17/0.66/0.66/1.17; restored home + first-visit modal",
   "demoNodes": 163,
   "errors": []
  },
  "copilot-blurred-tilted-category-pills-hero-split-glass-nav": {
-  "url": "http://localhost:4173/t/copilot-blurred-tilted-category-pills-hero-split-glass-nav/",
+  "url": "https://ux-technique-gallery.vercel.app/t/copilot-blurred-tilted-category-pills-hero-split-glass-nav/",
   "ok": true,
-  "at": "2026-10-08T04:01:00.482Z",
+  "at": "2026-10-08T04:01:39.533Z",
   "http": 200,
   "proof": "pills=7 labels=HIKING,DATE NIGHT,GROCERIES,DANCING,BABY,HOME,WEDDING blur=blur(3.5px)|blur(2.5px)|blur(1.2px)|blur(2.2px)|blur(1.4px)|blur(2.6px)|blur(2px) rot=15deg,-15deg,15deg,-8deg,-15deg,-15deg,15deg; mouse parallax → translate(-16.6px, 9.2px) / translate(-6.4px, 3.6px); scroll 600 → split=true capsules=332px/blur(18px) saturate(1.4) + 224px/blur(18px) saturate(1.4) nameHidden=0; row tap → MARK 4 MORE AS REVIEWED; MARK AS REVIEWED → done=5/5 caughtUp=block; light panel bg=rgb(238, 241, 246) radius=44px; restored top + review rows",
   "demoNodes": 421,
   "errors": []
  },
  "rijksmuseum-floating-search-dock-masonry-filter-drawer-deep-zoom": {
-  "url": "http://localhost:4173/t/rijksmuseum-floating-search-dock-masonry-filter-drawer-deep-zoom/",
+  "url": "https://ux-technique-gallery.vercel.app/t/rijksmuseum-floating-search-dock-masonry-filter-drawer-deep-zoom/",
   "ok": true,
-  "at": "2026-10-08T04:01:00.482Z",
+  "at": "2026-10-08T04:01:39.537Z",
   "http": 200,
-  "proof": "home title=\"COLLECTION\" cookie=true tabs=ARTWORKS/LIBRARY/VISITOR STORIES; search → url query=Vermeer tiles=6 cols=3 gap=0px tab=\"ARTWORKS (1414)\"; filter → drawer open=true dock mini width=223px facets=10; OBJECT TYPE=painting → tiles=4 ARTWORKS (4); close → dock full width=1286px; artwork \"The Milkmaid\" url object=milkmaid zoom=100%; zoom in ×2 → 400%; fit → 100%; meta=Artwork type/Object number/Dimensions/Physical characteristics stories=3 pnts=3; restored landing + cookie banner",
+  "proof": "home title=\"COLLECTION\" cookie=true tabs=ARTWORKS/LIBRARY/VISITOR STORIES; search → url query=Vermeer tiles=6 cols=3 gap=0px tab=\"ARTWORKS (1414)\"; filter → drawer open=true dock mini width=223px facets=10; OBJECT TYPE=painting → tiles=4 ARTWORKS (4); close → dock full width=1300px; artwork \"The Milkmaid\" url object=milkmaid zoom=100%; zoom in ×2 → 400%; fit → 100%; meta=Artwork type/Object number/Dimensions/Physical characteristics stories=3 pnts=3; restored landing + cookie banner",
   "demoNodes": 303,
   "errors": []
  }
