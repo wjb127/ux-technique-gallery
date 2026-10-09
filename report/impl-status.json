@@ -2950,5 +2950,32 @@
   "proof": "popup open=true; All → 26 cards; NeXT → 4 cards; Notable → 18 cards / 15 years; year rail → scrollTop 2635, active 1992; Customize dialog: Customize System 7.5, machines 4; Run → emulator running=true on \"Macintosh Quadra 650 · System 7.5 · 32 MB\" with 11 icons; restored Notable list at top",
   "demoNodes": 509,
   "errors": []
+ },
+ "lux-dark-fullscreen-feature-carousel-chromatic-wordmark-pill-search": {
+  "url": "https://ux-technique-gallery.vercel.app/t/lux-dark-fullscreen-feature-carousel-chromatic-wordmark-pill-search/",
+  "ok": true,
+  "at": "2026-10-09T23:57:16.011Z",
+  "http": 200,
+  "proof": "next → slide 2 \"Halide for iPhone\"; prev → 2; auto-advance 3→4; menu overlay apps=4; search \"kino\" → 2 results; search \"zzz\" → 0; restored slide 1 \"Halide Mark III\", overlay=false",
+  "demoNodes": 416,
+  "errors": []
+ },
+ "shopify-editions-3d-cover-shelf-season-timeline-archive": {
+  "url": "https://ux-technique-gallery.vercel.app/t/shopify-editions-3d-cover-shelf-season-timeline-archive/",
+  "ok": true,
+  "at": "2026-10-09T23:57:15.990Z",
+  "http": 200,
+  "proof": "covers=9, ready=true; hover Horizons → lifted=true, timeline active=\"Horizons\"; timeline hover → cover \"Imagine My Business\"; search \"2024\" → 2 covers; featured: The Boring Edition; sound=true; restored",
+  "demoNodes": 105,
+  "errors": []
+ },
+ "waffle-drag-swap-letter-grid-color-feedback-swap-counter": {
+  "url": "https://ux-technique-gallery.vercel.app/t/waffle-drag-swap-letter-grid-color-feedback-swap-counter/",
+  "ok": true,
+  "at": "2026-10-09T23:57:16.010Z",
+  "http": 200,
+  "proof": "start: 7 green / 4 yellow, 15 swaps; drag 2,3→3,0: now 9 green, counter 14; solved=true with 4 swaps left, modal=true, stars=4; restored to fresh puzzle",
+  "demoNodes": 111,
+  "errors": []
  }
 }
