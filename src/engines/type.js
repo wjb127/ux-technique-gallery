@@ -1367,5 +1367,91 @@ V['fontshare-live-type-catalog'] = (root, T) => {
   window.__demoProof = async () => { txt.value = 'Hello Seoul'; txt.dispatchEvent(new Event('input')); sizeR.value = 60; sizeR.dispatchEvent(new Event('input')); const s0 = list.querySelector('.fs-sample'); const live = s0.textContent === 'Hello Seoul' && s0.style.fontSize === '60px'; cats.querySelector('[data-v=Serif]').click(); const nSerif = list.children.length; const row = list.querySelector('.fs-row'); row.classList.add('hov'); const acts = getComputedStyle(row.querySelector('.fs-act')).display !== 'none'; row.classList.remove('hov'); openDetail(FAM[0]); const lad = detail.querySelectorAll('[style*="font-weight"]').length; detail.querySelector('.fs-wght').value = 800; detail.querySelector('.fs-wght').dispatchEvent(new Event('input')); detail.style.display = 'none'; const was = dark; setDark(!was); const stored = localStorage.getItem(KEY); setDark(was); reset(); return `preview text+size live on all rows=${live}, Serif filter→${nSerif} rows, hover actions=${acts}, detail ladder+wght slider ok (${lad}), theme persisted=${stored}; restored`; };
 };
 
+V['grilli-flexa-jump-rail-subfamily-pill-editable-specimen'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#000', ac: '#000', dark: false });
+  root.classList.add('scroll'); root.style.overflow = 'auto'; root.style.background = '#fff';
+  const F = "'Roboto Flex Variable','Inter Variable',system-ui,sans-serif";
+  const WIDTHS = [['X Compressed', 25], ['Compressed', 42], ['Condensed', 68], ['Standard', 100], ['Expanded', 151]];
+  const WEIGHTS = [['Lazer', 100], ['Thin', 170], ['Light', 300], ['Regular', 400], ['Medium', 520], ['Bold', 700], ['Black', 1000]];
+  const SAMPLES = [
+    [44, 1000, 'Spectacular jab across the boxing ring, Flexa'],
+    [118, 300, 'Elastic letterforms stretch from tight to wide'],
+    [72, 700, 'Quiet Zurich mornings, loud Basel nights'],
+    [36, 400, 'A grotesk with forty-two styles across five widths, drawn for screens and signage alike.'],
+    [22, 400, 'GT Flexa is a versatile family that pairs neo-grotesk construction with a wide range of widths. Click any line to edit it — the specimen overflows at the right edge just like the original.'],
+  ];
+  const fv = (w, g, x) => `'wdth' ${w}, 'wght' ${g}` + (x ? `, 'XTRA' ${x}` : '');
+  css(`.gf{font:400 16px/1.35 ${F};font-variation-settings:'wdth' 100;color:#000;background:#fff;min-height:100%;padding:0 122px 120px}
+.gf a{color:inherit;text-decoration:none}
+.gf-nav{display:grid;grid-template-columns:173px 1fr auto;align-items:end;padding-bottom:21px;height:90px;border-bottom:1px solid #000;font-size:15.5px;letter-spacing:-.005em}
+.gf-nav .lk{display:flex;gap:25px;color:#8a8a8a}.gf-nav .lk span,.gf-nav .lg{cursor:pointer;transition:color .15s}.gf-nav .lk span:hover,.gf-nav .lg:hover{color:#000}.gf-nav .lg{color:#8a8a8a}
+.gf-title{display:grid;grid-template-columns:173px 1fr auto;align-items:center;height:121px;border-bottom:1px solid #000}
+.gf-title h1{margin:0;font:420 47px/1 ${F};font-variation-settings:'wdth' 100;letter-spacing:-.012em;transform:translateY(8px)}
+.gf-title .bt{display:flex;gap:10px;transform:translateY(19px)}
+.gf-btn{font:400 15.5px ${F};height:39px;padding:0 20px;border-radius:3px;border:1px solid #bdbdbd;background:#fff;color:#8a8a8a;cursor:pointer}
+.gf-btn.k{background:#000;border-color:#000;color:#fff}
+.gf-body{display:grid;grid-template-columns:173px 1fr}
+.gf-rail{position:sticky;top:20px;align-self:start;padding-top:72px;font-size:15.5px;line-height:27px}
+.gf-rail b{font-weight:400;display:block;color:#000}.gf-rail span{display:block;color:#8a8a8a;cursor:pointer;width:122px;line-height:22px;margin-bottom:5px}.gf-rail span:hover,.gf-rail span.on{color:#000}
+.gf-hero{height:498px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;cursor:pointer;user-select:none}
+.gf-hero span{font-family:${F};font-size:527px;line-height:1;display:block;transform:translateY(14px);transition:font-variation-settings .6s cubic-bezier(.3,.8,.2,1)}
+.gf-sec{border-top:1px solid #000;display:grid;grid-template-columns:173px 1fr;padding:42px 0 60px}
+.gf-sec>*{min-width:0}
+.gf-sec>h3{margin:0;font:400 15.5px ${F};position:sticky;top:20px;align-self:start}
+.gf-fam{display:grid;grid-template-columns:repeat(3,1fr);row-gap:56px}
+.gf-fam h4{margin:0 0 14px;font:400 15.5px ${F}}
+.gf-fam .st{font-size:25px;line-height:38px;cursor:pointer;white-space:nowrap}
+.gf-fam .st:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.gf-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.gf-pill{font:400 14px ${F};border:1px solid #000;border-radius:99px;padding:6px 14px;background:#fff;cursor:pointer}
+.gf-pill.on{background:#000;color:#fff}
+.gf-line{white-space:nowrap;overflow:hidden;outline:0;border-bottom:1px solid #e3e3e3;padding:6px 0 10px;line-height:1.08;caret-color:#ff3c00}
+.gf-line:focus{background:#fafafa}
+.gf-meta{font-size:12px;color:#8a8a8a;margin:14px 0 2px;display:flex;gap:18px}
+.gf-ot{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gf-ot div{border:1px solid #000;height:220px;display:grid;place-items:center;position:relative;cursor:pointer;font-size:92px}
+.gf-ot div i{position:absolute;left:12px;top:10px;font:400 12px ${F};font-style:normal;color:#8a8a8a}
+.gf-mini{margin-top:20px;border:1px solid #000;height:340px;background:#ffef00;display:grid;place-items:center;font-size:150px;overflow:hidden}
+.gf-use{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.gf-use div{aspect-ratio:4/5;display:grid;place-items:center;color:#fff;font-size:44px}
+.gf-info{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-size:15px;color:#333}.gf-info b{display:block;font-weight:400;color:#8a8a8a;margin-bottom:6px}`);
+  const top = h('div.gf-nav', {}, h('b', { style: { fontWeight: 450 } }, 'Grilli Type'), h('div.lk', {}, ...['Typefaces', 'Free Trials', 'Commissions', 'Blog', 'Information', 'About'].map((t) => h('span', { onclick: () => toast(t + ' (demo)') }, t))), h('span.lg', { onclick: () => toast('Login (demo)') }, 'Login'));
+  const title = h('div.gf-title', {}, h('span'), h('h1', {}, 'GT Flexa'), h('div.bt', {}, h('button.gf-btn', { onclick: () => toast('Trial fonts → zip (demo)') }, 'Download trial fonts'), h('button.gf-btn.k', { onclick: () => toast('Purchase GT Flexa (demo)') }, 'Purchase GT Flexa')));
+  const HERO_DEF = [['J', 25, 1000], ['A', 42, 380], ['B', 151, 1000, 603]];
+  const HERO_ALT = [['J', 151, 100], ['A', 100, 1000], ['B', 25, 600]];
+  let heroAlt = false;
+  const heroEls = HERO_DEF.map(([c, w, g, x]) => h('span', { style: { fontVariationSettings: fv(w, g, x) } }, c));
+  const setHero = (alt) => { heroAlt = alt; (alt ? HERO_ALT : HERO_DEF).forEach(([, w, g, x], i) => { heroEls[i].style.fontVariationSettings = fv(w, g, x); }); };
+  const hero = h('div.gf-hero', { onclick: () => setHero(!heroAlt), title: 'click to remix widths' }, ...heroEls);
+  // Family overview
+  const famEl = h('div.gf-fam', {}, ...WIDTHS.map(([wn, w]) => h('div', {}, h('h4', {}, wn), ...WEIGHTS.map(([gn, g]) => h('div.st', { style: { fontVariationSettings: fv(w, g) }, onclick: () => { setWidth(wn); go(1); } }, gn, ' ', h('span', { style: { fontStyle: 'oblique 10deg', fontVariationSettings: fv(w, g) + ", 'slnt' -10" } }, 'Italic'))))));
+  // Editable samples
+  let cur = 'Standard';
+  const pills = WIDTHS.map(([wn]) => h('button.gf-pill', { onclick: () => setWidth(wn) }, 'GT Flexa ' + wn));
+  const lines = SAMPLES.map(([sz, g, txt]) => h('div.gf-line', { contenteditable: 'true', spellcheck: 'false', style: { fontSize: sz + 'px' } }, txt));
+  const metas = SAMPLES.map(([sz, g]) => h('div.gf-meta', {}, h('span.m1'), h('span', {}, sz + ' px'), h('span', {}, WEIGHTS.find((x) => x[1] === g)?.[0] || 'Regular')));
+  const setWidth = (wn) => { cur = wn; const w = WIDTHS.find((x) => x[0] === wn)[1]; pills.forEach((p, i) => p.classList.toggle('on', WIDTHS[i][0] === wn)); lines.forEach((l, i) => { l.style.fontVariationSettings = fv(w, SAMPLES[i][1]); metas[i].querySelector('.m1').textContent = 'GT Flexa ' + wn + ' ' + (WEIGHTS.find((x) => x[1] === SAMPLES[i][1])?.[0] || ''); }); };
+  const samples = h('div', {}, h('div.gf-pills', {}, ...pills), ...SAMPLES.flatMap((_, i) => [metas[i], lines[i]]));
+  const ot = h('div', {}, h('div.gf-ot', {}, ...[['SS01', 'Gag', 'Single-storey a'], ['SS03', 'R→R', 'Straight-leg R'], ['SS05', '1→1', 'Flag-free 1']].map(([k, g, d]) => { const el = h('div', { onclick: () => { el.dataset.on = el.dataset.on ? '' : '1'; el.style.background = el.dataset.on ? '#000' : '#fff'; el.style.color = el.dataset.on ? '#fff' : '#000'; } }, h('i', {}, k + ' · ' + d), g); el.style.fontVariationSettings = fv(100, 500); return el; })),
+    h('div.gf-mini', { style: { fontVariationSettings: fv(151, 1000) } }, 'Flexa'),
+    h('div.gf-use', {}, ...[['#ff3c00', 'Aa'], ['#1a1a1a', 'Jab'], ['#2d5bff', 'Rr'], ['#0b8a5a', 'GT']].map(([c, t], i) => h('div', { style: { background: c, fontVariationSettings: fv(WIDTHS[i + 1][1], 900) } }, t))));
+  const info = h('div.gf-info', {}, h('div', {}, h('b', {}, 'Design'), 'Dominik Huber, 2019'), h('div', {}, h('b', {}, 'Styles'), '42 styles · 5 widths · 7 weights + italics · variable'), h('div', {}, h('b', {}, 'Formats'), 'OTF, WOFF2, variable TTF'));
+  const SECS = [['Family overview', famEl], ['Editable samples', samples], ['OpenType features', ot], ['Typeface information', info]];
+  const secEls = SECS.map(([n, c]) => h('section.gf-sec', {}, h('h3', {}, n), c));
+  const railItems = ['Family overview', 'Editable samples', 'Typeface information'].map((n) => h('span', { onclick: () => go(SECS.findIndex((x) => x[0] === n)) }, n));
+  const go = (i) => { const r = secEls[i].getBoundingClientRect(), rr = root.getBoundingClientRect(); root.scrollTo({ top: root.scrollTop + r.top - rr.top - 10, behavior: 'instant' }); };
+  root.addEventListener('scroll', () => { const rr = root.getBoundingClientRect().top; let a = -1; secEls.forEach((s, i) => { if (s.getBoundingClientRect().top - rr < 300) a = i; }); railItems.forEach((el, i) => el.classList.toggle('on', ['Family overview', 'Editable samples', 'Typeface information'][i] === SECS[a]?.[0])); });
+  const rail = h('div.gf-rail', {}, h('b', {}, 'Jump to'), ...railItems);
+  root.append(h('div.gf', {}, top, title, h('div.gf-body', {}, rail, hero), ...secEls));
+  setWidth('Standard');
+  window.__demoProof = async () => { const out = [];
+    setWidth('X Compressed'); out.push(`pill X Compressed → line0 fvs="${lines[0].style.fontVariationSettings}"`);
+    setWidth('Expanded'); out.push(`Expanded → line0 scrollWidth ${lines[0].scrollWidth} > clientWidth ${lines[0].clientWidth} (overflow clip)`);
+    const t0 = lines[0].textContent; lines[0].textContent = 'Edited JAB'; out.push(`contenteditable → "${lines[0].textContent}"`); lines[0].textContent = t0;
+    setHero(true); await sleep(50); out.push('hero remix ' + heroEls.map((e) => e.style.fontVariationSettings).join(' | ')); setHero(false);
+    go(1); await sleep(30); out.push(`jump-to Editable samples scrollTop=${Math.round(root.scrollTop)}`);
+    root.scrollTo({ top: 0, behavior: 'instant' }); setWidth('Standard');
+    return out.join('; ') + '; restored'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

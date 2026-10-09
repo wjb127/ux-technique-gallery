@@ -2842,5 +2842,32 @@
   "proof": "glass nav backdrop=blur(16px) links=Home/Product/FAQ+ORDER NOW kidsBadge=true; hero tablet amber=false; scroll 200 → amber=true kidsCollapsed=false; leaf shadow blend=multiply op=0.34; word fill mid → progress=0.51 dark=9/17 first=rgb(28, 26, 23) last=rgb(201, 196, 187); end → dark=17/17; intro em font=\"Instrument Serif\" italic=italic; newsletter × → hidden=true stored=1; Product → view=product active=Product; + + → qty=3 total=$2,187; - → $1,458; thumb 4 → active=4; ADD TO CART → cart=2; restored",
   "demoNodes": 420,
   "errors": []
+ },
+ "groovepizza-radial-slice-sequencer-shape-polygon-sliders": {
+  "url": "http://127.0.0.1:4173/t/groovepizza-radial-slice-sequencer-shape-polygon-sliders/",
+  "ok": true,
+  "at": "2026-10-09T07:59:58.688Z",
+  "http": 200,
+  "proof": "middle ring dots on → polygon count=3; grid mirrors: row2 cells lit=3; grid→pizza: inner ring slice2 now 1 polygon pts=4; SLICES 12 → slices drawn=12; pattern slot 3 → kick hits 6; shape pentagon on inner ring → 5 hits; playing step=2 bpm=120; restored",
+  "demoNodes": 386,
+  "errors": []
+ },
+ "rabbit-r1-orange-device-stacked-app-card-screen-buy-bar": {
+  "url": "http://127.0.0.1:4173/t/rabbit-r1-orange-device-stacked-app-card-screen-buy-bar/",
+  "ok": true,
+  "at": "2026-10-09T07:59:58.697Z",
+  "http": 200,
+  "proof": "wheel ↓ → focus camera; ArrowDown → magic gallery; drag/scroll to r-cade (card h=60px); cookie toast dismissed; restored focus=journal + cookie toast",
+  "demoNodes": 109,
+  "errors": []
+ },
+ "grilli-flexa-jump-rail-subfamily-pill-editable-specimen": {
+  "url": "http://127.0.0.1:4173/t/grilli-flexa-jump-rail-subfamily-pill-editable-specimen/",
+  "ok": true,
+  "at": "2026-10-09T07:59:58.683Z",
+  "http": 200,
+  "proof": "pill X Compressed → line0 fvs=\"\"wdth\" 25, \"wght\" 1000\"; Expanded → line0 scrollWidth 1225 > clientWidth 1023 (overflow clip); contenteditable → \"Edited JAB\"; hero remix \"wdth\" 151, \"wght\" 100 | \"wdth\" 100, \"wght\" 1000 | \"wdth\" 25, \"wght\" 600; jump-to Editable samples scrollTop=1454; restored",
+  "demoNodes": 169,
+  "errors": []
  }
 }

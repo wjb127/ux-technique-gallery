@@ -1950,4 +1950,159 @@ V['nightride-crt-scanline-eq-station-rail-milkdrop-tabs'] = (root, T) => {
     return out.join('; ') + '; restored'; };
 };
 
+V['groovepizza-radial-slice-sequencer-shape-polygon-sliders'] = (root, T) => {
+  import('@fontsource/lato/300.css'); import('@fontsource/lato/400.css'); import('@fontsource/lato/700.css'); import('@fontsource/lato/900-italic.css');
+  theme(root, T, { bg: '#3d2e7f', fg: '#fff', ac: '#6fff64', dark: true });
+  const L = "'Lato',system-ui,sans-serif";
+  const CX = 859, CY = 330, RH = 40, R1 = 137, R2 = 224, R3 = 310, RB = 325;
+  const RING = [{ name: 'snare', r0: RH, r1: R1, col: '#6fff64', dk: '#3fbf3a', fill: ['#a4d6ca', '#b2e8db'] }, { name: 'hat', r0: R1, r1: R2, col: '#ffd84a', dk: '#d1a400', fill: ['#93d2c3', '#9fe3d3'] }, { name: 'kick', r0: R2, r1: R3, col: '#42fff3', dk: '#1fbfb6', fill: ['#7dccb9', '#88ddc8'] }];
+  const blank = (n) => [Array(n).fill(0), Array(n).fill(0), Array(n).fill(0)];
+  const mk = (n, a, b, c) => { const g = blank(n); a.forEach((i) => (g[0][i] = 1)); b.forEach((i) => (g[1][i] = 1)); c.forEach((i) => (g[2][i] = 1)); return g; };
+  const DEF = () => mk(16, [3, 9, 12], [], [0, 14]);
+  const PRESETS = [DEF(), mk(16, [4, 12], [0, 2, 4, 6, 8, 10, 12, 14], [0, 10]), mk(16, [4, 12], [2, 6, 10, 14], [0, 3, 6, 8, 11, 14]), mk(16, [6, 14], [0, 4, 8, 12], [0, 6, 10])];
+  let slots = PRESETS.map((g) => g.map((r) => r.slice())), slot = 0, grid = slots[0], N = 16;
+  const P = { volume: 80, bpm: 120, swing: 0, slices: 16 };
+  const RANGE = { volume: [0, 100], bpm: [40, 190], swing: [0, 100], slices: [4, 16] };
+  let playing = false, step = -1, nextT = 0, timer = null, phase = 0, t0 = 0;
+  css(`.gp{position:absolute;inset:0;overflow:hidden;background:#3d2e7f;font-family:${L};color:#fff;user-select:none}
+.gp-stage{position:absolute;left:0;top:0;height:900px;transform-origin:0 0}
+.gp-stars{position:absolute;inset:0}
+.gp-rail{position:absolute;left:0;top:0;width:120px;height:710px;background:#4d38a0}
+.gp-rail hr{position:absolute;left:0;right:0;top:139px;margin:0;border:0;border-top:1.5px solid #fff}
+.gp-rb{position:absolute;left:20px;width:80px;height:80px;border-radius:50%;background:#3d2e7f;display:grid;place-items:center;font:400 15px ${L};cursor:pointer;transition:background .15s}
+.gp-rb:hover,.gp-rb.on{background:#33266d}
+.gp-logo{position:absolute;left:18px;top:18px;width:76px;height:76px}
+.gp-wm{position:absolute;left:24px;top:91px;font:900 italic 21px/0.82 ${L};letter-spacing:-.02em;text-shadow:0 1px 0 #3d2e7f}
+.gp-wm i{display:block;padding-left:29px;font-size:17px}
+.gp-pop{position:absolute;left:126px;width:250px;background:#4d38a0;border-radius:12px;padding:12px;display:none;grid-template-columns:repeat(3,1fr);gap:8px;box-shadow:0 10px 30px #0006;z-index:5}
+.gp-pop.on{display:grid}.gp-pop div{background:#3d2e7f;border-radius:8px;padding:8px 4px;text-align:center;font:400 12px ${L};cursor:pointer}.gp-pop div:hover{background:#6359c1}
+.gp-svg{position:absolute;left:0;top:0;overflow:visible}
+.gp-mid{position:absolute;top:0;left:calc(50% - 720px);width:1440px;height:900px;pointer-events:none}.gp-mid>*{pointer-events:auto}.gp-mid>svg{pointer-events:none}.gp-mid>svg *{pointer-events:auto}
+.gp-dot{cursor:pointer}
+.gp-sl{position:absolute;top:738px;width:40px;height:152px;background:#5845c4;cursor:ns-resize;touch-action:none}
+.gp-sl i{position:absolute;left:0;right:0;bottom:0;background:#6359c1}
+.gp-sl b{position:absolute;left:0;right:0;top:-31px;text-align:center;font:300 20px ${L}}
+.gp-sl span{position:absolute;left:11px;bottom:8px;writing-mode:vertical-rl;transform:rotate(180deg);font:300 15px ${L};letter-spacing:.02em;pointer-events:none}
+.gp-cb{position:absolute;left:210px;width:60px;height:60px;border-radius:50%;background:#6359c1;display:grid;place-items:center;cursor:pointer}
+.gp-play{position:absolute;left:565px;top:784px;width:110px;height:110px;border-radius:50%;background:#6359c1;display:grid;place-items:center;cursor:pointer;transition:transform .1s}
+.gp-play:active{transform:scale(.96)}
+.gp-grid{position:absolute;left:680px;top:661px;width:480px;height:115px;background:#2c2563}
+.gp-pats{position:absolute;left:680px;top:776px;width:480px;height:124px;background:#2c2563;display:flex}
+.gp-pat{width:120px;height:124px;display:grid;place-items:center;cursor:pointer}
+.gp-pat.on{background:#6359c1}
+.gp-pat div{width:80px;height:80px;border-radius:50%;background:#716dbf;display:grid;place-items:center}`);
+  const stage = h('div.gp-stage');
+  const wrap = h('div.gp', {}, stage);
+  root.append(wrap);
+  // starfield
+  const stars = h('canvas.gp-stars');
+  const paintStars = (W) => { stars.width = W; stars.height = 900; const g = stars.getContext('2d'); const r = rng(7); g.fillStyle = '#fff'; for (let i = 0; i < 260; i++) { const x = r() * W, y = r() * 900, s0 = r(); g.globalAlpha = 0.35 + r() * 0.6; g.beginPath(); g.arc(x, y, s0 < 0.85 ? 0.8 : s0 < 0.97 ? 1.4 : 2.8, 0, 7); g.fill(); if (s0 > 0.955 && s0 < 0.985) { g.fillRect(x - 5, y - 0.5, 10, 1); g.fillRect(x - 0.5, y - 5, 1, 10); } } g.globalAlpha = 1; };
+  stage.append(stars);
+  // rail
+  const logo = s('svg', { class: 'gp-logo', viewBox: '0 0 76 76' }, s('defs', {}, s('radialGradient', { id: 'gpl', cx: '45%', cy: '40%', r: '60%' }, s('stop', { offset: 0, 'stop-color': '#b9f3ee' }), s('stop', { offset: 1, 'stop-color': '#39c6c0' }))), s('circle', { cx: 38, cy: 38, r: 37, fill: 'url(#gpl)' }), s('path', { d: 'M38 12 L60 26 L58 52 L36 64 L16 50 L18 24 Z', fill: '#7fe0d8', opacity: .8 }), s('path', { d: 'M38 24 L50 31 L49 46 L37 52 L26 45 L27 31 Z', fill: '#d8fbf8' }), s('circle', { cx: 8, cy: 0, r: 3, fill: '#fff' }), s('circle', { cx: 24, cy: 9, r: 3, fill: '#fff' }), s('circle', { cx: 58, cy: 27, r: 2.5, fill: '#fff' }), s('circle', { cx: 20, cy: 51, r: 2.5, fill: '#fff' }));
+  const pop = h('div.gp-pop');
+  const rb = (y, label, on) => h('div.gp-rb', { style: { top: y + 'px' }, onclick: on }, label);
+  const SHAPES = [['Triangle', 3], ['Square', 4], ['Pentagon', 5], ['Hexagon', 6], ['Octagon', 8], ['Line', 2]];
+  const SPECIALS = [['Boom bap', 1], ['Bossa', 2], ['Four floor', 3], ['Clear', -1]];
+  let popKind = null;
+  const openPop = (kind, y) => { if (popKind === kind) { pop.classList.remove('on'); popKind = null; return; } popKind = kind; pop.style.top = y + 'px'; pop.classList.add('on');
+    pop.replaceChildren(...(kind === 'shapes' ? SHAPES.map(([n, k]) => h('div', { onclick: () => { applyShape(selRing, k); pop.classList.remove('on'); popKind = null; } }, polyIcon(k), h('div', {}, n))) : SPECIALS.map(([n, i]) => h('div', { onclick: () => { if (i < 0) grid.forEach((r) => r.fill(0)); else loadGroove(PRESETS[i]); render(); pop.classList.remove('on'); popKind = null; } }, n)))); };
+  const polyIcon = (k) => { const pts = Array.from({ length: k }, (_, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / k; return `${15 + 11 * Math.cos(a)},${15 + 11 * Math.sin(a)}`; }).join(' '); return s('svg', { viewBox: '0 0 30 30', width: 30, height: 30 }, k === 2 ? s('line', { x1: 15, y1: 4, x2: 15, y2: 26, stroke: '#6fff64', 'stroke-width': 3 }) : s('polygon', { points: pts, fill: '#6fff64' })); };
+  const share = s('svg', { viewBox: '0 0 72 72', width: 72, height: 72, style: 'position:absolute;inset:0' }, s('path', { d: 'M36 36 L36 0 A36 36 0 1 0 72 36 Z', fill: '#3d2e7f' }), s('path', { d: 'M46 26 L60 12 M52 10 L62 10 L62 20', stroke: '#3d2e7f', 'stroke-width': 7, fill: 'none', 'stroke-linecap': 'round' }), ...[[14, 20], [30, 16], [20, 36], [12, 50], [32, 56]].map(([x, y]) => s('circle', { cx: x, cy: y, r: 2.2, fill: '#5845c4' })));
+  const shareBtn = h('div.gp-rb', { style: { top: '334px', left: '24px', width: '72px', height: '72px', background: 'transparent', position: 'absolute' }, onclick: () => { copy(location.href); toast('Share link copied'); } }, share, h('span', { style: { position: 'relative', fontSize: '15px', marginTop: '30px' } }, 'Share'));
+  stage.append(h('div.gp-rail', {}, logo, h('div.gp-wm', {}, 'groove', h('i', {}, 'pizza')), h('hr'), rb(150, 'Specials', () => openPop('specials', 150)), rb(240, 'Shapes', () => openPop('shapes', 240)), shareBtn), pop);
+  // pizza svg
+  const svg = s('svg', { class: 'gp-svg', width: 1440, height: 900, viewBox: '0 0 1440 900' });
+  const gSlices = s('g'), gNums = s('g'), gPoly = s('g'), gDots = s('g'), gHead = s('g');
+  const hub = s('g', { style: 'cursor:pointer' }, s('circle', { cx: CX, cy: CY, r: RH, fill: '#42fff3', stroke: '#fff', 'stroke-width': 2.5 }),
+    s('g', { transform: `translate(${CX - 22},${CY - 16})`, fill: '#2a9c98', stroke: '#2a9c98' }, s('ellipse', { cx: 22, cy: 20, rx: 9, ry: 9, fill: 'none', 'stroke-width': 3.5 }), s('rect', { x: 2, y: 8, width: 11, height: 9, rx: 2 }), s('rect', { x: 31, y: 8, width: 11, height: 9, rx: 2 }), s('line', { x1: 0, y1: 3, x2: 14, y2: 3, 'stroke-width': 2.5 }), s('line', { x1: 30, y1: 1, x2: 44, y2: 5, 'stroke-width': 2.5 }), s('line', { x1: 7, y1: 17, x2: 4, y2: 31, 'stroke-width': 2 }), s('line', { x1: 37, y1: 17, x2: 40, y2: 31, 'stroke-width': 2 }), s('line', { x1: 14, y1: 29, x2: 30, y2: 29, 'stroke-width': 2 })));
+  hub.addEventListener('click', () => togglePlay());
+  svg.append(s('circle', { cx: CX, cy: CY, r: RB, fill: '#4d38a0' }), gSlices, gNums, gHead, gPoly, gDots, hub);
+  const mid = h('div.gp-mid', {}, svg); stage.append(mid);
+  const ang = (i) => -Math.PI / 2 + i * 2 * Math.PI / N;
+  const pt = (r, a) => [CX + r * Math.cos(a), CY + r * Math.sin(a)];
+  const arc = (r0, r1, a0, a1) => { const [x0, y0] = pt(r1, a0), [x1, y1] = pt(r1, a1), [x2, y2] = pt(r0, a1), [x3, y3] = pt(r0, a0); return `M${x0} ${y0} A${r1} ${r1} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${r0} ${r0} 0 0 0 ${x3} ${y3}Z`; };
+  const dotR = (k) => (RING[k].r0 + RING[k].r1) / 2 + (k === 0 ? 4 : k === 1 ? 0 : -1);
+  let selRing = 0;
+  // linear grid + pats
+  const gridEl = h('div.gp-grid'); const patsEl = h('div.gp-pats'); mid.append(gridEl, patsEl);
+  const playIcon = s('svg', { viewBox: '0 0 40 40', width: 44, height: 44 }, s('path', { d: 'M8 4 L36 20 L8 36Z', fill: '#fff' }));
+  const playBtn = h('div.gp-play', { onclick: () => togglePlay() }, playIcon); mid.append(playBtn);
+  const setPlayIcon = () => playIcon.replaceChildren(playing ? s('g', { fill: '#fff' }, s('rect', { x: 8, y: 5, width: 9, height: 30 }), s('rect', { x: 23, y: 5, width: 9, height: 30 })) : s('path', { d: 'M8 4 L36 20 L8 36Z', fill: '#fff' }));
+  // sliders
+  const SL = [['volume', 10, 'VOLUME'], ['bpm', 60, 'BPM'], ['swing', 110, 'SWING'], ['slices', 160, 'SLICES']];
+  const slEls = {};
+  SL.forEach(([k, x, lab]) => { const fill = h('i'), num = h('b'), el = h('div.gp-sl', { style: { left: x + 'px' } }, fill, num, h('span', {}, lab)); slEls[k] = { el, fill, num }; stage.append(el);
+    let on = false; const at = (e) => { const r = el.getBoundingClientRect(); const f = clamp(1 - (e.clientY - r.top) / r.height, 0, 1); const [a, b] = RANGE[k]; setParam(k, Math.round(a + f * (b - a))); };
+    el.addEventListener('pointerdown', (e) => { on = true; el.setPointerCapture(e.pointerId); at(e); }); el.addEventListener('pointermove', (e) => on && at(e)); el.addEventListener('pointerup', () => (on = false));
+    el.addEventListener('wheel', (e) => { e.preventDefault(); setParam(k, P[k] + (e.deltaY < 0 ? 1 : -1)); }, { passive: false }); });
+  const diamond = s('svg', { viewBox: '0 0 30 30', width: 30, height: 30 }, s('path', { d: 'M15 2 L28 15 L15 28 L2 15Z', fill: '#fff' }));
+  const pen = s('svg', { viewBox: '0 0 30 30', width: 30, height: 30, fill: 'none', stroke: '#fff', 'stroke-width': 3, 'stroke-linecap': 'round' }, s('path', { d: 'M5 25 L25 25 M7 21 L18 6 M8 21 Q14 13 21 17' }));
+  stage.append(h('div.gp-cb', { style: { top: '750px' }, onclick: () => { selRing = (selRing + 1) % 3; toast('Shape target: ' + RING[selRing].name + ' ring'); } }, diamond), h('div.gp-cb', { style: { top: '821px' }, onclick: () => { grid[selRing].fill(0); render(); toast('cleared ' + RING[selRing].name); } }, pen));
+  const setParam = (k, v) => { const [a, b] = RANGE[k]; v = clamp(Math.round(v), a, b); P[k] = v; const E = slEls[k]; E.num.textContent = v; E.fill.style.height = ((v - a) / (b - a)) * 100 + '%';
+    if (k === 'swing') E.fill.style.height = (v / 100) * 100 + '%';
+    if (k === 'volume' && master) master.gain.value = v / 100 * 0.9;
+    if (k === 'slices' && v !== N) { resize(v); } };
+  const resize = (n) => { grid = grid.map((row) => Array.from({ length: n }, (_, i) => row[i] || 0)); N = n; slots[slot] = grid; render(); };
+  const loadGroove = (g) => { const n = g[0].length; grid = g.map((r) => r.slice()); slots[slot] = grid; N = n; P.slices = n; setParam('slices', n); };
+  const applyShape = (k, sides) => { const row = grid[k]; row.fill(0); if (sides === 2) { row[0] = 1; row[Math.floor(N / 2)] = 1; } else for (let i = 0; i < sides; i++) row[Math.round(i * N / sides) % N] = 1; render(); };
+  const toggle = (k, i) => { grid[k][i] = grid[k][i] ? 0 : 1; if (grid[k][i] && !playing) hit(k); render(); };
+  const thumb = (g, size) => { const c = size / 2, n = g[0].length; const els = []; g.forEach((row, k) => { const rr = [c * 0.3, c * 0.6, c * 0.85][k]; const pts = row.map((v, i) => v ? pt0(c, rr, -Math.PI / 2 + i * 2 * Math.PI / n) : null).filter(Boolean); if (pts.length >= 3) els.push(s('polygon', { points: pts.map((p) => p.join(',')).join(' '), fill: RING[k].col })); else if (pts.length === 2) els.push(s('line', { x1: pts[0][0], y1: pts[0][1], x2: pts[1][0], y2: pts[1][1], stroke: RING[k].col, 'stroke-width': 2 })); }); return s('svg', { viewBox: `0 0 ${size} ${size}`, width: size, height: size }, ...els); };
+  const pt0 = (c, r, a) => [c + r * Math.cos(a), c + r * Math.sin(a)];
+  const render = () => {
+    gSlices.replaceChildren(); gNums.replaceChildren(); gPoly.replaceChildren(); gDots.replaceChildren();
+    const w = Math.PI / N;
+    for (let i = 0; i < N; i++) { const a = ang(i); RING.forEach((rg, k) => gSlices.append(s('path', { d: arc(rg.r0, rg.r1, a - w, a + w), fill: rg.fill[(i % 2)], stroke: '#00000010', 'stroke-width': 1 })));
+      const [nx, ny] = pt(318, a); gNums.append(s('text', { x: nx, y: ny + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 11, 'font-family': L }, String(i + 1))); }
+    RING.forEach((rg, k) => { const r = dotR(k); const act = grid[k].map((v, i) => (v ? i : -1)).filter((i) => i >= 0); const pts = act.map((i) => pt(r, ang(i)));
+      if (pts.length >= 3) gPoly.append(s('polygon', { points: pts.map((p) => p.join(',')).join(' '), fill: rg.col, 'fill-opacity': 0.85, stroke: rg.col, 'stroke-width': 2, 'stroke-linejoin': 'round' }));
+      else if (pts.length === 2) gPoly.append(s('line', { x1: pts[0][0], y1: pts[0][1], x2: pts[1][0], y2: pts[1][1], stroke: rg.col, 'stroke-width': 4 }));
+      for (let i = 0; i < N; i++) { const [x, y] = pt(r, ang(i)); const on = grid[k][i]; const d = s('circle', { class: 'gp-dot', cx: x, cy: y, r: on ? 7.5 : 6.5, fill: on ? rg.dk === '#1fbfb6' ? '#2fd8cf' : rg.dk : '#ffffff', 'fill-opacity': on ? 1 : 0.6 }); d.addEventListener('click', () => toggle(k, i)); gDots.append(s('circle', { cx: x, cy: y, r: 16, fill: 'transparent', style: 'cursor:pointer', onclick: () => toggle(k, i) }), d); } });
+    // linear grid
+    const cw = Math.min(27, (480 - 40) / N - 2.4), gap = 2.4, x0 = 40;
+    const rows = [h('div', { style: { position: 'absolute', left: 0, top: 0, right: 0, height: '22px' } }, ...Array.from({ length: N }, (_, i) => h('span', { style: { position: 'absolute', left: x0 + i * (cw + gap) + 'px', width: cw + 'px', top: '6px', textAlign: 'center', font: `400 11px ${L}` } }, i + 1)))];
+    const icons = [polyIconTiny('#6fff64', 'tri'), polyIconTiny('#ffd84a', 'none'), polyIconTiny('#42fff3', 'line')];
+    [0, 1, 2].forEach((k) => { const top = 25 + k * 30; rows.push(h('div', { style: { position: 'absolute', left: '10px', top: top + 4 + 'px' } }, icons[k]));
+      for (let i = 0; i < N; i++) { const on = grid[k][i]; rows.push(h('div', { style: { position: 'absolute', left: x0 + i * (cw + gap) + 'px', top: top + 'px', width: cw + 'px', height: '27px', background: i === step && playing ? '#7a74b0' : '#565082', display: 'grid', placeItems: 'center', cursor: 'pointer' }, onclick: () => toggle(k, i) }, h('i', { style: { width: on ? '12px' : '5px', height: on ? '12px' : '5px', borderRadius: '50%', background: on ? (k === 0 ? '#6fff64' : k === 1 ? '#ffd84a' : '#42fff3') : '#fff' } }))); } });
+    gridEl.replaceChildren(...rows);
+    patsEl.replaceChildren(...slots.map((g, i) => h('div.gp-pat' + (i === slot ? '.on' : ''), { onclick: () => swapSlot(i) }, h('div', {}, i === slot || g.some((r) => r.some(Boolean)) ? thumb(g, 56) : null))));
+  };
+  const polyIconTiny = (c, kind) => s('svg', { viewBox: '0 0 22 18', width: 22, height: 18 }, kind === 'tri' ? s('path', { d: 'M2 6 L20 2 L9 16Z', fill: c }) : kind === 'line' ? s('line', { x1: 3, y1: 13, x2: 14, y2: 9, stroke: c, 'stroke-width': 2 }) : null);
+  const swapSlot = (i) => { slots[slot] = grid; slot = i; grid = slots[i]; N = grid[0].length; P.slices = N; setParam('slices', N); render(); };
+  // audio
+  let master = null;
+  const ensureAudio = () => { const ac = audio(); if (!ac) return null; if (!master) { master = ac.createGain(); master.gain.value = P.volume / 100 * 0.9; master.connect(ac.destination); } return ac; };
+  const voice = (k, t) => { const ac = ensureAudio(); if (!ac) return; t = t || ac.currentTime; const g = ac.createGain(); g.connect(master);
+    if (k === 2) { const o = ac.createOscillator(); o.frequency.setValueAtTime(160, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.14); g.gain.setValueAtTime(0.9, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.35); o.connect(g); o.start(t); o.stop(t + 0.36); return; }
+    const len = k === 1 ? 0.05 : 0.2; const b = ac.createBuffer(1, Math.ceil(ac.sampleRate * len), ac.sampleRate); const d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length) ** (k === 1 ? 3 : 1.5);
+    const src = ac.createBufferSource(); src.buffer = b; const f = ac.createBiquadFilter(); f.type = k === 1 ? 'highpass' : 'bandpass'; f.frequency.value = k === 1 ? 7500 : 1700; g.gain.value = k === 1 ? 0.35 : 0.6; src.connect(f).connect(g); src.start(t);
+    if (k === 0) { const o = ac.createOscillator(), og = ac.createGain(); o.type = 'triangle'; o.frequency.setValueAtTime(220, t); o.frequency.exponentialRampToValueAtTime(120, t + 0.1); og.gain.setValueAtTime(0.4, t); og.gain.exponentialRampToValueAtTime(0.001, t + 0.12); o.connect(og).connect(master); o.start(t); o.stop(t + 0.13); } };
+  const hit = (k) => voice(k);
+  const stepDur = () => 60 / P.bpm / 4;
+  const sched = () => { const ac = audio(); if (!ac || !playing) return; while (nextT < ac.currentTime + 0.12) { step = (step + 1) % N; const sw = step % 2 ? stepDur() * (P.swing / 100) * 0.33 : 0; const st = step; grid.forEach((row, k) => row[st] && voice(k, nextT + sw)); const delay = Math.max(0, (nextT - ac.currentTime) * 1000); setTimeout(() => { if (playing) { step = st; render(); } }, delay); nextT += stepDur(); } };
+  const head = s('path', { fill: '#ffffff', 'fill-opacity': 0.22 });
+  const headLine = s('line', { stroke: '#fff', 'stroke-width': 2.5, 'stroke-opacity': 0.9, 'stroke-linecap': 'round' });
+  gHead.append(head, headLine);
+  const drawHead = (frac) => { const a = -Math.PI / 2 + frac * 2 * Math.PI; const [x, y] = pt(R3, a); headLine.setAttribute('x1', CX); headLine.setAttribute('y1', CY); headLine.setAttribute('x2', x); headLine.setAttribute('y2', y); const w = Math.PI / N; const i = Math.round(frac * N) % N; head.setAttribute('d', arc(RH, R3, ang(i) - w, ang(i) + w)); };
+  const anim = () => { if (!root.isConnected) return; if (playing) { const ac = audio(); const el = ac ? ac.currentTime - t0 : (performance.now() / 1000 - t0); phase = ((el / (stepDur() * N)) + 1 / (2 * N)) % 1; drawHead((phase - 1 / (2 * N) + 1) % 1); } requestAnimationFrame(anim); };
+  const togglePlay = (force) => { playing = force ?? !playing; setPlayIcon();
+    if (playing) { const ac = ensureAudio(); step = -1; nextT = (ac ? ac.currentTime : 0) + 0.05; t0 = nextT; headLine.style.display = head.style.display = ''; sched(); timer = setInterval(sched, 25); }
+    else { clearInterval(timer); step = -1; headLine.style.display = head.style.display = 'none'; render(); } };
+  window.addEventListener('keydown', (e) => { if (e.code === 'Space' && root.isConnected) { e.preventDefault(); togglePlay(); } });
+  const fit = () => { const r = root.getBoundingClientRect(); const k = r.height / 900; const W = r.width / k; stage.style.width = W + 'px'; stage.style.transform = `scale(${k})`; if (stars.width !== Math.round(W)) paintStars(Math.round(W)); };
+  new ResizeObserver(fit).observe(root); fit();
+  Object.keys(P).forEach((k) => setParam(k, P[k])); headLine.style.display = head.style.display = 'none';
+  render(); anim();
+  window.__demoProof = async () => { const out = []; const snap = JSON.stringify({ slots, slot, P });
+    toggle(1, 2); toggle(1, 6); toggle(1, 10); out.push(`middle ring dots on → polygon count=${gPoly.childElementCount}`);
+    out.push(`grid mirrors: row2 cells lit=${grid[1].filter(Boolean).length}`);
+    gridEl.children[3].click(); out.push(`grid→pizza: inner ring slice2 now ${grid[0][1]} polygon pts=${grid[0].filter(Boolean).length}`);
+    setParam('slices', 12); out.push(`SLICES 12 → slices drawn=${gSlices.childElementCount / 3}`);
+    swapSlot(2); out.push(`pattern slot 3 → kick hits ${grid[2].filter(Boolean).length}`);
+    applyShape(0, 5); out.push(`shape pentagon on inner ring → ${grid[0].filter(Boolean).length} hits`);
+    togglePlay(true); await sleep(200); out.push(`playing step=${step} bpm=${P.bpm}`); togglePlay(false);
+    const S0 = JSON.parse(snap); slots = S0.slots; slot = S0.slot; grid = slots[slot]; N = grid[0].length; Object.keys(S0.P).forEach((k) => setParam(k, S0.P[k])); render();
+    return out.join('; ') + '; restored'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

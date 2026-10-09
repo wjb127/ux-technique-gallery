@@ -31,6 +31,9 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'arnaud-story-progress-fluid-drag-scramble-title-portfolio': '스토리 포트폴리오',
   'fromanother-agency-studio-collective-cycle-section-rail-blob': '에이전시 랜딩',
   'nightride-crt-scanline-eq-station-rail-milkdrop-tabs': 'CRT 신스웨이브 라디오',
+  'grilli-flexa-jump-rail-subfamily-pill-editable-specimen': '타입 파운드리 스페시먼',
+  'groovepizza-radial-slice-sequencer-shape-polygon-sliders': '라디얼 드럼 시퀀서',
+  'rabbit-r1-orange-device-stacked-app-card-screen-buy-bar': '하드웨어 제품 랜딩',
   'skia-shaders-thumb-rail-split-editor-canvas-run-itime': '셰이더 플레이그라운드',
   'hoverstat-framed-site-preview-year-tag-pill-archive': '웹 아카이브' };
 const RULES = [

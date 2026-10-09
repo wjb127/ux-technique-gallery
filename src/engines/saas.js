@@ -6022,4 +6022,116 @@ V['hoverstat-framed-site-preview-year-tag-pill-archive'] = (root, T) => {
     setView('home'); return out.join('; ') + '; restored'; };
 };
 
+V['rabbit-r1-orange-device-stacked-app-card-screen-buy-bar'] = (root, T) => {
+  import('@fontsource-variable/outfit');
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#ff5705', dark: true });
+  const F = "'Outfit Variable','Outfit',system-ui,sans-serif";
+  const OR = '#ff5705';
+  const APPS = [['settings', '#ff6a00', 'gear'], ['journal', '#cd89fe', 'book'], ['camera', '#ff2d6f', 'cam'], ['magic gallery', '#1fe8f2', 'pic'], ['timer', '#8f83ff', 'clock'], ['translator', '#52ff2e', 'tr'], ['recorder', '#ff2020', 'rec'], ['r-cade', '#ff8c00', 'game'], ['reminder', '#2121ff', 'bell'], ['notes', '#ffe14a', 'book']];
+  const DEF_FOCUS = 1;
+  let focus = DEF_FOCUS, cookie = true, wheelRot = 0;
+  css(`.rb{position:absolute;inset:0;overflow:hidden;background:#000;font-family:${F};color:#fff}
+.rb-stage{position:absolute;left:0;top:0;height:900px;transform-origin:0 0}
+.rb-bg{position:absolute;inset:0;background:radial-gradient(ellipse 62% 44% at 50% 80%,#69bfe8 0%,#3f93c4 22%,#1b5d86 48%,#0a2a40 72%,#000 100%),#000}
+.rb-bg::before{content:'';position:absolute;left:0;right:0;top:0;height:470px;background:linear-gradient(#000 0%,#000 55%,#0000 100%)}
+.rb-bg::after{content:'';position:absolute;left:50%;top:330px;width:560px;height:200px;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 30%,#ff3a0066,#ff1a0022 45%,transparent 70%);filter:blur(18px)}
+.rb-top{position:absolute;left:0;right:0;top:0;height:63px;background:${OR};color:#000;display:flex;align-items:center;font:400 14.5px ${F};z-index:5}
+.rb-logo{position:absolute;left:31px;top:12px;font:400 31px/1 ${F};letter-spacing:-.01em;cursor:pointer}
+.rb-logo sup{font-size:10px;vertical-align:top;position:relative;top:2px;margin-left:1px}
+.rb-nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:0;align-items:center}
+.rb-nav a{cursor:pointer;position:relative;padding:0 36px;color:#000;text-decoration:none}
+.rb-nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.rb-new{background:#000;color:${OR};border-radius:99px;padding:1px 6px 2px;font-size:11.5px;margin-right:4px}
+.rb-dot{position:absolute;right:21px;top:-9px;width:7px;height:7px;border-radius:50%;background:#000}
+.rb-cart{position:absolute;right:26px;top:20px;cursor:pointer}
+.rb-h1{position:absolute;left:0;right:0;top:72px;text-align:center;font:200 197px/1 ${F};letter-spacing:-.035em;color:#fff;margin:0}
+.rb-sub{position:absolute;left:0;right:0;top:272px;text-align:center;font:300 23.5px ${F};letter-spacing:-.003em;color:#f2f2f2}
+.rb-dev{position:absolute;left:50%;top:344px;width:344px;height:346px;margin-left:-175px;border-radius:44px;background:linear-gradient(160deg,#ff7a2a 0%,#ff5400 30%,#f24800 70%,#c93400 100%);box-shadow:inset 0 2px 0 #ffb27a,inset 0 -6px 14px #a02800,inset 6px 0 10px #ff8a4a55,0 -10px 40px #ff3c0040,0 24px 50px #0008;cursor:grab;touch-action:none}
+.rb-dev::after{content:'';position:absolute;left:30px;right:30px;bottom:-14px;height:20px;background:radial-gradient(ellipse,#0009,transparent 70%);z-index:-1}
+.rb-scr{position:absolute;left:12px;top:16px;width:239px;height:317px;border-radius:28px;background:#000;box-shadow:inset 0 0 0 2px #1a0a00,0 0 0 1px #ff8a4a44;overflow:hidden}
+.rb-st{position:absolute;left:0;right:0;top:32px;text-align:center;font:500 13.5px ${F};color:#fff}
+.rb-bat{position:absolute;right:28px;top:36px;width:16px;height:8px;border-radius:2px;background:#fff}
+.rb-bat::after{content:'';position:absolute;right:-3px;top:2px;width:2px;height:4px;background:#fff;border-radius:1px}
+.rb-cards{position:absolute;left:44px;top:84px;width:148px;height:212px;overflow:hidden}
+.rb-card{position:absolute;left:0;right:0;border-radius:7px 7px 0 0;color:#111;font:400 12.5px ${F};text-align:right;padding:3px 7px 0 0;transition:top .28s cubic-bezier(.3,.8,.2,1),height .28s cubic-bezier(.3,.8,.2,1);height:60px;cursor:pointer;box-shadow:0 -1px 0 #0003}
+.rb-card svg{position:absolute;left:6px;top:3px}
+.rb-card .x{position:absolute;left:8px;right:8px;bottom:8px;text-align:left;font-size:10px;opacity:0;transition:opacity .2s}
+.rb-card.on .x{opacity:.7}
+.rb-ind{position:absolute;left:205px;top:112px;width:3px;display:flex;flex-direction:column;gap:3px}
+.rb-ind i{display:block;width:3px;height:3px;background:#777;border-radius:1px}.rb-ind i.on{background:#fff;height:6px}
+.rb-cam{position:absolute;left:262px;top:16px;width:70px;height:70px;border-radius:16px;background:linear-gradient(#ff5a10,#e04400);box-shadow:inset 0 0 0 2px #ff8a4a66,inset 0 4px 10px #a02800}
+.rb-cam i{position:absolute;left:14px;top:14px;width:42px;height:42px;border-radius:10px;background:radial-gradient(circle at 50% 45%,#ff2a10,#d81c00 60%,#a01000);box-shadow:inset 0 2px 4px #0006,0 0 0 2px #ff6a3088}
+.rb-whl{position:absolute;left:264px;top:106px;width:68px;height:72px;border-radius:12px;background:#9a2400;box-shadow:inset 0 3px 8px #000a;overflow:hidden;cursor:ns-resize}
+.rb-whl i{position:absolute;left:6px;right:6px;top:6px;bottom:6px;border-radius:8px;background-image:linear-gradient(#ff4a1a,#ff2a00 40%,#c81a00),repeating-linear-gradient(0deg,#0000 0 6px,#0003 6px 7px);background-blend-mode:multiply;box-shadow:inset 0 10px 10px -6px #ffaa8a,inset 0 -10px 10px -6px #6a1000}
+.rb-side{position:absolute;left:342px;top:132px;width:9px;height:30px;border-radius:2px;background:linear-gradient(90deg,#999,#eee,#888)}
+.rb-badges{position:absolute;left:calc(50% - 574px);top:700px;display:flex;gap:42px;align-items:flex-end}
+.rb-rd{font:400 12.5px/1.15 ${F};color:#fff}
+.rb-rd b{display:block;font-weight:400}
+.rb-if{width:120px;height:60px;background:#e3001b;display:flex;align-items:center;gap:8px;padding:6px;box-sizing:border-box;border:2px solid #fff}
+.rb-if b{font:700 30px/1 ${F};color:#fff;border-right:2px solid #fff;padding-right:6px;font-style:italic}
+.rb-if span{font:600 8.5px/1.2 ${F};color:#fff}
+.rb-facts{position:absolute;left:calc(50% - 574px);top:846px;display:flex;font:400 12.5px/1.2 ${F};color:#fff}
+.rb-facts div{width:162px}
+.rb-facts div:nth-child(3),.rb-facts div:nth-child(4){width:130px}
+.rb-price{position:absolute;left:calc(50% + 145px);top:800px;font:200 70px/1 ${F};letter-spacing:-.02em}
+.rb-price sup{font:300 30px ${F};vertical-align:top;position:relative;top:6px;margin-left:12px;letter-spacing:0}
+.rb .rb-buy{position:absolute;left:calc(50% + 387px);top:820px;width:211px;height:52px;border-radius:99px;background:#000;color:#fff;font:300 36px/52px ${F};text-align:center;cursor:pointer;letter-spacing:-.01em;border:0}
+.rb .rb-buy em{font-style:normal;color:${OR}}
+.rb .rb-buy:hover{background:#111}
+.rb-ck{position:absolute;left:calc(50% - 301px);top:804px;width:601px;height:58px;border-radius:8px;background:#232323ee;display:flex;align-items:center;padding:0 24px;font:400 18px ${F};color:#fff;gap:10px;z-index:4;backdrop-filter:blur(6px)}
+.rb-ck u{text-underline-offset:3px}
+.rb .rb-ck button{font:inherit;color:#fff;background:none;border:0;display:flex;align-items:center;gap:8px;cursor:pointer;padding:0}
+.rb-ck .c{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:14px;line-height:1}`);
+  const ICON = (k) => { const p = { gear: 'M6 1h2v2l1.5.6 1.4-1.4 1.4 1.4L10.9 5 11.5 6.5h2v2h-2L10.9 10l1.4 1.4-1.4 1.4L9.5 11.4 8 12v2H6v-2l-1.5-.6-1.4 1.4-1.4-1.4L3.1 10 2.5 8.5h-2v-2h2L3.1 5 1.7 3.6 3.1 2.2 4.5 3.6 6 3Z', book: 'M1 3h5l1 1 1-1h5v9H8l-1 1-1-1H1Z', cam: 'M1 4h3l1-2h4l1 2h3v8H1Z', pic: 'M1 1h12v12H1Z M4 7h6 M7 4v6', clock: 'M7 2a5 5 0 1 0 .01 0Z M7 4v3l2 2', tr: 'M1 2h6v6H1Z M7 6h6v6H7Z', rec: 'M7 1a6 6 0 1 0 .01 0Z M3 7h8', game: 'M5 1h4v4h4v4H9v4H5V9H1V5h4Z', bell: 'M3 10V6a4 4 0 0 1 8 0v4l1 1H2Z' }[k]; return s('svg', { viewBox: '0 0 14 14', width: 13, height: 13 }, s('path', { d: p, fill: '#111', 'fill-rule': 'evenodd', stroke: k === 'pic' || k === 'clock' ? '#111' : 'none', 'stroke-width': 1.2 })); };
+  const stage = h('div.rb-stage');
+  root.append(h('div.rb', {}, stage));
+  const cart = s('svg', { class: 'rb-cart', viewBox: '0 0 20 20', width: 21, height: 21 }, s('path', { d: 'M3 7h14l-1.5 11h-11Z', fill: '#000' }), s('path', { d: 'M7 7V5a3 3 0 0 1 6 0v2', stroke: '#000', 'stroke-width': 2, fill: 'none' }), s('circle', { cx: 10, cy: 12, r: 2, fill: OR }));
+  cart.addEventListener('click', () => toast('cart is empty'));
+  const nav = h('div.rb-nav', {}, h('a', {}, h('span.rb-new', {}, 'new'), 'OS3'), h('a', {}, 'r1', h('i.rb-dot')), ...['updates', 'creations', 'blog', 'newsroom', 'support'].map((t) => h('a', { onclick: () => toast(t + ' (demo)') }, t)));
+  const top = h('div.rb-top', {}, h('div.rb-logo', {}, 'rabbit', h('sup', {}, '™')), nav, cart);
+  // device
+  const cardEls = APPS.map(([n, c, ic], i) => h('div.rb-card', { style: { background: c, zIndex: i + 1 }, onclick: () => setFocus(i) }, ICON(ic), n));
+  const ind = h('div.rb-ind', {}, ...APPS.map(() => h('i')));
+  const cardsBox = h('div.rb-cards', {}, ...cardEls);
+  const scr = h('div.rb-scr', {}, h('div.rb-st', {}, '6:16'), h('div.rb-bat'), cardsBox, ind);
+  const wheelInner = h('i');
+  const whl = h('div.rb-whl', {}, wheelInner);
+  const dev = h('div.rb-dev', { tabindex: 0 }, scr, h('div.rb-cam', {}, h('i')), whl, h('div.rb-side'));
+  const COLL = 19, EXP = 54;
+  const layout = () => { let y = 0; const startIdx = clamp(focus - 1, 0, APPS.length - 1); cardEls.forEach((el, i) => { const rel = i - startIdx; const isOn = i === focus; el.classList.toggle('on', isOn);
+      if (rel < 0) { el.style.top = (-COLL + rel * 2) + 'px'; el.style.height = COLL + 'px'; return; }
+      el.style.top = y + 'px'; el.style.height = (isOn ? EXP : COLL) + 6 + 'px'; y += isOn ? EXP : COLL; });
+    [...ind.children].forEach((d, i) => d.classList.toggle('on', i === focus));
+    wheelInner.style.backgroundPosition = `0 0, 0 ${wheelRot}px`; };
+  const setFocus = (i) => { const n = clamp(i, 0, APPS.length - 1); if (n !== focus) { wheelRot += (n - focus) * 7; tick(); } focus = n; layout(); };
+  const tick = () => { try { const ac = audio(); if (ac && ac.state === 'running') blip(1800, 0.02, 'square', 0.02); } catch {} };
+  let acc = 0;
+  stage.addEventListener('wheel', (e) => { e.preventDefault(); acc += e.deltaY; if (Math.abs(acc) > 40) { setFocus(focus + Math.sign(acc)); acc = 0; } }, { passive: false });
+  let dragY = null; const onDown = (e) => { dragY = e.clientY; dev.setPointerCapture(e.pointerId); };
+  dev.addEventListener('pointerdown', onDown);
+  dev.addEventListener('pointermove', (e) => { if (dragY == null) return; const d = e.clientY - dragY; if (Math.abs(d) > 22) { setFocus(focus + Math.sign(d)); dragY = e.clientY; } });
+  dev.addEventListener('pointerup', () => (dragY = null));
+  window.addEventListener('keydown', (e) => { if (!root.isConnected) return; if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); setFocus(focus + 1); } if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); setFocus(focus - 1); } if (e.key === 'Enter') toast('open ' + APPS[focus][0]); });
+  // badges
+  const rd = s('svg', { viewBox: '0 0 40 40', width: 38, height: 38 }, ...[18, 14, 10, 6].map((r, i) => s('circle', { cx: 20, cy: 20, r, fill: 'none', stroke: '#e3001b', 'stroke-width': 2.4 })), s('circle', { cx: 20, cy: 20, r: 3, fill: '#e3001b' }));
+  const badges = h('div.rb-badges', {}, h('div.rb-rd', {}, rd, h('b', { style: { marginTop: '6px' } }, 'red', h('span', { style: { color: '#e3001b' } }, 'dot'), ' winner 2025'), h('span', { style: { fontSize: '11px' } }, 'best of the best')), h('div.rb-if', {}, h('b', {}, 'iF'), h('span', {}, 'DESIGN', h('br'), 'AWARD', h('br'), '2025')));
+  const facts = h('div.rb-facts', {}, ...[['no', 'subscription'], ['powered by', 'rabbit OS3'], ['ships in 3', 'business days'], ['30-day free', 'returns']].map(([a, b]) => h('div', {}, a, h('br'), b)));
+  const price = h('div.rb-price', {}, '$199', h('sup', {}, 'USD'));
+  const buy = h('button.rb-buy', { onclick: () => toast('added r1 to cart · $199 USD') }, 'buy now', h('em', {}, '→'));
+  const ck = h('div.rb-ck', {}, h('span', { style: { flex: 1 } }, 'we use ', h('u', {}, 'cookies'), ' on our website.'),
+    h('button', { onclick: () => hideCookie('declined') }, h('span.c', { style: { background: '#d8d8d8', color: '#232323' } }, '✕'), 'decline'),
+    h('button', { style: { marginLeft: '28px' }, onclick: () => hideCookie('allowed') }, 'allow', h('span.c', { style: { background: OR, color: '#232323' } }, '✓')));
+  const hideCookie = (m) => { cookie = false; ck.style.display = 'none'; if (m) toast('cookies ' + m); };
+  stage.append(h('div.rb-bg'), top, h('h1.rb-h1', {}, 'rabbit r1'), h('div.rb-sub', {}, 'a pocket AI device powered by rabbit OS3, and a native physical way into OS3'), dev, badges, facts, price, buy, ck);
+  const fit = () => { const r = root.getBoundingClientRect(); const k = r.height / 900; const W = r.width / k; stage.style.width = W + 'px'; stage.style.transform = `scale(${k})`; };
+  new ResizeObserver(fit).observe(root); fit(); layout();
+  window.__demoProof = async () => { const out = [];
+    stage.dispatchEvent(new WheelEvent('wheel', { deltaY: 120, bubbles: true, cancelable: true })); await sleep(60); out.push(`wheel ↓ → focus ${APPS[focus][0]}`);
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' })); out.push(`ArrowDown → ${APPS[focus][0]}`);
+    setFocus(7); out.push(`drag/scroll to ${APPS[focus][0]} (card h=${cardEls[7].style.height})`);
+    hideCookie(); out.push('cookie toast dismissed'); ck.style.display = ''; cookie = true;
+    setFocus(DEF_FOCUS); wheelRot = 0; layout();
+    return out.join('; ') + '; restored focus=journal + cookie toast'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
