@@ -38,7 +38,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'hoverstat-framed-site-preview-year-tag-pill-archive': '웹 아카이브',
   'ghostty-ascii-frame-ghost-terminal-window-hero': 'ASCII 터미널 히어로',
   'samwho-loadbalancer-sim-card-play-speed-slider-dots': '로드밸런서 시뮬레이션 해설',
-  'lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio': '고서 목차 포트폴리오' };
+  'lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio': '고서 목차 포트폴리오',
+  'maggie-garden-topic-rail-growth-stage-filter-illustrated-card-masonry': '디지털 가든 인덱스',
+  'sbs-theboat-rain-particle-click-start-ink-comic-chapter-scroll': '그래픽노블 스크롤리텔링',
+  'sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card': '스튜디오 히어로 랜딩' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
