@@ -44,7 +44,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card': '스튜디오 히어로 랜딩',
   'metademolab-animated-drawings-4-step-upload-box-mask-joint-motion-wizard': '드로잉 애니메이션 위저드',
   'infinitemac-beige-bezel-year-timeline-os-launcher-customize-run': '클래식 맥 OS 런처',
-  'watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate': '판타지 도시 지도 생성기' };
+  'watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate': '판타지 도시 지도 생성기',
+  'shopify-editions-3d-cover-shelf-season-timeline-archive': '3D 커버 선반 아카이브',
+  'waffle-drag-swap-letter-grid-color-feedback-swap-counter': '드래그 스왑 단어 퍼즐',
+  'lux-dark-fullscreen-feature-carousel-chromatic-wordmark-pill-search': '다크 풀스크린 캐러셀' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

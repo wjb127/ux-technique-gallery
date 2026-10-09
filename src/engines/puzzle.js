@@ -1,7 +1,7 @@
 import '@fontsource-variable/fraunces';
 import '@fontsource-variable/roboto-flex/full.css';
 import '@fontsource/press-start-2p';
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, css } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',monospace";
 const V = {};
@@ -742,6 +742,134 @@ V['nyt-connections-word-group-grid'] = (root, T) => {
   const body = h('div', { style: { maxWidth: '640px', margin: '0 auto', padding: '22px 10px', display: 'grid', gap: '8px', justifyItems: 'stretch' } }, h('div', { style: { textAlign: 'center', fontSize: '17px', margin: '4px 0 14px' } }, 'Create four groups of four!'), solvedEl, gridEl, h('div', { style: { display: 'flex', justifyContent: 'center', margin: '18px 0 8px' } }, dots), h('div.k-row', { style: { justifyContent: 'center', gap: '10px', marginTop: '10px' } }, shuffleB, deselB, subB));
   root.append(top, head, body, toastEl, modal); reset();
   window.__demoProof = async () => { const near = [...GROUPS[0].w.slice(0, 3), GROUPS[1].w[0]]; sel = new Set(near); draw(); await submit(); const afterWrong = mistakes; sel = new Set(GROUPS[3].w); draw(); await submit(); const bands = solved.length; for (const g of [0, 1, 2]) { sel = new Set(GROUPS[g].w); draw(); await submit(); } await sleep(700); const ended = modal.style.display === 'grid'; const share = result().split('\n').length; reset(); return `one-away wrong guess (mistakes ${afterWrong}/4) → purple band solved (${bands}) → all 4 solved, end screen=${ended}, share grid ${share - 2} rows; reset`; };
+};
+
+V['waffle-drag-swap-letter-grid-color-feedback-swap-counter'] = (root, T) => {
+  import('@fontsource/montserrat/500.css'); import('@fontsource/montserrat/600.css'); import('@fontsource/montserrat/700.css'); import('@fontsource/montserrat/800.css');
+  theme(root, T, { bg: '#edeff1', fg: '#1a1a1a', ac: '#6fb05c', dark: false });
+  const MS = "'Montserrat','Clear Sans','Helvetica Neue',Arial,sans-serif";
+  const st = document.createElement('style'); st.textContent = `
+.wf{position:absolute;inset:0;background:#edeff1;font-family:${MS};color:#1a1a1a;user-select:none;-webkit-user-select:none;overflow:hidden}
+.wf-col{position:absolute;left:50%;top:0;bottom:0;width:728px;transform:translateX(-50%);background:#fff}
+.wf-hd{position:relative;height:78px;display:flex;align-items:center;padding:0 20px;gap:20px}
+.wf-ib{all:unset;cursor:pointer;width:47px;height:47px;border-radius:7px;background:#f3f4f6;display:grid;place-items:center;color:#1a1a1a;transition:background .15s,transform .1s}
+.wf-ib:hover{background:#e7e9ec}.wf-ib:active{transform:scale(.94)}
+.wf-sp{flex:1}
+.wf-ttl{position:absolute;left:50%;top:15px;transform:translateX(-50%);text-align:center;pointer-events:none}
+.wf-ttl b{display:block;font:800 25px/1 ${MS};letter-spacing:.17em;margin-right:-.17em}
+.wf-ttl small{display:block;font:600 13px/1 ${MS};letter-spacing:.12em;color:#8e9196;margin-top:7px}
+.wf-board{position:absolute;left:50%;top:176px;width:447px;height:447px;transform:translateX(-50%)}
+.wf-t{position:absolute;width:83px;height:83px;border-radius:6px;display:grid;place-items:center;font:700 40px/1 ${MS};cursor:grab;touch-action:none;
+  background:var(--c);color:var(--tc);box-shadow:inset 0 -5px 0 var(--e);padding-bottom:4px;box-sizing:border-box;transition:left .28s cubic-bezier(.3,.7,.3,1),top .28s cubic-bezier(.3,.7,.3,1),background .25s,box-shadow .25s,color .25s,transform .25s}
+.wf-t.g{--c:#6fb05c;--e:#5b9a49;--tc:#fff;cursor:default}
+.wf-t.y{--c:#e9ba3a;--e:#d3a42a;--tc:#fff}
+.wf-t.n{--c:#edeff1;--e:#d4d6d9;--tc:#1a1a1a}
+.wf-t.drag{transition:background .25s,box-shadow .25s,transform .12s;z-index:5;transform:scale(1.08);cursor:grabbing;box-shadow:inset 0 -5px 0 var(--e),0 14px 26px #0003}
+.wf-t.over{transform:scale(.92);filter:brightness(.96)}
+.wf-t.flip{animation:wfflip .5s ease both}
+@keyframes wfflip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+.wf-t.shake{animation:wfshake .3s}
+@keyframes wfshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.wf-sw{position:absolute;left:0;right:0;top:648px;text-align:center;font:500 21px/1 ${MS};letter-spacing:.09em;color:#a3a6ab}
+.wf-sw b{color:#1a1a1a;font-weight:800;margin-right:6px;display:inline-block}
+.wf-sw b.tick{animation:wftick .35s}
+@keyframes wftick{40%{transform:scale(1.35)}}
+.wf-ov{position:absolute;inset:0;background:#ffffffb3;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:20}
+.wf-ov.on{opacity:1;pointer-events:auto}
+.wf-md{width:420px;background:#fff;border-radius:12px;box-shadow:0 18px 60px #0003;padding:26px 28px 24px;text-align:center;transform:translateY(16px);transition:transform .35s cubic-bezier(.2,.8,.3,1.2)}
+.wf-ov.on .wf-md{transform:none}
+.wf-md h2{margin:0;font:800 26px ${MS};letter-spacing:.14em}
+.wf-md .sub{font:600 12px ${MS};letter-spacing:.12em;color:#8e9196;margin:6px 0 16px}
+.wf-stars{display:flex;justify-content:center;gap:8px;margin:6px 0 14px}
+.wf-stars svg{width:42px;height:42px;opacity:0;transform:scale(.3) rotate(-30deg);transition:opacity .3s,transform .45s cubic-bezier(.3,1.6,.5,1)}
+.wf-stars svg.on{opacity:1;transform:none}
+.wf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0 18px}
+.wf-stats div{font:700 26px ${MS}}.wf-stats small{display:block;font:600 10px ${MS};letter-spacing:.08em;color:#8e9196;margin-top:4px;text-transform:uppercase}
+.wf-mini{display:inline-grid;grid-template-columns:repeat(5,16px);gap:3px;margin-bottom:16px}
+.wf-mini i{width:16px;height:16px;border-radius:3px}
+.wf-btns{display:flex;gap:10px;justify-content:center}
+.wf-b{all:unset;cursor:pointer;font:700 14px ${MS};letter-spacing:.08em;padding:12px 20px;border-radius:7px;background:#6fb05c;color:#fff;box-shadow:inset 0 -4px 0 #5b9a49}
+.wf-b.alt{background:#edeff1;color:#1a1a1a;box-shadow:inset 0 -4px 0 #d4d6d9}
+.wf-help{position:absolute;right:20px;top:72px;width:330px;background:#fff;border-radius:10px;box-shadow:0 12px 40px #0002;padding:16px 18px;font:500 13px/1.5 ${MS};z-index:15;display:none}
+.wf-help.on{display:block}.wf-help h4{margin:0 0 6px;font:800 14px ${MS};letter-spacing:.1em}
+.wf-help .k{display:inline-block;width:16px;height:16px;border-radius:3px;vertical-align:-3px;margin-right:6px}
+`; root.append(st);
+  // solution: rows BRAVE / OLIVE / MONEY, columns BLOOM / ALIGN / EVERY
+  const SOL = ['BRAVE', 'L.L.V', 'OLIVE', 'O.G.R', 'MONEY'];
+  const cells = []; for (let r = 0; r < 5; r++) for (let c = 0; c < 5; c++) if (SOL[r][c] !== '.') cells.push({ r, c, s: SOL[r][c] });
+  const idx = (r, c) => cells.findIndex((k) => k.r === r && k.c === c);
+  const LINES = [0, 2, 4].map((r) => [0, 1, 2, 3, 4].map((c) => idx(r, c))).concat([0, 2, 4].map((c) => [0, 1, 2, 3, 4].map((r) => idx(r, c))));
+  const scramble = () => { // deterministic 10-swap scramble that keeps the 5 anchor tiles fixed (like Waffle's pre-solved corners/centre)
+    const R = rng(1722); const cur = cells.map((k) => k.s); const anchors = new Set([idx(0, 0), idx(0, 4), idx(2, 2), idx(4, 0), idx(4, 4)]);
+    const free = cells.map((_, i) => i).filter((i) => !anchors.has(i)); let n = 0, guard = 0;
+    while (n < 10 && guard++ < 999) { const a = pick(free, R), b = pick(free, R); if (a === b || cur[a] === cur[b] || cur[a] !== cells[a].s && cur[b] !== cells[b].s && R() < .5) continue; [cur[a], cur[b]] = [cur[b], cur[a]]; n++; }
+    return cur; };
+  const START = scramble(); const MAX = 15;
+  let cur = START.slice(), swaps = MAX, done = false, streak = 3, played = 12, wins = 11;
+  const wrap = h('div.wf'); root.append(wrap);
+  const ico = { menu: '<svg width="20" height="18" viewBox="0 0 20 18"><rect y="1" width="20" height="4" rx="2" fill="#1a1a1a"/><rect y="7" width="20" height="4" rx="2" fill="#1a1a1a"/><rect y="13" width="20" height="4" rx="2" fill="#1a1a1a"/></svg>',
+    heart: '<svg width="22" height="20" viewBox="0 0 24 21"><path d="M12 21 2.2 11.4C-.6 8.6-.7 4.1 2 1.6 4.6-.8 8.6-.4 10.9 2.3L12 3.6l1.1-1.3C15.4-.4 19.4-.8 22 1.6c2.7 2.5 2.6 7-.2 9.8Z" fill="#1a1a1a"/></svg>',
+    stats: '<svg width="20" height="19" viewBox="0 0 20 19"><rect x="0" y="5" width="5" height="14" rx="1.5" fill="#1a1a1a"/><rect x="7.5" y="0" width="5" height="19" rx="1.5" fill="#1a1a1a"/><rect x="15" y="9" width="5" height="10" rx="1.5" fill="#1a1a1a"/></svg>',
+    help: '<svg width="16" height="22" viewBox="0 0 16 22"><path d="M1.5 6.2C1.9 2.6 4.6.6 8.3.6c3.9 0 6.6 2.2 6.6 5.6 0 2.5-1.4 3.8-3.2 4.9-1.5.9-1.9 1.4-1.9 2.7v.8H5.6v-1c0-2.2.7-3.3 2.6-4.5 1.5-.9 2.2-1.5 2.2-2.7 0-1.3-1-2.2-2.4-2.2S5.6 5.1 5.4 6.5Z" fill="#1a1a1a"/><circle cx="7.8" cy="19" r="2.6" fill="#1a1a1a"/></svg>' };
+  const col = h('div.wf-col'); wrap.append(col);
+  const help = h('div.wf-help', {}, h('h4', {}, 'HOW TO PLAY'), h('div', {}, 'Drag a tile onto another to swap them. Solve all six words before you run out of swaps.'),
+    h('div', { style: { marginTop: '8px' } }, h('span.k', { style: { background: '#6fb05c' } }), 'right letter, right spot'), h('div', {}, h('span.k', { style: { background: '#e9ba3a' } }), 'in the word, wrong spot'), h('div', {}, h('span.k', { style: { background: '#edeff1', boxShadow: 'inset 0 -2px 0 #d4d6d9' } }), 'not in that row/column word'));
+  const swEl = h('b', {}, String(swaps));
+  col.append(h('div.wf-hd', {}, h('button.wf-ib', { html: ico.menu, title: 'Menu', onclick: () => toast('Archive · Deluxe · Settings') }), h('button.wf-ib', { html: ico.heart, title: 'Support', onclick: () => toast('♥ Thanks for supporting Waffle') }),
+    h('div.wf-sp'), h('div.wf-ttl', {}, h('b', {}, 'WAFFLE'), h('small', {}, 'DAILY WAFFLE #1722')), h('button.wf-ib', { html: ico.stats, title: 'Statistics', onclick: () => showModal(false) }), h('button.wf-ib', { html: ico.help, title: 'Help', onclick: () => help.classList.toggle('on') })), help);
+  const board = h('div.wf-board'); col.append(board, h('div.wf-sw', {}, swEl, 'SWAPS REMAINING'));
+  const P = (i) => ({ left: cells[i].c * 91 + 'px', top: cells[i].r * 91 + 'px' });
+  // tiles keep identity; position index map pos[i] = tile at cell i
+  const tiles = cur.map((ch, i) => { const el = h('div.wf-t', {}, ch); Object.assign(el.style, P(i)); el.cell = i; board.append(el); return el; });
+  let at = tiles.slice(); // at[cell] = tile element
+  const colors = () => { const res = cells.map((k, i) => (cur[i] === k.s ? 'g' : 'n'));
+    for (const L of LINES) { const need = {}; L.forEach((i) => { if (cur[i] !== cells[i].s) need[cells[i].s] = (need[cells[i].s] || 0) + 1; }); L.forEach((i) => { if (res[i] === 'g') return; if (need[cur[i]] > 0) { need[cur[i]]--; res[i] = 'y'; } }); }
+    return res; };
+  const paint = () => { const cs = colors(); at.forEach((el, i) => { el.textContent = cur[i]; el.className = 'wf-t ' + cs[i]; }); return cs; };
+  const setSwaps = (n) => { swaps = n; swEl.textContent = n; swEl.classList.remove('tick'); void swEl.offsetWidth; swEl.classList.add('tick'); };
+  const swap = (a, b, count = true) => { if (a === b || done) return false; const cs = colors(); if (cs[a] === 'g' || cs[b] === 'g') return false;
+    [cur[a], cur[b]] = [cur[b], cur[a]]; [at[a], at[b]] = [at[b], at[a]]; Object.assign(at[a].style, P(a)); Object.assign(at[b].style, P(b)); at[a].cell = a; at[b].cell = b;
+    if (count) setSwaps(swaps - 1); blip(520 + Math.random() * 80, .08, 'triangle', .05); setTimeout(check, 300); paintSoon(); return true; };
+  let pt; const paintSoon = () => { clearTimeout(pt); pt = setTimeout(paint, 180); };
+  const check = () => { const cs = colors(); if (cs.every((c) => c === 'g')) win(); else if (swaps <= 0) lose(); };
+  const win = async () => { if (done) return; done = true; for (const L of LINES) { for (const i of L) { at[i].classList.remove('flip'); void at[i].offsetWidth; at[i].classList.add('flip'); } blip(660, .12, 'sine', .06); await sleep(160); }
+    played++; wins++; streak++; await sleep(350); showModal(true); };
+  const lose = () => { done = true; played++; streak = 0; cells.forEach((k, i) => { at[i].textContent = k.s; }); setTimeout(() => showModal(true, true), 400); };
+  // ---- drag to swap ----
+  board.addEventListener('pointerdown', (e) => {
+    const el = e.target.closest('.wf-t'); if (!el || done) return; const from = el.cell; if (colors()[from] === 'g') { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); return; }
+    e.preventDefault(); const br = board.getBoundingClientRect(); const ox = e.clientX - br.left - parseFloat(el.style.left), oy = e.clientY - br.top - parseFloat(el.style.top); el.classList.add('drag'); let over = null;
+    const mv = (ev) => { el.style.left = ev.clientX - br.left - ox + 'px'; el.style.top = ev.clientY - br.top - oy + 'px'; const cx = ev.clientX - br.left, cy = ev.clientY - br.top;
+      const hit = cells.findIndex((k, i) => i !== from && cx >= k.c * 91 && cx < k.c * 91 + 83 && cy >= k.r * 91 && cy < k.r * 91 + 83); const nt = hit >= 0 && colors()[hit] !== 'g' ? hit : null;
+      if (nt !== over) { if (over != null) at[over].classList.remove('over'); over = nt; if (over != null) at[over].classList.add('over'); } };
+    const up = () => { window.removeEventListener('pointermove', mv); window.removeEventListener('pointerup', up); el.classList.remove('drag'); if (over != null) { at[over].classList.remove('over'); swap(from, over); } else Object.assign(el.style, P(from)); };
+    window.addEventListener('pointermove', mv); window.addEventListener('pointerup', up); });
+  // ---- result modal ----
+  const ov = h('div.wf-ov', { onclick: (e) => { if (e.target === ov) ov.classList.remove('on'); } }); wrap.append(ov);
+  const star = (on) => h('span', { html: `<svg viewBox="0 0 24 24" class="${on ? '' : 'off'}"><path d="M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9Z" fill="${on ? '#e9ba3a' : '#e3e5e8'}" stroke="${on ? '#d3a42a' : '#d4d6d9'}" stroke-width="1.2" stroke-linejoin="round"/></svg>` }).firstChild;
+  const showModal = async (end, lost) => { const nstars = end && !lost ? Math.min(5, swaps) : 0; const cs = colors();
+    const stars = h('div.wf-stars', {}, [0, 1, 2, 3, 4].map((k) => star(k < nstars)));
+    const mini = h('div.wf-mini', {}, ...Array.from({ length: 25 }, (_, k) => { const r = Math.floor(k / 5), c = k % 5, i = idx(r, c); return h('i', { style: { background: i < 0 ? 'transparent' : cs[i] === 'g' ? '#6fb05c' : cs[i] === 'y' ? '#e9ba3a' : '#e3e5e8' } }); }));
+    const share = () => { const g = Array.from({ length: 5 }, (_, r) => Array.from({ length: 5 }, (_, c) => { const i = idx(r, c); return i < 0 ? '⬜' : cs[i] === 'g' ? '🟩' : '🟨'; }).join('')).join('\n'); copy(`#waffle1722 ${nstars}/5\n\n${g}\n\n🔥 streak: ${streak}`, 'Result copied'); };
+    ov.replaceChildren(h('div.wf-md', {}, h('h2', {}, end ? (lost ? 'OUT OF SWAPS' : 'WAFFLE!') : 'STATISTICS'), h('div.sub', {}, end ? (lost ? 'THE ANSWER WAS REVEALED' : `SOLVED WITH ${swaps} SWAPS LEFT`) : 'DAILY WAFFLE #1722'),
+      end ? stars : null, end ? mini : null,
+      h('div.wf-stats', {}, ...[[played, 'Played'], [Math.round((wins / played) * 100) + '%', 'Win %'], [streak, 'Streak'], [Math.max(streak, 8), 'Best']].map(([v, l]) => h('div', {}, String(v), h('small', {}, l)))),
+      h('div.wf-btns', {}, h('button.wf-b', { onclick: share }, 'SHARE'), h('button.wf-b.alt', { onclick: () => { ov.classList.remove('on'); } }, 'CLOSE'))));
+    ov.classList.add('on'); if (end) { const ss = [...stars.children]; for (const s0 of ss) { await sleep(180); if (s0.querySelector('path').getAttribute('fill') === '#e9ba3a') { s0.classList.add('on'); blip(780, .1, 'sine', .05); } else s0.classList.add('on'); } } return ov; };
+  const reset = () => { cur = START.slice(); at = tiles.slice(); tiles.forEach((el, i) => { el.cell = i; Object.assign(el.style, P(i)); }); swaps = MAX; swEl.textContent = MAX; done = false; ov.classList.remove('on'); paint(); };
+  paint();
+  // greedy solver (used by the demo proof to play a full game through the real swap() path)
+  const nextMove = () => { const cs = colors(); for (let a = 0; a < cells.length; a++) { if (cs[a] === 'g') continue; for (let b = 0; b < cells.length; b++) if (b !== a && cs[b] !== 'g' && cur[b] === cells[a].s && cur[a] === cells[b].s) return [a, b]; }
+    for (let a = 0; a < cells.length; a++) { if (cs[a] === 'g') continue; for (let b = 0; b < cells.length; b++) if (b !== a && cs[b] !== 'g' && cur[b] === cells[a].s) return [a, b]; } return null; };
+  window.__demoProof = async () => { const out = []; reset(); const g0 = colors().filter((c) => c === 'g').length, y0 = colors().filter((c) => c === 'y').length; out.push(`start: ${g0} green / ${y0} yellow, ${swaps} swaps`);
+    // real pointer drag for the first move
+    const [a, b] = nextMove(); const ta = at[a], br = board.getBoundingClientRect(); const pos = (i) => [br.left + cells[i].c * 91 + 41, br.top + cells[i].r * 91 + 41];
+    const ev = (t, [x, y], tg = window) => tg.dispatchEvent(new PointerEvent(t, { bubbles: true, clientX: x, clientY: y, pointerId: 1, button: 0, buttons: t === 'pointerup' ? 0 : 1 }));
+    ev('pointerdown', pos(a), ta); for (let k = 1; k <= 6; k++) { const [x0, y0] = pos(a), [x1, y1] = pos(b); ev('pointermove', [x0 + (x1 - x0) * k / 6, y0 + (y1 - y0) * k / 6]); await sleep(16); } ev('pointerup', pos(b)); await sleep(420);
+    out.push(`drag ${cells[a].r},${cells[a].c}→${cells[b].r},${cells[b].c}: now ${colors().filter((c) => c === 'g').length} green, counter ${swaps}`);
+    let m, n = 0; while (!done && (m = nextMove()) && n++ < 14) { swap(m[0], m[1]); await sleep(60); }
+    await sleep(2400); out.push(`solved=${colors().every((c) => c === 'g')} with ${swaps} swaps left, modal=${ov.classList.contains('on')}, stars=${ov.querySelectorAll('.wf-stars svg.on path[fill="#e9ba3a"]').length}`);
+    reset(); out.push('restored to fresh puzzle'); return out.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }
