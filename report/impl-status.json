@@ -2896,5 +2896,32 @@
   "proof": "frames advanced 20→28 of 48 (rAF ~42ms); click pauses: frame held 28=28; resume: animating; blue glyphs/frame 107; restored playing",
   "demoNodes": 128,
   "errors": []
+ },
+ "sbs-theboat-rain-particle-click-start-ink-comic-chapter-scroll": {
+  "url": "https://ux-technique-gallery.vercel.app/t/sbs-theboat-rain-particle-click-start-ink-comic-chapter-scroll/",
+  "ok": true,
+  "at": "2026-10-09T16:30:34.923Z",
+  "http": 200,
+  "proof": "loader → gate text \"Click to start\"; click: started=true, gate faded=true, audio=running; chapter nav → chapter 1 \"The Storm\", progress 25% READ; scroll → 8 captions in, 2 ink panel(s) visible; mute → muted=true; reduced-motion fallback class=true; restored gate (CLICK TO START), audio stopped, scroll top",
+  "demoNodes": 347,
+  "errors": []
+ },
+ "sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card": {
+  "url": "https://ux-technique-gallery.vercel.app/t/sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card/",
+  "ok": true,
+  "at": "2026-10-09T16:30:34.927Z",
+  "http": 200,
+  "proof": "row1 dot4 → diagram morphed=true; row2 dot1 → node[0] at (245,102); full cycle → labels \"Climate / Trust\"; nav 'Info' active=true; restored Co-ordination dot 2 / Stability dot 4",
+  "demoNodes": 70,
+  "errors": []
+ },
+ "maggie-garden-topic-rail-growth-stage-filter-illustrated-card-masonry": {
+  "url": "https://ux-technique-gallery.vercel.app/t/maggie-garden-topic-rail-growth-stage-filter-illustrated-card-masonry/",
+  "ok": true,
+  "at": "2026-10-09T16:30:34.904Z",
+  "http": 200,
+  "proof": "stage dropdown open=true; Seedlings → 6 cards; type Notes → 6 cards; type Podcasts + Seedlings → 0 cards, empty state=true; topic rail scrolled 0px; topic 'Cultured Meat' → 2 cards; restored all filters (20 cards)",
+  "demoNodes": 400,
+  "errors": []
  }
 }
