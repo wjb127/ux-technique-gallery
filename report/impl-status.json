@@ -2871,30 +2871,30 @@
   "errors": []
  },
  "lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio": {
-  "url": "http://localhost:4173/t/lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio/",
+  "url": "https://ux-technique-gallery.vercel.app/t/lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio/",
   "ok": true,
-  "at": "2026-10-09T11:58:21.794Z",
+  "at": "2026-10-09T11:59:32.033Z",
   "http": 200,
   "proof": "hover WORK → scale 1.05; TOC rows 6 (I–VI, dot leaders); click WORK → section \"II work\" with 4 framed projects; sun toggle → dark (#111 / red ink); archive tiles 9; restored home + light",
   "demoNodes": 30,
   "errors": []
  },
  "samwho-loadbalancer-sim-card-play-speed-slider-dots": {
-  "url": "http://localhost:4173/t/samwho-loadbalancer-sim-card-play-speed-slider-dots/",
+  "url": "https://ux-technique-gallery.vercel.app/t/samwho-loadbalancer-sim-card-play-speed-slider-dots/",
   "ok": true,
-  "at": "2026-10-09T11:58:21.790Z",
+  "at": "2026-10-09T11:59:32.024Z",
   "http": 200,
   "proof": "card2 @3RPS after 4s: served 3, dropped 5; card3 round-robin: 3/2 per server; card1 visible → playing t=0.33s; pause holds t=0.33→0.33; play resumes t=0.48; speed slider max → ×4; card4 5 servers var cost: dots in flight 6, dropped 3; restored all sims (reset, playing, ×1)",
   "demoNodes": 108,
   "errors": []
  },
  "ghostty-ascii-frame-ghost-terminal-window-hero": {
-  "url": "http://localhost:4173/t/ghostty-ascii-frame-ghost-terminal-window-hero/",
+  "url": "https://ux-technique-gallery.vercel.app/t/ghostty-ascii-frame-ghost-terminal-window-hero/",
   "ok": true,
-  "at": "2026-10-09T11:58:21.778Z",
+  "at": "2026-10-09T11:59:32.014Z",
   "http": 200,
-  "proof": "frames advanced 13→21 of 48 (rAF ~42ms); click pauses: frame held 21=21; resume: animating; blue glyphs/frame 107; restored playing",
-  "demoNodes": 136,
+  "proof": "frames advanced 20→28 of 48 (rAF ~42ms); click pauses: frame held 28=28; resume: animating; blue glyphs/frame 107; restored playing",
+  "demoNodes": 128,
   "errors": []
  }
 }
