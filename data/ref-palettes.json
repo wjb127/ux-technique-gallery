@@ -1,4 +1,34 @@
 {
+ "ghostty-ascii-frame-ghost-terminal-window-hero": {
+  "bg": "#0f0f11",
+  "fg": "#f0f0f0",
+  "panel": "#3b3b3d",
+  "dark": true,
+  "ac": "#151932",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.76
+ },
+ "samwho-loadbalancer-sim-card-play-speed-slider-dots": {
+  "bg": "#ffffff",
+  "fg": "#79331a",
+  "panel": "#f7f7f7",
+  "dark": false,
+  "ac": "#79331a",
+  "ac2": "#886d55",
+  "ac3": "#ffc83d",
+  "coverage": 0.83
+ },
+ "lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio": {
+  "bg": "#e2ded3",
+  "fg": "#141414",
+  "panel": "#e1ddd2",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.23
+ },
  "grilli-flexa-jump-rail-subfamily-pill-editable-specimen": {
   "bg": "#ffffff",
   "fg": "#000000",

@@ -1571,4 +1571,104 @@ V['skia-shaders-thumb-rail-split-editor-canvas-run-itime'] = (root, T) => {
     return out.join('; ') + '; restored'; };
 };
 
+V['ghostty-ascii-frame-ghost-terminal-window-hero'] = (root, T) => {
+  import('@fontsource-variable/jetbrains-mono'); import('@fontsource-variable/inter');
+  theme(root, T, { bg: '#0f0f11', fg: '#fafafa', ac: '#3551f3', dark: true });
+  const GM = "'JetBrains Mono Variable',ui-monospace,monospace", GS = "'Inter Variable',system-ui,sans-serif";
+  css(`.gh{position:absolute;inset:0;overflow:hidden;background:#0f0f11;color:#fafafa;font-family:${GS}}
+.gh-stage{position:absolute;left:0;top:0;height:862px;transform-origin:0 0}
+.gh-win{position:absolute;left:50%;top:56px;width:856px;height:608px;margin-left:-428px;border:1px solid #3a3a3f;border-radius:10px;background:#0e0e10;box-shadow:0 0 0 1px #000,0 30px 80px #0009;overflow:hidden}
+.gh-tb{height:34px;background:#202023;border-bottom:1px solid #2c2c30;display:flex;align-items:center;position:relative;user-select:none}
+.gh-tt{position:absolute;left:0;right:0;text-align:center;font:700 13.5px/34px ${GS};color:#f4f4f5;pointer-events:none;letter-spacing:-.01em}
+.gh-ib{width:26px;height:24px;display:grid;place-items:center;border-radius:6px;cursor:pointer;color:#d4d4d8;position:relative;z-index:1}
+.gh-ib:hover{background:#ffffff14}
+.gh-x{width:19px;height:19px;border-radius:50%;background:#3a3a3e;display:grid;place-items:center;cursor:pointer;margin:0 10px 0 6px;position:relative;z-index:1}
+.gh-x:hover{background:#4a4a50}
+.gh-body{position:absolute;left:0;right:0;top:35px;bottom:0;display:grid;place-items:center;cursor:pointer}
+.gh-pre{margin:0;font:400 10.8px/12.6px ${GM};color:#9b9ba1;white-space:pre;letter-spacing:0;user-select:none;font-variant-ligatures:none}
+.gh-pre b{font-weight:400;color:#3b55f5}
+.gh-pre i{font-style:normal;color:#d4d4d8}
+.gh-st{position:absolute;right:12px;bottom:8px;font:500 11px ${GM};color:#52525b;opacity:0;transition:opacity .2s}
+.gh-st.on{opacity:1}
+.gh-tag{position:absolute;left:0;right:0;top:686px;text-align:center;font:400 16.2px ${GS};color:#a1a1aa;letter-spacing:-.003em}
+.gh-btns{position:absolute;left:0;right:0;top:730px;display:flex;justify-content:center;gap:20px}
+.gh .gh-b{height:41px;padding:0 35px;border-radius:5px;font:400 16px ${GS};color:#ededf0;cursor:pointer;transition:box-shadow .25s,background .25s,border-color .25s;letter-spacing:-.01em}
+.gh .gh-dl{background:#0b0d1d;border:1px solid #3348d6;min-width:139px}
+.gh .gh-dl:hover{box-shadow:0 0 22px #3551f377,inset 0 0 14px #3551f333;border-color:#5a6dff;background:#10143a}
+.gh .gh-doc{background:#151517;border:1px solid #3b3b40;min-width:177px}
+.gh .gh-doc:hover{box-shadow:0 0 22px #ffffff22;border-color:#6b6b72;background:#1d1d20}`);
+  const COLS = 84, ROWS = 41, CW = 6.5, CH = 12.6, NF = 48;
+  const hash = (a, b, c) => { let x = (a * 374761393 + b * 668265263 + c * 2147483647) | 0; x = (x ^ (x >>> 13)) * 1274126177; return ((x ^ (x >>> 16)) >>> 0) / 4294967296; };
+  // signed distance (px) to ghost silhouette; face screen area cut out
+  const sdGhost = (x, y, ph) => {
+    const R = 168, cy = -52; const dc = Math.hypot(x, y - cy) - R;
+    const bot = 168 + 22 * Math.cos((x / 112) * Math.PI * 2 + ph) - 6 * Math.sin(ph * 2 + x / 40);
+    const dx = Math.abs(x) - R, dyTop = cy - y, dyBot = y - bot;
+    const dbox = Math.max(dx, dyTop, dyBot);
+    return Math.min(dc, dbox);
+  };
+  const frame = (f) => {
+    const t = f / NF, ph = t * Math.PI * 2, bob = Math.sin(ph) * 7, sway = Math.sin(ph + 1.3) * 4;
+    const blink = f % 24 < 12; let out = '';
+    for (let r = 0; r < ROWS; r++) {
+      let line = '';
+      for (let c = 0; c < COLS; c++) {
+        const x = (c - COLS / 2 + 0.5) * CW - sway, y = (r - ROWS / 2 + 0.5) * CH - bob + 6;
+        const d = sdGhost(x, y, ph); const n = hash(c, r, f >> 1);
+        // face: terminal screen cutout with ">" chevron + "_" cursor
+        const fx = x, fy = y - 2; const inFace = Math.abs(fx) < 128 && Math.abs(fy) < 34;
+        if (d < 0) {
+          if (inFace) {
+            const cx0 = fx + 74, ch = Math.abs(cx0 - 26 + Math.abs(fy) * 0.9) < 9 && Math.abs(fy) < 26;
+            const cur = blink && fx > 6 && fx < 70 && fy > 14 && fy < 30;
+            const edge = Math.abs(fx) > 120 || Math.abs(fy) > 28;
+            line += ch ? (n < .55 ? '$' : '@') : cur ? '$' : edge ? (n < .5 ? '·' : ' ') : ' ';
+          } else if (d < -22) line += n < .93 ? '$' : '@';
+          else if (d < -12) line += n < .55 ? '$' : n < .85 ? '@' : '%';
+          else if (d < -5) line += n < .45 ? '@' : n < .75 ? '%' : '*';
+          else line += n < .35 ? '·' : n < .6 ? 'o' : n < .8 ? '*' : '+';
+        } else if (d > 22 && d < 36) {
+          const ang = Math.atan2(y + 20, x), horiz = Math.abs(Math.sin(ang)) > .72;
+          const g = n < .12 ? ' ' : horiz ? (n < .55 ? '+' : '=') : (n < .5 ? '=' : n < .7 ? 'x' : '+');
+          line += g === ' ' ? ' ' : '<b>' + g + '</b>';
+        } else if (d >= 36 && d < 46 && n < .05) line += '<b>' + (n < .025 ? '+' : '=') + '</b>';
+        else line += ' ';
+      }
+      out += line.replace(/<\/b><b>/g, '') + '\n';
+    }
+    return out;
+  };
+  const frames = Array.from({ length: NF }, (_, i) => frame(i));
+  const stage = h('div.gh-stage'); root.append(h('div.gh', {}, stage));
+  const ico = (d, w = 15) => s('svg', { viewBox: '0 0 16 16', width: w, height: w }, s('path', { d, fill: 'none', stroke: 'currentColor', 'stroke-width': 1.4, 'stroke-linecap': 'round' }));
+  const pre = h('pre.gh-pre'), st = h('div.gh-st', {}, 'paused');
+  const body = h('div.gh-body', { title: 'click to pause / resume' }, pre, st);
+  const tabBtn = h('div.gh-ib', { style: { marginLeft: '8px' }, onclick: () => toast('new tab (demo)') }, ico('M3 3h10v10H3Z M8 5.5v5 M5.5 8h5'));
+  const tb = h('div.gh-tb', {}, tabBtn, h('div.gh-tt', {}, '👻 Ghostty'), h('span', { style: { flex: 1 } }),
+    h('div.gh-ib', { onclick: () => toast('tab overview (demo)') }, ico('M3 3h4v4H3Z M9 3h4v4H9Z M3 9h4v4H3Z M9 9h4v4H9Z', 14)),
+    h('div.gh-ib', { onclick: () => toast('menu (demo)') }, ico('M3 4.5h10 M3 8h10 M3 11.5h10')),
+    h('div.gh-x', { onclick: () => toast('close window (demo)') }, s('svg', { viewBox: '0 0 10 10', width: 9, height: 9 }, s('path', { d: 'M2 2l6 6M8 2l-6 6', stroke: '#fff', 'stroke-width': 1.6, 'stroke-linecap': 'round' }))));
+  const win = h('div.gh-win', {}, tb, body);
+  const dl = h('button.gh-b.gh-dl', { onclick: () => toast('Download → ghostty.org/download (demo)') }, 'Download');
+  const doc = h('button.gh-b.gh-doc', { onclick: () => toast('Documentation → ghostty.org/docs (demo)') }, 'Documentation');
+  stage.append(win, h('div.gh-tag', {}, 'Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.'), h('div.gh-btns', {}, dl, doc));
+  let fi = 0, last = 0, userPaused = false, raf = 0; const FRAME_MS = 42;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const running = () => !userPaused && !document.hidden && !reduced.matches;
+  const draw = () => { pre.innerHTML = frames[fi]; };
+  const loop = (now) => { raf = requestAnimationFrame(loop); if (!root.isConnected) return cancelAnimationFrame(raf); if (!running()) return; if (now - last >= FRAME_MS) { last = now; fi = (fi + 1) % NF; draw(); } };
+  const setPaused = (p) => { userPaused = p; st.classList.toggle('on', p || reduced.matches); st.textContent = reduced.matches ? 'reduced motion: paused' : 'paused'; };
+  body.addEventListener('click', () => setPaused(!userPaused));
+  document.addEventListener('visibilitychange', () => { st.classList.toggle('on', document.hidden || userPaused); });
+  reduced.addEventListener?.('change', () => setPaused(userPaused));
+  draw(); setPaused(false); raf = requestAnimationFrame(loop);
+  const fit = () => { const r = root.getBoundingClientRect(); const k = Math.min(r.height / 862, r.width / 900); stage.style.width = r.width / k + 'px'; stage.style.transform = `scale(${k})`; };
+  new ResizeObserver(fit).observe(root); fit();
+  window.__demoProof = async () => { const out = []; const f0 = fi; await sleep(400); out.push(`frames advanced ${f0}→${fi} of ${NF} (rAF ~${FRAME_MS}ms)`);
+    body.click(); const fp = fi; await sleep(250); out.push(`click pauses: frame held ${fp}=${fi}`);
+    body.click(); await sleep(200); out.push(`resume: ${fi !== fp ? 'animating' : 'stalled'}`);
+    dl.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); out.push(`blue glyphs/frame ${(frames[0].match(/<b>/g) || []).length}`);
+    setPaused(false); return out.join('; ') + '; restored playing'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }

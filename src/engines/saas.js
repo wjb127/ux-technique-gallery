@@ -6134,4 +6134,97 @@ V['rabbit-r1-orange-device-stacked-app-card-screen-buy-bar'] = (root, T) => {
     return out.join('; ') + '; restored focus=journal + cookie toast'; };
 };
 
+V['lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio'] = (root, T) => {
+  import('@fontsource/federant'); import('@fontsource/im-fell-english'); import('@fontsource/im-fell-english/400-italic.css');
+  theme(root, T, { bg: '#e4e2d7', fg: '#000', ac: '#ff3b3b', dark: false });
+  scroll(root);
+  const DF = "Federant,'Hubano-Rough',Georgia,serif", BF = "'IM Fell English','Sydonia Atramentiqua','Times New Roman',serif";
+  // paper speckle grain → data URL tile (light + dark variants)
+  const grain = (ink, n) => { const c = document.createElement('canvas'); c.width = c.height = 320; const g = c.getContext('2d'); const r = rng(19);
+    for (let i = 0; i < n; i++) { const a = r(); g.fillStyle = ink + Math.round(6 + a * 26).toString(16).padStart(2, '0'); const sz = a > .985 ? 1.8 + r() * 1.4 : .6 + r() * .9; g.beginPath(); g.arc(r() * 320, r() * 320, sz, 0, 7); g.fill(); }
+    for (let i = 0; i < 2600; i++) { g.fillStyle = (r() > .5 ? '#ffffff' : ink) + '0a'; g.fillRect(r() * 320, r() * 320, 1, 1); } return c.toDataURL(); };
+  const G1 = grain('#5a5040', 520), G2 = grain('#ff6a5a', 380);
+  css(`.lf{--bg:#e4e2d7;--ink:#000;--light:rgba(0,0,0,.3);min-height:100%;background:var(--bg) url(${G1});color:var(--ink);font:400 18px/1.5 ${BF};transition:background-color .3s,color .3s;position:relative}
+.lf.dark{--bg:#111;--ink:#ff3b3b;--light:rgba(255,59,59,.3);background-image:url(${G2})}
+.lf a{color:inherit}
+.lf-home{width:min(437px,calc(100% - 2.4rem));margin:0 auto;padding:98px 0 60px;text-align:center}
+.lf h1{font:400 clamp(60px,10vw,101px)/.96 ${DF};margin:0;letter-spacing:.005em;text-transform:uppercase}
+.lf-sub{font:700 clamp(17px,2.2vw,22.5px)/1.2 ${BF};margin-top:16px;font-weight:700;-webkit-text-stroke:.35px currentColor}
+.lf-toc{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:15.5px;counter-reset:c;text-align:left}
+.lf-toc li{counter-increment:c;display:flex}
+.lf-toc a{display:flex;gap:.4rem;flex:1;font-size:16.2px;text-transform:uppercase;text-decoration:none;transition:transform 100ms ease-in-out;cursor:pointer;transform-origin:50% 50%;line-height:26px}
+.lf-toc a:hover,.lf-toc a.hov{transform:scale(1.05)}
+.lf-toc a::before{content:'';flex:1;background-repeat:space no-repeat;background-image:radial-gradient(circle,var(--ink) 20%,transparent 21%);background-size:.6em .6em;background-position:0 80%;order:2}
+.lf-toc a::after{content:counter(c,upper-roman);order:3}
+.lf-ver{display:block;margin-top:76px;font:700 17px ${BF};-webkit-text-stroke:.3px currentColor;cursor:pointer;text-decoration:none}
+.lf-ver:hover{text-decoration:underline wavy 1px;text-underline-offset:3px}
+.lf-tog{margin:12px auto 0;width:26px;height:26px;display:block;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);transition:transform 100ms ease-in-out}
+.lf-tog:hover{transform:scale(1.15) rotate(5deg)}
+.lf-sec{width:min(437px,calc(100% - 2.4rem));margin:0 auto;padding:22px 0 60px;text-align:center;animation:lfIn .35s ease}
+@keyframes lfIn{from{opacity:0;transform:translateY(8px)}}
+.lf-back{display:flex;justify-content:space-between;font:400 14px ${BF};text-transform:uppercase;margin-bottom:6px}
+.lf-back a{cursor:pointer;text-decoration:none}.lf-back a:hover{text-decoration:underline wavy 1px}
+.lf-num{font:400 19px ${BF}}
+.lf h2{font:400 clamp(34px,5vw,46px)/1 ${DF};margin:28px 0 44px;text-transform:uppercase}
+.lf-proj{display:block;margin:0 0 34px;text-decoration:none;cursor:pointer}
+.lf-th{height:269px;border:1px solid var(--ink);overflow:hidden;position:relative;filter:grayscale(1);transition:filter .3s}
+.lf-proj:hover .lf-th{filter:grayscale(0)}
+.lf-cap{display:flex;justify-content:space-between;margin-top:4px;font-size:15px}
+.lf-cap b{font-weight:700;text-transform:uppercase;-webkit-text-stroke:.25px currentColor}
+.lf-p{text-align:left;margin:0 0 18px}
+.lf-list{list-style:none;padding:0;margin:0;text-align:left}
+.lf-list li{display:flex;gap:.5rem;padding:9px 0;border-bottom:1px solid var(--light)}
+.lf-list li span:last-child{margin-left:auto;font-style:italic;white-space:nowrap}
+.lf-arc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lf-arc a{display:block;text-decoration:none;font-size:13px;cursor:pointer}
+.lf-arc div{aspect-ratio:4/3;border:1px solid var(--ink);filter:grayscale(1);transition:filter .3s;display:grid;place-items:center;font:400 20px ${DF}}
+.lf-arc a:hover div{filter:grayscale(0)}
+.lf-gif{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.lf-gif div{aspect-ratio:1;border:1px solid var(--ink);display:grid;place-items:center;overflow:hidden;position:relative}
+@keyframes lfSpin{to{transform:rotate(360deg)}}@keyframes lfBob{50%{transform:translateY(-14px)}}@keyframes lfPulse{50%{transform:scale(.6)}}@keyframes lfSlide{to{transform:translateX(60px)}}
+@media (max-width:560px){.lf-th{height:200px}.lf-arc{grid-template-columns:repeat(2,1fr)}}`);
+  const SECS = ['about', 'work', 'thoughts', 'archive', 'rss', 'gifs'];
+  const ROM = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+  const wrap = h('div.lf'); root.append(wrap);
+  const sun = s('svg', { viewBox: '0 0 24 24', width: 26, height: 26 }, s('circle', { cx: 12, cy: 12, r: 4.2, fill: 'none', stroke: 'currentColor', 'stroke-width': 1.3 }), ...Array.from({ length: 8 }, (_, i) => { const a = (i * Math.PI) / 4; return s('path', { d: `M${12 + Math.cos(a) * 6.6} ${12 + Math.sin(a) * 6.6}L${12 + Math.cos(a) * 9.4} ${12 + Math.sin(a) * 9.4}`, stroke: 'currentColor', 'stroke-width': 1.3, 'stroke-linecap': 'round' }); }));
+  const moon = s('svg', { viewBox: '0 0 24 24', width: 26, height: 26 }, s('path', { d: 'M15.5 4.5a7.5 7.5 0 1 0 4 11.5 6 6 0 0 1-4-11.5Z', fill: 'none', stroke: 'currentColor', 'stroke-width': 1.3, 'stroke-linejoin': 'round' }));
+  let dark = false, view = 'home';
+  const tog = () => h('button.lf-tog', { title: 'toggle mode', 'aria-label': 'toggle mode', onclick: () => setDark(!dark) }, dark ? moon.cloneNode(true) : sun.cloneNode(true));
+  const setDark = (d) => { dark = d; wrap.classList.toggle('dark', d); wrap.querySelectorAll('.lf-tog').forEach((b) => b.replaceChildren(d ? moon.cloneNode(true) : sun.cloneNode(true))); };
+  // thumbnails (pure CSS art, no external assets)
+  const th = (kind) => { const el = h('div.lf-th'); const r = rng(kind.length * 31);
+    if (kind === 'nest') { el.style.background = '#1a1a1a'; for (let i = 0; i < 42; i++) el.append(h('i', { style: { position: 'absolute', left: (i % 7) * 63 - 10 + r() * 12 + 'px', top: Math.floor(i / 7) * 46 - 8 + r() * 10 + 'px', width: 54 + r() * 20 + 'px', height: 40 + r() * 12 + 'px', background: `hsl(${r() * 360},${20 + r() * 40}%,${18 + r() * 30}%)`, opacity: .85 } }));
+      el.append(h('div', { style: { position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center,#0006,#000a)' } }), h('div', { style: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', font: "700 50px/1 'Inter Variable',sans-serif", color: '#fff', letterSpacing: '-.01em' } }, h('span', {}, h('span', { style: { fontSize: '30px', marginRight: '6px' } }, '●●●'), 'NEST', h('span', { style: { fontWeight: 300 } }, 'FLIX')))); }
+    if (kind === 'concert') { el.style.background = '#d4d4d4'; el.append(...[['LYNN FISHER\u2019S', -2, 92, 40], ['CONCERT ARCHIVE', 1.5, 148, 22]].map(([t, rot, top, left]) => h('div', { style: { position: 'absolute', left: left + 'px', top: top + 'px', background: '#161616', color: '#e8e8e8', font: "400 30px/1 'JetBrains Mono Variable',monospace", padding: '9px 14px', transform: `rotate(${rot}deg)`, letterSpacing: '.12em', boxShadow: '2px 2px 0 #0003' } }, t))); }
+    if (kind === 'div') { el.style.background = '#f3efe6'; el.append(h('div', { style: { position: 'absolute', left: '50%', top: '50%', width: '120px', height: '120px', margin: '-70px 0 0 -60px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%,#fff 0 8%,transparent 9%),radial-gradient(circle at 65% 35%,#fff 0 8%,transparent 9%),radial-gradient(circle at 50% 50%,#ff7a59 0 60%,#e2553a 61% 100%)', boxShadow: '0 30px 0 -10px #0002' } }), h('div', { style: { position: 'absolute', left: 0, right: 0, bottom: '28px', textAlign: 'center', font: `400 28px ${DF}`, color: '#222' } }, 'a single div')); }
+    if (kind === 'redesign') { el.style.background = '#efe9dc'; el.style.display = 'grid'; el.style.gridTemplateColumns = 'repeat(6,1fr)'; ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII'].forEach((n, i) => el.append(h('div', { style: { display: 'grid', placeItems: 'center', font: `400 22px ${DF}`, color: `hsl(${i * 20},60%,35%)`, borderRight: '1px solid #0002', borderBottom: '1px solid #0002' } }, n))); }
+    return el; };
+  const PROJ = [['NESTFLIX', 'nestflix.fun', 'nest'], ['CONCERT ARCHIVE', 'concerts.lynnandtonic.com', 'concert'], ['A SINGLE DIV', 'a.singlediv.com', 'div'], ['REDESIGN ARCHIVE', 'lynnandtonic.com/archive', 'redesign']];
+  const body = {
+    about: () => [h('p.lf-p', {}, 'Hello! I\u2019m a designer and developer who makes playful things for the web. Every year I redesign this site from scratch \u2014 this is version nineteen, bound like an old book.'), h('p.lf-p', {}, 'I like CSS, illustration, side projects and the occasional pun. Elsewhere you can find me building small, silly tools.'), h('ul.lf-list', {}, ...[['Currently', 'designing for the web'], ['Previously', 'agencies & product teams'], ['Speaking', 'responsive design, CSS art']].map(([a, b]) => h('li', {}, h('span', {}, a), h('span', {}, b))))],
+    work: () => PROJ.map(([n, d, k]) => h('a.lf-proj', { onclick: () => toast(`${n} → ${d} (demo)`) }, th(k), h('div.lf-cap', {}, h('b', {}, n), h('span', {}, d)))),
+    thoughts: () => [h('ul.lf-list', {}, ...[['On redesigning every year', 'Sep 2026'], ['Responsive is a mindset', 'Jun 2026'], ['Notes from a single div', 'Feb 2026'], ['The joy of tiny side projects', 'Nov 2025'], ['Fluid type, revisited', 'Jul 2025']].map(([a, b]) => h('li', {}, h('a', { style: { textDecoration: 'none', cursor: 'pointer' }, onclick: () => toast(a) }, a), h('span', {}, b))))],
+    archive: () => [h('div.lf-arc', {}, ...['XVIII', 'XVII', 'XVI', 'XV', 'XIV', 'XIII', 'XII', 'XI', 'X'].map((n, i) => h('a', { onclick: () => toast('v. ' + n + ' (demo)') }, h('div', { style: { background: `hsl(${i * 40},55%,72%)`, color: `hsl(${i * 40},60%,25%)` } }, n), 'v. ' + n + ' · ' + (2025 - i))))],
+    rss: () => [h('p.lf-p', { style: { textAlign: 'center' } }, 'Subscribe to new thoughts via RSS:'), h('p', {}, h('a', { style: { cursor: 'pointer' }, onclick: () => toast('copied lynnandtonic.com/feed.xml (demo)') }, 'lynnandtonic.com/feed.xml'))],
+    gifs: () => [h('div.lf-gif', {}, ...[['lfSpin 2s linear infinite', '50%', '#ff7a59'], ['lfBob 1.2s ease-in-out infinite', '8px', '#5aa9e6'], ['lfPulse 1s ease-in-out infinite', '50%', '#f2c14e'], ['lfSlide 1s ease-in-out infinite alternate', '0', '#7bc47f']].map(([a, br, c]) => h('div', {}, h('i', { style: { width: '54px', height: '54px', background: c, borderRadius: br, animation: a, border: '2px solid var(--ink)', marginLeft: a.startsWith('lfSlide') ? '-60px' : 0 } }))))],
+  };
+  const footer = () => h('div', { style: { textAlign: 'center', paddingBottom: '50px' } }, h('a.lf-ver', { onclick: () => toast('v. XIX — the 19th redesign') }, 'v. XIX'), tog());
+  const tocLinks = [];
+  const render = () => { wrap.replaceChildren(); tocLinks.length = 0;
+    if (view === 'home') { const toc = h('ol.lf-toc', {}, ...SECS.map((k) => { const a = h('a', { onclick: () => go(k), tabindex: 0, onkeydown: (e) => e.key === 'Enter' && go(k) }, k); tocLinks.push(a); return h('li', {}, a); }));
+      wrap.append(h('div.lf-home', {}, h('h1', {}, 'Lynn', h('br'), 'Fisher'), h('div.lf-sub', {}, 'Designer for the Web'), toc, h('a.lf-ver', { onclick: () => toast('v. XIX — the 19th redesign') }, 'v. XIX'), tog())); }
+    else { const i = SECS.indexOf(view);
+      wrap.append(h('div.lf-sec', {}, h('div.lf-back', {}, h('a', { onclick: () => go('home') }, '\u2190 Lynn Fisher'), h('a', { onclick: () => go(SECS[(i + 1) % 6]) }, SECS[(i + 1) % 6] + ' \u2192')), h('div.lf-num', {}, ROM[i]), h('h2', {}, view), ...body[view]()), footer()); }
+    setDark(dark); };
+  const go = (v) => { view = v; render(); root.scrollTop = 0; };
+  render();
+  window.__demoProof = async () => { const out = [];
+    tocLinks[1].classList.add('hov'); out.push(`hover WORK → scale ${getComputedStyle(tocLinks[1]).transform !== 'none' ? '1.05' : '1'}`); tocLinks[1].classList.remove('hov');
+    out.push(`TOC rows ${tocLinks.length} (I–VI, dot leaders)`);
+    tocLinks[1].click(); await sleep(60); out.push(`click WORK → section "${wrap.querySelector('.lf-num')?.textContent} ${wrap.querySelector('h2')?.textContent}" with ${wrap.querySelectorAll('.lf-proj').length} framed projects`);
+    wrap.querySelector('.lf-tog').click(); out.push(`sun toggle → ${wrap.classList.contains('dark') ? 'dark (#111 / red ink)' : 'light'}`); setDark(false);
+    go('archive'); out.push(`archive tiles ${wrap.querySelectorAll('.lf-arc a').length}`);
+    go('home'); return out.join('; ') + '; restored home + light'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

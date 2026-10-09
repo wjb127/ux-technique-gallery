@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-ghostty-ascii-frame-ghost-terminal-window-hero",
+  "slug": "ghostty-ascii-frame-ghost-terminal-window-hero",
+  "name": "ASCII Frame-Animated Ghost inside Native Terminal Window Hero (Ghostty)",
+  "date": "2026-10-09",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ghostty.org/",
+  "domain": "ghostty.org",
+  "product": "Ghostty terminal emulator site",
+  "checkpoints": [
+   "Near-black #0f0f11 page, centered faux macOS/GTK terminal window with title bar (ghost emoji + Ghostty), tab/grid/menu/close icons",
+   "Monospace ASCII ghost art in a <pre>, gray body glyphs with blue outline glyphs",
+   "Frame loop: array of ASCII frames swapped ~every 30-50ms via requestAnimationFrame (wobble/float)",
+   "One-line gray tagline under the window",
+   "Two buttons: Download (blue outline) and Documentation (gray outline) with hover glow",
+   "Pause animation on prefers-reduced-motion / tab hidden"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-samwho-loadbalancer-sim-card-play-speed-slider-dots",
+  "slug": "samwho-loadbalancer-sim-card-play-speed-slider-dots",
+  "name": "Embedded Load-Balancer Simulation Cards with Play/Pause, Speed Slider, Reset, Colored Request Dots (Sam Who)",
+  "date": "2026-10-09",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://samwho.dev/load-balancing/",
+  "domain": "samwho.dev",
+  "product": "Sam Who interactive explainer: Load Balancing",
+  "checkpoints": [
+   "Pastel four-color top stripe; keycap logo S A M / W H O hanging from a cable; serif title + date",
+   "Inline colored glossary chips (green requests, gray server, black load balancer) in body text",
+   "Rounded light-gray sim card: black load-balancer square, gray server squares, orange/green dots travelling between them",
+   "Bottom control bar: reset, turtle icon, orange-thumb speed slider, rabbit icon, pause/play",
+   "Requests dropped when server busy (red flash), round-robin assignment across N servers",
+   "Series of cards with escalating scenarios (1 server -> 2 -> 5, variable request cost)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio",
+  "slug": "lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio",
+  "name": "Vintage Book Table-of-Contents Portfolio with Dot Leaders, Roman Numerals, Paper Grain, Theme Toggle (Lynn Fisher v.XIX)",
+  "date": "2026-10-09",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lynnandtonic.com/",
+  "domain": "lynnandtonic.com",
+  "product": "Lynn Fisher portfolio (v.XIX)",
+  "checkpoints": [
+   "Warm paper background with subtle speckle grain texture",
+   "Decorative display-serif stacked LYNN / FISHER title with ornamental ligatures + subtitle",
+   "Table of contents rows ABOUT..GIFS with dotted leaders and Roman numerals I-VI right-aligned",
+   "Footer version mark v. XIX + sun icon theme toggle (light/dark ink swap)",
+   "Section pages: centered Roman numeral + display title (WORK) and framed project thumbnails with name left / domain right",
+   "Fluid type: layout reflows cleanly from 1280 to 520px"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-grilli-flexa-jump-rail-subfamily-pill-editable-specimen",
   "slug": "grilli-flexa-jump-rail-subfamily-pill-editable-specimen",
   "name": "Type Foundry Specimen with Jump-To Rail, Width Family Grid, Subfamily Pill Switch, Editable Samples (Grilli Type GT Flexa)",

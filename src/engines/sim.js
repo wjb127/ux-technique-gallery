@@ -1,4 +1,4 @@
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, noise2, fitCanvas, css } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const V = {};
 // ---------- falling sand
@@ -1406,6 +1406,131 @@ V['stabondar-physics-portfolio-stage'] = (root, T) => {
     targetDistort = 0;
     return 'scroll-distort + letter physics fling · settling';
   };
+};
+
+V['samwho-loadbalancer-sim-card-play-speed-slider-dots'] = (root, T) => {
+  import('@fontsource/lora/400.css'); import('@fontsource/lora/600.css'); import('@fontsource/lora/500.css'); import('@fontsource/lora/700.css'); import('@fontsource-variable/source-sans-3');
+  theme(root, T, { bg: '#fff', fg: '#1c1917', ac: '#e19a0c', dark: false });
+  root.classList.add('scroll'); root.style.overflow = 'auto';
+  const HF = "Lora,'Iowan Old Style','Palatino Linotype',Georgia,serif", BF = "'Source Sans 3 Variable',Ubuntu,Calibri,system-ui,sans-serif";
+  const C = { req: '#14a37f', srv: '#c9ced6', srvHi: '#7b8494', lb: '#1c1917', drop: '#e5484d', amber: '#e19a0c', proc: '#ef8a2d' };
+  css(`.sw{background:#fff;color:#1c1917;font:400 17.6px/1.62 ${BF};min-height:100%;position:relative;padding-bottom:120px}
+.sw-stripe{position:absolute;left:0;right:0;top:0;height:10px;display:flex}
+.sw-stripe i{flex:1;display:block}
+.sw-logo{position:relative;height:340px}
+.sw-cable{position:absolute;left:50%;top:0;margin-left:-110px}
+.sw-keys{position:absolute;left:50%;top:194px;margin-left:-99px;width:198px;height:134px;border-radius:10px;background:linear-gradient(#9a9a9a,#6f6f6f);box-shadow:0 2px 0 #4a4a4a,0 6px 14px #0003,inset 0 1px 0 #cfcfcf;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:6px;box-sizing:border-box;cursor:pointer}
+.sw-k{border-radius:7px;display:grid;place-items:center;font:400 34px/1 ${BF};box-shadow:inset 0 -5px 0 #0004,inset 0 2px 0 #fff5,0 1px 0 #0006;transition:transform .08s,box-shadow .08s;user-select:none}
+.sw-k.dn{transform:translateY(3px);box-shadow:inset 0 -1px 0 #0004,inset 0 1px 0 #fff3}
+.sw h1{font:600 46px/1.15 ${HF};text-align:center;margin:0;letter-spacing:-.005em}
+.sw-date{text-align:center;font:400 13px ${BF};color:#44403c;margin-top:22px}
+.sw-col{width:min(752px,calc(100% - 48px));margin:64px auto 0}
+.sw-col p{margin:0 0 22px}
+.sw h2{font:600 31px/1.3 ${HF};margin:38px 0 14px;letter-spacing:-.005em}
+.sw h2 span{color:#b5650a;margin-right:10px;font-family:${BF};font-weight:700}
+.sw-chip{font-weight:700;white-space:nowrap}
+.sw-chip::before{content:'';display:inline-block;width:.5em;height:.5em;margin-right:.15em;vertical-align:.08em;background:currentColor}
+.sw-chip.r{color:${C.req}}.sw-chip.r::before{border-radius:50%}
+.sw-chip.s{color:#6b7280}.sw-chip.l{color:#1c1917}
+.sw-card{width:min(481px,100%);margin:26px auto 30px;border:1px dashed #d6d3d1;border-radius:12px;background:#fafaf9;overflow:hidden}
+.sw-card canvas{display:block;width:100%;height:auto}
+.sw-bar{height:48px;background:#f2f1ef;display:flex;align-items:center;gap:10px;padding:0 7px}
+.sw .sw-btn{width:34px;height:34px;border-radius:6px;background:#57534e;border:0;display:grid;place-items:center;cursor:pointer;color:#fff;padding:0}
+.sw .sw-btn:hover{background:#44403c}
+.sw-ani{width:22px;height:22px;color:#44403c;flex:none}
+.sw-rng{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:3px;background:linear-gradient(90deg,${C.amber} var(--p),#d6d3d1 var(--p));outline:none;margin:0 8px;cursor:pointer}
+.sw-rng::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:${C.amber};border:0;box-shadow:0 1px 2px #0003}
+.sw-rng::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:${C.amber};border:0}
+.sw-cap{font-size:13px;color:#78716c;text-align:center;margin:-22px 0 26px;font-variant-numeric:tabular-nums}`);
+  const wrap = h('div.sw'); root.append(wrap);
+  // stripe + cable + keycap logo
+  const stripe = h('div.sw-stripe', {}, ...['#4aa596', '#a3d9d1', '#f4a53f', '#f57b10', '#c8500a'].map((c, i) => h('i', { style: { background: c, clipPath: i === 1 ? 'polygon(0 0,100% 0,98% 100%,0 100%)' : i === 2 ? 'polygon(1% 0,100% 0,100% 100%,0 100%)' : '' } })));
+  const cable = s('svg', { class: 'sw-cable', width: 220, height: 200, viewBox: '0 0 220 200' },
+    s('path', { d: 'M78 0 C60 30 20 60 28 92 C36 120 118 100 156 70 C200 36 170 10 150 40 C126 76 100 110 112 196', fill: 'none', stroke: '#cfcfcf', 'stroke-width': 9, 'stroke-linecap': 'round' }),
+    s('path', { d: 'M78 0 C60 30 20 60 28 92 C36 120 118 100 156 70 C200 36 170 10 150 40 C126 76 100 110 112 196', fill: 'none', stroke: '#f4f4f4', 'stroke-width': 5, 'stroke-linecap': 'round' }),
+    s('rect', { x: 104, y: 180, width: 16, height: 16, rx: 2, fill: '#e6e6e6', stroke: '#bdbdbd' }));
+  const KEYS = [['S', '#d8341a', '#fff'], ['A', '#5fe9ec', '#222'], ['M', '#3c2a22', '#5fe9ec'], ['W', '#5fe9ec', '#222'], ['H', '#3c2a22', '#5fe9ec'], ['O', '#3c2a22', '#5fe9ec']];
+  const keyEls = KEYS.map(([k, bg, fg]) => h('div.sw-k', { style: { background: bg, color: fg } }, k));
+  const keys = h('div.sw-keys', { title: 'press the keys' }, ...keyEls);
+  keyEls.forEach((k) => k.addEventListener('pointerdown', () => { k.classList.add('dn'); setTimeout(() => k.classList.remove('dn'), 140); }));
+  const chip = (t, k) => h('span.sw-chip.' + k, {}, t);
+  wrap.append(stripe, h('div.sw-logo', {}, cable, keys), h('h1', {}, 'Load Balancing'), h('div.sw-date', {}, '2023-04-10'));
+  const col = h('div.sw-col'); wrap.append(col);
+  col.append(h('p', {}, 'Past a certain point, web applications outgrow a single server deployment. Companies either want to increase their availability, scalability, or both! To do this, they deploy their application across multiple servers with a load balancer in front to distribute incoming requests. Big companies may need thousands of servers running their web application to handle the load.'),
+    h('p', {}, "In this post we're going to focus on the ways that a single load balancer might distribute HTTP requests to a set of servers. We'll start from the bottom and work our way up to modern load balancing algorithms."),
+    h('h2', {}, h('span', {}, '#'), 'Visualising the problem'),
+    h('p', {}, "Let's start at the beginning: a single ", chip('load balancer', 'l'), ' sending ', chip('requests', 'r'), ' to a single ', chip('server', 's'), '. Requests are being sent at a rate of 1 request per second (RPS), and each request disappears as the server processes it.'),
+    h('p', {}, 'Each simulation has controls at the bottom. You can ', h('b', {}, '⏸ pause'), ' and ', h('b', {}, '▶ play'), ' it, go ', h('b', {}, '🐢 slower'), ' or ', h('b', {}, '🐇 faster'), ' with the slider, and ', h('b', {}, '↻ reset'), ' it whenever you like.'));
+  const turtle = () => s('svg', { class: 'sw-ani', viewBox: '0 0 24 24' }, s('path', { d: 'M3 15c1-5 5-8 9-8s7 3 8 6l2 1-2 1H4Z M6 15l-1 3 M17 15l1 3 M12 7v8 M8 9l8 5 M16 9l-8 5', fill: 'none', stroke: 'currentColor', 'stroke-width': 1.4, 'stroke-linejoin': 'round' }));
+  const rabbit = () => s('svg', { class: 'sw-ani', viewBox: '0 0 24 24' }, s('path', { d: 'M4 16c0-4 4-6 8-6 2 0 3-1 4-3l1-4 1 4 2-3-1 5c1 1 2 2 2 4 0 2-2 3-4 3H6c-1 0-2-.5-2-1Z M6 17l-1 2 M16 17l1 2', fill: 'none', stroke: 'currentColor', 'stroke-width': 1.4, 'stroke-linejoin': 'round' }));
+  const ICO = { reset: 'M12 5a7 7 0 1 1-6.3 4 M5 4v5h5', pause: 'M8 5v14 M16 5v14', play: 'M7 5l12 7-12 7Z' };
+  const icon = (k) => s('svg', { viewBox: '0 0 24 24', width: 17, height: 17 }, s('path', { d: ICO[k], fill: k === 'play' ? '#fff' : 'none', stroke: '#fff', 'stroke-width': k === 'pause' ? 3 : 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
+  const sims = [];
+  // one simulation card: LB bottom-centre, N servers on top row, round-robin
+  const makeSim = ({ servers = 1, rps = 1, cost = [0.6, 0.6], queue = 0, H = 208 }) => {
+    const W = 481, dpr = Math.min(2, window.devicePixelRatio || 1);
+    const cv = h('canvas', { width: W * dpr, height: H * dpr }); const g = cv.getContext('2d'); g.scale(dpr, dpr);
+    const S = 50, lb = { x: W / 2, y: H - 58 };
+    const sv = Array.from({ length: servers }, (_, i) => ({ x: servers === 1 ? W / 2 : 70 + (i * (W - 140)) / (servers - 1), y: 52, cur: null, q: [], flash: 0, done: 0, drop: 0 }));
+    const SPEEDS = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4]; const DEF = 3;
+    let st = { t: 0, next: 0.3, rr: 0, dots: [], playing: true, speed: SPEEDS[DEF], sent: 0, seed: 7 };
+    const rnd = () => { st.seed = (st.seed * 16807) % 2147483647; return st.seed / 2147483647; };
+    const reset = () => { st = { t: 0, next: 0.3, rr: 0, dots: [], playing: st.playing, speed: st.speed, sent: 0, seed: 7 }; sv.forEach((v) => Object.assign(v, { cur: null, q: [], flash: 0, done: 0, drop: 0 })); draw(); cap.update(); };
+    const step = (dt) => {
+      st.t += dt;
+      while (st.t >= st.next) { const c = cost[0] + rnd() * (cost[1] - cost[0]); st.dots.push({ p: 0, to: st.rr, cost: c, dead: 0 }); st.rr = (st.rr + 1) % servers; st.sent++; st.next += 1 / rps; }
+      for (const d of st.dots) { if (d.dead) { d.dead += dt; continue; } d.p += dt / 0.9; if (d.p >= 1) { const v = sv[d.to]; if (!v.cur) { v.cur = { left: d.cost, cost: d.cost }; d.gone = 1; } else if (v.q.length < queue) { v.q.push(d.cost); d.gone = 1; } else { d.dead = 0.0001; v.flash = 0.35; v.drop++; } } }
+      st.dots = st.dots.filter((d) => !d.gone && d.dead < 0.6);
+      for (const v of sv) { v.flash = Math.max(0, v.flash - dt); if (v.cur) { v.cur.left -= dt; if (v.cur.left <= 0) { v.done++; v.cur = v.q.length ? { left: v.q[0], cost: v.q.shift() } : null; } } }
+    };
+    const rr = (x, y, w, hh, r) => { g.beginPath(); g.roundRect(x, y, w, hh, r); };
+    const draw = () => {
+      g.clearRect(0, 0, W, H);
+      for (const v of sv) {
+        rr(v.x - S / 2, v.y - S / 2 - 6, S, S, 6); const busy = v.cur ? 1 : 0;
+        g.fillStyle = v.flash > 0 ? '#f6c3c3' : busy && v.q.length ? C.srvHi : C.srv; g.fill();
+        if (v.flash > 0) { g.strokeStyle = C.drop; g.lineWidth = 2; g.stroke(); }
+        if (v.cur) { const fr = 1 - v.cur.left / v.cur.cost, r = 5 + v.cur.cost * 5; g.fillStyle = C.proc; g.beginPath(); g.moveTo(v.x, v.y - 6); g.arc(v.x, v.y - 6, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (1 - fr)); g.closePath(); g.fill(); }
+        v.q.forEach((c, i) => { g.fillStyle = C.req; g.beginPath(); g.arc(v.x + S / 2 + 8, v.y + 12 - i * 11, 4, 0, 7); g.fill(); });
+      }
+      rr(lb.x - S / 2, lb.y - S / 2, S, S, 8); g.fillStyle = C.lb; g.fill();
+      for (const d of st.dots) { const v = sv[d.to], e = d.p < 0.5 ? 2 * d.p * d.p : 1 - (-2 * d.p + 2) ** 2 / 2, p = Math.min(1, e);
+        const x = lb.x + (v.x - lb.x) * p, y = lb.y - 10 + (v.y + S / 2 - 6 - (lb.y - 10)) * p; const r = 4 + d.cost * 5;
+        g.globalAlpha = d.dead ? Math.max(0, 1 - d.dead / 0.6) : 1; g.fillStyle = d.dead ? C.drop : C.req; g.beginPath(); g.arc(x, y - (d.dead ? d.dead * 30 : 0), r, 0, 7); g.fill();
+        g.strokeStyle = d.dead ? '#f9b4b6' : '#8fdcc6'; g.lineWidth = 1.5; g.stroke(); g.globalAlpha = 1; }
+    };
+    const playBtn = h('button.sw-btn', { title: 'pause / play', onclick: () => setPlaying(!st.playing) }, icon('pause'));
+    const rng = h('input.sw-rng', { type: 'range', min: 0, max: SPEEDS.length - 1, step: 1, value: DEF, oninput: (e) => setSpeed(+e.target.value) });
+    const setSpeed = (i) => { st.speed = SPEEDS[i]; rng.value = i; rng.style.setProperty('--p', (i / (SPEEDS.length - 1)) * 100 + '%'); cap.update(); };
+    const setPlaying = (p) => { st.playing = p; playBtn.replaceChildren(icon(p ? 'pause' : 'play')); };
+    const cap = h('div.sw-cap'); cap.update = () => { const done = sv.reduce((a, v) => a + v.done, 0), drop = sv.reduce((a, v) => a + v.drop, 0); cap.textContent = `${servers} server${servers > 1 ? 's' : ''} · ${rps} RPS · speed ×${st.speed} · served ${done} · dropped ${drop}`; };
+    const bar = h('div.sw-bar', {}, h('button.sw-btn', { title: 'reset', onclick: reset }, icon('reset')), turtle(), rng, rabbit(), playBtn);
+    const card = h('div.sw-card', {}, cv, bar);
+    let vis = false; new IntersectionObserver((es) => { vis = es[0].isIntersecting; }).observe(card);
+    const sim = { card, cap, step, draw, reset, setSpeed, setPlaying, get st() { return st; }, sv, get vis() { return vis; }, rng, playBtn };
+    setSpeed(DEF); draw(); cap.update(); sims.push(sim); return sim;
+  };
+  const s1 = makeSim({ servers: 1, rps: 1, cost: [0.5, 0.5] });
+  col.append(s1.card, s1.cap, h('p', {}, 'For a lot of websites, this setup works just fine. Modern ', chip('servers', 's'), ' are powerful and can handle a lot of ', chip('requests', 'r'), ". But what happens when they can't keep up?"));
+  const s2 = makeSim({ servers: 1, rps: 3, cost: [0.6, 0.6] });
+  col.append(s2.card, s2.cap, h('p', {}, "Here we see that a rate of 3 RPS causes some ", chip('requests', 'r'), " to get dropped — they turn red. If a request arrives at the ", chip('server', 's'), ' while it is busy processing another request, the server will drop it.'),
+    h('h2', {}, h('span', {}, '#'), 'Round robin'),
+    h('p', {}, 'The simplest fix is to add more servers and have the ', chip('load balancer', 'l'), ' hand out requests to each one in turn.'));
+  const s3 = makeSim({ servers: 2, rps: 3, cost: [0.6, 0.6] });
+  col.append(s3.card, s3.cap, h('p', {}, 'Scale it up to five servers and give every ', chip('request', 'r'), ' a different cost — bigger dots take longer to process — and round robin starts to struggle again, even with a small queue.'));
+  const s4 = makeSim({ servers: 5, rps: 6, cost: [0.2, 1.6], queue: 1 });
+  col.append(s4.card, s4.cap);
+  // main loop: only visible sims advance
+  let last = performance.now(), raf = 0; const loop = (now) => { raf = requestAnimationFrame(loop); if (!root.isConnected) return cancelAnimationFrame(raf); const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    for (const m of sims) { if (!m.st.playing || !m.vis) continue; m.step(dt * m.st.speed); m.draw(); } };
+  raf = requestAnimationFrame(loop); setInterval(() => sims.forEach((m) => m.cap.update()), 400);
+  window.__demoProof = async () => { const out = []; const y0 = root.scrollTop;
+    for (let i = 0; i < 40; i++) s2.step(0.1); s2.draw(); out.push(`card2 @3RPS after 4s: served ${s2.sv[0].done}, dropped ${s2.sv[0].drop}`);
+    for (let i = 0; i < 40; i++) s3.step(0.1); out.push(`card3 round-robin: ${s3.sv.map((v) => v.done).join('/')} per server`);
+    s1.card.scrollIntoView({ block: 'center' }); await sleep(350); const ta = s1.st.t; out.push(`card1 visible → playing t=${ta.toFixed(2)}s`); s1.setPlaying(false); const t = s1.st.t; await sleep(200); out.push(`pause holds t=${t.toFixed(2)}→${s1.st.t.toFixed(2)}`); s1.setPlaying(true); await sleep(150); out.push(`play resumes t=${s1.st.t.toFixed(2)}`);
+    s1.rng.value = 7; s1.rng.dispatchEvent(new Event('input')); out.push(`speed slider max → ×${s1.st.speed}`); s1.setSpeed(3);
+    for (let i = 0; i < 60; i++) s4.step(0.1); out.push(`card4 5 servers var cost: dots in flight ${s4.st.dots.length}, dropped ${s4.sv.reduce((a, v) => a + v.drop, 0)}`);
+    sims.forEach((m) => { m.reset(); m.setPlaying(true); m.setSpeed(3); }); root.scrollTop = y0; return out.join('; ') + '; restored all sims (reset, playing, ×1)'; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['falling-sand-particle-sandbox'])(root, T); }

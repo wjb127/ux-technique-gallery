@@ -35,7 +35,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'groovepizza-radial-slice-sequencer-shape-polygon-sliders': '라디얼 드럼 시퀀서',
   'rabbit-r1-orange-device-stacked-app-card-screen-buy-bar': '하드웨어 제품 랜딩',
   'skia-shaders-thumb-rail-split-editor-canvas-run-itime': '셰이더 플레이그라운드',
-  'hoverstat-framed-site-preview-year-tag-pill-archive': '웹 아카이브' };
+  'hoverstat-framed-site-preview-year-tag-pill-archive': '웹 아카이브',
+  'ghostty-ascii-frame-ghost-terminal-window-hero': 'ASCII 터미널 히어로',
+  'samwho-loadbalancer-sim-card-play-speed-slider-dots': '로드밸런서 시뮬레이션 해설',
+  'lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio': '고서 목차 포트폴리오' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
