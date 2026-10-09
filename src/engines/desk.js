@@ -1,6 +1,6 @@
 import '@fontsource-variable/fraunces/full.css';
 import '@fontsource-variable/inter';
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, drum, midi, audio, fitCanvas, fire } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, drum, midi, audio, fitCanvas, fire, css } from '../lib.js';
 import { theme, slider, seg, select, btn } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',monospace";
 const V = {};
@@ -410,4 +410,201 @@ V['posthog-desktop-os-marketing-site'] = (root, T) => {
   open('home');
   window.__demoProof = async () => { const ic = icons.querySelectorAll('.ph-ic').length; icons.querySelector('[data-k="changelog"]').dispatchEvent(new MouseEvent('dblclick', { bubbles: true })); const n2 = wins.size; const top1 = wins.get('changelog').el.classList.contains('act'); focus('home'); const raised = +wins.get('home').el.style.zIndex > +wins.get('changelog').el.style.zIndex; wins.get('home').toggleMax(); const mx = wins.get('home').el.offsetWidth; wins.get('home').toggleMax(); mis[0].click(); const dd = mis[0].classList.contains('on'); mis[0].click(); const tb = task.children.length; const stored = !!localStorage.getItem(KEY); close('changelog'); focus('home'); return `icons=${ic}, dblclick opened changelog (windows=${n2}, active=${top1}), focus raises z=${raised}, maximize width=${mx}, menu dropdown=${dd}, taskbar items=${tb}, positions saved=${stored}; restored`; };
 };
+V['infinitemac-beige-bezel-year-timeline-os-launcher-customize-run'] = (root, T) => {
+  import('@fontsource/pixelify-sans/400.css'); import('@fontsource/pixelify-sans/700.css'); import('@fontsource/eb-garamond/400.css'); import('@fontsource/eb-garamond/500.css'); import('@fontsource-variable/roboto-flex');
+  theme(root, T, { bg: '#262a33', fg: '#fff', ac: '#fff', dark: true });
+  root.classList.add('scroll'); root.style.overflow = 'auto';
+  const CHI = "'Pixelify Sans','Chicago','ChicagoFLF',monospace", GAR = "'EB Garamond','Apple Garamond',Garamond,Georgia,serif", ROB = "'Roboto Flex Variable',Roboto,system-ui,sans-serif";
+  const RB = ['#61bb46', '#fdb827', '#f5821f', '#e03a3e', '#963d97', '#009ddc'];
+  css(`.im{min-height:100%;background:#262a33;color:#fff;font:400 15px/1.4 ${ROB};position:relative}
+.im-top{background:#dbe4fc;color:#1d1d1d;display:flex;gap:40px;align-items:center;padding:30px 52px 34px 40px}
+.im-logo{flex:none;width:228px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer}
+.im-logo canvas{image-rendering:pixelated}
+.im-wm{background:#fff;color:#000;font:400 31px/1 ${CHI};padding:6px 9px 7px;letter-spacing:.01em;white-space:nowrap}
+.im-intro p{margin:0 0 12px;font-size:15px;line-height:1.36;color:#222}.im-intro p:last-child{margin:0}
+.im-intro a{color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}.im-intro a:hover{color:#2850c8}
+.im-body{padding:6px 40px 90px;position:relative}
+.im-yr{font:700 25px ${ROB};margin:44px 0 26px;color:#fff;scroll-margin-top:16px;display:flex;align-items:center;gap:14px}
+.im-row{display:flex;flex-wrap:wrap;gap:38px}
+.im-filter{position:absolute;right:42px;top:30px;z-index:6;background:#fff;color:#000;border:1.5px solid #000;outline:1.5px solid #fff;padding:5px 7px;display:flex;align-items:center;gap:8px;font:700 13.5px ${CHI}}
+.im-pop{all:unset;cursor:pointer;position:relative;border:1px solid #000;box-shadow:1.5px 1.5px 0 #000;padding:1px 26px 1px 8px;font:400 13px ${CHI};min-width:104px;background:#fff}
+.im-pop::after{content:'';position:absolute;right:7px;top:6px;border:5px solid transparent;border-top:6px solid #000;border-bottom:0}
+.im-menu{position:absolute;right:0;top:calc(100% + 2px);background:#fff;border:1px solid #000;box-shadow:2px 2px 0 #000;padding:2px 0;display:none;min-width:140px}
+.im-menu.on{display:block}.im-menu div{padding:3px 12px 3px 20px;font:400 13px ${CHI};position:relative;cursor:pointer;white-space:nowrap}
+.im-menu div:hover{background:#000;color:#fff}.im-menu div.on::before{content:'✓';position:absolute;left:6px}
+.im-card{width:422px;height:345px;border-radius:7px;position:relative;flex:none;background:linear-gradient(180deg,#e4dbc4,#d8ceb3);box-shadow:inset 0 -3px 0 #c6bb9f,inset 0 2px 0 #f2ecdc,0 10px 22px #0003;transition:transform .2s,box-shadow .2s}
+.im-card:hover{transform:translateY(-3px);box-shadow:inset 0 -3px 0 #c6bb9f,inset 0 2px 0 #f2ecdc,0 18px 34px #0005}
+.im-card.platinum{background:linear-gradient(180deg,#e2e0da,#cfccc4);box-shadow:inset 0 -3px 0 #b9b6ad,inset 0 2px 0 #f3f2ee,0 10px 22px #0003}
+.im-card.next{background:linear-gradient(180deg,#3a3a3c,#232325);box-shadow:inset 0 -3px 0 #141415,inset 0 2px 0 #4c4c4f,0 10px 22px #0005}
+.im-card.osx{background:linear-gradient(180deg,#f4f6f8,#dfe4ea);box-shadow:inset 0 -3px 0 #c7ced6,inset 0 2px 0 #fff,0 10px 22px #0003}
+.im-card.sel{outline:3px solid #9ec1ff;outline-offset:4px}
+.im-scr{position:absolute;left:40px;top:40px;right:40px;height:253px;background:#000;border-radius:5px;padding:11px;box-shadow:inset 0 0 0 2px #0008, 0 0 0 4px #00000014}
+.im-win{background:#fff;color:#000;height:100%;padding:18px 16px 14px;display:flex;flex-direction:column;position:relative}
+.im-card.osx .im-win,.im-card.platinum.v8 .im-win{border-radius:2px}
+.im-win h3{margin:0;font:400 25px/1.05 ${GAR};letter-spacing:-.005em}
+.im-dt{color:#999;font:400 13.5px ${ROB};margin:3px 0 12px}
+.im-ds{font:400 15px/1.32 ${ROB};color:#111;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.im-btns{margin-top:auto;display:flex;justify-content:flex-end;gap:10px}
+.im-b{all:unset;cursor:pointer;font:700 13px ${CHI};border:1.5px solid #000;border-radius:7px;padding:2px 14px 3px;background:#fff;color:#000;user-select:none}
+.im-b:active,.im-b.down{background:#000;color:#fff}
+.im-b.cus{opacity:0;transition:opacity .15s}.im-card:hover .im-b.cus,.im-card:focus-within .im-b.cus{opacity:1}
+.im-b.def{box-shadow:0 0 0 2px #fff,0 0 0 4.5px #000}
+.im-badge{position:absolute;left:40px;bottom:12px}
+.im-next-logo{position:absolute;left:40px;bottom:13px;width:18px;height:18px;background:#000;transform:rotate(-12deg);display:grid;place-items:center;font:700 6px ${ROB};color:#fff;letter-spacing:-.02em;box-shadow:0 0 0 1px #555}
+.im-rail{position:fixed;right:10px;bottom:22px;z-index:7;display:flex;flex-direction:column;gap:1px;padding:6px 4px;border-radius:6px;background:#1c1f26cc;backdrop-filter:blur(4px)}
+.im-rail a{font:400 10.5px ${CHI};color:#8f97a8;padding:1px 6px;cursor:pointer;border-radius:3px;text-align:right;transition:color .15s,background .15s}
+.im-rail a:hover{color:#fff}.im-rail a.on{color:#000;background:#dbe4fc}
+.im-ov{position:fixed;inset:var(--tg-h,38px) 0 0 0;z-index:20;display:grid;place-items:center;background:#0000;transition:background .2s}
+.im-ov.dim{background:#0008}
+.im-dlg{background:#fff;color:#000;border:1px solid #000;box-shadow:2px 2px 0 #000;width:470px;font:400 13px ${CHI}}
+.im-tb{height:20px;border-bottom:1px solid #000;display:flex;align-items:center;justify-content:center;position:relative;background:repeating-linear-gradient(#fff 0 1px,#000 1px 2px) 0 4px/100% 11px no-repeat;cursor:move}
+.im-tb span{background:#fff;padding:0 8px;font:700 13px ${CHI}}
+.im-tb i{position:absolute;left:8px;top:4px;width:11px;height:11px;border:1px solid #000;background:#fff;cursor:pointer}
+.im-dlg .bd{padding:16px 20px 18px;display:grid;grid-template-columns:auto 1fr;gap:12px 14px;align-items:center}
+.im-dlg label{text-align:right}
+.im-dlg select{font:400 13px ${CHI};border:1px solid #000;box-shadow:1.5px 1.5px 0 #000;padding:1px 4px;background:#fff;border-radius:0;color:#000}
+.im-dlg .ck{display:flex;flex-direction:column;gap:5px}.im-dlg .ck span{display:flex;gap:7px;align-items:center;cursor:pointer}
+.im-dlg .ck b{width:12px;height:12px;border:1px solid #000;display:grid;place-items:center;font:700 11px/1 ${ROB}}
+.im-dlg .ft{grid-column:1/-1;display:flex;justify-content:flex-end;gap:14px;margin-top:6px}
+.im-emu{position:fixed;inset:var(--tg-h,38px) 0 0 0;z-index:30;background:#16181d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.im-ctl{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center;background:#ffffffe8;color:#000;padding:5px 8px;border-radius:8px;font:400 12.5px ${CHI};box-shadow:0 6px 20px #0006}
+.im-mon{padding:34px 34px 54px;border-radius:9px;position:relative}
+.im-screen{position:relative;overflow:hidden;background:#000;image-rendering:pixelated}
+.im-mb{height:20px;background:#fff;border-bottom:1px solid #000;display:flex;align-items:center;gap:16px;padding:0 10px;font:700 13px ${CHI};color:#000}
+.im-dk{position:absolute;inset:21px 0 0 0}
+.im-ic{position:absolute;width:76px;display:flex;flex-direction:column;align-items:center;gap:3px;font:400 12px ${CHI};cursor:default;color:#000}
+.im-ic span{background:#fff;padding:0 3px}.im-ic.on span{background:#000;color:#fff}
+.im-fw{position:absolute;background:#fff;border:1px solid #000;box-shadow:1px 1px 0 #000;color:#000;font:400 12px ${CHI}}
+.im-fw .st{border-bottom:1px solid #000;padding:2px 8px;display:flex;justify-content:space-between;font-size:11px}
+.im-fw .gr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 4px;padding:12px 8px}
+.im-boot{position:absolute;inset:0;display:grid;place-items:center}`);
+  const D = [
+    ['1984', 'System 1.0', '1984-01-24', 'Initial system software release, shipped with the Mac 128K.', 'compact', 1],
+    ['1984', 'System 1.1', '1984-05-05', 'Maintenance release that added the Set Startup command and a faster disk copying routine.', 'compact', 0],
+    ['1985', 'System 2.0', '1985-04-08', 'Introduced the “New Folder” and “Shut Down” commands, the MiniFinder, and the Choose Printer DA. Also added icons to list view and the Command-Shift-3 screenshot FKEY.', 'compact', 1],
+    ['1985', 'System 2.1', '1985-09-17', 'Added support for the Hard Disk 20 drive and the HFS file system.', 'compact', 1],
+    ['1986', 'System 3.0', '1986-01-16', 'Added more complete support for HFS, a RAM disk cache, zoom boxes for windows and a redesigned control panel. Introduced with the Mac Plus.', 'compact', 1],
+    ['1986', 'System 3.2', '1986-06-02', 'Updated Calculator and Chooser, plus fixes for the Mac Plus SCSI hard disks.', 'compact', 0],
+    ['1987', 'System 4.0', '1987-03-02', 'Shipped with the Mac SE and Mac II, adding support for ADB keyboards and mice.', 'compact', 0],
+    ['1987', 'System 5.0', '1987-10-08', 'Introduced the MultiFinder, revised the Finder about box, and improved printing support.', 'compact', 1],
+    ['1988', 'A/UX 1.0', '1988-02-09', 'Initial release, combining UNIX System V Release 2 with BSD networking, TCP/IP and NFS.', 'compact', 0, 'aux'],
+    ['1988', 'System 6.0', '1988-04-30', 'Added MacroMaker, Map and CloseView utilities.', 'compact', 1],
+    ['1988', 'NeXTStep 0.8', '1988-10-12', 'First publicly-available preview release. Included the Mach kernel, an object-oriented API based on Objective-C and a Display PostScript-powered UI.', 'next', 1, 'next'],
+    ['1989', 'NeXTStep 1.0', '1989-09-11', 'Includes the ability to kill applications from Workspace Manager, a redesigned Preferences application and other polish.', 'next', 0, 'next'],
+    ['1990', 'System 6.0.5', '1990-03-19', 'Bundled 32-bit QuickDraw (previously a separate package). Added support for the Mac IIfx.', 'compact', 0],
+    ['1990', 'NeXTStep 2.0', '1990-09-18', 'Added support for the NeXTstation and color displays, plus CD-ROM drives and a dockable Workspace.', 'next', 0, 'next'],
+    ['1991', 'System 7.0', '1991-05-13', 'Major update with a new color Finder, aliases, Balloon Help, file sharing, virtual memory and drag-and-drop between windows.', 'platinum', 1],
+    ['1992', 'System 7.1', '1992-08-28', 'Introduced the Fonts folder and WorldScript for non-Roman languages.', 'platinum', 1],
+    ['1994', 'System 7.5', '1994-09-12', 'Added the Apple Guide help system, a hierarchical Apple menu, Stickies and the Control Strip.', 'platinum', 1],
+    ['1995', 'NeXTSTEP 3.3', '1995-02-15', 'Final NeXTSTEP release, running on Intel, PA-RISC and SPARC machines as well as NeXT hardware.', 'next', 1, 'next'],
+    ['1997', 'Mac OS 7.6', '1997-01-07', 'First release to use the “Mac OS” name. Integrated the Extensions Manager, Open Transport and QuickDraw 3D.', 'platinum', 1],
+    ['1997', 'Mac OS 8.0', '1997-07-26', 'Introduced the Platinum appearance, spring-loaded folders, contextual menus and a multi-threaded Finder.', 'platinum', 1],
+    ['1998', 'Mac OS 8.5', '1998-10-17', 'Added Sherlock search, Appearance themes, font smoothing and PowerPC-native AppleScript.', 'platinum', 1],
+    ['1999', 'Mac OS 9.0', '1999-10-23', 'Added multiple users, Keychain, Sherlock 2 and software update over the Internet.', 'platinum', 1],
+    ['2000', 'Mac OS X Public Beta', '2000-09-13', 'Preview of the Aqua interface, the Dock and the Darwin core, sold for $29.95.', 'osx', 1, 'osx'],
+    ['2001', 'Mac OS X 10.0', '2001-03-24', 'First release of Mac OS X (“Cheetah”), with protected memory, preemptive multitasking and Classic mode.', 'osx', 1, 'osx'],
+    ['2001', 'Mac OS 9.2', '2001-06-18', 'Final major Classic release, required to run the Classic environment on Mac OS X.', 'platinum', 0],
+    ['2002', 'Mac OS X 10.2', '2002-08-24', 'Jaguar added Quartz Extreme, Rendezvous, iChat and the Address Book.', 'osx', 1, 'osx'],
+  ].map(([y, t, d, ds, bez, n, fam = 'mac'], i) => ({ i, y, t, d, ds, bez, notable: !!n, fam }));
+  const FIL = [['all', 'All', () => true], ['notable', 'Notable', (r) => r.notable], ['aux', 'A/UX', (r) => r.fam === 'aux'], ['next', 'NeXT', (r) => r.fam === 'next'], ['osx', 'Mac OS X', (r) => r.fam === 'osx']];
+  const MACH = { compact: ['Macintosh 128K', 'Macintosh 512Ke', 'Macintosh Plus', 'Macintosh SE'], platinum: ['Macintosh IIci', 'Macintosh Quadra 650', 'Power Macintosh 6100', 'Power Macintosh 9500'], next: ['NeXT Cube', 'NeXTstation', 'NeXTstation Color'], osx: ['Power Macintosh G3 (Beige)', 'Power Mac G4 (AGP)', 'iMac G3'] };
+  const st = { filter: 'notable', sel: null };
+  const dfmt = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+  // ---- pixel rainbow infinity logo ----
+  const logo = () => { const c = h('canvas', { width: 38, height: 21, style: { width: '160px', height: '88px' } }), g = c.getContext('2d');
+    for (let y = 0; y < 21; y++) for (let x = 0; x < 38; x++) { const px = (x + 0.5 - 19) / 19, py = (y + 0.5 - 10.5) / 19; const ring = (ox) => { const d = Math.hypot((px - ox) * 1.0, py * 1.05); return d < 0.5 && d > 0.24; }; if (ring(-0.47) || ring(0.47)) { g.fillStyle = RB[Math.min(5, Math.floor((y / 21) * 6))]; g.fillRect(x, y, 1, 1); } }
+    return c; };
+  const apple = (sz = 16, mono) => { const id = 'imrb' + Math.random().toString(36).slice(2, 7); return s('svg', { width: sz, height: sz * 1.12, viewBox: '0 0 20 22.4' }, s('defs', {}, s('linearGradient', { id, x1: 0, y1: 0, x2: 0, y2: 1 }, ...RB.flatMap((c, k) => [s('stop', { offset: k / 6, 'stop-color': c }), s('stop', { offset: (k + 1) / 6, 'stop-color': c })]))),
+    s('path', { d: 'M13.6 0c.1 1.4-.4 2.7-1.2 3.6-.8 1-2.1 1.7-3.3 1.6-.2-1.3.5-2.7 1.2-3.5C11.1.8 12.5.1 13.6 0Zm3.9 16.3c-.6 1.3-.9 1.9-1.6 3.1-1 1.6-2.5 3.6-4.3 3-.9-.2-1.4-.7-2.8-.7s-2 .5-2.9.7C4.1 23 2.7 21.2 1.7 19.6-1 15.3-.4 9.8 2.2 7.6c1.1-1 2.5-1.5 3.8-1.5 1.4 0 2.3.8 3.5.8 1.1 0 1.8-.8 3.5-.8 1.2 0 2.5.6 3.4 1.7-3 1.7-2.5 6.1 1.1 8.5Z', fill: mono ? mono : `url(#${id})` })); };
+  // ---- layout ----
+  const wrap = h('div.im'); root.append(wrap);
+  const intro = h('div.im-intro', {},
+    h('p', {}, 'Infinite Mac is a collection of classic Macintosh and NeXT operating systems and software, all easily accessible from the comfort of a web browser.'),
+    h('p', {}, 'Pick any version of System Software, A/UX, NeXTStep, Mac OS or Mac OS X from the 1980s, 1990s or early 2000s and run it within a virtual machine. An “Infinite HD” disk with representative software from that era is also available. You can also ', h('a', { onclick: () => customize(D[16]) }, 'run a custom version'), ' with your choice of machine and disks. On some operating systems files and disk images can be imported and exported using drag and drop and virtual CD-ROMs can be mounted – refer to the welcome screen in each machine for more details.'),
+    h('p', {}, 'You can ', h('a', {}, 'learn more'), ', ', h('a', {}, 'embed instances into your own site'), ', ', h('a', {}, 'monkey around'), ', ', h('a', {}, 'see what’s changed recently'), ' or ', h('a', {}, 'donate'), ' to support this project.'));
+  wrap.append(h('div.im-top', {}, h('div.im-logo', { onclick: () => root.scrollTo({ top: 0, behavior: 'smooth' }) }, logo(), h('div.im-wm', {}, 'Infinite Mac')), intro));
+  const body = h('div.im-body'); wrap.append(body);
+  const popLbl = h('span'); const pmenu = h('div.im-menu');
+  const pop = h('button.im-pop', { onclick: (e) => { e.stopPropagation(); pmenu.classList.toggle('on'); } }, popLbl);
+  const filter = h('div.im-filter', {}, 'Releases:', h('span', { style: { position: 'relative' } }, pop, pmenu)); body.append(filter);
+  root.addEventListener('click', () => pmenu.classList.remove('on'));
+  const list = h('div'); body.append(list);
+  const rail = h('div.im-rail'); root.append(rail);
+  const card = (r) => { const run = h('button.im-b', { onclick: (e) => { e.stopPropagation(); boot(r, MACH[r.bez][r.bez === 'compact' ? (r.y < 1986 ? 0 : 2) : 0]); } }, 'Run');
+    const cus = h('button.im-b.cus', { onclick: (e) => { e.stopPropagation(); customize(r); } }, 'Customize…');
+    const el = h(`div.im-card.${r.bez}`, { tabindex: 0, 'data-i': r.i, onclick: () => { st.sel = r.i; draw(); }, ondblclick: () => run.click() },
+      h('div.im-scr', {}, h('div.im-win', {}, h('h3', {}, r.t), h('div.im-dt', {}, dfmt(r.d)), h('p.im-ds', {}, r.ds), h('div.im-btns', {}, cus, r.fam === 'aux' && r.t === 'A/UX 1.0' ? null : run))),
+      r.bez === 'next' ? h('div.im-next-logo', {}, 'NeXT') : h('div.im-badge', {}, apple(15, r.bez === 'osx' ? '#9aa3ad' : null)));
+    if (st.sel === r.i) el.classList.add('sel'); return el; };
+  let years = [];
+  const draw = () => { const f = FIL.find((x) => x[0] === st.filter); const rows = D.filter(f[2]); popLbl.textContent = `${f[1]} (${rows.length})`;
+    pmenu.replaceChildren(...FIL.map(([k, l, fn]) => h('div', { class: k === st.filter ? 'on' : '', onclick: (e) => { e.stopPropagation(); st.filter = k; pmenu.classList.remove('on'); draw(); } }, `${l} (${D.filter(fn).length})`)));
+    const by = {}; rows.forEach((r) => (by[r.y] ||= []).push(r)); years = Object.keys(by);
+    list.replaceChildren(...years.flatMap((y) => [h('h2.im-yr', { id: 'im-y' + y }, y), h('div.im-row', {}, ...by[y].map(card))]));
+    rail.replaceChildren(...years.map((y) => h('a', { onclick: () => jump(y) }, y))); spy(); return rows.length; };
+  const jump = (y) => { const el = list.querySelector('#im-y' + y); if (el) root.scrollTo({ top: el.offsetTop - 10, behavior: 'smooth' }); };
+  const spy = () => { const hs = [...list.querySelectorAll('.im-yr')]; let cur = 0; hs.forEach((e, k) => { if (e.getBoundingClientRect().top - root.getBoundingClientRect().top < root.clientHeight * 0.45) cur = k; }); [...rail.children].forEach((a, k) => a.classList.toggle('on', k === cur)); };
+  root.addEventListener('scroll', spy, { passive: true });
+  // ---- classic dialog: Customize ----
+  let ov = null;
+  const closeOv = () => { ov?.remove(); ov = null; };
+  const popSel = (opts, v) => h('select', {}, ...opts.map((o) => h('option', { value: o, selected: o === v }, o)));
+  const chk = (label, on) => { const b = h('b', {}, on ? '✕' : ''); const sp = h('span', { onclick: () => { on = !on; b.textContent = on ? '✕' : ''; sp.on = on; } }, b, label); sp.on = on; return sp; };
+  const customize = (r) => { closeOv(); const sysDisk = `${r.t} HD`;
+    const mSel = popSel(MACH[r.bez], MACH[r.bez][r.bez === 'compact' ? 2 : 0]); const ram = popSel(r.bez === 'compact' ? ['512 K', '1 MB', '4 MB'] : r.bez === 'next' ? ['8 MB', '16 MB', '32 MB'] : ['8 MB', '32 MB', '128 MB', '256 MB'], r.bez === 'compact' ? '4 MB' : r.bez === 'next' ? '16 MB' : '32 MB');
+    const scr = popSel(['Default', '512×342', '640×480', '800×600', '1024×768'], 'Default'); const disks = [chk(sysDisk, true), chk('Infinite HD', true), chk('Saved HD', false)];
+    const dlg = h('div.im-dlg', { onclick: (e) => e.stopPropagation() }, h('div.im-tb', {}, h('i', { onclick: closeOv }), h('span', {}, `Customize ${r.t}`)),
+      h('div.bd', {}, h('label', {}, 'Machine:'), mSel, h('label', {}, 'RAM:'), ram, h('label', { style: { alignSelf: 'start' } }, 'Disks:'), h('div.ck', {}, ...disks), h('label', {}, 'Screen:'), scr,
+        h('div.ft', {}, h('button.im-b', { onclick: closeOv }, 'Cancel'), h('button.im-b.def', { onclick: () => { const cfg = { ram: ram.value, disks: disks.filter((d) => d.on).map((d) => d.textContent), screen: scr.value }; closeOv(); boot(r, mSel.value, cfg); } }, 'Run'))));
+    const tb = dlg.firstChild; let ox = 0, oy = 0; drag(tb, { start: (e) => { if (e.target.tagName === 'I') return false; ox = e.clientX - (parseFloat(dlg.style.left) || 0); oy = e.clientY - (parseFloat(dlg.style.top) || 0); }, move: (e) => { dlg.style.position = 'relative'; dlg.style.left = e.clientX - ox + 'px'; dlg.style.top = e.clientY - oy + 'px'; } });
+    ov = h('div.im-ov', { onclick: closeOv }, dlg); document.body.append(ov); requestAnimationFrame(() => ov?.classList.add('dim')); ov.dlg = dlg; ov.mSel = mSel; return dlg; };
+  // ---- fake emulator boot ----
+  let emu = null; const exitEmu = () => { emu?.remove(); emu = null; };
+  const happyMac = () => { const c = h('canvas', { width: 16, height: 20, style: { width: '64px', height: '80px', imageRendering: 'pixelated' } }); const g = c.getContext('2d'); const M = ['  ############  ', ' #............# ', ' #.##########.# ', ' #.#........#.# ', ' #.#..#..#..#.# ', ' #.#........#.# ', ' #.#....#...#.# ', ' #.#...##...#.# ', ' #.#........#.# ', ' #.#.#....#.#.# ', ' #.#..####..#.# ', ' #.##########.# ', ' #............# ', ' #............# ', ' #.....####...# ', ' #............# ', ' ############## ', ' #............# ', ' ############## ', '                '];
+    M.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === ' ') return; g.fillStyle = ch === '#' ? '#000' : '#fff'; g.fillRect(x, y, 1, 1); })); return c; };
+  const boot = async (r, mach, cfg = {}) => { exitEmu(); const color = r.bez !== 'compact'; const big = r.bez === 'osx' || r.bez === 'next' || (cfg.screen && cfg.screen !== 'Default' && cfg.screen !== '512×342');
+    const [w, hh] = r.bez === 'compact' && !big ? [512, 342] : cfg.screen && /×/.test(cfg.screen) && cfg.screen !== '512×342' ? cfg.screen.split('×').map(Number) : [640, 480];
+    const scale = Math.min(1.25, (root.clientWidth - 160) / (w + 68), (root.clientHeight - 140) / (hh + 88));
+    const screen = h('div.im-screen', { style: { width: w + 'px', height: hh + 'px' } });
+    const mon = h(`div.im-mon.im-card.${r.bez}`, { style: { width: 'auto', height: 'auto', transform: `scale(${scale})`, transformOrigin: 'center' } }, screen, r.bez === 'next' ? h('div.im-next-logo', { style: { left: '34px', bottom: '18px' } }, 'NeXT') : h('div.im-badge', { style: { left: '34px', bottom: '16px' } }, apple(18, r.bez === 'osx' ? '#9aa3ad' : null)));
+    const status = h('span', {}, 'Starting up…');
+    emu = h('div.im-emu', {}, h('div.im-ctl', {}, h('button.im-b', { onclick: exitEmu }, 'Done'), h('span', {}, `${mach} · ${r.t}${cfg.ram ? ' · ' + cfg.ram : ''}`), h('span', { style: { opacity: .55 } }, '|'), status), mon);
+    document.body.append(emu); const my = emu;
+    const desk = r.bez === 'osx' ? 'linear-gradient(160deg,#3d8ee0,#1d4fa8 60%,#14306e)' : r.bez === 'next' ? '#4d4d4d' : color ? (r.y >= 1997 ? '#6670a6' : 'repeating-conic-gradient(#6b6bb8 0 25%,#7878c4 0 50%) 0 0/4px 4px') : 'repeating-conic-gradient(#000 0 25%,#fff 0 50%) 0 0/2px 2px';
+    screen.style.background = r.bez === 'next' ? '#000' : '#808080';
+    screen.append(h('div.im-boot', {}, r.bez === 'next' ? h('div', { style: { color: '#ccc', font: `400 18px ${ROB}`, letterSpacing: '.2em' } }, 'NeXT') : happyMac()));
+    await sleep(900); if (emu !== my) return;
+    screen.replaceChildren(h('div.im-boot', { style: { background: desk } }, h('div.im-fw', { style: { position: 'relative', padding: '18px 34px', font: `400 ${color ? 16 : 14}px ${CHI}` } }, r.bez === 'osx' ? 'Welcome to Mac OS X' : r.bez === 'next' ? 'NeXTSTEP — Loading Workspace…' : r.y >= 1997 ? 'Mac OS — Starting Up…' : 'Welcome to Macintosh.')));
+    status.textContent = 'Loading extensions…'; await sleep(1000); if (emu !== my) return;
+    status.textContent = 'Running'; screen.replaceChildren(); screen.style.background = '';
+    const dk = h('div.im-dk', { style: { background: desk, inset: r.bez === 'next' || r.bez === 'osx' ? '0' : '21px 0 0 0' } });
+    if (r.bez !== 'next') screen.append(h('div.im-mb', { style: r.bez === 'osx' ? { background: '#f4f4f4e8', borderBottom: '0', fontWeight: 400 } : color && r.y >= 1997 ? { background: 'linear-gradient(#f2f2f2,#d6d6d6)' } : {} }, apple(13, color ? null : '#000'), ...(r.bez === 'osx' ? ['Finder', 'File', 'Edit', 'View', 'Go', 'Window', 'Help'] : ['File', 'Edit', 'View', 'Special']).map((m) => h('span', { style: { fontWeight: r.bez === 'osx' && m === 'Finder' ? 700 : '' } }, m)), h('span', { style: { marginLeft: 'auto', fontWeight: 400 } }, new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }))));
+    screen.append(dk);
+    const disks = cfg.disks?.length ? cfg.disks : [`${r.t} HD`, 'Infinite HD'];
+    const icon = (lbl, x, y, glyph, open) => { const el = h('div.im-ic', { style: { left: x + 'px', top: y + 'px', color: r.bez === 'osx' || r.bez === 'next' ? '#fff' : '#000' }, onclick: () => { dk.querySelectorAll('.im-ic').forEach((e) => e.classList.remove('on')); el.classList.add('on'); }, ondblclick: open }, glyph, h('span', {}, lbl)); dk.append(el); return el; };
+    const diskG = () => s('svg', { width: 34, height: 26, viewBox: '0 0 34 26' }, s('rect', { x: 1, y: 3, width: 32, height: 20, fill: '#fff', stroke: '#000', 'stroke-width': 1.5 }), s('rect', { x: 5, y: 15, width: 6, height: 3, fill: '#000' }), s('line', { x1: 1, y1: 11, x2: 33, y2: 11, stroke: '#000' }));
+    const trashG = () => s('svg', { width: 26, height: 32, viewBox: '0 0 26 32' }, s('path', { d: 'M3 7h20l-2 24H5Z', fill: '#fff', stroke: '#000', 'stroke-width': 1.4 }), s('rect', { x: 1, y: 3, width: 24, height: 4, fill: '#fff', stroke: '#000', 'stroke-width': 1.4 }), ...[8, 13, 18].map((x) => s('line', { x1: x, y1: 10, x2: x, y2: 28, stroke: '#000' })));
+    const appG = (k) => s('svg', { width: 30, height: 30, viewBox: '0 0 30 30' }, s('rect', { x: 3, y: 3, width: 24, height: 24, rx: k % 2 ? 12 : 3, fill: color ? ['#ffd966', '#9fc5f8', '#b6d7a8', '#f4b6c2', '#d9c3f0'][k % 5] : '#fff', stroke: '#000', 'stroke-width': 1.4 }), s('path', { d: ['M9 20l6-10 6 10Z', 'M8 9h14M8 15h14M8 21h9', 'M15 7v16M7 15h16', 'M9 9l12 12M21 9 9 21', 'M10 20c0-6 10-6 10-10'][k % 5], stroke: '#000', 'stroke-width': 1.6, fill: 'none' }));
+    const W0 = screen.clientWidth;
+    const openWin = (title, items) => { const fw = h('div.im-fw', { style: { left: 40 + Math.random() * 40 + 'px', top: 30 + Math.random() * 30 + 'px', width: Math.min(360, W0 - 140) + 'px' } }, h('div.im-tb', {}, h('i', { onclick: () => fw.remove() }), h('span', {}, title)), h('div.st', {}, h('span', {}, `${items.length} items`), h('span', {}, '1.2 MB available')), h('div.gr', {}, ...items.map((t, k) => h('div.im-ic', { style: { position: 'static', width: 'auto' } }, appG(k), h('span', {}, t)))));
+      const tb = fw.firstChild; let ox, oy; drag(tb, { start: (e) => { ox = e.clientX / scale - fw.offsetLeft; oy = e.clientY / scale - fw.offsetTop; }, move: (e) => { fw.style.left = e.clientX / scale - ox + 'px'; fw.style.top = e.clientY / scale - oy + 'px'; } }); dk.append(fw); return fw; };
+    const SW = { compact: ['MacPaint', 'MacWrite', 'Alarm Clock', 'Puzzle', 'Note Pad', 'Calculator', 'Scrapbook', 'Games'], platinum: ['SimpleText', 'HyperCard', 'Kid Pix', 'Marathon', 'Photoshop', 'Lemmings', 'Netscape', 'Utilities'], next: ['Edit', 'Mail', 'Preview', 'Terminal', 'Doom', 'Mathematica', 'Lotus Improv', 'Chess'], osx: ['Safari', 'iTunes', 'TextEdit', 'Terminal', 'Chess', 'Preview', 'Mail', 'Utilities'] }[r.bez];
+    disks.forEach((d, k) => icon(d.replace(/ HD$/, ' HD'), W0 - 92, 12 + k * 66, diskG(), () => openWin(d, d === 'Infinite HD' ? SW : ['System Folder', 'Applications', 'Documents', 'Read Me'])));
+    if (r.bez !== 'next' && r.bez !== 'osx') icon('Trash', W0 - 92, hh - 21 - 70, trashG(), () => openWin('Trash', []));
+    if (r.bez === 'next') { dk.append(h('div', { style: { position: 'absolute', right: '0', top: '0', width: '64px', display: 'flex', flexDirection: 'column' } }, ...['NeXT', 'Edit', 'Mail', 'Term', 'Prefs', 'Recycler'].map((t, k) => h('div', { style: { height: '64px', background: 'linear-gradient(135deg,#9a9a9a,#5e5e5e)', border: '1px solid #222', display: 'grid', placeItems: 'center', font: `400 11px ${ROB}`, color: k ? '#fff' : '#000' } }, t)))); }
+    if (r.bez === 'osx') dk.append(h('div', { style: { position: 'absolute', left: '50%', bottom: '4px', transform: 'translateX(-50%)', display: 'flex', gap: '6px', padding: '6px 10px', background: '#ffffff40', border: '1px solid #ffffff70', borderRadius: '6px' } }, ...[0, 1, 2, 3, 4, 0].map((k) => appG(k))));
+    const win = openWin(disks[1] || disks[0], SW); emu.screen = screen; emu.win = win; return emu; };
+  root.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeOv(); exitEmu(); } });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeOv(); exitEmu(); } });
+  draw();
+  window.__demoProof = async () => { const out = [];
+    pop.click(); await sleep(150); out.push(`popup open=${pmenu.classList.contains('on')}`); [...pmenu.children][0].click(); await sleep(100); out.push(`All → ${list.querySelectorAll('.im-card').length} cards`);
+    st.filter = 'next'; draw(); out.push(`NeXT → ${list.querySelectorAll('.im-card').length} cards`); st.filter = 'notable'; draw(); out.push(`Notable → ${list.querySelectorAll('.im-card').length} cards / ${years.length} years`);
+    rail.children[Math.min(6, years.length - 1)].click(); await sleep(700); spy(); out.push(`year rail → scrollTop ${Math.round(root.scrollTop)}, active ${rail.querySelector('.on')?.textContent}`);
+    const dlg = customize(D[16]); await sleep(150); out.push(`Customize dialog: ${dlg.querySelector('.im-tb span').textContent}, machines ${ov.mSel.options.length}`); ov.mSel.value = 'Macintosh Quadra 650'; dlg.querySelector('.im-b.def').click();
+    await sleep(2200); out.push(`Run → emulator running=${!!emu?.screen} on "${emu?.querySelector('.im-ctl span')?.textContent}" with ${emu?.querySelectorAll('.im-ic').length} icons`);
+    exitEmu(); root.scrollTo({ top: 0 }); await sleep(200); st.sel = null; draw();
+    return out.join('; ') + '; restored Notable list at top'; };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['parody-desktop-os-sandbox'])(root, T); }

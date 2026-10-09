@@ -23,7 +23,8 @@
   "heraldic-flag-canvas-desk",
   "bomomo-generative-brush-desk",
   "sketchtoy-replay-sketch-stage",
-  "brushie-painterly-canvas"
+  "brushie-painterly-canvas",
+  "metademolab-animated-drawings-4-step-upload-box-mask-joint-motion-wizard"
  ],
  "seq": [
   "music-grid-sequencer",
@@ -193,7 +194,8 @@
   "voanh-generative-art-studio-desk",
   "whorl-generative-motion-desk",
   "motionforge-motion-exhibition",
-  "kolesidis-frivobrutalism-playground"
+  "kolesidis-frivobrutalism-playground",
+  "watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate"
  ],
  "code": [
   "mermaid-dualpane-live-editor",
@@ -306,7 +308,8 @@
   "retro-media-player-chrome",
   "cyanbanister-vaporwave-os-desk",
   "mmm-page-sticker-site-builder",
-  "posthog-desktop-os-marketing-site"
+  "posthog-desktop-os-marketing-site",
+  "infinitemac-beige-bezel-year-timeline-os-launcher-customize-run"
  ],
  "three": [
   "3d-blob-param-mixer",

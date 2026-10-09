@@ -41,7 +41,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'lynnfisher-book-toc-dot-leader-roman-numeral-paper-portfolio': '고서 목차 포트폴리오',
   'maggie-garden-topic-rail-growth-stage-filter-illustrated-card-masonry': '디지털 가든 인덱스',
   'sbs-theboat-rain-particle-click-start-ink-comic-chapter-scroll': '그래픽노블 스크롤리텔링',
-  'sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card': '스튜디오 히어로 랜딩' };
+  'sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card': '스튜디오 히어로 랜딩',
+  'metademolab-animated-drawings-4-step-upload-box-mask-joint-motion-wizard': '드로잉 애니메이션 위저드',
+  'infinitemac-beige-bezel-year-timeline-os-launcher-customize-run': '클래식 맥 OS 런처',
+  'watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate': '판타지 도시 지도 생성기' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
