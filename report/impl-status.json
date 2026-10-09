@@ -2844,27 +2844,27 @@
   "errors": []
  },
  "groovepizza-radial-slice-sequencer-shape-polygon-sliders": {
-  "url": "http://127.0.0.1:4173/t/groovepizza-radial-slice-sequencer-shape-polygon-sliders/",
+  "url": "https://ux-technique-gallery.vercel.app/t/groovepizza-radial-slice-sequencer-shape-polygon-sliders/",
   "ok": true,
-  "at": "2026-10-09T07:59:58.688Z",
+  "at": "2026-10-09T08:02:25.816Z",
   "http": 200,
   "proof": "middle ring dots on → polygon count=3; grid mirrors: row2 cells lit=3; grid→pizza: inner ring slice2 now 1 polygon pts=4; SLICES 12 → slices drawn=12; pattern slot 3 → kick hits 6; shape pentagon on inner ring → 5 hits; playing step=2 bpm=120; restored",
   "demoNodes": 386,
   "errors": []
  },
  "rabbit-r1-orange-device-stacked-app-card-screen-buy-bar": {
-  "url": "http://127.0.0.1:4173/t/rabbit-r1-orange-device-stacked-app-card-screen-buy-bar/",
+  "url": "https://ux-technique-gallery.vercel.app/t/rabbit-r1-orange-device-stacked-app-card-screen-buy-bar/",
   "ok": true,
-  "at": "2026-10-09T07:59:58.697Z",
+  "at": "2026-10-09T08:02:25.816Z",
   "http": 200,
   "proof": "wheel ↓ → focus camera; ArrowDown → magic gallery; drag/scroll to r-cade (card h=60px); cookie toast dismissed; restored focus=journal + cookie toast",
   "demoNodes": 109,
   "errors": []
  },
  "grilli-flexa-jump-rail-subfamily-pill-editable-specimen": {
-  "url": "http://127.0.0.1:4173/t/grilli-flexa-jump-rail-subfamily-pill-editable-specimen/",
+  "url": "https://ux-technique-gallery.vercel.app/t/grilli-flexa-jump-rail-subfamily-pill-editable-specimen/",
   "ok": true,
-  "at": "2026-10-09T07:59:58.683Z",
+  "at": "2026-10-09T08:02:25.802Z",
   "http": 200,
   "proof": "pill X Compressed → line0 fvs=\"\"wdth\" 25, \"wght\" 1000\"; Expanded → line0 scrollWidth 1225 > clientWidth 1023 (overflow clip); contenteditable → \"Edited JAB\"; hero remix \"wdth\" 151, \"wght\" 100 | \"wdth\" 100, \"wght\" 1000 | \"wdth\" 25, \"wght\" 600; jump-to Editable samples scrollTop=1454; restored",
   "demoNodes": 169,
