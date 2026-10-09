@@ -2923,5 +2923,32 @@
   "proof": "stage dropdown open=true; Seedlings → 6 cards; type Notes → 6 cards; type Podcasts + Seedlings → 0 cards, empty state=true; topic rail scrolled 0px; topic 'Cultured Meat' → 2 cards; restored all filters (20 cards)",
   "demoNodes": 400,
   "errors": []
+ },
+ "watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate": {
+  "url": "https://ux-technique-gallery.vercel.app/t/watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate/",
+  "ok": true,
+  "at": "2026-10-09T20:11:07.617Z",
+  "http": 200,
+  "proof": "menu open=true items=16; Regenerate: Ironmarsh → Elderhold (2056 buildings, 9 ward labels, 4 gates); style Ink rendered; style Blueprint rendered; size Large → 1927 buildings; restored Default/Medium seed 3039 → Clouddale",
+  "demoNodes": 46,
+  "errors": []
+ },
+ "metademolab-animated-drawings-4-step-upload-box-mask-joint-motion-wizard": {
+  "url": "https://ux-technique-gallery.vercel.app/t/metademolab-animated-drawings-4-step-upload-box-mask-joint-motion-wizard/",
+  "ok": true,
+  "at": "2026-10-09T20:11:07.602Z",
+  "http": 200,
+  "proof": "consent modal=true; example → Dog; step 2 box 258×348 → 280×358; step 3 mask eraser 7824→7581px, pen → 7824px; step 4 drag wrist (302,104) → (318,94); step 5 Dab plays (wrist moves 176px); showing final step: Wave hello on Astronaut",
+  "demoNodes": 161,
+  "errors": []
+ },
+ "infinitemac-beige-bezel-year-timeline-os-launcher-customize-run": {
+  "url": "https://ux-technique-gallery.vercel.app/t/infinitemac-beige-bezel-year-timeline-os-launcher-customize-run/",
+  "ok": true,
+  "at": "2026-10-09T20:11:07.622Z",
+  "http": 200,
+  "proof": "popup open=true; All → 26 cards; NeXT → 4 cards; Notable → 18 cards / 15 years; year rail → scrollTop 2635, active 1992; Customize dialog: Customize System 7.5, machines 4; Run → emulator running=true on \"Macintosh Quadra 650 · System 7.5 · 32 MB\" with 11 icons; restored Notable list at top",
+  "demoNodes": 509,
+  "errors": []
  }
 }
