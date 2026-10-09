@@ -26,7 +26,13 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'airbnb-segmented-search-pill-calendar-guests-map-pins': '숙소 검색 플로우', 'nts-dual-live-channel-bar-expand-schedule-mixtape-rail': '라이브 라디오 플레이어', 'basement-human-machine-toggle-3d-hq-ascii-index': '3D 에이전시 사이트',
   'a24-title-stack-hover-hero-swap-masonry-films': '영화 스튜디오 히어로', 'rijksmuseum-floating-search-dock-masonry-filter-drawer-deep-zoom': '미술관 컬렉션 탐색', 'copilot-blurred-tilted-category-pills-hero-split-glass-nav': '핀테크 앱 랜딩',
   'lando-topo-hero-scroll-signature-draw-two-tone-manifesto': '선수 포트폴리오', 'brilliant-autoplay-demo-card-hero-koji-onboarding-steps': '학습 앱 온보딩', 'mschf-numbered-drop-index-bottom-anchored-redacted-rows': '브루탈리스트 인덱스',
-  'daylight-sunlit-hero-leaf-shadow-scroll-word-fill-glass-pill-nav': '하드웨어 제품 랜딩', 'wetransfer-floating-upload-panel-expiry-menu-wallpaper-swap': '파일 전송 업로드 플로우', 'readymag-cycling-collage-hero-floating-cta-card-bento-stickers': '디자인 툴 랜딩' };
+  'daylight-sunlit-hero-leaf-shadow-scroll-word-fill-glass-pill-nav': '하드웨어 제품 랜딩', 'wetransfer-floating-upload-panel-expiry-menu-wallpaper-swap': '파일 전송 업로드 플로우', 'readymag-cycling-collage-hero-floating-cta-card-bento-stickers': '디자인 툴 랜딩',
+  'mynoise-ten-band-spectrum-slider-mixer-presets-animate': '스펙트럼 사운드 믹서',
+  'arnaud-story-progress-fluid-drag-scramble-title-portfolio': '스토리 포트폴리오',
+  'fromanother-agency-studio-collective-cycle-section-rail-blob': '에이전시 랜딩',
+  'nightride-crt-scanline-eq-station-rail-milkdrop-tabs': 'CRT 신스웨이브 라디오',
+  'skia-shaders-thumb-rail-split-editor-canvas-run-itime': '셰이더 플레이그라운드',
+  'hoverstat-framed-site-preview-year-tag-pill-archive': '웹 아카이브' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

@@ -1,4 +1,64 @@
 {
+ "nightride-crt-scanline-eq-station-rail-milkdrop-tabs": {
+  "bg": "#1d101f",
+  "fg": "#f0f0f0",
+  "panel": "#1f1022",
+  "dark": true,
+  "ac": "#731d7b",
+  "ac2": "#261528",
+  "ac3": "#251129",
+  "coverage": 0.08
+ },
+ "skia-shaders-thumb-rail-split-editor-canvas-run-itime": {
+  "bg": "#111318",
+  "fg": "#fdffff",
+  "panel": "#202020",
+  "dark": true,
+  "ac": "#36a2eb",
+  "ac2": "#1b4882",
+  "ac3": "#1f67b0",
+  "coverage": 0.48
+ },
+ "hoverstat-framed-site-preview-year-tag-pill-archive": {
+  "bg": "#f1f1f1",
+  "fg": "#382e27",
+  "panel": "#fccca8",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.48
+ },
+ "mynoise-ten-band-spectrum-slider-mixer-presets-animate": {
+  "bg": "#161616",
+  "fg": "#f0f0f0",
+  "panel": "#12333b",
+  "dark": true,
+  "ac": "#12333b",
+  "ac2": "#114f5f",
+  "ac3": "#244f59",
+  "coverage": 0.13
+ },
+ "arnaud-story-progress-fluid-drag-scramble-title-portfolio": {
+  "bg": "#16282c",
+  "fg": "#bcaa70",
+  "panel": "#6c4b11",
+  "dark": true,
+  "ac": "#16282c",
+  "ac2": "#6c4b11",
+  "ac3": "#ae861b",
+  "coverage": 0.06
+ },
+ "fromanother-agency-studio-collective-cycle-section-rail-blob": {
+  "bg": "#101a2f",
+  "fg": "#d3dcd3",
+  "panel": "#101a31",
+  "dark": true,
+  "ac": "#101a2f",
+  "ac2": "#101a31",
+  "ac3": "#101a30",
+  "coverage": 0.39
+ },
  "daylight-sunlit-hero-leaf-shadow-scroll-word-fill-glass-pill-nav": {
   "bg": "#bca893",
   "fg": "#262415",

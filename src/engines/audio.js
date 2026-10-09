@@ -1,4 +1,4 @@
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, drum, midi, audio, fitCanvas, noise2 } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, drum, midi, audio, fitCanvas, noise2, css } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 import { scene } from './imagefx.js';
 const MONO = "'JetBrains Mono Variable',monospace";
@@ -1731,6 +1731,223 @@ V['mfp-terminal-music-player'] = (root, T) => {
   addEventListener('keydown', onKey);
   render();
   window.__demoProof = async () => { load(62); await sleep(50); seek(30); seek(30); const p = pos; load(79); return `loaded ep 62 (${tl.children.length} tracks), +30 +30 → ${p}s, back to ep 79 with ${tracksFor(79).length} tracks, volume ${vol}`; };
+};
+
+V['mynoise-ten-band-spectrum-slider-mixer-presets-animate'] = (root, T) => {
+  import('@fontsource-variable/inter'); import('@fontsource-variable/jetbrains-mono');
+  theme(root, T, { bg: '#0a1a1e', fg: '#e8f4f6', ac: '#5ec8d8', dark: true });
+  const F = "'Inter Variable',system-ui,sans-serif", M = "'JetBrains Mono Variable',monospace";
+  const BANDS = ['Sub-bass', 'Bass', 'Low Mid', 'Mid', 'Upper Mid', 'Presence', 'Brilliance', 'Air', 'Sparkle', 'High Treble'];
+  const COLORS = ['#8B5A2B', '#E53935', '#FB8C00', '#FDD835', '#43A047', '#26C6DA', '#29B6F6', '#1E88E5', '#8E24AA', '#CE93D8'];
+  const PRESETS = {
+    'Distant Storm': [0.72, 0.68, 0.55, 0.42, 0.35, 0.28, 0.22, 0.18, 0.12, 0.08],
+    'Fairy Rain': [0.25, 0.35, 0.45, 0.55, 0.62, 0.72, 0.78, 0.85, 0.9, 0.88],
+    'Brown': [0.85, 0.7, 0.5, 0.3, 0.18, 0.1, 0.06, 0.04, 0.02, 0.01],
+    'Pink': [0.7, 0.65, 0.58, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25, 0.2],
+    'White': [0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45],
+    'Bedroom': [0.4, 0.5, 0.55, 0.48, 0.4, 0.32, 0.25, 0.18, 0.12, 0.08],
+    'Jungle Lodge': [0.35, 0.42, 0.5, 0.55, 0.6, 0.55, 0.45, 0.35, 0.28, 0.22],
+  };
+  let vals = Array(10).fill(0.45), playing = true, anim = false, bellArmed = false, bellSec = 60, tip = '', status = 'Now playing Rain Noise';
+  let nodes = null, animId = 0;
+  const tipEl = h('div'), statusEl = h('div'), bellBadge = h('span'), meters = [];
+  css(`.mn{position:absolute;inset:0;overflow:auto;font:400 13px/1.4 ${F};color:#e8f4f6;background:#061218}
+.mn-bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 20%,#1a3a42 0%,#061218 70%);opacity:1}
+.mn-bg canvas{width:100%;height:100%;opacity:.45;mix-blend-mode:screen}
+.mn-stage{position:relative;z-index:1;padding:28px 24px 40px;max-width:980px;margin:0 auto}
+.mn h1{margin:0 0 18px;text-align:center;font:300 42px/1 ${F};letter-spacing:.04em}
+.mn-sliders{display:flex;justify-content:center;gap:14px;padding:10px 0 6px}
+.mn-band{display:flex;flex-direction:column;align-items:center;gap:8px;width:52px}
+.mn-rail{position:relative;width:14px;height:160px;border-radius:99px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.mn-fill{position:absolute;left:2px;right:2px;bottom:2px;border-radius:99px;transition:height .35s ease}
+.mn-knob{position:absolute;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 12px currentColor,0 2px 6px #0008;cursor:ns-resize;touch-action:none}
+.mn-lab{font:500 9px ${M};opacity:.7;text-align:center;letter-spacing:-.02em;height:28px}
+.mn-tip{position:fixed;z-index:20;pointer-events:none;background:#0a2028ee;border:1px solid #5ec8d855;padding:4px 10px;border-radius:6px;font:600 11px ${M};color:#9ee;opacity:0;transition:opacity .15s}
+.mn-tip.on{opacity:1}
+.mn-btns{display:flex;justify-content:center;gap:10px;margin:14px 0 8px}
+.mn-btns button{width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;font-size:15px;position:relative;transition:background .2s,opacity .2s}
+.mn-btns button:hover{background:rgba(255,255,255,.22)}
+.mn-btns button.dim{opacity:.35}
+.mn-btns button .bdg{position:absolute;right:-4px;top:-4px;min-width:16px;height:16px;border-radius:8px;background:#5ec8d8;color:#042;font:700 9px/16px ${M};padding:0 4px}
+.mn-status{text-align:center;font:400 12px ${M};color:#8ecad4;min-height:18px;margin-bottom:22px}
+.mn-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mn-card{background:rgba(8,28,34,.72);backdrop-filter:blur(10px);border-radius:14px;padding:18px 20px;border:1px solid rgba(94,200,216,.12)}
+.mn-card h3{margin:0 0 10px;font:600 12px ${M};color:#5ec8d8;letter-spacing:.08em;text-transform:uppercase}
+.mn-card a{display:inline-block;color:#7ad4e4;font:500 12px ${M};margin:2px 8px 2px 0;cursor:pointer;text-decoration:none}
+.mn-card a:hover{color:#c8f4ff;text-decoration:underline}
+.mn-card h2{margin:0 0 10px;font:500 22px ${F}}
+.mn-card p{margin:0 0 10px;opacity:.78;line-height:1.55;font-size:13.5px}
+.mn-card li{margin:4px 0;opacity:.78}
+.mn.paused .mn-fill{height:0!important;transition:height .45s ease}
+.mn.paused .mn-knob{bottom:2px!important}`);
+  // rain streaks canvas bg
+  const bgCv = h('canvas'); const bgWrap = h('div.mn-bg', {}, bgCv);
+  const paintRain = () => { const r = root.getBoundingClientRect(); bgCv.width = r.width | 0; bgCv.height = r.height | 0; const g = bgCv.getContext('2d'); g.clearRect(0, 0, bgCv.width, bgCv.height); const R = rng(3); for (let i = 0; i < 90; i++) { const x = R() * bgCv.width, y = R() * bgCv.height, len = 20 + R() * 60; g.strokeStyle = `rgba(140,200,210,${.08 + R() * .18})`; g.lineWidth = 1; g.beginPath(); g.moveTo(x, y); g.lineTo(x + 2, y + len); g.stroke(); } };
+  const ensureAudio = () => { const ac = audio(); if (!ac || nodes) return; nodes = vals.map((v, i) => { const src = noiseSrc(i < 3 ? 'brown' : 'white'); const flt = ac.createBiquadFilter(); flt.type = i < 4 ? 'lowpass' : i > 6 ? 'highpass' : 'bandpass'; flt.frequency.value = [80, 160, 320, 640, 1280, 2500, 5000, 8000, 12000, 16000][i]; flt.Q.value = 0.7; const gain = ac.createGain(); gain.gain.value = playing ? v * 0.08 : 0; src.connect(flt).connect(gain).connect(ac.destination); src.start(); return { gain }; }); };
+  const applyGains = () => { if (!nodes) return; nodes.forEach((n, i) => { n.gain.gain.setTargetAtTime(playing ? vals[i] * 0.08 : 0, audio().currentTime, 0.05); }); };
+  const setVal = (i, v, animate = false) => { vals[i] = clamp(v, 0, 1); const fill = meters[i].fill, knob = meters[i].knob; const pct = vals[i] * 100; if (animate) { fill.style.transition = 'height .55s cubic-bezier(.4,0,.2,1)'; knob.style.transition = 'bottom .55s cubic-bezier(.4,0,.2,1)'; } else { fill.style.transition = playing ? 'height .08s' : 'height .45s'; knob.style.transition = 'none'; } fill.style.height = `calc(${pct}% - 4px)`; fill.style.background = `linear-gradient(to top,${COLORS[i]}99,${COLORS[i]})`; knob.style.bottom = `calc(${pct}% - 11px)`; knob.style.color = COLORS[i]; knob.style.background = COLORS[i]; applyGains(); };
+  const morphTo = async (arr, label) => { status = label; statusEl.textContent = status; for (let step = 0; step <= 12; step++) { const t = step / 12; vals = vals.map((v, i) => v + (arr[i] - v) * (t === 0 ? 0 : 0.28)); vals.forEach((v, i) => setVal(i, v, true)); await sleep(40); } vals = arr.slice(); vals.forEach((v, i) => setVal(i, v, true)); };
+  const bands = BANDS.map((lab, i) => {
+    const fill = h('div.mn-fill'); const knob = h('div.mn-knob');
+    const rail = h('div.mn-rail', {}, fill, knob);
+    meters[i] = { fill, knob, rail };
+    let dragging = false;
+    const fromY = (clientY) => { const r = rail.getBoundingClientRect(); setVal(i, 1 - (clientY - r.top) / r.height); tip = `${lab} · ${Math.round(vals[i] * 100)}%`; tipEl.textContent = tip; tipEl.classList.add('on'); tipEl.style.left = (r.left + r.width / 2) + 'px'; tipEl.style.top = (clientY - 28) + 'px'; };
+    rail.addEventListener('pointerdown', (e) => { dragging = true; ensureAudio(); try { rail.setPointerCapture(e.pointerId); } catch {} fromY(e.clientY); });
+    rail.addEventListener('pointermove', (e) => { if (dragging) fromY(e.clientY); });
+    rail.addEventListener('pointerup', () => { dragging = false; tipEl.classList.remove('on'); });
+    return h('div.mn-band', {}, rail, h('div.mn-lab', {}, lab));
+  });
+  const setPlaying = (on) => { playing = on; wrap.classList.toggle('paused', !playing); status = playing ? 'Now playing Rain Noise' : 'Press Play to resume'; statusEl.textContent = status; applyGains(); playBtn.textContent = playing ? '❚❚' : '▶'; [...btns.children].forEach((b, i) => { if (i !== 0) b.classList.toggle('dim', !playing); }); };
+  const playBtn = h('button', { title: 'Play/Pause (P)', onclick: () => { ensureAudio(); setPlaying(!playing); } }, '❚❚');
+  const btns = h('div.mn-btns', {},
+    playBtn,
+    h('button', { title: 'Reset', onclick: () => { vals = Array(10).fill(0.45); vals.forEach((v, i) => setVal(i, v, true)); status = 'Reset to 45%'; statusEl.textContent = status; } }, '↺'),
+    h('button', { title: 'Save', onclick: () => toast('mix saved (demo)') }, '↓'),
+    h('button', { title: 'Load', onclick: () => toast('load mix (demo)') }, '↑'),
+    h('button', { title: 'Slider Animation (A)', onclick: () => { anim = !anim; status = anim ? 'Sliders are on the move…' : 'Animation off'; statusEl.textContent = status; } }, '▅'),
+    h('button', { title: 'Width', onclick: () => toast('Stereo Width (demo)') }, '⇔'),
+    h('button', { title: 'Meditation Bell (L)', onclick: () => { bellArmed = !bellArmed; bellSec = 60; bellBadge.style.display = bellArmed ? 'block' : 'none'; bellBadge.textContent = bellSec; status = bellArmed ? 'Bell armed · 1 min' : 'Bell disarmed'; statusEl.textContent = status; } }, '🔔', (bellBadge.className = 'bdg', bellBadge.style.display = 'none', bellBadge)),
+    h('button', { title: 'Timer', onclick: () => toast('Timer (demo)') }, '⏱'),
+  );
+  statusEl.className = 'mn-status'; statusEl.textContent = status;
+  tipEl.className = 'mn-tip';
+  const presetLinks = Object.keys(PRESETS).map((name) => h('a', { onclick: () => { ensureAudio(); morphTo(PRESETS[name], `Preset · ${name}`); } }, name));
+  const left = h('div.mn-card', {},
+    h('h3', {}, 'Presets'), h('div', {}, ...presetLinks),
+    h('h3', { style: { marginTop: '16px' } }, 'Stereo Width'), h('div', {}, ...['Mono', 'Narrow', 'Normal', 'Wide'].map((t) => h('a', { onclick: () => toast(t) }, t))),
+    h('h3', { style: { marginTop: '16px' } }, 'Tape Speed'), h('div', {}, ...['Slower', 'Faster', 'Alternate', 'Reset'].map((t) => h('a', { onclick: () => toast('Tape · ' + t) }, t))),
+    h('h3', { style: { marginTop: '16px' } }, 'Animation Parameters'), h('div', {}, ...['Soft', 'Hard', 'Solo', 'x½', 'x1', 'x2', 'x4', 'x8'].map((t) => h('a', { onclick: () => toast('Anim · ' + t) }, t))),
+    h('h3', { style: { marginTop: '16px' } }, 'Save & Share'), h('div', {}, ...['URL', 'Browser', 'Mini-player', 'iEQ', 'Shortcuts', 'Meditation'].map((t) => h('a', { onclick: () => toast(t) }, t))),
+  );
+  const right = h('div.mn-card', {},
+    h('h2', {}, 'Experience the Sound, Stay Dry'),
+    h('p', {}, 'Ten spectral bands sculpt rain from Sub-bass rumble to High Treble sparkle. Drag a handle to hear the band tip; presets morph the whole row.'),
+    h('ul', {}, h('li', {}, 'Improve focus and concentration'), h('li', {}, 'Enhance sleep quality'), h('li', {}, 'Reduce stress and anxiety')),
+  );
+  const wrap = h('div.mn', {}, bgWrap, h('div.mn-stage', {},
+    h('h1', {}, 'Rain Noise'),
+    h('div.mn-sliders', {}, ...bands),
+    btns, statusEl,
+    h('div.mn-cols', {}, left, right),
+  ), tipEl);
+  root.append(wrap);
+  vals.forEach((v, i) => setVal(i, v));
+  paintRain(); new ResizeObserver(paintRain).observe(root);
+  const tick = () => { animId = requestAnimationFrame(tick); if (!root.isConnected) return cancelAnimationFrame(animId);
+    if (anim && playing) { const t = performance.now() / 1000; vals = vals.map((v, i) => clamp(v + Math.sin(t * 0.7 + i * 0.9) * 0.004, 0.05, 0.95)); vals.forEach((v, i) => setVal(i, v)); }
+    if (bellArmed) { bellSec = Math.max(0, bellSec - 1 / 60); bellBadge.textContent = Math.ceil(bellSec); if (bellSec <= 0) { bellArmed = false; bellBadge.style.display = 'none'; blip(880, 1.2, 'sine', 0.12); status = 'Meditation bell'; statusEl.textContent = status; } }
+  }; tick();
+  const onKey = (e) => { if (!root.isConnected) return removeEventListener('keydown', onKey); if (e.key === 'p' || e.key === 'P') { ensureAudio(); setPlaying(!playing); } if (e.key === 'a' || e.key === 'A') { anim = !anim; status = anim ? 'Sliders are on the move…' : 'Animation off'; statusEl.textContent = status; } if (e.key === 'l' || e.key === 'L') btns.children[6].click(); };
+  addEventListener('keydown', onKey);
+  window.__demoProof = async () => { const out = []; ensureAudio(); const snap = vals.slice();
+    await morphTo(PRESETS['Distant Storm'], 'Preset · Distant Storm'); out.push(`Distant Storm → [${vals.map((v) => v.toFixed(2)).join(',')}]`);
+    await morphTo(PRESETS['Fairy Rain'], 'Preset · Fairy Rain'); out.push(`Fairy Rain tip mid=${vals[5].toFixed(2)}`);
+    setVal(3, 0.9); tip = 'Mid · 90%'; out.push(`drag Mid → ${vals[3].toFixed(2)}`);
+    setPlaying(false); out.push(`pause collapsed=${wrap.classList.contains('paused')} status="${status}"`);
+    setPlaying(true); anim = true; status = 'Sliders are on the move…'; statusEl.textContent = status; await sleep(120); out.push(`anim=${anim}`);
+    anim = false; vals = snap; vals.forEach((v, i) => setVal(i, v, true)); status = 'Now playing Rain Noise'; statusEl.textContent = status;
+    return out.join('; ') + '; restored'; };
+};
+
+V['nightride-crt-scanline-eq-station-rail-milkdrop-tabs'] = (root, T) => {
+  import('@fontsource/vt323'); import('@fontsource/press-start-2p'); import('@fontsource-variable/inter');
+  theme(root, T, { bg: '#120818', fg: '#f0e6ff', ac: '#e040fb', dark: true });
+  const PIXEL = "'VT323',monospace", CHROME = "'Press Start 2P',monospace", F = "'Inter Variable',system-ui,sans-serif";
+  const TABS = ['EQ', 'Milkdrop', 'Video', 'Station', 'Chat', 'Archive'];
+  const STATIONS = [
+    { id: 'nightride', name: 'NIGHTRIDE', track: 'Protagonyst — Under Witches Spell' },
+    { id: 'chillsynth', name: 'CHILLSYNTH', track: 'HOME — Resonance' },
+    { id: 'datawave', name: 'DATAWAVE', track: 'POWERNERD — Remote (feat Oscar)' },
+    { id: 'spacesynth', name: 'SPACESYNTH', track: 'Lazerhawk — Overdrive' },
+    { id: 'darksynth', name: 'DARKSYNTH', track: 'Carpenter Brut — Turbo Killer' },
+    { id: 'horrorsynth', name: 'HORRORSYNTH', track: 'Gost — Ascension' },
+    { id: 'ebsm', name: 'EBSM', track: 'Perturbator — Future Club' },
+    { id: 'archives', name: 'ARCHIVES', track: 'Silicon Heaven · 2024-11-02' },
+  ];
+  const ARCH = [['2024-11-02', 'Silicon Heaven Vol.12'], ['2024-08-18', 'Night Drive Mixtape'], ['2024-03-01', 'CRT Dreams Live'], ['2023-12-24', 'Holiday Synth Special']];
+  let tab = 'EQ', station = 0, playing = true, vol = 0.7, bars = Array(10).fill(0.5);
+  css(`.nr{position:absolute;inset:0;overflow:hidden;font:400 18px/1.2 ${PIXEL};color:#e8d4ff;background:#0a0610}
+.nr-crt{position:absolute;inset:0;pointer-events:none;z-index:8;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.18) 2px 3px),radial-gradient(ellipse at center,transparent 55%,#000a 100%);mix-blend-mode:multiply}
+.nr-grain{position:absolute;inset:0;opacity:.08;pointer-events:none;z-index:7;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+.nr-shell{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;padding:18px 28px 24px}
+.nr-head{display:flex;align-items:center;justify-content:center;gap:16px;position:relative;margin-top:8px}
+.nr-logo{font:700 28px ${CHROME};letter-spacing:.08em;background:linear-gradient(180deg,#fff,#c0c0c0 40%,#888 55%,#eee 70%,#aaa);-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 12px #e040fb88);cursor:pointer;user-select:none}
+.nr-play{width:36px;height:36px;border-radius:50%;border:2px solid #e040fb;background:#e040fb22;color:#e040fb;display:grid;place-items:center;cursor:pointer;font-size:14px}
+.nr-now{text-align:center;margin:8px 0 14px;font:400 20px ${PIXEL};color:#c070e0;letter-spacing:.04em;min-height:24px}
+.nr-ico{position:absolute;right:0;top:4px;display:flex;gap:12px;font-size:18px;opacity:.8;cursor:pointer}
+.nr-tabs{display:flex;gap:0;border-bottom:2px solid #6a2a7a;position:relative}
+.nr-tab{padding:8px 18px;cursor:pointer;color:#8a6a9a;font:400 20px ${PIXEL};letter-spacing:.06em;border:2px solid transparent;border-bottom:0;margin-bottom:-2px;transition:color .15s,border-color .15s,background .15s}
+.nr-tab.on{color:#f0d0ff;border-color:#c060e0;background:linear-gradient(#1a0a22,#120818);border-radius:6px 6px 0 0}
+.nr-panel{flex:1;min-height:0;border:2px solid #c060e0;border-top:0;background:#100818ee;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.nr-eq{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:14px;padding:40px 40px 50px}
+.nr-bar{width:42px;height:100%;max-height:280px;border:1px solid #fff6;border-radius:2px;position:relative;background:#1a0a2288;overflow:hidden}
+.nr-bar i{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,#e040fb,#9c27b0 55%,#ce93d8);box-shadow:0 0 16px #e040fb88;transition:height .08s linear}
+.nr-station{overflow:auto;padding:8px 0}
+.nr-row{padding:12px 28px;cursor:pointer;border-bottom:1px solid #ffffff08;transition:background .15s}
+.nr-row:hover,.nr-row.on{background:#e040fb18}
+.nr-row b{display:block;font:700 16px ${CHROME};letter-spacing:.06em;font-size:13px;color:#f0e0ff}
+.nr-row span{font:400 18px ${PIXEL};color:#a070c0}
+.nr-milk{flex:1;position:relative;min-height:0}
+.nr-milk canvas{width:100%;height:100%;display:block}
+.nr-vid{flex:1;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a1048,#100818);color:#c070e0;font:400 22px ${PIXEL}}
+.nr-chat{flex:1;padding:16px 24px;font:400 18px ${PIXEL};color:#b090d0;overflow:auto}
+.nr-arch{flex:1;padding:12px 0;overflow:auto}
+.nr-arch div{padding:10px 28px;display:flex;gap:18px;cursor:pointer;border-bottom:1px solid #ffffff08}
+.nr-arch div:hover{background:#e040fb14}
+.nr-vol{position:absolute;right:60px;top:8px;width:80px;accent-color:#e040fb}`);
+  const nowEl = h('div.nr-now');
+  const playBtn = h('div.nr-play', { onclick: () => { playing = !playing; playBtn.textContent = playing ? '❚❚' : '▶'; } }, '❚❚');
+  const volSl = h('input.nr-vol', { type: 'range', min: 0, max: 100, value: 70, oninput: (e) => { vol = +e.target.value / 100; } });
+  const head = h('div.nr-head', {},
+    playBtn,
+    h('div.nr-logo', { onclick: () => toast('NIGHTRIDE FM') }, 'NIGHTRIDE FM'),
+    h('div.nr-ico', {}, h('span', { title: 'volume' }, '🔊'), volSl, h('span', { title: 'settings', onclick: () => toast('settings (demo)') }, '⚙')),
+  );
+  const tabEls = TABS.map((t) => h('div.nr-tab', { onclick: () => setTab(t) }, t));
+  const tabs = h('div.nr-tabs', {}, ...tabEls);
+  const eqBars = bars.map(() => h('div.nr-bar', {}, h('i')));
+  const eqView = h('div.nr-eq', {}, ...eqBars);
+  const stationView = h('div.nr-station');
+  const milkCv = h('canvas'); const milkView = h('div.nr-milk', {}, milkCv);
+  const vidView = h('div.nr-vid', {}, '▶ VIDEO STREAM · synthwave visuals');
+  const chatView = h('div.nr-chat', {}, ...['<system> welcome to nightride chat', '<neonfox> this drop is fire', '<crt_kid> milkdrop or eq tonight?', '<datawave> station hop → DATAWAVE'].map((l) => h('div', {}, l)));
+  const archView = h('div.nr-arch', {}, ...ARCH.map(([d, t]) => h('div', { onclick: () => { nowEl.textContent = t; toast(t); } }, h('span', { style: { color: '#8060a0', minWidth: '110px' } }, d), h('b', {}, t))));
+  const panel = h('div.nr-panel', {}, eqView);
+  const views = { EQ: eqView, Milkdrop: milkView, Video: vidView, Station: stationView, Chat: chatView, Archive: archView };
+  const refreshStations = () => {
+    stationView.replaceChildren(...STATIONS.map((s, i) => h('div.nr-row' + (i === station ? '.on' : ''), {
+      onclick: () => { station = i; nowEl.textContent = s.track; refreshStations(); if (playing) blip(220 + i * 40, 0.15, 'sawtooth', 0.04 * vol); toast('?station=' + s.id); },
+    }, h('b', {}, s.name), h('span', {}, s.track))));
+  };
+  const setTab = (t) => { tab = t; tabEls.forEach((el, i) => el.classList.toggle('on', TABS[i] === t)); panel.replaceChildren(views[t]); if (t === 'Station') refreshStations(); if (t === 'Milkdrop') paintMilk(true); };
+  const paintMilk = (force) => {
+    if (tab !== 'Milkdrop' && !force) return;
+    const r = milkView.getBoundingClientRect(); if (r.width < 10) return;
+    milkCv.width = r.width | 0; milkCv.height = r.height | 0;
+    const g = milkCv.getContext('2d'), W = milkCv.width, H = milkCv.height, t = performance.now() / 1000;
+    g.fillStyle = '#0a0410'; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 6; i++) { const cx = W * (.3 + .1 * Math.sin(t + i)), cy = H * (.4 + .15 * Math.cos(t * .7 + i)); const grd = g.createRadialGradient(cx, cy, 0, cx, cy, 80 + i * 30); grd.addColorStop(0, `hsla(${280 + i * 25} 90% 60% / .55)`); grd.addColorStop(1, 'hsla(300 80% 40% / 0)'); g.fillStyle = grd; g.fillRect(0, 0, W, H); }
+    g.strokeStyle = '#e040fb88'; g.beginPath(); for (let x = 0; x < W; x += 4) { const y = H / 2 + Math.sin(x * 0.02 + t * 3) * 40 * (0.4 + bars[x % 10]); x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke();
+  };
+  nowEl.textContent = STATIONS[station].track;
+  const shell = h('div.nr-shell', {}, head, nowEl, tabs, panel);
+  root.append(h('div.nr', {}, shell, h('div.nr-grain'), h('div.nr-crt')));
+  setTab('EQ'); refreshStations();
+  let acGain = null;
+  const pulse = () => {
+    if (!root.isConnected) return;
+    if (playing) { bars = bars.map((b, i) => clamp(0.15 + Math.abs(Math.sin(performance.now() / 180 + i * 0.7)) * (0.35 + vol * 0.55) + (i === station % 10 ? 0.15 : 0), 0.08, 0.98)); eqBars.forEach((el, i) => { el.firstChild.style.height = (bars[i] * 100) + '%'; }); if (tab === 'Milkdrop') paintMilk(); }
+    requestAnimationFrame(pulse);
+  }; pulse();
+  window.__demoProof = async () => { const out = []; const s0 = station, t0 = tab, p0 = playing;
+    setTab('Station'); stationView.children[2].click(); out.push(`station → ${STATIONS[station].id} now="${nowEl.textContent}"`);
+    setTab('EQ'); await sleep(80); out.push(`EQ bars mid=${bars.map((b) => b.toFixed(2)).join(',')}`);
+    setTab('Milkdrop'); await sleep(100); paintMilk(true); out.push(`Milkdrop canvas=${milkCv.width}x${milkCv.height}`);
+    setTab('Archive'); out.push(`Archive rows=${archView.children.length}`);
+    playing = false; playBtn.textContent = '▶'; await sleep(40); playing = true; playBtn.textContent = '❚❚';
+    station = s0; setTab(t0); nowEl.textContent = STATIONS[station].track; refreshStations(); playing = p0;
+    return out.join('; ') + '; restored'; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

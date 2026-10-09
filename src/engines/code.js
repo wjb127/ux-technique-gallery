@@ -2,7 +2,7 @@ import '@fontsource/lora/400.css';
 import '@fontsource/lora/400-italic.css';
 import '@fontsource/lora/700.css';
 import '@fontsource/lora/700-italic.css';
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, drum, blip, midi, fitCanvas, noise2, hexToRgb, oklchToHex, hexToOklch } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, drum, blip, midi, fitCanvas, noise2, hexToRgb, oklchToHex, hexToOklch, css } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',ui-monospace,monospace";
 function editor(val, on, { bg = '#1e1e1e', fg = '#d4d4d4', gutter = '#858585', size = 13, lh = 20 } = {}) {
@@ -1473,6 +1473,102 @@ V['zenpen-zen-writing-editor'] = (root, T) => {
   wrap.append(prog, side, h('div.col', {}, title, art), bub, wc, cup, ovT, ovS);
   root.append(wrap); upd();
   window.__demoProof = async () => { const p = art.querySelector('p'); const r = document.createRange(); r.selectNodeContents(p.firstChild); r.setEnd(p.firstChild, 13); const sl = getSelection(); sl.removeAllRanges(); sl.addRange(r); art.focus(); place(); await sleep(80); const shown = bub.classList.contains('on'); document.execCommand('bold'); document.execCommand('bold'); sl.removeAllRanges(); fmtSel = 'md'; const md = toMd(); return `bubble ${shown ? 'shown' : 'hidden'} on selection, ${words()} words, markdown export ${md.length} chars`; };
+};
+
+V['skia-shaders-thumb-rail-split-editor-canvas-run-itime'] = (root, T) => {
+  import('@fontsource-variable/jetbrains-mono'); import('@fontsource-variable/roboto-flex');
+  theme(root, T, { bg: '#111318', fg: '#e8eaed', ac: '#36a2eb', dark: true });
+  const M = "'JetBrains Mono Variable',monospace", F = "'Roboto Flex Variable',system-ui,sans-serif";
+  const SHADERS = [
+    { id: 'blue-neurons', title: 'blue neurons', code: `// Source: demo neurons\nfloat f(vec3 p){\n  p.z -= iTime*10.;\n  float a=p.z*.1;\n  p.xy*=mat2(cos(a),sin(a),-sin(a),cos(a));\n  return .1-length(cos(p.xy)+sin(p.yz));\n}\nhalf4 main(vec2 fragcoord){\n  vec3 d=normalize(vec3((fragcoord-iResolution*.5)/iResolution.y,1));\n  // ...\n  return half4(col,1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#061018'; g.fillRect(0, 0, W, H); for (let i = 0; i < 40; i++) { const a = i * 0.4 + t; const x = W / 2 + Math.cos(a) * (40 + i * 3); const y = H / 2 + Math.sin(a * 1.3) * (30 + i * 2.5); const grd = g.createRadialGradient(x, y, 0, x, y, 28); grd.addColorStop(0, 'rgba(180,230,255,.85)'); grd.addColorStop(1, 'rgba(20,80,160,0)'); g.fillStyle = grd; g.beginPath(); g.arc(x, y, 28, 0, 7); g.fill(); g.strokeStyle = 'rgba(100,180,255,.35)'; g.beginPath(); g.moveTo(W / 2, H / 2); g.lineTo(x, y); g.stroke(); } } },
+    { id: 'clouds', title: 'clouds', code: `half4 main(vec2 p){\n  vec2 uv=p/iResolution;\n  float n=sin(uv.x*6.+iTime)*.5+sin(uv.y*4.-iTime*.7)*.5;\n  return half4(mix(vec3(.4,.6,.9),vec3(1),n),1);\n}`, paint: (g, W, H, t) => { const grd = g.createLinearGradient(0, 0, 0, H); grd.addColorStop(0, '#5a8fd0'); grd.addColorStop(1, '#c8d8f0'); g.fillStyle = grd; g.fillRect(0, 0, W, H); for (let i = 0; i < 8; i++) { g.fillStyle = `rgba(255,255,255,${.25 + (i % 3) * .1})`; g.beginPath(); g.ellipse((W * (i * 0.18 + 0.1) + Math.sin(t + i) * 20) % W, H * (0.3 + (i % 4) * 0.12), 60 + i * 8, 28, 0, 0, 7); g.fill(); } } },
+    { id: 'julia', title: 'julia', code: `half4 main(vec2 p){\n  vec2 c=vec2(-.8+.1*sin(iTime),.156);\n  vec2 z=(p-iResolution*.5)/iResolution.y*2.5;\n  // iterate…\n  return half4(col,1);\n}`, paint: (g, W, H, t) => { const img = g.createImageData(W, H); const cx = -0.8 + 0.12 * Math.sin(t), cy = 0.156; for (let y = 0; y < H; y += 2) for (let x = 0; x < W; x += 2) { let zr = (x - W / 2) / H * 2.5, zi = (y - H / 2) / H * 2.5, n = 0; for (; n < 24; n++) { const zr2 = zr * zr - zi * zi + cx, zi2 = 2 * zr * zi + cy; zr = zr2; zi = zi2; if (zr * zr + zi * zi > 4) break; } const v = n / 24, i = (y * W + x) * 4; const r = (v * 40) | 0, gg = (v * 180) | 0, b = (80 + v * 175) | 0; for (let dy = 0; dy < 2; dy++) for (let dx = 0; dx < 2; dx++) { const j = ((y + dy) * W + x + dx) * 4; img.data[j] = r; img.data[j + 1] = gg; img.data[j + 2] = b; img.data[j + 3] = 255; } } g.putImageData(img, 0, 0); } },
+    { id: 'plasma', title: 'plasma', code: `half4 main(vec2 p){\n  vec2 uv=p/iResolution;\n  float v=sin(uv.x*10.+iTime)+sin(uv.y*10.+iTime);\n  return half4(.5+.5*sin(vec3(v,v+2.,v+4.)),1);\n}`, paint: (g, W, H, t) => { for (let y = 0; y < H; y += 4) for (let x = 0; x < W; x += 4) { const v = Math.sin(x * 0.04 + t) + Math.sin(y * 0.04 + t * 1.3) + Math.sin((x + y) * 0.02 - t); g.fillStyle = `hsl(${(v * 40 + t * 30) % 360} 70% 50%)`; g.fillRect(x, y, 4, 4); } } },
+    { id: 'tunnel', title: 'tunnel', code: `half4 main(vec2 p){\n  vec2 uv=(p-iResolution*.5)/iResolution.y;\n  float a=atan(uv.y,uv.x),r=length(uv);\n  return half4(vec3(fract(1./r+iTime),fract(a/6.+iTime*.2),.2),1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#050508'; g.fillRect(0, 0, W, H); for (let i = 20; i > 0; i--) { const z = ((i / 20) + t * 0.15) % 1; const rad = (1 - z) * Math.min(W, H) * 0.48; g.strokeStyle = `hsla(${200 + i * 8} 80% 60% / ${0.2 + z * 0.7})`; g.lineWidth = 2; g.beginPath(); g.ellipse(W / 2, H / 2, rad, rad * 0.7, 0, 0, 7); g.stroke(); } } },
+    { id: 'ribbons', title: 'ribbons', code: `half4 main(vec2 p){\n  vec2 uv=p/iResolution;\n  float y=uv.y+sin(uv.x*8.+iTime)*.1;\n  return half4(vec3(smoothstep(.45,.55,y)),1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#101428'; g.fillRect(0, 0, W, H); for (let k = 0; k < 5; k++) { g.beginPath(); for (let x = 0; x <= W; x += 6) { const y = H * (0.3 + k * 0.1) + Math.sin(x * 0.02 + t + k) * 28; x ? g.lineTo(x, y) : g.moveTo(x, y); } g.strokeStyle = `hsla(${180 + k * 40} 80% 60% / .8)`; g.lineWidth = 3; g.stroke(); } } },
+    { id: 'cells', title: 'cells', code: `half4 main(vec2 p){\n  vec2 uv=p/iResolution*8.;\n  vec2 f=fract(uv)-.5;\n  return half4(vec3(smoothstep(.4,.2,length(f))),1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#0a1020'; g.fillRect(0, 0, W, H); const n = 8; for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) { const cx = (i + 0.5) / n * W + Math.sin(t + i) * 4, cy = (j + 0.5) / n * H + Math.cos(t + j) * 4; g.fillStyle = `hsla(${200 + i * 10 + j * 5} 70% 55% / .7)`; g.beginPath(); g.arc(cx, cy, Math.min(W, H) / n * 0.35, 0, 7); g.fill(); } } },
+    { id: 'spark', title: 'spark', code: `half4 main(vec2 p){\n  vec2 uv=(p-iResolution*.5)/iResolution.y;\n  float d=length(uv);\n  return half4(vec3(pow(.02/d,1.2))*vec3(.4,.7,1),1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#02040a'; g.fillRect(0, 0, W, H); for (let i = 0; i < 12; i++) { const a = i / 12 * 6.28 + t; const x = W / 2 + Math.cos(a) * 40, y = H / 2 + Math.sin(a) * 40; const grd = g.createRadialGradient(x, y, 0, x, y, 80); grd.addColorStop(0, 'rgba(180,220,255,.9)'); grd.addColorStop(1, 'rgba(20,40,80,0)'); g.fillStyle = grd; g.fillRect(0, 0, W, H); } } },
+    { id: 'grid', title: 'grid warp', code: `half4 main(vec2 p){\n  vec2 uv=p/iResolution;\n  uv.y+=sin(uv.x*20.+iTime)*.02;\n  float g=step(.95,fract(uv.x*20.))+step(.95,fract(uv.y*20.));\n  return half4(vec3(g),1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#0c0c14'; g.fillRect(0, 0, W, H); g.strokeStyle = '#36a2eb88'; g.lineWidth = 1; for (let i = 0; i <= 20; i++) { const x = i / 20 * W; g.beginPath(); g.moveTo(x, 0); g.lineTo(x + Math.sin(t + i) * 8, H); g.stroke(); const y = i / 20 * H; g.beginPath(); g.moveTo(0, y + Math.sin(t * 1.2 + i) * 6); g.lineTo(W, y); g.stroke(); } } },
+    { id: 'fire', title: 'ember', code: `half4 main(vec2 p){\n  vec2 uv=p/iResolution;\n  float f=sin(uv.x*30.+iTime*3.)*exp(-uv.y*3.);\n  return half4(vec3(f*2.,f*.6,.1),1);\n}`, paint: (g, W, H, t) => { g.fillStyle = '#100800'; g.fillRect(0, 0, W, H); for (let i = 0; i < 50; i++) { const x = (Math.sin(i * 12.3 + t) * 0.5 + 0.5) * W; const y = H - ((t * 40 + i * 17) % H); g.fillStyle = `hsla(${20 + i % 30} 90% ${50 + (i % 20)}% / .7)`; g.beginPath(); g.arc(x, y, 3 + (i % 5), 0, 7); g.fill(); } } },
+  ];
+  let cur = 0, paused = false, iTime = 0, t0 = performance.now(), res = 512, fps = 0, frames = 0, lastFps = performance.now();
+  let dark = true;
+  css(`.sk{position:absolute;inset:0;display:flex;flex-direction:column;font:400 13px ${F};color:#e8eaed;background:#111318;overflow:hidden}
+.sk-top{height:40px;display:flex;align-items:center;padding:0 14px;gap:12px;border-bottom:1px solid #ffffff12;background:#0c0e12;flex:none}
+.sk-top b{font-weight:600;cursor:pointer}.sk-top .hex{opacity:.45;font:400 12px ${M}}.sk-top .tog{margin-left:auto;width:28px;height:28px;border-radius:50%;border:1px solid #ffffff22;background:#1a1e28;cursor:pointer}
+.sk-body{flex:1;min-height:0;display:grid;grid-template-columns:72px 1fr;grid-template-rows:1fr auto}
+.sk-rail{grid-row:1/3;overflow:auto;padding:8px 8px;display:flex;flex-direction:column;gap:8px;border-right:1px solid #ffffff10;background:#0c0e12}
+.sk-th{width:56px;height:56px;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;background:#000;flex:none}
+.sk-th.on{border-color:#36a2eb}
+.sk-th canvas{width:100%;height:100%;display:block}
+.sk-main{display:flex;flex-direction:column;min-width:0;min-height:0;padding:12px 14px 0}
+.sk-cvwrap{flex:1;min-height:0;display:grid;place-items:center;background:#0a0c10;border-radius:8px;border:1px solid #ffffff10;position:relative}
+.sk-cvwrap canvas{max-width:100%;max-height:100%;background:#000;border-radius:4px}
+.sk-layer{position:absolute;left:12px;bottom:10px;display:flex;gap:6px;font:600 14px ${M};opacity:.5}
+.sk-bot{grid-column:2;display:grid;grid-template-columns:1.2fr .9fr;gap:0;border-top:1px solid #ffffff10;min-height:220px;max-height:280px}
+.sk-ed{display:flex;flex-direction:column;min-width:0;background:#1e1e1e}
+.sk-ed .bar{padding:6px 10px;font-size:11px;opacity:.6;border-bottom:1px solid #ffffff08;display:flex;gap:10px}
+.sk-ed .bar button{border:0;background:#2a2a2a;color:#ccc;border-radius:4px;padding:2px 8px;cursor:pointer;font:600 11px ${F}}
+.sk-side{padding:10px 12px;background:#16181e;border-left:1px solid #ffffff08;display:flex;flex-direction:column;gap:8px;font-size:12px}
+.sk-side label{display:flex;justify-content:space-between;opacity:.75;padding:3px 0;font:400 12px ${M}}
+.sk-side .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sk-side .row button{border:0;border-radius:4px;padding:6px 10px;background:#36a2eb;color:#041018;font:600 12px ${F};cursor:pointer}
+.sk-side .row button.ghost{background:#2a303c;color:#cde}
+.sk-side select{background:#1e2430;color:#cde;border:1px solid #ffffff18;border-radius:4px;padding:4px 6px}
+.sk-side input[type=range]{flex:1;accent-color:#36a2eb}`);
+  const cv = h('canvas', { width: res, height: res });
+  const ed = editor(SHADERS[0].code, (v) => { SHADERS[cur].code = v; }, { bg: '#1e1e1e', fg: '#d4d4d4', size: 12, lh: 18 });
+  const fpsEl = h('span', {}, '0 fps');
+  const timeEl = h('span', { style: { font: `400 12px ${M}` } }, '0.000 iTime');
+  const scrub = h('input', { type: 'range', min: 0, max: 30, step: 0.01, value: 0, style: { width: '140px' }, oninput: (e) => { iTime = +e.target.value; t0 = performance.now() - iTime * 1000; } });
+  const resSel = h('select', { onchange: (e) => { res = +e.target.value; cv.width = cv.height = res; } }, ...[128, 256, 512, 720, 1024, 1440].map((n) => h('option', { value: n, selected: n === 512 }, `${n} × ${n}`)));
+  const thumbs = SHADERS.map((s, i) => {
+    const c = h('canvas', { width: 56, height: 56 }); s.paint(c.getContext('2d'), 56, 56, 1.2 + i * 0.3);
+    return h('div.sk-th' + (i ? '' : '.on'), { title: s.title, onclick: () => select(i) }, c);
+  });
+  const select = (i) => { cur = i; thumbs.forEach((t, k) => t.classList.toggle('on', k === i)); ed.set(SHADERS[i].code); toast(SHADERS[i].title); };
+  const run = () => { toast('compiled · ' + SHADERS[cur].id); SHADERS[cur].paint(cv.getContext('2d'), res, res, iTime); };
+  const top = h('div.sk-top', {}, h('b', {}, 'SkSL Shaders'), h('span.hex', {}, '525f94a'), h('button.tog', { title: 'theme', onclick: () => { dark = !dark; wrap.style.filter = dark ? '' : 'invert(1) hue-rotate(180deg)'; } }, '◐'));
+  const side = h('div.sk-side', {},
+    h('div', { style: { fontWeight: 600, marginBottom: 4 } }, 'Transport'),
+    h('div.row', {}, fpsEl, resSel),
+    h('div.row', {}, h('button.ghost', { onclick: () => { iTime = 0; t0 = performance.now(); scrub.value = 0; } }, 'Rewind'), h('button.ghost', { onclick: () => { paused = !paused; pauseBtn.textContent = paused ? 'Play' : 'Pause'; } }, 'Pause')),
+    h('div.row', {}, scrub, timeEl),
+    h('div', { style: { fontWeight: 600, marginTop: 8 } }, 'Shader Inputs'),
+    ...[['iResolution', 'vec2'], ['iTime', 'float'], ['iMouse', 'vec4'], ['iImage', 'shader'], ['Controls', '—']].map(([k, v]) => h('label', {}, h('span', {}, k), h('span', {}, v))),
+    h('div.row', { style: { marginTop: 8 } },
+      h('button', { onclick: run }, 'Run'),
+      h('button.ghost', { onclick: () => toast('Save (demo)') }, 'Save'),
+      h('button.ghost', { onclick: () => toast('Debug (demo)') }, 'Debug'),
+      h('button.ghost', { onclick: () => toast('fiddle (demo)') }, 'View in fiddle'),
+      h('button.ghost', { onclick: () => toast('jsfiddle (demo)') }, 'View in jsfiddle'),
+    ),
+  );
+  const pauseBtn = side.querySelectorAll('button.ghost')[1];
+  const bot = h('div.sk-bot', {},
+    h('div.sk-ed', {}, h('div.bar', {}, h('button', { onclick: () => toast('Shader Inputs') }, 'Shader Inputs'), h('span', {}, SHADERS[0].id)), ed),
+    side,
+  );
+  const main = h('div.sk-main', {}, h('div.sk-cvwrap', {}, cv, h('div.sk-layer', {}, '/', '+')));
+  const body = h('div.sk-body', {}, h('div.sk-rail', {}, ...thumbs), main, bot);
+  const wrap = h('div.sk', {}, top, body);
+  root.append(wrap);
+  const loop = () => {
+    if (!root.isConnected) return;
+    if (!paused) { iTime = (performance.now() - t0) / 1000; scrub.value = String(iTime % 30); }
+    timeEl.textContent = iTime.toFixed(3) + ' iTime';
+    SHADERS[cur].paint(cv.getContext('2d'), res, res, iTime);
+    frames++; if (performance.now() - lastFps > 500) { fps = Math.round(frames * 1000 / (performance.now() - lastFps)); frames = 0; lastFps = performance.now(); fpsEl.textContent = fps + ' fps'; }
+    requestAnimationFrame(loop);
+  }; loop();
+  window.__demoProof = async () => { const out = []; const c0 = cur;
+    select(2); await sleep(80); out.push(`julia selected codeHasJulia=${/julia|c=vec2/i.test(ed.ta.value)}`);
+    select(1); await sleep(60); out.push(`clouds thumb on=${thumbs[1].classList.contains('on')}`);
+    res = 256; resSel.value = '256'; cv.width = cv.height = 256; out.push(`res=${cv.width}`);
+    paused = true; pauseBtn.textContent = 'Play'; const tFreeze = iTime; await sleep(50); out.push(`paused iTime≈${tFreeze.toFixed(2)}`);
+    run(); scrub.value = 5; iTime = 5; t0 = performance.now() - 5000; paused = false; pauseBtn.textContent = 'Pause';
+    res = 512; resSel.value = '512'; cv.width = cv.height = 512; select(c0);
+    return out.join('; ') + '; restored'; };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['regex-visual-lab'])(root, T); }
