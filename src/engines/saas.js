@@ -6580,7 +6580,7 @@ V['sbs-theboat-rain-particle-click-start-ink-comic-chapter-scroll'] = (root, T) 
     setMuted(true); out.push(`mute → muted=${st.muted}`); setMuted(false);
     setReduced(true); out.push(`reduced-motion fallback class=${B.classList.contains('rm')}`); setReduced(RM.matches);
     // restore default: back to the click-to-start gate, audio stopped, top of story
-    stopAudio(); st.started = false; sc.scrollTop = 0; gate.classList.remove('gone'); setAuto(false); onScroll(); await sleep(200);
+    stopAudio(); st.started = false; sc.scrollTop = 0; gate.style.transition = 'none'; gate.classList.remove('gone'); void gate.offsetWidth; requestAnimationFrame(() => { gate.style.transition = ''; }); setAuto(false); onScroll(); await sleep(200);
     return out.join('; ') + '; restored gate (CLICK TO START), audio stopped, scroll top'; };
 };
 
@@ -6597,10 +6597,11 @@ V['sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card'] = (roo
 .sc-pill a{padding:0 9px;height:28px;display:flex;align-items:center;border-radius:4px;font:400 15px ${GRO};color:#fff;cursor:pointer;text-decoration:none;transition:background .2s}
 .sc-pill a:hover,.sc-pill a.on{background:#ffffff26}
 .sc-pill.r{right:24px;background:rgba(48,52,50,.66);padding:0 5px}.sc-pill.l{left:24px}
-.sc-hd{position:absolute;left:31px;right:9%;top:168px;font:400 clamp(34px,4.45vw,64px)/1.1 ${GRO};letter-spacing:-.018em;color:#fff;margin:0;text-shadow:0 0 30px #0000000d;z-index:2}
+.sc-hw{position:absolute;left:31px;right:20px;top:166px;z-index:2}
+.sc-hd{font:400 clamp(30px,3.72vw,54px)/1.1 ${GRO};letter-spacing:-.018em;color:#fff;margin:0;text-shadow:0 0 30px #0000000d;z-index:2}
 .sc-wm{font:300 1.08em/1 ${SW};letter-spacing:-.02em;position:relative}
 .sc-wm b{font:400 1.06em/0 ${CAP};margin-right:-.06em;position:relative;top:.02em}
-.sc-sub{position:absolute;left:31px;top:calc(186px + 3.42 * clamp(34px,4.45vw,64px));font:300 clamp(18px,1.95vw,28px)/1.3 ${GRO};color:rgba(240,243,240,.74);letter-spacing:-.005em;z-index:2}
+.sc-sub{margin-top:26px;font:300 clamp(17px,1.72vw,25px)/1.3 ${GRO};color:rgba(240,243,240,.74);letter-spacing:-.005em;z-index:2}
 .sc-card{position:absolute;right:24px;bottom:22px;width:360px;background:rgba(52,56,54,.5);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px);border-radius:7px;box-shadow:0 0 0 1px #ffffff14 inset;z-index:3;overflow:hidden}
 .sc-card svg{display:block;margin:6px auto 0}
 .sc-row{display:flex;align-items:center;height:42px;margin:0 14px;font:400 13.5px ${GRO};letter-spacing:.02em;text-transform:uppercase;cursor:default}
@@ -6638,7 +6639,7 @@ V['sanctuary-blur-photo-hero-swash-wordmark-glass-pill-nav-diagram-card'] = (roo
   const navL = h('nav.sc-pill.l', {}, ...['Work', 'Info', 'Writing'].map((x) => h('a', { onclick: (e) => { navL.querySelectorAll('a').forEach((a) => a.classList.toggle('on', a === e.currentTarget)); } }, x)));
   const navR = h('nav.sc-pill.r', {}, h('a', {}, 'Contact')); S.append(navL, navR);
   // --- headline: swash wordmark + grotesk sentence ---
-  S.append(h('h1.sc-hd', {}, h('span.sc-wm', {}, h('b', {}, 'S'), 'anctuary ', h('b', {}, 'C'), 'omputer'), ' designs and builds digital products, technical systems, and working relationships.'), h('div.sc-sub', {}, 'Anywhere thoughtful UX and solid code matters.'));
+  S.append(h('div.sc-hw', {}, h('h1.sc-hd', {}, h('span.sc-wm', {}, h('b', {}, 'S'), 'anctuary ', h('b', {}, 'C'), 'omputer'), ' designs and builds digital products, technical systems, and working relationships.'), h('div.sc-sub', {}, 'Anywhere thoughtful UX and solid code matters.')));
   // --- diagram card: thin-line node graph that morphs as the active dot advances ---
   const PAIRS = [['Co-ordination', 'Stability'], ['Climate', 'Trust']];
   // node layouts per (rowA dot, rowB dot): [x,y,r,label] ; top/bottom spine fixed
