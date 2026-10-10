@@ -53,7 +53,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   '16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression': '7단계 동의 척도 설문',
   'cameronsworld-geocities-layered-collage-scroll-zones-gif-parallax-sound-toggle': '지오시티즈 콜라주 롱스크롤',
   'csszengarden-single-markup-theme-switcher-design-list-skin-swap': '단일 마크업 스킨 스위처',
-  'locomotive-stacked-echo-typing-preloader-glyph-scramble-wordmark': '에코 타이핑 프리로더' };
+  'locomotive-stacked-echo-typing-preloader-glyph-scramble-wordmark': '에코 타이핑 프리로더',
+  'io808-tr808-skeuomorphic-step-sequencer-knob-drag-16-step-pads': 'TR-808 드럼머신 시퀀서',
+  'robin-noguier-curved-webgl-project-ribbon-serif-title-dot-pager': '커브 WebGL 리본 포트폴리오',
+  'adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off': '미니멀 텍스트 서바이벌 게임' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

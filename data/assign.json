@@ -271,7 +271,8 @@
   "purl-visual-game-engine",
   "tetrio-game-client-menu",
   "nyt-connections-word-group-grid",
-  "waffle-drag-swap-letter-grid-color-feedback-swap-counter"
+  "waffle-drag-swap-letter-grid-color-feedback-swap-counter",
+  "adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off"
  ],
  "audio": [
   "key-av-instrument",
@@ -303,7 +304,8 @@
   "mynoise-ten-band-spectrum-slider-mixer-presets-animate",
   "nightride-crt-scanline-eq-station-rail-milkdrop-tabs",
   "groovepizza-radial-slice-sequencer-shape-polygon-sliders",
-  "ipodjs-click-wheel-scroll-split-pane-menu-cover-flow"
+  "ipodjs-click-wheel-scroll-split-pane-menu-cover-flow",
+  "io808-tr808-skeuomorphic-step-sequencer-knob-drag-16-step-pads"
  ],
  "desk": [
   "parody-desktop-os-sandbox",
@@ -335,7 +337,8 @@
   "abeto-messenger-tiny-planet",
   "townscaper-procedural-town-builder",
   "igloo-scroll-ice-world",
-  "shopify-editions-3d-cover-shelf-season-timeline-archive"
+  "shopify-editions-3d-cover-shelf-season-timeline-archive",
+  "robin-noguier-curved-webgl-project-ribbon-serif-title-dot-pager"
  ],
  "saas": [
   "pricing-tier-cards",

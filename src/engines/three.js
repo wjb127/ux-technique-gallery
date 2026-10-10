@@ -2311,4 +2311,136 @@ V['shopify-editions-3d-cover-shelf-season-timeline-archive'] = (root, T) => {
     mute.click(); out.push(`sound=${sound}`); mute.click(); world.style.transform = ''; return out.join('; ') + '; restored'; };
 };
 
+V['robin-noguier-curved-webgl-project-ribbon-serif-title-dot-pager'] = (root, T) => {
+  import('@fontsource/playfair-display/900.css'); import('@fontsource-variable/dm-sans');
+  theme(root, T, { bg: '#3d6681', fg: '#d5dedd', ac: '#d5dedd', dark: true });
+  const SN = "'DM Sans Variable','Silka',system-ui,sans-serif", SR = "'Playfair Display','Eksell Display',Didot,serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const PJ = [
+    { t: 'Fun', d: 'Designing a new video-only dating app 💖 with Brian Norgard (ex-CPO-Tinder) and Farb Nivi.', bg: '#3d6681', c: ['#f6d7c3', '#f0a3b5', '#87c7e8', '#fff3c4'], kind: 'portrait' },
+    { t: 'Esperanto', d: 'A language-learning companion built around tiny daily rituals and soft gradients.', bg: '#2f5a55', c: ['#e9d8a6', '#94d2bd', '#0a9396', '#ee9b00'], kind: 'meet' },
+    { t: 'Blurr', d: 'Brand identity and motion system for a camera app that films the world out of focus.', bg: '#6e3b33', c: ['#ffb4a2', '#e5989b', '#6d6875', '#ffcdb2'], kind: 'blur' },
+    { t: 'Ueno', d: 'Interaction design for an award-winning agency site with playful scroll moments.', bg: '#23304a', c: ['#ffd166', '#ef476f', '#06d6a0', '#118ab2'], kind: 'shapes' },
+    { t: 'Airbnb', d: 'Prototyping new ways to discover experiences hosted by locals around the world.', bg: '#7d3a46', c: ['#ff5a5f', '#ffb3b5', '#fce1e4', '#00a699'], kind: 'portrait' },
+    { t: 'Google', d: 'Explorations for an assistant surface that feels calm, glanceable and human.', bg: '#33503f', c: ['#4285f4', '#ea4335', '#fbbc05', '#34a853'], kind: 'shapes' },
+    { t: 'SnickSnack', d: 'A snack-sized quiz game for friends, from first sketch to App Store launch.', bg: '#99602d', c: ['#ffe066', '#f25f5c', '#247ba0', '#70c1b3'], kind: 'meet' },
+    { t: 'Iv-Skaya', d: 'Editorial portfolio for a fashion photographer — slow images, big type.', bg: '#463c58', c: ['#e0aaff', '#c77dff', '#9d4edd', '#f8edeb'], kind: 'blur' },
+    { t: 'Eagle Films', d: 'Website for a Parisian production house, built around full-bleed reels.', bg: '#4a4a48', c: ['#f4f1de', '#e07a5f', '#3d405b', '#81b29a'], kind: 'portrait' }];
+  // ---------- procedural "photo" textures ----------
+  const R = rng(808);
+  const paintTex = (p, i, W = 640, H = 480) => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const [a, b, cc, d] = p.c;
+    let gr = g.createLinearGradient(0, 0, W, H); gr.addColorStop(0, a); gr.addColorStop(0.55, b); gr.addColorStop(1, cc); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    for (let k = 0; k < 26; k++) { const x = R() * W, y = R() * H, r = 20 + R() * 120; const rg = g.createRadialGradient(x, y, 0, x, y, r); rg.addColorStop(0, d + 'cc'); rg.addColorStop(1, d + '00'); g.fillStyle = rg; g.fillRect(0, 0, W, H); }
+    if (p.kind === 'portrait') { g.fillStyle = '#00000022'; g.beginPath(); g.ellipse(W * 0.52, H * 0.42, W * 0.14, H * 0.2, 0, 0, 7); g.fill(); g.fillStyle = cc + 'aa'; g.beginPath(); g.ellipse(W * 0.52, H * 1.02, W * 0.3, H * 0.42, 0, 0, 7); g.fill();
+      g.strokeStyle = '#ffffffaa'; g.lineWidth = 3; for (let k = 0; k < 40; k++) { g.beginPath(); const x0 = W * 0.38 + R() * W * 0.08; g.moveTo(x0, H * 0.22); g.bezierCurveTo(x0 - 30, H * 0.5, x0 + 10, H * 0.7, x0 - 40 + R() * 30, H); g.stroke(); }
+      g.fillStyle = '#ffffff30'; for (let k = 0; k < 6; k++) { g.fillRect(R() * W, 0, 4 + R() * 30, H); } }
+    if (p.kind === 'meet') { g.fillStyle = '#0000002a'; g.fillRect(W * 0.32, 0, W * 0.36, H); g.fillStyle = '#ffffff22'; g.fillRect(W * 0.36, H * 0.05, W * 0.28, H * 0.9);
+      [[0.18, 0.45], [0.82, 0.5]].forEach(([x, y]) => { g.fillStyle = '#1a1a1acc'; g.beginPath(); g.arc(W * x, H * y, H * 0.12, 0, 7); g.fill(); g.beginPath(); g.ellipse(W * x, H * (y + 0.42), H * 0.22, H * 0.3, 0, 0, 7); g.fill(); }); }
+    if (p.kind === 'shapes') { for (let k = 0; k < 7; k++) { g.fillStyle = p.c[k % 4]; g.globalAlpha = 0.85; const x = R() * W, y = R() * H, r = 30 + R() * 90; if (k % 2) { g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); } else { g.save(); g.translate(x, y); g.rotate(R() * 3); g.fillRect(-r, -r / 2, r * 2, r); g.restore(); } } g.globalAlpha = 1; }
+    if (p.kind === 'blur') { g.filter = 'blur(18px)'; for (let k = 0; k < 9; k++) { g.fillStyle = p.c[k % 4]; g.beginPath(); g.arc(R() * W, R() * H, 40 + R() * 110, 0, 7); g.fill(); } g.filter = 'none'; }
+    const id = g.getImageData(0, 0, W, H), px = id.data; for (let k = 0; k < px.length; k += 4) { const n = (R() - 0.5) * 18; px[k] += n; px[k + 1] += n; px[k + 2] += n; } g.putImageData(id, 0, 0);
+    g.fillStyle = '#ffffffd9'; g.font = `900 ${Math.round(H * 0.075)}px ${SR}`; g.fillText(String(i + 1).padStart(2, '0'), W * 0.05, H * 0.93); return c; };
+  // ---------- DOM ----------
+  css(`.rn{position:absolute;inset:0;overflow:hidden;background:#0d0d0d;font-family:${SN};color:#fff;user-select:none;-webkit-user-select:none;cursor:grab;touch-action:none}
+.rn.grab{cursor:grabbing}
+.rn-bg{position:absolute;inset:0;background:#3d6681;transition:background-color .9s cubic-bezier(.4,0,.2,1)}
+.rn-edge{position:absolute;left:0;top:0;bottom:0;width:7px;background:#d5dedd;transition:background-color .9s}
+.rn canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.rn-top{position:absolute;left:90px;right:90px;top:38px;display:flex;justify-content:space-between;font:700 13px/1 ${SN};letter-spacing:.14em;text-transform:uppercase;z-index:3}
+.rn-top a{color:#fff;text-decoration:none;cursor:pointer}
+.rn-l{position:absolute;left:90px;top:calc(50% - 205px);width:560px;z-index:3;pointer-events:none}
+.rn-t{position:relative;height:150px;overflow:hidden}
+.rn-t h1{position:absolute;left:0;top:0;margin:0;font:900 135px/1.08 ${SR};color:#d5dedd;letter-spacing:-.02em;white-space:nowrap;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.rn-t h1.out{transform:translateY(-105%);opacity:0}.rn-t h1.in{transform:translateY(105%);opacity:0}
+.rn-d{font:400 20px/1.6 ${SN};color:#fff;margin:22px 0 0;max-width:540px;min-height:64px;transition:opacity .45s,transform .45s}
+.rn-d.f{opacity:0;transform:translateY(8px)}
+.rn-o{display:inline-flex;align-items:center;gap:12px;margin-top:34px;font:700 16px/1 ${SN};letter-spacing:.12em;text-transform:uppercase;color:#fff;pointer-events:auto;cursor:pointer}
+.rn-o svg{transition:transform .3s}.rn-o:hover svg{transform:translateX(5px)}
+.rn-dots{position:absolute;right:86px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:20px;z-index:3}
+.rn-dots button{all:unset;width:8px;height:14px;border-radius:3px;background:#ffffff59;cursor:pointer;transition:background .35s,height .35s}
+.rn-dots button.on{background:#ffffffee}
+.rn-dots button:hover{background:#ffffffaa}
+.rn-th{position:absolute;left:90px;bottom:32px;width:236px;height:136px;border:3px solid #d5dedd;border-radius:2px;overflow:hidden;z-index:3;background:#8e5cc8;pointer-events:auto;cursor:pointer;box-shadow:0 10px 30px #0003}
+.rn-th canvas{position:absolute;inset:0}
+.rn-th .ph{position:absolute;left:50%;top:6px;width:60px;height:118px;margin-left:-30px;border-radius:9px;border:2px solid #fff;overflow:hidden;box-shadow:0 4px 12px #0004}
+.rn-hint{position:absolute;right:90px;bottom:30px;font:500 12px/1 ${SN};letter-spacing:.1em;text-transform:uppercase;color:#ffffff80;z-index:3}
+.rn-fb{position:absolute;inset:0;perspective:1200px}
+.rn-fb canvas{position:absolute;width:560px;height:420px;left:auto;top:auto;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .8s}
+@media (max-width:900px){.rn-l{left:28px;width:auto;right:28px}.rn-t h1{font-size:84px}.rn-top{left:28px;right:28px}}
+`);
+  const el = h('div.rn'); const bg = h('div.rn-bg'); const edge = h('div.rn-edge'); el.append(bg); root.append(el);
+  const top = h('div.rn-top', {}, h('a', {}, 'Robin Noguier'), h('a', { onclick: () => toast('About page (demo)') }, 'About'));
+  let h1 = h('h1', {}, PJ[0].t); const tbox = h('div.rn-t', {}, h1); const desc = h('p.rn-d', {}, PJ[0].d);
+  const open = h('a.rn-o', { onclick: () => toast(`Open case study: ${PJ[cur].t}`) }, 'Open case study', h('span', { html: '<svg width="16" height="14" viewBox="0 0 16 14"><path d="M1 7h13M8.5 1.5 14 7l-5.5 5.5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>' }));
+  const left = h('div.rn-l', {}, tbox, desc, open);
+  const dots = h('div.rn-dots', {}, PJ.map((p, i) => h('button', { title: p.t, 'aria-label': p.t, onclick: (e) => { e.stopPropagation(); go(i); } })));
+  const thumb = h('div.rn-th', { onclick: (e) => { e.stopPropagation(); toast('Case study video (demo)'); } }); const thc = paintTex({ ...PJ[0], c: ['#8e5cc8', '#a77be0', '#7446b0', '#c9a6f5'], kind: 'shapes' }, 0, 236, 136); thc.style.cssText = 'width:100%;height:100%'; const phc = paintTex(PJ[0], 0, 60, 118); phc.style.cssText = 'width:100%;height:100%;position:static'; thumb.append(thc, h('div.ph', {}, phc));
+  const hint = h('div.rn-hint', {}, 'scroll / drag ↕');
+  el.append(edge);
+  const texC = PJ.map((p, i) => paintTex(p, i));
+  // ---------- WebGL ribbon ----------
+  let renderer = null, scene0, cam, mats = [], meshes = [];
+  const CW = 560, CH = 420, GAP = 470;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); el.append(renderer.domElement);
+    scene0 = new THREE.Scene(); cam = new THREE.PerspectiveCamera(35, 1, 10, 6000);
+    const geo = new THREE.PlaneGeometry(CW, CH, 48, 36);
+    const vs = `uniform float uOff; uniform float uVel; uniform float uTime; varying vec2 vUv; varying float vD;
+      void main(){ vUv=uv; vec3 p=position; float y=p.y+uOff;
+        float bend = 0.00042 + abs(uVel)*0.0009;
+        float z = -bend*y*y - abs(y)*0.18;
+        float x = p.x + y*0.30 - abs(y)*0.12;
+        float yy = y + p.x*0.085*(uv.y) + uVel*sin(uv.x*3.14159)*60.0;
+        z += -p.x*0.20 + sin(uv.y*3.14159)*abs(uVel)*-40.0;
+        vD = clamp(abs(uOff)/${GAP}.0,0.0,1.0);
+        gl_Position = projectionMatrix*modelViewMatrix*vec4(x,yy,z,1.0); }`;
+    const fs = `uniform sampler2D uTex; uniform float uHover; uniform vec3 uTint; varying vec2 vUv; varying float vD;
+      void main(){ vec2 o=vec2(uHover*0.012,0.0); vec4 c=texture2D(uTex,vUv); float r=texture2D(uTex,vUv+o).r; float b=texture2D(uTex,vUv-o).b; vec3 col=vec3(r,c.g,b);
+        float g=dot(col,vec3(.299,.587,.114)); vec3 gray=mix(vec3(g),uTint,0.35); col=mix(col,gray,smoothstep(0.15,0.75,vD)*(1.0-uHover*0.0));
+        gl_FragColor=vec4(col,1.0); }`;
+    PJ.forEach((p, i) => { const tx = new THREE.CanvasTexture(texC[i]); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = 4;
+      const m = new THREE.ShaderMaterial({ uniforms: { uTex: { value: tx }, uOff: { value: 0 }, uVel: { value: 0 }, uTime: { value: 0 }, uHover: { value: 0 }, uTint: { value: new THREE.Color(p.bg) } }, vertexShader: vs, fragmentShader: fs, side: THREE.DoubleSide, transparent: false });
+      const me = new THREE.Mesh(geo, m); scene0.add(me); mats.push(m); meshes.push(me); });
+  } catch (e) { renderer = null; }
+  let fb = null; if (!renderer) { fb = h('div.rn-fb'); texC.forEach((c) => fb.append(c)); el.append(fb); }
+  el.append(top, left, dots, thumb, hint);
+  // ---------- motion state ----------
+  let pos = 0, tgt = 0, vel = 0, cur = 0, W = 1, H = 1, hover = 0, hoverT = 0, mx = -1, my = -1;
+  const size = () => { const r = el.getBoundingClientRect(); W = r.width; H = r.height; if (renderer) { renderer.setSize(W, H, false); cam.aspect = W / H; cam.position.set(0, 0, H / 2 / Math.tan((cam.fov * Math.PI) / 360)); cam.updateProjectionMatrix(); } };
+  new ResizeObserver(size).observe(el); size();
+  const setTitle = (i) => { if (i === cur) return; const dir = i > cur ? 1 : -1; cur = i; const old = h1; const nu = h('h1.' + (dir > 0 ? 'in' : 'out'), {}, PJ[i].t); tbox.append(nu);
+    requestAnimationFrame(() => { old.className = dir > 0 ? 'out' : 'in'; nu.className = ''; }); setTimeout(() => old.remove(), RM ? 0 : 750); h1 = nu;
+    desc.classList.add('f'); setTimeout(() => { desc.textContent = PJ[i].d; desc.classList.remove('f'); }, RM ? 0 : 260);
+    bg.style.backgroundColor = PJ[i].bg; [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i)); };
+  [...dots.children][0].classList.add('on');
+  const go = (i) => { tgt = clamp(i, 0, PJ.length - 1); };
+  let snapT = 0; const kick = () => { clearTimeout(snapT); snapT = setTimeout(() => { tgt = clamp(Math.round(tgt), 0, PJ.length - 1); }, 140); };
+  el.addEventListener('wheel', (e) => { e.preventDefault(); tgt = clamp(tgt + e.deltaY / 700, -0.25, PJ.length - 0.75); kick(); }, { passive: false });
+  let dragY = null, dragT0 = 0;
+  el.addEventListener('pointerdown', (e) => { if (e.target.closest('.rn-dots,.rn-th,.rn-o,.rn-top')) return; dragY = e.clientY; dragT0 = tgt; el.classList.add('grab'); try { el.setPointerCapture(e.pointerId); } catch {} });
+  el.addEventListener('pointermove', (e) => { mx = e.clientX; my = e.clientY; if (dragY == null) return; tgt = clamp(dragT0 + (dragY - e.clientY) / 380, -0.3, PJ.length - 0.7); });
+  const endDrag = () => { if (dragY == null) return; dragY = null; el.classList.remove('grab'); tgt = clamp(Math.round(tgt + vel * 4), 0, PJ.length - 1); };
+  el.addEventListener('pointerup', endDrag); el.addEventListener('pointercancel', endDrag); el.addEventListener('pointerleave', () => { mx = -1; });
+  window.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown' || e.key === 'PageDown') go(Math.round(tgt) + 1); if (e.key === 'ArrowUp' || e.key === 'PageUp') go(Math.round(tgt) - 1); });
+  // hover test: active card's screen rect (approx)
+  const overActive = () => { if (mx < 0) return false; const r = el.getBoundingClientRect(); const cx = r.left + W * 0.69, cy = r.top + H * 0.5; return Math.abs(mx - cx) < CW * 0.5 && Math.abs(my - cy) < CH * 0.5 && Math.abs(pos - Math.round(pos)) < 0.2; };
+  let raf = 0, last = performance.now();
+  const frame = (now) => { const dt = Math.min(0.05, (now - last) / 1000); last = now; const prev = pos; pos += (tgt - pos) * (RM ? 1 : 1 - Math.pow(0.0025, dt)); vel = (pos - prev) / Math.max(dt, 1e-3) / 8; if (RM) vel = 0; vel = clamp(vel, -1.2, 1.2);
+    const ni = clamp(Math.round(pos), 0, PJ.length - 1); if (ni !== cur) setTitle(ni);
+    hoverT = overActive() ? 1 : 0; hover += (hoverT - hover) * 0.12;
+    if (renderer) { const ox = W * 0.69 - W / 2, oy = 0; meshes.forEach((m, i) => { const off = (pos - i) * GAP; m.position.set(ox, oy, 0); const u = mats[i].uniforms; u.uOff.value = off; u.uVel.value = vel; u.uTime.value = now / 1000; u.uHover.value = i === cur ? hover : 0; m.visible = Math.abs(off) < GAP * 2.2; });
+      renderer.render(scene0, cam); }
+    else texC.forEach((c, i) => { const off = (pos - i) * GAP; c.style.left = W * 0.69 - CW / 2 + 'px'; c.style.top = H / 2 - CH / 2 + 'px'; c.style.transition = 'none'; c.style.transform = `translate(${off * 0.3 - Math.abs(off) * 0.12}px,${-off}px) translateZ(${-Math.abs(off) * 0.5}px) rotateX(${off * -0.02}deg) rotateY(-14deg) skewY(-4deg)`; c.style.filter = i === cur ? 'none' : 'grayscale(1) brightness(.8)'; });
+    raf = requestAnimationFrame(frame); };
+  raf = requestAnimationFrame(frame);
+  window.__demoProof = async () => { const o = []; tgt = 0; pos = 0; setTitle(0); await sleep(60);
+    el.dispatchEvent(new WheelEvent('wheel', { deltaY: 700, bubbles: true, cancelable: true })); await sleep(1300); o.push(`wheel ↓ → project ${cur + 1}/9 "${PJ[cur].t}", title="${tbox.querySelector('h1:last-child').textContent}", active dot=${[...dots.children].findIndex((d) => d.classList.contains('on')) + 1}`);
+    const r = el.getBoundingClientRect(); const x = r.left + W * 0.5, y = r.top + H * 0.6; el.dispatchEvent(new PointerEvent('pointerdown', { clientX: x, clientY: y, bubbles: true, pointerId: 5 }));
+    for (let k = 1; k <= 10; k++) { el.dispatchEvent(new PointerEvent('pointermove', { clientX: x, clientY: y - k * 40, bubbles: true, pointerId: 5 })); await sleep(16); }
+    o.push(`drag ↑ mid-flight velocity bend=${vel.toFixed(2)}`); el.dispatchEvent(new PointerEvent('pointerup', { clientX: x, clientY: y - 400, bubbles: true, pointerId: 5 })); await sleep(1300); o.push(`drag release → "${PJ[cur].t}"`);
+    dots.children[6].click(); await sleep(1500); o.push(`dot 7 → "${PJ[cur].t}", bg=${getComputedStyle(bg).backgroundColor}`);
+    o.push(`renderer=${renderer ? 'webgl' : 'css-fallback'}`);
+    go(0); await sleep(1600); o.push(`restored → "${PJ[cur].t}"`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }

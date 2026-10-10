@@ -1,7 +1,7 @@
 import '@fontsource-variable/fraunces';
 import '@fontsource-variable/roboto-flex/full.css';
 import '@fontsource/press-start-2p';
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, css } from '../lib.js';
+import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, audio, css } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 const MONO = "'JetBrains Mono Variable',monospace";
 const V = {};
@@ -870,6 +870,117 @@ V['waffle-drag-swap-letter-grid-color-feedback-swap-counter'] = (root, T) => {
     let m, n = 0; while (!done && (m = nextMove()) && n++ < 14) { swap(m[0], m[1]); await sleep(60); }
     await sleep(2400); out.push(`solved=${colors().every((c) => c === 'g')} with ${swaps} swaps left, modal=${ov.classList.contains('on')}, stars=${ov.querySelectorAll('.wf-stars svg.on path[fill="#e9ba3a"]').length}`);
     reset(); out.push('restored to fresh puzzle'); return out.join('; '); };
+};
+
+V['adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#000000', ac: '#000000', dark: false });
+  const TM = "'Times New Roman',Times,'Liberation Serif',serif";
+  css(`.adr{position:absolute;inset:0;overflow:hidden;background:#fff;color:#000;font:16px/1.25 ${TM};transition:background-color 1s,color 1s;user-select:none;-webkit-user-select:none}
+.adr.dark{background:#272823;color:#eee}
+.adr-w{position:absolute;left:calc(50% - 460px);top:0;width:920px;bottom:60px;transition:opacity .4s}
+.adr.ev .adr-w{opacity:.33}
+.adr-log{position:absolute;left:0;top:13px;width:200px;bottom:0;overflow:hidden;-webkit-mask-image:linear-gradient(#000 40%,transparent 92%);mask-image:linear-gradient(#000 40%,transparent 92%)}
+.adr-log div{margin-bottom:10px;transition:opacity .6s}
+.adr-log div.nw{animation:adrIn .5s ease}
+@keyframes adrIn{from{opacity:0}}
+.adr-main{position:absolute;left:220px;top:0;right:0;bottom:0}
+.adr-hd{position:relative;height:40px;padding-top:13px;white-space:nowrap}
+.adr-hd span{cursor:pointer;color:inherit;opacity:.55}.adr-hd span.on{text-decoration:underline;opacity:1;cursor:default}
+.adr-hd i{font-style:normal;margin:0 8px;opacity:.55}
+.adr-hd span.new{animation:adrIn 1.4s ease}
+.adr-pane{position:absolute;left:0;top:40px;right:0;bottom:0;transition:transform .6s cubic-bezier(.4,0,.2,1),opacity .6s}
+.adr-pane.off{transform:translateX(-40px);opacity:0;pointer-events:none}
+.adr-btn{position:relative;display:block;width:100px;padding:5px 0 6px;border:1px solid currentColor;text-align:center;cursor:pointer;margin-bottom:5px;background:transparent;color:inherit;font:inherit;overflow:hidden}
+.adr-btn .cd{position:absolute;left:0;top:0;bottom:0;width:0;background:#ddd;z-index:0}
+.adr.dark .adr-btn .cd{background:#555}
+.adr-btn b{position:relative;z-index:1;font-weight:400}
+.adr-btn.dis{cursor:default;color:#999;border-color:#999}
+.adr-btn.dis b{color:#999}
+.adr-btn:not(.dis):hover{text-decoration:underline}
+.adr-btn.new{animation:adrIn 1.2s ease}
+.adr-st{position:absolute;left:420px;top:0;width:200px;border:1px solid currentColor;padding:14px 10px 8px;animation:adrIn 1s ease}
+.adr-st .lg{position:absolute;top:-10px;left:8px;background:#fff;padding:0 3px;transition:background-color 1s}
+.adr.dark .adr-st .lg,.adr.dark .adr-ev .lg{background:#272823}
+.adr-row{display:flex;gap:4px;margin:2px 0}.adr-row .dt{flex:1;border-bottom:1px dotted currentColor;opacity:.4;margin-bottom:4px}
+.adr-ev{position:absolute;left:calc(50% - 210px);top:52px;width:338px;border:2px solid #000;background:#fff;padding:20px 20px 18px;box-shadow:4px 4px 0 #00000080,6px 6px 6px #0004;color:#000;z-index:5;animation:adrIn .4s ease;transition:background-color 1s,color 1s,border-color 1s}
+.adr.dark .adr-ev{background:#272823;color:#eee;border-color:#eee}
+.adr-ev .lg{position:absolute;top:-10px;left:12px;background:#fff;padding:0 2px;font-weight:700}
+.adr-ev p{margin:0 0 16px}
+.adr-ev .bt{display:flex;gap:14px;margin-top:30px}.adr-ev .adr-btn{width:auto;padding:3px 14px 4px;margin:0;white-space:nowrap}
+.adr-ft{position:absolute;right:calc(50% - 652px);bottom:16px;display:flex;gap:14px;white-space:nowrap;color:#808080;z-index:6}
+.adr-ft span{cursor:pointer}.adr-ft span:hover{text-decoration:underline}.adr-ft b{cursor:pointer}
+.adr-fb{position:absolute;left:10px;bottom:4px;opacity:.9}
+.adr-desc{margin:14px 0 0;max-width:320px;opacity:.55;transition:opacity .8s}
+@media (max-width:1300px){.adr-ft{right:16px}}
+@media (prefers-reduced-motion: reduce){.adr *, .adr{animation:none!important;transition:none!important}}
+`);
+  const el = h('div.adr'), W = h('div.adr-w'), log = h('div.adr-log'), main = h('div.adr-main'), hd = h('div.adr-hd'); main.append(hd); W.append(log, main); el.append(W); root.append(el);
+  const room = h('div.adr-pane'), forest = h('div.adr-pane.off'); main.append(room, forest);
+  // ---------- state ----------
+  const FIRE = ['dead', 'smoldering', 'flickering', 'burning', 'roaring'], TEMP = ['freezing', 'cold', 'mild', 'warm', 'hot'];
+  let S, speed = 1, gt = 0, sound = false, lights = true, loc = 'room', evEl = null;
+  const fresh = () => ({ fire: 0, temp: 0, wood: 0, lit: false, stranger: 0, forest: false, stores: false, nextCool: 0, nextTemp: 0, nextStr: 0 });
+  // ---------- log ----------
+  const fadeLog = () => [...log.children].forEach((d, i) => { d.style.opacity = Math.max(0.05, 1 - i * 0.11).toFixed(2); });
+  const say = (t) => { const d = h('div.nw', {}, t); log.prepend(d); while (log.children.length > 18) log.lastChild.remove(); fadeLog(); };
+  // ---------- buttons with cooldown ----------
+  const btns = [];
+  const mk = (label, cd, act, opts = {}) => { const fill = h('div.cd'); const b = h('div.adr-btn' + (opts.cls || ''), { role: 'button', tabindex: 0 }, fill, h('b', {}, label));
+    const o = { el: b, label, cd, end: 0, dur: 0, fill, act, set(l) { o.label = l; b.querySelector('b').textContent = l; } };
+    const fire2 = () => { if (o.end > gt || b.classList.contains('dis')) return; if (o.act() === false) return; o.end = gt + o.cd; o.dur = o.cd; b.classList.add('dis'); };
+    b.addEventListener('click', fire2); b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire2(); } }); o.fire = fire2; btns.push(o); return o; };
+  const fireBtn = mk('light fire', 10000, () => { if (!S.lit) { S.lit = true; S.fire = 3; S.nextCool = gt + 30000; S.nextStr = gt + 9000; setFire(); fireBtn.set('stoke fire'); return; }
+    if (S.wood <= 0) { say('not enough wood to get the fire going.'); return false; } S.wood--; S.fire = Math.min(4, S.fire + 1); S.nextCool = gt + 30000; setFire(); stores(); });
+  const desc = h('p.adr-desc');
+  room.append(fireBtn.el, desc);
+  const woodBtn = mk('gather wood', 8000, () => { const n = 10; S.wood += n; say('dry brush and dead branches litter the forest floor.'); stores(); blipS(330, 0.05); });
+  forest.append(woodBtn.el);
+  let stEl = null;
+  const stores = () => { if (S.wood > 0) S.stores = true; if (!S.stores) { stEl?.remove(); stEl = null; return; }
+    if (!stEl) { stEl = h('div.adr-st', {}, h('div.lg', {}, 'stores')); main.append(stEl); }
+    stEl.querySelectorAll('.adr-row').forEach((r) => r.remove()); stEl.append(h('div.adr-row', {}, h('span', {}, 'wood'), h('span.dt'), h('span.v', {}, String(S.wood)))); };
+  const title = () => (S.lit ? (S.fire > 0 ? 'A Firelit Room' : 'A Dark Room') : 'A Dark Room');
+  const header = () => { hd.innerHTML = ''; const a = h('span' + (loc === 'room' ? '.on' : ''), { onclick: () => goLoc('room') }, title()); hd.append(a);
+    if (S.forest) { hd.append(h('i', {}, '|')); hd.append(h('span' + (loc === 'forest' ? '.on' : '') + (S._newF ? '.new' : ''), { onclick: () => goLoc('forest') }, 'A Silent Forest')); S._newF = false; } };
+  const goLoc = (l) => { loc = l; room.classList.toggle('off', l !== 'room'); forest.classList.toggle('off', l !== 'forest'); header(); if (l === 'forest' && !S._seenF) { S._seenF = true; say('the sky is grey and the wind blows relentlessly.'); } };
+  const DESC = ['the room is dark. cold air seeps in under the door.', 'embers glow faintly in the hearth.', 'shadows dance on the walls.', 'the fire crackles; light spills from the windows, out into the dark.', 'the fire roars, the room is bright and warm.'];
+  const setFire = () => { say(`the fire is ${FIRE[S.fire]}.`); if (S.fire === 3 && !S._spill) { S._spill = true; say('the light from the fire spills from the windows, out into the dark.'); } desc.textContent = DESC[S.fire]; header(); crackle(); };
+  // ---------- sound (tiny WebAudio) ----------
+  const blipS = (f, d) => { if (sound) blip(f, d, 'triangle', 0.05); };
+  const crackle = () => { if (!sound) return; const ac = audio(); if (!ac) return; const n = Math.round(ac.sampleRate * 0.25); const b = ac.createBuffer(1, n, ac.sampleRate); const d = b.getChannelData(0); for (let i = 0; i < n; i++) d[i] = Math.random() < 0.004 ? Math.random() * 2 - 1 : d[i - 1] * 0.6 || 0; const src = ac.createBufferSource(); src.buffer = b; const g = ac.createGain(); g.gain.value = 0.25; src.connect(g).connect(ac.destination); src.start(); };
+  // ---------- event modal ----------
+  const event = (ttl, lines, choices) => { evEl?.remove(); el.classList.add('ev'); evEl = h('div.adr-ev', {}, h('div.lg', {}, ttl), lines.map((l) => h('p', {}, l)), h('div.bt', {}, choices.map(([l, f]) => { const b = h('div.adr-btn', { role: 'button' }, h('b', {}, l)); b.onclick = () => { closeEv(); f(); }; return b; }))); el.append(evEl); };
+  const closeEv = () => { evEl?.remove(); evEl = null; el.classList.remove('ev'); };
+  // ---------- footer ----------
+  const lightsEl = h('span', { onclick: () => setLights(!lights) }, 'lights off.'), soundEl = h('span', { onclick: () => setSound(!sound) }, 'sound on.'), hyperEl = h('span', { onclick: () => { speed = speed === 1 ? 2 : 1; hyperEl.textContent = speed > 1 ? 'classic.' : 'hyper.'; } }, 'hyper.');
+  const ft = h('div.adr-ft', {}, h('span', { onclick: () => toast('github (demo link)') }, 'github.'), h('span', { onclick: () => toast('saved.') }, 'save.'), h('span', { onclick: () => copy(location.href, 'link copied') }, 'share.'),
+    h('span', { onclick: () => event('Restart?', ['restart the game?'], [['yes', () => reset(false)], ['no', () => {}]]) }, 'restart.'), hyperEl, lightsEl, h('b', {}, 'get the app.'), soundEl, h('span', {}, 'language.'));
+  el.append(ft, h('div.adr-fb', { html: '<svg width="38" height="30" viewBox="0 0 38 30"><path d="M1.5 1.5h35v20h-24l-8 7 2-7h-5z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>' }));
+  const setLights = (on) => { lights = on; el.classList.toggle('dark', !on); lightsEl.textContent = on ? 'lights off.' : 'lights on.'; };
+  const setSound = (on) => { sound = on; soundEl.textContent = on ? 'sound off.' : 'sound on.'; if (on) { audio(); crackle(); } };
+  // ---------- loop ----------
+  let raf = 0, last = performance.now();
+  const step = (now) => { const dt = Math.min(250, now - last) * speed; last = now; if (!evEl) gt += dt;
+    for (const b of btns) { if (b.end > gt) { const k = (b.end - gt) / b.dur; b.fill.style.width = (k * 100).toFixed(1) + '%'; } else if (b.el.classList.contains('dis')) { b.fill.style.width = '0%'; b.el.classList.remove('dis'); } }
+    if (S.lit) { if (S.fire > 0 && gt > S.nextCool) { S.fire--; S.nextCool = gt + 30000; setFire(); }
+      if (gt > S.nextTemp) { S.nextTemp = gt + 6000; const want = S.fire; if (S.temp !== want) { S.temp += Math.sign(want - S.temp); say(`the room is ${TEMP[S.temp]}.`); } }
+      if (S.stranger < 3 && S.nextStr && gt > S.nextStr) { S.stranger++; S.nextStr = gt + 7000;
+        if (S.stranger === 1) say('a ragged stranger stumbles through the door and collapses in the corner.');
+        if (S.stranger === 2) say('the stranger shivers, and mumbles quietly. her words are unintelligible.');
+        if (S.stranger === 3) { say('the stranger in the corner stops shivering. her breathing calms.'); say('the wind howls outside. the wood is running out.'); S.forest = true; S._newF = true; header(); } } }
+    raf = requestAnimationFrame(step); };
+  const reset = (askSound = true) => { closeEv(); S = fresh(); gt = 0; speed = 1; hyperEl.textContent = 'hyper.'; btns.forEach((b) => { b.end = 0; b.fill.style.width = '0%'; b.el.classList.remove('dis'); }); fireBtn.set('light fire'); log.innerHTML = ''; stEl?.remove(); stEl = null; setLights(true); goLoc('room');
+    desc.textContent = DESC[0]; say('the room is freezing.'); say('the fire is dead.');
+    if (askSound) event('Sound Available!', ['ears flooded with new sensations.', 'perhaps silence is safer?'], [['enable audio', () => setSound(true)], ['disable audio', () => setSound(false)]]); };
+  reset(); raf = requestAnimationFrame(step);
+  window.__demoProof = async () => { const o = []; reset(false); setSound(false);
+    fireBtn.el.click(); await sleep(120); o.push(`light fire → header "${hd.textContent}", button "${fireBtn.label}" disabled=${fireBtn.el.classList.contains('dis')} cooldown fill=${fireBtn.fill.style.width}`);
+    o.push(`log top="${log.firstChild.textContent}", line opacities=${[...log.children].slice(0, 4).map((d) => d.style.opacity).join('/')}`);
+    speed = 40; await sleep(800); speed = 1; o.push(`fast-forward → stranger=${S.stranger}, forest tab=${S.forest}, room temp=${TEMP[S.temp]}`);
+    if (S.forest) { goLoc('forest'); await sleep(50); woodBtn.el.click(); o.push(`gather wood → stores wood=${stEl?.querySelector('.v')?.textContent}`); goLoc('room'); }
+    fireBtn.end = 0; fireBtn.el.classList.remove('dis'); fireBtn.el.click(); o.push(`stoke fire → wood=${S.wood}, fire=${FIRE[S.fire]}`);
+    lightsEl.click(); o.push(`lights off → dark=${el.classList.contains('dark')} bg=${getComputedStyle(el).backgroundColor}`); await sleep(100); lightsEl.click(); o.push(`lights on → dark=${el.classList.contains('dark')}`);
+    reset(true); o.push(`restored + sound modal (log="${log.firstChild.textContent}", header="${hd.textContent}")`); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }
