@@ -7154,4 +7154,158 @@ V['dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock'] = (root, 
     reset(); o.push(`restored: top of hero, step 1 active=${stepEls[0].classList.contains('on')}, tab=${curPage}`); return o.join('; '); };
 };
 
+V['graza-dtc-olive-oil-shop-condensed-serif-hero-slides-flavor-tag-product-trio-fact-ticker'] = (root, T) => {
+  import('@fontsource/instrument-serif/400.css'); import('@fontsource/instrument-serif/400-italic.css'); import('@fontsource/courier-prime/400.css'); import('@fontsource/courier-prime/700.css');
+  theme(root, T, { bg: '#fffbea', fg: '#1d2b1a', ac: '#d5e03c', dark: false });
+  const SR = "'Instrument Serif',Georgia,serif", WM = "'Fraunces Variable',Georgia,serif", MO = "'Courier Prime','Courier New',monospace";
+  const LIME = '#d5e03c', GRN = '#2f4a26', CREAM = '#fffbea';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.gz{position:absolute;inset:0;overflow:hidden;background:${CREAM};color:#1d2b1a}
+.gz *{box-sizing:border-box}
+.gz-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.gz-hero{position:relative;height:100%;min-height:620px;overflow:hidden;background:#222}
+.gz-sl{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.gz-sl.on{opacity:1}
+.gz-sl svg{position:absolute;inset:0;width:100%;height:100%}
+.gz-sl .kb{position:absolute;inset:0;transform-origin:60% 40%}
+.gz-sl.on .kb{animation:gzKb 7s ease-out forwards}
+@keyframes gzKb{from{transform:scale(1.08)}to{transform:scale(1)}}
+.gz-dim{position:absolute;inset:0;background:linear-gradient(180deg,#0006 0%,#0000 22%,#0000 55%,#0008 100%);pointer-events:none}
+.gz-hd{position:absolute;left:0;right:0;top:0;height:76px;display:flex;align-items:center;padding:0 36px 0 28px;z-index:6;color:#fff}
+.gz-wm{font:900 46px/1 ${WM};font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;letter-spacing:-.025em;cursor:pointer;user-select:none}
+.gz-nav{margin-left:auto;display:flex;align-items:center;gap:30px;font:400 14px ${MO}}
+.gz-nav a{color:#fff;cursor:pointer;position:relative}.gz-nav a::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transition:transform .25s;transform-origin:left}.gz-nav a:hover::after{transform:none}
+.gz-ic{width:30px;height:30px;border-radius:50%;background:${CREAM};display:grid;place-items:center;color:#1d2b1a;cursor:pointer;margin-left:-6px}
+.gz-cart{height:30px;padding:0 14px;border-radius:99px;background:${CREAM};color:#1d2b1a;font:400 14px/30px ${MO};cursor:pointer;transition:transform .2s}
+.gz-cart.bump{animation:gzBump .45s}@keyframes gzBump{40%{transform:scale(1.18) rotate(-4deg)}}
+.gz-cap{position:absolute;left:28px;bottom:36px;z-index:5;max-width:600px}
+.gz-h1{color:#fff;font:400 54px/1.02 ${SR};letter-spacing:-.012em;margin:0 0 30px;transition:opacity .5s,transform .5s}
+.gz-h1.out{opacity:0;transform:translateY(12px)}
+.gz .gz-shop{width:250px;height:24px;border:0;border-radius:99px;background:${LIME};color:#1d2b1a;font:400 12px ${MO};letter-spacing:.06em;cursor:pointer;transition:filter .2s,transform .2s}
+.gz-shop:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.gz-ctl{position:absolute;right:30px;bottom:34px;z-index:5;display:flex;align-items:center;gap:12px;color:#fff;font:400 12px ${MO}}
+.gz-dots{display:flex;gap:6px}.gz-dots i{width:34px;height:3px;border-radius:2px;background:#ffffff55;position:relative;overflow:hidden;cursor:pointer}
+.gz-dots i b{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.gz-dots i.on b{animation:gzProg var(--d) linear forwards}.gz-dots i.done b{transform:none}
+.gz.paused .gz-dots i.on b{animation-play-state:paused}
+@keyframes gzProg{to{transform:none}}
+.gz .gz-pause{border:1px solid #ffffff88;background:#0003;color:#fff;border-radius:99px;height:26px;padding:0 12px;font:400 12px ${MO};cursor:pointer;backdrop-filter:blur(6px)}
+.gz-tick{height:44px;background:${CREAM};border-bottom:1px solid #1d2b1a22;overflow:hidden;display:flex;align-items:center;white-space:nowrap}
+.gz-tick .tr{display:inline-flex;gap:28px;padding-left:28px;font:400 14px ${MO};color:${GRN};animation:gzMq 28s linear infinite}
+.gz.paused .gz-tick .tr{animation-play-state:paused}
+.gz-tick .tr span{display:inline-flex;align-items:center;gap:28px}.gz-tick em{font-style:normal;color:#9aa52a;font-size:18px}
+@keyframes gzMq{to{transform:translateX(-50%)}}
+.gz-sec{padding:70px 28px 80px}
+.gz-sec h2{margin:0 0 6px;font:400 64px/1 ${SR};letter-spacing:-.015em;color:${GRN}}
+.gz-sec .sub{font:400 14px ${MO};color:#4b5a3f;margin:0 0 38px}
+.gz-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gz-cd{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px #1d2b1a14;transition:transform .3s,box-shadow .3s}
+.gz-cd:hover{transform:translateY(-6px);box-shadow:0 0 0 1px #1d2b1a22,0 18px 34px #2f4a2618}
+.gz-cd .art{height:330px;position:relative;display:grid;place-items:center;overflow:hidden}
+.gz-cd .art svg{height:88%;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.gz-cd:hover .art svg{transform:rotate(-7deg) translateY(-6px)}
+.gz-chip{position:absolute;left:16px;top:16px;height:26px;padding:0 12px;border-radius:99px;background:#fff;font:400 12px/26px ${MO};color:${GRN};box-shadow:0 1px 0 #0001}
+.gz-cd .meta{padding:16px 18px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.gz-cd h3{margin:0;font:400 36px/1 ${SR};color:${GRN}}
+.gz-cd .pr{font:700 16px ${MO};color:${GRN}}
+.gz-cd .sz{font:400 12px ${MO};color:#6a7560}
+.gz-cd .row{grid-column:1/-1;display:flex;gap:10px;margin-top:12px}
+.gz .gz-add{flex:1;height:38px;border-radius:99px;border:0;background:${GRN};color:${CREAM};font:400 13px ${MO};cursor:pointer;transition:background .2s}
+.gz .gz-add:hover{background:#3d5f31}
+.gz .gz-view{height:38px;padding:0 16px;border-radius:99px;border:1px solid ${GRN};background:none;color:${GRN};font:400 13px ${MO};cursor:pointer}
+.gz-fact{background:${GRN};color:${CREAM};padding:54px 28px;display:grid;grid-template-columns:200px 1fr auto;gap:28px;align-items:center}
+.gz-fact small{font:400 12px ${MO};letter-spacing:.12em;color:${LIME}}
+.gz-fact .ft{font:400 38px/1.12 ${SR};min-height:86px;transition:opacity .45s,transform .45s}
+.gz-fact .ft.out{opacity:0;transform:translateY(10px)}
+.gz-fact .n{font:400 12px ${MO};color:#cfd8a8;margin-top:8px}
+.gz .gz-about{height:46px;padding:0 24px;border-radius:99px;border:0;background:${LIME};color:#1d2b1a;font:400 14px ${MO};cursor:pointer}
+.gz-ft{padding:48px 28px 60px;display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:24px;font:400 13px/2 ${MO};color:#3d4a33}
+.gz-ft b{display:block;font:400 26px ${SR};color:${GRN};margin-bottom:6px}
+.gz-ft a{display:block;color:#3d4a33;cursor:pointer}.gz-ft a:hover{color:#000;text-decoration:underline}
+.gz-big{font:900 168px/.8 ${WM};font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;color:${GRN};letter-spacing:-.04em;padding:0 18px 18px;user-select:none}
+@media (prefers-reduced-motion: reduce){.gz *{animation:none!important;transition:none!important}}
+`);
+  const el = h('div.gz'), sc = h('div.gz-sc'); el.append(sc); root.append(el);
+  // ---------- SVG stand-ins for the photo slides ----------
+  const bottle = (x, y, sc0, rot, label = LIME, body = '#13240f', name = 'GRAZA', sub = 'Sizzle') => `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${sc0})">
+    <rect x="-46" y="-40" width="92" height="270" rx="30" fill="${body}"/><rect x="-46" y="-40" width="92" height="270" rx="30" fill="url(#gzSh)"/>
+    <path d="M-24 -40 C-24 -70 -14 -84 -12 -104 L12 -104 C14 -84 24 -70 24 -40Z" fill="${body}"/>
+    <rect x="-14" y="-128" width="28" height="26" rx="5" fill="${LIME}"/><path d="M-6 -128 L0 -150 L6 -128Z" fill="${LIME}"/>
+    <rect x="-46" y="20" width="92" height="160" rx="4" fill="${label}"/>
+    <text x="0" y="62" text-anchor="middle" font-family="Fraunces Variable,Georgia" font-weight="900" font-size="25" fill="${body}" transform="rotate(180 0 52)">${name}</text>
+    <text x="0" y="104" text-anchor="middle" font-family="Instrument Serif,Georgia" font-style="italic" font-size="22" fill="${body}">${sub}</text>
+    <path d="M-26 120 q14 -22 26 0 t26 0" stroke="${body}" stroke-width="2" fill="none"/><circle cx="0" cy="150" r="10" fill="none" stroke="${body}" stroke-width="2"/></g>`;
+  const defs = `<defs><linearGradient id="gzSh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".2" stop-color="#fff" stop-opacity=".16"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+    <radialGradient id="gzWin" cx=".72" cy=".2" r=".8"><stop offset="0" stop-color="#d8cfbf"/><stop offset=".55" stop-color="#7d746a"/><stop offset="1" stop-color="#3b3632"/></radialGradient>
+    <filter id="gzBl"><feGaussianBlur stdDeviation="14"/></filter><filter id="gzBl2"><feGaussianBlur stdDeviation="4"/></filter>
+    <linearGradient id="gzOil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2d65a"/><stop offset="1" stop-color="#c9b52e" stop-opacity=".6"/></linearGradient></defs>`;
+  const SCENES = [
+    // pour: kitchen counter, blurred navy shirt, bottle pouring into pan
+    `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">${defs}<rect width="1440" height="900" fill="url(#gzWin)"/>
+      <rect x="0" y="0" width="680" height="900" fill="#1d2433" filter="url(#gzBl)"/><rect x="560" y="0" width="160" height="900" fill="#2a3245" filter="url(#gzBl)" opacity=".7"/>
+      <path d="M760 680 L1440 610 L1440 900 L700 900Z" fill="#8a8580" filter="url(#gzBl2)"/>
+      <ellipse cx="960" cy="890" rx="420" ry="150" fill="#3c3d3f"/><ellipse cx="960" cy="860" rx="360" ry="110" fill="#6d6e70"/><ellipse cx="960" cy="866" rx="330" ry="96" fill="#2c2d2f"/>
+      <path d="M1112 528 C1108 640 1104 760 1100 860" stroke="url(#gzOil)" stroke-width="5" fill="none"/>
+      ${bottle(930, 380, 1.55, 128)}
+      <path d="M980 250 C1040 160 1150 120 1210 180 C1250 230 1200 320 1120 330 C1060 335 1010 300 980 250Z" fill="#c69c84" filter="url(#gzBl2)"/>
+      <ellipse cx="1240" cy="895" rx="40" ry="14" fill="${LIME}" opacity=".85"/></svg>`,
+    // chips: bowl of chips + standing bottle on table
+    `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">${defs}<rect width="1440" height="900" fill="#5b4e42"/><rect width="1440" height="520" fill="#8e7f6c" filter="url(#gzBl)"/>
+      <rect x="0" y="560" width="1440" height="340" fill="#d9cdb6"/><rect x="0" y="560" width="1440" height="40" fill="#bfb198" filter="url(#gzBl2)"/>
+      <ellipse cx="720" cy="760" rx="330" ry="110" fill="#efe6d4"/><ellipse cx="720" cy="730" rx="300" ry="80" fill="#f8f2e6"/>
+      ${Array.from({ length: 46 }, (_, i) => { const R = rng(i + 3); const a = R() * 6.28, r = R() * 250, x = 720 + Math.cos(a) * r, y = 720 + Math.sin(a) * r * 0.26 - R() * 40; return `<ellipse cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" rx="${26 + R() * 18}" ry="${12 + R() * 8}" transform="rotate(${(R() * 80 - 40).toFixed(0)} ${x.toFixed(0)} ${y.toFixed(0)})" fill="hsl(${38 + R() * 8},${70 + R() * 15}%,${58 + R() * 12}%)" stroke="#b07a2a" stroke-opacity=".35"/>`; }).join('')}
+      ${bottle(1130, 440, 1.25, 0, '#1f3a1a', LIME, 'GRAZA', 'Drizzle')}</svg>`,
+    // trio: three bottles in a row on lime backdrop
+    `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">${defs}<rect width="1440" height="900" fill="#55612a"/><circle cx="1000" cy="300" r="520" fill="#8f9a3c" filter="url(#gzBl)" opacity=".7"/>
+      <rect x="0" y="640" width="1440" height="260" fill="#3f4720"/>${bottle(820, 380, 1.2, -4, LIME, '#13240f', 'GRAZA', 'Sizzle')}${bottle(1040, 360, 1.3, 2, '#1f3a1a', LIME, 'GRAZA', 'Drizzle')}${bottle(1250, 410, 1.1, 6, '#f2e9c8', '#7a4b1c', 'GRAZA', 'Frizzle')}</svg>`];
+  const HEAD = ['Extra Virgin Olive Oil makes everything better.', 'Squeeze it on chips. Yes, really.', 'Drizzle, Sizzle & Frizzle: an oil for every pan.'];
+  const DUR = 6000;
+  const slides = SCENES.map((svg, i) => h('div.gz-sl' + (i ? '' : '.on'), {}, h('div.kb', { html: svg })));
+  const h1 = h('h1.gz-h1', {}, HEAD[0]);
+  let cart = 0; const cartEl = h('span.gz-cart', { onclick: () => toast(`Cart: ${cart} item${cart === 1 ? '' : 's'}`) }, 'Cart [0]');
+  const setCart = (n) => { cart = n; cartEl.textContent = `Cart [${n}]`; cartEl.classList.remove('bump'); void cartEl.offsetWidth; cartEl.classList.add('bump'); };
+  const hd = h('div.gz-hd', {}, h('div.gz-wm', { onclick: () => sc.scrollTo({ top: 0, behavior: 'smooth' }) }, 'GRAZA'),
+    h('div.gz-nav', {}, ...['Shop', 'Get Refills', 'About', 'Glog'].map((t) => h('a', { onclick: () => (t === 'Shop' ? goShop() : toast(t)) }, t)),
+      h('span.gz-ic', { title: 'Search', html: '<svg width="14" height="14" viewBox="0 0 14 14"><circle cx="8" cy="6" r="4.5" fill="none" stroke="#1d2b1a" stroke-width="1.4"/><path d="M5 9 1.5 12.5" stroke="#1d2b1a" stroke-width="1.4"/></svg>', onclick: () => toast('Search the pantry…') }),
+      h('span.gz-ic', { title: 'Account', html: '<svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.3" fill="#fffbea" stroke="#1d2b1a" stroke-width="1"/><circle cx="11" cy="8.5" r="3.6" fill="none" stroke="#1d2b1a" stroke-width="1.2"/><path d="M4.5 18c1.5-3.5 4-4.6 6.5-4.6s5 1.1 6.5 4.6" fill="none" stroke="#1d2b1a" stroke-width="1.2"/></svg>', style: { background: 'none' } }), cartEl));
+  const dots = h('div.gz-dots', {}, HEAD.map((_, i) => h('i', { style: { '--d': DUR + 'ms' }, onclick: () => go(i) }, h('b'))));
+  const pauseB = h('button.gz-pause', { onclick: () => setPaused(!paused) }, '❚❚ Pause animations');
+  const hero = h('section.gz-hero', {}, slides, h('div.gz-dim'), hd, h('div.gz-cap', {}, h1, h('button.gz-shop', { onclick: () => goShop() }, 'SHOP NOW')), h('div.gz-ctl', {}, dots, pauseB));
+  // ---------- ticker ----------
+  const TK = ['Now Serving Olives from: Andalusia, Spain', 'Harvesting Season: Early Harvest Picual', 'Free shipping on orders over $50', 'Squeezable bottles, refillable cans'];
+  const tkRun = () => h('span', {}, TK.map((t) => [h('em', {}, '✿'), t]));
+  const tick = h('div.gz-tick', {}, h('div.tr', {}, tkRun(), tkRun()));
+  // ---------- product trio ----------
+  const PROD = [['Drizzle', '$21', '500 mL', 'Punchy', '#e7ecc0', '#1f3a1a', LIME], ['Sizzle', '$16', '750 mL', 'Mellow', '#2f4a26', LIME, '#13240f'], ['Frizzle', '$14', '750 mL', 'Neutral', '#f4e7c6', '#f2e9c8', '#7a4b1c']];
+  const cards = PROD.map(([n, p, sz, fl, bg, lab, body]) => { const add = h('button.gz-add', { onclick: () => { setCart(cart + 1); add.textContent = 'Added ✓'; setTimeout(() => (add.textContent = 'Add to cart'), 1200); } }, 'Add to cart');
+    return h('div.gz-cd', {}, h('div.art', { style: { background: bg }, html: `<svg viewBox="-110 -170 220 420">${defs}${bottle(0, 0, 1, 0, lab, body, 'GRAZA', n)}</svg>` }, h('span.gz-chip', {}, '● ' + fl)),
+      h('div.meta', {}, h('h3', {}, n), h('span.pr', {}, p), h('span.sz', {}, `${sz} · ${fl === 'Punchy' ? 'for finishing' : fl === 'Mellow' ? 'for cooking' : 'for high heat'}`), h('span'), h('div.row', {}, add, h('button.gz-view', { onclick: () => toast(`${n}: ${fl} · ${sz}`) }, 'View')))); });
+  const shop = h('section.gz-sec', {}, h('h2', {}, 'Squeeze the day'), h('p.sub', {}, 'Single-origin Spanish olives, picked early, bottled fresh.'), h('div.gz-cards', {}, cards));
+  // ---------- rotating fact strip ----------
+  const FACTS = ['Olives are a fruit — technically a stone fruit, like cherries and peaches.', 'Early-harvest olives are green and peppery; that tickle in your throat is polyphenols.', 'It takes about 1,500 olives to fill one bottle of Drizzle.', 'An olive tree can live for over 2,000 years and still bear fruit.'];
+  let fi = 0; const ft = h('div.ft', {}, FACTS[0]), fn = h('div.n', {}, `Fact 1 / ${FACTS.length}`);
+  const setFact = (i) => { fi = (i + FACTS.length) % FACTS.length; ft.classList.add('out'); setTimeout(() => { ft.textContent = FACTS[fi]; fn.textContent = `Fact ${fi + 1} / ${FACTS.length}`; ft.classList.remove('out'); }, RM ? 0 : 280); };
+  const fact = h('section.gz-fact', {}, h('small', {}, 'OLIVE FUN FACTS'), h('div', { style: { cursor: 'pointer' }, onclick: () => setFact(fi + 1) }, ft, fn), h('button.gz-about', { onclick: () => toast('About Graza →') }, 'About Graza →'));
+  const foot = h('footer', {}, h('div.gz-ft', {}, h('div', {}, h('b', {}, 'Join the Squeeze Club'), 'Recipes, drops & refill reminders.'), ...[['Shop', ['Drizzle', 'Sizzle', 'Frizzle', 'Refills', 'Gift cards']], ['Learn', ['About', 'Glog', 'Recipes', 'FAQ']], ['Help', ['Contact', 'Shipping', 'Returns', 'Wholesale']]].map(([t, ls]) => h('div', {}, h('b', {}, t), ls.map((l) => h('a', { onclick: () => toast(l) }, l))))), h('div.gz-big', {}, 'GRAZA'));
+  sc.append(hero, tick, shop, fact, foot);
+  // ---------- slide logic ----------
+  let idx = 0, paused = false, timer = 0, factT = 0, tStart = 0, remain = DUR;
+  const paint = () => { slides.forEach((s0, j) => s0.classList.toggle('on', j === idx)); [...dots.children].forEach((d, j) => { d.classList.remove('on', 'done'); void d.offsetWidth; if (j < idx) d.classList.add('done'); if (j === idx) d.classList.add('on'); }); };
+  const sched = (ms = DUR) => { clearTimeout(timer); if (paused || RM) return; tStart = performance.now(); remain = ms; timer = setTimeout(() => go(idx + 1), ms); };
+  const go = (i) => { idx = (i + slides.length) % slides.length; h1.classList.add('out'); setTimeout(() => { h1.textContent = HEAD[idx]; h1.classList.remove('out'); }, RM ? 0 : 300); paint(); sched(); };
+  const setPaused = (p) => { paused = p; el.classList.toggle('paused', p); pauseB.textContent = p ? '▶ Play animations' : '❚❚ Pause animations';
+    if (p) { clearTimeout(timer); remain = Math.max(200, remain - (performance.now() - tStart)); clearInterval(factT); } else { sched(remain); factT = setInterval(() => setFact(fi + 1), 4200); } };
+  const goShop = () => sc.scrollTo({ top: shop.offsetTop - 10, behavior: 'smooth' });
+  paint(); sched(); if (!RM) factT = setInterval(() => setFact(fi + 1), 4200);
+  const reset = () => { if (paused) setPaused(false); idx = 0; h1.textContent = HEAD[0]; h1.classList.remove('out'); slides.forEach((s0) => (s0.style.transition = 'none')); paint(); void el.offsetWidth; requestAnimationFrame(() => slides.forEach((s0) => (s0.style.transition = ''))); sched(); cards.forEach((c) => (c.querySelector('.gz-add').textContent = 'Add to cart')); cart = 0; cartEl.textContent = 'Cart [0]'; fi = 0; ft.textContent = FACTS[0]; fn.textContent = `Fact 1 / ${FACTS.length}`; sc.scrollTop = 0; };
+  window.__demoProof = async () => { const o = []; reset();
+    dots.children[1].click(); await sleep(420); o.push(`slide dot → slide ${idx + 1} "${h1.textContent}"`);
+    go(idx + 1); await sleep(420); o.push(`auto-advance step → slide ${idx + 1}`);
+    pauseB.click(); o.push(`pause → paused=${paused}, label "${pauseB.textContent}"`); pauseB.click();
+    cards[0].querySelector('.gz-add').click(); cards[2].querySelector('.gz-add').click(); o.push(`add to cart ×2 → "${cartEl.textContent}"`);
+    setFact(fi + 1); await sleep(350); o.push(`fact strip → "${fn.textContent}"`);
+    o.push(`ticker items=${tick.querySelectorAll('em').length}, product cards=${cards.length}`);
+    reset(); o.push(`restored: slide 1, ${cartEl.textContent}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

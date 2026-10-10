@@ -59,7 +59,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off': '미니멀 텍스트 서바이벌 게임',
   'skribbl-doodle-lobby-avatar-arrow-customizer-randomize-dice-pixel-logo': '두들 게임 로비 아바타 빌더',
   'bureau-cool-mono-studio-rotating-glass-ring-live-traffic-labels': '회전 글래스 링 실시간 트래픽',
-  'dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock': '햇살 세리프 히어로 스티키 스크롤' };
+  'dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock': '햇살 세리프 히어로 스티키 스크롤',
+  'graza-dtc-olive-oil-shop-condensed-serif-hero-slides-flavor-tag-product-trio-fact-ticker': 'DTC 푸드 쇼핑몰 히어로',
+  'mapiful-map-poster-editor-dark-icon-rail-tab-panels-live-poster-preview-coords': '지도 포스터 에디터',
+  'plink-starfield-multiplayer-music-lobby-tilted-condensed-sticker-words-orbit-rings': '별밭 멀티플레이 음악 로비' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

@@ -3085,5 +3085,32 @@
   "proof": "ring WebGL rotating: labels reprojected, max drift 5.2px in 0.9s (rot y=0.026); new traffic entry → \"US, ONLINE\" popped (6→6 rows, pop=true); hover DE group → highlight bg=rgb(0, 0, 0), ring slowed (hold=1); drag spin Δ=0.480rad; PROJECTS pill → overlay rows=6; NEW ITEMS toast closed=true; cookie ACCEPT hidden=true; restored: default traffic, toast + cookie bar back, overlay closed",
   "demoNodes": 92,
   "errors": []
+ },
+ "plink-starfield-multiplayer-music-lobby-tilted-condensed-sticker-words-orbit-rings": {
+  "url": "http://localhost:4179/t/plink-starfield-multiplayer-music-lobby-tilted-condensed-sticker-words-orbit-rings/",
+  "ok": true,
+  "at": "2026-10-10T19:55:20.951Z",
+  "http": 200,
+  "proof": "configure → 3 toggles shown; THAT'S OK → mode=lobby, 4 tilted lobby words, rings=8; hover lift → true; GO PRIVATE → popup \"K7QZ\"; PLAY NOW → mode=pick; color picked → #f0c84a, mode=play; held + moved → 14 quantized plucks (incl. bots), note idx now 6; trails: 8/8/8/8; restored: cookie card visible, mode=cookie",
+  "demoNodes": 89,
+  "errors": []
+ },
+ "mapiful-map-poster-editor-dark-icon-rail-tab-panels-live-poster-preview-coords": {
+  "url": "http://localhost:4179/t/mapiful-map-poster-editor-dark-icon-rail-tab-panels-live-poster-preview-coords/",
+  "ok": true,
+  "at": "2026-10-10T19:55:20.947Z",
+  "http": 200,
+  "proof": "popular place → poster \"Tokyo / Japan\" 35.676°N / 139.650°E; labels tab → headline \"Our First Home\"; style → Night bg=#151515; size → 70×100 cm, price 67.49 € (was 89.99); frame → Black wood; zoom → 1.25; add to cart → bag 1; restored: Paris, theme Classic, tab map",
+  "demoNodes": 109,
+  "errors": []
+ },
+ "graza-dtc-olive-oil-shop-condensed-serif-hero-slides-flavor-tag-product-trio-fact-ticker": {
+  "url": "http://localhost:4179/t/graza-dtc-olive-oil-shop-condensed-serif-hero-slides-flavor-tag-product-trio-fact-ticker/",
+  "ok": true,
+  "at": "2026-10-10T19:55:20.933Z",
+  "http": 200,
+  "proof": "slide dot → slide 2 \"Squeeze it on chips. Yes, really.\"; auto-advance step → slide 3; pause → paused=true, label \"▶ Play animations\"; add to cart ×2 → \"Cart [2]\"; fact strip → \"Fact 2 / 4\"; ticker items=8, product cards=3; restored: slide 1, Cart [0]",
+  "demoNodes": 379,
+  "errors": []
  }
 }

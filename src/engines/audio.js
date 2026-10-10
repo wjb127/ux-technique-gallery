@@ -2554,4 +2554,129 @@ V['io808-tr808-skeuomorphic-step-sequencer-knob-drag-16-step-pads'] = (root, T) 
     reset(); o.push('reset to default pattern/knobs'); return o.join('; '); };
 };
 
+V['plink-starfield-multiplayer-music-lobby-tilted-condensed-sticker-words-orbit-rings'] = (root, T) => {
+  import('@fontsource/barlow-condensed/500.css'); import('@fontsource/barlow-condensed/600.css'); import('@fontsource/barlow-condensed/700.css'); import('@fontsource/barlow-condensed/800-italic.css'); import('@fontsource/barlow-condensed/900-italic.css');
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#12a454', dark: true });
+  const BC = "'Barlow Condensed','Oswald','Arial Narrow',sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.pk{position:absolute;inset:0;overflow:hidden;background:#000;color:#fff;font-family:${BC};user-select:none}
+.pk *{box-sizing:border-box}
+.pk-stars{position:absolute;inset:0;width:100%;height:100%}
+.pk-hd{position:absolute;left:0;right:0;top:0;height:53px;background:#0b0b0b;display:flex;align-items:center;padding:0 18px;gap:0;z-index:5;font:600 10px ${BC};letter-spacing:.2em;color:#9c9c9c}
+.pk-hd a{cursor:pointer;transition:color .15s}.pk-hd a:hover{color:#fff}
+.pk-hd .sep{width:1px;height:22px;background:#444;margin:0 20px}
+.pk-logo{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;font:700 14px ${BC};letter-spacing:.16em;color:#8a8a8a;cursor:pointer}
+.pk-logo span{background:#8a8a8a;color:#0b0b0b;padding:1px 14px 1px 10px;clip-path:polygon(0 0,100% 0,88% 100%,0 100%);letter-spacing:.14em}
+.pk-hr{margin-left:auto;display:flex;align-items:center;gap:20px}
+.pk-card{position:absolute;left:50%;top:50%;width:385px;transform:translate(-50%,-50%);z-index:6;transition:opacity .35s,transform .35s}
+.pk-card.off{opacity:0;transform:translate(-50%,-46%);pointer-events:none}
+.pk-card h1{margin:0 0 20px;font:700 21px/1.1 ${BC};letter-spacing:.17em}
+.pk-card p{margin:0 0 16px;font:700 12.5px/1.4 ${BC};letter-spacing:.17em}
+.pk-btn{position:relative;display:flex;align-items:center;gap:18px;height:35px;padding:0 18px;margin-bottom:5px;font:700 13px ${BC};letter-spacing:.2em;cursor:pointer;clip-path:polygon(0 0,100% 0,100% 62%,96.6% 100%,0 100%);transition:filter .15s,transform .15s}
+.pk-btn:hover{filter:brightness(1.15);transform:translateX(3px)}
+.pk-btn.ok{background:#12a454}.pk-btn.cf{background:#5c5c5c;clip-path:polygon(0 0,100% 0,100% 38%,96.6% 0,100% 0,100% 0,96.6% 100%,0 100%)}
+.pk-btn.cf{clip-path:polygon(0 0,100% 0,96.6% 100%,0 100%)}
+.pk-links{margin-top:20px;font:700 9.5px ${BC};letter-spacing:.17em}.pk-links a{text-decoration:underline;cursor:pointer}
+.pk-cfg{margin:12px 0 0;display:none;gap:8px;font:600 11px ${BC};letter-spacing:.16em}.pk-cfg.on{display:grid}
+.pk-cfg label{display:flex;justify-content:space-between;align-items:center;background:#1b1b1b;padding:8px 12px;cursor:pointer}
+.pk-cfg input{accent-color:#12a454}
+.pk-lob{position:absolute;inset:53px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:3;transition:opacity .4s}
+.pk-lob.off{opacity:0;pointer-events:none}
+.pk-tit{font:900 italic 30px ${BC};letter-spacing:.06em;color:#ddd;margin-bottom:18px;transform:rotate(-3deg)}
+.pk-tit b{display:inline-block;color:#000;background:#e8c547;padding:0 12px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%)}
+.pk-w{position:relative;font:800 italic 84px/.98 ${BC};letter-spacing:.01em;cursor:pointer;padding:0 22px;filter:saturate(.62) brightness(.82);transition:transform .35s cubic-bezier(.3,1.6,.5,1),filter .25s}
+.pk-w:hover,.pk-w.hov{filter:none;transform:rotate(var(--r)) translateY(-8px) scale(1.06)!important}
+.pk-w span{position:relative;z-index:2;text-shadow:0 4px 0 #0008}
+.pk-ring{position:absolute;left:50%;top:50%;border:1px solid currentColor;border-radius:50%;opacity:.35;pointer-events:none;animation:pkOrb var(--t) linear infinite}
+.pk-ring::after{content:'';position:absolute;left:50%;top:-4px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:currentColor}
+.pk-w:hover .pk-ring,.pk-w.hov .pk-ring{opacity:.75}
+@keyframes pkOrb{from{transform:translate(-50%,-50%) rotate(0) scaleY(.42)}to{transform:translate(-50%,-50%) rotate(360deg) scaleY(.42)}}
+.pk-pop{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:360px;background:#111;border:1px solid #333;padding:22px;z-index:7;font:700 12px/1.5 ${BC};letter-spacing:.15em;display:none}
+.pk-pop.on{display:block}.pk-pop h3{margin:0 0 10px;font:800 italic 34px ${BC};letter-spacing:.02em}.pk-pop .code{font:700 28px ${BC};letter-spacing:.4em;color:#e8c547;margin:6px 0 14px}
+.pk-play{position:absolute;inset:53px 0 0;z-index:4;display:none}.pk-play.on{display:block}
+.pk-play canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}
+.pk-pick{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:#000c;z-index:2}
+.pk-pick.off{display:none}.pk-pick h2{margin:0;font:800 italic 46px ${BC};letter-spacing:.03em}
+.pk-pick .cs{display:flex;gap:16px}.pk-pick .cs i{width:54px;height:54px;border-radius:50%;cursor:pointer;transition:transform .2s;box-shadow:0 0 0 3px #000,0 0 0 4px #fff3}.pk-pick .cs i:hover{transform:scale(1.15)}
+.pk-ui{position:absolute;left:18px;top:14px;display:flex;gap:16px;align-items:center;z-index:1;font:700 11px ${BC};letter-spacing:.2em;color:#aaa}
+.pk-ui a{cursor:pointer;color:#fff;background:#222;padding:6px 12px;clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}
+.pk-ui .bt{width:10px;height:10px;border-radius:50%;background:#333;transition:background .05s}.pk-ui .bt.on{background:#fff}
+.pk-hint{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:700 12px ${BC};letter-spacing:.24em;color:#777;z-index:1;pointer-events:none}
+@media (prefers-reduced-motion: reduce){.pk *{animation:none!important;transition:none!important}}
+`);
+  const el = h('div.pk'); root.append(el);
+  // ---------- starfield ----------
+  const stars = h('canvas.pk-stars'); el.append(stars);
+  const SR = rng(5); const STARS = Array.from({ length: 260 }, () => ({ x: SR(), y: SR(), r: SR() < 0.06 ? 1.6 : 0.4 + SR() * 0.8, p: SR() * 6.28, s: 0.5 + SR() * 2, v: 0.002 + SR() * 0.006 }));
+  // ---------- header ----------
+  el.append(h('div.pk-hd', {}, h('a', { html: '<svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="#9c9c9c" stroke-width="1.5"/><path d="M9 8v5M9 5v1" stroke="#9c9c9c" stroke-width="1.7"/></svg>', style: { marginRight: '38px', display: 'flex' }, onclick: () => showPop('about') }),
+    h('a', { onclick: () => toast('Mailing list') }, 'JOIN THE MAILING LIST'), h('i.sep'), h('a', { onclick: () => toast('Thanks for the coffee ☕') }, 'BUY US A COFFEE'),
+    h('div.pk-logo', { onclick: () => toLobby() }, 'DINAHMOE', h('span', {}, 'LABS')),
+    h('div.pk-hr', {}, h('a', { onclick: () => toast('Create an account') }, 'CREATE AN ACCOUNT'), h('span', {}, '/'), h('a', { onclick: () => toast('Login') }, 'LOGIN'), h('a', { html: '<svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.2" fill="#9c9c9c"/><circle cx="9" cy="7" r="3" fill="#0b0b0b"/><path d="M3.5 14.5c1.4-2.4 3.3-3.3 5.5-3.3s4.1.9 5.5 3.3" fill="#0b0b0b"/></svg>', style: { display: 'flex' } }))));
+  // ---------- cookie card ----------
+  const cfg = h('div.pk-cfg', {}, ['NECESSARY', 'ANALYTICS', 'ACCOUNTS'].map((t, i) => h('label', {}, t, h('input', { type: 'checkbox', checked: true, disabled: i === 0 }))));
+  const card = h('div.pk-card', {}, h('h1', {}, 'WELCOME TO', h('br'), 'DINAHMOE LABS.', h('br'), '...AND WE USE COOKIES.'), h('p', {}, 'WE USE COOKIES TO UNDERSTAND HOW OUR SITE IS USED AND IMPROVE THE USER EXPERIENCE. WE ALSO USE COOKIES FOR USER ACCOUNTS AND AUTHENTICATION.'),
+    h('div.pk-btn.ok', { onclick: () => accept() }, h('span', {}, '➜'), h('span', {}, 'THAT’S OK!')), h('div.pk-btn.cf', { onclick: () => cfg.classList.toggle('on') }, h('span', {}, '🔧'), h('span', {}, 'CONFIGURE')), cfg,
+    h('div.pk-links', {}, h('a', { onclick: () => toast('Terms & conditions') }, 'TERMS & CONDITIONS'), ' | ', h('a', { onclick: () => toast('Privacy policy') }, 'PRIVACY POLICY')));
+  // ---------- lobby ----------
+  const WORDS = [['PLAY NOW!', '#3fc1b0', -6, () => toPlay()], ['GO PRIVATE!', '#e0514a', 4, () => showPop('private')], ['SHARE THE LOVE!', '#f0c84a', -3, () => { copy('https://dinahmoelabs.com/plink', 'Link copied — share the love'); }], ['ABOUT', '#a98be0', 5, () => showPop('about')]];
+  const wordEls = WORDS.map(([t, c, r, fn], i) => h('div.pk-w', { style: { color: c, transform: `rotate(${r}deg)`, '--r': r + 'deg' }, onclick: fn, onpointerenter: () => blip(midi(64 + i * 3), 0.25, 'triangle', 0.06) },
+    h('i.pk-ring', { style: { width: `${150 + i * 20}%`, height: '230%', '--t': `${9 + i * 3}s` } }), h('i.pk-ring', { style: { width: `${110 + i * 14}%`, height: '170%', '--t': `${14 + i * 2}s`, animationDirection: 'reverse' } }), h('span', {}, t)));
+  const lob = h('div.pk-lob.off', {}, h('div.pk-tit', {}, h('b', {}, 'PLINK!'), '  MAKE MUSIC WITH STRANGERS'), wordEls);
+  const pop = h('div.pk-pop');
+  const showPop = (k) => { pop.replaceChildren(...(k === 'private' ? [h('h3', { style: { color: '#e0514a' } }, 'GO PRIVATE!'), 'SEND THIS ROOM CODE TO YOUR FRIENDS:', h('div.code', {}, 'K7QZ'), h('div.pk-btn.ok', { onclick: () => copy('https://dinahmoelabs.com/plink#K7QZ', 'Room link copied') }, h('span', {}, '➜'), h('span', {}, 'COPY ROOM LINK'))]
+    : [h('h3', { style: { color: '#a98be0' } }, 'ABOUT'), 'PLINK! IS A MULTIPLAYER MUSIC GAME. PICK A COLOR, HOLD THE MOUSE AND MOVE UP AND DOWN TO PLAY. EVERYONE IN THE ROOM PLAYS IN THE SAME KEY AND TEMPO, SO IT ALWAYS SOUNDS GOOD.']),
+    h('div.pk-btn.cf', { style: { marginTop: '12px' }, onclick: () => pop.classList.remove('on') }, h('span', {}, '✕'), h('span', {}, 'CLOSE'))); pop.classList.add('on'); };
+  // ---------- play screen ----------
+  const pcv = h('canvas'); const beatEls = Array.from({ length: 4 }, () => h('i.bt'));
+  const COLORS = ['#3fc1b0', '#e0514a', '#f0c84a', '#a98be0', '#5aa0f0', '#f08bc0'];
+  const pick = h('div.pk-pick', {}, h('h2', {}, 'PICK YOUR COLOR'), h('div.cs', {}, COLORS.map((c) => h('i', { style: { background: c }, onclick: () => startPlay(c) }))));
+  const play = h('div.pk-play', {}, pcv, pick, h('div.pk-ui', {}, h('a', { onclick: () => toLobby() }, '← LOBBY'), h('span', {}, '4 PLAYERS · 110 BPM · C MINOR PENTATONIC'), ...beatEls), h('div.pk-hint', {}, 'HOLD THE MOUSE AND MOVE UP / DOWN TO PLAY'));
+  el.append(lob, play, card, pop);
+  const SCL = [0, 3, 5, 7, 10, 12, 15, 17, 19, 22, 24, 27]; const NL = SCL.length;
+  const me = { c: COLORS[0], y: 0.5, on: false, trail: [] };
+  const bots = [['#5aa0f0', 0], ['#f08bc0', 1], ['#f0c84a', 2]].map(([c, k]) => ({ c, k, y: 0.5, on: false, trail: [] }));
+  let mode = 'cookie', tick = 0, notes = 0, beatT = 0, lastStep = 0;
+  const STEP = 60000 / 110 / 2;
+  const noteOf = (y) => clamp(Math.floor((1 - y) * NL), 0, NL - 1);
+  const pluck = (n, pan = 0, vol = 0.1) => { notes++; blip(midi(60 + SCL[n]), 0.42, 'triangle', vol); blip(midi(72 + SCL[n]), 0.12, 'sine', vol * 0.35); };
+  const botMove = (b, step) => { const pat = [[0, 2, 4, 2, 5, 4, 2, -1], [7, -1, 7, 9, -1, 8, 7, 5], [4, 4, -1, 6, 7, -1, 9, 7]][b.k]; const n = pat[(step + b.k) % 8]; b.on = n >= 0 && (Math.floor(step / 16) + b.k) % 3 !== 2; if (n >= 0) b.y = 1 - (n + 0.5) / NL; };
+  const stepFn = () => { tick++; beatEls.forEach((e, i) => e.classList.toggle('on', i === Math.floor(tick / 2) % 4)); bots.forEach((b) => { botMove(b, tick); if (b.on) pluck(noteOf(b.y), 0, 0.045); }); if (me.on) pluck(noteOf(me.y), 0, 0.11); };
+  const pos = (e) => { const r = pcv.getBoundingClientRect(); me.y = clamp((e.clientY - r.top) / r.height, 0.02, 0.98); };
+  pcv.addEventListener('pointerdown', (e) => { if (mode !== 'play') return; me.on = true; pos(e); audio(); try { pcv.setPointerCapture(e.pointerId); } catch {} });
+  pcv.addEventListener('pointermove', (e) => { if (me.on) pos(e); });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach((t) => pcv.addEventListener(t, () => (me.on = false)));
+  const startPlay = (c) => { me.c = c; pick.classList.add('off'); mode = 'play'; audio(); };
+  const toPlay = () => { lob.classList.add('off'); play.classList.add('on'); pick.classList.remove('off'); mode = 'pick'; pop.classList.remove('on'); [me, ...bots].forEach((p) => (p.trail = [])); };
+  const toLobby = () => { if (mode === 'cookie') return; play.classList.remove('on'); lob.classList.remove('off'); mode = 'lobby'; me.on = false; };
+  const accept = () => { card.classList.add('off'); lob.classList.remove('off'); mode = 'lobby'; };
+  // ---------- render loop ----------
+  let raf = 0, t0 = performance.now();
+  const frame = (now) => { raf = requestAnimationFrame(frame); if (!el.isConnected) { cancelAnimationFrame(raf); return; }
+    const dpr = Math.min(2, devicePixelRatio || 1); const W = el.clientWidth, H = el.clientHeight;
+    if (stars.width !== Math.round(W * dpr)) { stars.width = Math.round(W * dpr); stars.height = Math.round(H * dpr); }
+    const g = stars.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H); const t = (now - t0) / 1000;
+    for (const s0 of STARS) { if (!RM) s0.x = (s0.x - s0.v * 0.016 * (mode === 'play' ? 6 : 1) + 1) % 1; const a = 0.25 + 0.6 * (0.5 + 0.5 * Math.sin(t * s0.s + s0.p)); g.fillStyle = `rgba(255,255,255,${(RM ? 0.6 : a).toFixed(2)})`; g.beginPath(); g.arc(s0.x * W, s0.y * H, s0.r, 0, 7); g.fill(); if (s0.r > 1.4) { g.fillStyle = `rgba(255,255,255,${(a * 0.18).toFixed(2)})`; g.beginPath(); g.arc(s0.x * W, s0.y * H, 5, 0, 7); g.fill(); } }
+    if (play.classList.contains('on')) { const pw = play.clientWidth, ph = play.clientHeight; if (pcv.width !== Math.round(pw * dpr)) { pcv.width = Math.round(pw * dpr); pcv.height = Math.round(ph * dpr); }
+      const q = pcv.getContext('2d'); q.setTransform(dpr, 0, 0, dpr, 0, 0); q.clearRect(0, 0, pw, ph);
+      for (let i = 0; i < NL; i++) { const y = (i / NL) * ph; q.fillStyle = i % 5 === 0 ? '#ffffff0d' : '#ffffff06'; q.fillRect(0, y, pw, ph / NL - 1); }
+      if (mode === 'play' && now - lastStep >= STEP) { lastStep = now; stepFn(); }
+      const X = pw * 0.72; const players = mode === 'play' ? [me, ...bots] : bots;
+      for (const p of players) { const ny = (NL - noteOf(p.y) - 0.5) / NL * ph; p.trail.push(p.on ? ny : null); if (p.trail.length > 260) p.trail.shift();
+        q.strokeStyle = p.c; q.lineWidth = p === me ? 7 : 5; q.lineCap = 'round'; q.globalAlpha = p === me ? 1 : 0.7; q.beginPath(); let pen = false;
+        p.trail.forEach((v, i) => { const x = X - (p.trail.length - 1 - i) * 3; if (v == null) { pen = false; return; } if (!pen) { q.moveTo(x, v); pen = true; } else q.lineTo(x, v); }); q.stroke(); q.globalAlpha = 1;
+        q.fillStyle = p.c; q.beginPath(); q.arc(X, p === me ? p.y * ph : ny, p.on ? (p === me ? 13 : 9) : 6, 0, 7); q.fill(); if (p.on) { q.strokeStyle = p.c; q.globalAlpha = 0.3; q.lineWidth = 2; q.beginPath(); q.arc(X, ny, 22 + Math.sin(now / 80) * 3, 0, 7); q.stroke(); q.globalAlpha = 1; } } } };
+  raf = requestAnimationFrame(frame);
+  const reset = () => { card.classList.remove('off'); cfg.classList.remove('on'); lob.classList.add('off'); play.classList.remove('on'); pop.classList.remove('on'); mode = 'cookie'; me.on = false; wordEls.forEach((w) => w.classList.remove('hov')); };
+  window.__demoProof = async () => { const o = []; reset();
+    card.querySelector('.pk-btn.cf').click(); o.push(`configure → ${cfg.querySelectorAll('input').length} toggles shown`);
+    card.querySelector('.pk-btn.ok').click(); await sleep(300); o.push(`THAT'S OK → mode=${mode}, ${wordEls.length} tilted lobby words, rings=${lob.querySelectorAll('.pk-ring').length}`);
+    wordEls[1].classList.add('hov'); await sleep(200); o.push(`hover lift → ${getComputedStyle(wordEls[1]).transform !== 'none'}`); wordEls[1].classList.remove('hov');
+    wordEls[1].click(); o.push(`GO PRIVATE → popup "${pop.querySelector('.code')?.textContent}"`); pop.classList.remove('on');
+    wordEls[0].click(); o.push(`PLAY NOW → mode=${mode}`); pick.querySelectorAll('i')[2].click(); o.push(`color picked → ${me.c}, mode=${mode}`);
+    me.on = true; const n0 = notes; for (const y of [0.8, 0.6, 0.4, 0.3, 0.5]) { me.y = y; stepFn(); } me.on = false; o.push(`held + moved → ${notes - n0} quantized plucks (incl. bots), note idx now ${noteOf(0.5)}`);
+    await sleep(250); o.push(`trails: ${[me, ...bots].map((p) => p.trail.length).join('/')}`);
+    reset(); o.push(`restored: cookie card visible, mode=${mode}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

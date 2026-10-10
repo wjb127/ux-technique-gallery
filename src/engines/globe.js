@@ -1,3 +1,4 @@
+import { css } from '../lib.js';
 import { geoArea, geoCentroid, geoDistance, geoOrthographic, geoEquirectangular, geoPath, geoGraticule10, geoInterpolate, geoMercator } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import countries110 from 'world-atlas/countries-110m.json';
@@ -1449,6 +1450,161 @@ V['globle-hot-cold-3d-globe-guess-game'] = (root, T) => {
     await sleep(80); clearTimeout(statT); modal.classList.remove('on');
     guesses = g0; won = w0; inp.disabled = w0; rot = rot0; tween = null; msg.textContent = ''; msg.className = 'gb-msg'; drawList(); if (snapS == null) localStorage.removeItem(KS); else localStorage.setItem(KS, snapS); if (snapG == null) localStorage.removeItem(KG); else localStorage.setItem(KG, snapG); stats = load(KS, stats); go('intro');
     return `guesses ${tries.join('/')} → [${log.join(' | ')}]; globe rotated to ${last.name}=${rotOk}; Closest list=${listN}, closest border ${bd} km / ${bdMi} mi; order-sort first=${firstByOrder}; invalid → "${bad}"; win → "${winMsg}"; restored intro + localStorage`; };
+};
+
+V['mapiful-map-poster-editor-dark-icon-rail-tab-panels-live-poster-preview-coords'] = (root, T) => {
+  import('@fontsource-variable/outfit'); import('@fontsource/montserrat/700.css'); import('@fontsource/montserrat/500.css');
+  theme(root, T, { bg: '#e6e6e6', fg: '#222', ac: '#9b4a4a', dark: false });
+  const SN = "'Outfit Variable','Futura','Jost',Helvetica,sans-serif", PT = "'Montserrat',Futura,Helvetica,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.mf{position:absolute;inset:0;overflow:hidden;background:#e6e6e6;color:#222;font-family:${SN};display:grid;grid-template-rows:32px 62px 1fr}
+.mf *{box-sizing:border-box}
+.mf-promo{background:#a55858;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 58px;font:500 11px ${SN}}
+.mf-promo b{font-weight:700}.mf-promo .st{color:#00b67a}
+.mf-hd{background:#fff;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 68px;border-bottom:1px solid #eee}
+.mf-hd nav{display:flex;gap:18px;font:400 14.5px ${SN};color:#444}.mf-hd nav a{cursor:pointer}.mf-hd nav a:hover{color:#000}
+.mf-logo{display:flex;align-items:center;gap:10px;font:500 15px ${SN};letter-spacing:.32em;cursor:pointer}
+.mf-hr{justify-self:end;display:flex;align-items:center;gap:22px;font:400 14.5px ${SN}}
+.mf-bag{position:relative}.mf-bag i{position:absolute;right:-6px;top:-6px;width:13px;height:13px;border-radius:50%;background:#222;color:#fff;font:600 8px/13px ${SN};text-align:center;font-style:normal}
+.mf-ed{display:grid;grid-template-columns:68px 273px 1fr;min-height:0;position:relative}
+.mf-rail{background:#000;display:flex;flex-direction:column;padding-top:14px}
+.mf-rb{height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#9a9a9a;font:400 10px ${SN};cursor:pointer;transition:color .15s,background .15s;position:relative}
+.mf-rb:hover{color:#ddd}.mf-rb.on{color:#fff}.mf-rb.on::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;background:#fff}
+.mf-rb svg{width:22px;height:22px}.mf-rb.adv{margin-top:auto;margin-bottom:76px}
+.mf-pn{background:#fff;padding:20px 12px 90px;overflow-y:auto;scrollbar-width:thin;position:relative}
+.mf-pn h2{margin:0 0 12px;font:500 24px ${SN};letter-spacing:-.01em}
+.mf-pn p.help{font:300 13px/1.5 ${SN};color:#888;margin:0 0 20px}
+.mf-pn h6{font:500 10px ${SN};letter-spacing:.12em;color:#555;margin:0 0 12px}
+.mf-srch{position:relative;margin-bottom:12px}.mf-srch input{width:100%;height:30px;border:1px solid #ddd;border-radius:3px;padding:0 10px 0 26px;font:300 11px ${SN};outline:none}
+.mf-srch input:focus{border-color:#888}.mf-srch::before{content:'⌕';position:absolute;left:9px;top:6px;color:#aaa;font-size:13px}
+.mf-sug{position:absolute;left:0;right:0;top:31px;background:#fff;border:1px solid #ddd;border-top:0;z-index:4;font:400 12px ${SN}}.mf-sug div{padding:7px 10px;cursor:pointer}.mf-sug div:hover{background:#f3f3f3}
+.mf-cur{font:400 11.5px ${SN};color:#444;margin-bottom:24px;cursor:pointer;display:inline-block;border-bottom:1px solid #ccc;padding-bottom:3px}
+.mf-pop a{display:table;font:300 12px ${SN};color:#555;padding:3px 0 3px;border-bottom:1px solid #ddd;margin-bottom:6px;cursor:pointer;transition:color .15s}
+.mf-pop a:hover,.mf-pop a.on{color:#000;border-color:#000}
+.mf-fld{margin-bottom:16px}.mf-fld label{display:block;font:500 10px ${SN};letter-spacing:.12em;color:#555;margin-bottom:6px}
+.mf-fld input{width:100%;height:32px;border:1px solid #ddd;border-radius:3px;padding:0 10px;font:400 13px ${SN};outline:none}.mf-fld input:focus{border-color:#888}
+.mf-sw{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mf-sw div{cursor:pointer;font:300 11px ${SN};color:#555;text-align:center}
+.mf-sw div span{display:block;height:74px;border-radius:2px;margin-bottom:6px;box-shadow:0 0 0 1px #ddd;transition:box-shadow .15s;position:relative;overflow:hidden}
+.mf-sw div.on span{box-shadow:0 0 0 2px #222}
+.mf-opt{display:flex;justify-content:space-between;align-items:center;height:46px;border:1px solid #ddd;border-radius:3px;padding:0 12px;margin-bottom:8px;cursor:pointer;font:400 13px ${SN}}
+.mf-opt.on{border-color:#222;box-shadow:inset 0 0 0 1px #222}.mf-opt small{color:#888;font-weight:300}
+.mf-buy{position:absolute;left:0;bottom:0;width:341px;height:68px;display:grid;grid-template-columns:68px 1fr;background:#6e7862;color:#fff;z-index:5}
+.mf-buy .ic{display:grid;place-items:center;background:#5f6954}
+.mf-buy .pr{display:flex;align-items:center;justify-content:space-between;padding:0 20px;font:400 14px ${SN}}
+.mf-buy s{opacity:.55;margin-right:3px;font-size:13px}.mf-buy b{font:500 11px ${SN};letter-spacing:.16em;cursor:pointer;display:flex;gap:12px;align-items:center}.mf-buy b:hover{opacity:.8}
+.mf-cv{position:relative;display:grid;place-items:center;min-width:0;overflow:hidden}
+.mf-post{position:relative;background:#fff;padding:22px;box-shadow:0 2px 14px #0000001a;transition:padding .3s,background .3s,box-shadow .3s}
+.mf-inner{position:relative;width:min(430px,calc((100vh - 230px) * .7));aspect-ratio:3/4.2;border:2px solid var(--fg);outline:1px solid var(--fg);outline-offset:-6px;background:var(--bg);overflow:hidden;transition:background .4s,border-color .4s}
+.mf-inner.r57{aspect-ratio:5/7}.mf-inner.r710{aspect-ratio:7/10}
+.mf-inner canvas{position:absolute;inset:7px;width:calc(100% - 14px);height:calc(100% - 14px);transition:opacity .35s}
+.mf-inner canvas.fade{opacity:0}
+.mf-fadeb{position:absolute;left:7px;right:7px;bottom:7px;height:42%;background:linear-gradient(transparent,var(--bg) 52%);pointer-events:none;transition:background .4s}
+.mf-txt{position:absolute;left:0;right:0;bottom:8%;text-align:center;color:var(--fg);transition:opacity .35s,color .4s}
+.mf-txt.fade{opacity:0}
+.mf-t1{font:700 clamp(18px,2.6vh,26px) ${PT};letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+.mf-t2{display:flex;align-items:center;justify-content:center;gap:12px;font:500 clamp(9px,1.25vh,12px) ${PT};letter-spacing:.32em;text-transform:uppercase;margin:8px 0 9px}
+.mf-t2::before,.mf-t2::after{content:'';width:clamp(26px,4vh,48px);height:2px;background:currentColor}
+.mf-t3{font:400 clamp(7px,.95vh,9px) ${PT};letter-spacing:.12em;opacity:.8}
+.mf-zm{position:absolute;left:14px;top:14px;display:grid;gap:4px;z-index:2}.mf-zm button{width:22px;height:22px;border:0;background:#fff;color:#222;font:400 15px/1 ${SN};cursor:pointer;box-shadow:0 0 0 1px #ddd}
+.mf-pin{position:absolute;left:50%;top:36%;transform:translate(-50%,-100%);font-size:22px;color:var(--fg);display:none}.mf-pin.on{display:block}
+.mf-tag{position:absolute;right:-30px;top:-30px;width:60px;height:60px;border-radius:50%;background:#924343;color:#fff;font:400 15px/60px ${SN};text-align:center;box-shadow:0 2px 6px #0003;transform:rotate(-4deg)}
+.mf-dw{position:absolute;left:0;right:0;bottom:-24px;text-align:center;font:300 9px ${SN};color:#999}.mf-dw::before{content:'';position:absolute;left:0;right:0;top:-6px;height:1px;background:#ccc}
+.mf-dh{position:absolute;top:0;bottom:0;right:-24px;writing-mode:vertical-rl;display:flex;align-items:center;font:300 9px ${SN};color:#999}
+.mf-fab{position:absolute;right:16px;bottom:16px;display:flex;gap:8px}.mf-fab span{width:30px;height:30px;border-radius:50%;background:#555;color:#fff;display:grid;place-items:center;font-size:13px;cursor:pointer}
+.mf-copy{position:absolute;left:8px;bottom:6px;font:300 8px ${SN};color:#aaa}
+@media (prefers-reduced-motion: reduce){.mf *{transition:none!important}}
+`);
+  // ---------- data ----------
+  const fmt = (lat, lon) => `${Math.abs(lat).toFixed(3)}°${lat >= 0 ? 'N' : 'S'} / ${Math.abs(lon).toFixed(3)}°${lon >= 0 ? 'E' : 'W'}`;
+  const CITIES = { 'Paris, France': [48.856, 2.352, 'seine', 11], 'Stockholm, Sweden': [59.329, 18.068, 'lakes', 22], 'Berlin, Germany': [52.52, 13.405, 'spree', 33], 'Tokyo, Japan': [35.676, 139.65, 'bay', 44], 'London, UK': [51.507, -0.128, 'thames', 55],
+    'Seoul, South Korea': [37.566, 126.978, 'han', 66], 'New York, USA': [40.713, -74.006, 'island', 77], 'Barcelona, Spain': [41.385, 2.173, 'coast', 88], 'Lisbon, Portugal': [38.722, -9.139, 'tagus', 99], 'Copenhagen, Denmark': [55.676, 12.568, 'lakes', 111] };
+  const POPULAR = ['Paris, France', 'Stockholm, Sweden', 'Berlin, Germany', 'Tokyo, Japan', 'London, UK'];
+  const THEMES = [['Classic', '#ffffff', '#111111'], ['Ocean', '#eef3f6', '#1d3a56'], ['Sage', '#f1f2ea', '#3b5640'], ['Night', '#151515', '#f2f2f2'], ['Terracotta', '#f7efe6', '#8a3b24'], ['Blush', '#f8e9e6', '#7a3d47']];
+  const SIZES = [['30×40 cm', 34.99, '', 30, 40], ['50×70 cm', 59.99, 'r57', 50, 70], ['70×100 cm', 89.99, 'r710', 70, 100]];
+  const FRAMES = [['No frame', 'none'], ['Black wood', '#1a1a1a'], ['White wood', '#f4f4f4'], ['Natural oak', '#c9a26b']];
+  const st = { city: 'Paris, France', title: 'Paris', sub: 'France', coords: fmt(48.856, 2.352), theme: 0, size: 1, frame: 0, zoom: 1, pin: false, tab: 'map' };
+  // ---------- procedural street map ----------
+  const cv = h('canvas', { width: 560, height: 800 });
+  const water = (g, kind, R, W, H, z) => { g.save(); g.fillStyle = THEMES[st.theme][1]; g.strokeStyle = THEMES[st.theme][2]; g.lineWidth = 1.4;
+    const band = (pts, w) => { g.beginPath(); pts.forEach(([x, y], i) => (i ? g.lineTo(x, y - w) : g.moveTo(x, y - w))); [...pts].reverse().forEach(([x, y]) => g.lineTo(x, y + w)); g.closePath(); g.fill(); g.stroke(); };
+    const curve = (y0, amp, f, ph) => Array.from({ length: 60 }, (_, i) => { const x = (i / 59) * (W + 80) - 40; return [x, y0 + Math.sin(x / W * f * z + ph) * amp * z + Math.sin(x / 61) * 6]; });
+    if (kind === 'seine' || kind === 'thames' || kind === 'spree' || kind === 'han' || kind === 'tagus') band(curve(H * (0.38 + R() * 0.2), kind === 'thames' ? 70 : 46, kind === 'seine' ? 5.2 : 4, R() * 6), (kind === 'han' || kind === 'tagus' ? 30 : 9) * z);
+    if (kind === 'lakes') for (let i = 0; i < 5; i++) { g.beginPath(); const cx = R() * W, cy = R() * H, r = (40 + R() * 90) * z; for (let a = 0; a <= 6.3; a += 0.3) { const rr = r * (0.7 + R() * 0.5); g.lineTo(cx + Math.cos(a) * rr * 1.5, cy + Math.sin(a) * rr); } g.closePath(); g.fill(); g.stroke(); }
+    if (kind === 'bay' || kind === 'coast') { g.beginPath(); g.moveTo(W, H * 0.35); for (let y = H * 0.35; y <= H; y += 20) g.lineTo(W * (kind === 'bay' ? 0.72 : 0.6) + Math.sin(y / 40) * 18 + (R() - 0.5) * 10 - (y - H * 0.35) * 0.12, y); g.lineTo(W, H); g.closePath(); g.fill(); g.stroke(); }
+    if (kind === 'island') { [[0, 0.16], [W, 0.78]].forEach(([x0, k]) => { g.beginPath(); g.moveTo(x0, 0); for (let y = 0; y <= H; y += 20) g.lineTo(Math.abs(x0 - W * k) + Math.sin(y / 50) * 8, y); g.lineTo(x0, H); g.closePath(); g.fill(); g.stroke(); }); }
+    g.restore(); };
+  const drawMap = () => { const [, , kind, seed] = CITIES[st.city] || [0, 0, 'seine', 7]; const [, bg, fg] = THEMES[st.theme]; const g = cv.getContext('2d'), W = cv.width, H = cv.height, z = st.zoom, R = rng(seed * 97 + 1);
+    const N = noise2(seed); g.fillStyle = bg; g.fillRect(0, 0, W, H); g.strokeStyle = fg; g.lineCap = 'round';
+    const cx = W / 2, cy = H * 0.42;
+    // minor streets: patchwork of rotated street grids (one per district, nearest-centre wins), with wobble and gaps for blocks/parks
+    const D = Array.from({ length: 14 }, () => ({ x: R() * W, y: R() * H, a: R() * Math.PI, sp: (7 + R() * 7) * z }));
+    const near = (x, y) => { let b = 0, bd = 1e12; for (let k = 0; k < D.length; k++) { const dx = x - D[k].x, dy = y - D[k].y, d = dx * dx + dy * dy; if (d < bd) { bd = d; b = k; } } return b; };
+    g.lineWidth = 0.55 * Math.min(1.6, z); g.globalAlpha = 0.9; const diag = Math.hypot(W, H);
+    D.forEach((d, di) => { for (const rot of [0, Math.PI / 2]) { const a = d.a + rot, ux = Math.cos(a), uy = Math.sin(a), vx = -uy, vy = ux; const sp = rot ? d.sp * (1.3 + R() * 0.9) : d.sp;
+      for (let o = -diag; o <= diag; o += sp) { let pen = false; const wob = (R() - 0.5) * 0.06; g.beginPath();
+        for (let t = -diag; t <= diag; t += 5) { const x = d.x + vx * o + ux * t + Math.sin(t / 70 + o) * 2, y = d.y + vy * o + uy * t + t * wob;
+          const ok = x > -5 && y > -5 && x < W + 5 && y < H + 5 && near(x, y) === di && N(x / 46 + 9, y / 46) > 0.3 && Math.hypot(x - cx, y - cy) < W * (0.62 + N(x / 200, y / 200) * 0.5);
+          if (ok) { if (!pen) { g.moveTo(x, y); pen = true; } else g.lineTo(x, y); } else pen = false; }
+        g.stroke(); } } });
+    g.globalAlpha = 1;
+    // boulevards: rings + radial spokes
+    g.lineWidth = 2.1 * Math.min(1.5, z); for (const rr of [0.2, 0.36, 0.55]) { g.beginPath(); for (let a = 0; a <= 6.3; a += 0.08) { const r = rr * W * z * (1 + N(Math.cos(a) * 2 + rr * 9, Math.sin(a) * 2) * 0.28 - 0.14); g.lineTo(cx + Math.cos(a) * r * 1.05, cy + Math.sin(a) * r * 0.95); } g.closePath(); g.stroke(); }
+    const spokes = 9 + Math.floor(R() * 5); g.lineWidth = 1.6 * Math.min(1.5, z); for (let i = 0; i < spokes; i++) { let a = (i / spokes) * 6.28 + R() * 0.3, x = cx + Math.cos(a) * 16, y = cy + Math.sin(a) * 16; g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 40; k++) { a += (N(x / 90, y / 90) - 0.5) * 0.18; x += Math.cos(a) * 14; y += Math.sin(a) * 14; g.lineTo(x, y); } g.stroke(); }
+    g.lineWidth = 3 * Math.min(1.4, z); g.beginPath(); g.moveTo(-10, H * (0.15 + R() * 0.2)); g.bezierCurveTo(W * 0.3, H * (0.2 + R() * 0.3), W * 0.7, H * (0.1 + R() * 0.4), W + 10, H * (0.25 + R() * 0.3)); g.stroke();
+    water(g, kind, R, W, H, z); };
+  // ---------- layout ----------
+  const ICONS = { map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-6.5-6.2-6.5-11.2A6.5 6.5 0 0 1 18.5 9.8C18.5 14.8 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg>', labels: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20l3.5-1L19 7.5 16.5 5 5 16.5z"/><path d="M14.5 7l2.5 2.5"/></svg>', style: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 16l7-12M10 20l10-10"/></svg>', size: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5M4 4l6 6M20 4l-6 6M20 20l-6-6M4 20l6-6"/></svg>', frames: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="9" height="12"/><rect x="14" y="9" width="7" height="9"/></svg>', icons: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg>', advanced: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.4 2h11.2A1.5 1.5 0 0 0 19 19l-5-10V3"/><path d="M7.5 15h9"/></svg>' };
+  const TABS = [['map', 'Map'], ['labels', 'Labels'], ['style', 'Style'], ['size', 'Size'], ['frames', 'Frames'], ['icons', 'Icons'], ['advanced', 'Advanced']];
+  const rail = h('div.mf-rail', {}, TABS.map(([k, l]) => h('div.mf-rb' + (k === 'advanced' ? '.adv' : '') + (k === 'map' ? '.on' : ''), { 'data-k': k, onclick: () => setTab(k), html: ICONS[k] + `<span>${l}</span>` })));
+  const pn = h('div.mf-pn');
+  const t1 = h('div.mf-t1'), t2 = h('div.mf-t2'), t3 = h('div.mf-t3'), txt = h('div.mf-txt', {}, t1, t2, t3), pin = h('div.mf-pin', {}, '♥');
+  const inner = h('div.mf-inner.r57', {}, cv, h('div.mf-fadeb'), pin, txt, h('div.mf-zm', {}, h('button', { onclick: () => zoom(1.25) }, '+'), h('button', { onclick: () => zoom(0.8) }, '-')));
+  const dw = h('div.mf-dw'), dh = h('div.mf-dh');
+  const post = h('div.mf-post', {}, inner, h('div.mf-tag', {}, '-25%'), dw, dh);
+  const oldP = h('s'), newP = h('span'); let bag = 0; const bagI = h('i', {}, '0');
+  const addBtn = h('b', { onclick: () => { bag++; bagI.textContent = bag; addBtn.firstChild.textContent = 'ADDED ✓'; setTimeout(() => (addBtn.firstChild.textContent = 'ADD TO CART'), 1300); } }, h('span', {}, 'ADD TO CART'), '→');
+  const buy = h('div.mf-buy', {}, h('div.ic', { html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 4h2.5l2.2 11h10.6L20.5 7H7"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>' }), h('div.pr', {}, h('span', {}, oldP, newP), addBtn));
+  const cvWrap = h('div.mf-cv', {}, post, h('div.mf-fab', {}, h('span', { onclick: () => copy(location.href, 'Share link copied') }, '⤴'), h('span', { onclick: () => toast('Preferences') }, '⚙')), h('div.mf-copy', {}, '© Copyright and attribution information and OpenStreetMap Contributors'));
+  const ed = h('div.mf-ed', {}, rail, pn, cvWrap, buy);
+  const el = h('div.mf', {}, h('div.mf-promo', {}, h('span', {}, h('b', {}, 'Excellent'), ' 4.3 out of 5 ', h('span.st', {}, '★'), ' Trustpilot'), h('span', {}, 'Celebration times 🎉 25% OFF POSTERS'), h('span', {}, 'EN (EUR)')),
+    h('div.mf-hd', {}, h('nav', {}, ['Products', 'Inspiration', 'The Magazine', 'About', 'Holiday gifts!'].map((t) => h('a', { onclick: () => toast(t) }, t))), h('div.mf-logo', { html: '<svg width="30" height="22" viewBox="0 0 30 22"><ellipse cx="15" cy="11" rx="14" ry="10" fill="none" stroke="#222" stroke-width="1.1"/><path d="M6 13c3-6 6-6 8 0s5 6 9-2" fill="none" stroke="#222" stroke-width="1.1"/></svg><span>MAPIFUL</span>' }), h('div.mf-hr', {}, h('span', {}, 'Help ⌄'), h('span.mf-bag', { html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.6"><path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>' }, bagI))), ed);
+  root.append(el);
+  // ---------- render ----------
+  const paintPoster = () => { const [, bg, fg] = THEMES[st.theme]; inner.style.setProperty('--bg', bg); inner.style.setProperty('--fg', fg); t1.textContent = st.title; t2.textContent = st.sub; t3.textContent = st.coords;
+    const [, , ratio, w0, h0] = SIZES[st.size]; inner.className = 'mf-inner' + (ratio ? '.' + ratio : '').replace('.', ' '); dw.textContent = `${w0} cm`; dh.textContent = `${h0} cm`;
+    const fr = FRAMES[st.frame][1]; post.style.background = fr === 'none' ? '#fff' : fr; post.style.padding = fr === 'none' ? '22px' : '14px'; post.style.boxShadow = fr === 'none' ? '0 2px 14px #0000001a' : `inset 0 0 0 1px #0002, 0 6px 22px #0003`;
+    const p = SIZES[st.size][1]; oldP.textContent = p.toFixed(2); newP.textContent = ` ${(p * 0.75).toFixed(2)} €`; pin.classList.toggle('on', st.pin);
+    const r = inner.getBoundingClientRect(); if (r.width) { cv.width = Math.round((r.width - 14) * 2); cv.height = Math.round((r.height - 14) * 2); } drawMap(); };
+  const fadeSwap = async (fn) => { cv.classList.add('fade'); txt.classList.add('fade'); await sleep(RM ? 0 : 340); fn(); paintPoster(); cv.classList.remove('fade'); txt.classList.remove('fade'); };
+  const pickCity = (name) => fadeSwap(() => { const [lat, lon] = CITIES[name]; const [c, co] = name.split(', '); Object.assign(st, { city: name, title: c, sub: co, coords: fmt(lat, lon), zoom: 1 }); if (st.tab === 'map' || st.tab === 'labels') renderPanel(); });
+  const zoom = (k) => { st.zoom = clamp(st.zoom * k, 0.6, 2.4); drawMap(); };
+  const opt = (label, small, on, fn) => h('div.mf-opt' + (on ? '.on' : ''), { onclick: fn }, h('span', {}, label), h('small', {}, small));
+  const renderPanel = () => { const k = st.tab; let kids = [];
+    if (k === 'map') { const inp = h('input', { placeholder: 'Search for a location, street or landmark' }); const sug = h('div.mf-sug', { style: { display: 'none' } });
+      inp.oninput = () => { const q = inp.value.trim().toLowerCase(); const m = Object.keys(CITIES).filter((c) => q && c.toLowerCase().includes(q)).slice(0, 5); sug.replaceChildren(...m.map((c) => h('div', { onclick: () => { sug.style.display = 'none'; inp.value = c; pickCity(c); } }, c))); sug.style.display = m.length ? 'block' : 'none'; };
+      inp.onkeydown = (e) => { if (e.key === 'Enter' && sug.firstChild) sug.firstChild.click(); };
+      kids = [h('h2', {}, 'Location'), h('p.help', {}, 'You can search, drag/drop and zoom on the map to get the exact position you want on your poster.'), h('h6', {}, 'SEARCH FOR A PLACE'), h('div.mf-srch', {}, inp, sug), h('span.mf-cur', { onclick: () => pickCity('Seoul, South Korea') }, 'Or Use your current position ⌖'),
+        h('h6', {}, 'OTHER POPULAR PLACES'), h('p.help', { style: { fontSize: '11.5px', marginBottom: '14px' } }, 'These are some of the most popular places among customers and staff, and worth checking out if you want some inspiration.'), h('div.mf-pop', {}, POPULAR.map((c) => h('a' + (c === st.city ? '.on' : ''), { onclick: () => pickCity(c) }, c)))]; }
+    if (k === 'labels') { const fld = (lab, key) => { const i = h('input', { value: st[key] }); i.oninput = () => { st[key] = i.value; t1.textContent = st.title; t2.textContent = st.sub; t3.textContent = st.coords; }; return h('div.mf-fld', {}, h('label', {}, lab), i); };
+      kids = [h('h2', {}, 'Labels'), h('p.help', {}, 'Personalise the text on your poster. Changes appear live in the preview.'), fld('HEADLINE', 'title'), fld('SUBLINE', 'sub'), fld('TAGLINE / COORDINATES', 'coords')]; }
+    if (k === 'style') kids = [h('h2', {}, 'Style'), h('p.help', {}, 'Choose a colour theme for your map.'), h('div.mf-sw', {}, THEMES.map(([n, bg, fg], i) => h('div' + (i === st.theme ? '.on' : ''), { onclick: () => fadeSwap(() => { st.theme = i; renderPanel(); }) }, h('span', { style: { background: `repeating-linear-gradient(35deg,${bg} 0 7px,${fg} 7px 8px),${bg}` } }), n)))];
+    if (k === 'size') kids = [h('h2', {}, 'Size'), h('p.help', {}, 'All sizes are printed on 250 g matte museum paper.'), SIZES.map(([n, p], i) => opt(n, `${(p * 0.75).toFixed(2)} €`, i === st.size, () => { st.size = i; paintPoster(); renderPanel(); }))];
+    if (k === 'frames') kids = [h('h2', {}, 'Frames'), h('p.help', {}, 'Ready to hang. Frames are made from FSC-certified wood.'), FRAMES.map(([n], i) => opt(n, i ? '+ 29.00 €' : '', i === st.frame, () => { st.frame = i; paintPoster(); renderPanel(); }))];
+    if (k === 'icons') kids = [h('h2', {}, 'Icons'), h('p.help', {}, 'Mark a special place with an icon.'), opt('♥ Heart', st.pin ? 'On' : 'Off', st.pin, () => { st.pin = !st.pin; paintPoster(); renderPanel(); })];
+    if (k === 'advanced') kids = [h('h2', {}, 'Advanced'), h('p.help', {}, 'Fine-tune details like map layers and label fonts.'), opt('Show water', 'On', true, () => toast('Water layer')), opt('Show parks', 'Off', false, () => toast('Parks layer'))];
+    pn.replaceChildren(...kids.flat()); };
+  const setTab = (k) => { st.tab = k; rail.querySelectorAll('.mf-rb').forEach((b) => b.classList.toggle('on', b.dataset.k === k)); renderPanel(); };
+  const reset = () => { Object.assign(st, { city: 'Paris, France', title: 'Paris', sub: 'France', coords: fmt(48.856, 2.352), theme: 0, size: 1, frame: 0, zoom: 1, pin: false }); bag = 0; bagI.textContent = '0'; addBtn.firstChild.textContent = 'ADD TO CART'; setTab('map'); paintPoster(); };
+  requestAnimationFrame(reset); new ResizeObserver(() => paintPoster()).observe(cvWrap);
+  window.__demoProof = async () => { const o = []; reset(); await sleep(30);
+    pn.querySelectorAll('.mf-pop a')[3].click(); await sleep(420); o.push(`popular place → poster "${t1.textContent} / ${t2.textContent}" ${t3.textContent}`);
+    setTab('labels'); const i0 = pn.querySelector('input'); i0.value = 'Our First Home'; i0.dispatchEvent(new Event('input')); o.push(`labels tab → headline "${t1.textContent}"`);
+    setTab('style'); pn.querySelectorAll('.mf-sw div')[3].click(); await sleep(420); o.push(`style → ${THEMES[st.theme][0]} bg=${inner.style.getPropertyValue('--bg')}`);
+    setTab('size'); pn.querySelectorAll('.mf-opt')[2].click(); o.push(`size → ${SIZES[st.size][0]}, price ${newP.textContent.trim()} (was ${oldP.textContent})`);
+    setTab('frames'); pn.querySelectorAll('.mf-opt')[1].click(); o.push(`frame → ${FRAMES[st.frame][0]}`);
+    zoom(1.25); o.push(`zoom → ${st.zoom.toFixed(2)}`); addBtn.click(); o.push(`add to cart → bag ${bagI.textContent}`);
+    reset(); o.push(`restored: ${t1.textContent}, theme ${THEMES[st.theme][0]}, tab ${st.tab}`); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }
