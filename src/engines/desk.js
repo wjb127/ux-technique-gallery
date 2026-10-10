@@ -607,4 +607,133 @@ V['infinitemac-beige-bezel-year-timeline-os-launcher-customize-run'] = (root, T)
     return out.join('; ') + '; restored Notable list at top'; };
 };
 
+V['weatherstar-4000-retro-broadcast-auto-slide-forecast-player'] = (root, T) => {
+  import('@fontsource/vt323');
+  theme(root, T, { bg: '#ffffff', fg: '#111', ac: '#21285a', dark: false });
+  const PX = "'VT323','Courier New',monospace";
+  const st = document.createElement('style'); st.textContent = `
+.ws{position:absolute;inset:0;background:#fff;color:#000;overflow:auto;font-family:${PX}}
+.ws-loc{display:flex;gap:6px;align-items:center;padding:6px 8px}
+.ws-loc input{width:476px;height:28px;font:22px/1 ${PX};padding:0 4px;border:1px solid #767676;border-radius:2px}
+.ws-loc button{height:26px;font:20px/1 ${PX};padding:0 6px;background:#efefef;border:1px solid #767676;border-radius:3px;cursor:pointer}
+.ws-loc button:active{background:#ddd}
+.ws-stage{position:relative;width:640px;transform-origin:0 0}
+.ws.theater .ws-stage{position:fixed;left:50%;top:calc(50% + 19px);z-index:50;transform:translate(-50%,-50%) scale(var(--k,1.4));box-shadow:0 0 0 100vmax #000}
+.ws-fr{position:relative;width:640px;height:480px;overflow:hidden;background:linear-gradient(180deg,#1d1250 0,#1d1250 30px,#35287e 90px,#5a3278 150px,#9a4c48 250px,#c4651c 340px,#ca6c16 400px);image-rendering:pixelated}
+.ws-hd{position:absolute;left:0;right:0;top:30px;height:60px;background:linear-gradient(90deg,#b4581c 0%,#9c4a34 40%,#4a2470 80%,#2a165c 100%)}
+.ws-hd:after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:#ffffff22}
+.ws-logo{position:absolute;left:50px;top:31px;width:82px;height:62px;border-radius:7px;background:linear-gradient(#2f6bff,#1440d0);border:3px solid #fff;box-shadow:2px 2px 0 #0008;color:#fff;text-align:center;font:700 18px/0.86 'Arial Narrow',Arial,sans-serif;padding-top:5px;letter-spacing:-.02em;text-shadow:1px 1px 0 #0006;z-index:3}
+.ws-ttl{position:absolute;left:168px;top:28px;font:42px/0.82 ${PX};color:#ffff00;text-shadow:3px 3px 0 #000;z-index:3;white-space:pre}
+.ws-noaa{position:absolute;left:350px;top:36px;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 50% 70%,#fff 0 30%,#1d64c8 31%);box-shadow:inset 0 0 0 2px #fff,2px 2px 0 #0008;z-index:3}
+.ws-noaa:after{content:'NOAA';position:absolute;left:0;right:0;top:3px;text-align:center;font:9px/1 ${PX};color:#fff}
+.ws-clk{position:absolute;right:42px;top:42px;text-align:left;font:31px/0.85 ${PX};color:#fff;text-shadow:3px 3px 0 #000;letter-spacing:.12em;z-index:3}
+.ws-pn{position:absolute;left:52px;top:90px;width:536px;height:310px;background:#1d2f7c;box-shadow:inset 0 0 0 3px #2f4cae,inset 4px 4px 0 3px #3a5bc6,inset -4px -4px 0 3px #172463}
+.ws-sl{position:absolute;inset:0;color:#fff;font:34px/1 ${PX};text-shadow:3px 3px 0 #000}
+.ws-sl .y{color:#ffff00}
+.ws-cr{position:absolute;left:0;right:0;top:400px;height:80px;background:#253079;border-top:2px solid #6a78c8;overflow:hidden}
+.ws-cr .ln{position:absolute;left:52px;top:22px;font:36px/1 ${PX};color:#fff;text-shadow:3px 3px 0 #000;white-space:nowrap}
+.ws-cr .ln.scroll{left:0;animation:wscr var(--dur,14s) linear forwards}
+@keyframes wscr{from{transform:translateX(640px)}to{transform:translateX(-100%)}}
+.ws-pl{height:40px;background:#000;display:flex;align-items:center;padding:0 6px;gap:4px}
+.ws-pl button{all:unset;cursor:pointer;width:38px;height:36px;display:grid;place-items:center;border-radius:4px}
+.ws-pl button:hover{background:#ffffff1f}.ws-pl svg{width:26px;height:26px;fill:#fff}
+.ws-pl .sp{flex:1}
+.ws-box{width:452px;margin:22px 0 8px 6px;background:linear-gradient(#5a2f6e,#c06a1c);padding:6px}
+.ws-box div{background:#1d2a6c;border:3px solid #2f4cae;color:#fff;text-align:center;font:20px/1.25 ${PX};padding:10px 8px}
+.ws-box b{color:#ffff00;font-weight:400}
+.ws-set{display:flex;gap:70px;padding:6px 8px 40px;font:18px/1.35 ${PX}}
+.ws-set h4{margin:0 0 4px;font:700 18px/1 ${PX}}
+.ws-set label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.ws-set select{font:16px ${PX}}
+.ws-tbl{position:absolute;left:24px;right:24px;top:18px;font:30px/1.24 ${PX}}
+.ws-tbl .r{display:grid;grid-template-columns:200px 70px 150px 1fr}
+.ws-map{position:absolute;inset:6px}
+.ws-fc{position:absolute;inset:10px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.ws-fc .d{display:flex;flex-direction:column;align-items:center;gap:4px;font:32px/1 ${PX}}
+.ws-tick{position:absolute;right:8px;bottom:6px;font:14px ${PX};color:#ffffffaa;text-shadow:none}
+.ws-load{position:absolute;inset:0;display:grid;place-items:center;font:40px ${PX};color:#fff;text-shadow:3px 3px 0 #000;background:#1d2f7c}
+`; root.append(st);
+  // ---------- data ----------
+  const CITIES = {
+    'Seattle, WA, USA': { st: 'Boeing Field', t: 54, c: 'Cloudy', w: 'E', ws: 5, hum: 77, dew: 46, ceil: 4600, vis: 10, pr: '29.84', reg: [['Seattle', 54, 'c', 115, 70], ['Spokane', 57, 'm', 430, 50], ['Yakima', 55, 'm', 300, 120], ['Olympia', 52, 'r', 90, 150], ['Tri-Cities', 57, 'm', 400, 190]], fc: [['SAT', 'Rain', 'r', 47, 58], ['SUN', 'Showers', 'r', 46, 56], ['MON', 'Partly Cloudy', 'pc', 44, 60]] },
+    'Denver, CO, USA': { st: 'Denver Intl', t: 61, c: 'Sunny', w: 'SW', ws: 9, hum: 22, dew: 24, ceil: 12000, vis: 10, pr: '30.12', reg: [['Denver', 61, 's', 300, 110], ['Boulder', 59, 's', 230, 70], ['Ft Collins', 58, 's', 260, 30], ['Pueblo', 66, 's', 330, 210], ['Vail', 49, 'pc', 110, 120]], fc: [['SAT', 'Sunny', 's', 40, 68], ['SUN', 'Windy', 'pc', 38, 63], ['MON', 'Snow', 'sn', 27, 41]] },
+    'Miami, FL, USA': { st: 'Miami Intl', t: 84, c: 'T-Storms', w: 'SE', ws: 12, hum: 81, dew: 75, ceil: 2800, vis: 6, pr: '29.91', reg: [['Miami', 84, 't', 330, 190], ['Naples', 82, 'pc', 160, 160], ['W Palm Bch', 83, 'pc', 360, 80], ['Key West', 85, 's', 200, 245], ['Orlando', 86, 't', 270, 10]], fc: [['SAT', 'T-Storms', 't', 77, 88], ['SUN', 'Showers', 'r', 78, 87], ['MON', 'Partly Cloudy', 'pc', 77, 89]] },
+    'Chicago, IL, USA': { st: "O'Hare Intl", t: 48, c: 'Partly Cloudy', w: 'NW', ws: 14, hum: 58, dew: 34, ceil: 6500, vis: 10, pr: '30.02', reg: [['Chicago', 48, 'pc', 330, 80], ['Rockford', 45, 'c', 180, 40], ['Peoria', 50, 'pc', 200, 180], ['Gary', 49, 'pc', 400, 110], ['Champaign', 51, 's', 330, 230]], fc: [['SAT', 'Sunny', 's', 38, 55], ['SUN', 'Cloudy', 'c', 41, 57], ['MON', 'Rain', 'r', 45, 52]] },
+  };
+  let city = 'Seattle, WA, USA', metric = false;
+  const D = () => CITIES[city];
+  const tU = (f) => (metric ? Math.round(((f - 32) * 5) / 9) : f);
+  const icon = (k, sz = 90) => { const S = sz; const cloud = (x, y, s, col = '#fff') => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M10 40h52a14 14 0 0 0 0-28 18 18 0 0 0-34-4A13 13 0 0 0 10 40Z" fill="${col}" stroke="#8f9aa6" stroke-width="2.5"/><path d="M14 36h46" stroke="#c8d0d8" stroke-width="3"/></g>`;
+    const sun = (x, y, r) => `<g transform="translate(${x} ${y})">${Array.from({ length: 8 }, (_, i) => `<rect x="-3" y="${-r - 12}" width="6" height="10" fill="#ffd400" transform="rotate(${i * 45})"/>`).join('')}<circle r="${r}" fill="#ffd400" stroke="#e08a00" stroke-width="3"/></g>`;
+    const drops = (col = '#6fd0ff') => [20, 36, 52].map((x, i) => `<path d="M${x} ${52 + i * 3}l-5 12" stroke="${col}" stroke-width="4" stroke-linecap="round"/>`).join('');
+    const body = { c: cloud(4, 6, 1) + cloud(-4, 16, 0.85, '#e8ecf0'), s: sun(40, 34, 18), pc: sun(52, 22, 14) + cloud(0, 16, 0.9), m: `<path d="M48 8a26 26 0 1 0 20 36A22 22 0 0 1 48 8Z" fill="#ffe860" stroke="#c9a800" stroke-width="2.5"/>`, r: cloud(4, 0, 1, '#d6dde4') + drops(), t: cloud(4, 0, 1, '#b9c2cc') + `<path d="M38 42l-8 14h8l-6 14 16-20h-9l6-8Z" fill="#ffd400" stroke="#b07a00" stroke-width="1.5"/>`, sn: cloud(4, 0, 1) + [20, 38, 56].map((x) => `<text x="${x - 6}" y="66" font-size="16" fill="#fff">*</text>`).join('') }[k] || '';
+    return `<svg width="${S}" height="${S * 0.8}" viewBox="0 0 80 72" style="filter:drop-shadow(2px 2px 0 #0007);overflow:visible">${body}</svg>`; };
+  const SLIDES = [
+    { id: 'cc', name: 'Current Conditions', ttl: 'Current\nConditions', html: () => { const d = D(); return `<div style="position:absolute;left:0;width:250px;top:14px;text-align:center"><div style="font-size:48px">${tU(d.t)}°</div><div style="font-size:38px;margin-top:4px">${d.c}</div><div style="margin:10px auto 0;width:110px">${icon(d.c === 'Sunny' ? 's' : d.c === 'T-Storms' ? 't' : d.c === 'Partly Cloudy' ? 'pc' : 'c', 110)}</div></div>
+      <div style="position:absolute;left:20px;top:248px;width:200px;display:flex;justify-content:space-between;font-size:38px"><span>Wind:</span><span>${d.w} ${metric ? Math.round(d.ws * 1.6) : d.ws}</span></div>
+      <div style="position:absolute;left:250px;right:18px;top:12px;font-size:36px;line-height:1.08"><div class="y" style="margin-left:-14px">${d.st}</div>${[['Humidity:', d.hum + '%'], ['Dewpoint:', tU(d.dew) + '°'], ['Ceiling:', (metric ? Math.round(d.ceil * 0.3048) + 'm' : d.ceil + 'ft.')], ['Visibility:', (metric ? Math.round(d.vis * 1.6) + ' km' : d.vis + ' mi.')], ['Pressure:', d.pr]].map(([a, b]) => `<div style="display:flex;justify-content:space-between"><span>${a}</span><span>${b}</span></div>`).join('')}</div>`; } },
+    { id: 'obs', name: 'Latest Observations', ttl: 'Latest\nObservations', html: () => `<div class="ws-tbl"><div class="r y" style="font-size:26px"><span></span><span>${metric ? '°C' : '°F'}</span><span>WEATHER</span><span>WIND</span></div>${D().reg.concat([['Airport', D().t - 1, 'c']]).map(([n, t, k], i) => `<div class="r"><span>${n}</span><span>${tU(t)}</span><span>${{ c: 'Cloudy', m: 'Clear', r: 'Rain', s: 'Sunny', pc: 'P Cloudy', t: 'T-Storm', sn: 'Snow' }[k]}</span><span>${i % 6 === 4 ? 'Calm' : ['E', 'SE', 'S', 'NW', '', 'W'][i % 6] + ' ' + (3 + i * 2)}</span></div>`).join('')}</div>` },
+    { id: 'hg', name: 'Hourly Graph', ttl: 'Hourly Graph', html: () => { const R = rng(city.length * 7); const n = 13, base = D().t; const ser = (b, amp) => Array.from({ length: n }, (_, i) => b + Math.sin(i / 2.2 + R() * 2) * amp + (R() - 0.5) * amp * 0.6); const temp = ser(base, 5), dew = ser(D().dew, 2), cloud = ser(base - 2, 6), pr = ser(base - 10, 1.2);
+      const lo = Math.min(...temp, ...dew, ...pr) - 2, hi = Math.max(...temp, ...cloud) + 2; const X = (i) => 46 + (i * 470) / (n - 1), Y = (v) => 270 - ((v - lo) / (hi - lo)) * 236; const path = (a, c) => `<polyline points="${a.map((v, i) => `${X(i)},${Y(v)}`).join(' ')}" fill="none" stroke="#000" stroke-width="7" stroke-linejoin="round"/><polyline points="${a.map((v, i) => `${X(i)},${Y(v)}`).join(' ')}" fill="none" stroke="${c}" stroke-width="4" stroke-linejoin="round"/>`;
+      return `<svg width="536" height="308" style="position:absolute;inset:0;font-family:${PX.replace(/"/g, '')}">${[0, 1, 2, 3].map((k) => `<line x1="46" x2="516" y1="${34 + k * 78.6}" y2="${34 + k * 78.6}" stroke="#ffffff33"/><text x="6" y="${40 + k * 78.6}" fill="#fff" font-size="22" style="paint-order:stroke" stroke="#000" stroke-width="3">${Math.round(tU(hi - ((hi - lo) * k) / 3))}°</text>`).join('')}${path(cloud, '#e8e8e8')}${path(dew, '#00c000')}${path(pr, '#00e5ff')}${path(temp, '#ff2020')}${['8P', '11P', '2A', '5A', '8A', '11A', '2P'].map((t, i) => `<text x="${40 + i * 78}" y="298" fill="#ffff00" font-size="20" stroke="#000" stroke-width="3" style="paint-order:stroke">${t}</text>`).join('')}</svg>`; } },
+    { id: 'reg', name: 'Regional Observations', ttl: 'Regional\nObservations', html: () => `<svg class="ws-map" width="524" height="296" viewBox="0 0 524 296" style="position:absolute;inset:6px;background:#3d6cc4"><path d="M0 40 L40 30 L70 52 L60 90 L90 110 L80 150 L60 170 L70 210 L40 250 L0 260Z M120 0 L524 0 L524 296 L110 296 L130 240 L100 200 L120 160 L110 120 L140 80 L120 40Z" fill="#7d8f6a" stroke="#c8c0a0" stroke-width="2"/><path d="M200 0 L230 296 M360 0 L350 296 M120 150 L524 160" stroke="#c8c0a066" stroke-width="2" fill="none"/></svg>${D().reg.map(([n, t, k, x, y]) => `<div style="position:absolute;left:${x}px;top:${y}px;text-align:center;font-size:26px;line-height:.9"><div>${n}</div><div style="display:flex;align-items:center;gap:2px"><span class="y" style="font-size:38px">${tU(t)}</span><span style="display:inline-block;width:42px">${icon(k, 42)}</span></div></div>`).join('')}` },
+    { id: 'ext', name: 'Extended Forecast', ttl: 'Extended\nForecast', html: () => `<div class="ws-fc">${D().fc.map(([d, c, k, lo, hi]) => `<div class="d"><div class="y" style="font-size:40px">${d}</div><div style="height:96px;display:grid;place-items:center">${icon(k, 104)}</div><div style="font-size:30px;height:60px;line-height:.95">${c}</div><div style="display:flex;gap:22px;font-size:28px"><div><div style="color:#8ab4ff">Lo</div><div style="font-size:40px">${tU(lo)}</div></div><div><div class="y">Hi</div><div style="font-size:40px">${tU(hi)}</div></div></div></div>`).join('')}</div>` },
+    { id: 'alm', name: 'Almanac', ttl: 'Almanac', html: () => `<div style="position:absolute;left:30px;right:30px;top:20px;font-size:32px;line-height:1.15"><div style="display:grid;grid-template-columns:150px 1fr 1fr"><span></span><span class="y">Saturday</span><span class="y">Sunday</span><span>Sunrise:</span><span>7:18 am</span><span>7:19 am</span><span>Sunset:</span><span>6:31 pm</span><span>6:29 pm</span></div><div class="y" style="margin-top:22px">Moon Data:</div><div style="display:flex;justify-content:space-between;margin-top:8px;text-align:center">${[['New', 'Oct 10', 0], ['First', 'Oct 18', 0.5], ['Full', 'Oct 25', 1], ['Last', 'Nov 1', 0.5]].map(([p, d, f], i) => `<div><div>${p}</div><svg width="56" height="56" viewBox="0 0 56 56" style="margin:4px 0;filter:drop-shadow(2px 2px 0 #000)"><circle cx="28" cy="28" r="24" fill="#3a3a3a"/>${f === 1 ? '<circle cx="28" cy="28" r="24" fill="#f4f0c8"/>' : f ? `<path d="M28 4a24 24 0 0 ${i === 1 ? 1 : 0} 0 48Z" fill="#f4f0c8"/>` : ''}</svg><div style="font-size:26px">${d}</div></div>`).join('')}</div></div>` },
+  ];
+  const crawlLines = () => { const d = D(); return [`Conditions at ${d.st}`, `Temp: ${tU(d.t)}°${metric ? 'C' : 'F'}`, `Humidity: ${d.hum}%   Dewpoint: ${tU(d.dew)}°`, `Wind: ${d.w} ${d.ws} ${metric ? 'KM/H' : 'MPH'}`, `Visib: ${d.vis} mi.  Ceiling: ${d.ceil} ft.`]; };
+  // ---------- DOM ----------
+  const wrap = h('div.ws'); root.append(wrap);
+  const inp = h('input', { value: city, list: 'ws-cities', spellcheck: 'false' });
+  const dl = h('datalist', { id: 'ws-cities' }, Object.keys(CITIES).map((c) => h('option', { value: c })));
+  wrap.append(h('div.ws-loc', {}, inp, dl, h('button', { title: 'Use my location', html: '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="none" stroke="#000" stroke-width="2"/><circle cx="8" cy="8" r="2" fill="#000"/><path d="M8 0v3M8 13v3M0 8h3M13 8h3" stroke="#000" stroke-width="2"/></svg>', onclick: () => { inp.value = 'Seattle, WA, USA'; go(); } }), h('button', { onclick: () => go() }, 'GO'), h('button', { onclick: () => { inp.value = 'Seattle, WA, USA'; go(); } }, 'Reset')));
+  const stage = h('div.ws-stage'); wrap.append(stage);
+  const fr = h('div.ws-fr'); stage.append(fr);
+  const ttl = h('div.ws-ttl'), clk = h('div.ws-clk'), pn = h('div.ws-pn'), cr = h('div.ws-cr');
+  fr.append(h('div.ws-hd'), h('div.ws-logo', { html: 'WEATHER<br>STAR<br>4000+' }), ttl, h('div.ws-noaa'), clk, pn, cr);
+  const ico = { menu: '<svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>', prev: '<svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>', next: '<svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6zM16 6h2v12h-2z"/></svg>',
+    pause: '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>', play: '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>', ref: '<svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg>',
+    muted: '<svg viewBox="0 0 24 24"><path d="M16.5 12A4.5 4.5 0 0 0 14 8v2.2l2.45 2.45c.03-.2.05-.41.05-.65zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.8 8.8 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9zM12 4 9.91 6.09 12 8.18z"/></svg>', vol: '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>',
+    full: '<svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7zm-2-4h2V7h3V5H5zm12 7h-3v2h5v-5h-2zM14 5v2h3v3h2V5z"/></svg>', scan: '<svg viewBox="0 0 24 24"><path d="M3 4h18v16H3zM5 6v12h14V6zM6 8l12 9" stroke="#fff" stroke-width="1.6" fill="none"/></svg>' };
+  const bPlay = h('button', { title: 'Pause', html: ico.pause, onclick: () => setPlaying(!playing) }), bMute = h('button', { title: 'Unmute', html: ico.muted, onclick: () => toggleMute() });
+  stage.append(h('div.ws-pl', {}, h('button', { title: 'Menu', html: ico.menu, onclick: () => setBox.scrollIntoView({ behavior: 'smooth' }) }), h('button', { title: 'Previous', html: ico.prev, onclick: () => step(-1) }), h('button', { title: 'Next', html: ico.next, onclick: () => step(1) }), bPlay,
+    h('span', { style: { width: '50px' } }), h('button', { title: 'Refresh', html: ico.ref, onclick: () => go(true) }), h('span.sp'), bMute, h('button', { title: 'Scanlines', html: ico.scan, onclick: () => { fr.classList.toggle('scan'); fr.style.backgroundImage = fr.classList.contains('scan') ? 'repeating-linear-gradient(#0000 0 2px,#0003 2px 3px),' + getComputedStyle(fr).backgroundImage : ''; } }),
+    h('button', { title: 'Fullscreen', html: ico.full, onclick: () => { wrap.classList.toggle('theater'); const k = Math.min((root.clientWidth - 40) / 640, (root.clientHeight - 40) / 520); stage.style.setProperty('--k', k.toFixed(2)); } })));
+  const status = h('div', {}); wrap.append(h('div.ws-box', {}, status));
+  const checks = {}; const SPEEDS = { Slow: 15000, Normal: 10000, Fast: 6000, 'Very Fast': 3500 };
+  const speedSel = h('select', { onchange: () => { dur = SPEEDS[speedSel.value]; restartTimer(); } }, Object.keys(SPEEDS).map((k) => h('option', { value: k, selected: k === 'Normal' }, k)));
+  const unitSel = h('select', { onchange: () => { metric = unitSel.value === 'Metric'; show(idx, true); } }, h('option', {}, 'US'), h('option', {}, 'Metric'));
+  const setBox = h('div.ws-set', {}, h('div', {}, h('h4', {}, 'Selected displays'), SLIDES.map((s0) => { const c = h('input', { type: 'checkbox', checked: true, onchange: () => { if (!enabled().length) { c.checked = true; toast('At least one display must stay on'); } } }); checks[s0.id] = c; return h('label', {}, c, s0.name); })),
+    h('div', {}, h('h4', {}, 'Settings'), h('label', {}, 'Speed ', speedSel), h('label', {}, 'Units ', unitSel), h('label', {}, h('input', { type: 'checkbox', checked: true, onchange: (e) => { crawlOn = e.target.checked; cr.style.visibility = crawlOn ? '' : 'hidden'; } }), 'Show crawl'),
+      h('div', { style: { marginTop: '10px', fontSize: '16px', color: '#555', maxWidth: '340px' } }, 'Keyboard: ←/→ previous/next slide, space play/pause.')));
+  wrap.append(setBox);
+  // ---------- engine ----------
+  let idx = 0, playing = true, dur = SPEEDS.Normal, timer = null, slideStart = performance.now(), crawlOn = true, crawlI = 0, crawlTimer = null, crawlCycles = 0, muted = true, musicT = null;
+  const enabled = () => SLIDES.map((s0, i) => i).filter((i) => checks[SLIDES[i].id].checked);
+  const show = (i, keep) => { idx = i; const s0 = SLIDES[i]; ttl.textContent = s0.ttl; ttl.style.top = s0.ttl.includes('\n') ? '24px' : '42px'; pn.replaceChildren(h('div.ws-sl', { html: s0.html() })); slideStart = performance.now(); if (!keep) blip(220, 0.03, 'square', 0.01); updStatus(); };
+  const step = (d) => { const en = enabled(); const p = en.indexOf(idx); const ni = en[((p < 0 ? (d > 0 ? -1 : 0) : p) + d + en.length) % en.length]; show(ni); restartTimer(); };
+  const restartTimer = () => { clearTimeout(timer); if (playing) timer = setTimeout(() => { if (!document.body.contains(wrap)) return; step(1); }, dur); updStatus(); };
+  const setPlaying = (p) => { playing = p; bPlay.innerHTML = p ? ico.pause : ico.play; bPlay.title = p ? 'Pause' : 'Play'; restartTimer(); };
+  const updStatus = () => status.replaceChildren(h('b', {}, `Now showing: ${SLIDES[idx].name}`), h('br'), playing ? `Auto-advance every ${dur / 1000}s · ${enabled().length} displays in rotation` : 'Paused — press ▶ to resume the broadcast', h('br'), `${city}`);
+  const crawlNext = () => { if (!document.body.contains(wrap)) return; const L = crawlLines(); crawlCycles++;
+    if (crawlCycles % 6 === 0) { const msg = `*** ${D().st}: ${D().c.toUpperCase()} — Winds ${D().w} at ${D().ws} MPH — Visibility ${D().vis} miles — Stay tuned for your local forecast ***`; const el = h('div.ln.scroll', {}, msg); el.style.setProperty('--dur', msg.length * 0.16 + 's'); cr.replaceChildren(el); crawlTimer = setTimeout(crawlNext, msg.length * 160 + 300); return; }
+    cr.replaceChildren(h('div.ln', {}, L[crawlI % L.length])); crawlI++; crawlTimer = setTimeout(crawlNext, 3500); };
+  const tickClock = () => { if (!document.body.contains(wrap)) return; const d = new Date(); const t = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' }).replace(/\s/g, ' '); const dd = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase().replace(',', ''); clk.innerHTML = `${t.padStart(11, '\u00a0')}<br>${dd}`; setTimeout(tickClock, 1000); };
+  const go = async (refresh) => { const v = inp.value.trim(); const k = Object.keys(CITIES).find((c) => c.toLowerCase().startsWith(v.toLowerCase().split(',')[0])) || (refresh ? city : null); if (!k) { toast('Location not found — try Seattle, Denver, Miami or Chicago'); return; }
+    city = k; inp.value = k; pn.replaceChildren(h('div.ws-load', {}, refresh ? 'Refreshing data...' : 'Loading forecast...')); clearTimeout(timer); await sleep(700); crawlI = 0; show(enabled()[0]); restartTimer(); };
+  const toggleMute = () => { muted = !muted; bMute.innerHTML = muted ? ico.muted : ico.vol; clearTimeout(musicT); if (!muted) { const notes = [57, 61, 64, 69, 66, 64, 61, 59]; let n = 0; const loop = () => { if (muted || !document.body.contains(wrap)) return; blip(midi(notes[n % notes.length]), 0.5, 'triangle', 0.035); if (n % 4 === 0) blip(midi(notes[n % notes.length] - 24), 1.2, 'sine', 0.04); n++; musicT = setTimeout(loop, 420); }; loop(); } };
+  const onKey = (e) => { if (!document.body.contains(wrap)) return window.removeEventListener('keydown', onKey); if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') { if (e.key === 'Enter' && e.target === inp) go(); return; } if (e.key === 'ArrowRight') step(1); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === ' ') { e.preventDefault(); setPlaying(!playing); } };
+  window.addEventListener('keydown', onKey);
+  tickClock(); show(0, true); crawlNext(); restartTimer();
+  window.__demoProof = async () => { const out = []; const name = () => SLIDES[idx].name;
+    out.push(`start: ${name()} (auto every ${dur / 1000}s)`);
+    const saved = dur; dur = 700; restartTimer(); const a = idx; await sleep(1000); out.push(`auto-advance ${SLIDES[a].name} → ${name()}`);
+    stage.querySelector('[title="Next"]').click(); out.push(`next → ${name()}`); stage.querySelector('[title="Previous"]').click(); out.push(`prev → ${name()}`);
+    bPlay.click(); const held = idx; await sleep(1000); out.push(`paused: held=${held === idx}`); bPlay.click();
+    checks.hg.checked = false; show(1); restartTimer(); stage.querySelector('[title="Next"]').click(); out.push(`Hourly Graph unchecked → next skips to ${name()}`); checks.hg.checked = true;
+    const l0 = cr.textContent; clearTimeout(crawlTimer); crawlNext(); out.push(`crawl "${l0}" → "${cr.textContent.slice(0, 40)}"`);
+    unitSel.value = 'Metric'; unitSel.onchange?.(); unitSel.dispatchEvent(new Event('change')); show(0, true); out.push(`metric temp: ${pn.textContent.match(/-?\d+°/)?.[0]}`); unitSel.value = 'US'; unitSel.dispatchEvent(new Event('change'));
+    inp.value = 'Denver'; await go(); out.push(`GO Denver → ${D().st}`); inp.value = 'Seattle, WA, USA'; await go();
+    dur = saved; speedSel.value = 'Normal'; setPlaying(true); show(0, true); restartTimer(); out.push('restored: Seattle, Current Conditions, Normal speed, playing'); return out.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['parody-desktop-os-sandbox'])(root, T); }

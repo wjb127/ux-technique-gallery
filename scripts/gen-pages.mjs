@@ -47,7 +47,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate': '판타지 도시 지도 생성기',
   'shopify-editions-3d-cover-shelf-season-timeline-archive': '3D 커버 선반 아카이브',
   'waffle-drag-swap-letter-grid-color-feedback-swap-counter': '드래그 스왑 단어 퍼즐',
-  'lux-dark-fullscreen-feature-carousel-chromatic-wordmark-pill-search': '다크 풀스크린 캐러셀' };
+  'lux-dark-fullscreen-feature-carousel-chromatic-wordmark-pill-search': '다크 풀스크린 캐러셀',
+  'ipodjs-click-wheel-scroll-split-pane-menu-cover-flow': '클릭휠 아이팟 플레이어',
+  'weatherstar-4000-retro-broadcast-auto-slide-forecast-player': '레트로 기상 방송 슬라이드쇼',
+  '16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression': '7단계 동의 척도 설문' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

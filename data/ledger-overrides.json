@@ -1,0 +1,41 @@
+{
+ "clone-ipodjs-click-wheel-scroll-split-pane-menu-cover-flow": {
+  "name": "Skeuomorphic iPod Classic with Rotary Click Wheel Scrolling, Split-Pane Menu and Cover Flow (iPod.js)",
+  "product": "iPod.js — web iPod Classic by Tanner Villarete",
+  "checkpoints": [
+   "Silver aluminium iPod Classic body centred on white with a floor reflection; black-bezel screen above a white click wheel (MENU / ⏮ / ⏭ / ▶❚❚) and grey centre button",
+   "Split-pane screen: left menu (Cover Flow, Music, Games, Settings, Sign in) under a grey 'iPod.js' title bar with battery; right pane previews the highlighted item",
+   "Blue gradient selection bar with › chevron; dragging around the wheel (or mouse wheel / arrow keys) moves the highlight one row per tick with a click sound",
+   "Centre button drills into a sub-menu that slides in from the right; MENU slides back",
+   "Cover Flow view: 3D album covers angled on both sides of a flat centred cover with mirror reflection, scrubbed by the wheel; title/artist under it",
+   "Now Playing screen with art, track info and progress bar; ▶❚❚ toggles playback, ⏮/⏭ change track"
+  ],
+  "checkpoint_source": "ledger-note+ref-screens (2026-10-10 12:00)"
+ },
+ "clone-weatherstar-4000-retro-broadcast-auto-slide-forecast-player": {
+  "name": "Retro 90s WeatherStar 4000+ Broadcast with Auto-Advancing Forecast Slides, Crawl Strip and Player Bar (WeatherStar 4000+)",
+  "product": "WeatherStar 4000+ — retro weather channel by netbymatt",
+  "checkpoints": [
+   "Location bar on top (text input + locate button + GO / Reset) above a 4:3 640×480 broadcast frame",
+   "Purple-to-orange gradient header with blue 'WEATHER STAR 4000+' logo tile, yellow two-line slide title, NOAA mark and live clock + date in white pixel type",
+   "Bevelled royal-blue content panel per slide: Current Conditions (temp, icon, wind, humidity/dewpoint/ceiling/visibility/pressure), Hourly Graph, Regional Observations map, Extended Forecast",
+   "Slides auto-advance on a timer with a hard broadcast cut; next/prev skip and pause holds the current slide",
+   "Bottom blue crawl strip cycles 'Conditions at …', Temp, Wind and Visibility lines and a scrolling ticker",
+   "Black player bar: menu, prev, next, play/pause, refresh, mute, fullscreen; selected-displays checkboxes and speed setting below"
+  ],
+  "checkpoint_source": "ledger-note+ref-screens (2026-10-10 12:00)"
+ },
+ "clone-16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression": {
+  "name": "Illustrated 3-Step Cards with 7-Circle Agree/Disagree Scale and Auto-Focus Question Progression (16Personalities)",
+  "product": "16Personalities — NERIS Type Explorer test",
+  "checkpoints": [
+   "White top nav with dotted 16Personalities logo, 'Personality Test' active tab with teal top underline, dropdown menus, accessibility/language icons and Log in",
+   "Light grey hero with dotted logo mark, big slate 'Free Personality Test' title and 'NERIS Type Explorer®' subtitle over a soft white wave",
+   "Three illustrated step cards with coloured top border (blue / green / purple): STEP pill, title and description",
+   "Question rows: statement + 7 circles sized large→small→large between green 'Agree' and purple 'Disagree' labels",
+   "Only the active question is coloured; answering fills the circle, dims the row and smooth-scrolls/focuses the next question",
+   "Progress bar updates as questions are answered; Next button pages to the next set"
+  ],
+  "checkpoint_source": "ledger-note+ref-screens (2026-10-10 12:00)"
+ }
+}

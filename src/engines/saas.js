@@ -6819,4 +6819,137 @@ V['lux-dark-fullscreen-feature-carousel-chromatic-wordmark-pill-search'] = (root
     clearTimeout(timer); go(0); await sleep(1000); out.push(`restored slide 1 "${SL[cur].title}", overlay=${ov.classList.contains('on')}`); return out.join('; '); };
 };
 
+V['16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#343c4b', ac: '#33a474', dark: false });
+  const IN = "'Inter Variable',system-ui,sans-serif";
+  const G = '#33a474', P = '#88619a', B = '#4298b4', Y = '#e4ae3a', SL = '#343c4b';
+  const st = document.createElement('style'); st.textContent = `
+.p16{position:absolute;inset:0;overflow:auto;background:#fff;color:${SL};font-family:${IN};scroll-behavior:smooth}
+.p16-nav{position:sticky;top:0;z-index:20;height:64px;background:#fff;display:flex;align-items:center;padding:0 20px;box-shadow:0 1px 0 #e6e8eb}
+.p16-logo{display:flex;align-items:center;gap:8px;font:500 21px/1 'Lora',Georgia,serif;color:${SL};letter-spacing:-.01em;cursor:pointer}
+.p16-logo b{font-weight:500;color:#576071}
+.p16-links{display:flex;gap:2px;margin-left:auto;margin-right:auto;transform:translateX(40px);height:100%}
+.p16-links a{position:relative;display:flex;align-items:center;gap:4px;padding:0 8px;font:450 14.5px/1 ${IN};color:#576071;cursor:pointer;text-decoration:none;height:100%}
+.p16-links a:hover{color:${SL}}
+.p16-links a.on{color:${SL}}.p16-links a.on:before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:${B}}
+.p16-links svg{width:9px;height:9px;opacity:.6}
+.p16-r{display:flex;align-items:center;gap:16px;font:450 14.5px ${IN};color:#576071}
+.p16-r svg{width:20px;height:20px;fill:none;stroke:#576071;stroke-width:1.6}
+.p16-prog{position:sticky;top:64px;z-index:19;height:0;overflow:visible}
+.p16-prog .bar{height:5px;background:#eceef1}.p16-prog .fill{height:100%;width:0;background:linear-gradient(90deg,${G},#4fc08d);transition:width .45s cubic-bezier(.3,.7,.3,1)}
+.p16-prog .lab{position:absolute;right:16px;top:9px;font:600 12px ${IN};color:#7a8394;background:#fff;padding:3px 9px;border-radius:999px;box-shadow:0 1px 4px #0001;opacity:0;transition:opacity .3s}
+.p16-prog.on .lab{opacity:1}
+.p16-hero{position:relative;background:#f0f1f3;padding:46px 0 0;text-align:center;overflow:hidden}
+.p16-hero h1{margin:16px 0 0;font:700 54px/1.1 ${IN};letter-spacing:-.02em;color:${SL}}
+.p16-hero .sub{margin:16px 0 0;font:400 19px/1 ${IN};color:#576071}.p16-hero sup{font-size:11px}
+.p16-wave{position:absolute;left:0;right:0;bottom:0;height:300px}
+.p16-cards{position:relative;display:grid;grid-template-columns:repeat(3,420px);gap:20px;justify-content:center;margin-top:42px;padding-bottom:22px}
+.p16-card{position:relative;background:#fff;border-radius:6px;box-shadow:0 4px 18px #2a2f3a14;overflow:hidden;text-align:left;border-top:4px solid var(--c);transition:transform .25s,box-shadow .25s}
+.p16-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px #2a2f3a1f}
+.p16-card .top{position:relative;height:150px;background:var(--t)}
+.p16-card .top svg.wv{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:40px}
+.p16-card .ill{position:absolute;right:22px;top:16px;width:150px;height:130px}
+.p16-card .bd{padding:0 21px 22px;margin-top:-8px;position:relative}
+.p16-pill{display:inline-block;font:700 10.5px/1 ${IN};letter-spacing:.06em;color:var(--c);background:var(--t);padding:5px 9px;border-radius:999px}
+.p16-card h3{margin:10px 0 9px;font:600 22px/1.2 ${IN};letter-spacing:-.01em;color:${SL}}
+.p16-card p{margin:0;font:400 16px/1.5 ${IN};color:#4a5160}
+.p16-qs{max-width:1060px;margin:26px auto 0;padding:0 40px}
+.p16-q{padding:38px 0 46px;border-bottom:1px solid #e6e8eb;transition:opacity .35s}
+.p16-q.done{opacity:.5}.p16-q.done:hover{opacity:.85}
+.p16-q h4{margin:0 0 26px 120px;font:600 21px/1.35 ${IN};color:#4a5160;letter-spacing:-.005em}
+.p16-sc{display:flex;align-items:center;gap:0}
+.p16-sc .lb{width:110px;font:500 19px ${IN};color:var(--lc,#9aa1ac)}.p16-sc .lb.r{text-align:left;padding-left:30px;width:140px}
+.p16-sc .cs{display:flex;align-items:center;justify-content:space-between;width:620px}
+.p16-c{all:unset;box-sizing:border-box;border-radius:50%;cursor:pointer;border:3px solid #a2a7af;display:grid;place-items:center;transition:background .2s,border-color .25s,transform .15s}
+.p16-c:hover{transform:scale(1.06)}
+.p16-c svg{width:45%;height:45%;opacity:0;transform:scale(.4);transition:.25s}
+.p16-q.act .p16-c.g{border-color:${G}}.p16-q.act .p16-c.p{border-color:${P}}.p16-q.act .p16-c.n{border-color:#9aa1ac}
+.p16-q.act .lb.l{--lc:${G}}.p16-q.act .lb.r{--lc:${P}}
+.p16-q.done .lb.l{--lc:${G}}.p16-q.done .lb.r{--lc:${P}}
+.p16-c.g:hover{background:${G}22}.p16-c.p:hover{background:${P}22}.p16-c.n:hover{background:#9aa1ac22}
+.p16-c.sel.g{background:${G};border-color:${G}}.p16-c.sel.p{background:${P};border-color:${P}}.p16-c.sel.n{background:#9aa1ac;border-color:#9aa1ac}
+.p16-c.sel svg{opacity:1;transform:none}
+.p16-q.done .p16-c:not(.sel).g{border-color:${G}88}.p16-q.done .p16-c:not(.sel).p{border-color:${P}88}
+.p16-foot{display:flex;justify-content:center;align-items:center;gap:20px;padding:44px 0 90px}
+.p16-btn{all:unset;cursor:pointer;font:600 17px ${IN};color:#fff;background:${P};padding:15px 34px;border-radius:999px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 0 #6e4b80;transition:filter .2s,transform .1s}
+.p16-btn:hover{filter:brightness(1.07)}.p16-btn:active{transform:translateY(2px);box-shadow:0 1px 0 #6e4b80}
+.p16-btn.back{background:#fff;color:#576071;box-shadow:inset 0 0 0 2px #d6d9de}
+.p16-btn[disabled]{opacity:.45;pointer-events:none}
+.p16-pg{font:500 14px ${IN};color:#8a92a0}
+.p16-res{position:fixed;inset:38px 0 0 0;z-index:40;background:#343c4bcc;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.p16-res.on{opacity:1;pointer-events:auto}
+.p16-rc{width:560px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px #0005;transform:translateY(20px) scale(.97);transition:transform .4s cubic-bezier(.2,.8,.3,1.2);text-align:center}
+.p16-res.on .p16-rc{transform:none}
+.p16-rc .hd{background:linear-gradient(135deg,#e6f4ec,#efe9f3);padding:30px 20px 22px}
+.p16-rc .code{font:800 46px/1 ${IN};letter-spacing:.04em;color:${SL}}.p16-rc .nm{font:600 20px ${IN};color:var(--rc);margin-top:8px}
+.p16-ax{padding:18px 34px 6px;text-align:left}
+.p16-ax .row{display:grid;grid-template-columns:110px 1fr 110px;gap:10px;align-items:center;font:500 13px ${IN};color:#576071;margin:10px 0}
+.p16-ax .row span:last-child{text-align:right}
+.p16-ax .tr{height:10px;border-radius:99px;background:#eceef1;position:relative;overflow:hidden}.p16-ax .tr i{position:absolute;top:0;bottom:0;border-radius:99px}
+`; root.append(st);
+  const QS = ['You regularly make new friends.', 'You enjoy exploring unfamiliar ideas and viewpoints.', 'You are not easily swayed by emotional arguments.', 'You struggle with deadlines.', 'You rarely feel insecure.', 'You avoid making phone calls.',
+    'You prefer to completely finish one project before starting another.', 'You are drawn to abstract discussions about the nature of things.', 'You feel comfortable just walking up to someone you find interesting and striking up a conversation.', 'You usually stay calm, even under a lot of pressure.', 'You often make a backup plan for a backup plan.', 'Your mood can change very quickly.'];
+  const AX = [0, 1, 2, 3, 4, 0, 3, 1, 0, 4, 3, 4]; // E, N, T, J, A axis each question loads on
+  const SIGN = [1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, -1];
+  const PER = 6, PAGES = Math.ceil(QS.length / PER);
+  const SIZES = [64, 52, 42, 30, 42, 52, 64], KIND = ['g', 'g', 'g', 'n', 'p', 'p', 'p'];
+  let ans = Array(QS.length).fill(null), page = 0;
+  const wrap = h('div.p16'); root.append(wrap);
+  // ---------- illustrations ----------
+  const dots = (sz) => { const C = [B, G, Y, P]; let s0 = `<svg width="${sz}" height="${sz}" viewBox="0 0 60 60">`; for (let i = 0; i < 12; i++) { const a = (i / 12) * Math.PI * 2 - Math.PI / 2; s0 += `<circle cx="${30 + Math.cos(a) * 24}" cy="${30 + Math.sin(a) * 24}" r="2.6" fill="${C[Math.floor(i / 3)]}"/>`; }
+    s0 += `<circle cx="30" cy="19" r="6" fill="${B}"/><circle cx="41" cy="30" r="6" fill="${Y}"/><circle cx="30" cy="41" r="6" fill="${G}"/><circle cx="19" cy="30" r="6" fill="${P}"/></svg>`; return s0; };
+  const ILL = [
+    `<svg class="ill" viewBox="0 0 150 130"><rect x="38" y="6" width="74" height="92" rx="4" fill="#6fb6cf"/><rect x="44" y="12" width="62" height="22" rx="2" fill="#a9d6e5"/><rect x="66" y="20" width="18" height="5" rx="2" fill="#4a8ea6"/><rect x="44" y="40" width="62" height="22" rx="2" fill="#a9d6e5"/><rect x="66" y="48" width="18" height="5" rx="2" fill="#4a8ea6"/>
+      <path d="M50 52h56l-6 70H56Z" fill="#fff" stroke="#4a8ea6" stroke-width="2.5"/>${[66, 82, 98].map((y) => `<path d="M60 ${y}l4 4 7-8" stroke="${B}" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="76" y="${y - 2}" width="20" height="4" rx="2" fill="#a9d6e5"/>`).join('')}<rect x="14" y="82" width="26" height="36" rx="4" fill="#4a8ea6"/><path d="M18 82l-6-22M26 82V56M34 82l6-20" stroke="#356e83" stroke-width="3"/><rect x="112" y="92" width="28" height="26" rx="4" fill="#4a8ea6"/><path d="M118 92l8-14 10 6" stroke="#a9d6e5" stroke-width="3" fill="none"/></svg>`,
+    `<svg class="ill" viewBox="0 0 150 130"><path d="M75 4l12 16h-7v18h-10V20h-7Z" fill="#2f9365"/><path d="M75 126l12-16h-7V92h-10v18h-7Z" fill="#2f9365"/><path d="M8 65l16-12v7h18v10H24v7Z" fill="#2f9365"/><path d="M142 65l-16-12v7h-18v10h18v7Z" fill="#2f9365"/>
+      <path d="M28 38l47 8 47-8v58l-47 8-47-8Z" fill="#5cbf8e" stroke="#2f9365" stroke-width="2.5"/><path d="M75 46v58" stroke="#2f9365" stroke-width="2.5"/><path d="M36 48l32 5v42l-32-5Z" fill="#dff3e8"/><path d="M82 53l32-5v42l-32 5Z" fill="#dff3e8"/>${[0, 1, 2, 3].map((i) => `<rect x="${42 + i * 6}" y="${78 - i * 6}" width="4" height="${12 + i * 6}" fill="#2f9365"/>`).join('')}<path d="M88 82l8-8 6 4 9-12" stroke="${Y}" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="62" y="64" width="14" height="14" fill="${Y}" transform="rotate(20 69 71)"/></svg>`,
+    `<svg class="ill" viewBox="0 0 150 130"><path d="M22 30l50-8 6 92-48 8Z" fill="#c9b0d6" opacity=".8"/><path d="M80 18l52 10-8 92-48-8Z" fill="#b294c4" opacity=".8"/><path d="M75 6l20 34-14 74-16 4-12-76Z" fill="#88619a"/><path d="M75 6l20 34-12 6Z" fill="#a37fb5"/><path d="M53 42l12-4 4 76-4 4Z" fill="#6d4a7f"/>
+      ${[[30, 50], [44, 80], [106, 46], [118, 78], [96, 98]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5" fill="#6d4a7f"/>`).join('')}<path d="M30 50L44 80M106 46l12 32-22 20" stroke="#6d4a7f" stroke-width="1.5" fill="none"/><path d="M58 118l6-12 6 14-6 6Z" fill="#a37fb5"/><path d="M82 112l8-8 4 12-8 6Z" fill="#a37fb5"/></svg>`];
+  const caret = '<svg viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>';
+  // ---------- nav ----------
+  wrap.append(h('nav.p16-nav', {}, h('div.p16-logo', { html: dots(34) + '<span><b>16</b>Personalities</span>', onclick: () => wrap.scrollTo({ top: 0 }) }),
+    h('div.p16-links', {}, h('a.on', {}, 'Personality Test'), h('a', { html: 'Personality Types ' + caret }), h('a', {}, 'Career Suite'), h('a', { html: 'Teams &amp; Pros ' + caret }), h('a', { html: 'Resources ' + caret })),
+    h('div.p16-r', { html: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="7.5" r="1.3" fill="#576071"/><path d="M7.5 10.5l4.5 1 4.5-1M12 11.5v3l-2.5 4M12 14.5l2.5 4"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3 3 16 0 19M12 2.5c-3 3-3 16 0 19"/></svg><span>Log in</span>' })));
+  const fill = h('div.fill'), plab = h('div.lab'); const prog = h('div.p16-prog', {}, h('div.bar', {}, fill), plab); wrap.append(prog);
+  // ---------- hero + cards ----------
+  const CARDS = [[B, '#e6f2f6', 'STEP 1', 'Complete the Test', 'Be yourself and answer honestly to find out your personality type.'], [G, '#e5f4ec', 'STEP 2', 'View Detailed Results', 'Learn how your personality type influences many areas of your life.'], [P, '#f1ebf4', 'STEP 3', 'Unlock Your Potential', 'Find jobs that suit your personality and get career guidance that actually helps.']];
+  wrap.append(h('section.p16-hero', {}, h('div', { html: `<svg class="p16-wave" viewBox="0 0 1440 300" preserveAspectRatio="none"><path d="M0 120 C 360 220, 720 40, 1080 120 S 1440 140 1440 140 V300 H0Z" fill="#fff"/></svg>` }), h('div', { style: { position: 'relative' }, html: dots(78) }), h('h1', { style: { position: 'relative' } }, 'Free Personality Test'), h('div.sub', { style: { position: 'relative' }, html: 'NERIS Type Explorer<sup>®</sup>' }),
+    h('div.p16-cards', {}, CARDS.map(([c, t, s0, ti, d], i) => h('div.p16-card', { style: `--c:${c};--t:${t}` }, h('div.top', { html: ILL[i] + `<svg class="wv" viewBox="0 0 420 40" preserveAspectRatio="none"><path d="M0 22 C 120 4, 260 40, 420 14 V40 H0Z" fill="#fff"/></svg>` }), h('div.bd', {}, h('span.p16-pill', {}, s0), h('h3', {}, ti), h('p', {}, d)))))));
+  const qs = h('div.p16-qs'); wrap.append(qs);
+  const bBack = h('button.p16-btn.back', { onclick: () => goPage(page - 1) }, '‹ Back'), bNext = h('button.p16-btn', { onclick: () => next() }, 'Next', h('span', {}, '›')), pg = h('span.p16-pg');
+  wrap.append(h('div.p16-foot', {}, bBack, pg, bNext));
+  const check = '<svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const rows = [];
+  const renderPage = () => { rows.length = 0; qs.replaceChildren(); for (let k = 0; k < PER; k++) { const qi = page * PER + k; if (qi >= QS.length) break;
+      const row = h('div.p16-q', { 'data-q': qi }, h('h4', {}, QS[qi]), h('div.p16-sc', {}, h('span.lb.l', {}, 'Agree'), h('div.cs', {}, SIZES.map((sz, v) => h('button.p16-c.' + KIND[v], { style: { width: sz + 'px', height: sz + 'px' }, 'aria-label': ['Agree strongly', 'Agree', 'Agree a little', 'Neutral', 'Disagree a little', 'Disagree', 'Disagree strongly'][v], html: check, onclick: () => answer(qi, v) }))), h('span.lb.r', {}, 'Disagree')));
+      rows.push(row); qs.append(row); } paint(); };
+  const firstOpen = () => { for (let k = 0; k < rows.length; k++) if (ans[page * PER + k] == null) return k; return -1; };
+  const paint = () => { const fo = firstOpen(); rows.forEach((r, k) => { const qi = page * PER + k; r.classList.toggle('done', ans[qi] != null && k !== fo); r.classList.toggle('act', k === fo); [...r.querySelectorAll('.p16-c')].forEach((c, v) => c.classList.toggle('sel', ans[qi] === v)); });
+    const n = ans.filter((a) => a != null).length, pct = Math.round((n / QS.length) * 100); fill.style.width = pct + '%'; plab.textContent = `${pct}% · ${n} / ${QS.length}`; prog.classList.toggle('on', n > 0);
+    pg.textContent = `Page ${page + 1} of ${PAGES}`; bBack.disabled = page === 0; bNext.lastChild.textContent = page === PAGES - 1 ? '✓' : '›'; bNext.firstChild.textContent = page === PAGES - 1 ? 'Submit' : 'Next';
+    const pageDone = rows.every((r, k) => ans[page * PER + k] != null); bNext.disabled = !pageDone; };
+  const focusRow = (el) => { const top = el.offsetTop - (wrap.clientHeight - el.offsetHeight) / 2; wrap.scrollTo({ top: Math.max(0, top), behavior: 'smooth' }); };
+  const answer = (qi, v) => { ans[qi] = v; blip(KIND[v] === 'g' ? 660 : KIND[v] === 'p' ? 440 : 550, 0.06, 'sine', 0.04); paint(); const fo = firstOpen(); setTimeout(() => focusRow(fo >= 0 ? rows[fo] : bNext.parentElement), 120); };
+  const goPage = (p) => { page = clamp(p, 0, PAGES - 1); renderPage(); wrap.scrollTo({ top: qs.offsetTop - 120, behavior: 'smooth' }); };
+  // ---------- result ----------
+  const res = h('div.p16-res', { onclick: (e) => { if (e.target === res) res.classList.remove('on'); } }); root.append(res);
+  const TYPES = { INFJ: ['Advocate', P], INTJ: ['Architect', P], ENFP: ['Campaigner', G], ENTP: ['Debater', P], INFP: ['Mediator', G], ISTJ: ['Logistician', B], ESFJ: ['Consul', B], ISTP: ['Virtuoso', Y], ENFJ: ['Protagonist', G], ENTJ: ['Commander', P], INTP: ['Logician', P], ISFJ: ['Defender', B], ESTJ: ['Executive', B], ISFP: ['Adventurer', Y], ESTP: ['Entrepreneur', Y], ESFP: ['Entertainer', Y] };
+  const score = () => { const s0 = [0, 0, 0, 0, 0], n = [0, 0, 0, 0, 0]; ans.forEach((a, i) => { if (a == null) return; s0[AX[i]] += (3 - a) * SIGN[i]; n[AX[i]] += 3; }); return s0.map((v, i) => 50 + (n[i] ? (v / n[i]) * 50 : 0)); };
+  const next = () => { if (page < PAGES - 1) return goPage(page + 1); const sc = score(); const code = (sc[0] >= 50 ? 'E' : 'I') + (sc[1] >= 50 ? 'N' : 'S') + (sc[2] >= 50 ? 'T' : 'F') + (sc[3] >= 50 ? 'J' : 'P'); const [nm, col] = TYPES[code]; const id = sc[4] >= 50 ? 'A' : 'T';
+    const AXL = [['Extraverted', 'Introverted', B], ['Intuitive', 'Observant', Y], ['Thinking', 'Feeling', G], ['Judging', 'Prospecting', P], ['Assertive', 'Turbulent', '#f25e62']];
+    res.replaceChildren(h('div.p16-rc', { style: `--rc:${col}` }, h('div.hd', { html: dots(54) }, h('div.code', {}, `${code}-${id}`), h('div.nm', {}, `The ${nm}`)), h('div.p16-ax', {}, AXL.map(([a, b, c], i) => { const v = Math.round(sc[i]); const l = v >= 50; return h('div.row', {}, h('span', { style: { fontWeight: l ? 700 : 500 } }, `${l ? v : 100 - v}% ${a}`), h('div.tr', {}, h('i', { style: { background: c, left: l ? '0' : v + '%', right: l ? 100 - v + '%' : '0' } })), h('span', { style: { fontWeight: l ? 500 : 700 } }, b)); })),
+      h('div', { style: { padding: '14px 0 26px', display: 'flex', gap: '12px', justifyContent: 'center' } }, h('button.p16-btn', { onclick: () => { res.classList.remove('on'); reset(); } }, 'Retake Test'), h('button.p16-btn.back', { onclick: () => res.classList.remove('on') }, 'Close'))));
+    res.classList.add('on'); return code; };
+  const reset = () => { ans = Array(QS.length).fill(null); page = 0; res.classList.remove('on'); renderPage(); wrap.style.scrollBehavior = 'auto'; wrap.scrollTop = 0; wrap.style.scrollBehavior = ''; };
+  renderPage();
+  window.__demoProof = async () => { const out = []; reset(); wrap.style.scrollBehavior = 'auto';
+    const c0 = rows[0].querySelectorAll('.p16-c'); out.push(`row1 active=${rows[0].classList.contains('act')} row2 active=${rows[1].classList.contains('act')}`);
+    c0[0].click(); await sleep(700); out.push(`answered Q1 "Agree strongly" → Q2 active=${rows[1].classList.contains('act')}, Q1 dimmed=${rows[0].classList.contains('done')}, progress ${plab.textContent}, scrolled to ${Math.round(wrap.scrollTop)}px`);
+    for (let k = 1; k < rows.length; k++) { rows[k].querySelectorAll('.p16-c')[[1, 5, 3, 6, 2][k - 1]].click(); await sleep(40); }
+    out.push(`page 1 done → Next enabled=${!bNext.disabled}`); bNext.click(); await sleep(200); out.push(`page ${page + 1}/${PAGES}, Back enabled=${!bBack.disabled}`);
+    for (let k = 0; k < rows.length; k++) { rows[k].querySelectorAll('.p16-c')[(k * 2) % 7].click(); await sleep(40); }
+    out.push(`progress ${plab.textContent}`); const code = next(); await sleep(450); out.push(`Submit → result ${code} modal=${res.classList.contains('on')}`);
+    reset(); wrap.style.scrollBehavior = ''; out.push('restored: empty test, page 1, top'); return out.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
