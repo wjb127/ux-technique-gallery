@@ -2977,5 +2977,32 @@
   "proof": "start: 7 green / 4 yellow, 15 swaps; drag 2,3→3,0: now 9 green, counter 14; solved=true with 4 swaps left, modal=true, stars=4; restored to fresh puzzle",
   "demoNodes": 111,
   "errors": []
+ },
+ "16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression": {
+  "url": "https://ux-technique-gallery.vercel.app/t/16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression/",
+  "ok": true,
+  "at": "2026-10-10T04:03:58.620Z",
+  "http": 200,
+  "proof": "row1 active=true row2 active=false; answered Q1 \"Agree strongly\" → Q2 active=true, Q1 dimmed=true, progress 8% · 1 / 12, scrolled to 550px; page 1 done → Next enabled=true; page 2/2, Back enabled=true; progress 100% · 12 / 12; Submit → result ENFJ modal=true; restored: empty test, page 1, top",
+  "demoNodes": 363,
+  "errors": []
+ },
+ "ipodjs-click-wheel-scroll-split-pane-menu-cover-flow": {
+  "url": "https://ux-technique-gallery.vercel.app/t/ipodjs-click-wheel-scroll-split-pane-menu-cover-flow/",
+  "ok": true,
+  "at": "2026-10-10T04:03:58.609Z",
+  "http": 200,
+  "proof": "wheel +3 ticks → \"Settings\" highlighted, preview=\"Settings\"; wheel −3 ticks → \"Cover Flow\"; centre → view=coverflow; cover flow scrubbed to #2 \"Lagoon Days\"; centre → nowplaying: \"Lagoon Intro\" playing=true; play/pause → playing=false; MENU×2 → root; restored root menu",
+  "demoNodes": 59,
+  "errors": []
+ },
+ "weatherstar-4000-retro-broadcast-auto-slide-forecast-player": {
+  "url": "https://ux-technique-gallery.vercel.app/t/weatherstar-4000-retro-broadcast-auto-slide-forecast-player/",
+  "ok": true,
+  "at": "2026-10-10T04:03:58.623Z",
+  "http": 200,
+  "proof": "start: Current Conditions (auto every 10s); auto-advance Current Conditions → Latest Observations; next → Hourly Graph; prev → Latest Observations; paused: held=true; Hourly Graph unchecked → next skips to Regional Observations; crawl \"Conditions at Boeing Field\" → \"Temp: 54°F\"; metric temp: 12°; GO Denver → Denver Intl; restored: Seattle, Current Conditions, Normal speed, playing",
+  "demoNodes": 123,
+  "errors": []
  }
 }
