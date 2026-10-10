@@ -900,4 +900,246 @@ V['cuberto-context-cursor-agency-home'] = (root, T) => {
   };
 };
 
+V['csszengarden-single-markup-theme-switcher-design-list-skin-swap'] = (root, T) => {
+  import('@fontsource/julius-sans-one'); import('@fontsource/libre-baskerville/400.css'); import('@fontsource/libre-baskerville/400-italic.css'); import('@fontsource/barlow-condensed/300.css'); import('@fontsource/barlow-condensed/700.css'); import('@fontsource/ibm-plex-mono/400.css'); import('@fontsource/eb-garamond/400.css'); import('@fontsource/eb-garamond/400-italic.css');
+  theme(root, T, { bg: '#fff', fg: '#325050', ac: '#3d8a9f', dark: false });
+  const JU = "'Julius Sans One',sans-serif", LB = "'Libre Baskerville',Georgia,serif", AR = "'Helvetica Neue',Arial,'Liberation Sans',sans-serif", BC = "'Barlow Condensed',sans-serif", PM = "'IBM Plex Mono',monospace", EB = "'EB Garamond',Garamond,serif", SG = "'Space Grotesk Variable',sans-serif";
+  const svg = (s) => `url("data:image/svg+xml,${encodeURIComponent(s)}")`;
+  const ENSO = svg(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='#fff' stroke-linecap='round'><path d='M62 9C36 3 9 20 8 49s22 44 43 43 41-18 40-42C90 33 82 20 70 14' stroke-width='7' opacity='.88'/><path d='M60 13C38 8 15 22 13 48' stroke-width='2' opacity='.5'/><path d='M86 62c-5 14-18 25-34 26' stroke-width='3' opacity='.6'/><path d='M70 14l3-3' stroke-width='3'/></g></svg>`);
+  const ICON = { star: svg(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g stroke='#f15a33' stroke-width='3'><path d='M50 18v64M18 50h64M27 27l46 46M73 27L27 73'/></g></svg>`), glass: svg(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M30 30h40L30 70h40z' fill='none' stroke='#36c0d9' stroke-width='3'/></svg>`), flower: svg(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='#fff' stroke-width='3'><circle cx='50' cy='50' r='9'/><circle cx='50' cy='30' r='9'/><circle cx='50' cy='70' r='9'/><circle cx='33' cy='40' r='9'/><circle cx='67' cy='40' r='9'/><circle cx='33' cy='60' r='9'/><circle cx='67' cy='60' r='9'/></g></svg>`), rings: svg(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='none' stroke='#36c0d9' stroke-width='1.6'>${[22, 25, 28, 31].map((r) => `<circle cx='50' cy='50' r='${r}'/>`).join('')}</g></svg>`) };
+  const SKINS = {
+    '001': { name: 'Tranquille', by: 'Dave Shea', num: '001', thumb: ['#3d6e57', '#fff', '#e5ece7'] },
+    '221': { name: 'Mid Century Modern', by: 'Andrew Lohman', num: '221', thumb: ['#c776b0', '#0e2a40', '#f15a33'] },
+    '220': { name: 'Garments', by: 'Dan Mall', num: '220', thumb: ['#ecebe8', '#2b2b2b', '#c9c6bf'] },
+    '219': { name: 'Steel', by: 'Steffen Knoeller', num: '219', thumb: ['#2a2d31', '#9aa3ad', '#e6e9ec'] },
+    '218': { name: 'Apothecary', by: 'Trent Walton', num: '218', thumb: ['#efe6d2', '#5a3a22', '#a8322a'] },
+  };
+  const SEL = (id) => `.zg-m[data-skin="${id}"]`;
+  const CSS = {};
+  let k = SEL('001'); CSS['001'] = `
+${k}{background:#fff;color:#325050;font:15px/1.8 ${LB}}
+${k} .page-wrapper{position:relative;min-height:100%}
+${k} a{color:#0d8ba1;text-decoration:none}${k} abbr{text-decoration:none;border-bottom:1px dotted;font-size:.9em;letter-spacing:.01em;text-transform:uppercase}
+${k} .intro header{position:relative;height:310px;overflow:hidden;padding:110px 0 0 300px;isolation:isolate}
+${k} .intro header:before{content:'';position:absolute;inset:-40px;z-index:-2;filter:blur(16px);background:radial-gradient(ellipse 9% 14% at 57% 54%,#c8553d,#0000),radial-gradient(ellipse 5% 8% at 62% 40%,#e0a24a,#0000),radial-gradient(ellipse 22% 60% at 12% 60%,#1d4d36,#0000),radial-gradient(ellipse 18% 50% at 35% 30%,#7fa863,#0000),radial-gradient(ellipse 25% 55% at 50% 80%,#2c5d43,#0000),radial-gradient(ellipse 14% 40% at 75% 45%,#9ab98a,#0000),radial-gradient(ellipse 30% 70% at 90% 70%,#3b6b52,#0000),radial-gradient(ellipse 10% 30% at 25% 85%,#a7c48b,#0000),linear-gradient(#26574a,#3f7560)}
+${k} .intro header:after{content:'';position:absolute;inset:0;z-index:-1;background:repeating-radial-gradient(circle at 30% 140%,#ffffff12 0 1px,#0000 1.5px 13px),linear-gradient(#173d3a55,#0000 30%,#0000 80%,#12302d40)}
+${k} .intro header h1{margin:0;color:#fff;font:400 54px/1 ${JU};text-transform:uppercase;letter-spacing:.06em;position:relative}
+${k} .intro header h1:before{content:'';position:absolute;left:-170px;top:-30px;width:130px;height:130px;background:${ENSO} center/contain no-repeat}
+${k} .intro header h2{margin:12px 0 0;color:#fff9;font:italic 400 24px/1.3 ${LB}}
+${k} .intro header h2 abbr{font-size:1em;text-transform:none;letter-spacing:0}
+${k} .summary,${k} .preamble,${k} .main{width:66%;padding:0 10%}
+${k} .summary{padding-top:50px}${k} .summary p:last-child a{font:14px ${JU};text-transform:uppercase;color:#809b7e;padding:0 4px 0 26px;position:relative}
+${k} .summary p:last-child a:before{content:'⤓';position:absolute;left:4px;top:-1px;background:#d9e1cd;color:#a9b995;border-radius:2px;padding:0 3px;font:13px/1.3 sans-serif}
+${k} h3{margin:1.6em 0 .4em;color:#2e484c;font:400 30px/1.2 ${JU};text-transform:uppercase;letter-spacing:.04em}
+${k} p{margin:.6em 0}
+${k} .participation,${k} .benefits{width:150%;margin-left:-15%;padding:20px 15% 30px;background:repeating-linear-gradient(90deg,#9cc4a4 0 40px,#a9cfb0 40px 46px,#93bc9c 46px 120px),#8abc9f;background-blend-mode:normal;color:#2a4a44}
+${k} .participation{margin-top:40px}${k} .benefits{padding-bottom:40px}
+${k} .requirements{padding-bottom:30px}${k} .requirements p:last-child{color:#7a8f8c;font-style:italic}
+${k} .main footer{width:150%;margin-left:-15%;padding:40px 15%;background:#134347;text-align:center}
+${k} .main footer a{display:inline-block;width:40px;height:40px;margin:0 8px;border-radius:50%;border:1px solid #ffffff55;color:#ffffff99;font:10px/40px ${JU}}
+${k} .sidebar{position:absolute;top:310px;right:0;width:34%;bottom:0;background:#e5ece7;padding:60px 0 0 0}
+${k} .sidebar .wrapper{position:sticky;top:0}
+${k} .sidebar h3{display:none}${k} .sidebar ul{list-style:none;margin:0;padding:0}
+${k} .design-selection li{margin:0 22% 0 17%;padding:18px 0;border-top:1px solid #d3ddd6;color:#c0cac3;font:italic 13px ${LB}}
+${k} .design-selection li:first-child{border-top:0}
+${k} .design-selection .design-name{display:block;color:#607476;font:400 17px/1.3 ${JU};text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;cursor:pointer}
+${k} .design-selection .designer-name{color:#616857;font-style:normal;cursor:pointer}${k} .design-selection .design-name:hover{color:#49968e}
+${k} .design-selection li.on .design-name{color:#2b8a7e}
+${k} .design-archives{position:absolute;top:-190px;right:14px}${k} .design-archives .next{display:none}
+${k} .design-archives .viewall a{display:flex;align-items:center;height:70px;width:390px;background:#ffffff26;box-shadow:inset 0 0 0 1px #ffffff14;color:#ffffffaa;font:400 18px ${JU};text-transform:uppercase;letter-spacing:.06em;cursor:pointer;padding-left:68px;position:relative}
+${k} .design-archives .viewall a:after{content:'';position:absolute;right:0;top:0;width:70px;height:70px;background:#ffffff1f ${svg(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 70'><path d='M30 22l13 13-13 13' fill='none' stroke='#fff' stroke-width='3'/></svg>`)} center/70px no-repeat;border-left:2px solid #ffffff22}
+${k} .design-archives .viewall a:hover{color:#fff;background:#ffffff40}
+${k} .zen-resources{margin:28px 22% 40px 17%;border-top:1px solid #d3ddd6;padding-top:14px}${k} .zen-resources li{font:13px/2.2 ${JU};text-transform:uppercase}${k} .zen-resources a{color:#607476;cursor:pointer}
+${k} [class^=extra]{display:none}`;
+  k = SEL('221'); CSS['221'] = `
+${k}{background:#f6ede3;color:#0e2a40;font:15px/1.65 ${AR}}
+${k} .page-wrapper{position:relative}
+${k} a{color:inherit}${k} abbr{text-decoration:none;border-bottom:3px dotted currentColor}
+${k} .intro{position:relative;padding-top:820px;background:linear-gradient(#c776b0 0 800px,#0000 800px)}
+${k} .intro header h1{position:absolute;left:22px;top:36px;margin:0;writing-mode:vertical-rl;transform:rotate(180deg);font:700 17px ${AR};color:#fff}
+${k} .intro header h2{position:absolute;left:20%;top:0;width:20%;height:800px;margin:0;background:#0e2a40;color:#fff;font:700 42px/1.2 ${AR};padding:240px 20px 0 20px}
+${k} .intro header h2:after{content:'';position:absolute;left:50%;top:540px;width:225px;height:225px;margin-left:-112px;border-radius:50%;background:#fff ${ICON.star} center/66% no-repeat}
+${k} .summary{position:absolute;left:42%;top:250px;width:33%;color:#fff;font-size:16px}${k} .summary a{text-decoration:underline}
+${k} .preamble{width:22%;margin-left:59%;padding:20px 0 60px;font-size:14px}
+${k} .preamble h3{font:700 19px ${AR};margin:0 0 14px}
+${k} .preamble p:nth-of-type(3){position:absolute;left:80.5%;width:18%;top:830px;background:#36c0d9;color:#fff;margin:0;padding:30px 24px 60px;z-index:2}
+${k} .main{position:relative;padding:240px 0 0;background:linear-gradient(170deg,#0000 0 30%,#5e5e5e 30.2% 33%,#0000 33.2%),repeating-linear-gradient(90deg,#9d9d9d 0 3px,#bdbdbd 3px 37px,#a5a5a5 37px 40px,#c9c9c9 40px 90px),linear-gradient(#d8d8d8,#8a8a8a);background-size:100% 900px,100% 900px,100% 900px;background-repeat:no-repeat}
+${k} .explanation{position:relative;width:40%;background:#0e2a40;color:#fff;padding:30px 30px 30px 110px;font-size:14px}
+${k} .explanation h3{position:absolute;left:24px;bottom:30px;margin:0;writing-mode:vertical-rl;transform:rotate(180deg);font:700 26px ${AR}}
+${k} .participation{width:40%;margin:0 0 0 40%;background:#f6ede3;padding:34px 40px}
+${k} .participation h3,${k} .benefits h3,${k} .requirements h3{font:700 22px ${AR};margin:0 0 10px}
+${k} .benefits{width:40%;margin-left:20%;background:#f15a33;color:#fff;padding:34px 40px}
+${k} .requirements{width:60%;margin-left:40%;background:#c776b0;color:#fff;padding:34px 40px}
+${k} .main footer{background:#0e2a40;padding:30px 20%;display:flex;gap:20px}${k} .main footer a{color:#36c0d9;font:700 13px ${AR}}
+${k} .sidebar{position:absolute;top:56px;right:3%;width:16%;color:#fff;z-index:3}
+${k} .sidebar h3{font:700 12px ${AR};text-transform:uppercase;letter-spacing:.14em;margin:0 0 8px;opacity:.85}${k} .sidebar ul{list-style:none;padding:0;margin:0}
+${k} .design-selection li{padding:6px 0;font-size:12px;color:#ffffffaa;border-bottom:1px solid #ffffff44}
+${k} .design-selection .design-name{display:block;font:700 15px ${AR};color:#fff;cursor:pointer}${k} .design-selection li.on .design-name{color:#0e2a40}
+${k} .design-selection .designer-name{cursor:pointer}
+${k} .design-archives{margin-top:16px}${k} .design-archives h3{display:none}${k} .design-archives li{display:inline-block;margin-right:12px}${k} .design-archives a{font:700 12px ${AR};cursor:pointer;border:2px solid #fff;padding:6px 10px;display:inline-block}${k} .design-archives .next{display:none}
+${k} .zen-resources{display:none}
+${k} .extra1,${k} .extra2,${k} .extra3,${k} .extra4{position:absolute;top:505px;width:20%;height:295px}
+${k} .extra1{left:40%;background:#f15a33}${k} .extra2{left:60%;background:#36c0d9;height:500px}${k} .extra3{left:80%;background:#f15a33}
+${k} .extra1:before,${k} .extra2:before,${k} .extra3:before{content:'';position:absolute;left:50%;top:35px;width:225px;height:225px;margin-left:-112px;border-radius:50%;background:#fff ${ICON.glass} center/66% no-repeat}
+${k} .extra2:before{background:#0e2a40 ${ICON.flower} center/66% no-repeat}${k} .extra3:before{background:#fff ${ICON.rings} center/80% no-repeat}
+${k} .extra4,${k} .extra5,${k} .extra6{display:none}`;
+  k = SEL('220'); CSS['220'] = `
+${k}{background:#ecebe8 repeating-linear-gradient(45deg,#0000 0 3px,#00000006 3px 4px),repeating-linear-gradient(-45deg,#0000 0 3px,#00000006 3px 4px);color:#2b2b2b;font:13px/1.75 ${PM}}
+${k} .page-wrapper{position:relative;max-width:1180px;margin:0 auto;padding:60px 40px 80px}
+${k} a{color:#2b2b2b}${k} abbr{text-decoration:none}
+${k} .intro header{position:relative;height:470px}
+${k} .intro header h1{position:absolute;left:0;top:30px;margin:0;background:#fff;padding:26px 30px;font:400 15px ${PM};letter-spacing:.32em;text-transform:uppercase;outline:2px dashed #b9b4aa;outline-offset:-9px;box-shadow:0 2px 0 #d6d2ca,0 8px 18px #0000001a}
+${k} .intro header h2{position:absolute;left:0;top:110px;width:66%;margin:0;font:700 124px/0.84 ${BC};text-transform:uppercase;color:#d5d2cb;letter-spacing:-.01em}
+${k} .intro header h2 abbr{color:#2b2b2b}
+${k} .summary{position:absolute;right:40px;top:80px;width:300px;background:#fff;padding:26px;outline:1px dashed #c8c3b8;outline-offset:-8px;transform:rotate(2deg);box-shadow:0 10px 24px #0000001f}
+${k} .summary:before{content:'';display:block;width:18px;height:18px;border-radius:50%;margin:-8px auto 12px;box-shadow:inset 0 0 0 4px #ecebe8,0 0 0 1px #bbb}
+${k} .preamble,${k} .main{width:68%}
+${k} h3{font:700 32px/1 ${BC};text-transform:uppercase;letter-spacing:.02em;margin:46px 0 10px;border-bottom:1px solid #2b2b2b;padding-bottom:8px}
+${k} .participation,${k} .benefits{column-count:2;column-gap:36px}${k} .participation h3,${k} .benefits h3{column-span:all}
+${k} .main footer{margin-top:40px;display:flex;gap:20px;font:11px ${PM};text-transform:uppercase;letter-spacing:.2em}
+${k} .sidebar{position:absolute;right:40px;top:560px;width:270px;background:#fff;padding:24px 24px 10px;outline:2px dashed #b9b4aa;outline-offset:-9px;box-shadow:0 8px 18px #0000001a}
+${k} .sidebar h3{font:700 22px ${BC};margin:0 0 10px;border:0;padding:0}${k} .sidebar ul{list-style:none;margin:0;padding:0}
+${k} .design-selection li{padding:8px 0;border-top:1px solid #e3e0da;font-size:11px;color:#888}
+${k} .design-selection .design-name{display:block;font:700 18px/1.1 ${BC};text-transform:uppercase;letter-spacing:.06em;color:#2b2b2b;cursor:pointer}${k} .design-selection li.on .design-name:after{content:' ✂'}
+${k} .design-selection .designer-name{cursor:pointer;color:#555}
+${k} .design-archives h3,${k} .design-archives .next{display:none}${k} .design-archives a{display:block;text-align:center;border:1px solid #2b2b2b;padding:8px;margin:10px 0;font:11px ${PM};text-transform:uppercase;letter-spacing:.24em;cursor:pointer}
+${k} .zen-resources li{font-size:11px;text-transform:uppercase;letter-spacing:.14em}${k} .zen-resources a{cursor:pointer}
+${k} .extra1{position:absolute;right:420px;top:40px;width:120px;height:190px;background:#c9c6bf;clip-path:polygon(20% 0,80% 0,100% 15%,100% 100%,0 100%,0 15%);transform:rotate(-6deg)}
+${k} .extra1:after{content:'100% CSS';position:absolute;left:0;right:0;top:80px;text-align:center;font:700 22px ${BC};color:#fff}
+${k} [class^=extra]:not(.extra1){display:none}`;
+  k = SEL('219'); CSS['219'] = `
+${k}{background:radial-gradient(ellipse at 50% 0,#4a5058,#1d1f23 70%),#1d1f23;color:#b9c0c8;font:14px/1.7 ${SG}}
+${k} .page-wrapper{position:relative;max-width:1240px;margin:0 auto;padding:50px 30px 80px;perspective:1400px}
+${k} a{color:#e6e9ec}${k} abbr{text-decoration:none}
+${k} .intro{transform:rotateX(8deg);transform-origin:50% 100%}
+${k} .intro header,${k} .summary,${k} .preamble,${k} .main>div,${k} .sidebar{background:repeating-linear-gradient(90deg,#ffffff05 0 1px,#0000 1px 3px),linear-gradient(160deg,#5b636c,#3a4047 45%,#2a2e33);border-radius:6px;box-shadow:inset 0 1px #ffffff40,inset 0 -2px #0007,0 18px 30px #0009;position:relative}
+${k} .intro header:before,${k} .preamble:before,${k} .main>div:before,${k} .sidebar:before{content:'';position:absolute;inset:10px;pointer-events:none;background:radial-gradient(circle at 0 0,#cfd5db 0 3px,#3a3f45 3.6px,#0000 4.5px) 0 0/100% 100% no-repeat,radial-gradient(circle at 100% 0,#cfd5db 0 3px,#3a3f45 3.6px,#0000 4.5px) 0 0/100% 100% no-repeat,radial-gradient(circle at 0 100%,#cfd5db 0 3px,#3a3f45 3.6px,#0000 4.5px) 0 0/100% 100% no-repeat,radial-gradient(circle at 100% 100%,#cfd5db 0 3px,#3a3f45 3.6px,#0000 4.5px) 0 0/100% 100% no-repeat}
+${k} .intro header{padding:60px 50px 46px;text-align:center}
+${k} .intro header h1{margin:0;font:700 74px/1 ${SG};text-transform:uppercase;letter-spacing:.08em;color:#2b3036;text-shadow:0 1px 0 #8d959e,0 -1px 0 #121417}
+${k} .intro header h2{margin:12px 0 0;font:500 16px ${SG};letter-spacing:.5em;text-transform:uppercase;color:#d7dce1}
+${k} .summary{margin:18px 0;padding:22px 40px;width:calc(70% - 10px);font-size:15px}
+${k} .preamble,${k} .main{width:70%}
+${k} .preamble{padding:30px 40px;margin-bottom:18px}${k} .main>div{padding:30px 40px;margin-bottom:18px}
+${k} h3{margin:0 0 10px;font:700 13px ${SG};letter-spacing:.4em;text-transform:uppercase;color:#ff7a2f}
+${k} .main footer{display:flex;gap:16px;padding:10px 0}${k} .main footer a{font:700 12px ${SG};letter-spacing:.2em;color:#7f8892}
+${k} .sidebar{position:absolute;right:30px;top:330px;width:calc(30% - 40px);padding:26px 28px}
+${k} .sidebar h3{display:block}${k} .sidebar ul{list-style:none;margin:0;padding:0}
+${k} .design-selection li{padding:10px 0;border-top:1px solid #0006;box-shadow:inset 0 1px #ffffff14;font-size:12px;color:#8a929b}
+${k} .design-selection .design-name{display:block;font:700 16px ${SG};text-transform:uppercase;letter-spacing:.12em;color:#e6e9ec;text-shadow:0 -1px #000;cursor:pointer}${k} .design-selection li.on .design-name{color:#ff7a2f}
+${k} .design-selection .designer-name{cursor:pointer;color:#aab2bb}
+${k} .design-archives{margin-top:12px}${k} .design-archives h3,${k} .design-archives .next{display:none}${k} .design-archives a{display:block;text-align:center;padding:10px;border-radius:4px;background:linear-gradient(#ff8a3d,#d65a14);color:#fff;font:700 12px ${SG};letter-spacing:.2em;text-transform:uppercase;box-shadow:inset 0 1px #ffffff66,0 3px 0 #7a300a;cursor:pointer}
+${k} .zen-resources{margin-top:18px}${k} .zen-resources li{font-size:12px;letter-spacing:.1em;text-transform:uppercase}${k} .zen-resources a{color:#9aa3ad;cursor:pointer}
+${k} [class^=extra]{display:none}`;
+  k = SEL('218'); CSS['218'] = `
+${k}{background:#efe6d2 radial-gradient(ellipse at 50% 30%,#f7f0e0,#e2d5b8 80%);color:#4a3220;font:17px/1.6 ${EB}}
+${k} .page-wrapper{position:relative;max-width:1100px;margin:0 auto;padding:46px 30px 80px}
+${k} a{color:#a8322a}${k} abbr{text-decoration:none;font-variant:small-caps;text-transform:lowercase;font-size:1.1em}
+${k} .intro header{width:560px;margin:0 auto;text-align:center;background:#fbf6ea;border:2px solid #5a3a22;outline:6px double #5a3a22;outline-offset:6px;padding:30px 30px 26px;border-radius:50% 50% 8px 8px/22% 22% 8px 8px;box-shadow:0 14px 30px #5a3a2233}
+${k} .intro header:before{content:'❦  No. 218  ❦';display:block;font:14px ${EB};letter-spacing:.3em;color:#a8322a;margin-bottom:6px}
+${k} .intro header h1{margin:0;font:italic 400 64px/1 ${EB};color:#3d2614}
+${k} .intro header h2{margin:12px auto 0;font:400 15px ${EB};letter-spacing:.32em;text-transform:uppercase;color:#fff;background:#a8322a;padding:6px 14px;display:inline-block}
+${k} .intro header h2:after{content:'';display:block}
+${k} .summary{text-align:center;max-width:620px;margin:34px auto 10px;font-style:italic}
+${k} .summary:after{content:'— ✤ —';display:block;color:#a8322a;margin-top:10px;font-style:normal}
+${k} .preamble,${k} .main{width:64%}
+${k} h3{font:400 24px ${EB};font-variant:small-caps;letter-spacing:.12em;color:#a8322a;margin:30px 0 6px;border-bottom:1px solid #5a3a2255;padding-bottom:4px}
+${k} .main footer{margin-top:30px;border-top:3px double #5a3a22;padding-top:12px;display:flex;gap:18px;font-variant:small-caps}
+${k} .sidebar{position:absolute;right:30px;top:380px;width:31%;background:#fbf6ea;border:1px solid #5a3a22;outline:4px double #5a3a2299;outline-offset:4px;padding:20px 24px}
+${k} .sidebar h3{margin:0 0 6px;text-align:center;border:0}${k} .sidebar ul{list-style:none;margin:0;padding:0}
+${k} .design-selection li{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;padding:5px 0;font-style:italic;font-size:14px;color:#8a6a50}
+${k} .design-selection .design-name{flex:1 0 100%;display:flex;font:400 18px ${EB};font-variant:small-caps;letter-spacing:.06em;color:#3d2614;cursor:pointer}
+${k} .design-selection .design-name:after{content:'';flex:1;border-bottom:2px dotted #5a3a2266;margin:0 0 6px 8px}${k} .design-selection li.on .design-name{color:#a8322a}
+${k} .design-selection .designer-name{cursor:pointer;color:#6a4a30}
+${k} .design-archives h3,${k} .design-archives .next{display:none}${k} .design-archives a{display:block;text-align:center;margin:14px 0 6px;padding:6px;border:1px solid #a8322a;color:#a8322a;font-variant:small-caps;letter-spacing:.2em;cursor:pointer}
+${k} .zen-resources{font-size:14px}${k} .zen-resources h3{font-size:16px}${k} .zen-resources a{cursor:pointer;color:#5a3a22}
+${k} [class^=extra]{display:none}`;
+  // ---------- shell styles (not part of any skin) ----------
+  const st = document.createElement('style'); st.textContent = `
+.zg{position:absolute;inset:0;overflow:auto;background:#fff}
+.zg-m{min-height:100%;transition:opacity .22s ease}
+.zg-m.fade{opacity:0}
+.zg-m ul{list-style:none}
+.zg-hud{position:absolute;left:14px;bottom:14px;z-index:30;display:flex;gap:6px;align-items:center;background:#111c;color:#eee;font:600 11px 'Inter Variable',sans-serif;padding:6px 8px;border-radius:999px;backdrop-filter:blur(6px)}
+.zg-hud button{all:unset;cursor:pointer;padding:4px 9px;border-radius:999px;background:#ffffff1a}
+.zg-hud button.on{background:#d9f99d;color:#111}
+.zg-hud .h{opacity:.7;padding:0 4px;font-variant-numeric:tabular-nums}
+.zg-arc{position:absolute;inset:0;z-index:40;overflow:auto;background:linear-gradient(160deg,#9fb9b6,#cfddd8 40%,#e6eeea);opacity:0;pointer-events:none;transition:opacity .3s;font-family:${LB}}
+.zg-arc.on{opacity:1;pointer-events:auto}
+.zg-arc .top{display:flex;justify-content:space-between;align-items:center;padding:34px 8% 0;color:#fff}
+.zg-arc .top b{font:700 15px 'Nunito Variable',${AR};letter-spacing:.06em;text-shadow:0 1px 8px #0003}
+.zg-arc .top button{all:unset;cursor:pointer;font:12px ${LB};color:#3d6e7a}
+.zg-arc h1{font:300 58px ${AR};color:#3d6e7a;margin:30px 8% 26px;letter-spacing:-.01em}
+.zg-arc .body{display:grid;grid-template-columns:1fr 220px;gap:40px;padding:0 8% 60px}
+.zg-arc .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 22px}
+.zg-arc .card{cursor:pointer}
+.zg-arc .th{position:relative;height:190px;overflow:hidden;border-radius:4px;box-shadow:0 6px 18px #0003;background:#fff;transition:transform .2s}
+.zg-arc .card:hover .th{transform:translateY(-4px)}
+.zg-arc .th .zg-m{position:absolute;left:0;top:0;width:1440px;height:900px;transform:scale(.21);transform-origin:0 0;pointer-events:none;overflow:hidden}
+.zg-arc .nm{font:19px ${AR};color:#2c6f7f;margin-top:8px}.zg-arc .by{font:13px ${AR};color:#555}.zg-arc .by u{color:#2c6f7f}
+.zg-arc .side a{display:block;font:15px ${AR};color:#2c6f7f;padding:8px 18px;border-radius:999px}.zg-arc .side a.on{background:#fff}
+.zg-css{position:absolute;inset:40px 12%;z-index:45;background:#0d0f14;color:#d7e3ff;border-radius:12px;box-shadow:0 30px 80px #0008;display:none;flex-direction:column}
+.zg-css.on{display:flex}.zg-css pre{flex:1;overflow:auto;margin:0;padding:16px 20px;font:12px/1.5 'JetBrains Mono Variable',monospace;white-space:pre-wrap}
+.zg-css div{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid #ffffff1a;font:600 13px 'Inter Variable'}
+.zg-css button{all:unset;cursor:pointer;padding:4px 10px;background:#ffffff1a;border-radius:6px}
+`; root.append(st);
+  Object.keys(CSS).forEach((id) => (CSS[id] = CSS[id].replaceAll('li.on', `li[data-design="${id}"]`)));
+  Object.entries(CSS).forEach(([id, c]) => { const e = document.createElement('style'); e.dataset.zenSkin = id; e.textContent = c; root.append(e); });
+  // ---------- the single, never-modified markup ----------
+  const LIST = ['221', '220', '219', '218', '001'];
+  const MARKUP = `<div class="page-wrapper">
+<section class="intro" id="zen-intro"><header role="banner"><h1>CSS Zen Garden</h1><h2>The Beauty of <abbr title="Cascading Style Sheets">CSS</abbr> Design</h2></header>
+<div class="summary" id="zen-summary" role="article"><p>A demonstration of what can be accomplished through <abbr title="Cascading Style Sheets">CSS</abbr>-based design. Select any style sheet from the list to load it into this page.</p><p>Download the example <a class="zen-html" title="This page's source HTML code, not to be modified.">html file</a> and <a class="zen-css-file" title="This page's sample CSS, the file you may modify.">css file</a></p></div>
+<div class="preamble" id="zen-preamble" role="article"><h3>The Road to Enlightenment</h3><p>Littering a dark and dreary road lay the past relics of browser-specific tags, incompatible <abbr title="Document Object Model">DOM</abbr>s, broken <abbr title="Cascading Style Sheets">CSS</abbr> support, and abandoned browsers.</p><p>We must clear the mind of the past. Web enlightenment has been achieved thanks to the tireless efforts of folk like the <abbr title="World Wide Web Consortium">W3C</abbr>, <abbr title="Web Standards Project">WaSP</abbr>, and the major browser creators.</p><p>The CSS Zen Garden invites you to relax and meditate on the important lessons of the masters. Begin to see with clarity. Learn to use the time-honored techniques in new and invigorating fashion. Become one with the web.</p></div></section>
+<div class="main supporting" id="zen-supporting" role="main">
+<div class="explanation" id="zen-explanation" role="article"><h3>So What is This About?</h3><p>There is a continuing need to show the power of <abbr title="Cascading Style Sheets">CSS</abbr>. The Zen Garden aims to excite, inspire, and encourage participation. To begin, view some of the existing designs in the list. Clicking on any one will load the style sheet into this very page. The <abbr title="HyperText Markup Language">HTML</abbr> remains the same, the only thing that has changed is the external <abbr title="Cascading Style Sheets">CSS</abbr> file. Yes, really.</p><p><abbr title="Cascading Style Sheets">CSS</abbr> allows complete and total control over the style of a hypertext document. The only way this can be illustrated in a way that gets people excited is by demonstrating what it can truly be, once the reins are placed in the hands of those able to create beauty from structure. Designers and coders alike have contributed to the beauty of the web; we can always push it further.</p></div>
+<div class="participation" id="zen-participation" role="article"><h3>Participation</h3><p>Strong visual design has always been our focus. You are modifying this page, so strong <abbr title="Cascading Style Sheets">CSS</abbr> skills are necessary too, but the example files are commented well enough that even <abbr title="Cascading Style Sheets">CSS</abbr> novices can use them as starting points. Please see the <abbr title="Cascading Style Sheets">CSS</abbr> Resource Guide for advanced tutorials and tips on working with <abbr title="Cascading Style Sheets">CSS</abbr>.</p><p>You may modify the style sheet in any way you wish, but not the <abbr title="HyperText Markup Language">HTML</abbr>. This may seem daunting at first if you&#8217;ve never worked this way before, but follow the listed links to learn more, and use the sample files as a guide.</p><p>Download the sample HTML and CSS to work on a copy locally. Once you have completed your masterpiece (and please, don&#8217;t submit half-finished work) upload your <abbr title="Cascading Style Sheets">CSS</abbr> file to a web server under your control.</p></div>
+<div class="benefits" id="zen-benefits" role="article"><h3>Benefits</h3><p>Why participate? For recognition, inspiration, and a resource we can all refer to showing people how amazing <abbr title="Cascading Style Sheets">CSS</abbr> really can be. This site serves as equal parts inspiration for those working on the web today, learning tool for those who will be tomorrow, and gallery of future techniques we can all look forward to.</p></div>
+<div class="requirements" id="zen-requirements" role="article"><h3>Requirements</h3><p>Where possible, we would like to see mostly <abbr title="Cascading Style Sheets, levels 1 and 2">CSS 1 &amp; 2</abbr> usage. <abbr title="Cascading Style Sheets, levels 3 and 4">CSS 3 &amp; 4</abbr> should be limited to widely-supported elements only, or strong fallbacks should be provided. The CSS Zen Garden is about functional, practical <abbr title="Cascading Style Sheets">CSS</abbr> and not the latest bleeding-edge tricks viewable by 2% of the browsing public.</p><p>We ask that you submit original artwork. Please respect copyright laws. Please keep objectionable material to a minimum, and try to incorporate unique and interesting visual themes to your work. We&#8217;re well past the point of needing another garden-related design.</p><p>This is a learning exercise as well as a demonstration. You retain full copyright on your graphics, but we ask you release your <abbr title="Cascading Style Sheets">CSS</abbr> under a Creative Commons license identical to the one on this site so that others may learn from your work.</p></div>
+<footer><a class="zen-validate-html" title="Check the validity of this site&#8217;s HTML">HTML</a><a class="zen-validate-css" title="Check the validity of this site&#8217;s CSS">CSS</a><a class="zen-license" title="View the Creative Commons license of this site">CC</a><a class="zen-accessibility" title="Read about the accessibility of this site">A11y</a><a class="zen-github" title="Fork this site on Github">GH</a></footer></div>
+<aside class="sidebar" role="complementary"><div class="wrapper">
+<div class="design-selection" id="design-selection"><h3 class="select">Select a Design:</h3><nav role="navigation"><ul>${LIST.map((id) => `<li data-design="${id}"><a class="design-name">${SKINS[id].name}</a> by <a class="designer-name">${SKINS[id].by}</a></li>`).join('')}</ul></nav></div>
+<div class="design-archives" id="design-archives"><h3 class="archives">Archives:</h3><nav role="navigation"><ul><li class="next"><a>Next Designs <span class="indicator">&rsaquo;</span></a></li><li class="viewall"><a title="View every submission to the Zen Garden.">View All Designs</a></li></ul></nav></div>
+<div class="zen-resources" id="zen-resources"><h3 class="resources">Resources:</h3><ul><li class="view-css"><a title="View the source CSS file of the currently-viewed design.">View This Design&#8217;s <abbr title="Cascading Style Sheets">CSS</abbr></a></li><li class="css-resources"><a title="Links to great sites with information on using CSS."><abbr title="Cascading Style Sheets">CSS</abbr> Resources</a></li><li class="zen-faq"><a title="A list of Frequently Asked Questions about the Zen Garden."><abbr title="Frequently Asked Questions">FAQ</abbr></a></li><li class="zen-submit"><a title="Send in your own CSS file.">Submit a Design</a></li><li class="zen-translations"><a title="View translated versions of this page.">Translations</a></li></ul></div>
+</div></aside></div>
+<div class="extra1" role="presentation"></div><div class="extra2" role="presentation"></div><div class="extra3" role="presentation"></div><div class="extra4" role="presentation"></div><div class="extra5" role="presentation"></div><div class="extra6" role="presentation"></div>`;
+  const sc = h('div.zg'); const m = h('div.zg-m', { 'data-skin': '001', html: MARKUP }); sc.append(m); root.append(sc);
+  const hash = (s0) => { let x = 5381; for (let i = 0; i < s0.length; i++) x = ((x * 33) ^ s0.charCodeAt(i)) >>> 0; return x.toString(16).padStart(8, '0'); };
+  const H0 = hash(m.innerHTML);
+  let cur = '001', busy = false, swaps = 0;
+  const hudBtns = {}; const hashEl = h('span.h');
+  const hud = h('div.zg-hud', {}, h('span.h', {}, 'stylesheet'), LIST.slice().reverse().map((id) => (hudBtns[id] = h('button', { title: `${SKINS[id].num} · ${SKINS[id].name} by ${SKINS[id].by}`, onclick: () => swap(id) }, id === '001' ? 'Default' : SKINS[id].name))), hashEl);
+  root.append(hud);
+  const markOn = () => { Object.entries(hudBtns).forEach(([id, b]) => b.classList.toggle('on', id === cur)); const hh0 = hash(m.innerHTML); hashEl.textContent = `markup #${hh0} ${hh0 === H0 ? '= unchanged' : '≠ CHANGED'}`; };
+  const swap = async (id, { instant = false } = {}) => { if (busy || !SKINS[id]) return; if (id === cur) return; busy = true; const y = sc.scrollTop;
+    if (!instant) { m.classList.add('fade'); await sleep(230); }
+    m.dataset.skin = id; cur = id; swaps++; sc.scrollTop = y; markOn();
+    if (!instant) { await sleep(20); m.classList.remove('fade'); await sleep(240); }
+    busy = false; return { from: y, to: sc.scrollTop }; };
+  m.addEventListener('click', (e) => { const li = e.target.closest('.design-selection li'); if (li) { e.preventDefault(); swap(li.dataset.design); return; }
+    if (e.target.closest('.viewall')) { openArc(true); return; } if (e.target.closest('.view-css')) { showCss(true); return; }
+    if (e.target.closest('.next')) { toast('Next Designs › (only these 5 skins are rebuilt here)'); return; }
+    if (e.target.closest('a') && !e.target.closest('.sidebar')) { e.preventDefault(); } });
+  // ---------- "View all designs" archive (live mini-renders of the same markup) ----------
+  const arc = h('div.zg-arc'); const cards = h('div.grid');
+  LIST.forEach((id) => { const th = h('div.th'); const mm = h('div.zg-m', { 'data-skin': id, html: MARKUP }); th.append(mm);
+    cards.append(h('div.card', { 'data-design': id, onclick: async () => { openArc(false); await sleep(200); sc.scrollTop = 0; swap(id); } }, th, h('div.nm', {}, SKINS[id].name), h('div.by', {}, 'by ', h('u', {}, SKINS[id].by), ` · #${SKINS[id].num}`))); });
+  arc.append(h('div.top', {}, h('b', {}, 'CSS ZEN GARDEN'), h('button', { onclick: () => openArc(false) }, '‹ return to zen garden')), h('h1', {}, 'All Designs'), h('div.body', {}, cards, h('div.side', {}, h('a.on', {}, 'All designs'), h('a', {}, 'About'), h('a', {}, 'FAQ'), h('a', {}, 'Resources'), h('a', {}, 'Submit'), h('a', {}, 'Translations'))));
+  root.append(arc);
+  const openArc = (on) => { arc.classList.toggle('on', on); if (on) arc.scrollTop = 0; };
+  const cssBox = h('div.zg-css'); const pre = h('pre');
+  cssBox.append(h('div', {}, h('span', {}, 'View This Design’s CSS'), h('button', { onclick: () => showCss(false) }, 'Close ✕')), pre); root.append(cssBox);
+  const showCss = (on) => { cssBox.classList.toggle('on', on); if (on) pre.textContent = `/* css Zen Garden submission ${SKINS[cur].num} - '${SKINS[cur].name}' by ${SKINS[cur].by} */\n/* (rebuilt for clone practice; scoped to [data-skin="${cur}"]) */\n` + CSS[cur].replaceAll(SEL(cur), 'body').replace(/\}/g, '}\n'); };
+  root.addEventListener('keydown', (e) => { if (e.key === 'Escape') { openArc(false); showCss(false); } });
+  markOn();
+  window.__demoProof = async () => { const out = [];
+    sc.scrollTop = 600; const y0 = sc.scrollTop; out.push(`start skin ${SKINS[cur].name}, scrollTop ${y0}`);
+    const li = m.querySelector('.design-selection li[data-design="221"] .design-name'); li.click(); await sleep(80); out.push(`fading=${m.classList.contains('fade')}`); await sleep(600);
+    out.push(`clicked sidebar → ${SKINS[cur].name} (data-skin=${m.dataset.skin}), scrollTop kept ${sc.scrollTop}`);
+    for (const id of ['220', '219', '218']) { await swap(id, { instant: true }); out.push(`${SKINS[id].name}: h1 font ${getComputedStyle(m.querySelector('h1')).fontFamily.split(',')[0]}`); }
+    out.push(`markup hash ${hash(m.innerHTML)} vs initial ${H0} → ${hash(m.innerHTML) === H0 ? 'unchanged' : 'CHANGED'}`);
+    m.querySelector('.viewall a').click(); out.push(`View all designs → archive open=${arc.classList.contains('on')} with ${cards.children.length} live thumbnails`); openArc(false);
+    m.querySelector('.view-css a').click(); out.push(`View CSS: ${pre.textContent.split('\n')[0]}`); showCss(false);
+    await swap('001', { instant: true }); sc.scrollTop = 0; out.push(`restored default Tranquille, top; swaps=${swaps}`); return out.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['neumorph-softui-generator'])(root, T); }

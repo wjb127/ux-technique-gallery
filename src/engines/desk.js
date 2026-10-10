@@ -736,4 +736,202 @@ V['weatherstar-4000-retro-broadcast-auto-slide-forecast-player'] = (root, T) => 
     dur = saved; speedSel.value = 'Normal'; setPlaying(true); show(0, true); restartTimer(); out.push('restored: Seattle, Current Conditions, Normal speed, playing'); return out.join('; '); };
 };
 
+V['cameronsworld-geocities-layered-collage-scroll-zones-gif-parallax-sound-toggle'] = (root, T) => {
+  import('@fontsource/im-fell-english'); import('@fontsource/press-start-2p'); import('@fontsource/permanent-marker'); import('@fontsource/coming-soon'); import('@fontsource/pinyon-script');
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#ffea00', dark: true });
+  const FELL = "'IM Fell English',Georgia,serif", PX = "'Press Start 2P',monospace", MK = "'Permanent Marker',cursive", CS = "'Coming Soon','Comic Sans MS',cursive", PIN = "'Pinyon Script',cursive", TNR = "'Times New Roman',Times,serif";
+  const heart = (c) => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56'><path d='M14 22c-6-6-1-13 5-10 3 1 4 4 4 4s1-3 4-4c6-3 11 4 5 10l-9 9z' fill='${c}'/><path d='M42 50c-4-4-1-9 3-7 2 1 3 3 3 3s1-2 3-3c4-2 7 3 3 7l-6 6z' fill='${c}' opacity='.7'/></svg>`)}")`;
+  const st = document.createElement('style'); st.textContent = `
+.cw{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background:#000;color:#fff;font-family:${TNR};scroll-behavior:auto}
+.cw *{box-sizing:border-box}
+.cw-z{position:relative;overflow:hidden}
+.cw-sp{position:absolute;will-change:transform;user-select:none;line-height:1;pointer-events:auto}
+.cw-sp>i{display:block;font-style:normal}
+.cw-p0>i{filter:saturate(.8) brightness(.8)}.cw-p2>i{filter:drop-shadow(3px 4px 0 #0008)}
+.cw-space{height:1180px;background-color:#000;background-image:radial-gradient(circle,#2b3d9c 0 3px,#14205a 5px,#0000 11px),radial-gradient(1.2px 1.2px at 12px 18px,#fff 50%,#0000),radial-gradient(1px 1px at 70px 40px,#ffd 50%,#0000),radial-gradient(1px 1px at 40px 90px,#aaf 50%,#0000),radial-gradient(1.4px 1.4px at 100px 110px,#fff 50%,#0000),radial-gradient(1px 1px at 25px 60px,#f9c 50%,#0000);background-size:96px 96px,120px 120px,120px 120px,120px 120px,120px 120px,64px 64px;background-position:48px 10px,0 0,0 0,0 0,0 0,0 0}
+.cw-planet{border-radius:50%;position:relative}
+.cw-ring{position:absolute;left:-38%;top:38%;width:176%;height:26%;border-radius:50%;border:5px solid #d9c9b0;box-shadow:0 0 0 3px #8a6f5a,inset 0 0 0 3px #f2e7d5;transform:rotate(-8deg)}
+.cw-ring:after{content:'';position:absolute;inset:-9px 30% 40% 30%;background:inherit}
+.cw-spine{position:relative;height:96px;display:grid;place-items:center;z-index:5}
+.cw-spine svg{width:min(560px,80%);height:84px;filter:drop-shadow(0 0 2px #000)}
+.cw-snd{position:absolute;top:10px;right:16px;z-index:40;width:34px;height:32px;border:0;padding:0;background:#c0c0c0;box-shadow:inset 1px 1px #fff,inset -1px -1px #404040,inset 2px 2px #dfdfdf,inset -2px -2px #808080;display:grid;place-items:center;cursor:pointer}
+.cw-snd:active{box-shadow:inset 1px 1px #404040,inset -1px -1px #fff}
+.cw-snd svg{width:24px;height:22px}
+.cw-snd .lbl{position:absolute;right:40px;top:7px;white-space:nowrap;font:10px ${PX};color:#ff0;text-shadow:1px 1px #000;opacity:0;transition:opacity .3s;pointer-events:none}
+.cw-snd:hover .lbl,.cw-snd.flash .lbl{opacity:1}
+.cw-fan{height:1120px;background-color:#22063f;background-image:radial-gradient(ellipse at 30% 20%,#7b2fbf55,#0000 40%),repeating-radial-gradient(circle at 0 0,#3a0b62 0 7px,#26073f 7px 15px,#4a1478 15px 18px,#26073f 18px 26px);background-size:auto,70px 70px}
+.cw-fan .rail{position:absolute;top:0;bottom:0;width:86px;font-size:62px;line-height:84px;text-align:center;filter:hue-rotate(285deg) saturate(.55) brightness(1.45);overflow:hidden;word-break:break-all;z-index:3}
+.cw-fant{font:72px/1 ${FELL};letter-spacing:.02em;background:linear-gradient(180deg,#f6c8ff 0,#c03cff 38%,#6a0fa8 52%,#ff6cf0 70%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1.5px #fff;filter:drop-shadow(0 0 6px #e14bff) drop-shadow(3px 3px 0 #2a0040)}
+.cw-glow{text-shadow:0 0 4px #fff,0 0 10px currentColor,0 0 18px currentColor}
+.cw-out{-webkit-text-stroke:2px #fff;paint-order:stroke fill}
+.cw-rb{background:linear-gradient(90deg,#f00,#f80,#ff0,#0f0,#0cf,#00f,#c0f,#f00);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:cwrb 3s linear infinite}
+@keyframes cwrb{to{background-position:200% 0}}
+.cw-love{height:980px;background-color:#b5001b;background-image:${heart('#ff3d6e')},radial-gradient(circle at 50% 50%,#d80d2f,#8f0016);background-size:56px 56px,auto}
+.cw-azt{height:1260px;background:linear-gradient(180deg,#d9271c 0 300px,#ff5a00 300px,#ff8a00 470px,#ffc400 590px,#ffe14d 650px,#7fe3ff 651px,#36c8ff 700px,#1aa1f0 740px,#0b66d8 780px,#0749c2 1260px)}
+.cw-band{position:absolute;left:0;right:0;height:40px}
+.cw-oc{position:absolute;left:0;right:0;top:780px;bottom:0;background-image:radial-gradient(circle,#0000 0 3px,#bfe8ff99 3.5px 4.5px,#0000 5px),radial-gradient(circle,#0000 0 2px,#bfe8ff77 2.5px 3.2px,#0000 3.6px);background-size:46px 58px,31px 37px;background-position:0 0,13px 21px}
+.cw-int{position:absolute;left:12px;top:800px;font:700 22px/1.32 ${TNR};color:#ffe600;text-shadow:2px 2px #003;width:20px;text-align:center}
+.cw-fish{display:grid;grid-template-columns:repeat(8,1fr);gap:22px 10px;position:absolute;left:70px;right:40px;top:820px}
+.cw-fish button{all:unset;cursor:pointer;text-align:center;font:12px ${TNR};color:#9fe7ff;text-shadow:1px 1px #003a8a}
+.cw-fish button span{display:block;font-size:52px;line-height:1.15;transition:transform .2s}
+.cw-fish button:hover span{transform:scale(1.25) rotate(-8deg)}
+.cw-fish button:hover{color:#ff0}
+.cw-home{height:900px;background:#fff;color:#000}
+.cw-ft{background:#000;color:#fff;padding:90px 10% 60px;font-family:'Inter Variable',system-ui,sans-serif}
+.cw-ft h2{font-weight:300;font-size:64px;line-height:1.05;margin:0 0 34px;letter-spacing:-.01em}
+.cw-ft .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:900px;font-size:13px;line-height:1.6;color:#ccc}
+.cw-ft .bot{margin-top:70px;display:flex;gap:26px;font-size:11px;color:#999;border-top:1px solid #333;padding-top:14px}
+.cw-ft a{color:#ccc}
+.cw-wa{font:900 96px/1 Impact,'Arial Black',sans-serif;transform:skewX(-8deg) perspective(400px) rotateX(12deg);background:linear-gradient(180deg,#ff0 0,#f90 25%,#f00 45%,#c0f 65%,#06f 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(4px 4px 0 #335) drop-shadow(2px 2px 0 #889)}
+.cw-new{font:900 14px Impact,sans-serif;color:#ff0;background:#e00;padding:6px 8px;clip-path:polygon(50% 0,61% 30%,95% 20%,72% 48%,100% 70%,64% 70%,55% 100%,40% 72%,5% 85%,28% 52%,0 25%,38% 30%);animation:cwbl .7s steps(1) infinite}
+@keyframes cwbl{50%{color:#fff;background:#00f}}
+.cw-spin{animation:cwspin 6s linear infinite}@keyframes cwspin{to{transform:rotate(360deg)}}
+.cw-bob{animation:cwbob 2.4s ease-in-out infinite}@keyframes cwbob{50%{transform:translateY(-12px)}}
+.cw-tw{animation:cwtw 1.2s steps(2) infinite}@keyframes cwtw{50%{opacity:.25;transform:scale(.7)}}
+.cw-fly{animation:cwfly 9s linear infinite}@keyframes cwfly{0%{transform:translateX(0)}50%{transform:translateX(160px) translateY(-20px)}100%{transform:translateX(0)}}
+.cw-wob{animation:cwwob 1.6s ease-in-out infinite}@keyframes cwwob{50%{transform:rotate(10deg) scale(1.08)}}
+.cw-marq{position:absolute;left:0;right:0;white-space:nowrap;overflow:hidden}
+.cw-marq>div{display:inline-block;animation:cwmq 22s linear infinite;padding-left:100%}@keyframes cwmq{to{transform:translateX(-100%)}}
+.cw-cnt{display:inline-flex;gap:1px;background:#000;padding:2px;border:2px inset #888}.cw-cnt b{background:#111;color:#0f0;font:16px ${PX};padding:4px 3px}
+.cw-ring2{position:absolute;inset:0;border-radius:50%;border:3px dotted #7ff;box-shadow:0 0 12px #3ff}
+@media (prefers-reduced-motion:reduce){.cw [class*="cw-spin"],.cw .cw-bob,.cw .cw-tw,.cw .cw-fly,.cw .cw-wob,.cw-marq>div,.cw-rb,.cw-new{animation:none}}
+`; root.append(st);
+  const R = rng(1997); const rr = (a, b) => a + R() * (b - a);
+  const sc = h('div.cw'); root.append(sc);
+  const sprites = []; const FACT = [0.38, 0.14, -0.22];
+  // sprite helper: content (node|string emoji), zone, x% , y px, size px, plane 0..2, anim class
+  const sp = (zone, x, y, content, { size = 40, plane = 1, anim = '', z = 0, title } = {}) => {
+    const inner = typeof content === 'string' ? h('i', { style: { fontSize: size + 'px' } }, content) : h('i', {}, content);
+    if (anim) inner.classList.add(anim);
+    const el = h('div.cw-sp.cw-p' + plane, { style: { left: x + '%', top: y + 'px', zIndex: 2 + plane * 3 + z }, title }, inner);
+    el.dataset.plane = plane; zone.append(el); sprites.push({ el, zone, plane }); return el;
+  };
+  const planet = (d, a, b, { ring = false, bands = false, glow } = {}) => { const p = h('div.cw-planet', { style: { width: d + 'px', height: d + 'px', background: `${bands ? `repeating-linear-gradient(${rr(-20, 20)}deg,#0000 0 ${d / 9}px,#ffffff22 ${d / 9}px ${d / 6}px),` : ''}radial-gradient(circle at 32% 30%,#fff8 0,${a} ${d * 0.22}px,${b} ${d * 0.55}px,#000 ${d * 0.78}px)`, boxShadow: `inset ${-d * 0.12}px ${-d * 0.1}px ${d * 0.18}px #0009${glow ? `,0 0 ${d / 3}px ${glow}` : ''}` } }); if (ring) p.append(h('div.cw-ring')); return p; };
+  const txt = (cls, text, style = {}) => h('div' + cls, { style }, text);
+  const star5 = (c = '#e8c870', s = 40) => h('div', { html: `<svg width="${s}" height="${s}" viewBox="0 0 40 40"><path d="M20 2l5 13h14l-11 8 4 14-12-8-12 8 4-14L1 15h14z" fill="${c}" stroke="#fff8" stroke-width="1"/></svg>` });
+  const sparkle = (c = '#fff', s = 60) => h('div', { html: `<svg width="${s}" height="${s}" viewBox="0 0 60 60"><path d="M30 0L33 27 60 30 33 33 30 60 27 33 0 30 27 27z" fill="${c}"/><path d="M30 12l2 16 16 2-16 2-2 16-2-16-16-2 16-2z" fill="#fff"/></svg>` });
+  const spine = () => h('div.cw-spine', { html: `<svg viewBox="0 0 560 84"><g fill="none" stroke-width="2"><path d="M260 6h40M232 16h96M196 26h168" stroke="#aaa"/><path d="M196 58h168M232 68h96M260 78h40" stroke="#aaa"/><rect x="0" y="38" width="560" height="8" stroke="#bbb" fill="#111"/><path d="M60 42h440" stroke="#d58a2a" stroke-width="5"/><path d="M150 33h260M150 51h260" stroke="#c9a24a" stroke-width="3"/></g><g fill="#3fc6c6" stroke="#fff" stroke-width="1.2"><path d="M280 26l16 16-16 16-16-16z" fill="#c28a2c"/><path d="M280 32l10 10-10 10-10-10z"/><path d="M130 36l6 6-6 6-6-6zM430 36l6 6-6 6-6-6zM196 30l4 4-4 4-4-4zM364 30l4 4-4 4-4-4zM196 46l4 4-4 4-4-4zM364 46l4 4-4 4-4-4z"/></g></svg>` });
+  // ---------- zone 1: outer space ----------
+  const z1 = h('section.cw-z.cw-space', { 'data-zone': 'Outer space' });
+  const PL = [['#ffb347', '#c0360c'], ['#e8e2d0', '#7d7466'], ['#9be7ff', '#2a6f9a'], ['#ffcf8a', '#b5532a'], ['#c9f0a0', '#3b7a2a'], ['#d6a5ff', '#5b2a9a'], ['#ff8a8a', '#8a1a1a'], ['#f0e0b0', '#9a7a3a'], ['#8ac4ff', '#1a3a9a']];
+  [[5, 30, 64], [16, 40, 22], [11, 120, 50], [3, 150, 30], [72, 0, 72], [92, 20, 66], [88, 100, 96], [60, 52, 48], [36, 210, 74], [53, 222, 50], [5, 205, 64], [94, 345, 52], [84, 405, 58], [89, 435, 40], [33, 445, 40], [46, 455, 72], [3, 470, 66], [20, 520, 26], [62, 530, 54], [79, 600, 46], [12, 700, 90], [50, 760, 60], [70, 820, 78], [25, 880, 44], [90, 900, 64], [40, 980, 36], [8, 1010, 56], [58, 1050, 50]].forEach(([x, y, d], i) => { const [a, b] = PL[i % PL.length]; sp(z1, x, y, planet(d, a, b, { bands: i % 3 === 0, glow: i % 7 === 0 ? '#ff9a3c88' : null }), { plane: d > 60 ? 2 : d > 40 ? 1 : 0 }); });
+  sp(z1, 43, 72, planet(130, '#f6e7c8', '#9a7b52', { ring: true, bands: true }), { plane: 1, title: 'Saturn' });
+  sp(z1, 32, 470, planet(160, '#fff3a0', '#ff5a00', { glow: '#ff7a0088' }), { plane: 2, anim: 'cw-wob' });
+  sp(z1, 47, 455, planet(110, '#9bd0ff', '#1d4fbf', {}), { plane: 2 });
+  sp(z1, 41, 400, planet(48, '#fff59a', '#ffb300', { glow: '#ffd000' }), { plane: 1, anim: 'cw-tw' });
+  const em = [['🛸', 63, 240, 34, 1, 'cw-fly'], ['🛸', 71, 270, 46, 2, 'cw-bob'], ['🛸', 30, 360, 32, 1, 'cw-bob'], ['🛸', 67, 375, 40, 1, 'cw-fly'], ['🚀', 72, 60, 64, 2, 'cw-bob'], ['👽', 3, 580, 40, 1, 'cw-wob'], ['🌙', 17, 220, 46, 1, ''], ['☄️', 58, 500, 46, 2, 'cw-fly'], ['🌠', 83, 380, 34, 0, 'cw-tw'], ['🌌', 80, 200, 110, 0, ''], ['⭐', 96, 205, 18, 0, 'cw-tw'], ['💫', 91, 420, 26, 0, 'cw-tw'], ['🌍', 57, 440, 26, 0, 'cw-spin'], ['🏯', 22, 60, 120, 1, ''], ['🦬', 90, 510, 80, 2, ''], ['🪐', 4, 470, 70, 2, 'cw-wob'], ['🌟', 74, 440, 30, 1, 'cw-tw'], ['🛰️', 30, 650, 54, 1, 'cw-fly'], ['👾', 64, 680, 40, 2, 'cw-bob'], ['🌛', 84, 760, 60, 1, ''], ['🛸', 15, 820, 56, 2, 'cw-fly'], ['✨', 48, 920, 40, 0, 'cw-tw'], ['🚀', 30, 1040, 44, 1, 'cw-bob'], ['👽', 76, 980, 54, 2, 'cw-wob']];
+  em.forEach(([e, x, y, s, p, a]) => sp(z1, x, y, e, { size: s, plane: p, anim: a }));
+  [[26, 450, '#e8c870', 38], [17, 425, '#3fd2d2', 70], [19, 500, '#b9a6ff', 22], [22, 520, '#b9a6ff', 16], [16, 520, '#b9a6ff', 18], [89, 405, '#5b8cff', 14], [95, 205, '#ff3030', 14]].forEach(([x, y, c, s]) => sp(z1, x, y, star5(c, s), { plane: s > 30 ? 2 : 0, anim: s < 20 ? 'cw-tw' : '' }));
+  [[53, 390, '#fff', 60], [76, 520, '#ff5ad1', 150], [10, 640, '#cfe', 40], [62, 900, '#ffe', 70]].forEach(([x, y, c, s]) => sp(z1, x, y, sparkle(c, s), { plane: 1, anim: 'cw-tw' }));
+  sp(z1, 6, 290, h('div', { style: { width: '120px', height: '120px', position: 'relative' } }, h('div.cw-ring2')), { plane: 1, anim: 'cw-spin' });
+  sp(z1, 34, 845, txt('.cw-glow', '★ Welcome to my Space Station ★', { font: `20px ${PX}`, color: '#7ff', whiteSpace: 'nowrap' }), { plane: 2 });
+  sp(z1, 38, 905, txt('', 'You are visitor number', { font: `15px ${TNR}`, color: '#ff0' }), { plane: 2 });
+  sp(z1, 38, 930, h('div.cw-cnt', {}, ...'0019970'.split('').map((d) => h('b', {}, d))), { plane: 2 });
+  z1.append(h('div', { style: { position: 'absolute', left: 0, right: 0, top: '286px', zIndex: 6 } }, spine()));
+  // ---------- zone 2: purple fantasy ----------
+  const z2 = h('section.cw-z.cw-fan', { 'data-zone': 'Purple fantasy realm' });
+  z2.append(h('div.rail', { style: { left: 0 } }, '🌹'.repeat(14)), h('div.rail', { style: { right: 0 } }, '🌹'.repeat(14)));
+  sp(z2, 34, 10, txt('', "You're visiting my", { font: `italic 20px ${TNR}`, color: '#d9c8ff', textShadow: '0 0 6px #b07cff' }), { plane: 2 });
+  sp(z2, 50, 0, txt('', 'Dream', { font: `46px ${PIN}`, color: '#fff', textShadow: '0 0 8px #e0b0ff' }), { plane: 2 });
+  sp(z2, 30, 52, txt('.cw-fant', 'Fantasy Realm'), { plane: 2, z: 2 });
+  sp(z2, 35, 160, txt('', '⚔', { fontSize: '120px', color: '#ddd', transform: 'rotate(90deg)', textShadow: '0 0 8px #fff' }), { plane: 1 });
+  sp(z2, 18, 210, h('div', { style: { width: '110px', height: '110px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 30%,#fff,#e7a6ff 18%,#9b30d9 45%,#3a0a5e 75%)', boxShadow: '0 0 30px #c05cff' } }), { plane: 2, anim: 'cw-wob' });
+  sp(z2, 40, 230, h('div', { style: { width: '80px', height: '80px', borderRadius: '50%', background: 'radial-gradient(circle at 40% 35%,#9a6ad0,#2a0a4a 70%)', boxShadow: '0 0 16px #000' } }), { plane: 0 });
+  sp(z2, 7, 280, txt('.cw-glow', 'Enter', { font: `40px ${FELL}`, color: '#ff2fa0' }), { plane: 2, anim: 'cw-tw' });
+  sp(z2, 10, 360, txt('', 'Vinyl Mistress', { font: `italic 700 26px ${TNR}`, color: '#1a0640', background: 'linear-gradient(#fff,#cbb6ff)', padding: '6px 14px', borderRadius: '16px', boxShadow: '0 0 14px #fff' }), { plane: 1 });
+  sp(z2, 55, 225, '🌹', { size: 130, plane: 2, anim: 'cw-wob' });
+  sp(z2, 72, 120, '🧚', { size: 70, plane: 1, anim: 'cw-bob' });
+  sp(z2, 66, 180, '🐉', { size: 56, plane: 0, anim: 'cw-fly' });
+  sp(z2, 84, 300, '🐺', { size: 90, plane: 2 });
+  sp(z2, 82, 330, '🍄', { size: 60, plane: 1, anim: 'cw-bob' });
+  sp(z2, 33, 290, '💃', { size: 120, plane: 2 });
+  sp(z2, 14, 120, '🧙', { size: 80, plane: 1 });
+  sp(z2, 16, 30, '💀', { size: 50, plane: 0, anim: 'cw-tw' });
+  sp(z2, 74, 30, '🔮', { size: 60, plane: 1, anim: 'cw-wob' });
+  sp(z2, 56, 330, h('div', {}, txt('.cw-glow', 'Welcome to my Heart', { font: `34px ${TNR}`, color: '#ff4fb0' }), txt('', 'the page which loving built', { font: `24px ${TNR}`, color: '#ffe94f' }), txt('', 'Email the Webmaster', { font: `21px ${TNR}`, color: '#7fc8ff', marginLeft: '40px' }), txt('', 'hotmale@hotmail.com', { font: `21px ${TNR}`, color: '#7ff', textDecoration: 'underline', marginLeft: '60px' })), { plane: 2 });
+  sp(z2, 9, 480, txt('.cw-glow', 'Hello', { font: `italic 52px ${MK}`, color: '#4f7bff' }), { plane: 2, anim: 'cw-bob' });
+  sp(z2, 22, 500, txt('', 'Welcome To\nHiding Place', { font: `40px/0.95 ${PIN}`, color: '#ff4fd8', whiteSpace: 'pre', textShadow: '0 0 4px #fff,2px 2px 0 #500050' }), { plane: 1 });
+  sp(z2, 52, 450, '💜', { size: 80, plane: 1, anim: 'cw-wob' });
+  sp(z2, 65, 470, '💎', { size: 60, plane: 0, anim: 'cw-tw' });
+  sp(z2, 44, 600, txt('.cw-rb', '~*~ The Everchanging Page ~*~', { font: `italic 30px ${TNR}`, whiteSpace: 'nowrap' }), { plane: 2 });
+  sp(z2, 12, 700, '🦄', { size: 110, plane: 2, anim: 'cw-bob' });
+  sp(z2, 70, 640, '🕯️', { size: 60, plane: 1, anim: 'cw-tw' });
+  sp(z2, 30, 760, txt('.cw-glow', 'Sign My Guestbook!', { font: `30px ${CS}`, color: '#c9a0ff' }), { plane: 1 });
+  sp(z2, 60, 780, '🌙', { size: 120, plane: 0 });
+  sp(z2, 40, 880, '🪄', { size: 70, plane: 2, anim: 'cw-wob' });
+  sp(z2, 76, 880, '🌹', { size: 80, plane: 1 });
+  sp(z2, 18, 900, '✨', { size: 60, plane: 0, anim: 'cw-tw' });
+  z2.append(h('div', { style: { position: 'absolute', left: 0, right: 0, bottom: '10px', zIndex: 6 } }, spine()));
+  // ---------- zone 3: red love ----------
+  const z3 = h('section.cw-z.cw-love', { 'data-zone': 'Red love / hearts' });
+  sp(z3, 29, 40, txt('.cw-rb', 'I ♥ LOVE ♥ YOU', { font: `900 76px Impact,'Arial Black',sans-serif`, whiteSpace: 'nowrap', filter: 'drop-shadow(3px 3px 0 #400)' }), { plane: 2 });
+  sp(z3, 36, 140, txt('.cw-glow', 'Be My Valentine', { font: `52px ${PIN}`, color: '#fff' }), { plane: 1 });
+  [[6, 60, 90], [80, 40, 110], [16, 300, 70], [70, 260, 80], [45, 300, 150], [88, 420, 60], [3, 520, 100], [60, 520, 70], [30, 600, 60], [80, 650, 120]].forEach(([x, y, s], i) => sp(z3, x, y, ['💖', '💘', '💝', '💗', '❤️', '💕', '💞', '💓', '🌹', '💌'][i], { size: s, plane: s > 100 ? 2 : s > 70 ? 1 : 0, anim: ['cw-bob', 'cw-wob', 'cw-tw', 'cw-spin', ''][i % 5] }));
+  sp(z3, 33, 480, h('div', { style: { background: '#fff', color: '#c00', padding: '18px 26px', border: '6px ridge #ff8fb0', font: `18px/1.5 ${CS}`, maxWidth: '420px', boxShadow: '6px 6px 0 #600' } }, h('b', { style: { font: `24px ${FELL}`, display: 'block', marginBottom: '6px' } }, 'Roses are red...'), 'This page is dedicated to my sweetheart. Click the hearts and make a wish! ', h('span', { style: { color: '#f0f' } }, '♥♥♥')), { plane: 1 });
+  sp(z3, 62, 380, txt('', 'NEW!', {}), { plane: 2 }).firstChild.className = 'cw-new';
+  sp(z3, 8, 780, txt('.cw-out', 'xoxo', { font: `80px ${MK}`, color: '#ff2a6a' }), { plane: 2, anim: 'cw-wob' });
+  sp(z3, 54, 760, '🧸', { size: 110, plane: 2, anim: 'cw-bob' });
+  z3.append(h('div', { style: { position: 'absolute', left: 0, right: 0, bottom: '10px', zIndex: 6 } }, spine()));
+  // ---------- zone 4+5: aztec sunset + ocean "my interests" ----------
+  const z4 = h('section.cw-z.cw-azt', { 'data-zone': 'Aztec sunset + ocean' });
+  const bands = [['repeating-linear-gradient(90deg,#d01818 0 6px,#ffd400 6px 60px,#16a34a 60px 66px,#ff66c4 66px 112px,#1840d0 112px 118px)', 0, 52], ['repeating-linear-gradient(90deg,#111 0 2px,#ffd400 2px 20px)', 52, 16], ['repeating-linear-gradient(135deg,#ff2a00 0 10px,#ffd400 10px 20px,#13a538 20px 30px,#1840d0 30px 40px)', 68, 32], ['repeating-linear-gradient(90deg,#0d1a8a 0 48px,#ffd400 48px 52px)', 100, 30], ['repeating-linear-gradient(45deg,#d01818 0 8px,#ff8c00 8px 16px),linear-gradient(#000,#000)', 130, 20], ['radial-gradient(circle,#ffd400 0 7px,#c01010 8px 12px,#0000 13px)', 150, 30]];
+  bands.forEach(([bg, top, hh]) => z4.append(h('div.cw-band', { style: { background: bg, top: top + 'px', height: hh + 'px', backgroundSize: bg.startsWith('radial') ? '56px 30px' : '' } })));
+  z4.append(h('div.cw-band', { style: { top: '180px', height: '40px', background: 'radial-gradient(circle at 50% 10%,#ffde00 0 3px,#0000 4px),radial-gradient(circle at 50% 60%,#d0102a 0 11px,#0000 12px)', backgroundSize: '56px 40px' } }));
+  const sun = h('div', { html: `<svg width="250" height="250" viewBox="0 0 250 250"><circle cx="125" cy="125" r="122" fill="#b8321a" stroke="#5a1408" stroke-width="4"/>${Array.from({ length: 24 }, (_, i) => `<path d="M125 6l9 22h-18z" fill="${i % 2 ? '#e8b030' : '#ff6a1a'}" stroke="#5a1408" transform="rotate(${i * 15} 125 125)"/>`).join('')}<circle cx="125" cy="125" r="92" fill="#e2522a" stroke="#5a1408" stroke-width="3"/>${Array.from({ length: 20 }, (_, i) => `<rect x="119" y="38" width="12" height="16" fill="${['#ffcc33', '#2aa6a0', '#ff8833', '#fff'][i % 4]}" stroke="#5a1408" transform="rotate(${i * 18} 125 125)"/>`).join('')}<circle cx="125" cy="125" r="62" fill="#c43c1c" stroke="#5a1408" stroke-width="3"/><circle cx="125" cy="122" r="36" fill="#f0a05a" stroke="#5a1408" stroke-width="3"/><circle cx="112" cy="114" r="6" fill="#fff" stroke="#000" stroke-width="2"/><circle cx="138" cy="114" r="6" fill="#fff" stroke="#000" stroke-width="2"/><rect x="113" y="132" width="24" height="10" rx="3" fill="#7a1a10"/><path d="M118 142l7 12 7-12" fill="#ff5a5a" stroke="#5a1408"/><path d="M78 100l-12-24 22 14zM172 100l12-24-22 14zM80 160l-14 18 24-6zM170 160l14 18-24-6z" fill="#fff" stroke="#5a1408" stroke-width="2"/></svg>` });
+  sp(z4, 38, -10, sun, { plane: 1, z: 2, title: 'Sun stone' });
+  z4.append(h('div', { style: { position: 'absolute', left: 0, right: 0, top: '520px', height: '60px', overflow: 'hidden', zIndex: 3 } }, h('div', { style: { font: `italic 700 40px ${TNR}`, color: '#ff6a0080', whiteSpace: 'nowrap', textShadow: '1px 1px #c43c0060' } }, '~ welcome to my homepage ~ '.repeat(8))));
+  sp(z4, 15, 400, h('div', { style: { width: '130px', height: '130px', borderRadius: '50%', background: 'radial-gradient(circle,#fff36a,#ffd800 70%)', boxShadow: '0 0 40px #fff36a' } }), { plane: 0 });
+  sp(z4, 18, 410, '🌍', { size: 50, plane: 1, anim: 'cw-spin' });
+  sp(z4, 16, 470, '🦭', { size: 80, plane: 2, anim: 'cw-bob' });
+  sp(z4, 23, 470, txt('', 'NEW!', {}), { plane: 2 }).firstChild.className = 'cw-new';
+  [[26, 420, 34], [30, 470, 26], [77, 455, 28]].forEach(([x, y, s]) => sp(z4, x, y, h('div', { html: `<svg width="${s * 2}" height="${s}" viewBox="0 0 60 30"><path d="M2 20q14-18 28 0q14-18 28 0" stroke="#222" stroke-width="5" fill="none" stroke-linecap="round"/></svg>` }), { plane: 0, anim: 'cw-fly' }));
+  sp(z4, 37, 520, '🗿', { size: 70, plane: 1 }); sp(z4, 60, 520, '🗿', { size: 70, plane: 1 });
+  sp(z4, 1, 520, '💃', { size: 70, plane: 1 }); sp(z4, 87, 470, '🌴', { size: 120, plane: 2 }); sp(z4, 93, 520, '🌴', { size: 80, plane: 1 }); sp(z4, 85, 560, '🦩', { size: 60, plane: 1 });
+  sp(z4, 9, 640, '🦈', { size: 46, plane: 0, anim: 'cw-fly' }); sp(z4, 76, 650, '🐬', { size: 84, plane: 2, anim: 'cw-wob' }); sp(z4, 92, 690, '🐠', { size: 50, plane: 1, anim: 'cw-bob' });
+  sp(z4, 0, 735, '🧰', { size: 26, plane: 2 });
+  z4.append(h('div.cw-oc'), h('div.cw-int', {}, ...'MY INTERESTS'.split('').map((c) => h('div', {}, c === ' ' ? '\u00a0' : c))));
+  const FISH = [['🚢', 'N/A'], ['🐟', 'Dolphin'], ['🐠', 'Fish'], ['🐡', 'Dolphin'], ['🦐', 'Red Fish'], ['🧜‍♀️', 'Angel'], ['🐟', 'Dolphin'], ['🐋', 'Fish'], ['🐠', 'Shark'], ['🦈', 'Shark'], ['🐡', 'Dolphin'], ['🐚', 'Clam'], ['🦑', 'Jellyfish'], ['📧', 'Email Me'], ['🐬', 'Dolphin'], ['🦞', 'Shrimp'], ['🐙', 'Octopus'], ['🧜‍♂️', 'Merman'], ['🦀', 'Crab'], ['🐳', 'Whale'], ['🐢', 'Turtle'], ['🦭', 'Seal'], ['🪸', 'Coral'], ['⚓', 'Anchor']];
+  const fishLog = h('div', { style: { position: 'absolute', left: '70px', bottom: '26px', font: `14px ${PX}`, color: '#ffe600', textShadow: '2px 2px #003', zIndex: 8 } }, 'Click a critter to learn more!');
+  z4.append(h('div.cw-fish', { style: { zIndex: 6 } }, FISH.map(([e, n]) => h('button', { onclick: (ev) => { fishLog.textContent = n === 'Email Me' ? '✉ Mailbox is full! Try again later :)' : n === 'N/A' ? 'N/A ... under construction 🚧' : `My favourite: ${n}! (it's actually a ${e})`; if (sound) blip(midi(72 + Math.floor(Math.random() * 12)), 0.2, 'triangle', 0.05); ev.currentTarget.firstChild.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.6) rotate(20deg)' }, { transform: 'scale(1)' }], 500); } }, h('span', {}, e), n))), fishLog);
+  z4.append(h('div', { style: { position: 'absolute', left: 0, right: 0, bottom: '-6px', zIndex: 6 } }, spine()));
+  // ---------- zone 6: welcome home ----------
+  const z6 = h('section.cw-z.cw-home', { 'data-zone': 'Welcome home' });
+  z6.append(h('div.cw-marq', { style: { top: '14px', font: `20px ${PX}`, color: '#f60', zIndex: 5 } }, h('div', {}, '★ THE BEST PLACE ON EARTH HAS BEEN... ★ Welcome home ★ Last updated: 06/14/1999 ★ Best viewed in Netscape Navigator at 800x600 ★')));
+  sp(z6, 32, 60, txt('.cw-out', 'ON EARTH HAS BEEN.', { font: `900 44px Impact,'Arial Black',sans-serif`, color: '#ff7a00', whiteSpace: 'nowrap', WebkitTextStroke: '2px #000' }), { plane: 1 });
+  sp(z6, 29, 130, txt('.cw-wa', 'Welcome home', { whiteSpace: 'nowrap' }), { plane: 2 });
+  const HOUSES = ['🏠', '🏡', '🏘️', '⛪', '🏫', '🏡', '🏠', '🏰', '🏡', '🛖', '🏠', '🏡'];
+  z6.append(h('div', { style: { position: 'absolute', left: '4%', right: '4%', top: '310px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '4px solid #6a4', paddingBottom: '2px', zIndex: 4 } }, HOUSES.map((e, i) => h('span', { style: { fontSize: 44 + (i * 17) % 34 + 'px' } }, e))));
+  [[3, 230, '🐕', 60, 'cw-bob'], [92, 230, '👨‍👩‍👧', 58, ''], [55, 240, '🚗', 50, 'cw-fly'], [70, 60, '🌈', 90, ''], [10, 40, '☀️', 80, 'cw-spin'], [86, 40, '🎈', 60, 'cw-bob'], [50, 30, '💻', 50, 'cw-wob']].forEach(([x, y, e, s, a]) => sp(z6, x, y, e, { size: s, plane: s > 60 ? 2 : 1, anim: a }));
+  z6.append(h('div', { style: { position: 'absolute', left: '10%', right: '10%', top: '410px', font: `13px ${TNR}`, color: '#00c', textAlign: 'center', zIndex: 4 } }, 'This page is a love letter to the GeoCities neighborhoods: ', h('u', {}, 'Area51'), ' · ', h('u', {}, 'Hollywood'), ' · ', h('u', {}, 'SiliconValley'), ' · ', h('u', {}, 'Heartland'), ' · ', h('u', {}, 'EnchantedForest'), ' · ', h('u', {}, 'Paris'), ' · ', h('u', {}, 'Athens')));
+  const tiles = h('div', { style: { position: 'absolute', left: '4%', right: '4%', top: '470px', display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: '12px', zIndex: 4 } }, ['🌳', '🔮', '🧊', '🎱', '🕸️', '🧪', '🗿', '💾', '📼', '🖱️', '📟', '💿', '📠', '🕹️'].map((e) => h('div', { style: { aspectRatio: '1.3', border: '3px outset #ddd', background: 'linear-gradient(135deg,#f5f5f5,#cfd8e8)', display: 'grid', placeItems: 'center', fontSize: '50px' } }, e)));
+  z6.append(tiles);
+  sp(z6, 40, 790, txt('', '🚧 UNDER CONSTRUCTION 🚧', { font: `14px ${PX}`, color: '#000', background: 'repeating-linear-gradient(45deg,#ffd400 0 16px,#111 16px 32px)', padding: '14px 18px', textShadow: '0 0 3px #ffd400,0 0 3px #ffd400,0 0 3px #ffd400' }), { plane: 2 });
+  const ft = h('footer.cw-ft', {}, h('h2', {}, 'A love letter to the', h('br'), 'Internet of old'), h('div.cols', {}, h('p', {}, "This is a web collage of text and images excavated from the buried neighborhoods of archived GeoCities pages (1994–2009). It is an homage to a time when the internet was a place of personal expression, sharing and play."), h('p', {}, 'Rebuilt here as a clone-practice study: every sprite on this page is emoji or CSS, every loop is synthesised with WebAudio, and each sprite sits on one of three depth planes that drift at different speeds as you scroll.')), h('div.bot', {}, h('span', {}, 'Press'), h('span', {}, 'Facebook'), h('span', {}, 'Instagram'), h('span', { style: { marginLeft: 'auto' } }, 'Cameron’s World (study)')));
+  sc.append(z1, z2, z3, z4, z6, ft);
+  // ---------- parallax ----------
+  const zones = [z1, z2, z3, z4, z6];
+  const par = () => { const y = sc.scrollTop, vh = sc.clientHeight; for (const s0 of sprites) { const zt = s0.zone.offsetTop; if (zt > y + vh + 400 || zt + s0.zone.offsetHeight < y - 400) continue; s0.el.style.transform = `translate3d(0,${((y - zt) * FACT[s0.plane]).toFixed(1)}px,0)`; } };
+  let raf = 0; sc.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; par(); }); }, { passive: true }); par();
+  // ---------- sound toggle (looping WebAudio MIDI-ish track) ----------
+  let sound = false, loopT = null, step0 = 0, notesPlayed = 0;
+  const icoOn = `<svg viewBox="0 0 24 22"><path d="M2 8h4l6-5v16l-6-5H2z" fill="#000"/><path d="M15 7q3 4 0 8M18 4q6 7 0 14" stroke="#000" stroke-width="2" fill="none"/><text x="16" y="9" font-size="7" fill="#c00">♪</text></svg>`;
+  const icoOff = `<svg viewBox="0 0 24 22"><path d="M2 8h4l6-5v16l-6-5H2z" fill="#000"/><path d="M15 7l7 8M22 7l-7 8" stroke="#c00" stroke-width="2.2"/></svg>`;
+  const lbl = h('span.lbl', {}, 'sound: OFF');
+  const snd = h('button.cw-snd', { title: 'Toggle background music', 'aria-pressed': 'false', html: icoOff, onclick: () => setSound(!sound) }); snd.append(lbl);
+  root.append(snd);
+  const CH = [[60, 64, 67, 71], [57, 60, 64, 67], [53, 57, 60, 64], [55, 59, 62, 65]]; const MEL = [76, 74, 72, 74, 76, 76, 76, -1, 74, 74, 74, -1, 76, 79, 79, -1];
+  const tick = () => { if (!sound || !document.body.contains(sc)) return; const bar = Math.floor(step0 / 8) % 4, k = step0 % 8; const ch = CH[bar];
+    blip(midi(ch[[0, 1, 2, 3, 2, 1, 2, 3][k]] + 12), 0.28, 'triangle', 0.035); if (k === 0) blip(midi(ch[0] - 24), 1.4, 'sine', 0.06); if (k === 4) blip(midi(ch[0] - 12), 0.6, 'sine', 0.035);
+    const m = MEL[(step0 >> 1) % 16]; if (step0 % 2 === 0 && m > 0) blip(midi(m), 0.32, 'square', 0.014); notesPlayed++; step0++; loopT = setTimeout(tick, 190); };
+  const setSound = (on) => { sound = on; snd.innerHTML = on ? icoOn : icoOff; snd.append(lbl); lbl.textContent = on ? 'sound: ON (synth loop)' : 'sound: OFF'; snd.setAttribute('aria-pressed', String(on)); snd.classList.add('flash'); setTimeout(() => snd.classList.remove('flash'), 1200); clearTimeout(loopT); if (on) { audio(); tick(); } };
+  window.__demoProof = async () => { const out = []; const plane = (p) => sprites.find((s0) => s0.plane === p && s0.zone === z2);
+    out.push(`zones: ${zones.map((z) => z.dataset.zone).join(' → ')} (+footer)`); out.push(`sprites: ${sprites.length} on 3 planes [${[0, 1, 2].map((p) => sprites.filter((s0) => s0.plane === p).length).join('/')}]`);
+    for (const z of zones) { sc.scrollTop = z.offsetTop + 200; par(); await sleep(60); }
+    sc.scrollTop = z2.offsetTop + 300; par(); const ty = (el) => +(el.style.transform.match(/,\s*(-?[\d.]+)px/) || [0, 0])[1];
+    out.push(`parallax @fantasy+300: back ${ty(plane(0).el)}px, mid ${ty(plane(1).el)}px, front ${ty(plane(2).el)}px`);
+    setSound(true); await sleep(700); out.push(`sound ON: ${notesPlayed} notes scheduled, ctx=${audio()?.state}`); setSound(false); const n = notesPlayed; await sleep(400); out.push(`sound OFF: loop stopped=${notesPlayed === n}`);
+    z4.querySelector('.cw-fish button:nth-child(10)').click(); out.push(`critter: ${fishLog.textContent}`); fishLog.textContent = 'Click a critter to learn more!';
+    sc.scrollTop = 0; par(); out.push('restored: top of page, sound off'); return out.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['parody-desktop-os-sandbox'])(root, T); }

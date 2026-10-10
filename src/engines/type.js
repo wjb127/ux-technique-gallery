@@ -1453,5 +1453,145 @@ V['grilli-flexa-jump-rail-subfamily-pill-editable-specimen'] = (root, T) => {
     return out.join('; ') + '; restored'; };
 };
 
+V['locomotive-stacked-echo-typing-preloader-glyph-scramble-wordmark'] = (root, T) => {
+  import('@fontsource/instrument-serif/400.css');
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#5fe3e8', dark: true });
+  const GR = "'Inter Variable','Helvetica Neue',Arial,sans-serif", SE = "'Instrument Serif','Times New Roman',serif", CY = '#5fe3e8';
+  const st = document.createElement('style'); st.textContent = `
+.lc{position:absolute;inset:0;background:#000;color:#fff;overflow:hidden;font-family:${GR}}
+.lc-home{position:absolute;inset:0;opacity:0}
+.lc-home.on{opacity:1;transition:opacity .5s ease}
+.lc-cv{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.lc-nav{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;padding:16px 40px;font:400 22px/1 ${GR};letter-spacing:-.01em;z-index:3}
+.lc-nav a{color:#fff;text-decoration:none;cursor:pointer;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s}
+.lc-nav a:hover{background-size:100% 1px}
+.lc-nav .c{color:${CY}}.lc-nav .sp{flex:1}
+.lc-nav sup{font-size:.45em;vertical-align:.9em;margin-left:1px}.lc-hero sup{font-size:.26em;vertical-align:2.2em;margin-left:2px;font-family:${GR}}
+.lc-hero{position:absolute;left:40px;bottom:26px;color:${CY};font:400 70px/0.98 ${SE};letter-spacing:-.005em;z-index:3}
+.lc-hero .r{display:flex;align-items:center;gap:16px;overflow:hidden}
+.lc-hero .r>span{display:inline-block}
+.lc-badge{display:grid;grid-template-columns:auto auto;border:2px solid ${CY};font:700 17px/1 ${GR};letter-spacing:.02em;height:54px;align-self:center}
+.lc-badge b{display:grid;place-items:center;padding:0 12px;border-right:2px solid ${CY}}
+.lc-badge i{font-style:normal;display:grid;grid-template-rows:1fr 1fr;padding:0 10px}.lc-badge i span{display:grid;place-items:center}.lc-badge i span:first-child{border-bottom:2px solid ${CY}}
+.lc-loco{display:inline-flex;flex-direction:column;align-items:flex-start;font:500 20px/1 ${GR};margin-left:6px;transform:translateY(-14px)}
+.lc-loco u{text-decoration:none;border-bottom:2px solid ${CY};padding-bottom:2px;letter-spacing:.06em}
+.lc-up{transform:translateY(105%)}.lc-home.on .lc-up{transform:none;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.lc-pre{position:absolute;inset:0;background:#000;z-index:10;transition:opacity .6s ease,transform .8s cubic-bezier(.7,0,.2,1)}
+.lc-pre.out{opacity:0;transform:translateY(-6%);pointer-events:none}
+.lc-pre.gone{display:none}
+.lc-g{position:absolute;font:400 23px/31px ${GR};white-space:pre;letter-spacing:-.005em}
+.lc-wm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;font:400 30px/1 ${SE};color:#fff;white-space:pre}
+.lc-wm .ic{display:inline-block;width:16px;height:16px;border:1.5px solid #fff;opacity:0;transition:opacity .2s}
+.lc-wm .ic.on{opacity:1}
+.lc-wm .l{display:inline-block}
+.lc-wm .l.s{font-family:${GR};font-size:21px;opacity:.85}
+.lc-ctl{position:absolute;right:20px;bottom:20px;z-index:20;display:flex;gap:8px;align-items:center;font:600 12px ${GR}}
+.lc-ctl button{all:unset;cursor:pointer;padding:8px 13px;border-radius:999px;background:#ffffff1f;color:#fff;backdrop-filter:blur(8px);border:1px solid #ffffff30}
+.lc-ctl button:hover{background:#ffffff38}.lc-ctl button.on{background:${CY};color:#000;border-color:${CY}}
+.lc-ctl .seg{display:flex;gap:2px;padding:3px;border-radius:999px;background:#0006;border:1px solid #ffffff30}.lc-ctl .seg button{padding:5px 10px;border:0;background:none}.lc-ctl .seg button.on{background:#fff;color:#000}
+.lc-note{position:absolute;left:50%;top:70px;transform:translateX(-50%);z-index:20;background:#000c;color:${CY};font:500 13px ${GR};padding:8px 14px;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none}
+.lc-note.on{opacity:1}
+.lc-dots{position:absolute;right:40px;bottom:34px;z-index:3;display:flex;gap:6px}.lc-dots i{width:22px;height:2px;background:#ffffff55}.lc-dots i.on{background:${CY}}
+`; root.append(st);
+  const stage = h('div.lc'); root.append(stage);
+  // ---------- homepage ----------
+  const home = h('div.lc-home'); const cv = h('canvas.lc-cv'); home.append(cv);
+  const ast = `<svg width="30" height="20" viewBox="0 0 30 20" style="vertical-align:-2px"><g stroke="${CY}" stroke-width="1.6" fill="none"><path d="M3 12q12-14 24 0"/><path d="M9 4v12M3 10h12M5 6l8 8M13 6l-8 8"/><path d="M21 6v8M17 10h8M18 7l6 6M24 7l-6 6"/></g></svg>`;
+  home.append(h('nav.lc-nav', {}, h('a.c', {}, 'Locomotive', h('sup', {}, '®')), h('span', { style: { marginLeft: '64px' }, html: ast }), h('span.sp'), h('span', {}, h('a', {}, 'Work'), ', ', h('a', {}, 'Agency'), ', ', h('a', {}, 'Careers'), ', ', h('a', {}, 'Store')), h('span', { style: { width: '22%' } }), h('a.c', {}, 'Let’s talk')));
+  const hero = h('div.lc-hero', {},
+    h('div.r', {}, h('span.lc-up', { style: { display: 'flex', alignItems: 'center', gap: '16px' } }, h('span.lc-badge', {}, h('b', {}, 'OPS'), h('i', {}, h('span', {}, 'DES'), h('span', {}, 'DEV'))), h('span', {}, 'Locomotive', h('sup', {}, '®')))),
+    h('div.r', {}, h('span.lc-up', { style: { transitionDelay: '.12s' } }, 'Digital-first Design Agency', h('span', { style: { fontFamily: GR, fontWeight: 200, fontSize: '64px', margin: '0 4px 0 6px' } }, '✳'), h('span.lc-loco', {}, h('u', {}, 'LOCO')))));
+  const dots = h('div.lc-dots'); home.append(hero, dots);
+  stage.append(home);
+  // canvas slides (generative stand-ins for the campaign photos)
+  const ctx = cv.getContext('2d'); const off = document.createElement('canvas'); const octx = off.getContext('2d'); const sm = document.createElement('canvas'); const sctx = sm.getContext('2d');
+  const figure = (c, w, hh, col, x0 = 0.5, sc0 = 1, blur = 22) => { const cx = w * x0, s0 = hh * sc0; c.save(); c.filter = `blur(${blur}px)`; const g = c.createRadialGradient(cx, hh * 0.42, s0 * 0.05, cx, hh * 0.45, s0 * 0.42); g.addColorStop(0, col[0]); g.addColorStop(1, col[1]); c.fillStyle = g;
+    c.beginPath(); c.ellipse(cx, hh * 0.4, s0 * 0.17, s0 * 0.24, 0, 0, Math.PI * 2); c.fill();
+    c.beginPath(); c.moveTo(cx - s0 * 0.5, hh); c.bezierCurveTo(cx - s0 * 0.45, hh * 0.78, cx - s0 * 0.2, hh * 0.74, cx - s0 * 0.09, hh * 0.62); c.lineTo(cx + s0 * 0.09, hh * 0.62); c.bezierCurveTo(cx + s0 * 0.2, hh * 0.74, cx + s0 * 0.45, hh * 0.78, cx + s0 * 0.5, hh); c.fill(); c.restore(); };
+  const SLIDES = [
+    (c, w, hh) => { const g = c.createRadialGradient(w * 0.5, hh * 0.4, 10, w * 0.5, hh * 0.5, w * 0.7); g.addColorStop(0, '#ff3a26'); g.addColorStop(1, '#c7130e'); c.fillStyle = g; c.fillRect(0, 0, w, hh);
+      figure(c, w, hh, ['#2a0303', '#a3100c00'], 0.5, 1.2, 28); c.save(); c.filter = 'blur(10px)'; c.fillStyle = '#12010166'; [[0.455, 0.37], [0.545, 0.37]].forEach(([x, y]) => { c.beginPath(); c.ellipse(w * x, hh * y, hh * 0.04, hh * 0.018, 0, 0, 7); c.fill(); }); c.fillStyle = '#ff6a5a33'; c.beginPath(); c.ellipse(w * 0.5, hh * 0.47, hh * 0.03, hh * 0.06, 0, 0, 7); c.fill(); c.restore();
+      c.fillStyle = '#5a4bff'; [[0.52, 0.07], [0.54, 0.065]].forEach(([x, y]) => { c.beginPath(); c.arc(w * x, hh * y, 5, 0, 7); c.fill(); }); },
+    (c, w, hh) => { c.fillStyle = '#b8d4e2'; c.fillRect(0, 0, w, hh); c.strokeStyle = '#2b3138'; c.lineCap = 'butt'; c.lineWidth = hh * 0.05;
+      const arrow = (x, y, L, a) => { c.save(); c.translate(x, y); c.rotate(a); c.beginPath(); c.moveTo(-L, 0); c.lineTo(L, 0); c.moveTo(L - L * 0.45, -L * 0.45); c.lineTo(L, 0); c.lineTo(L - L * 0.45, L * 0.45); c.stroke(); c.restore(); };
+      arrow(w * 0.18, hh * 0.35, hh * 0.28, 0); arrow(w * 0.82, hh * 0.45, hh * 0.24, Math.PI); c.save(); c.translate(w * 0.62, hh * 0.25); for (let i = 0; i < 4; i++) { c.rotate(Math.PI / 4); c.beginPath(); c.moveTo(-hh * 0.18, 0); c.lineTo(hh * 0.18, 0); c.stroke(); } c.restore();
+      figure(c, w, hh, ['#f2f2f2', '#c9d6dd'], 0.42, 1.05); c.fillStyle = '#5a3a2a'; c.beginPath(); c.ellipse(w * 0.42, hh * 0.3, hh * 0.14, hh * 0.13, 0, Math.PI, 0); c.fill(); },
+    (c, w, hh) => { c.fillStyle = '#1f53ff'; c.fillRect(0, 0, w, hh); c.fillStyle = '#9fd6ff55'; c.font = `${hh * 0.3}px ${SE}`; c.fillText('Design &', w * 0.36, hh * 0.38); c.fillText('Loco', w * 0.72, hh * 0.72);
+      figure(c, w, hh, ['#0b1440', '#14246f00'], 0.38, 1.2); c.fillStyle = '#a8e2ff66'; c.font = `${hh * 0.22}px ${SE}`; c.fillText('ign &', w * 0.33, hh * 0.52); },
+    (c, w, hh) => { c.fillStyle = '#050505'; c.fillRect(0, 0, w, hh); c.save(); c.filter = 'blur(3px)'; c.fillStyle = '#e8e8e8'; c.font = `italic ${hh * 0.24}px ${SE}`; c.textBaseline = 'middle'; c.save(); c.translate(w * 0.5, hh * 0.45); c.scale(1, 0.9); c.textAlign = 'center'; c.fillText('ʎɐuɐƃǝ⅂ocoMo', 0, 0); c.restore(); c.restore(); },
+  ];
+  let slide = 0, blockPx = 1, slideT = null, homeShown = false;
+  const fit = () => { const w = stage.clientWidth || 1200, hh = stage.clientHeight || 800; [cv, off].forEach((c) => { c.width = w; c.height = hh; }); };
+  const render = () => { const w = cv.width, hh = cv.height; octx.filter = 'none'; SLIDES[slide](octx, w, hh); if (blockPx <= 1) { ctx.drawImage(off, 0, 0); return; }
+    const bw = Math.max(1, Math.ceil(w / blockPx)), bh = Math.max(1, Math.ceil(hh / blockPx)); sm.width = bw; sm.height = bh; sctx.imageSmoothingEnabled = true; sctx.drawImage(off, 0, 0, bw, bh); ctx.imageSmoothingEnabled = false; ctx.drawImage(sm, 0, 0, bw, bh, 0, 0, w, hh); };
+  const updDots = () => dots.replaceChildren(...SLIDES.map((_, i) => h('i', { class: i === slide ? 'on' : '' })));
+  const goSlide = async (n, id) => { if (reduced()) { slide = n; blockPx = 1; render(); updDots(); return; }
+    for (const b of [6, 14, 30, 56]) { if (id !== run) return; blockPx = b; render(); await sleep(55); } slide = n; updDots();
+    for (const b of [56, 30, 14, 6, 1]) { if (id !== run) return; blockPx = b; render(); await sleep(55); } };
+  const loopSlides = (id) => { clearTimeout(slideT); slideT = setTimeout(async () => { if (id !== run || !document.body.contains(stage)) return; await goSlide((slide + 1) % SLIDES.length, id); loopSlides(id); }, 3800); };
+  new ResizeObserver(() => { fit(); render(); }).observe(stage);
+  // ---------- preloader ----------
+  const pre = h('div.lc-pre'); const gA = h('div.lc-g'), gB = h('div.lc-g'), wm = h('div.lc-wm'); pre.append(gA, gB, wm); stage.append(pre);
+  const note = h('div.lc-note'); stage.append(note);
+  const GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#%&*+=/\\<>[]{}?!$@^~|;:';
+  const rg = () => GL[Math.floor(Math.random() * GL.length)];
+  const garble = (s0, keep) => s0.split('').map((ch, i) => (i < keep || ch === ' ' ? ch : rg())).join('');
+  let run = 0, speed = 1, mode = 'system', log = [], doneRes = null;
+  const reduced = () => mode === 'reduce' || (mode === 'system' && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const W = (ms) => sleep(ms / speed);
+  const ok = (id) => id === run && document.body.contains(stage);
+  const line = (g) => { const d = h('div', {}, '\u00a0'); g.append(d); return d; };
+  const typeLine = async (el, text, id, cut = text.length, ms = 30) => { for (let i = 1; i <= cut; i++) { if (!ok(id)) return; el.textContent = text.slice(0, i) + (i < cut ? rg() + (Math.random() < 0.5 ? rg() : '') : ''); await W(ms); } el.textContent = text.slice(0, cut) || '\u00a0'; };
+  const scrambleTo = async (el, from, to, id, frames = 10) => { for (let f = 0; f <= frames; f++) { if (!ok(id)) return; const keep = Math.floor((f / frames) * to.length); const len = Math.round(from.length + ((to.length - from.length) * f) / frames); let o = ''; for (let j = 0; j < len; j++) o += j < keep ? to[j] || '' : to[j] === ' ' ? ' ' : rg(); el.textContent = o || '\u00a0'; await W(38); } el.textContent = to; };
+  const retract = async (el, id) => { let t = el.textContent; while (t.trim().length) { if (!ok(id)) return; t = t.slice(0, -1); el.textContent = t.length > 2 && Math.random() < 0.3 ? t.slice(0, -1) + rg() : t || '\u00a0'; await W(12); } el.textContent = '\u00a0'; };
+  const WORD = 'Locomotive';
+  const buildWm = () => { const sup = h('sup', { style: { fontSize: '13px', opacity: 0, fontFamily: GR, verticalAlign: '1.1em', marginLeft: '2px' } }, '®'); wm.replaceChildren(h('span.ic'), h('span', {}, ...WORD.split('').map(() => h('span.l', {}, '\u00a0')), sup)); wm.sup = sup; };
+  const revealWm = async (id) => { wm.firstChild.classList.add('on'); const ls = [...wm.querySelectorAll('.l')];
+    await Promise.all(ls.map(async (sp0, i) => { await W(90 * i); for (let f = 0; f < 5 + Math.floor(Math.random() * 5); f++) { if (!ok(id)) return; sp0.textContent = rg(); sp0.classList.add('s'); await W(48); } sp0.classList.remove('s'); sp0.textContent = WORD[i]; }));
+    if (!ok(id)) return; wm.sup.style.opacity = 1; log.push(`wordmark settled "${ls.map((x) => x.textContent).join('')}"`); };
+  const position = () => { const w = stage.clientWidth, hh = stage.clientHeight; gA.style.left = Math.round(w * 0.34) + 'px'; gA.style.bottom = Math.round(hh * 0.5 + 34) + 'px'; gB.style.left = Math.round(w * 0.42) + 'px'; gB.style.top = Math.round(hh * 0.5 + 34) + 'px'; };
+  const showHome = (instant) => { pre.classList.add('out'); home.classList.add('on'); if (instant) { home.style.transition = 'none'; home.querySelectorAll('.lc-up').forEach((e) => (e.style.transition = 'none')); pre.classList.add('gone'); } else { home.style.transition = ''; home.querySelectorAll('.lc-up').forEach((e) => (e.style.transition = '')); setTimeout(() => pre.classList.contains('out') && pre.classList.add('gone'), 900 / speed); } homeShown = true; };
+  const intro = async () => { const id = ++run; log = []; clearTimeout(slideT); homeShown = false; slide = 0; updDots(); fit(); position();
+    home.classList.remove('on'); pre.classList.remove('out', 'gone'); gA.replaceChildren(); gB.replaceChildren(); buildWm();
+    const finish = () => { if (doneRes) { doneRes(log.slice()); doneRes = null; } };
+    if (reduced()) { blockPx = 1; render(); showHome(true); log.push('prefers-reduced-motion → intro skipped, homepage shown instantly'); note.textContent = 'Reduced motion: intro skipped'; note.classList.add('on'); setTimeout(() => note.classList.remove('on'), 2200); finish(); return; }
+    note.classList.remove('on');
+    await W(250); const wmP = revealWm(id);
+    // group A: type, then echo downward and morph into "Agency"
+    const A = ['Digital-First Design', 'Digital-First Agency'];
+    const a1 = line(gA); await typeLine(a1, A[0], id); if (!ok(id)) return; log.push(`A typed "${a1.textContent}"`);
+    const bP = (async () => { await W(260); const B = [['Based in Montreal', 3], ['Based in Montreal', 17], ['Based in Montreal', 17], ['Based in Montreal, Canada', 25], ['45.5019° N, 73.5674° W', 9]]; const els = [];
+      await Promise.all(B.map(async ([t, cut], i) => { await W(170 * i); if (!ok(id)) return; const e = line(gB); els.push(e); if (i === 4) e.style.paddingLeft = '20px'; await typeLine(e, t, id, cut, 26); if (i === 3) { await W(200); await scrambleTo(e, e.textContent, 'Based in Montreal', id, 8); } }));
+      log.push(`B lines: ${[...gB.children].map((e) => e.textContent.trim()).join(' | ')}`); })();
+    const a2 = line(gA); await typeLine(a2, A[0], id, A[0].length, 18); await scrambleTo(a2, A[0], A[1], id, 9);
+    const a3 = line(gA); await typeLine(a3, A[1], id, A[1].length, 16);
+    const a4 = line(gA); await typeLine(a4, 'Digital-First Agency', id, 14, 14); await scrambleTo(a4, a4.textContent, A[1], id, 8);
+    const a0 = h('div', { style: { paddingLeft: '120px' } }, '\u00a0'); gA.prepend(a0); await typeLine(a0, 'X u}V#H[', id, 8, 20);
+    await Promise.all([bP, wmP]); if (!ok(id)) return;
+    log.push(`A echoes: ${gA.children.length} lines, last "${a4.textContent}"`);
+    await W(380);
+    // retract in reverse order (last line first, group B then A)
+    const all = [...gA.children, ...gB.children]; for (const e of all.reverse()) { await retract(e, id); if (!ok(id)) return; }
+    log.push(`retracted: ${all.reduce((n, e) => n + e.textContent.trim().length, 0)} chars left`);
+    await W(320); if (!ok(id)) return;
+    // hand-off
+    blockPx = 56; render(); showHome(false); log.push('hand-off: preloader fades/slides up, homepage reveals');
+    for (const b of [56, 30, 14, 6, 1]) { if (!ok(id)) return; blockPx = b; render(); await W(70); }
+    loopSlides(id); finish(); };
+  // ---------- controls ----------
+  const segBtns = {}; const seg0 = h('div.seg', {}, [['system', 'OS motion'], ['reduce', 'Reduce'], ['full', 'Full']].map(([k0, l]) => (segBtns[k0] = h('button', { class: k0 === mode ? 'on' : '', title: 'prefers-reduced-motion handling', onclick: () => { mode = k0; Object.entries(segBtns).forEach(([kk, b]) => b.classList.toggle('on', kk === mode)); intro(); } }, l))));
+  const replay = h('button', { title: 'Replay the preloader', onclick: () => intro() }, '↺ Replay intro');
+  stage.append(h('div.lc-ctl', {}, seg0, replay));
+  stage.addEventListener('keydown', (e) => { if (e.key === 'r') intro(); });
+  document.fonts.load(`40px 'Instrument Serif'`).catch(() => {}).finally(() => { fit(); render(); intro(); });
+  window.__demoProof = async () => { const out = []; speed = 5;
+    const p = new Promise((r) => (doneRes = r)); mode = 'full'; intro(); const L1 = await Promise.race([p, sleep(9000).then(() => ['timeout'])]); out.push(...L1);
+    out.push(`home visible=${home.classList.contains('on')}, preloader hidden=${pre.classList.contains('out')}`);
+    const p2 = new Promise((r) => (doneRes = r)); mode = 'reduce'; intro(); const L2 = await Promise.race([p2, sleep(2000).then(() => ['timeout'])]); out.push(...L2);
+    const s0 = slide; await goSlide((slide + 1) % SLIDES.length, run); out.push(`slide ${s0} → ${slide} (instant under reduce)`);
+    mode = 'system'; Object.entries(segBtns).forEach(([kk, b]) => b.classList.toggle('on', kk === mode)); speed = 1; slide = 0; blockPx = 1; render(); updDots(); showHome(true); note.classList.remove('on'); loopSlides(run);
+    out.push('restored: homepage, slide 0, OS motion mode'); return out.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 
