@@ -3058,5 +3058,32 @@
   "proof": "wheel ↓ → project 2/9 \"Esperanto\", title=\"Esperanto\", active dot=2; drag ↑ mid-flight velocity bend=0.18; drag release → \"Ueno\"; dot 7 → \"SnickSnack\", bg=rgb(153, 96, 45); renderer=webgl; restored → \"Fun\"",
   "demoNodes": 30,
   "errors": []
+ },
+ "skribbl-doodle-lobby-avatar-arrow-customizer-randomize-dice-pixel-logo": {
+  "url": "https://ux-technique-gallery.vercel.app/t/skribbl-doodle-lobby-avatar-arrow-customizer-randomize-dice-pixel-logo/",
+  "ok": true,
+  "at": "2026-10-10T16:02:45.885Z",
+  "http": 200,
+  "proof": "arrows: eyes 1→2, mouth 0→1, color 3→2 (bounce=true); dice → {color:6, eyes:7, mouth:7} roll=true; row avatar #3 adopted → color=2; Play! → in-game=true, hint \"______\", players=5; drew stroke on canvas (strokes 3→4, pts=9); guessed \"guitar\" → correct=true, my points=850, header=\"YOU GUESSED IT\"; Create Private Room → settings panel=true (7 selects); restored: lobby, default avatar {c:3,e:1,m:0}, name empty",
+  "demoNodes": 354,
+  "errors": []
+ },
+ "dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock/",
+  "ok": true,
+  "at": "2026-10-10T16:02:45.897Z",
+  "http": 200,
+  "proof": "sidebar tab → \"Launch handoff · Confluence\" (active=hand); to-do toggled done=true; sticky scroll steps → 1:active@930px, 2:active@1608px, 3:active@2286px; waitlist pill shown=true; Ask Dia → 2 sources highlighted, answer 166 chars; CTA → \"You’re on the list ✓\"; restored: top of hero, step 1 active=true, tab=brief",
+  "demoNodes": 210,
+  "errors": []
+ },
+ "bureau-cool-mono-studio-rotating-glass-ring-live-traffic-labels": {
+  "url": "https://ux-technique-gallery.vercel.app/t/bureau-cool-mono-studio-rotating-glass-ring-live-traffic-labels/",
+  "ok": true,
+  "at": "2026-10-10T16:02:45.902Z",
+  "http": 200,
+  "proof": "ring WebGL rotating: labels reprojected, max drift 5.2px in 0.9s (rot y=0.026); new traffic entry → \"US, ONLINE\" popped (6→6 rows, pop=true); hover DE group → highlight bg=rgb(0, 0, 0), ring slowed (hold=1); drag spin Δ=0.480rad; PROJECTS pill → overlay rows=6; NEW ITEMS toast closed=true; cookie ACCEPT hidden=true; restored: default traffic, toast + cookie bar back, overlay closed",
+  "demoNodes": 92,
+  "errors": []
  }
 }
