@@ -983,4 +983,271 @@ V['adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off'] = (r
     reset(true); o.push(`restored + sound modal (log="${log.firstChild.textContent}", header="${hd.textContent}")`); return o.join('; '); };
 };
 
+V['skribbl-doodle-lobby-avatar-arrow-customizer-randomize-dice-pixel-logo'] = (root, T) => {
+  import('@fontsource-variable/nunito'); import('@fontsource/gochi-hand');
+  theme(root, T, { bg: '#124da5', fg: '#ffffff', ac: '#53e237', dark: true });
+  const NU = "'Nunito Variable','Nunito',system-ui,sans-serif", GH = "'Gochi Hand','Comic Sans MS',cursive";
+  // ---------- doodle background tile (hand-drawn line icons) ----------
+  const R = rng(4242);
+  const ICON = [
+    'M-14 0a14 14 0 1 0 28 0a14 14 0 1 0-28 0M-6-4v2M6-4v2M-7 5q7 7 14 0', // smiley
+    'M-14 14v-14l14-12l14 12v14zM-4 14v-9h8v9', // house
+    'M0-15l4 10h11l-9 7l3 11l-9-7l-9 7l3-11l-9-7h11z', // star
+    'M0 13c-18-11-14-25-6-25c4 0 6 4 6 6c0-2 2-6 6-6c8 0 12 14-6 25z', // heart
+    'M-16 0q10-12 24 0q-14 12-24 0zM8 0l9-8v16zM-8-2v1', // fish
+    'M-14 6a7 7 0 0 1 3-13a9 9 0 0 1 17-1a7 7 0 0 1 8 14z', // cloud
+    'M-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M0-15v5M0 10v5M-15 0h5M10 0h5M-11-11l4 4M7 7l4 4M11-11l-4 4M-7 7l-4 4', // sun
+    'M0 15v-10M-12 4q-4-16 12-19q16 3 12 19z', // tree
+    'M-10-10h18v18a6 6 0 0 1-6 6h-6a6 6 0 0 1-6-6zM8-6h4a4 4 0 0 1 0 8h-4', // cup
+    'M-15 0a15 15 0 0 1 30 0q-4-4-7 0q-4-4-8 0q-4-4-8 0q-3-4-7 0M0 0v12a3 3 0 0 1-6 0', // umbrella
+    'M-12 8l-3-16l8 7l7-11l7 11l8-7l-3 16z', // crown
+    'M-16 6v-6l5-7h18l6 7h3v6zM-10 6a3 3 0 1 0 6 0M6 6a3 3 0 1 0 6 0', // car
+    'M-11 14v-15a11 11 0 0 1 22 0v15l-4-4l-4 4l-3-4l-3 4l-4-4zM-5-3v2M4-3v2', // ghost
+    'M0 0a4 4 0 1 0 0.1 0M0-4q-8-10 0-12q8 2 0 12M4 0q10-6 11 2q-4 6-11-2M0 4q8 10 0 12q-8-2 0-12M-4 0q-10 6-11-2q4-6 11 2', // flower
+    'M-14 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0M-2 0h16v5M9 0v4', // key
+    'M-16 0q16-14 32 0q-16 14-32 0zM-5 0a5 5 0 1 0 10 0a5 5 0 1 0-10 0', // eye
+    'M-12 12l18-18l6 6l-18 18h-6zM6-6l4-4l6 6l-4 4', // pencil
+    'M-10-14h20l-4 28h-12zM-12-14h24', // glass
+    'M-14 10h28M-10 10v-12h20v12M-6-2v-6h12v6', // cake
+    'M0-14v28M-9-9l18 18M9-9l-18 18', // asterisk
+  ];
+  const tile = () => { let p = ''; const N = 46, S = 520; for (let i = 0; i < N; i++) { const x = (i % 7) * 74 + R() * 30 + 10, y = Math.floor(i / 7) * 80 + R() * 30 + 12; p += `<path transform="translate(${x.toFixed(0)} ${y.toFixed(0)}) rotate(${(R() * 60 - 30).toFixed(0)}) scale(${(0.8 + R() * 0.5).toFixed(2)})" d="${ICON[i % ICON.length]}"/>`; }
+    return `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}" viewBox="0 0 ${S} ${S}"><g fill="none" stroke="#123f8f" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" opacity=".85">${p}</g></svg>`)}")`; };
+  // ---------- pixel avatar sprites ----------
+  const COLORS = ['#f22e2e', '#ff7a00', '#ffe300', '#00cc1b', '#00b7ff', '#2a40ff', '#a700ff', '#ff58c7', '#a1653d', '#000000', '#c1c1c1', '#4c4c4c', '#00d68f', '#ffa3a3', '#7d2c00', '#13004a', '#b8fff2', '#ffd8a8'];
+  const EYES = [
+    ['..kkk....kkk..', '.kwwwk..kwwwk.', '.kwkkk..kwkkk.', '.kwkkk..kwkkk.', '.kwwwk..kwwwk.', '..kkk....kkk..'],
+    ['....kkkkkk....', '...kwwwwwwk...', '...kwwkkwwk...', '...kwwkkwwk...', '...kwwwwwwk...', '....kkkkkk....'],
+    ['.kk........kk.', '..kkk....kkk..', '..kwwk..kwwk..', '..kwkk..kkwk..', '..kkk....kkk..', '..............'],
+    ['..............', '..............', '.kkkk....kkkk.', '..kk......kk..', '..............', '..............'],
+    ['kkkkkkkkkkkkkk', 'kkkkkkkkkkkkkk', '.kkkkk..kkkkk.', '.kkwkk..kkwkk.', '..kkk....kkk..', '..............'],
+    ['..............', '..kk......kk..', '..kk......kk..', '..............', '..............', '..............'],
+    ['.kk.kk..kk.kk.', 'krrkrrkkrrkrrk', 'krrrrrkkrrrrrk', '.krrrk..krrrk.', '..krk....krk..', '...k......k...'],
+    ['.k...k..k...k.', '..k.k....k.k..', '...k......k...', '..k.k....k.k..', '.k...k..k...k.', '..............'],
+    ['..kkk.........', '.kwwwk..kkkk..', '.kwkkk.....k..', '.kwkkk..kkkk..', '.kwwwk........', '..kkk.........'],
+    ['.kkkk...kkk...', 'kwwwwk.kwwwk..', 'kwwkkk.kwkkk..', 'kwwkkk.kwwwk..', 'kwwwwk..kkk...', '.kkkk.........'],
+    ['.kkkkkkkkkkkk.', 'kwwwwwkkwwwwwk', 'kwkkwwkkwkkwwk', 'kwkkwwkkwkkwwk', 'kwwwwwkkwwwwwk', '.kkkk....kkkk.'],
+    ['...k......k...', '..kwk....kwk..', '.kwwwk..kwwwk.', '..kwk....kwk..', '...k......k...', '..............'],
+  ];
+  const MOUTH = [
+    ['k..........k', '.k........k.', '..kkkkkkkk..', '............', '............'],
+    ['kkkkkkkkkkkk', 'kwwwwwwwwwwk', '.kwkwkwkwwk.', '..kkkkkkkk..', '............'],
+    ['............', '.kkkkkkkkkk.', '............', '............', '............'],
+    ['....kkkk....', '...krrrrk...', '...krrrrk...', '....kkkk....', '............'],
+    ['............', '..kkkkkkkk..', '.k........k.', 'k..........k', '............'],
+    ['kkkkkkkkkkkk', '.k..krrk..k.', '..kkkrrkkk..', '.....kk.....', '............'],
+    ['kkkkkkkkkkkk', '.wk.....kw..', '.k.......k..', '............', '............'],
+    ['..kkkkkkkk..', '.kkkkkkkkkk.', 'kk...kk...kk', '............', '............'],
+    ['.........kk.', '........k...', '..kkkkkk....', '............', '............'],
+    ['...kkkkkk...', '..kwwwwwwk..', '..krrrrrrk..', '...kkkkkk...', '............'],
+  ];
+  const PX = { k: '#000', w: '#fff', r: '#e2264d' };
+  const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16); const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => Math.round(f > 0 ? v + (255 - v) * f : v * (1 + f))); return `rgb(${c.join(',')})`; };
+  const draw = (cv, a, crown = false) => { const g = cv.getContext('2d'), N = 24; g.clearRect(0, 0, N, N); const col = COLORS[a.c];
+    const inS = (x, y) => { if (y > 22) return false; const dx = x + 0.5 - 12, dy = y + 0.5 - 11.2; if (y >= 18) return Math.abs(dx) <= 9.5 - (y - 18) * 0.2; return dx * dx / 90 + dy * dy / 92 <= 1; };
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { if (!inS(x, y)) continue; const edge = !inS(x - 1, y) || !inS(x + 1, y) || !inS(x, y - 1) || !inS(x, y + 1); g.fillStyle = edge ? '#000' : (x + y < 13 ? shade(col, 0.28) : x - y > 6 || y > 18 ? shade(col, -0.22) : col); g.fillRect(x, y, 1, 1); }
+    const put = (art, ox, oy) => art.forEach((row, j) => [...row].forEach((ch, i) => { if (PX[ch]) { g.fillStyle = PX[ch]; g.fillRect(ox + i, oy + j, 1, 1); } }));
+    put(EYES[a.e], 5, 6); put(MOUTH[a.m], 6, 13);
+    if (crown) { g.fillStyle = '#000'; [[6, 0], [9, 1], [12, 0], [15, 1], [18, 0]].forEach(([x, y]) => g.fillRect(x - 1, y, 3, 1)); g.fillStyle = '#ffd400'; for (let x = 6; x <= 18; x++) g.fillRect(x, 2, 1, 2); g.fillStyle = '#ff7a00'; [7, 12, 17].forEach((x) => g.fillRect(x, 1, 1, 1)); }
+  };
+  const avCanvas = (cls = '') => h('canvas.sk-av' + cls, { width: 24, height: 24 });
+  // ---------- styles ----------
+  css(`.sk{position:absolute;inset:0;overflow:auto;background:#124da5 ${tile()} 0 0/520px 520px;color:#fff;font-family:${NU};scroll-behavior:smooth}
+.sk *{box-sizing:border-box}
+.sk-av{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.sk-logo{position:relative;width:640px;margin:18px auto 0;height:132px;display:flex;justify-content:center;cursor:pointer}
+.sk-logo svg{overflow:visible}
+.sk-logo text{font:400 122px ${GH};paint-order:stroke;stroke:#000;stroke-width:12px;stroke-linejoin:round}
+.sk-row{display:flex;justify-content:center;gap:4px;margin:2px auto 0;height:52px}
+.sk-row .sk-av{width:48px;height:48px;cursor:pointer;transition:transform .15s}
+.sk-row .sk-av:hover{transform:translateY(-4px) rotate(-6deg)}
+.sk-row .sk-av.wig{animation:skWig .7s steps(4) infinite}
+@keyframes skWig{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.sk-mid{position:relative;display:flex;justify-content:center;gap:12px;margin:32px auto 0;width:calc(400px + 12px + 326px);transform:translateX(169px)}
+.sk-panel{width:400px;padding:14px;background:#0c2c96bf;border-radius:3px;position:relative}
+.sk-nl{display:flex;gap:4px}
+.sk-nl input,.sk-nl select{height:34px;border:2px solid transparent;border-radius:3px;font:500 15px ${NU};color:#000;background:#fff;outline:none}
+.sk-nl input{flex:1;padding:0 8px;min-width:0}.sk-nl input:focus{border-color:#53e237}
+.sk-nl select{width:122px;padding:0 4px}
+.sk-ed{position:relative;height:130px;display:flex;justify-content:center;align-items:center;gap:6px;margin:6px 0 4px}
+.sk-ed .sk-av{width:120px;height:120px}
+.sk-ed .bump{animation:skBump .22s ease-out}
+@keyframes skBump{40%{transform:scale(1.08,.94) translateY(3px)}}
+.sk-arr{display:flex;flex-direction:column;gap:3px}
+.sk-arr button{width:30px;height:32px;border:0;padding:0;background:none;cursor:pointer;display:grid;place-items:center}
+.sk-arr button:hover svg{transform:scale(1.15)}.sk-arr button:active svg{transform:scale(.9)}
+.sk-arr svg{width:26px;height:26px;image-rendering:pixelated;transition:transform .08s}
+.sk-dice{position:absolute;right:2px;top:2px;width:28px;height:28px;border:0;background:none;cursor:pointer;padding:0}
+.sk-dice:hover{transform:rotate(20deg) scale(1.1)}.sk-dice.roll{animation:skRoll .45s ease-out}
+@keyframes skRoll{to{transform:rotate(360deg)}}
+.sk .sk-play,.sk .sk-priv{display:block;width:100%;border:0;border-radius:3px;color:#fff;cursor:pointer;font-family:${NU};text-shadow:2px 2px 0 #0000002b;transition:filter .1s}
+.sk .sk-play{height:54px;background:#53e237;font-size:32px;font-weight:800;margin-top:6px}
+.sk-play:hover{background:#38c41c}.sk-priv:hover{background:#1671c5}
+.sk-play:active,.sk-priv:active{transform:translateY(2px);filter:brightness(.92)}
+.sk .sk-priv{height:40px;background:#2c8de7;font-size:19px;font-weight:700;margin-top:8px}
+.sk-disc{width:326px;align-self:flex-start;background:#fff;color:#333;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px #0003;font:400 17px ${NU}}
+.sk-disc .hd{background:#e9eefb;color:#222;font-weight:700;padding:16px 22px;border-bottom:1px solid #ddd;font-size:17px}
+.sk-disc .it{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #eee;cursor:pointer}.sk-disc .it:hover{background:#f6f8ff}
+.sk-disc .it:last-child{border:0}.sk-disc .it span:last-child{color:#999;font-size:22px;line-height:0}
+.sk-band{position:relative;margin-top:44px;padding:40px 0 60px;background:#0d3093;clip-path:polygon(0 18px,100% 0,100% 100%,0 100%)}
+.sk-cols{display:flex;justify-content:center;gap:20px}
+.sk-col{width:316px;min-height:360px;background:#0b2c86;border-radius:3px;padding:16px 16px 20px;font-size:15px;line-height:1.5}
+.sk-col h3{display:flex;align-items:center;gap:12px;justify-content:center;margin:2px 0 20px;font:700 26px ${NU}}
+.sk-col h3 svg{width:34px;height:34px;flex:none;margin-left:-40px}
+.sk-col .nh{display:flex;justify-content:space-between;font-weight:700;font-size:17px;border-bottom:1px solid #ffffff66;padding-bottom:2px;margin-bottom:10px}.sk-col .nh small{font-size:12px}
+.sk-col ul{margin:4px 0 0;padding-left:22px}.sk-col ul ul{font-size:12.5px}
+.sk-how canvas{display:block;margin:10px auto 0;cursor:crosshair}
+.sk-how .dots{display:flex;justify-content:center;gap:8px;margin-top:8px}.sk-how .dots i{width:10px;height:10px;border-radius:50%;background:#ffffff55;cursor:pointer}.sk-how .dots i.on{background:#fff}
+.sk-how p{text-align:center;margin:6px 0 0}
+.sk-foot{text-align:center;padding:30px 0 10px;font-size:13px;opacity:.7}
+/* game */
+.sk-game{display:none;width:1160px;margin:18px auto 0;grid-template-columns:200px 1fr 260px;grid-template-rows:48px 560px 56px;gap:6px}
+.sk.ingame .sk-game{display:grid}.sk.ingame .sk-home{display:none}
+.sk-ghd{grid-column:1/-1;background:#fff;color:#000;border-radius:3px;display:flex;align-items:center;padding:0 12px;position:relative;font-weight:800}
+.sk-clock{width:46px;height:46px;border-radius:50%;background:#fff;border:3px solid #000;display:grid;place-items:center;font-size:16px;margin-top:-4px}
+.sk-round{margin-left:14px;font-size:18px}.sk-word{position:absolute;left:50%;transform:translateX(-50%);text-align:center;line-height:1.1}
+.sk-word small{display:block;font-size:12px;font-weight:700;letter-spacing:.04em}.sk-word b{font:800 26px ${NU};letter-spacing:.3em}
+.sk-players{background:#fff;border-radius:3px;overflow:hidden;color:#000}
+.sk-pl{display:flex;align-items:center;height:58px;padding:0 6px;gap:6px;font-size:14px}.sk-pl:nth-child(even){background:#ececec}
+.sk-pl .rk{font-weight:800;width:26px}.sk-pl .nm{flex:1;text-align:center;line-height:1.15}.sk-pl .nm b{display:block}.sk-pl .nm.me b{color:#2c8de7}
+.sk-pl .sk-av{width:48px;height:48px}.sk-pl.got{background:#5bdc3c!important}
+.sk-cvw{background:#fff;border-radius:3px;position:relative;overflow:hidden}
+.sk-cvw canvas{display:block;width:100%;height:100%;cursor:crosshair;touch-action:none}
+.sk-chat{background:#fff;border-radius:3px;color:#000;display:flex;flex-direction:column;overflow:hidden}
+.sk-msgs{flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;font-size:14px}
+.sk-msgs div{padding:3px 8px}.sk-msgs div:nth-child(even){background:#ececec}.sk-msgs .ok{color:#56ce27;font-weight:800}.sk-msgs .sys{color:#3975ce;font-weight:800}
+.sk-chat input{margin:6px;height:34px;border:2px solid #ccc;border-radius:3px;padding:0 8px;font:500 14px ${NU};outline:none}
+.sk-tools{grid-column:2;display:flex;align-items:center;gap:8px}
+.sk-cur{width:48px;height:48px;border-radius:3px;border:2px solid #fff}
+.sk-pal{display:grid;grid-template-columns:repeat(13,24px);grid-template-rows:24px 24px;border-radius:3px;overflow:hidden}
+.sk-pal i{cursor:pointer}.sk-pal i:hover{outline:2px solid #fff;outline-offset:-2px}
+.sk .sk-tb{width:48px;height:48px;border-radius:3px;background:#fff;border:0;cursor:pointer;display:grid;place-items:center;color:#000;font:800 13px ${NU}}
+.sk-tb.on{background:#a2c8ff}.sk-tb i{display:block;border-radius:50%;background:#000}
+.sk .sk-back{grid-column:3;justify-self:end;align-self:center;background:#2c8de7;color:#fff;border:0;border-radius:3px;height:40px;padding:0 16px;font:700 15px ${NU};cursor:pointer}
+/* private */
+.sk-prv{display:none}.sk.private .sk-prv{display:block}.sk.private .sk-lob{display:none}
+.sk-prv .row{display:flex;align-items:center;justify-content:space-between;margin:6px 0;font-weight:700;font-size:15px}
+.sk-prv select{width:160px;height:30px;border-radius:3px;border:0;font:500 14px ${NU}}
+.sk-prv .btns{display:flex;gap:6px;margin-top:10px}
+.sk .sk-prv .btns button{flex:1;height:46px;border:0;border-radius:3px;color:#fff;font:800 20px ${NU};cursor:pointer}
+@media (prefers-reduced-motion: reduce){.sk *{animation:none!important;transition:none!important}.sk{scroll-behavior:auto}}
+`);
+  const el = h('div.sk'); root.append(el);
+  // ---------- logo ----------
+  const LC = ['#ff2a2a', '#ff8c00', '#ffe600', '#15d900', '#00e2a0', '#00c3ff', '#2f6bff', '#b33bff', '#ff4fd2', '#ff2a2a'];
+  const svg = s('svg', { width: 600, height: 132, viewBox: '0 0 600 132' }); const letters = [];
+  [...'skribbl.io'].forEach((ch, i) => { const t = s('text', { x: 14 + [0, 48, 96, 134, 160, 210, 262, 292, 318, 346][i], y: 104, fill: LC[i] }, ch); letters.push(t); svg.append(t); });
+  svg.append(s('g', { transform: 'translate(420 8) rotate(28)', stroke: '#000', 'stroke-width': 5, 'stroke-linejoin': 'round' }, s('path', { d: 'M0 0h22v66h-22z', fill: '#ff3b3b' }), s('path', { d: 'M0 0h22v12h-22z', fill: '#ff9ccf' }), s('path', { d: 'M0 66h22l-11 22z', fill: '#ffd9a0' }), s('path', { d: 'M7 80l4 8l4-8z', fill: '#000' })));
+  const pencil = svg.lastChild;
+  const layout = () => { let x = 8; letters.forEach((t) => { t.setAttribute('x', x); let w = 0; try { w = t.getComputedTextLength(); } catch {} x += (w || 44) - 3; }); pencil.setAttribute('transform', `translate(${x + 26} 4) rotate(28)`); const W = x + 80; svg.setAttribute('viewBox', `0 0 ${W} 132`); svg.setAttribute('width', W); };
+  (document.fonts?.load ? document.fonts.load(`122px "Gochi Hand"`) : Promise.resolve()).then(() => requestAnimationFrame(layout)).catch(() => {}); setTimeout(layout, 600);
+  const logo = h('div.sk-logo', { title: 'skribbl.io', onclick: () => leaveGame() }, svg);
+  let boil = 0; const boilT = setInterval(() => { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; boil++; letters.forEach((t, i) => t.setAttribute('transform', `rotate(${(((i * 7 + boil * 3) % 5) - 2) * 1.2} ${+t.getAttribute('x') + 20} 70)`)); }, 180);
+  // ---------- avatar row ----------
+  const ROW = [{ c: 0, e: 0, m: 0 }, { c: 1, e: 2, m: 7 }, { c: 2, e: 1, m: 1 }, { c: 3, e: 8, m: 3 }, { c: 4, e: 5, m: 2 }, { c: 5, e: 4, m: 8 }, { c: 6, e: 3, m: 5 }, { c: 7, e: 10, m: 9 }];
+  const row = h('div.sk-row'); const rowCv = ROW.map((a, i) => { const c = avCanvas(); draw(c, a, i === 0); c.title = 'use this avatar'; c.onclick = () => { me = { ...a }; renderMe(true); }; row.append(c); return c; });
+  // ---------- lobby panel ----------
+  const DEF = { c: 3, e: 1, m: 0 };
+  let me = { ...DEF };
+  const pixArrow = (dir) => `<svg viewBox="0 0 13 13" shape-rendering="crispEdges"><path fill="#000" d="${dir < 0 ? 'M6 0h4v3h-1v1h-1v1h-1v1h-1v1h1v1h1v1h1v1h1v3h-4v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-3h1v-1h1v-1h1v-1h1v-1h1z' : 'M3 0h4v1h1v1h1v1h1v1h1v1h1v3h-1v1h-1v1h-1v1h-1v1h-1v1h-4v-3h1v-1h1v-1h1v-1h1v-1h-1v-1h-1v-1h-1v-1h-1z'}"/><path fill="#fff" d="${dir < 0 ? 'M7 1h2v1h-1v1h-1v1h-1v1h-1v1h-1v1h1v1h1v1h1v1h1v1h1v1h-2v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h1v-1h1v-1h1v-1h1v-1h1z' : 'M4 1h2v1h1v1h1v1h1v1h1v1h1v1h-1v1h-1v1h-1v1h-1v1h-1v1h-2v-1h1v-1h1v-1h1v-1h1v-1h1v-1h-1v-1h-1v-1h-1v-1h-1z'}"/></svg>`;
+  const FEAT = [['e', EYES.length, 'eyes'], ['m', MOUTH.length, 'mouth'], ['c', COLORS.length, 'color']];
+  const meCv = avCanvas();
+  const cyc = (k, n, d) => { me[k] = (me[k] + d + n) % n; renderMe(true); blipS(d > 0 ? 660 : 520); };
+  const arrows = (d) => h('div.sk-arr', {}, FEAT.map(([k, n, lab]) => h('button', { 'aria-label': `${d < 0 ? 'previous' : 'next'} ${lab}`, 'data-k': k, 'data-d': d, html: pixArrow(d), onclick: () => cyc(k, n, d) })));
+  const dice = h('button.sk-dice', { title: 'Randomize your Avatar!', 'aria-label': 'randomize avatar', html: '<svg viewBox="0 0 28 28" shape-rendering="crispEdges"><path d="M14 2l11 5v13l-11 6l-11-6v-13z" fill="#1d3f9e" stroke="#000" stroke-width="2"/><path d="M3 7l11 6l11-6M14 13v13" stroke="#000" stroke-width="2" fill="none"/><path d="M5 9l8 4v11l-8-4z" fill="#d6e2ff"/><path d="M15 13l8-4v11l-8 4z" fill="#a9bdf5"/><path d="M14 4l9 4l-9 4l-9-4z" fill="#ffffff"/><g fill="#000"><rect x="13" y="7" width="2" height="2"/><rect x="7" y="13" width="2" height="2"/><rect x="10" y="18" width="2" height="2"/><rect x="17" y="12" width="2" height="2"/><rect x="20" y="17" width="2" height="2"/><rect x="18.5" y="14.5" width="2" height="2"/></g></svg>' });
+  const rnd = Math.random;
+  dice.onclick = () => { me = { c: Math.floor(rnd() * COLORS.length), e: Math.floor(rnd() * EYES.length), m: Math.floor(rnd() * MOUTH.length) }; dice.classList.remove('roll'); void dice.offsetWidth; dice.classList.add('roll'); renderMe(true); blipS(880); };
+  const nameIn = h('input', { type: 'text', placeholder: 'Enter your name', maxlength: 21, spellcheck: false });
+  const LANGS = ['English', 'German', 'Bulgarian', 'Czech', 'Danish', 'Dutch', 'Finnish', 'French', 'Estonian', 'Greek', 'Hebrew', 'Hungarian', 'Italian', 'Japanese', 'Korean', 'Latvian', 'Macedonian', 'Norwegian', 'Portuguese', 'Polish', 'Romanian', 'Russian', 'Serbian', 'Slovakian', 'Spanish', 'Swedish', 'Tagalog', 'Turkish'];
+  const lang = h('select', { 'aria-label': 'language' }, LANGS.map((l) => h('option', { value: l }, l)));
+  const play = h('button.sk-play', { onclick: () => startGame(false) }, 'Play!');
+  const priv = h('button.sk-priv', { onclick: () => setPrivate(true) }, 'Create Private Room');
+  const lob = h('div.sk-lob', {}, h('div.sk-nl', {}, nameIn, lang), h('div.sk-ed', {}, arrows(-1), meCv, arrows(1), dice), play, priv);
+  const sel2 = (lab, opts, v) => h('div.row', {}, h('span', {}, lab), h('select', {}, opts.map((o) => h('option', { selected: String(o) === String(v) }, o))));
+  const prv = h('div.sk-prv', {}, h('div', { style: { fontWeight: 800, fontSize: '20px', textAlign: 'center', margin: '0 0 8px' } }, 'Private Room'),
+    sel2('👥 Players', [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 20], 8), sel2('🌐 Language', LANGS, 'English'), sel2('⏰ Drawtime', [15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 150, 180, 210, 240], 80), sel2('🔁 Rounds', [2, 3, 4, 5, 6, 7, 8, 9, 10], 3), sel2('🎮 Game mode', ['Normal', 'Hidden', 'Combination'], 'Normal'), sel2('🔤 Word count', [1, 2, 3, 4, 5], 3), sel2('💡 Hints', [0, 1, 2, 3, 4, 5], 2),
+    h('div.btns', {}, h('button', { style: { background: '#53e237' }, onclick: () => startGame(true) }, 'Start!'), h('button', { style: { background: '#2c8de7' }, onclick: () => copy('https://skribbl.io/?x7Kq2bLm', 'Invite link copied') }, '🔗 Invite')),
+    h('button.sk-priv', { style: { background: 'transparent', boxShadow: 'inset 0 0 0 2px #ffffff55', fontSize: '15px', height: '32px' }, onclick: () => setPrivate(false) }, '← back'));
+  const panelEl = h('div.sk-panel', {}, lob, prv);
+  const disc = h('div.sk-disc', {}, h('div.hd', {}, 'Discover more'), ['Online Game Subscription', 'Drawing Tablet', 'Custom Avatars'].map((t) => h('div.it', { onclick: () => toast(t) }, h('span', {}, t), h('span', {}, '›'))));
+  const renderMe = (bump) => { draw(meCv, me); if (bump) { meCv.classList.remove('bump'); void meCv.offsetWidth; meCv.classList.add('bump'); } };
+  const setPrivate = (on) => el.classList.toggle('private', on);
+  // ---------- below the fold ----------
+  const ico = (d, c) => `<svg viewBox="0 0 34 34"><path d="${d}" fill="${c}" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/></svg>`;
+  const howCv = h('canvas', { width: 280, height: 220 });
+  const HOW = ['When it\'s your turn, choose a word you want to draw!', 'Try to draw your choosen word! No spelling!', 'Let other players try to guess your drawn word!', 'When it\'s not your turn, try to guess what other players are drawing!', 'Score the most points and be crowned the winner at the end!'];
+  let howI = 0; const howP = h('p', {}, HOW[0]); const howDots = h('div.dots', {}, HOW.map((_, i) => h('i' + (i ? '' : '.on'), { onclick: () => setHow(i) })));
+  const drawHouse = (k) => { const g = howCv.getContext('2d'); g.clearRect(0, 0, 280, 220); g.strokeStyle = '#fff'; g.lineWidth = 3; g.lineCap = g.lineJoin = 'round'; const P = [[30, 200, 30, 110], [30, 110, 130, 30], [130, 30, 240, 110], [240, 110, 240, 200], [30, 200, 240, 200], [60, 125, 105, 125], [60, 125, 60, 165], [105, 125, 105, 165], [60, 165, 105, 165], [82, 125, 82, 165], [60, 145, 105, 145], [150, 200, 150, 120], [150, 120, 200, 120], [200, 120, 200, 200]]; const n = Math.ceil(P.length * k);
+    P.slice(0, n).forEach(([a, b, c, d]) => { g.beginPath(); g.moveTo(a + Math.sin(a) * 1.5, b); g.lineTo(c, d + Math.cos(c) * 1.5); g.stroke(); }); g.beginPath(); g.arc(186, 162, 3, 0, 7); g.stroke();
+    g.save(); g.translate(205, 52); g.rotate(0.6); g.strokeRect(0, -10, 50, 20); g.beginPath(); g.moveTo(0, -10); g.lineTo(-18, 0); g.lineTo(0, 10); g.stroke(); g.restore(); };
+  const setHow = (i) => { howI = i; howP.textContent = HOW[i]; [...howDots.children].forEach((d, j) => d.classList.toggle('on', j === i)); drawHouse((i + 1) / HOW.length); };
+  let howT = setInterval(() => setHow((howI + 1) % HOW.length), 3200);
+  const band = h('div.sk-band', {}, h('div.sk-cols', {},
+    h('div.sk-col', {}, h('h3', { html: ico('M10 12q0-8 8-8q8 0 8 7q0 5-6 7v4h-5v-6q6-1 6-5q0-3-3-3q-3 0-3 4zM15 26h5v5h-5z', '#fff') + 'About' }), h('p', { style: { margin: 0 } }, h('b', {}, 'skribbl.io'), ' is a free online multiplayer drawing and guessing pictionary game.'), h('p', {}, 'A normal game consists of a few rounds, where every round a player has to draw their chosen word and others have to guess it to gain points!'), h('p', {}, 'The person with the most points at the end of the game, will then be crowned as the winner!'), h('p', {}, 'Have fun!')),
+    h('div.sk-col', {}, h('h3', { html: ico('M6 4l18-2l4 26l-18 3zM10 10l12-1M11 15l12-1M11 20l12-1', '#5bdc3c') + 'News' }), h('div.nh', {}, h('span', {}, 'Fresh paint'), h('small', {}, '9th November 2022')), h('div', {}, 'Hello!'), h('ul', {}, h('li', {}, 'Redesign of the page'), h('li', {}, 'Mobile support'), h('li', {}, 'Reworked toolbar', h('ul', {}, ['Undo button', 'More colors', 'Left- and rightclick to select colors and draw', 'Experimental support for pressure touch input', 'Configurable hotkeys'].map((t) => h('li', {}, t)))), h('li', {}, 'Custom words and Hidden mode'))),
+    h('div.sk-col.sk-how', {}, h('h3', { html: ico('M8 30l3-9l15-17l6 5l-15 17zM8 30l9-3', '#ff9a3c') + 'How to play' }), howCv, howP, howDots)),
+    h('div.sk-foot', {}, 'Contact: contact@skribbl.io · Terms of Service · Credits'));
+  const home = h('div.sk-home', {}, row, h('div.sk-mid', {}, panelEl, disc), band);
+  // ---------- game screen ----------
+  const WORDS = ['apple', 'rocket', 'castle', 'penguin', 'guitar', 'banana'];
+  const BOTS = [{ n: 'Doodlebob', a: { c: 5, e: 4, m: 8 } }, { n: 'PicassoPete', a: { c: 7, e: 10, m: 9 } }, { n: 'mona', a: { c: 1, e: 2, m: 7 } }, { n: 'xX_draw_Xx', a: { c: 6, e: 3, m: 5 } }];
+  const clockE = h('div.sk-clock', {}, '80'), roundE = h('div.sk-round', {}, 'Round 1 of 3'), wordE = h('div.sk-word', {}, h('small', {}, 'GUESS THIS'), h('b', {}, ''));
+  const plE = h('div.sk-players'), cv = h('canvas', { width: 692, height: 560 }), cvw = h('div.sk-cvw', {}, cv), msgs = h('div.sk-msgs'), chatIn = h('input', { placeholder: 'Type your guess here...', maxlength: 100 });
+  const PAL = ['#ffffff', '#c1c1c1', '#ef130b', '#ff7100', '#ffe400', '#00cc00', '#00ff91', '#00b2ff', '#231fd3', '#a300ba', '#df69a7', '#ffac8e', '#a0522d', '#000000', '#505050', '#740b07', '#c23800', '#e8a200', '#004619', '#00785d', '#00569e', '#0e0865', '#550069', '#873554', '#cc774d', '#63300d'];
+  let pen = { c: '#000000', w: 6, fill: false };
+  const cur = h('div.sk-cur', { style: { background: pen.c } });
+  const pal = h('div.sk-pal', {}, PAL.map((c) => h('i', { style: { background: c }, title: c, onclick: () => { pen.c = c; cur.style.background = c; } })));
+  const sizes = [4, 10, 20, 32].map((w, i) => { const b = h('button.sk-tb' + (i === 0 ? '.on' : ''), { title: `brush ${w}`, onclick: () => { pen.w = w; pen.fill = false; tools.querySelectorAll('.sk-tb').forEach((x) => x.classList.toggle('on', x === b)); } }, h('i', { style: { width: Math.max(4, w * 0.8) + 'px', height: Math.max(4, w * 0.8) + 'px' } })); return b; });
+  const fillB = h('button.sk-tb', { title: 'fill', onclick: () => { pen.fill = true; tools.querySelectorAll('.sk-tb').forEach((x) => x.classList.toggle('on', x === fillB)); } }, '🪣');
+  const strokes = []; const g = cv.getContext('2d');
+  const redraw = () => { g.fillStyle = '#fff'; g.fillRect(0, 0, cv.width, cv.height); for (const st of strokes) { if (st.fill) { g.fillStyle = st.c; g.fillRect(0, 0, cv.width, cv.height); continue; } g.strokeStyle = st.c; g.lineWidth = st.w; g.lineCap = g.lineJoin = 'round'; g.beginPath(); st.p.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); if (st.p.length === 1) g.lineTo(st.p[0][0] + 0.1, st.p[0][1]); g.stroke(); } };
+  const undoB = h('button.sk-tb', { title: 'undo', onclick: () => { strokes.pop(); redraw(); } }, '↶'), clrB = h('button.sk-tb', { title: 'clear', onclick: () => { strokes.length = 0; redraw(); } }, '🗑');
+  const tools = h('div.sk-tools', {}, cur, pal, ...sizes, fillB, undoB, clrB);
+  const cpos = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * cv.width / r.width, (e.clientY - r.top) * cv.height / r.height]; };
+  let curSt = null;
+  cv.addEventListener('pointerdown', (e) => { cv.setPointerCapture(e.pointerId); if (pen.fill) { strokes.push({ fill: true, c: pen.c }); redraw(); return; } curSt = { c: e.button === 2 ? '#ffffff' : pen.c, w: pen.w, p: [cpos(e)] }; strokes.push(curSt); redraw(); });
+  cv.addEventListener('pointermove', (e) => { if (!curSt) return; curSt.p.push(cpos(e)); redraw(); });
+  const up = () => { curSt = null; }; cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up); cv.addEventListener('contextmenu', (e) => e.preventDefault());
+  const say = (t, cls = '') => { msgs.append(h('div' + (cls ? '.' + cls : ''), {}, t)); while (msgs.children.length > 22) msgs.firstChild.remove(); };
+  let G = null, gT = 0;
+  const renderPlayers = () => { plE.innerHTML = ''; const ps = [{ n: nameIn.value.trim() || 'You', a: me, me: true, pts: G.pts[0], got: G.got[0] }, ...BOTS.map((b, i) => ({ ...b, pts: G.pts[i + 1], got: G.got[i + 1] }))].map((p, i) => ({ ...p, i }));
+    [...ps].sort((a, b) => b.pts - a.pts).forEach((p, r) => { const c = avCanvas(); draw(c, p.a, r === 0 && p.pts > 0); plE.append(h('div.sk-pl' + (p.got ? '.got' : ''), {}, h('span.rk', {}, '#' + (r + 1)), h('div.nm' + (p.me ? '.me' : ''), {}, h('b', {}, p.n + (p.me ? ' (You)' : '')), h('span', {}, `${p.pts} points`)), c)); }); };
+  const hint = () => G.word.split('').map((ch, i) => (G.reveal.includes(i) ? ch : '_')).join('');
+  const startGame = (isPriv) => { setPrivate(false); el.classList.add('ingame'); el.scrollTop = 0; strokes.length = 0; redraw(); msgs.innerHTML = '';
+    G = { word: WORDS[Math.floor(Math.random() * WORDS.length)], t: 80, pts: [0, 0, 0, 0, 0], got: [false, false, false, false, false], reveal: [], priv: isPriv };
+    wordE.lastChild.textContent = hint(); wordE.firstChild.textContent = 'GUESS THIS'; clockE.textContent = '80'; roundE.textContent = 'Round 1 of 3';
+    say(`${nameIn.value.trim() || 'You'} joined the room!`, 'sys'); say('Doodlebob is drawing now!', 'sys'); renderPlayers(); botDraw(); clearInterval(gT); gT = setInterval(tick, 1000); };
+  const botDraw = () => { // bot sketches a simple shape for the word
+    const cx = 346, cy = 270; const ring = []; for (let a = 0; a <= 6.3; a += 0.25) ring.push([cx + Math.cos(a) * 120 + Math.sin(a * 5) * 4, cy + Math.sin(a) * 110]); strokes.push({ c: '#ef130b', w: 10, p: ring }); strokes.push({ c: '#a0522d', w: 10, p: [[cx, cy - 110], [cx + 8, cy - 160]] }); strokes.push({ c: '#00cc00', w: 10, p: [[cx + 8, cy - 140], [cx + 60, cy - 170], [cx + 20, cy - 130]] }); redraw(); };
+  const tick = () => { if (!G) return; G.t--; clockE.textContent = String(Math.max(0, G.t));
+    if (G.t === 60 || G.t === 40) { const left = [...G.word].map((_, i) => i).filter((i) => !G.reveal.includes(i)); G.reveal.push(left[Math.floor(Math.random() * left.length)]); wordE.lastChild.textContent = hint(); }
+    if (G.t % 9 === 0) { const i = 1 + Math.floor(Math.random() * 4); if (!G.got[i]) { if (Math.random() < 0.5) { G.got[i] = true; G.pts[i] += 10 * G.t; say(`${BOTS[i - 1].n} guessed the word!`, 'ok'); renderPlayers(); } else say(`${BOTS[i - 1].n}: ${pick(['tomato?', 'ball', 'cherry', 'is it a planet', 'lol'])}`); } }
+    if (G.t <= 0) { clearInterval(gT); say(`The word was '${G.word}'`, 'sys'); } };
+  const guess = (txt) => { if (!G || !txt) return false; const me0 = nameIn.value.trim() || 'You'; if (G.got[0]) { say(`${me0}: ${txt}`); return false; }
+    if (txt.toLowerCase() === G.word) { G.got[0] = true; G.pts[0] += 10 * G.t + 50; say(`${me0} guessed the word!`, 'ok'); wordE.lastChild.textContent = G.word; wordE.firstChild.textContent = 'YOU GUESSED IT'; renderPlayers(); blipS(990); return true; }
+    if ([...G.word].filter((c, i) => txt[i] === c).length >= G.word.length - 1) say(`'${txt}' is close!`, 'sys'); else say(`${me0}: ${txt}`); return false; };
+  chatIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') { guess(chatIn.value.trim()); chatIn.value = ''; } });
+  const leaveGame = () => { clearInterval(gT); G = null; el.classList.remove('ingame'); setPrivate(false); };
+  const game = h('div.sk-game', {}, h('div.sk-ghd', {}, clockE, roundE, wordE), plE, cvw, h('div.sk-chat', {}, msgs, chatIn), tools, h('button.sk-back', { onclick: leaveGame }, 'Leave room'));
+  el.append(logo, home, game);
+  // ---------- sound ----------
+  const blipS = (f) => { try { blip(f, 0.06, 'square', 0.03); } catch {} };
+  const reset = () => { leaveGame(); me = { ...DEF }; renderMe(false); nameIn.value = ''; lang.value = 'English'; setHow(0); el.scrollTop = 0; };
+  reset();
+  window.__demoProof = async () => { const o = []; reset(); el.style.scrollBehavior = 'auto';
+    const bt = (k, d) => lob.querySelector(`.sk-arr button[data-k="${k}"][data-d="${d}"]`);
+    const b0 = { ...me }; bt('e', 1).click(); bt('m', 1).click(); bt('c', -1).click(); await sleep(60);
+    o.push(`arrows: eyes ${b0.e}→${me.e}, mouth ${b0.m}→${me.m}, color ${b0.c}→${me.c} (bounce=${meCv.classList.contains('bump')})`);
+    dice.click(); await sleep(60); o.push(`dice → {color:${me.c}, eyes:${me.e}, mouth:${me.m}} roll=${dice.classList.contains('roll')}`);
+    rowCv[2].click(); o.push(`row avatar #3 adopted → color=${me.c}`);
+    nameIn.value = 'Junbok'; lang.value = 'Korean'; play.click(); await sleep(80);
+    o.push(`Play! → in-game=${el.classList.contains('ingame')}, hint "${wordE.lastChild.textContent}", players=${plE.children.length}`);
+    const r = cv.getBoundingClientRect(); const fire2 = (t, x, y) => cv.dispatchEvent(new PointerEvent(t, { bubbles: true, clientX: r.left + x, clientY: r.top + y, pointerId: 1, button: 0 }));
+    const n0 = strokes.length; fire2('pointerdown', 120, 420); for (let i = 1; i <= 8; i++) fire2('pointermove', 120 + i * 20, 420 - i * 8); fire2('pointerup', 280, 356);
+    o.push(`drew stroke on canvas (strokes ${n0}→${strokes.length}, pts=${strokes.at(-1).p.length})`);
+    guess('tomatoes'); const ok = guess(G.word); o.push(`guessed "${G.word}" → correct=${ok}, my points=${G.pts[0]}, header="${wordE.firstChild.textContent}"`);
+    leaveGame(); priv.click(); o.push(`Create Private Room → settings panel=${getComputedStyle(prv).display !== 'none'} (${prv.querySelectorAll('select').length} selects)`);
+    reset(); el.style.scrollBehavior = ''; o.push(`restored: lobby, default avatar {c:${me.c},e:${me.e},m:${me.m}}, name empty`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

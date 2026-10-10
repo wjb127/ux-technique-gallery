@@ -6952,4 +6952,206 @@ V['16personalities-illustrated-step-cards-7-circle-agree-scale-focus-progression
     reset(); wrap.style.scrollBehavior = ''; out.push('restored: empty test, page 1, top'); return out.join('; '); };
 };
 
+V['dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock'] = (root, T) => {
+  import('@fontsource/newsreader/400.css'); import('@fontsource/newsreader/400-italic.css'); import('@fontsource/newsreader/500.css'); import('@fontsource/gilda-display');
+  theme(root, T, { bg: '#fbfaf6', fg: '#111111', ac: '#000000', dark: false });
+  const SR = "'Exposure VAR','Newsreader',Georgia,serif", WM = "'Gilda Display','Newsreader',Didot,serif", SN = "'ABC Oracle','Inter Variable',Helvetica,sans-serif", MO = "'ABC Favorit Mono','JetBrains Mono Variable',monospace";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.dia{position:absolute;inset:0;overflow:hidden;background:#fbfaf6;color:#111;font-family:${SN}}
+.dia *{box-sizing:border-box}
+.dia-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;scrollbar-width:none}.dia-sc::-webkit-scrollbar{display:none}
+.dia-hero{position:relative;height:100%;min-height:760px;overflow:hidden;background:linear-gradient(180deg,#f3c535,#ebb726 55%,#f2c63c)}
+.dia-leaf{position:absolute;inset:-80px;filter:blur(22px);opacity:.9;animation:diaSway 9s ease-in-out infinite alternate;transform-origin:30% 0}
+@keyframes diaSway{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(18px,8px) rotate(.6deg)}100%{transform:translate(-14px,-6px) rotate(-.5deg)}}
+.dia-leaf2{animation-duration:13s;animation-direction:alternate-reverse;opacity:.55}
+.dia-tag{position:absolute;left:0;right:0;top:112px;text-align:center;font:400 41px/1 ${SR};color:#fff;letter-spacing:-.012em;text-shadow:0 1px 18px #b07a0033}
+.dia-wm{position:absolute;left:50%;top:186px;width:820px;margin-left:-410px;height:430px;will-change:transform}
+.dia-wm svg{width:100%;height:100%;overflow:visible}
+.dia-mock{position:absolute;left:50%;width:1110px;margin-left:-555px;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px #ffffff80,0 18px 50px #8a5e0026;display:grid;grid-template-columns:200px 1fr;background:#ffffff55;backdrop-filter:blur(30px)}
+.dia-hm{top:398px;height:560px;will-change:transform;-webkit-mask-image:linear-gradient(#000 62%,transparent 98%);mask-image:linear-gradient(#000 62%,transparent 98%)}
+.dia-side{background:linear-gradient(#fbe7a5cc,#f9dc86b0);padding:14px 8px;border-right:1px solid #e8c45a55}
+.dia-tl{display:flex;gap:9px;padding:2px 8px 14px}.dia-tl i{width:13px;height:13px;border-radius:50%;background:#fe5f57}.dia-tl i:nth-child(2){background:#febc2e}.dia-tl i:nth-child(3){background:#28c840}
+.dia-apps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+.dia-apps span{height:44px;border-radius:9px;background:#f3d27a;border:1px solid #e3b84f;display:grid;place-items:center;font:700 13px ${SN}}
+.dia-tab{position:relative;display:flex;align-items:center;gap:9px;height:36px;padding:0 9px;border-radius:9px;font:500 14px/1 ${SN};color:#2a2210;cursor:pointer;white-space:nowrap;overflow:hidden;transition:background .15s}
+.dia-tab:hover{background:#ffffff55}.dia-tab.on{background:#fffaf0;box-shadow:0 1px 2px #a0780020}
+.dia-tab b{font-weight:600}.dia-tab .ic{width:16px;flex:none;text-align:center;font-size:13px}.dia-tab.nt{color:#8a7a52}
+.dia-thumb{position:absolute;right:4px;top:3px;width:30px;height:30px;border-radius:5px;transform:rotate(8deg);background:linear-gradient(#9fb5c9,#7d8f62 60%,#b39663);box-shadow:0 1px 4px #0004;border:2px solid #fff}
+.dia-main{position:relative;background:#f9f9f7;display:flex;flex-direction:column;min-width:0}
+.dia-bar{height:46px;flex:none;display:flex;align-items:center;gap:20px;padding:0 10px 0 16px;border-bottom:1px solid #eee;color:#999;font:400 14px ${SN};background:#fafafa}
+.dia-bar .crumb{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dia-bar .crumb b{font-weight:400;color:#333}
+.dia-bar .sh{height:28px;padding:0 11px;border-radius:7px;background:#ececec;color:#333;font:500 13px/28px ${SN};cursor:pointer}
+.dia-body{flex:1;overflow:hidden;position:relative}
+.dia-pg{position:absolute;inset:0;padding:8px 70px 40px 86px;transition:opacity .35s,transform .35s}
+.dia-pg.off{opacity:0;transform:translateY(10px);pointer-events:none}
+.dia-pg .lead{font:italic 400 13px ${SR};color:#555;margin:0 0 28px}
+.dia-sec{display:grid;grid-template-columns:240px 1fr;gap:20px;margin-bottom:30px}
+.dia-sec h4{margin:4px 0 0;font:italic 400 21px ${SR};color:#222}
+.dia-todo{display:grid;grid-template-columns:28px 1fr;gap:8px;margin-bottom:26px;cursor:pointer}
+.dia-todo .ck{width:16px;height:16px;border-radius:50%;border:1.5px solid #999;margin-top:2px;display:grid;place-items:center;transition:all .2s}
+.dia-todo.done .ck{background:#111;border-color:#111}.dia-todo.done .ck::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff}
+.dia-todo.done b{text-decoration:line-through;color:#999}
+.dia-todo b{display:block;font:600 15px/1.3 ${SN};color:#111;margin-bottom:6px}.dia-todo span{font:400 13.5px/1.65 ${SN};color:#777}
+.dia-cur{position:absolute;left:0;top:0;z-index:20;pointer-events:none;width:64px;height:64px;transition:opacity .2s,transform .06s linear;opacity:0}
+.dia-cur.on{opacity:1}
+.dia-cur svg{animation:diaSpin 8s linear infinite}@keyframes diaSpin{to{transform:rotate(360deg)}}
+.dia-nav{position:absolute;left:50%;top:28px;transform:translateX(-50%);height:50px;display:flex;align-items:center;gap:15px;padding:0 18px 0 16px;background:#fff;border-radius:14px;box-shadow:0 0 0 1px #00000010,0 4px 18px #0000000f;z-index:10;font:500 15px ${SN};color:#222}
+.dia-nav a{cursor:pointer;color:#222;text-decoration:none}.dia-nav a:hover{opacity:.6}
+.dia-wl{position:absolute;right:28px;top:28px;height:44px;padding:0 18px;border-radius:12px;background:#fff;box-shadow:0 0 0 1px #00000010,0 4px 18px #0000000f;font:500 14px/44px ${SN};z-index:10;cursor:pointer;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s;pointer-events:none}
+.dia-wl.on{opacity:1;transform:none;pointer-events:auto}
+.dia-arc{position:absolute;left:50%;bottom:-786px;width:2000px;height:900px;margin-left:-1000px;border-radius:50%;background:#fbfaf6;z-index:8;box-shadow:0 -10px 40px #9a6a0012;pointer-events:none}
+.dia .dia-cta{position:absolute;left:50%;bottom:44px;width:440px;margin-left:-220px;height:54px;border:0;border-radius:99px;background:#000;color:#fff;font:400 19px ${SN};letter-spacing:.005em;cursor:pointer;z-index:9;transition:transform .15s}
+.dia-cta:hover{transform:scale(1.02)}.dia-cta:active{transform:scale(.98)}
+.dia-av{position:absolute;left:0;right:0;bottom:16px;text-align:center;font:400 13px ${SN};color:#777;z-index:9;pointer-events:none}
+.dia-s2{position:relative;background:#fbfaf6}
+.dia-s2 h2{position:relative;margin:0;padding:114px 0 0;text-align:center;font:400 50px/1 ${SR};letter-spacing:-.02em;z-index:3}
+.dia-s2w{display:grid;grid-template-columns:520px 1fr;padding:0 0 260px}
+.dia-steps{position:sticky;top:0;padding:80px 0 0 55px;align-self:start}
+.dia-st{position:relative;max-width:330px;margin-bottom:34px;cursor:pointer}
+.dia-st::before{content:'';position:absolute;left:-24px;top:0;bottom:-6px;width:2px;background:#111;transform:scaleY(0);transform-origin:top;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.dia-st.on::before{transform:none}
+.dia-st small{display:block;font:400 11px ${MO};color:#aaa;margin-bottom:9px}
+.dia-st h3{margin:0;font:400 25px/1.25 ${SR};color:#999;letter-spacing:-.01em;transition:color .3s}
+.dia-st.on h3{color:#111}.dia-st:hover h3{color:#555}
+.dia-st p{margin:0;max-height:0;overflow:hidden;opacity:0;font:400 14.5px/1.55 ${SN};color:#444;max-width:290px;transition:max-height .5s,opacity .4s,margin .4s}
+.dia-st.on p{max-height:120px;opacity:1;margin-top:12px}
+.dia-mocks{padding-top:56px;display:flex;flex-direction:column;gap:120px}
+.dia-sm{position:relative;width:754px;height:558px;border-radius:14px;background:#f7f7f5;box-shadow:0 0 0 6px #ececea,0 0 0 7px #ddd,0 20px 50px #0000001a;overflow:hidden;transition:transform .5s,opacity .5s;opacity:.55;transform:scale(.97)}
+.dia-sm.on{opacity:1;transform:none}
+.dia-sm .dia-bar{gap:16px}
+.dia-fb{position:absolute;left:84px;right:84px;top:76px}
+.dia-fb canvas{display:block;width:100%;height:286px;border-radius:2px}
+.dia-fb .tt{position:absolute;left:0;right:0;top:86px;text-align:center;color:#f7e14c;font:400 66px/.95 ${SR};text-shadow:0 1px 2px #5a4a0099,0 2px 18px #0006;pointer-events:none}
+.dia-fb .tt i{display:block;font-size:44px}
+.dia-vd{position:absolute;top:100px;font:italic 500 30px ${SR};color:#111;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.01em}
+.dia-vd.r{right:22px;transform:none}.dia-vd.l{left:22px}
+.dia-cap{display:flex;justify-content:space-between;font:italic 400 11px/1.4 ${SR};color:#666;margin-top:8px}.dia-cap span:last-child{font:400 7.5px/1.4 ${MO};text-align:right}
+.dia-pw{margin-top:18px;background:#ededeb;border-radius:8px;padding:16px 16px 14px;display:grid;grid-template-columns:230px 1fr;gap:16px;position:relative}
+.dia-pw h5{margin:4px 0 0;font:italic 400 17px ${SR}}.dia-pw b{font:600 13px ${SN};display:block;margin-bottom:8px}.dia-pw span{font:400 11.5px/1.7 ${SN};color:#666}
+.dia-burst{position:absolute;left:10px;bottom:-12px;width:58px;height:58px;cursor:pointer;transition:transform .3s}
+.dia-burst:hover{transform:rotate(-14deg) scale(1.1)}
+.dia-doc{position:absolute;inset:46px 0 0 0;background:linear-gradient(#e9eef8,#dfe6f3);padding:30px 50px;overflow:hidden}
+.dia-doc small{font:400 9px ${MO};letter-spacing:.1em;color:#7d8aa6;display:flex;justify-content:space-between}
+.dia-doc h3{font:400 48px/1 ${SR};margin:16px 0 18px;color:#1d2433;letter-spacing:-.02em}
+.dia-doc p{font:400 12.5px/1.6 ${SN};color:#3d475c;margin:0 0 12px;max-width:520px}
+.dia-chatw{position:absolute;left:150px;right:30px;bottom:-60px;height:270px;border-radius:12px;background:#fbf3e3;box-shadow:0 0 0 1px #e6d4ad,0 12px 30px #0002;padding:46px 22px 0;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.dia-sm.on .dia-chatw{transform:translateY(-70px)}
+.dia-bub{margin-left:auto;width:fit-content;max-width:70%;background:#f3d9a1;border-radius:14px;padding:9px 14px;font:400 13px ${SN};color:#3a2c0e;margin-bottom:14px}
+.dia-ans{font:400 12.5px/1.6 ${SN};color:#4b3e22}
+.dia-ans .typing::after{content:'▍';animation:diaBlink 1s steps(2) infinite}@keyframes diaBlink{50%{opacity:0}}
+.dia-ask{position:absolute;left:60px;right:60px;top:300px;height:52px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px #e6e2d6,0 8px 24px #0000000f;display:flex;align-items:center;padding:0 10px 0 18px;gap:10px;font:400 14px ${SN};color:#999}
+.dia-ask input{flex:1;border:0;outline:none;font:inherit;background:none;color:#222}
+.dia .dia-ask button{width:30px;height:30px;border-radius:50%;border:0;background:#f2c94c;cursor:pointer}
+.dia-src{position:absolute;left:60px;right:60px;top:84px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dia-src div{height:180px;border-radius:10px;background:#fff;box-shadow:0 0 0 1px #ebe7dc;padding:12px;font:400 11px/1.5 ${SN};color:#777;transition:transform .4s,box-shadow .4s}
+.dia-src div b{display:block;font:600 12.5px ${SN};color:#222;margin:8px 0 4px}.dia-src div.hit{transform:translateY(-6px);box-shadow:0 0 0 2px #f2c94c,0 10px 24px #0000001a}
+.dia-res{position:absolute;left:60px;right:60px;top:372px;font:400 13px/1.65 ${SN};color:#444;min-height:60px}
+.dia-s3{padding:120px 0 240px;background:#fbfaf6;text-align:center}
+.dia-s3 h2{font:400 50px/1.08 ${SR};margin:0 0 54px;letter-spacing:-.02em}
+.dia-cards{display:grid;grid-template-columns:repeat(2,580px);gap:24px;justify-content:center;text-align:left}
+.dia-cd{height:380px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px #eceae2;padding:26px 30px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.dia-cd:hover{transform:translateY(-4px);box-shadow:0 0 0 1px #e2dfd4,0 14px 30px #0000000d}
+.dia-cd small{font:400 10px ${MO};letter-spacing:.12em;color:#888}.dia-cd p{font:400 16.5px/1.5 ${SN};color:#222;margin:14px 0 0;max-width:470px}
+.dia-cd .art{position:absolute;left:30px;right:30px;bottom:-30px;height:180px;border-radius:10px;background:linear-gradient(#f4f2ec,#e9e6dc)}
+@media (prefers-reduced-motion: reduce){.dia *{animation:none!important;transition:none!important}.dia-sc{scroll-behavior:auto}}
+`);
+  const el = h('div.dia'), sc = h('div.dia-sc'); el.append(sc); root.append(el);
+  // ---------- dappled sunlight ----------
+  const leafCv = (seed, dark) => { const c = h('canvas', { width: 800, height: 520 }); const g = c.getContext('2d'); const R = rng(seed);
+    for (let i = 0; i < 150; i++) { const x = R() * 800, y = R() * 520, rx = 10 + R() * 46, ry = 6 + R() * 22; g.save(); g.translate(x, y); g.rotate(R() * Math.PI); g.fillStyle = dark ? `rgba(${150 + R() * 30},${92 + R() * 20},0,${0.18 + R() * 0.3})` : `rgba(255,${222 + R() * 30},${90 + R() * 60},${0.25 + R() * 0.35})`; g.beginPath(); g.ellipse(0, 0, rx, ry, 0, 0, 7); g.fill(); g.restore(); }
+    Object.assign(c.style, { width: '100%', height: '100%' }); return c; };
+  const hero = h('div.dia-hero', {}, h('div.dia-leaf', {}, leafCv(11, true)), h('div.dia-leaf.dia-leaf2', {}, leafCv(23, false)));
+  const tag = h('div.dia-tag', {}, 'More than a browser. A better workday.');
+  const wm = h('div.dia-wm', { html: `<svg viewBox="0 0 820 430"><g fill="#fff" font-family="${WM.replace(/"/g, "'")}" font-size="452"><text x="150" y="408">D</text><text x="460" y="408">I</text><text x="560" y="408">A</text></g><g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="13"><path/><path/><path/></g></svg>` });
+  const wmLayout = () => { const [tD, tI, tA] = wm.querySelectorAll('text'); const [p1, p2, p3] = wm.querySelectorAll('path'); try {
+    const wD = tD.getBBox().width, wI = tI.getBBox().width, wA = tA.getBBox().width, gap = -8, tot = wD + wI + wA + gap * 2; let x = 410 - tot / 2; tD.setAttribute('x', x); x += wD + gap; tI.setAttribute('x', x); x += wI + gap; tA.setAttribute('x', x);
+    const D = tD.getBBox(), A = tA.getBBox(); const x0 = D.x, y0 = D.y + D.height * 0.16, y1 = 404, a1 = A.x + A.width;
+    p1.setAttribute('d', `M${x0 + 26} ${y0 + 6} C ${x0 - 30} ${y0 - 30}, ${x0 - 112} ${y0 + 20}, ${x0 - 96} ${y0 + 100} C ${x0 - 84} ${y0 + 156}, ${x0 - 22} ${y0 + 150}, ${x0 - 26} ${y0 + 106} C ${x0 - 30} ${y0 + 78}, ${x0 - 60} ${y0 + 80}, ${x0 - 62} ${y0 + 102}`);
+    p2.setAttribute('d', `M${x0 + 22} ${y1 - 3} C ${x0 - 30} ${y1 + 8}, ${x0 - 84} ${y1 - 8}, ${x0 - 86} ${y1 - 50} C ${x0 - 88} ${y1 - 82}, ${x0 - 52} ${y1 - 88}, ${x0 - 42} ${y1 - 62}`);
+    p3.setAttribute('d', `M${a1 - 24} ${y1 - 3} C ${a1 + 30} ${y1 + 10}, ${a1 + 92} ${y1 - 6}, ${a1 + 94} ${y1 - 52} C ${a1 + 96} ${y1 - 84}, ${a1 + 58} ${y1 - 90}, ${a1 + 46} ${y1 - 64}`); } catch {} };
+  (document.fonts?.load ? document.fonts.load(`452px "Gilda Display"`) : Promise.resolve()).then(() => requestAnimationFrame(wmLayout)).catch(() => {}); setTimeout(wmLayout, 700);
+  // hero browser mock
+  const TABS = [['☼', 'The Tuesday Brief', 'brief'], ['▣', 'Launch handoff · Confluence', 'hand'], ['◯', 'Launch checklist', 'check'], ['☰', 'Roadmap', 'road', true], ['⚑', 'Brand Launch', 'brand', true]];
+  const PAGES = {
+    brief: { crumb: 'The Tuesday Brief - September 15', lead: 'Three things matter today; everything else can wait. Here’s how the day can pull together.', secs: [['Top to-dos', [['Agnes wants the roadmap at 10', 'Bring the roadmap, the Amplitude signup numbers she asked for, and your paid-budget recommendation.'], ['One round of stakeholder check-ins', 'Rafael: site ready for QA. Simone: creative approved. Stellan: campaign kit ready.']]], ['New updates', [['Pricing page copy landed', 'Simone left two comments on the hero headline — both small.']]]] },
+    hand: { crumb: 'Launch handoff · Confluence', lead: 'Summarised from 14 comments and 3 linked docs.', secs: [['Owners', [['Web — Rafael', 'QA pass scheduled Wednesday, staging link in #launch.'], ['Creative — Simone', 'Final hero video exported in 4K and vertical cuts.']]], ['Risks', [['Legal review of claims', 'Two lines in the FAQ still need sign-off.']]]] },
+    check: { crumb: 'Launch checklist', lead: 'Your checklist, pulled from Slack, Linear and Calendar.', secs: [['This week', [['Ship pricing experiment', 'Flag is ready, waiting on analytics events.'], ['Book launch-day war room', 'Room 4B is free from 9 to 12.'], ['Draft announcement post', 'Outline is in Notion — 3 paragraphs left.']]]] },
+    road: { crumb: 'Roadmap / Q4 planning', lead: 'Q4 at a glance.', secs: [['Now', [['Mobile onboarding v2', 'Design in review, eng kickoff next Monday.']]], ['Next', [['Team spaces', 'Research synthesis due end of month.']]]] },
+    brand: { crumb: 'Brand Launch / Assets', lead: 'Everything for the brand launch in one place.', secs: [['Assets', [['Logo lockups', 'Primary, stacked and monogram — light & dark.'], ['Campaign kit', 'Ready for partner distribution.']]]] },
+    new: { crumb: 'New Tab', lead: 'Ask Dia anything about your tabs…', secs: [] } };
+  const body = h('div.dia-body'); const crumbB = h('b'); let curPage = 'brief';
+  const renderPage = (k) => { curPage = k; const P = PAGES[k]; crumbB.textContent = P.crumb; const pg = h('div.dia-pg.off', {}, h('p.lead', {}, P.lead), P.secs.map(([ttl, items]) => h('div.dia-sec', {}, h('h4', {}, ttl), h('div', {}, items.map(([b, s0]) => { const t = h('div.dia-todo', {}, h('div.ck'), h('div', {}, h('b', {}, b), h('span', {}, s0))); t.onclick = () => t.classList.toggle('done'); return t; })))));
+    [...body.children].forEach((o0) => { o0.classList.add('off'); setTimeout(() => o0.remove(), 360); }); body.append(pg); void pg.offsetWidth; pg.classList.remove('off');
+    side.querySelectorAll('.dia-tab').forEach((t) => t.classList.toggle('on', t.dataset.k === k)); };
+  const side = h('div.dia-side', {}, h('div.dia-tl', {}, h('i'), h('i'), h('i')), h('div.dia-apps', {}, h('span', { style: { color: '#ea4335' } }, 'M'), h('span', { style: { color: '#1a73e8', fontSize: '11px' } }, '31'), h('span', { style: { color: '#e01e5a' } }, '✣')),
+    TABS.map(([ic, t, k, fold]) => h('div.dia-tab', { 'data-k': k, onclick: () => renderPage(k) }, h('span.ic', {}, ic), fold ? h('b', {}, t, ' ›') : t, k === 'brief' ? h('i.dia-thumb') : null)), h('div.dia-tab.nt', { 'data-k': 'new', onclick: () => renderPage('new') }, h('span.ic', {}, '+'), 'New Tab'));
+  const bar = (crumb) => h('div.dia-bar', {}, h('span', {}, '▯'), h('span', {}, '‹'), h('span', {}, '›'), h('span', {}, '↻'), h('span.crumb', {}, 'Made with Dia / ', crumb), h('span.sh', { onclick: () => copy('https://diabrowser.com', 'Link copied') }, '⇪ Share'));
+  const main = h('div.dia-main', {}, bar(crumbB), body);
+  const hm = h('div.dia-mock.dia-hm', {}, side, main);
+  const burstSvg = (txt, sz = 64) => `<svg viewBox="0 0 64 64" width="${sz}" height="${sz}"><path fill="#f6e04b" stroke="#e2c52a" d="${Array.from({ length: 28 }, (_, i) => { const a = (i / 28) * Math.PI * 2, r = i % 2 ? 26 : 31; return `${i ? 'L' : 'M'}${(32 + Math.cos(a) * r).toFixed(1)} ${(32 + Math.sin(a) * r).toFixed(1)}`; }).join('')}Z"/><text x="32" y="30" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="12" fill="#111">${txt[0]}</text><text x="32" y="43" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-size="12" fill="#111">${txt[1]}</text></svg>`;
+  const cur = h('div.dia-cur', { html: burstSvg(["Let's", 'do it →']) });
+  main.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); cur.style.transform = `translate(${e.clientX - r.left + 10}px,${e.clientY - r.top + 8}px)`; cur.classList.add('on'); });
+  main.addEventListener('pointerleave', () => cur.classList.remove('on'));
+  hero.append(tag, wm, hm);
+  // ---------- section 2: sticky steps ----------
+  const STEPS = [['Start your day two steps ahead', "Before the day kicks in, Dia's Morning Brief lays it all out (calendar, inbox, key links) so you know exactly what you're walking into."],
+    ['Synthesis you’ll actually use', 'Instead of bouncing between tools, just ask Dia. It gathers what’s scattered across your tools (Slack, Notion, Teams, and many more) and turns it into a report worth sharing.'],
+    ['Find the answer without hunting it down', 'Ask once. Dia digs into your full context, across GSuite, Teams, tabs, and more, and answers like someone who’s seen every thread.']];
+  const stepEls = STEPS.map(([t, d], i) => h('div.dia-st' + (i ? '' : '.on'), { onclick: () => goStep(i) }, h('small', {}, String(i + 1).padStart(2, '0')), h('h3', {}, t), h('p', {}, d)));
+  // painterly stand-in for the Friday Brief artwork (generated)
+  const paint = () => { const c = h('canvas', { width: 600, height: 286 }); const g = c.getContext('2d'); const R = rng(77); let gr = g.createLinearGradient(0, 0, 0, 120); gr.addColorStop(0, '#a9bcd0'); gr.addColorStop(1, '#dfe4df'); g.fillStyle = gr; g.fillRect(0, 0, 600, 140);
+    for (let i = 0; i < 40; i++) { g.fillStyle = `rgba(255,255,255,${0.3 + R() * 0.5})`; g.beginPath(); g.ellipse(R() * 600, 15 + R() * 70, 20 + R() * 40, 6 + R() * 10, 0, 0, 7); g.fill(); }
+    for (let i = 0; i < 260; i++) { g.fillStyle = `hsl(${80 + R() * 40},${20 + R() * 25}%,${28 + R() * 18}%)`; g.beginPath(); g.ellipse(R() * 600, 100 + R() * 30, 6 + R() * 16, 4 + R() * 10, 0, 0, 7); g.fill(); }
+    for (let i = 0; i < 2400; i++) { const y = 125 + R() * 165; g.strokeStyle = `hsl(${20 + R() * 30},${30 + R() * 30}%,${35 + R() * 30 + (y - 125) * 0.05}%)`; g.lineWidth = 1 + R() * 2.5; const x = R() * 600; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (R() - 0.5) * 6, y - 4 - R() * 9); g.stroke(); }
+    for (let i = 0; i < 160; i++) { g.fillStyle = `hsla(${R() < 0.5 ? 300 : 40},45%,${55 + R() * 20}%,.8)`; g.fillRect(R() * 600, 150 + R() * 130, 2, 2); }
+    [[150, 175, 0.9], [420, 230, 1.2], [470, 210, 0.8]].forEach(([x, y, k]) => { g.fillStyle = '#eef0f0'; g.beginPath(); g.ellipse(x, y, 16 * k, 30 * k, -0.2, 0, 7); g.fill(); g.fillStyle = '#c9b8a4'; g.beginPath(); g.arc(x, y - 32 * k, 7 * k, 0, 7); g.fill(); g.fillStyle = '#ffffff'; g.fillRect(x - 30 * k, y + 20 * k, 60 * k, 10 * k); }); return c; };
+  const sm1 = h('div.dia-sm.on', {}, bar(h('b', {}, 'The Friday Brief - September 4')), h('div', { style: { position: 'absolute', left: '50%', top: '56px', marginLeft: '-7px', width: '14px', height: '10px', borderRadius: '7px 7px 0 0', background: '#111' } }),
+    h('div.dia-vd.l', {}, '04 SEP 2026'), h('div.dia-vd.r', {}, '07:11 AM'),
+    h('div.dia-fb', {}, paint(), h('div.tt', {}, h('i', {}, 'The'), 'Friday Brief'), h('div.dia-cap', {}, h('span', {}, 'Happy Friday. Your morning is wide open and nothing lands until the afternoon, so ease into it.'), h('span', {}, 'Gathering Autumn Flowers, William Merritt Chase, 1894/1895 · oil on canvas')),
+      h('div.dia-pw', {}, h('div', {}, h('h5', {}, 'Push your work forward')), h('div', {}, h('b', {}, 'Build the run of show for your All-Hands demo'), h('span', {}, "Clare's agenda has you presenting forth: time to show everyone your designs for the new marketing website. You already have all the material — now shape it into a story.")),
+        h('div.dia-burst', { html: burstSvg(["Let's", 'do it →'], 58), onclick: (e) => { e.currentTarget.animate([{ transform: 'rotate(0) scale(1)' }, { transform: 'rotate(-360deg) scale(1.2)' }, { transform: 'rotate(-360deg) scale(1)' }], { duration: 600 }); toast('Added to today ✓'); } }))));
+  const ans = h('div.dia-ans', {}, h('span.typing', {}, ''));
+  const sm2 = h('div.dia-sm', {}, bar(h('b', {}, 'Sample report / Sarah’s Week Recap')), h('div.dia-doc', {}, h('small', {}, h('span', {}, 'SAMPLE REPORT · MARKETING'), h('span', {}, 'TUESDAY, SEPTEMBER 16')), h('h3', {}, 'Sarah’s Week', h('br'), 'Recap'),
+    h('p', {}, 'The launch brief is locked, the whitespace is found, and the final assets are already out the door. This week took the product launch from a scattered set of opinions to a shipped campaign kit, a competitive angle nobody else in the category is using, and a launch email and sender list for the rest of the week.'), h('p', {}, h('b', {}, 'I. Monday — Cleared the Docks'))),
+    h('div.dia-chatw', {}, h('div', { style: { position: 'absolute', left: '14px', top: '14px' } }, h('div.dia-tl', { style: { padding: 0 } }, h('i'), h('i'), h('i'))), h('div.dia-bub', {}, 'catch me up on the latest plans for the fall marketing summit'), ans));
+  const SRC = [['Slack', '#launch-summit', 'Venue locked for Oct 22. Catering vendor shortlist of 3.'], ['Notion', 'Summit agenda v4', 'Keynote moved to 10:00, panels after lunch.'], ['Gmail', 'Re: speaker travel', 'Two speakers still need flights booked.']];
+  const srcEls = SRC.map(([a, b, c]) => h('div', {}, h('small', { style: { fontFamily: MO, fontSize: '9px', letterSpacing: '.1em' } }, a.toUpperCase()), h('b', {}, b), c));
+  const askIn = h('input', { placeholder: 'Ask another question...', value: '' }); const res = h('div.dia-res');
+  const ask = async (q) => { res.textContent = ''; srcEls.forEach((x) => x.classList.remove('hit')); const hits = srcEls.filter((_, i) => /venue|where|when|summit/i.test(q) ? i < 2 : true); hits.forEach((x) => x.classList.add('hit'));
+    const a = `From ${hits.length} sources: the summit is Oct 22 at the venue locked in #launch-summit; the keynote moved to 10:00 (Notion agenda v4) and two speakers still need flights (Gmail).`; for (let i = 0; i <= a.length; i += 6) { res.textContent = a.slice(0, i); await sleep(RM ? 0 : 12); } res.textContent = a; return hits.length; };
+  askIn.addEventListener('keydown', (e) => { if (e.key === 'Enter' && askIn.value.trim()) ask(askIn.value.trim()); });
+  const sm3 = h('div.dia-sm', {}, bar(h('b', {}, 'Ask Dia')), h('div.dia-src', {}, srcEls), h('div.dia-ask', {}, askIn, h('span', {}, '🎙'), h('button', { 'aria-label': 'ask', onclick: () => ask(askIn.value.trim() || 'when is the summit?') })), res);
+  const mocks = [sm1, sm2, sm3];
+  const s2 = h('div.dia-s2', {}, h('h2', {}, 'Dia reads between the tabs'), h('div.dia-s2w', {}, h('div.dia-steps', {}, stepEls), h('div.dia-mocks', {}, mocks)));
+  const CARDS = [['PROFILES', 'Create clean lines between work, freelance, and personal life, with separate tabs, logins, and AI. Context switch between them in just a swipe.'], ['LIVE WORK', 'Dia pulls together the places where work is actually happening (like GitHub and Notion) in your tab bar. Click once and land directly in the right PR, spec, or draft.'], ['BETTER MEETINGS', 'Every call starts with the right meeting page, agenda, notes, and related docs open, with a gentle countdown so you’re on time.'], ['SPLITS', 'See a meeting on one side and a doc on the other without juggling windows. Dia remembers your layout.']];
+  const s3 = h('div.dia-s3', {}, h('h2', {}, 'Built for how you', h('br'), 'actually work'), h('div.dia-cards', {}, CARDS.map(([a, b]) => h('div.dia-cd', {}, h('small', {}, a), h('p', {}, b), h('div.art')))));
+  sc.append(hero, s2, s3);
+  // ---------- fixed chrome ----------
+  const nav = h('div.dia-nav', {}, h('span', { html: '<svg width="20" height="17" viewBox="0 0 20 17"><path d="M10 0C4 0 0 4.6 0 10.5V17h20v-6.5C20 4.6 16 0 10 0z" fill="#111"/></svg>', style: { cursor: 'pointer', display: 'flex' }, onclick: () => goTop() }), ...["What's New", 'Apps', 'Security'].map((t) => h('a', { onclick: () => toast(t) }, t)));
+  const wl = h('div.dia-wl', { onclick: () => joinWl() }, 'Join the Waitlist');
+  const cta = h('button.dia-cta', { onclick: () => joinWl() }, 'Join the Waitlist');
+  el.append(nav, wl, h('div.dia-arc'), cta, h('div.dia-av', {}, 'Available for macOS and Windows'), cur);
+  const joinWl = () => { cta.textContent = 'You’re on the list ✓'; setTimeout(() => (cta.textContent = 'Join the Waitlist'), 1800); };
+  // ---------- scroll logic ----------
+  let active = 0;
+  const setStep = (i) => { active = i; stepEls.forEach((s0, j) => s0.classList.toggle('on', j === i)); mocks.forEach((m, j) => m.classList.toggle('on', j === i));
+    if (i === 1 && !ans.dataset.done) { ans.dataset.done = '1'; const a = 'Here’s the latest: the summit moved to Oct 22, venue is locked, and the agenda now opens with the keynote at 10:00.'; const sp = ans.firstChild; let k = 0; const ty = setInterval(() => { k += 3; sp.textContent = a.slice(0, k); if (k >= a.length) { clearInterval(ty); sp.classList.remove('typing'); } }, RM ? 1 : 25); } };
+  const onScroll = () => { const y = sc.scrollTop, H = sc.clientHeight; wl.classList.toggle('on', y > H * 0.6);
+    if (!RM) { wm.style.transform = `translateY(${y * 0.35}px)`; hm.style.transform = `translateY(${-y * 0.12}px)`; tag.style.transform = `translateY(${y * 0.25}px)`; }
+    const mid = H / 2; let best = 0, bd = 1e9; mocks.forEach((m, i) => { const r = m.getBoundingClientRect(), sr = sc.getBoundingClientRect(); const d = Math.abs(r.top - sr.top + r.height / 2 - mid); if (d < bd) { bd = d; best = i; } }); if (best !== active) setStep(best); };
+  sc.addEventListener('scroll', onScroll, { passive: true });
+  const goStep = (i) => { const m = mocks[i]; const top = m.offsetTop + s2.offsetTop - (sc.clientHeight - m.offsetHeight) / 2; sc.scrollTo({ top }); };
+  const goTop = () => sc.scrollTo({ top: 0 });
+  const reset = () => { sc.style.scrollBehavior = 'auto'; sc.scrollTop = 0; onScroll(); setStep(0); renderPage('brief'); sc.style.scrollBehavior = ''; cta.textContent = 'Join the Waitlist'; res.textContent = ''; askIn.value = ''; srcEls.forEach((x) => x.classList.remove('hit')); };
+  renderPage('brief'); reset();
+  window.__demoProof = async () => { const o = []; reset(); sc.style.scrollBehavior = 'auto';
+    side.querySelector('[data-k="hand"]').click(); await sleep(420); o.push(`sidebar tab → "${crumbB.textContent}" (active=${side.querySelector('.dia-tab.on')?.dataset.k})`);
+    const td = body.querySelector('.dia-todo'); td.click(); o.push(`to-do toggled done=${td.classList.contains('done')}`); renderPage('brief'); await sleep(380);
+    const seen = []; for (const i of [0, 1, 2]) { goStep(i); await sleep(80); onScroll(); seen.push(`${i + 1}:${stepEls[i].classList.contains('on') && mocks[i].classList.contains('on') ? 'active' : 'no'}@${Math.round(sc.scrollTop)}px`); }
+    o.push(`sticky scroll steps → ${seen.join(', ')}; waitlist pill shown=${wl.classList.contains('on')}`);
+    const n = await ask('when is the summit?'); o.push(`Ask Dia → ${n} sources highlighted, answer ${res.textContent.length} chars`);
+    cta.click(); o.push(`CTA → "${cta.textContent}"`);
+    reset(); o.push(`restored: top of hero, step 1 active=${stepEls[0].classList.contains('on')}, tab=${curPage}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

@@ -5,6 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import '@fontsource/press-start-2p';
 import { h, s, drag, clamp, toast, sleep, noise2, fitCanvas, blip, audio, rng, pick, css } from '../lib.js';
 import { theme, slider, seg, select, btn, toggle } from '../kit.js';
@@ -2441,6 +2442,130 @@ V['robin-noguier-curved-webgl-project-ribbon-serif-title-dot-pager'] = (root, T)
     dots.children[6].click(); await sleep(1500); o.push(`dot 7 → "${PJ[cur].t}", bg=${getComputedStyle(bg).backgroundColor}`);
     o.push(`renderer=${renderer ? 'webgl' : 'css-fallback'}`);
     go(0); await sleep(1600); o.push(`restored → "${PJ[cur].t}"`); return o.join('; '); };
+};
+
+V['bureau-cool-mono-studio-rotating-glass-ring-live-traffic-labels'] = (root, T) => {
+  import('@fontsource/courier-prime/400.css'); import('@fontsource/ibm-plex-mono/600.css'); import('@fontsource/ibm-plex-mono/700.css');
+  theme(root, T, { bg: '#dedede', fg: '#000000', ac: '#000000', dark: false });
+  const MB = "'ArialMonospaced-Bold','IBM Plex Mono',ui-monospace,monospace", SM = "'CentSchbookMonoBTWXX-Rg','Courier Prime','Courier New',serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.bc{position:absolute;inset:0;overflow:hidden;background:#dedede;color:#000;font-family:${MB};user-select:none;-webkit-user-select:none;cursor:grab;touch-action:none}
+.bc.grab{cursor:grabbing}
+.bc canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bc-hd{position:absolute;left:20px;top:20px;z-index:3;pointer-events:none}
+.bc-hd .sr{font:400 73px/1 ${SM};letter-spacing:-.035em;margin:0 0 0 1px;transform:scaleY(1.12);transform-origin:0 100%}
+.bc-hd h1{margin:6px 0 0;font:700 68.5px/1.0 ${MB};letter-spacing:-.005em;text-transform:uppercase;max-width:1180px}
+.bc-nav{position:absolute;left:20px;top:234px;display:flex;gap:10px;z-index:4}
+.bc .bc-pill{position:relative;height:24px;padding:0 11px;border:1.5px solid #000;border-radius:8px;background:transparent;font:700 12.5px/21px ${MB};color:#000;cursor:pointer;letter-spacing:.01em}
+.bc .bc-pill:hover,.bc .bc-pill.on{background:#000;color:#dedede}
+.bc .bc-pill.soft{border-color:#9b9b9b}
+.bc-pill sup{position:absolute;right:-9px;top:-9px;background:#6f6f6f;color:#dedede;border-radius:6px;font:700 7.5px/1 ${MB};padding:2px 3px}
+.bc-toast{position:absolute;right:20px;top:26px;height:28px;display:flex;align-items:center;gap:10px;padding:0 6px 0 14px;border-radius:9px;background:#bdbdbd;color:#f2f2f2;font:700 12px/1 ${MB};z-index:4;transition:opacity .3s,transform .3s}
+.bc-toast.off{opacity:0;transform:translateY(-8px);pointer-events:none}
+.bc .bc-toast button{width:17px;height:17px;border-radius:50%;border:0;background:#4a4a4a;color:#dedede;font:700 11px/17px ${MB};padding:0;cursor:pointer}
+.bc-rt{position:absolute;left:20px;top:466px;font:700 12.5px/1 ${MB};z-index:3}
+.bc-lb{position:absolute;left:0;top:0;z-index:2;pointer-events:none}
+.bc-g{position:absolute;left:0;top:0;will-change:transform;pointer-events:auto;cursor:default}
+.bc-g .dot{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#e9e9e9 55%,#bdbdbd);box-shadow:0 1px 2px #0003;transition:transform .2s}
+.bc-g .rows{position:absolute;left:12px;top:15px;white-space:nowrap;font:700 12.5px/17.5px ${MB}}
+.bc-g .r{display:block;padding:0 3px;margin-left:-3px;transition:background .15s,color .15s}
+.bc-g .r i{font-style:normal;color:#9a9a9a}.bc-g .r i.on{color:#000}
+.bc-g .r.pop{animation:bcPop .9s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes bcPop{0%{opacity:0;transform:translateX(-10px)}30%{background:#000;color:#dedede}100%{opacity:1}}
+.bc-g:hover .r,.bc-g.hov .r{background:#000;color:#dedede}.bc-g:hover .r i,.bc-g.hov .r i{color:#bcbcbc}
+.bc-g:hover .dot,.bc-g.hov .dot{transform:scale(1.8)}
+.bc-g.back{opacity:.55}
+.bc-ck{position:absolute;left:20px;bottom:20px;display:flex;gap:6px;z-index:4;transition:opacity .3s}
+.bc-ck.off{opacity:0;pointer-events:none}
+.bc-ck span{height:24px;padding:0 8px;border:1.5px solid #000;border-radius:8px;font:400 13px/21px ${SM};letter-spacing:-.02em}
+.bc-ck span u{cursor:pointer}
+.bc-ov{position:absolute;left:20px;right:20px;top:276px;bottom:60px;z-index:5;background:#dededeee;backdrop-filter:blur(6px);font:700 13px/1.5 ${MB};display:none;overflow:auto;padding:10px 0}
+.bc-ov.on{display:block;animation:bcIn .3s ease}
+@keyframes bcIn{from{opacity:0;transform:translateY(8px)}}
+.bc-ov table{border-collapse:collapse;width:100%}.bc-ov td{padding:7px 0;border-top:1.5px solid #000}.bc-ov tr:hover td{background:#000;color:#dedede}
+.bc-ov p{font:400 22px/1.3 ${SM};max-width:900px;margin:0 0 16px}
+.bc-fail{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:700 12px ${MB};color:#777}
+`);
+  const el = h('div.bc'); root.append(el);
+  // ---------- WebGL glass ring ----------
+  let S = null, ring = null, hold = 0;
+  try {
+    S = stage(el, { bg: '#dedede' }); S.cam.fov = 40; S.cam.updateProjectionMatrix(); S.cam.position.set(0, 0, 12.4);
+    const pm = new THREE.PMREMGenerator(S.r); S.scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+    S.r.toneMapping = THREE.ACESFilmicToneMapping; S.r.toneMappingExposure = 1.05;
+    S.scene.add(new THREE.HemisphereLight(0xffffff, 0x9a9a9a, 0.8)); const dl = new THREE.DirectionalLight(0xffffff, 1.4); dl.position.set(-4, 6, 8); S.scene.add(dl);
+    const mat = new THREE.MeshPhysicalMaterial({ color: 0xf4f4f4, metalness: 0, roughness: 0.18, transmission: 0.92, thickness: 0.35, ior: 1.45, clearcoat: 1, clearcoatRoughness: 0.1, transparent: true, opacity: 0.95, envMapIntensity: 1.2 });
+    ring = new THREE.Group(); const torus = new THREE.Mesh(new THREE.TorusGeometry(3.25, 0.075, 40, 280), mat); ring.add(torus);
+    const inner = new THREE.Mesh(new THREE.TorusGeometry(3.25, 0.028, 16, 260), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, transparent: true, opacity: 0.35 })); inner.position.z = -0.06; ring.add(inner);
+    S.scene.add(ring); S.cam.lookAt(0, 0, 0);
+  } catch (e) { el.append(h('div.bc-fail', {}, 'WebGL unavailable — labels still orbit (CSS fallback)')); S = null; }
+  // ---------- traffic data ----------
+  const TRAFFIC = [
+    { a: 112, rows: [['DE', 'ONLINE'], ['BE', '1H AGO'], ['AT', '7H AGO']] },
+    { a: 168, rows: [['AE', '9H AGO']] },
+    { a: 196, rows: [['IN', '7H AGO'], ['IN', '8H AGO'], ['IN', '10H AGO']] },
+    { a: 226, rows: [['CN', '6H AGO'], ['TW', '9H AGO'], ['CN', '10H AGO']] },
+    { a: 238, rows: [['SG', '5H AGO']] },
+    { a: 262, rows: [['BR', '6H AGO'], ['JP', '11H AGO'], ['JP', '12H AGO']] },
+    { a: 352, rows: [['US', 'ONLINE'], ['US', 'ONLINE'], ['US', '22MIN AGO'], ['US', '23MIN AGO'], ['US', '5H AGO'], ['US', '10H AGO']] },
+    { a: 48, rows: [['GB', '2H AGO'], ['FR', '3H AGO']] },
+    { a: 300, rows: [['KR', '4H AGO']] }];
+  const CODES = ['DE', 'US', 'GB', 'FR', 'NL', 'KR', 'JP', 'BR', 'IN', 'SE', 'CH', 'CA', 'AU', 'IT', 'ES'];
+  const lb = h('div.bc-lb'); el.append(lb);
+  let groups = [];
+  const rowEl = ([c, t], pop) => h('span.r' + (pop ? '.pop' : ''), {}, `${c}, `, h('i' + (t === 'ONLINE' ? '.on' : ''), {}, t));
+  const build = () => { lb.innerHTML = ''; groups = TRAFFIC.map((g0) => { const rows = h('div.rows', {}, g0.rows.map((r) => rowEl(r))); const e = h('div.bc-g', {}, h('div.dot'), rows); lb.append(e);
+    const g = { ...g0, rows: g0.rows.map((r) => [...r]), e, rowsEl: rows }; e.addEventListener('pointerenter', () => { hold++; }); e.addEventListener('pointerleave', () => { hold = Math.max(0, hold - 1); }); return g; }); };
+  const age = (t) => (t === 'ONLINE' ? '1MIN AGO' : t);
+  const addEntry = (gi = Math.floor(Math.random() * groups.length), code = null) => { const g = groups[gi]; const c = code || (Math.random() < 0.6 ? (g.rows[0]?.[0] || pick(CODES)) : pick(CODES));
+    g.rows.forEach((r, i) => { if (i >= 1) r[1] = age(r[1]); }); g.rows.unshift([c, 'ONLINE']); if (g.rows.length > 6) g.rows.pop();
+    g.rowsEl.innerHTML = ''; g.rows.forEach((r, i) => g.rowsEl.append(rowEl(r, i === 0))); return { group: gi, code: c, rows: g.rows.length }; };
+  // ---------- chrome ----------
+  const hd = h('div.bc-hd', {}, h('div.sr', {}, 'BUREAU COOL'), h('h1', {}, 'A BOUTIQUE DESIGN STUDIO AND DIGITAL PARTNER'));
+  const ov = h('div.bc-ov');
+  const PROJ = [['2026', 'BRUTAL OBJECTS', 'IDENTITY, WEBSITE'], ['2025', 'NORDIC FIELD NOTES', 'EDITORIAL, 3D'], ['2025', 'SOFT MACHINES', 'CAMPAIGN'], ['2024', 'PAPER STEREO', 'PACKAGING, MOTION'], ['2024', 'GLASS HOUSE RECORDS', 'IDENTITY'], ['2023', 'COOL CLUB SHOP', 'E-COMMERCE']];
+  let ovKind = null;
+  const openOv = (k) => { ovKind = ovKind === k ? null : k; navBtns.forEach((b) => b.classList.toggle('on', b.dataset.k === ovKind)); ov.classList.toggle('on', !!ovKind); ov.innerHTML = '';
+    if (ovKind === 'projects') ov.append(h('table', {}, PROJ.map((r) => h('tr', {}, r.map((c) => h('td', {}, c))))));
+    if (ovKind === 'information') ov.append(h('p', {}, 'Bureau Cool is a boutique design studio and digital partner working across identity, editorial, interactive and spatial work.'), h('p', {}, 'Every visit leaves a trace — the ring shows where our recent traffic came from, live.'), h('div', {}, 'HELLO@BUREAU.COOL')); };
+  const navBtns = [['PROJECTS', 'projects'], ['INFORMATION', 'information']].map(([t, k]) => h('button.bc-pill', { 'data-k': k, onclick: () => openOv(k) }, t));
+  const shop = h('button.bc-pill.soft', { onclick: () => toast('Shop — 0 new items') }, 'SHOP', h('sup', {}, 'NEW'));
+  const nav = h('div.bc-nav', {}, ...navBtns, shop);
+  const tst = h('div.bc-toast', {}, '/0000 NEW ITEMS', h('button', { 'aria-label': 'close', onclick: () => tst.classList.add('off') }, '×'));
+  const ck = h('div.bc-ck', {}, h('span', {}, 'THIS WEBSITE USES COOKIES, MORE INFORMATION ', h('u', { onclick: () => openOv('information') }, 'HERE'), '.'), h('button.bc-pill', { style: { background: 'transparent' }, onclick: () => ck.classList.add('off') }, 'ACCEPT'));
+  el.append(hd, nav, tst, h('div.bc-rt', {}, 'RECENT TRAFFIC'), ck, ov);
+  [hd, nav, tst, ck, ov].forEach((x) => x.addEventListener('pointerdown', (e) => e.stopPropagation()));
+  // ---------- motion + drag ----------
+  let spin = 0, vel = 0, tiltX = 0, t0 = 0, dragging = false, lastX = 0, lastY = 0, paused = false;
+  el.addEventListener('pointerdown', (e) => { if (e.target.closest('.bc-g')) return; dragging = true; lastX = e.clientX; lastY = e.clientY; el.classList.add('grab'); el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointermove', (e) => { if (!dragging) return; const dx = e.clientX - lastX, dy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY; vel = dx * 0.004; tiltX = clamp(tiltX + dy * 0.004, -0.8, 0.8); spin += vel; });
+  const endDrag = () => { dragging = false; el.classList.remove('grab'); }; el.addEventListener('pointerup', endDrag); el.addEventListener('pointercancel', endDrag);
+  const v3 = S ? new THREE.Vector3() : null;
+  let tPrev = 0;
+  const frame = (t) => { const dt = Math.min(0.05, t - tPrev || 0.016); tPrev = t; if (!paused) t0 += dt * (hold ? 0.06 : 1) * (RM ? 0.25 : 1);
+    if (!dragging) { spin += vel; vel *= 0.95; tiltX *= 0.985; }
+    const W = el.clientWidth, H = el.clientHeight;
+    const ry = Math.sin(t0 * 0.16) * 0.55 + spin, rx = 0.18 + Math.sin(t0 * 0.11 + 1) * 0.22 + tiltX, rz = t0 * 0.035;
+    if (ring) { ring.rotation.set(rx, ry, rz); ring.updateMatrixWorld(); }
+    for (const g of groups) { let x, y, z = 0; const a = (g.a * Math.PI) / 180;
+      if (ring) { v3.set(Math.cos(a) * 3.25, Math.sin(a) * 3.25, 0); ring.localToWorld(v3); z = v3.z; v3.project(S.cam); x = (v3.x * 0.5 + 0.5) * W; y = (-v3.y * 0.5 + 0.5) * H; }
+      else { const R0 = Math.min(W, H) * 0.37, aa = a + rz; x = W / 2 + Math.cos(aa) * R0 * Math.cos(ry); y = H / 2 - Math.sin(aa) * R0; }
+      g.e.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`; g.e.classList.toggle('back', z < -1.2); g.sx = x; g.sy = y; }
+    if (!S) requestAnimationFrame((tt) => frame(tt / 1000)); };
+  build();
+  if (S) S.on(frame); else requestAnimationFrame((tt) => frame(tt / 1000));
+  let liveT = setInterval(() => { if (!document.hidden && !hold) addEntry(); }, 5200);
+  const reset = () => { build(); spin = 0; vel = 0; tiltX = 0; t0 = 0; hold = 0; paused = false; tst.classList.remove('off'); ck.classList.remove('off'); ovKind = 'x'; openOv('x'); ovKind = null; ov.classList.remove('on'); navBtns.forEach((b) => b.classList.remove('on')); };
+  window.__demoProof = async () => { const o = []; reset(); await sleep(120);
+    const p0 = groups.map((g) => [g.sx, g.sy]); await sleep(900); const moved = groups.reduce((m, g, i) => Math.max(m, Math.hypot(g.sx - p0[i][0], g.sy - p0[i][1])), 0);
+    o.push(`ring ${S ? 'WebGL' : 'CSS-fallback'} rotating: labels reprojected, max drift ${moved.toFixed(1)}px in 0.9s (rot y=${ring ? ring.rotation.y.toFixed(3) : 'n/a'})`);
+    const n0 = groups[6].rows.length; const r = addEntry(6, 'US'); await sleep(50); o.push(`new traffic entry → "${groups[6].rowsEl.firstChild.textContent}" popped (${n0}→${r.rows} rows, pop=${groups[6].rowsEl.firstChild.classList.contains('pop')})`);
+    const rs0 = [...groups[0].rowsEl.children]; rs0.forEach((r) => (r.style.transition = 'none')); groups[0].e.dispatchEvent(new PointerEvent('pointerenter')); groups[0].e.classList.add('hov'); await sleep(60); o.push(`hover DE group → highlight bg=${getComputedStyle(groups[0].rowsEl.firstChild).backgroundColor}, ring slowed (hold=${hold})`); groups[0].e.classList.remove('hov'); rs0.forEach((r) => (r.style.transition = '')); groups[0].e.dispatchEvent(new PointerEvent('pointerleave'));
+    const rect = el.getBoundingClientRect(); const sp0 = spin; el.dispatchEvent(new PointerEvent('pointerdown', { clientX: rect.left + 700, clientY: rect.top + 600, pointerId: 1, bubbles: true })); el.dispatchEvent(new PointerEvent('pointermove', { clientX: rect.left + 820, clientY: rect.top + 610, pointerId: 1, bubbles: true })); el.dispatchEvent(new PointerEvent('pointerup', { pointerId: 1, bubbles: true }));
+    o.push(`drag spin Δ=${(spin - sp0).toFixed(3)}rad`);
+    navBtns[0].click(); o.push(`PROJECTS pill → overlay rows=${ov.querySelectorAll('tr').length}`); navBtns[0].click();
+    tst.querySelector('button').click(); o.push(`NEW ITEMS toast closed=${tst.classList.contains('off')}`); ck.querySelector('button').click(); o.push(`cookie ACCEPT hidden=${ck.classList.contains('off')}`);
+    reset(); o.push('restored: default traffic, toast + cookie bar back, overlay closed'); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }
