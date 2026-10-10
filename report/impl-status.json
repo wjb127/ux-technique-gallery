@@ -3004,5 +3004,32 @@
   "proof": "start: Current Conditions (auto every 10s); auto-advance Current Conditions → Latest Observations; next → Hourly Graph; prev → Latest Observations; paused: held=true; Hourly Graph unchecked → next skips to Regional Observations; crawl \"Conditions at Boeing Field\" → \"Temp: 54°F\"; metric temp: 12°; GO Denver → Denver Intl; restored: Seattle, Current Conditions, Normal speed, playing",
   "demoNodes": 123,
   "errors": []
+ },
+ "csszengarden-single-markup-theme-switcher-design-list-skin-swap": {
+  "url": "https://ux-technique-gallery.vercel.app/t/csszengarden-single-markup-theme-switcher-design-list-skin-swap/",
+  "ok": true,
+  "at": "2026-10-10T08:07:04.279Z",
+  "http": 200,
+  "proof": "start skin Tranquille, scrollTop 600; fading=true; clicked sidebar → Mid Century Modern (data-skin=221), scrollTop kept 600; Garments: h1 font \"IBM Plex Mono\"; Steel: h1 font \"Space Grotesk Variable\"; Apothecary: h1 font \"EB Garamond\"; markup hash 16d5a032 vs initial 16d5a032 → unchanged; View all designs → archive open=true with 5 live thumbnails; View CSS: /* css Zen Garden submission 218 - 'Apothecary' by Trent Walton */; restored default Tranquille, top; swaps=5",
+  "demoNodes": 737,
+  "errors": []
+ },
+ "cameronsworld-geocities-layered-collage-scroll-zones-gif-parallax-sound-toggle": {
+  "url": "https://ux-technique-gallery.vercel.app/t/cameronsworld-geocities-layered-collage-scroll-zones-gif-parallax-sound-toggle/",
+  "ok": true,
+  "at": "2026-10-10T08:07:04.270Z",
+  "http": 200,
+  "proof": "zones: Outer space → Purple fantasy realm → Red love / hearts → Aztec sunset + ocean → Welcome home (+footer); sprites: 145 on 3 planes [32/58/55]; parallax @fantasy+300: back 114px, mid 42px, front -66px; sound ON: 4 notes scheduled, ctx=running; sound OFF: loop stopped=true; critter: My favourite: Shark! (it's actually a 🦈); restored: top of page, sound off",
+  "demoNodes": 653,
+  "errors": []
+ },
+ "locomotive-stacked-echo-typing-preloader-glyph-scramble-wordmark": {
+  "url": "https://ux-technique-gallery.vercel.app/t/locomotive-stacked-echo-typing-preloader-glyph-scramble-wordmark/",
+  "ok": true,
+  "at": "2026-10-10T08:07:04.282Z",
+  "http": 200,
+  "proof": "A typed \"Digital-First Design\"; wordmark settled \"Locomotive\"; B lines: Bas | Based in Montreal | Based in Montreal | Based in Montreal | 45.5019°; A echoes: 5 lines, last \"Digital-First Agency\"; retracted: 0 chars left; hand-off: preloader fades/slides up, homepage reveals; home visible=true, preloader hidden=true; prefers-reduced-motion → intro skipped, homepage shown instantly; slide 0 → 1 (instant under reduce); restored: homepage, slide 0, OS motion mode",
+  "demoNodes": 65,
+  "errors": []
  }
 }
