@@ -3031,5 +3031,32 @@
   "proof": "A typed \"Digital-First Design\"; wordmark settled \"Locomotive\"; B lines: Bas | Based in Montreal | Based in Montreal | Based in Montreal | 45.5019°; A echoes: 5 lines, last \"Digital-First Agency\"; retracted: 0 chars left; hand-off: preloader fades/slides up, homepage reveals; home visible=true, preloader hidden=true; prefers-reduced-motion → intro skipped, homepage shown instantly; slide 0 → 1 (instant under reduce); restored: homepage, slide 0, OS motion mode",
   "demoNodes": 65,
   "errors": []
+ },
+ "adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off": {
+  "url": "https://ux-technique-gallery.vercel.app/t/adarkroom-minimal-text-survival-cooldown-buttons-fading-log-lights-off/",
+  "ok": true,
+  "at": "2026-10-10T12:00:31.997Z",
+  "http": 200,
+  "proof": "light fire → header \"A Firelit Room\", button \"stoke fire\" disabled=true cooldown fill=98.7%; log top=\"the room is cold.\", line opacities=1/0.89/0.78/0.67; fast-forward → stranger=3, forest tab=true, room temp=warm; gather wood → stores wood=10; stoke fire → wood=9, fire=burning; lights off → dark=true bg=rgb(255, 255, 255); lights on → dark=false; restored + sound modal (log=\"the fire is dead.\", header=\"A Dark Room\")",
+  "demoNodes": 39,
+  "errors": []
+ },
+ "io808-tr808-skeuomorphic-step-sequencer-knob-drag-16-step-pads": {
+  "url": "https://ux-technique-gallery.vercel.app/t/io808-tr808-skeuomorphic-step-sequencer-knob-drag-16-step-pads/",
+  "ok": true,
+  "at": "2026-10-10T12:00:31.981Z",
+  "http": 200,
+  "proof": "BD LEVEL knob dragged down 0.72→0.42 (rot rotate(-21.6deg)); instrument-select → SD; SD pads 3+11 toggled: lit LEDs 2→4; tempo dial → 180 BPM; START → running=true, step light at pad 8; step light moved to pad 11; STOP → running=false; reset to default pattern/knobs",
+  "demoNodes": 920,
+  "errors": []
+ },
+ "robin-noguier-curved-webgl-project-ribbon-serif-title-dot-pager": {
+  "url": "https://ux-technique-gallery.vercel.app/t/robin-noguier-curved-webgl-project-ribbon-serif-title-dot-pager/",
+  "ok": true,
+  "at": "2026-10-10T12:00:31.997Z",
+  "http": 200,
+  "proof": "wheel ↓ → project 2/9 \"Esperanto\", title=\"Esperanto\", active dot=2; drag ↑ mid-flight velocity bend=0.18; drag release → \"Ueno\"; dot 7 → \"SnickSnack\", bg=rgb(153, 96, 45); renderer=webgl; restored → \"Fun\"",
+  "demoNodes": 30,
+  "errors": []
  }
 }
