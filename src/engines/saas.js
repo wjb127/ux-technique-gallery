@@ -7080,8 +7080,8 @@ V['dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock'] = (root, 
     brand: { crumb: 'Brand Launch / Assets', lead: 'Everything for the brand launch in one place.', secs: [['Assets', [['Logo lockups', 'Primary, stacked and monogram — light & dark.'], ['Campaign kit', 'Ready for partner distribution.']]]] },
     new: { crumb: 'New Tab', lead: 'Ask Dia anything about your tabs…', secs: [] } };
   const body = h('div.dia-body'); const crumbB = h('b'); let curPage = 'brief';
-  const renderPage = (k) => { curPage = k; const P = PAGES[k]; crumbB.textContent = P.crumb; const pg = h('div.dia-pg.off', {}, h('p.lead', {}, P.lead), P.secs.map(([ttl, items]) => h('div.dia-sec', {}, h('h4', {}, ttl), h('div', {}, items.map(([b, s0]) => { const t = h('div.dia-todo', {}, h('div.ck'), h('div', {}, h('b', {}, b), h('span', {}, s0))); t.onclick = () => t.classList.toggle('done'); return t; })))));
-    [...body.children].forEach((o0) => { o0.classList.add('off'); setTimeout(() => o0.remove(), 360); }); body.append(pg); void pg.offsetWidth; pg.classList.remove('off');
+  const renderPage = (k, instant = false) => { curPage = k; const P = PAGES[k]; crumbB.textContent = P.crumb; const pg = h('div.dia-pg.off', {}, h('p.lead', {}, P.lead), P.secs.map(([ttl, items]) => h('div.dia-sec', {}, h('h4', {}, ttl), h('div', {}, items.map(([b, s0]) => { const t = h('div.dia-todo', {}, h('div.ck'), h('div', {}, h('b', {}, b), h('span', {}, s0))); t.onclick = () => t.classList.toggle('done'); return t; })))));
+    [...body.children].forEach((o0) => { if (instant) { o0.remove(); return; } o0.classList.add('off'); setTimeout(() => o0.remove(), 360); }); if (instant) pg.style.transition = 'none'; body.append(pg); void pg.offsetWidth; pg.classList.remove('off'); if (instant) requestAnimationFrame(() => (pg.style.transition = ''));
     side.querySelectorAll('.dia-tab').forEach((t) => t.classList.toggle('on', t.dataset.k === k)); };
   const side = h('div.dia-side', {}, h('div.dia-tl', {}, h('i'), h('i'), h('i')), h('div.dia-apps', {}, h('span', { style: { color: '#ea4335' } }, 'M'), h('span', { style: { color: '#1a73e8', fontSize: '11px' } }, '31'), h('span', { style: { color: '#e01e5a' } }, '✣')),
     TABS.map(([ic, t, k, fold]) => h('div.dia-tab', { 'data-k': k, onclick: () => renderPage(k) }, h('span.ic', {}, ic), fold ? h('b', {}, t, ' ›') : t, k === 'brief' ? h('i.dia-thumb') : null)), h('div.dia-tab.nt', { 'data-k': 'new', onclick: () => renderPage('new') }, h('span.ic', {}, '+'), 'New Tab'));
@@ -7142,7 +7142,7 @@ V['dia-sunlit-serif-wordmark-hero-sticky-scroll-feature-browser-mock'] = (root, 
   sc.addEventListener('scroll', onScroll, { passive: true });
   const goStep = (i) => { const m = mocks[i]; const top = m.offsetTop + s2.offsetTop - (sc.clientHeight - m.offsetHeight) / 2; sc.scrollTo({ top }); };
   const goTop = () => sc.scrollTo({ top: 0 });
-  const reset = () => { sc.style.scrollBehavior = 'auto'; sc.scrollTop = 0; onScroll(); setStep(0); renderPage('brief'); sc.style.scrollBehavior = ''; cta.textContent = 'Join the Waitlist'; res.textContent = ''; askIn.value = ''; srcEls.forEach((x) => x.classList.remove('hit')); };
+  const reset = () => { sc.style.scrollBehavior = 'auto'; sc.scrollTop = 0; onScroll(); setStep(0); renderPage('brief', true); sc.style.scrollBehavior = ''; cta.textContent = 'Join the Waitlist'; res.textContent = ''; askIn.value = ''; srcEls.forEach((x) => x.classList.remove('hit')); };
   renderPage('brief'); reset();
   window.__demoProof = async () => { const o = []; reset(); sc.style.scrollBehavior = 'auto';
     side.querySelector('[data-k="hand"]').click(); await sleep(420); o.push(`sidebar tab → "${crumbB.textContent}" (active=${side.querySelector('.dia-tab.on')?.dataset.k})`);
