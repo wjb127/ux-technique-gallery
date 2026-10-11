@@ -934,4 +934,135 @@ V['cameronsworld-geocities-layered-collage-scroll-zones-gif-parallax-sound-toggl
     sc.scrollTop = 0; par(); out.push('restored: top of page, sound off'); return out.join('; '); };
 };
 
+V['lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress'] = (root, T) => {
+  import('@fontsource-variable/jetbrains-mono');
+  theme(root, T, { bg: '#000', fg: '#a6e7ff', ac: '#8fe1ff', dark: true });
+  const CY = '#a9e9ff', LN = '#8adcf7', IT = "'Inter Variable','Helvetica Neue',Arial,sans-serif", MN = "'JetBrains Mono Variable','IBM Plex Mono',monospace";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.mdr{position:absolute;inset:0;background:#000;overflow:hidden;user-select:none;-webkit-user-select:none}
+.mdr *{box-sizing:border-box}
+.mdr-crt{position:absolute;inset:8px 10px;border-radius:5% / 9%;background:radial-gradient(120% 110% at 50% 45%,#06192a 0%,#03111d 55%,#010810 100%);overflow:hidden;box-shadow:inset 0 0 90px 30px #000c,inset 0 0 0 2px #0b2232}
+.mdr-crt::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:9;background:repeating-linear-gradient(0deg,#0000 0 2px,#00000038 2px 3px),radial-gradient(130% 120% at 50% 50%,#0000 60%,#000a 100%);mix-blend-mode:multiply}
+.mdr-crt::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:9;background:linear-gradient(180deg,#9fe6ff08,#0000 30%,#0000 70%,#9fe6ff06)}
+.mdr-hd{position:absolute;left:6.3%;right:12.5%;top:22px;height:50px;border:1.6px solid ${LN};box-shadow:0 0 6px #6fd2ff55,inset 0 0 6px #6fd2ff33;display:flex;align-items:center;color:${CY};font:italic 500 25px ${IT};text-shadow:0 0 6px #7fdcff99}
+.mdr-hd .fn{margin-left:5.4%;cursor:pointer}.mdr-hd .pc{position:absolute;left:68%;transform:translateX(-50%);white-space:nowrap}
+.mdr-logo{position:absolute;right:3.2%;top:12px;width:132px;height:70px;z-index:3;filter:drop-shadow(0 0 5px #6fd2ff88)}
+.mdr-rule{position:absolute;left:0;right:0;top:92px;height:5px;border-top:1.4px solid ${LN};border-bottom:1.4px solid ${LN};box-shadow:0 0 6px #6fd2ff44}
+.mdr-rule.b{top:auto;bottom:122px}
+.mdr-grid{position:absolute;left:0;right:0;top:100px;bottom:128px;cursor:crosshair}
+.mdr-grid canvas{position:absolute;inset:0}
+.mdr-bins{position:absolute;left:3.8%;right:3.8%;bottom:44px;height:62px;display:flex;justify-content:space-between}
+.mdr .mdr-bin{position:relative;width:15.2%;height:100%;background:none;border:0;padding:0;cursor:pointer;color:${CY};font:500 14px ${MN}}
+.mdr-bin .lb{position:absolute;left:3%;right:0;top:0;height:23px;border:1.4px solid ${LN};display:grid;place-items:center;box-shadow:0 0 5px #6fd2ff44;background:#03111d}
+.mdr-bin .pb{position:absolute;left:0;right:3%;top:30px;height:23px;border:1.4px solid ${LN};text-align:left;padding:2px 8px;font:500 13px ${MN};box-shadow:0 0 5px #6fd2ff44;overflow:hidden}
+.mdr-bin .pb i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#8fe1ff55,#8fe1ff99);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.mdr-bin .pb span{position:relative}
+.mdr-bin:hover .lb{background:#0d3a52}
+.mdr-bin.hot .lb{background:${LN};color:#021019}
+.mdr-ft{position:absolute;left:0;right:0;bottom:0;height:28px;background:repeating-linear-gradient(90deg,#8fe1ffcc 0 2px,#5fbfe3aa 2px 3px),linear-gradient(#9fe6ff,#6cc9ec);box-shadow:0 0 12px #6fd2ff66}
+.mdr-ft b{position:absolute;left:50%;top:5px;transform:translateX(-50%);background:#03111d;color:#6fbcd8;font:500 11.5px ${MN};letter-spacing:.06em;padding:1px 14px}
+.mdr-dr{position:absolute;left:0;bottom:106px;width:17%;height:0;overflow:visible;z-index:4;pointer-events:none;opacity:0;transition:height .45s cubic-bezier(.2,.9,.2,1),opacity .15s .4s}
+.mdr-dr.on{opacity:1;transition:height .45s cubic-bezier(.2,.9,.2,1),opacity .05s}
+.mdr-dr .bx{position:absolute;inset:0;border:1.6px solid ${LN};border-bottom:0;background:#03111df2;box-shadow:0 0 10px #6fd2ff55;overflow:hidden;padding:14px 12px 0}
+.mdr-dr .fl{position:absolute;top:0;width:50%;height:22px;border:1.6px solid ${LN};background:#03111d;transition:transform .45s cubic-bezier(.2,.9,.2,1);transform-origin:left bottom}
+.mdr-dr .fl.l{left:0;transform-origin:0 100%}.mdr-dr .fl.r{right:0;transform-origin:100% 100%}
+.mdr-dr.on .fl.l{transform:translateY(-22px) rotate(-52deg)}.mdr-dr.on .fl.r{transform:translateY(-22px) rotate(52deg)}
+.mdr-dr .mt{display:flex;align-items:center;gap:8px;margin:0 0 10px;color:${CY};font:500 12.5px ${MN}}
+.mdr-dr .mt b{width:34px;height:22px;border:1.4px solid ${LN};display:grid;place-items:center;font-weight:500}
+.mdr-dr .mt span{flex:1;height:14px;border:1.4px solid ${LN};position:relative}
+.mdr-dr .mt span i{position:absolute;left:0;top:0;bottom:0;background:${LN};transition:width .9s .25s cubic-bezier(.2,.8,.2,1)}
+.mdr-fly{position:absolute;z-index:5;color:#e8fbff;font-family:${MN};pointer-events:none;text-shadow:0 0 8px #8fe1ff;transform:translate(-50%,-50%);transition:transform .9s cubic-bezier(.55,0,.4,1),opacity .9s ease-in}
+.mdr-nope{position:absolute;z-index:6;width:216px;height:88px;border:1.6px solid ${LN};background:#020c14f5;box-shadow:0 0 10px #6fd2ff66;display:flex;align-items:center;gap:22px;padding:0 22px;color:#e9fbff;font:500 30px ${IT};transform:translate(-50%,-50%) scale(.9);opacity:0;transition:.18s;pointer-events:none}
+.mdr-nope.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.mdr-done{position:absolute;inset:0;z-index:7;display:grid;place-items:center;background:#010810e8;color:${CY};font:italic 500 34px ${IT};text-align:center;opacity:0;pointer-events:none;transition:.4s}
+.mdr-done.on{opacity:1;pointer-events:auto}.mdr-done small{display:block;font:500 13px ${MN};margin-top:14px;opacity:.75}
+`);
+  const el = h('div.mdr'), crt = h('div.mdr-crt'); el.append(crt); root.append(el);
+  const FILES = ['Dranesville', 'Narva', 'Moonbeam', 'Cold Harbor', 'Siena', 'Tumwater', 'Allentown', 'Labrador'];
+  let fi = 0;
+  const fnEl = h('span.fn', { title: 'click: next file' }, FILES[0]), pcEl = h('span.pc', {}, '0% Complete');
+  const hd = h('div.mdr-hd', {}, fnEl, pcEl);
+  const logo = h('div.mdr-logo', { html: `<svg viewBox="0 0 132 70"><ellipse cx="66" cy="35" rx="62" ry="31" fill="#03111d" stroke="${LN}" stroke-width="2"/><ellipse cx="66" cy="35" rx="40" ry="31" fill="none" stroke="${LN}" stroke-width="1.6"/><ellipse cx="66" cy="35" rx="16" ry="31" fill="none" stroke="${LN}" stroke-width="1.6"/><path d="M8 22h116M8 48h116" stroke="${LN}" stroke-width="1.6"/><rect x="18" y="25" width="96" height="20" fill="#03111d"/><text x="66" y="41.5" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="16.5" letter-spacing="1.5" fill="${CY}">LUMON</text></svg>` });
+  const grid = h('div.mdr-grid'), cv = h('canvas'); grid.append(cv);
+  const tempers = ['WO', 'FC', 'DR', 'MA'];
+  const bins = [], bstate = [];
+  const binsEl = h('div.mdr-bins');
+  for (let i = 0; i < 5; i++) { const fill = h('i'), txt = h('span', {}, '0%'); const b = h('button.mdr-bin', { onclick: () => refine(i) }, h('div.lb', {}, '0' + i), h('div.pb', {}, fill, txt)); b._fill = fill; b._txt = txt; bins.push(b); binsEl.append(b); }
+  const hexEl = h('b', {}, '0x47FF57 : 0x3C3FEA');
+  const dr = h('div.mdr-dr'), drBox = h('div.bx'), meters = tempers.map((t) => { const f = h('i', { style: { width: '0%' } }); drBox.append(h('div.mt', {}, h('b', {}, t), h('span', {}, f))); return f; });
+  dr.append(drBox, h('div.fl.l'), h('div.fl.r'));
+  const nope = h('div.mdr-nope', { html: `<svg width="58" height="54" viewBox="0 0 58 54" fill="none" stroke="#e9fbff" stroke-width="2.4" stroke-linejoin="round"><rect x="3" y="4" width="11" height="26"/><path d="M14 8h20c4 0 6 1 8 3l10 3v14l-10 2-7 18c-1 3-6 3-7 0l1-12H17"/><path d="M42 11v19"/></svg>` }, 'Nope');
+  const done = h('div.mdr-done', { onclick: () => nextFile() }, h('div', {}, h('span.dt', {}, ''), h('small', {}, 'click to open the next file')));
+  crt.append(hd, logo, h('div.mdr-rule'), grid, h('div.mdr-rule.b'), binsEl, dr, h('div.mdr-ft', {}, hexEl), nope, done);
+  // ---------- grid model ----------
+  const COLS = () => (W < 760 ? 12 : 20), ROWS = 10;
+  let W = 1, H = 1, cw = 1, ch = 1, cells = [], clusters = [], R = rng(7), sel = new Set(), lasso = null, mouse = { x: -999, y: -999 };
+  const fit = () => { fitCanvas(cv, grid); W = cv.W; H = cv.H; const c = COLS(); if (!cells.length || cells.cols !== c) build(c); cw = W / c; ch = H / ROWS; };
+  const idx = (c, r) => r * cells.cols + c;
+  const build = (cols, seed = 7 + fi * 101) => { R = rng(seed); cells = []; cells.cols = cols; for (let r = 0; r < ROWS; r++) for (let c = 0; c < cols; c++) cells.push({ c, r, d: R() * 10 | 0, k: -1, ph: R() * 6.28, sp: 0.4 + R() * 0.5, gone: 0, born: -9 }); clusters = []; for (let i = 0; i < 4; i++) spawnCluster(); };
+  const spawnCluster = () => { const cols = cells.cols; for (let tries = 0; tries < 60; tries++) { const c0 = 1 + (R() * (cols - 2) | 0), r0 = 1 + (R() * (ROWS - 2) | 0); const start = cells[idx(c0, r0)]; if (start.k >= 0 || start.gone) continue; const id = clusters.length, set = [start], want = 5 + (R() * 4 | 0); start.k = id;
+      let guard = 0; while (set.length < want && guard++ < 200) { const b = set[R() * set.length | 0]; const [dc, dr2] = [[1, 0], [-1, 0], [0, 1], [0, -1]][R() * 4 | 0]; const c = b.c + dc, r = b.r + dr2; if (c < 0 || r < 0 || c >= cols || r >= ROWS) continue; const n = cells[idx(c, r)]; if (n.gone) continue; if (n.k >= 0 && n.k !== id) break; if (n.k !== id) { n.k = id; set.push(n); } }
+      clusters.push({ id, t: R() * 4 | 0, cells: set }); return; } };
+  const center = (cl) => ({ x: (cl.c + 0.5) * cw, y: (cl.r + 0.5) * ch });
+  const magOf = (x, y) => { const d = Math.hypot(x - mouse.x, y - mouse.y), Rr = cw * 1.9; return d >= Rr ? 1 : 1 + 1.7 * (1 - d / Rr) ** 1.6; };
+  // ---------- render ----------
+  let raf = 0, t0 = performance.now();
+  const draw = (now) => { raf = requestAnimationFrame(draw); const t = (now - t0) / 1000, g = cv.g; g.clearRect(0, 0, W, H); const base = Math.min(cw * 0.46, ch * 0.38, 19);
+    g.textAlign = 'center'; g.textBaseline = 'middle'; g.shadowColor = '#7fdcff'; g.shadowBlur = 5;
+    for (const cl of cells) { if (cl.gone) continue; const p = center(cl); let x = p.x, y = p.y; const ag = Math.min(1, (t - cl.born) / 0.8);
+      if (!RM) { x += Math.sin(t * cl.sp + cl.ph) * cw * 0.04; y += Math.cos(t * cl.sp * 0.8 + cl.ph) * ch * 0.035; if (cl.k >= 0) { const q = Math.floor(t * 14 + cl.ph * 10); x += (((q * 9301 + 49297) % 233280) / 233280 - 0.5) * 3.2; y += (((q * 4271 + 1337) % 233280) / 233280 - 0.5) * 3.2; } }
+      const m = magOf(p.x, p.y), on = sel.has(cl); const sz = base * m * (on ? 1.2 : 1);
+      g.globalAlpha = ag * (RM && cl.k >= 0 ? 0.65 + 0.35 * Math.sin(t * 3 + cl.ph) : 1);
+      g.fillStyle = on ? '#f2fdff' : m > 1.05 ? '#d4f5ff' : CY; g.font = `${on ? 600 : 500} ${sz.toFixed(1)}px ${MN}`; g.fillText(String(cl.d), x, y); }
+    g.globalAlpha = 1; g.shadowBlur = 0;
+    if (lasso) { g.strokeStyle = '#bff0ff'; g.lineWidth = 1.5; g.shadowColor = '#7fdcff'; g.shadowBlur = 6; const { x0, y0, x1, y1 } = lasso; g.strokeRect(Math.min(x0, x1) + 0.5, Math.min(y0, y1) + 0.5, Math.abs(x1 - x0), Math.abs(y1 - y0)); g.shadowBlur = 0; }
+    // respawn digits whose refine animation finished
+    const nowS = performance.now(); for (const cl of cells) if (cl.gone && nowS > cl.gone) { cl.gone = 0; cl.d = R() * 10 | 0; cl.k = -1; cl.born = t; }
+  };
+  // ---------- interaction ----------
+  const hex = (n) => '0x' + ((n >>> 0) & 0xFFFFFF).toString(16).toUpperCase().padStart(6, '0');
+  grid.addEventListener('pointermove', (e) => { const p = localPos(e, grid); mouse = p; hexEl.textContent = `${hex(0x47FF57 + Math.round(p.x) * 977)} : ${hex(0x3C3FEA + Math.round(p.y) * 1531)}`; if (lasso) { lasso.x1 = p.x; lasso.y1 = p.y; } });
+  grid.addEventListener('pointerleave', () => { if (!lasso) mouse = { x: -999, y: -999 }; });
+  grid.addEventListener('pointerdown', (e) => { if (e.button) return; const p = localPos(e, grid); mouse = p; lasso = { x0: p.x, y0: p.y, x1: p.x, y1: p.y }; sel = new Set(); try { grid.setPointerCapture(e.pointerId); } catch {} });
+  grid.addEventListener('pointerup', (e) => { if (!lasso) return; const p = localPos(e, grid); lasso.x1 = p.x; lasso.y1 = p.y; const x0 = Math.min(lasso.x0, lasso.x1), x1 = Math.max(lasso.x0, lasso.x1), y0 = Math.min(lasso.y0, lasso.y1), y1 = Math.max(lasso.y0, lasso.y1);
+    sel = new Set(cells.filter((cl) => { if (cl.gone) return false; const q = center(cl); return q.x >= x0 && q.x <= x1 && q.y >= y0 && q.y <= y1; })); lasso = null; bins.forEach((b) => b.classList.toggle('hot', sel.size > 0)); });
+  let nopeT = 0, drT = 0;
+  const showNope = () => { let cx = W / 2, cy = H / 2; if (sel.size) { const ps = [...sel].map(center); cx = ps.reduce((a, q) => a + q.x, 0) / ps.length; cy = ps.reduce((a, q) => a + q.y, 0) / ps.length; } nope.style.left = clamp(cx, 120, W - 120) + 'px'; nope.style.top = (100 + clamp(cy, 50, H - 50)) + 'px'; nope.classList.add('on'); clearTimeout(nopeT); nopeT = setTimeout(() => nope.classList.remove('on'), 1100); };
+  const pct = () => Math.floor(bstate.reduce((a, b) => a + b.p, 0) / 5);
+  const paintBins = () => { bstate.forEach((b, i) => { bins[i]._fill.style.width = b.p + '%'; bins[i]._txt.textContent = Math.floor(b.p) + '%'; }); pcEl.textContent = `${pct()}% Complete`; };
+  const openDrawer = (i) => { const b = bins[i].getBoundingClientRect(), c = crt.getBoundingClientRect(); dr.style.left = (b.left - c.left + b.width / 2 - c.width * 0.085) + 'px'; meters.forEach((m, k) => (m.style.width = bstate[i].m[k] + '%')); dr.style.height = '168px'; dr.classList.add('on'); clearTimeout(drT); drT = setTimeout(closeDrawer, 2400); };
+  const closeDrawer = () => { dr.style.height = '0px'; dr.classList.remove('on'); };
+  const refine = (i) => { if (!sel.size) { showNope(); return { ok: false }; } const bad = [...sel].filter((c) => c.k >= 0); if (!bad.length) { showNope(); sel = new Set(); bins.forEach((b) => b.classList.remove('hot')); return { ok: false }; }
+    const st = bstate[i]; const tcount = [0, 0, 0, 0]; bad.forEach((c) => tcount[clusters[c.k].t]++);
+    tcount.forEach((n, k) => { st.m[k] = Math.min(100, st.m[k] + n * 9 + bad.length * 0.8); }); st.p = Math.min(100, st.m.reduce((a, b) => a + b, 0) / 4);
+    openDrawer(i); try { const ac = audio(); if (ac && ac.state === 'running') { blip(220, 0.12, 'triangle', 0.05); blip(330, 0.18, 'sine', 0.04, 0.1); } } catch {}
+    const crR = crt.getBoundingClientRect(), gR = grid.getBoundingClientRect(), bR = bins[i].getBoundingClientRect(); const tx = bR.left - crR.left + bR.width / 2, ty = bR.top - crR.top - 40; const base = Math.min(cw * 0.46, ch * 0.38, 19);
+    const flying = [...sel]; flying.forEach((c, k) => { const p = center(c); const sx = gR.left - crR.left + p.x, sy = gR.top - crR.top + p.y; const f = h('span.mdr-fly', { style: { left: sx + 'px', top: sy + 'px', fontSize: base * 1.25 + 'px' } }, String(c.d)); crt.append(f);
+      requestAnimationFrame(() => requestAnimationFrame(() => { f.style.transitionDelay = (k * 0.035) + 's'; f.style.transform = `translate(calc(-50% + ${tx - sx}px), calc(-50% + ${ty - sy}px)) scale(.45)`; f.style.opacity = '0'; }));
+      setTimeout(() => f.remove(), 1300 + k * 40); c.gone = performance.now() + 1500 + k * 30; });
+    const hit = new Set(bad.map((c) => c.k)); for (const k of hit) { if (clusters[k].cells.every((c) => c.gone || c.k !== k)) { clusters[k].done = true; } }
+    sel = new Set(); bins.forEach((b) => b.classList.remove('hot')); paintBins();
+    setTimeout(() => { if (pct() < 100) { const live = clusters.filter((c) => !c.done).length; for (let n = live; n < 4; n++) spawnCluster(); } else { done.querySelector('.dt').textContent = `${FILES[fi]} 100% complete`; done.classList.add('on'); } }, 1700);
+    return { ok: true, n: flying.length, bad: bad.length };
+  };
+  const resetBins = () => { bstate.length = 0; for (let i = 0; i < 5; i++) bstate.push({ p: 0, m: [0, 0, 0, 0] }); paintBins(); };
+  const nextFile = () => { fi = (fi + 1) % FILES.length; fnEl.textContent = FILES[fi]; done.classList.remove('on'); build(COLS()); resetBins(); };
+  fnEl.addEventListener('click', nextFile);
+  resetBins(); requestAnimationFrame(() => { fit(); raf = requestAnimationFrame(draw); }); new ResizeObserver(() => fit()).observe(grid);
+  // ---------- demo proof ----------
+  const reset = () => { fi = 0; fnEl.textContent = FILES[0]; done.classList.remove('on'); closeDrawer(); clearTimeout(drT); nope.classList.remove('on'); crt.querySelectorAll('.mdr-fly').forEach((f) => f.remove()); sel = new Set(); lasso = null; bins.forEach((b) => b.classList.remove('hot')); build(COLS()); resetBins(); mouse = { x: -999, y: -999 }; hexEl.textContent = '0x47FF57 : 0x3C3FEA'; };
+  window.__demoProof = async () => { const o = []; reset(); await sleep(50);
+    const cl = clusters[0].cells; const c0 = center(cl[0]); fire(grid, 'pointermove', c0.x, c0.y); const far = center(cells.find((c) => Math.hypot(center(c).x - c0.x, center(c).y - c0.y) > cw * 4));
+    o.push(`magnify: digit under cursor ×${magOf(c0.x, c0.y).toFixed(2)}, neighbour ×${magOf(c0.x + cw, c0.y).toFixed(2)}, far ×${magOf(far.x, far.y).toFixed(2)}; hex "${hexEl.textContent}"`);
+    const calm = cells.find((c) => c.c < cells.cols - 2 && c.r < ROWS - 2 && [0, 1].every((dc) => [0, 1].every((dr2) => cells[idx(c.c + dc, c.r + dr2)].k < 0)));
+    const a = center(calm); fire(grid, 'pointerdown', a.x - cw * 0.45, a.y - ch * 0.45); fire(grid, 'pointermove', a.x + cw * 1.45, a.y + ch * 1.45); const lassoOn = !!lasso; fire(grid, 'pointerup', a.x + cw * 1.45, a.y + ch * 1.45);
+    o.push(`lasso calm 2×2 → drawn=${lassoOn}, selected ${sel.size}`); const r1 = refine(0); o.push(`refine into 00 → ok=${r1.ok}, "Nope" shown=${nope.classList.contains('on')}`);
+    const xs = cl.map((c) => c.c), ys = cl.map((c) => c.r); const bx0 = (Math.min(...xs) + 0.05) * cw, by0 = (Math.min(...ys) + 0.05) * ch, bx1 = (Math.max(...xs) + 0.95) * cw, by1 = (Math.max(...ys) + 0.95) * ch;
+    fire(grid, 'pointerdown', bx0, by0); fire(grid, 'pointermove', bx1, by1); fire(grid, 'pointerup', bx1, by1); const nsel = sel.size, nbad = [...sel].filter((c) => c.k === 0).length;
+    o.push(`lasso scary cluster (${cl.length} jittering digits) → selected ${nsel} incl. ${nbad} scary, bins armed=${bins[2].classList.contains('hot')}`);
+    const r2 = refine(2); await sleep(700); const meterW = meters.map((m, k) => `${tempers[k]} ${parseFloat(m.style.width).toFixed(0)}%`).join(' ');
+    o.push(`refine into 02 → drawer open=${dr.classList.contains('on')} (${meterW}), ${r2.n} digits flying, removed from grid ${cells.filter((c) => c.gone).length}, bin 02 ${bins[2]._txt.textContent}, header "${pcEl.textContent}"`);
+    await sleep(500); reset(); await sleep(40); document.querySelector('.tg-toast')?.classList.remove('on');
+    o.push(`restored: ${pcEl.textContent}, bins ${bins.map((b) => b._txt.textContent).join('/')}, drawer closed=${!dr.classList.contains('on')}, selection ${sel.size}, file ${fnEl.textContent}`); return o.join('; '); };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['parody-desktop-os-sandbox'])(root, T); }

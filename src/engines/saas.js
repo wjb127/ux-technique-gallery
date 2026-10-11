@@ -7468,4 +7468,136 @@ V['sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects'] = (roo
     go(0); poke(true); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored top: bg=${bgNow}`); return o.join('; '); };
 };
 
+V['dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition'] = (root, T) => {
+  import('@fontsource-variable/space-grotesk');
+  theme(root, T, { bg: '#ffffff', fg: '#0061fe', ac: '#0061fe', dark: false });
+  root.classList.add('scroll'); root.style.overflow = 'auto';
+  const GR = "'Space Grotesk Variable','Space Grotesk','Helvetica Neue',Arial,sans-serif", BL = '#0061fe', INK = '#1e1919';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.dbx{position:relative;height:330%;background:#fff;font-family:${GR};user-select:none}
+.dbx *{box-sizing:border-box}
+.dbx-st{position:sticky;top:0;height:calc(100vh - var(--tg-h,38px));overflow:hidden;background:#fff}
+.dbx-lines{position:absolute;inset:0;pointer-events:none}
+.dbx-lines i{position:absolute;background:#cfe0fb}
+.dbx-hero{position:absolute;left:22.3%;top:9.6%;width:32%;color:${BL};font:700 47px/1.04 ${GR};letter-spacing:-.022em;margin:0;will-change:transform}
+.dbx .dbx-arr{position:absolute;left:73.6%;top:86%;width:40px;height:40px;border:0;background:none;cursor:pointer;color:${BL};padding:0;z-index:3}
+.dbx-arr svg{animation:dbxb 1.8s ease-in-out infinite}@keyframes dbxb{50%{transform:translateY(6px)}}
+.dbx-t{position:absolute;left:0;top:0;cursor:pointer;overflow:hidden;will-change:transform;transition:background-color .28s ease,color .28s ease}
+.dbx-t .lb{position:absolute;left:22px;top:20px;font:500 31px ${GR};letter-spacing:-.01em;color:var(--lc);transition:color .28s}
+.dbx-t .il{position:absolute;inset:0;color:var(--ic);transition:color .28s}
+.dbx-t .il svg{position:absolute;overflow:visible}
+.dbx-t .il .f{fill:currentColor;stroke:currentColor;stroke-width:0;transition:fill .28s,stroke-width .28s}
+.dbx-t .il .s{fill:none;stroke:currentColor}
+.dbx-t.inv{background:${INK}!important}.dbx-t.inv .lb{color:#fff}.dbx-t.inv .il{color:var(--bgc)}
+.dbx-t.inv .il .f{fill:transparent;stroke-width:var(--sw,2.5px)}
+.dbx-t.inv.k-typography .il{color:#fff}
+.dbx-t .intro{position:absolute;left:5%;top:7%;width:86%;color:#fff;font:600 24px/1.18 ${GR};letter-spacing:-.01em}
+.dbx-ov{position:absolute;inset:0;z-index:20;background:${INK};color:#fff;clip-path:inset(50% 50% 50% 50%);visibility:hidden;transition:clip-path .62s cubic-bezier(.7,0,.2,1)}
+.dbx-ov.on{visibility:visible}
+.dbx-ov .tt{position:absolute;left:12%;top:50%;margin:0;font:700 118px/1 ${GR};letter-spacing:-.03em;transform:translateY(-50%) translateY(60px);opacity:0;transition:transform .6s .25s cubic-bezier(.2,.8,.2,1),opacity .4s .25s,font-weight .25s;transform-origin:left center;white-space:nowrap}
+.dbx-ov.on .tt{transform:translateY(-50%);opacity:1}
+.dbx-ov.ch .tt{transform:translateY(-50%) translate(26px,70px);transition-delay:0s}
+.dbx-ov .tt.it{font-style:italic}.dbx-ov .tt.lt{font-weight:400}.dbx-ov .tt.wd{transform:translateY(-50%) translate(26px,70px) scaleX(1.22)}
+.dbx-cp{position:absolute;inset:0;opacity:0;transition:opacity .5s;pointer-events:none}
+.dbx-ov.ch .dbx-cp{opacity:1;pointer-events:auto}
+.dbx-rail{position:absolute;left:0;top:0;bottom:0;width:46px;border-right:1px solid #ffffff1f}
+.dbx-rail .vl{position:absolute;left:13px;top:18px;writing-mode:vertical-rl;transform:rotate(180deg);font:500 12px ${GR};color:#cfcfcf;letter-spacing:.02em}
+.dbx .dbx-menu{position:absolute;left:0;top:58%;width:46px;height:46px;background:${BL};border:0;cursor:pointer;display:grid;place-items:center;padding:0}
+.dbx-cp .gl{position:absolute;background:#ffffff16}
+.dbx-cp .tl{position:absolute;overflow:hidden;display:grid;place-items:center}
+.dbx-tb{position:absolute;display:flex;gap:2px;background:#fff;border-radius:6px;padding:3px;box-shadow:0 4px 18px #0006}
+.dbx .dbx-tb button{width:30px;height:26px;border:0;border-radius:4px;background:none;color:${INK};font:700 14px ${GR};cursor:pointer;padding:0}
+.dbx .dbx-tb button.on{background:${INK};color:#fff}
+.dbx-cur{position:absolute;display:flex;align-items:flex-start;gap:2px;pointer-events:none;transition:transform 2.4s ease-in-out}
+.dbx-cur span{background:#3dd1ef;color:${INK};font:600 11px ${GR};padding:3px 8px;border-radius:99px;margin-top:14px}
+.dbx-cp .lorem{position:absolute;font:400 27px/1.08 ${GR};letter-spacing:-.01em}
+`);
+  const el = h('div.dbx'), st = h('div.dbx-st'); el.append(st); root.append(el);
+  // hero grid lines (fractions measured from the reference frame)
+  const lines = h('div.dbx-lines'); [22.3, 42.2, 57.8, 77.7].forEach((x) => lines.append(h('i', { style: { left: x + '%', top: 0, bottom: 0, width: '1px' } }))); [5.6, 37.5, 62.5, 94.4].forEach((y) => lines.append(h('i', { style: { top: y + '%', left: 0, right: 0, height: '1px' } })));
+  const hero = h('h1.dbx-hero', {}, 'At Dropbox, our Brand Guidelines help us infuse everything we make with identity.');
+  const arr = h('button.dbx-arr', { title: 'Scroll', onclick: () => root.scrollTo({ top: root.scrollHeight, behavior: RM ? 'auto' : 'smooth' }), html: '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M10 10l10 9 10-9M10 20l10 9 10-9"/></svg>' });
+  st.append(lines, hero, arr);
+  // ---------- tiles ----------
+  const BOX = (c = 'currentColor') => `<path class="f" d="M30 6 50 18 30 30 10 18zM30 30l20-12 10 14-20 12zM30 30 10 18 0 32l20 12zM20 48l10 6 10-6-10-6z"/>`;
+  const ILL = {
+    framework: (w, hh) => `<svg width="${w}" height="${hh}" viewBox="0 0 ${w} ${hh}" style="left:0;top:0"><path class="s" d="M${w * 0.13} ${hh * 0.52}L${w * 0.88} ${hh * 0.72}L${w * 0.13} ${hh * 0.94}" stroke-width="1.5"/>${[[0.13, 0.52], [0.88, 0.72], [0.13, 0.94]].map(([x, y]) => `<rect class="f" x="${w * x - 9}" y="${hh * y - 9}" width="18" height="18" rx="4"/>`).join('')}</svg>`,
+    voice: (w, hh) => { const sc = hh / 300, Q = 'M30 0h30L42 40c14 2 24 13 24 27 0 16-13 28-30 28S6 83 6 66c0-8 3-17 8-26zM100 0h30l-18 40c14 2 24 13 24 27 0 16-13 28-30 28s-30-12-30-29c0-8 3-17 8-26z'; return `<svg width="${w}" height="${hh}" viewBox="0 0 ${w} ${hh}" style="left:0;top:0;--sw:2px"><g transform="translate(${w * 0.05} ${hh * 0.34}) scale(${sc})"><path class="f" d="${Q}"/></g><g transform="translate(${w - 22 - 136 * sc} ${hh - 22 - 96 * sc}) scale(${sc})"><path class="f" d="${Q}" transform="rotate(180 68 48)"/></g></svg>`; },
+    logo: (w, hh) => `<svg width="${hh * 0.32}" height="${hh * 0.29}" viewBox="-2 0 64 56" style="right:${w * 0.07}px;bottom:${hh * 0.08}px">${BOX()}</svg>`,
+    typography: (w, hh) => `<svg width="${w}" height="${hh}" viewBox="0 0 ${w} ${hh}" style="left:0;top:0;--sw:2.5px"><text class="f" x="${w - 14}" y="${hh - 18}" text-anchor="end" font-family="${GR.replace(/"/g, '')}" font-weight="600" font-size="${Math.min(w * 0.6, hh * 0.52)}" letter-spacing="-3">Aa</text></svg>`,
+    color: (w, hh) => `<svg width="${w}" height="${hh}" viewBox="0 0 ${w} ${hh}" style="left:0;top:0"><rect class="f" x="${w * 0.58}" y="${hh * 0.7}" width="${w * 0.42}" height="${hh * 0.3}" opacity=".35"/><circle class="f" cx="${w * 0.3}" cy="${hh * 0.62}" r="${w * 0.12}" opacity=".55"/><circle class="f" cx="${w * 0.46}" cy="${hh * 0.62}" r="${w * 0.12}" opacity=".35"/></svg>`,
+    blue: (w, hh) => `<svg width="34" height="30" viewBox="-2 0 64 56" style="left:${w / 2 - 17}px;top:${hh / 2 - 15}px">${BOX()}</svg>`,
+    iconography: (w, hh) => `<svg width="${w}" height="${hh}" viewBox="0 0 ${w} ${hh}" style="left:0;top:0;--sw:2px"><g transform="translate(${w * 0.18} ${hh * 0.42})"><path class="f" d="M0 10h22l6 7h36v38H0z"/><path class="s" d="M80 4l9 18 20 3-14 14 3 20-18-9-18 9 3-20-14-14 20-3z" stroke-width="3" transform="translate(4 52)"/></g></svg>`,
+    imagery: (w, hh) => `<svg width="${w * 0.48}" height="${hh * 0.47}" viewBox="0 0 120 90" preserveAspectRatio="none" style="right:${w * 0.05}px;bottom:${hh * 0.06}px;--sw:2px"><rect class="f" width="120" height="90" style="color:#ffb3a7"/><path class="f" d="M0 62c18-22 34-26 52-10s36 16 68-14v52H0z" style="color:#d0317e"/><circle class="f" cx="32" cy="30" r="8" style="color:#d0317e"/></svg>`,
+    motion: (w, hh) => `<svg width="${w}" height="${hh}" viewBox="0 0 ${w} ${hh}" style="left:0;top:0"><path class="s" d="M${w * 0.12} ${hh * 0.94}C${w * 0.42} ${hh * 0.94} ${w * 0.5} ${hh * 0.12} ${w * 0.88} ${hh * 0.12}" stroke-width="1.6"/><path class="s" d="M${w * 0.12} ${hh * 0.94}H${w * 0.34}M${w * 0.88} ${hh * 0.12}H${w * 0.63}" stroke-width="1.2"/>${[[0.12, 0.94], [0.34, 0.94], [0.88, 0.12], [0.63, 0.12]].map(([x, y]) => `<rect class="f" x="${w * x - 8}" y="${hh * y - 8}" width="16" height="16" rx="4"/>`).join('')}</svg>`,
+  };
+  // key, label, bg, label colour, illustration colour, final rect [x0,y0,x1,y1], start offset [dx,dy] (fractions of stage)
+  const TD = [
+    ['framework', 'Framework', '#1f2a44', '#b9d0f4', '#b9d0f4', [0.007, 0.011, 0.192, 0.548], [-0.35, 0.9]],
+    ['voice', 'Voice & Tone', '#fad24b', '#6b3a0d', '#6b3a0d', [0.2, 0.011, 0.531, 0.4375], [0.12, 0.95]],
+    ['logo', 'Logo', '#3dd1ef', '#0b2b49', '#0b2b49', [0.538, 0.011, 0.8, 0.548], [0.3, -0.75]],
+    ['typography', 'Typography', '#fa551e', '#4c0f05', '#4c0f05', [0.807, 0.011, 0.993, 0.4375], [0.2, 1.1]],
+    ['color', 'Color', '#ff8c19', '#ffe9cf', '#7a2a00', [0.2, 0.45, 0.461, 0.988], [-0.25, 0.75]],
+    ['iconography', 'Iconography', '#b4dc19', '#1f4400', '#1f4400', [0.007, 0.561, 0.192, 0.988], [-0.5, 0.2]],
+    ['imagery', 'Imagery', '#7a1e50', '#f7b8d0', '#f7b8d0', [0.469, 0.561, 0.8, 0.988], [0.15, 0.9]],
+    ['motion', 'Motion', '#c8aff0', '#4a1f6e', '#4a1f6e', [0.807, 0.45, 0.993, 0.988], [0.45, 0.5]],
+    ['blue', '', BL, '#fff', '#fff', [0.469, 0.45, 0.531, 0.548], null],
+  ];
+  const tiles = TD.map(([k, lab, bg, lc, ic, r, off]) => { const t = h('div.dbx-t.k-' + k, { style: `background:${bg};--lc:${lc};--ic:${ic};--bgc:${bg}` }, h('div.il'), lab ? h('span.lb', {}, lab) : null); t._k = k; t._lab = lab; t._r = r; t._off = off; t._bg = bg; t._lc = lc;
+    if (k === 'blue') t.append(h('div.intro', {}, 'From icons to illustration, logos to language, this collection is the foundation for how Dropbox looks, feels, and sounds like Dropbox.'));
+    if (lab) { t.addEventListener('pointerenter', () => t.classList.add('inv')); t.addEventListener('pointerleave', () => t.classList.remove('inv')); t.addEventListener('click', () => openChapter(t)); }
+    st.append(t); return t; });
+  const blue = tiles.find((t) => t._k === 'blue'); const BIG = [0.333, 0.2, 0.68, 0.79];
+  // ---------- scroll-driven assembly ----------
+  const ease = (x) => 1 - (1 - x) ** 3, lerp2 = (a, b, k) => a + (b - a) * k;
+  let W = 1, H = 1, P = 0, illSize = new Map();
+  const layout = () => { W = st.clientWidth; H = st.clientHeight; const max = root.scrollHeight - root.clientHeight; P = max > 0 ? clamp(root.scrollTop / max, 0, 1) : 0; const G = 0;
+    hero.style.transform = `translateY(${-P * H * 0.9}px)`; hero.style.opacity = String(clamp(1 - (P - 0.1) / 0.3, 0, 1)); arr.style.opacity = String(clamp(1 - P / 0.12, 0, 1)); lines.style.opacity = String(clamp(1 - (P - 0.55) / 0.3, 0, 1));
+    tiles.forEach((t, i) => { let [x0, y0, x1, y1] = t._r; let tx = 0, ty = 0, vis = 1;
+      if (t._k === 'blue') { const k = ease(clamp((P - 0.12) / 0.28, 0, 1)), k2 = ease(clamp((P - 0.5) / 0.35, 0, 1)); const r0 = [BIG[0], BIG[1] + 0.9, BIG[2], BIG[3] + 0.9]; const mid = BIG.map((v, j) => lerp2(r0[j], v, k)); [x0, y0, x1, y1] = mid.map((v, j) => lerp2(v, t._r[j], k2)); t.querySelector('.intro').style.opacity = String(1 - clamp(k2 * 2.2, 0, 1)); }
+      else { const k = ease(clamp((P - 0.3 - i * 0.035) / 0.5, 0, 1)); tx = (1 - k) * t._off[0] * W; ty = (1 - k) * t._off[1] * H; vis = k > 0 || P > 0.25 ? 1 : 0; }
+      const L = x0 * W + (x0 > 0 ? G : 0), Tp = y0 * H + (y0 > 0 ? G : 0), Wd = x1 * W - (x1 < 1 ? G : 0) - L, Hd = y1 * H - (y1 < 1 ? G : 0) - Tp;
+      Object.assign(t.style, { left: L + 'px', top: Tp + 'px', width: Wd + 'px', height: Hd + 'px', transform: `translate(${tx}px,${ty}px)`, visibility: vis ? 'visible' : 'hidden' });
+      const key = `${Math.round(Wd)}x${Math.round(Hd)}`; if (illSize.get(t) !== key) { illSize.set(t, key); const fw = t._k === 'blue' ? Wd : x1 * W - x0 * W, fh = t._k === 'blue' ? Hd : y1 * H - y0 * H; t.querySelector('.il').innerHTML = ILL[t._k](t._k === 'blue' ? Wd : fw, t._k === 'blue' ? Hd : fh); } }); };
+  root.addEventListener('scroll', () => requestAnimationFrame(layout), { passive: true }); new ResizeObserver(() => { illSize.clear(); layout(); }).observe(st);
+  // ---------- chapter transition ----------
+  const ov = h('div.dbx-ov'), tt = h('h2.tt'), cp = h('div.dbx-cp'); ov.append(cp, tt); st.append(ov);
+  let cur = null, chT = 0;
+  const tbB = h('button', { title: 'Bold', onclick: () => { tbB.classList.toggle('on'); tt.classList.toggle('lt', !tbB.classList.contains('on')); } }, 'B');
+  const tbI = h('button', { title: 'Italic', style: { fontStyle: 'italic' }, onclick: () => { tbI.classList.toggle('on'); tt.classList.toggle('it', tbI.classList.contains('on')); } }, 'I');
+  const tbW = h('button', { title: 'Width', onclick: () => { tbW.classList.toggle('on'); tt.classList.toggle('wd', tbW.classList.contains('on')); } }, '↔');
+  const menu = h('button.dbx-menu', { title: 'Back to the mosaic', onclick: () => closeChapter(), html: '<svg width="18" height="14" viewBox="0 0 18 14" stroke="#fff" stroke-width="2"><path d="M1 1h16M1 7h16M1 13h16"/></svg>' });
+  const LOREM = 'cupidatat non proident, sunt in culpa qui officia deserunt mollit id est laborum.';
+  const buildChapter = (t) => { const k = t._k, bg = t._bg, lab = t._lab; const T2 = TD.find((d) => d[0] === k);
+    const rail = h('div.dbx-rail', {}, h('span.vl', {}, lab), menu); tbB.className = 'on'; tbI.className = ''; tbW.className = ''; tt.classList.remove('it', 'lt', 'wd');
+    const gls = [[0.15, 0, 0.0007, 1], [0.58, 0, 0.0007, 1], [0.78, 0, 0.0007, 1], [0.045, 0.2, 0.955, 0.0012], [0.045, 0.72, 0.955, 0.0012]].map(([x, y, w, hh]) => h('i.gl', { style: { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: hh * 100 + '%' } }));
+    const glyph = k === 'typography' ? 'ig' : k === 'color' ? '●' : k === 'motion' ? '∿' : lab[0] + lab[1];
+    const tile1 = h('div.tl', { style: { left: '4.5%', top: 0, width: '6.8%', height: '20%', background: k === 'typography' ? '#b4dc19' : bg, color: BL, font: `700 52px ${GR}` } }, h('span', { style: { transform: 'rotate(90deg)' } }, glyph));
+    const sym = h('div.tl', { style: { left: '58%', top: '74%', width: '20%', height: '26%', background: k === 'typography' ? '#fad24b' : T2[3], color: k === 'typography' ? BL : bg, font: `500 34px/1.05 ${GR}`, padding: '10px 14px', placeItems: 'start' } }, h('div', { style: { whiteSpace: 'pre' } }, k === 'typography' ? '!@#$%\n&*();/<>\n“”{}+?' : k === 'color' ? '#0061FE\n#FA551E\n#B4DC19' : `${lab}\n— 0${TD.indexOf(T2) + 1}`));
+    const lorem = h('div.lorem', { style: { left: '78.6%', top: '-2%', width: '21%', color: k === 'typography' ? '#fa7a52' : bg } }, LOREM);
+    const thin = h('div.tl', { style: { left: '96.6%', top: '68%', width: '3.4%', height: '14%', background: '#c7e7ff', color: BL, font: `700 13px ${GR}` } }, h('span', { style: { writingMode: 'vertical-rl' } }, 'Aa Bb Cc'));
+    const tb = h('div.dbx-tb', { style: { left: '36%', top: '45.5%' } }, tbB, tbI, tbW);
+    const curEl = h('div.dbx-cur', { style: { left: '8.5%', top: '67%' }, html: '<svg width="16" height="18" viewBox="0 0 16 18"><path d="M1 1l13 7-6 1.5L5 16z" fill="#3dd1ef" stroke="#1e1919"/></svg>' }); curEl.append(h('span', {}, k === 'typography' ? 'Type Designer' : `${lab} Lead`));
+    cp.replaceChildren(...gls, rail, tile1, lorem, sym, thin, tb, curEl); setTimeout(() => { curEl.style.transform = 'translate(46px,-18px)'; }, 400); };
+  const openChapter = (t) => { if (cur) return; cur = t; const r = t.getBoundingClientRect(), s = st.getBoundingClientRect(); const ins = `inset(${r.top - s.top}px ${s.right - r.right}px ${s.bottom - r.bottom}px ${r.left - s.left}px)`;
+    tt.textContent = t._lab; buildChapter(t); ov.style.transition = 'none'; ov.style.clipPath = ins; ov.classList.add('on'); ov.offsetWidth; ov.style.transition = ''; ov.style.clipPath = 'inset(0px 0px 0px 0px)';
+    clearTimeout(chT); chT = setTimeout(() => ov.classList.add('ch'), RM ? 50 : 1050); };
+  const closeChapter = () => { if (!cur) return; const t = cur; clearTimeout(chT); ov.classList.remove('ch'); const r = t.getBoundingClientRect(), s = st.getBoundingClientRect(); ov.style.clipPath = `inset(${r.top - s.top}px ${s.right - r.right}px ${s.bottom - r.bottom}px ${r.left - s.left}px)`;
+    t.classList.remove('inv'); chT = setTimeout(() => { ov.classList.remove('on'); cur = null; }, RM ? 30 : 640); };
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') closeChapter(); });
+  requestAnimationFrame(layout);
+  // ---------- demo proof ----------
+  const reset = () => { clearTimeout(chT); ov.classList.remove('on', 'ch'); cur = null; tiles.forEach((t) => t.classList.remove('inv')); root.scrollTop = 0; layout(); };
+  window.__demoProof = async () => { const o = []; reset(); await sleep(40); const typo = tiles.find((t) => t._k === 'typography');
+    o.push(`hero: statement visible, tiles off-stage (typography translateY ${Math.round(new DOMMatrix(getComputedStyle(typo).transform).f)}px)`);
+    root.scrollTop = (root.scrollHeight - root.clientHeight) * 0.45; layout(); o.push(`scroll 45% → blue intro block ${Math.round(blue.getBoundingClientRect().width)}px wide, tiles sliding (typography dy ${Math.round(new DOMMatrix(getComputedStyle(typo).transform).f)}px)`);
+    root.scrollTop = root.scrollHeight; layout(); await sleep(30); const settled = tiles.every((t) => Math.abs(new DOMMatrix(getComputedStyle(t).transform).f) < 1 && Math.abs(new DOMMatrix(getComputedStyle(t).transform).e) < 1);
+    o.push(`scroll end → mosaic assembled=${settled} (${tiles.length - 1} chapter tiles + logo square), blue square ${Math.round(blue.getBoundingClientRect().width)}px`);
+    typo.dispatchEvent(new PointerEvent('pointerenter')); await sleep(320); o.push(`hover Typography → inverted=${typo.classList.contains('inv')} bg ${getComputedStyle(typo).backgroundColor}`);
+    typo.click(); await sleep(150); o.push(`click → full-screen panel on=${ov.classList.contains('on')}, title "${tt.textContent}"`); await sleep(1050);
+    o.push(`chapter page loaded=${ov.classList.contains('ch')} (rail label "${cp.querySelector('.vl')?.textContent}", tiles ${cp.querySelectorAll('.tl').length})`);
+    tbB.click(); tbI.click(); tbW.click(); await sleep(320); const cs = getComputedStyle(tt); o.push(`toolbar B/I/↔ → weight ${cs.fontWeight}, style ${cs.fontStyle}, wide=${tt.classList.contains('wd')}`);
+    menu.click(); await sleep(700); o.push(`menu → back to mosaic=${!ov.classList.contains('on')}`);
+    reset(); await sleep(30); o.push(`restored: scrollTop ${root.scrollTop}, hero opacity ${hero.style.opacity}, panel off=${!ov.classList.contains('on')}`); return o.join('; '); };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

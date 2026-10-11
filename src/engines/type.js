@@ -5,6 +5,7 @@ import { theme, slider, seg, select, btn, panel, toggle, codebox } from '../kit.
 const RF = "'Roboto Flex Variable', sans-serif", FR = "'Fraunces Variable', Georgia, serif";
 const AX = { wght: [100, 1000, 400], wdth: [25, 151, 100], opsz: [8, 144, 14], GRAD: [-200, 150, 0], slnt: [-10, 0, 0], XTRA: [323, 603, 468], YOPQ: [25, 135, 79] };
 const fvs = (a) => Object.entries(a).map(([k, v]) => `"${k}" ${Math.round(v)}`).join(', ');
+import MSLOGO from '../data/monaspace-logo.json';
 const V = {};
 V['modular-typescale-studio'] = (root, T) => {
   theme(root, T, { bg: '#fff', fg: '#111', panel: '#fafafa', ac: '#3f51b5', dark: false });
@@ -1773,5 +1774,194 @@ V['gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards'] = (root,
     sc.scrollTop = 0; onScroll(); settled(); o.push('restored: top, hero settled'); return o.join('; '); };
 };
 
+V['monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing'] = (root, T) => {
+  theme(root, T, { bg: '#0d1015', fg: '#e6edf3', ac: '#f2a58e', dark: true });
+  root.classList.add('scroll'); root.style.overflow = 'auto';
+  const MS = '/fonts/monaspace/monaspace-';
+  const FONTS = [['Ne', 'Neon', 'Neo-grotesque sans', '#f4ab93'], ['Ar', 'Argon', 'Humanist sans', '#eed36d'], ['Xe', 'Xenon', 'Slab serif', '#c3d96a'], ['Rn', 'Radon', 'Handwriting', '#79d2c6'], ['Kr', 'Krypton', 'Mechanical sans', '#b8a1f6']];
+  const fam = (n) => `'Monaspace ${n}',ui-monospace,monospace`;
+  const UI = "'Inter Variable','Mona Sans',system-ui,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(FONTS.map(([, n]) => `@font-face{font-family:'Monaspace ${n}';src:url(${MS}${n.toLowerCase()}-var.woff2) format('woff2');font-weight:200 800;font-stretch:100% 125%;font-style:oblique 0deg 11deg;font-display:swap}`).join('\n') + `
+.ms{position:relative;min-height:100%;background:#0d1015;color:#e6edf3;font:400 15px/1.55 ${UI};overflow-x:hidden}
+.ms *{box-sizing:border-box}
+.ms-dots{position:absolute;left:0;right:0;top:0;height:760px;background-image:radial-gradient(#ffffff2a 1px,transparent 1.3px);background-size:26px 26px;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent);pointer-events:none}
+.ms-nav{position:relative;z-index:2;display:flex;align-items:center;gap:18px;height:74px;padding:0 0 0 112px;font:600 22px ${UI};color:#e6edf3}
+.ms-nav .sl{color:#7d8590;font-weight:400}
+.ms-hero{position:relative;z-index:1;text-align:center;padding:96px 0 90px}
+.ms-logo{position:relative;display:inline-block;width:min(770px,78vw)}
+.ms-logo svg{display:block;width:100%;height:auto;overflow:visible}
+.ms-logo .gl{fill:#ffffff07;stroke:#c9d1d9;stroke-width:9;stroke-dasharray:1;stroke-dashoffset:0;transition:fill .4s}
+.ms-logo.draw .gl{animation:msdraw 2.4s cubic-bezier(.6,0,.2,1) both}
+@keyframes msdraw{from{stroke-dashoffset:1;fill:#ffffff00}to{stroke-dashoffset:0}}
+.ms-logo .hd{stroke:#8b949e;stroke-width:5;opacity:.55}
+.ms-logo .on{fill:#e6edf3}.ms-logo .of{fill:#0d1015;stroke:#c9d1d9;stroke-width:6}
+.ms-logo .nd{transition:r .18s,fill .18s}
+.ms-logo .nd.hot{fill:#f4ab93}
+.ms-ver{position:absolute;right:-96px;bottom:26px;font:500 19px ${fam('Neon')};color:#c27f6c}
+.ms-hero h2{margin:34px 0 40px;font:400 32px/1.3 ${UI};letter-spacing:-.01em;color:#f0f3f6}
+.ms .ms-b{display:inline-flex;align-items:center;gap:12px;height:58px;padding:0 32px;border-radius:9px;font:500 19px ${UI};cursor:pointer;margin:0 5px;border:1px solid #30363d;background:#0d1015;color:#e6edf3;transition:background .15s,transform .15s}
+.ms .ms-b.w{background:#fff;color:#111;border-color:#fff}.ms .ms-b:hover{transform:translateY(-1px)}.ms .ms-b.w:hover{background:#e8e8e8}.ms .ms-b:not(.w):hover{background:#161b22}
+.ms-mq{position:relative;z-index:1;overflow:hidden;padding:8px 0 30px}
+.ms-row{white-space:nowrap;font-size:43px;line-height:84px;will-change:transform}
+.ms-row span{display:inline-block;padding-right:80px;text-shadow:0 0 18px currentColor}
+@keyframes msl{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes msr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.ms-wrap{width:min(1250px,92%);margin:0 auto}
+.ms-intro{display:grid;grid-template-columns:1fr 1fr;gap:34px 46px;padding:70px 0 40px}
+.ms-intro h3{grid-column:1/-1;margin:0;font:700 42px/1.18 ${fam('Neon')};font-stretch:112%;letter-spacing:-.01em}
+.ms-intro p{margin:0 0 16px;color:#b6bec8;font-size:16px}.ms-intro p em{font-style:normal;color:#f4ab93}
+.ms-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:30px 0 30px}
+.ms .ms-card{position:relative;height:280px;border:1px solid #30363d;border-radius:12px;background:linear-gradient(#171b22,#12161c);cursor:pointer;padding:0;color:inherit;display:flex;flex-direction:column;align-items:center;transition:border-color .2s,transform .2s,box-shadow .2s}
+.ms .ms-card:hover{transform:translateY(-2px);border-color:#484f58}
+.ms .ms-card.on{border:2px solid var(--c);box-shadow:0 0 0 1px #0d1015,0 0 24px -6px var(--c)}
+.ms-card .sy{margin-top:64px;font-size:62px;line-height:1;color:var(--c);text-shadow:0 0 16px var(--c)}
+.ms-card .nm{margin-top:34px;font-size:25px;color:var(--c)}
+.ms-card .ds{margin-top:auto;width:100%;border-top:1px solid #30363d;padding:17px 0 19px;font:400 15px ${fam('Neon')};color:#8b949e}
+.ms-pg{display:grid;grid-template-columns:1fr 380px;gap:34px;align-items:start;padding-bottom:90px}
+.ms-ed{border:1px solid #30363d;border-radius:12px;overflow:hidden;background:var(--ebg);color:var(--etx);transition:background .3s,color .3s}
+.ms-tabs{display:flex;background:var(--etab);border-bottom:1px solid var(--eln)}
+.ms .ms-tab{border:0;background:none;color:var(--emut);font:500 14px ${UI};padding:13px 16px;cursor:pointer}
+.ms .ms-tab.on{color:var(--etx);background:var(--ebg)}
+.ms-code{position:relative;padding:12px 0 16px;height:560px;overflow:hidden}
+.ms-code pre{margin:0;font-family:inherit;white-space:pre;position:relative;z-index:1}
+.ms-code .ln{display:inline-block;width:3.2ch;text-align:right;margin-right:1.6ch;color:var(--emut);opacity:.85}
+.ms-gridov{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;background-image:linear-gradient(90deg,var(--eln) 1px,transparent 1px),linear-gradient(var(--eln) 1px,transparent 1px)}
+.ms-gridov.on{opacity:1}
+.ms-ctl{display:flex;flex-direction:column;gap:22px;padding-top:4px}
+.ms-sl{display:grid;grid-template-columns:1fr auto;row-gap:8px;font:600 15px ${UI}}.ms-sl output{font:500 15px ${UI};color:#e6edf3}
+.ms-sl input{grid-column:1/-1;-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:linear-gradient(90deg,#f4ab93 var(--p),#3b3f46 var(--p));outline:none;margin:6px 0}
+.ms-sl input::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#f4ab93;border:0;cursor:pointer;box-shadow:0 0 0 3px #0d1015}
+.ms-sl .tk{grid-column:1/-1;display:flex;justify-content:space-between;padding:0 4px;margin-top:-10px;height:6px}.ms-sl .tk i{width:1px;height:5px;background:#6e7681}
+.ms-ck{display:flex;align-items:center;gap:12px;font:600 15.5px ${UI};cursor:pointer}
+.ms-ck input{width:16px;height:16px;accent-color:#e6edf3;margin:0}
+.ms-th{font:600 12.5px ${UI}}.ms-th select{display:block;width:100%;margin-top:10px;height:36px;background:#0d1015;color:#e6edf3;border:1px solid #484f58;border-radius:6px;padding:0 10px;font:400 13px ${UI}}
+.ms-pill{display:inline-block;border:1px solid #f4ab93;color:#f4ab93;border-radius:99px;padding:2px 10px;font:500 11px ${UI};background:#f4ab9314}
+.ms-h3{margin:12px 0 16px;font:700 31px/1.15 ${fam('Neon')};font-stretch:110%}
+.ms-th3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;color:#b6bec8;font-size:13.5px;margin-bottom:36px}.ms-th3 p{margin:0}.ms-th3 b{color:#fff}
+.ms-heal{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:start;padding:20px 0 80px}
+.ms-stack{position:sticky;top:20px;border:1px solid #30363d;border-radius:12px;background:#11151b;padding:24px 28px}
+.ms-stack .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font:500 11.5px ${UI};color:#8b949e;letter-spacing:.06em;text-transform:uppercase}
+.ms-word{font-size:40px;line-height:1.15;margin:4px 0 14px;white-space:nowrap;position:relative}
+.ms-word .cells{display:block;height:4px;margin-top:4px;background:repeating-linear-gradient(90deg,var(--c) 0 calc(1ch - 5px),transparent calc(1ch - 5px) 1ch);opacity:.8}
+.ms-word .m{color:#fff}.ms-word.dim{color:#5b636d}
+.ms-word small{display:block;font:500 11px ${UI};color:#8b949e;letter-spacing:.04em;margin-bottom:2px}
+.ms-stack input[type=text]{width:100%;height:34px;background:#0d1015;border:1px solid #30363d;border-radius:6px;color:#e6edf3;padding:0 10px;font:400 14px ${fam('Neon')};margin-top:6px}
+.ms .ms-sw{position:relative;width:42px;height:22px;border-radius:99px;border:0;background:#3b3f46;cursor:pointer;transition:background .2s;padding:0}
+.ms .ms-sw::after{content:'';position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s}
+.ms .ms-sw.on{background:#f4ab93}.ms .ms-sw.on::after{transform:translateX(20px)}
+.ms-heal .copy p{color:#b6bec8;font-size:16px;line-height:1.6;margin:0 0 22px}.ms-heal .copy p em{font-style:normal;color:#f4ab93}
+.ms-five .ms-word{font-size:32px;margin:0 0 10px}
+.ms-ai{border:1px solid #30363d;border-radius:12px;background:#11151b;padding:26px 30px;margin-bottom:110px;display:grid;grid-template-columns:1fr 330px;gap:30px}
+.ms-ai h4{margin:0 0 10px;font:700 20px ${fam('Neon')}}.ms-ai p{margin:0 0 10px;color:#9aa4ae;font-size:13.5px}
+.ms-ai pre{grid-column:1/-1;margin:0;background:#0d1015;border:1px solid #30363d;border-radius:10px;padding:18px 22px;font-size:15px;line-height:1.75;white-space:pre}
+.ms-ai .sel{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font:600 12px ${UI}}.ms-ai .sel select{background:#0d1015;color:#e6edf3;border:1px solid #484f58;border-radius:6px;height:30px;padding:0 6px}
+.ms-ft{border-top:1px solid #21262d;padding:30px 0 50px;color:#7d8590;font-size:12.5px;text-align:center}
+`);
+  const el = h('div.ms'); root.append(el);
+  // ---------- nav + hero ----------
+  const mark = `<svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="#e6edf3"/><path d="M8 21c0-4 1.5-6 3-7-1-1.2-1.4-3-.8-5l2.4 1.4a8 8 0 0 1 2.8 0L17.8 9c.6 2 .2 3.8-.8 5 1.5 1 3 3 3 7" fill="#0d1015"/></svg>`;
+  const L = MSLOGO; const VB = [60, 760, 13900, 1600];
+  const svgS = [`<svg viewBox="${VB.join(' ')}">`];
+  L.d.forEach((d) => svgS.push(`<path class="gl" pathLength="1" d="${d}"/>`));
+  L.hd.forEach(([a, b]) => svgS.push(`<line class="hd" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`));
+  L.off.forEach((p) => svgS.push(`<circle class="nd of" cx="${p[0]}" cy="${p[1]}" r="22"/>`));
+  L.on.forEach((p) => svgS.push(`<circle class="nd on" cx="${p[0]}" cy="${p[1]}" r="26"/>`));
+  svgS.push('</svg>');
+  const logo = h('div.ms-logo.draw', { html: svgS.join('') }, h('span.ms-ver', {}, 'v1.400'));
+  const nodes = [...logo.querySelectorAll('.nd')].map((c) => ({ c, x: +c.getAttribute('cx'), y: +c.getAttribute('cy'), r: +c.getAttribute('r') }));
+  logo.addEventListener('pointermove', (e) => { const b = logo.querySelector('svg').getBoundingClientRect(); const ux = VB[0] + (e.clientX - b.left) / b.width * VB[2], uy = VB[1] + (e.clientY - b.top) / b.height * VB[3]; hotAt(ux, uy); });
+  logo.addEventListener('pointerleave', () => hotAt(-1e9, -1e9));
+  const hotAt = (ux, uy) => { let n = 0; for (const q of nodes) { const d = Math.hypot(q.x - ux, q.y - uy); const k = d < 900 ? 1 - d / 900 : 0; q.c.setAttribute('r', (q.r * (1 + k * 1.6)).toFixed(1)); q.c.classList.toggle('hot', k > 0.15); if (k > 0.15) n++; } return n; };
+  const dl = h('button.ms-b.w', { onclick: () => toast('Download · stand-in (no file in this clone)') }, 'Download', h('span', {}, '›'));
+  const lm = h('button.ms-b', { onclick: () => pgEl.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }) }, 'Learn more', h('span', {}, '›'));
+  el.append(h('div.ms-dots'), h('nav.ms-nav', {}, h('span', { html: mark }), h('span.sl', {}, '/'), h('span', {}, 'Monaspace')),
+    h('section.ms-hero', {}, logo, h('h2', {}, 'A superfamily of variable fonts for code'), h('div', {}, dl, lm)));
+  // ---------- marquee ----------
+  const MQ = ['console.log(`Grid size: ${term.cols} × ${term.rows}`);', '$frame_budget = $timer→measure($fps) / 1000;', 'ok = [s.started_at.to_millis() for s in run_log if s.ok]', 'std::sort(samples.begin(), samples.end(), by_latency);', 'let total: u32 = (1..=10).filter(|x| x % 2 == 0).sum();'];
+  const mq = h('div.ms-mq'); MQ.forEach((line, i) => { const [, n, , c] = FONTS[i]; const r = h('div.ms-row', { style: { fontFamily: fam(n), color: c, fontVariationSettings: `"wght" 340`, animation: RM ? 'none' : `${i % 2 ? 'msr' : 'msl'} ${46 + i * 7}s linear infinite` } }, ...Array.from({ length: 4 }, () => h('span', {}, line))); mq.append(r); }); el.append(mq);
+  // ---------- intro + cards ----------
+  const wrap = h('div.ms-wrap'); el.append(wrap);
+  wrap.append(h('div.ms-intro', {}, h('h3', {}, 'One superfamily.', h('br'), 'Five fonts.', h('br'), 'Three variable axes.'),
+    h('div', {}, h('p', {}, 'Code has lived on a grid since the teletype: every letter gets exactly one cell. Monospace keeps columns aligned, but it also leaves narrow letters swimming in space and wide letters squeezed.'), h('p', {}, 'This specimen is a practice clone: five metrics-compatible faces you can mix on one screen, each tuned with weight, width and slant axes.')),
+    h('div', {}, h('p', {}, 'Editors still give us one font, one size and a colour for syntax. Type can carry more meaning than that — comments, suggestions and diffs could each get a voice of their own.'), h('p', {}, h('em', {}, 'Pick a face below and play with its axes in the live editor.')))));
+  const P = { font: 0, size: 16, wght: 300, wdth: 100, slnt: 0, heal: true, liga: true, grid: false, theme: 'GitHub Dark', lang: 'JavaScript' };
+  const cards = FONTS.map(([sy, n, ds, c], i) => h('button.ms-card' + (i === 0 ? '.on' : ''), { style: `--c:${c}`, onclick: () => setFont(i) }, h('span.sy', { style: { fontFamily: fam(n), fontVariationSettings: n === 'Radon' ? '"wght" 400' : '"wght" 350' } }, sy), h('span.nm', { style: { fontFamily: fam(n) } }, n), h('span.ds', { style: { fontFamily: fam(n) } }, ds)));
+  const pgEl = h('div.ms-cards', {}, cards); wrap.append(pgEl);
+  // ---------- playground ----------
+  const SAMPLE = {
+    JavaScript: `// Pull in the module we need\nconst process = require('process');\n\n// Describe the terminal we draw into\nclass TerminalSize {\n  constructor() {\n    this.cols = process.stdout.columns;\n    this.rows = process.stdout.rows;\n  }\n}\n\n// Time the render loop\nlet frame_start;\nconst frame_budget = 16; // milliseconds per frame\n\nconst begin_frame = () => {\n  frame_start = new Date();\n};\n\nconst end_frame = () => {\n  let frame_end = new Date();\n  let spent = frame_end - frame_start; // in ms\n  return spent <= frame_budget ? 'ok' : 'slow';\n};`,
+    HTML: `<!-- A tiny specimen card -->\n<article class="card" data-font="neon">\n  <h1>Monaspace</h1>\n  <p>Five faces, one grid.</p>\n  <ul>\n    <li>Neon</li>\n    <li>Argon</li>\n    <li>Xenon</li>\n    <li>Radon</li>\n    <li>Krypton</li>\n  </ul>\n  <a href="#playground">Try it =></a>\n</article>`,
+    CSS: `/* Variable axes in CSS */\n.code {\n  font-family: "Monaspace Neon", monospace;\n  font-variation-settings: "wght" 300, "wdth" 100;\n  font-feature-settings: "calt" 1, "ss01" 1;\n}\n\n.code em {\n  font-family: "Monaspace Radon";\n  font-style: oblique 11deg;\n}\n\n@media (min-width: 900px) {\n  .code { font-size: 16px; }\n}`,
+    Java: `// Measure a render pass\npublic class FrameTimer {\n  private long start;\n  private final int budget = 16;\n\n  public void begin() {\n    start = System.nanoTime();\n  }\n\n  public boolean end() {\n    long spent = (System.nanoTime() - start) / 1_000_000;\n    return spent <= budget;\n  }\n}`,
+    Python: `# Summarise a run log\nfrom statistics import mean\n\ndef summarise(log):\n    ok = [r.ms for r in log if r.status == "ok"]\n    if not ok:\n        return None\n    return {\n        "count": len(ok),\n        "mean": mean(ok),\n        "worst": max(ok),\n    }\n\nprint(summarise(load("run.log")) != None)`,
+    'C++': `// Sort samples by latency\n#include <algorithm>\n#include <vector>\n\nstruct Sample { int id; double ms; };\n\nvoid rank(std::vector<Sample>& xs) {\n  std::sort(xs.begin(), xs.end(),\n    [](const Sample& a, const Sample& b) {\n      return a.ms < b.ms;\n    });\n}`,
+    PHP: `<?php\n// Pick the fastest frame\n$frames = [16.2, 15.8, 17.1, 14.9];\n$best = min($frames);\n\nfunction label($ms) {\n  return $ms <= 16 ? 'ok' : 'slow';\n}\n\necho label($best) . "\\n";`,
+    'F#': `// Even numbers, summed\nlet evens =\n    [1..10]\n    |> List.filter (fun x -> x % 2 = 0)\n    |> List.sum\n\nprintfn "%d" evens`,
+  };
+  const THEMES = { 'GitHub Dark': { bg: '#0d1117', tab: '#161b22', ln: '#21262d', tx: '#e6edf3', mut: '#6e7681', cm: '#8b949e', kw: '#ff7b72', st: '#a5d6ff', fn: '#d2a8ff', nu: '#79c0ff', ty: '#ffa657' }, 'GitHub Light': { bg: '#ffffff', tab: '#f6f8fa', ln: '#d0d7de', tx: '#1f2328', mut: '#8c959f', cm: '#6e7781', kw: '#cf222e', st: '#0a3069', fn: '#8250df', nu: '#0550ae', ty: '#953800' }, Dracula: { bg: '#282a36', tab: '#21222c', ln: '#44475a', tx: '#f8f8f2', mut: '#6272a4', cm: '#6272a4', kw: '#ff79c6', st: '#f1fa8c', fn: '#50fa7b', nu: '#bd93f9', ty: '#8be9fd' }, 'Xcode Light': { bg: '#ffffff', tab: '#f3f3f3', ln: '#e2e2e2', tx: '#262626', mut: '#a6a6a6', cm: '#5d6c79', kw: '#9b2393', st: '#c41a16', fn: '#326d74', nu: '#1c00cf', ty: '#0b4f79' }, Monokai: { bg: '#272822', tab: '#1e1f1c', ln: '#3e3d32', tx: '#f8f8f2', mut: '#75715e', cm: '#75715e', kw: '#f92672', st: '#e6db74', fn: '#a6e22e', nu: '#ae81ff', ty: '#66d9ef' } };
+  const KW = /^(const|let|var|class|new|return|function|this|if|else|for|in|of|import|from|def|public|private|final|void|long|int|double|struct|true|false|None|null|echo|fun|static|boolean|include|print|printfn)$/;
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const hl = (src) => src.split('\n').map((line, i) => { let out = ''; const re = /(\/\/.*|#(?!include).*|<!--.*-->|\/\*.*\*\/)|('[^']*'|"[^"]*"|`[^`]*`)|(\b\d[\d_.]*\b)|(\b[A-Za-z_$][\w$]*\b)(?=\s*\()|(\b[A-Za-z_$][\w$]*\b)/g; let m, last = 0;
+    while ((m = re.exec(line))) { out += esc(line.slice(last, m.index)); const t = esc(m[0]); out += m[1] ? `<span style="color:var(--ecm);font-style:var(--cmst)">${t}</span>` : m[2] ? `<span style="color:var(--est)">${t}</span>` : m[3] ? `<span style="color:var(--enu)">${t}</span>` : m[4] ? `<span style="color:var(--efn)">${t}</span>` : KW.test(m[5]) ? `<span style="color:var(--ekw)">${t}</span>` : /^[A-Z]/.test(m[5]) ? `<span style="color:var(--ety)">${t}</span>` : t; last = m.index + m[0].length; }
+    out += esc(line.slice(last)); return `<span class="ln">${i + 1}</span>${out}`; }).join('\n');
+  const tabs = Object.keys(SAMPLE).map((k) => h('button.ms-tab' + (k === P.lang ? '.on' : ''), { onclick: () => setLang(k) }, k));
+  const pre = h('pre'), gridov = h('div.ms-gridov'), code = h('div.ms-code', {}, gridov, pre);
+  const ed = h('div.ms-ed', {}, h('div.ms-tabs', {}, tabs), code);
+  const mkSl = (label, key, min, max, step, ticks) => { const out = h('output', {}, P[key]); const inp = h('input', { type: 'range', min, max, step, value: P[key] }); const upd = () => { inp.style.setProperty('--p', ((P[key] - min) / (max - min) * 100) + '%'); out.textContent = P[key]; inp.value = P[key]; };
+    inp.addEventListener('input', () => { P[key] = +inp.value; upd(); apply(); }); upd(); const w = h('label.ms-sl', {}, h('span', {}, label), out, inp, ticks ? h('div.tk', {}, Array.from({ length: ticks }, () => h('i'))) : null); w.upd = upd; w.inp = inp; return w; };
+  const sls = { size: mkSl('Font size', 'size', 10, 32, 1), wght: mkSl('Weight', 'wght', 200, 800, 100, 7), wdth: mkSl('Width', 'wdth', 100, 125, 1), slnt: mkSl('Slant', 'slnt', -11, 0, 1) };
+  const ck = (label, key) => { const i = h('input', { type: 'checkbox', checked: P[key], onchange: () => { P[key] = i.checked; apply(); } }); const w = h('label.ms-ck', {}, i, label); w.i = i; return w; };
+  const cks = { heal: ck('Texture healing', 'heal'), liga: ck('Ligatures', 'liga'), grid: ck('Grid', 'grid') };
+  const thSel = h('select', { onchange: (e) => { P.theme = e.target.value; apply(); } }, Object.keys(THEMES).map((k) => h('option', { value: k, selected: k === P.theme }, k)));
+  wrap.append(h('div.ms-pg', {}, ed, h('div.ms-ctl', {}, sls.size, sls.wght, sls.wdth, sls.slnt, cks.heal, cks.liga, cks.grid, h('label.ms-th', {}, 'Theme', thSel))));
+  const feat = () => `"calt" ${P.heal ? 1 : 0}, "liga" ${P.liga ? 1 : 0}, ${[1, 2, 3, 4, 5, 6, 7, 8].map((n) => `"ss0${n}" ${P.liga ? 1 : 0}`).join(', ')}`;
+  const apply = () => { const th = THEMES[P.theme]; for (const [k, v] of Object.entries(th)) ed.style.setProperty('--e' + k, v);
+    code.style.fontFamily = fam(FONTS[P.font][1]); code.style.fontSize = P.size + 'px'; code.style.lineHeight = '1.55'; code.style.fontVariationSettings = `"wght" ${P.wght}, "wdth" ${P.wdth}, "slnt" ${P.slnt}`; code.style.fontFeatureSettings = feat();
+    gridov.style.backgroundSize = `1ch 1.55em`; gridov.style.backgroundPosition = `calc(4.8ch) 10px`; gridov.classList.toggle('on', P.grid);
+    cards.forEach((c, i) => c.classList.toggle('on', i === P.font)); tabs.forEach((t) => t.classList.toggle('on', t.textContent === P.lang)); healUpd(); };
+  const setFont = (i) => { P.font = i; apply(); };
+  const setLang = (k) => { P.lang = k; pre.innerHTML = hl(SAMPLE[k]); apply(); };
+  // ---------- texture healing ----------
+  let word = 'calming', healOn = true;
+  const sw = h('button.ms-sw.on', { onclick: () => { healOn = !healOn; sw.classList.toggle('on', healOn); healUpd(); } });
+  const inp = h('input', { type: 'text', value: word, maxLength: 14, oninput: (e) => { word = e.target.value || ' '; healUpd(); } });
+  const wSpan = (w, n, c, cls = '') => { const narrow = /[ilIjtfr1.,:;!|]/; const parts = [...w].map((ch, k) => { const nb = narrow.test(w[k - 1] || '') || narrow.test(w[k + 1] || ''); return /[mwMW@]/.test(ch) && nb ? h('span.m', {}, ch) : ch; });
+    return h('div.ms-word' + cls, { style: `font-family:${fam(n)};--c:${c}` }, ...parts, h('span.cells')); };
+  const cmpA = h('div'), cmpB = h('div'), five = h('div.ms-five');
+  const healUpd = () => { const n = FONTS[P.font][1], c = FONTS[P.font][3];
+    const a = wSpan(word, n, '#6e7681', '.dim'); a.style.fontFeatureSettings = '"calt" 0'; a.prepend(h('small', {}, 'Strict monospace')); cmpA.replaceChildren(a);
+    const b = wSpan(word, n, c); b.style.fontFeatureSettings = `"calt" ${healOn ? 1 : 0}`; b.prepend(h('small', {}, healOn ? 'Texture healing on' : 'Texture healing off')); cmpB.replaceChildren(b);
+    five.replaceChildren(...FONTS.map(([, fn, , fc]) => { const r = wSpan(word, fn, fc); r.style.fontFeatureSettings = `"calt" ${healOn ? 1 : 0}`; return r; })); };
+  const stack = h('div.ms-stack', {}, h('div.top', {}, 'Texture healing', sw), cmpA, cmpB, h('div.top', { style: { marginTop: '18px' } }, 'All five faces'), five, h('div.top', { style: { marginTop: '10px', marginBottom: '0' } }, 'Try a word'), inp);
+  wrap.append(h('div', {}, h('span.ms-pill', {}, 'Feature'), h('h3.ms-h3', {}, 'Texture healing'),
+    h('div.ms-th3', {}, h('p', {}, 'Monospace text has uneven texture: some letters crowd their cell while others float in it, making words look blotchy at a glance.'), h('p', {}, 'The idea: let a wide letter borrow a little room from a narrow neighbour — without breaking the grid that keeps code aligned.'), h('p', {}, h('b', {}, 'Texture healing keeps every cell the same width and works through the font\u2019s contextual alternates, so no editor plugin is needed.')))),
+    h('div.ms-heal', {}, stack, h('div.copy', {}, h('p', {}, 'In proportional type each glyph gets the room it needs: an ', h('em', {}, 'm'), ' is wider than an ', h('em', {}, 'i'), '.'), h('p', {}, 'In a monospaced face every letter must fit the same box. Narrow letters like ', h('em', {}, 'l'), ' and ', h('em', {}, 'i'), ' grow slab serifs to fill it; wide letters like ', h('em', {}, 'm'), ' and ', h('em', {}, 'w'), ' get squeezed until their counters clog.'), h('p', {}, 'With healing on, when an ', h('em', {}, 'm'), ' sits next to a narrow letter the font swaps in a wider alternate that leans into the spare space. Toggle the switch and watch the highlighted letters relax.'), h('p', {}, 'The total width never changes — compare the cell markers under each word.'))));
+  // ---------- copilot voice ----------
+  let aiFont = 3, codeFont = 0;
+  const aiPre = h('pre'); const fSel = (v, on) => h('select', { onchange: (e) => on(+e.target.value) }, FONTS.map(([, n], i) => h('option', { value: i, selected: i === v }, n)));
+  const aiUpd = () => { const cf = fam(FONTS[codeFont][1]), af = fam(FONTS[aiFont][1]); aiPre.style.fontFamily = cf; aiPre.innerHTML = `<span style="color:#8b949e">// Before</span>\n<span style="color:#ff7b72">const</span> [isOpen, setOpen] = React.<span style="color:#d2a8ff">useState</span>(<span style="color:#79c0ff">false</span>);\n<span style="color:#8b949e">// After</span>\n<span style="color:#ff7b72">const</span> [isOpen, setOpen] = <span style="font-family:${af};color:#f4ab93;font-style:oblique 8deg">React.useState(false); // suggested</span>`; };
+  const aiSelA = fSel(aiFont, (v) => { aiFont = v; aiUpd(); }), aiSelC = fSel(codeFont, (v) => { codeFont = v; aiUpd(); });
+  wrap.append(h('div.ms-ai', {}, h('div', {}, h('h4', {}, 'What if Copilot had its own voice?'), h('p', {}, 'Ghost text is hard to tell apart from code you wrote. Give suggestions a different face from the same superfamily and they read as a second voice.')), h('div', {}, h('p', {}, 'Because all five faces share metrics, you can mix them on one line without breaking alignment.'), h('div.sel', {}, 'Code', aiSelC, 'Copilot', aiSelA)), aiPre));
+  wrap.append(h('div.ms-ft', {}, 'Practice clone of monaspace.githubnext.com · fonts: Monaspace (SIL OFL 1.1, © GitHub) served unmodified'));
+  setLang('JavaScript'); aiUpd();
+  // ---------- demo proof ----------
+  const setSl = (k, v) => { P[k] = v; sls[k].upd(); sls[k].inp.dispatchEvent(new Event('input')); };
+  const reset = () => { Object.assign(P, { font: 0, size: 16, wght: 300, wdth: 100, slnt: 0, heal: true, liga: true, grid: false, theme: 'GitHub Dark' }); Object.values(sls).forEach((s2) => s2.upd()); cks.heal.i.checked = true; cks.liga.i.checked = true; cks.grid.i.checked = false; thSel.value = 'GitHub Dark'; word = 'calming'; inp.value = word; healOn = true; sw.classList.add('on'); aiFont = 3; codeFont = 0; aiSelA.value = 3; aiSelC.value = 0; aiUpd(); setLang('JavaScript'); hotAt(-1e9, -1e9); root.scrollTop = 0; };
+  window.__demoProof = async () => { const o = []; reset(); await document.fonts.ready; await Promise.all(FONTS.map(([, n]) => document.fonts.load(`300 16px 'Monaspace ${n}'`)));
+    o.push(`fonts loaded ${FONTS.filter(([, n]) => document.fonts.check(`16px 'Monaspace ${n}'`)).length}/5; logo nodes ${nodes.length}`);
+    const hot = hotAt(L.on[40][0], L.on[40][1]); o.push(`logo hover → ${hot} nodes swell`); hotAt(-1e9, -1e9);
+    cards[3].click(); o.push(`card Radon → editor font ${getComputedStyle(code).fontFamily.split(',')[0]}, card active=${cards[3].classList.contains('on')}`);
+    const tw = () => { const r = document.createRange(); r.selectNodeContents(pre); return r.getBoundingClientRect().width; }; const w0 = tw(); setSl('wdth', 125); const w1 = tw(); setSl('wght', 700); setSl('slnt', -11); setSl('size', 20);
+    o.push(`axes → ${getComputedStyle(code).fontVariationSettings} size ${getComputedStyle(code).fontSize}; width axis widened code ${Math.round(w0)}→${Math.round(w1)}px`);
+    cks.heal.i.click(); cks.liga.i.click(); o.push(`texture healing+ligatures off → ${getComputedStyle(code).fontFeatureSettings.slice(0, 30)}…`);
+    cks.grid.i.click(); o.push(`grid overlay=${gridov.classList.contains('on')}`);
+    tabs[4].click(); o.push(`tab Python → ${pre.textContent.split('\n').length} lines, first "${pre.textContent.split('\n')[0].replace(/^\d+/, '')}"`);
+    thSel.value = 'Dracula'; thSel.dispatchEvent(new Event('change')); await sleep(380); o.push(`theme Dracula → editor bg ${getComputedStyle(ed).backgroundColor}`);
+    sw.click(); const offF = cmpB.firstChild.style.fontFeatureSettings; sw.click(); o.push(`healing demo switch → off: ${offF}, on: ${cmpB.firstChild.style.fontFeatureSettings} (calt=1), highlighted m in "${word}": ${cmpB.querySelectorAll('.m').length}`);
+    aiSelA.value = 4; aiSelA.dispatchEvent(new Event('change')); o.push(`Copilot voice → ${aiPre.innerHTML.includes('Krypton')}`);
+    reset(); await sleep(30); document.querySelector('.tg-toast')?.classList.remove('on');
+    o.push(`restored: Neon, 16px wght 300 wdth 100 slnt 0, healing+ligatures on, grid off, GitHub Dark, JavaScript (${getComputedStyle(code).fontVariationSettings})`); return o.join('; '); };
+  if (!RM) setTimeout(() => logo.classList.remove('draw'), 2600); else logo.classList.remove('draw');
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

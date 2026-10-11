@@ -74,7 +74,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield': '시네마틱 포토 스크롤 하드웨어 스토리',
   'histography-dot-grid-history-timeline-resizable-era-range-bar-bodoni-hover-cards': '도트 그리드 역사 타임라인',
   'atlas-of-emotions-morphing-emotion-continents-fullpage-chapters-state-intensity-bands': '모핑 감정 대륙 챕터 스토리',
-  'unseen-audio-enter-gate-spaced-letter-loader-click-hold-drag-world-project-filter': '오디오 게이트 · 홀드 · 드래그 월드' };
+  'unseen-audio-enter-gate-spaced-letter-loader-click-hold-drag-world-project-filter': '오디오 게이트 · 홀드 · 드래그 월드',
+  'lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress': 'CRT 매크로데이터 정제 숫자 그리드',
+  'monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing': '코드 폰트 스페시먼 · 축 플레이그라운드',
+  'dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition': '컬러 블록 브랜드 모자이크 · 챕터 전환' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

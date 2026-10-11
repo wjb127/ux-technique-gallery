@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress",
+  "slug": "lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress",
+  "name": "CRT Macrodata Refinement Terminal: Number Grid with Cursor Magnify, Lasso Select and Refine Bins (Lumon Industries)",
+  "date": "2026-10-12",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://lumon-industries.com/",
+  "domain": "lumon-industries.com",
+  "product": "Lumon Industries — Severance-themed Macrodata Refinement terminal (p5.js canvas)",
+  "checkpoints": [
+   "Curved CRT frame with cyan-on-navy palette, file name header (e.g. Moonbeam), % Complete and Lumon globe logo",
+   "Full-screen grid of single digits gently drifting; digits near the cursor swell larger (fisheye magnify)",
+   "Drag a rectangular lasso to select a cluster of digits",
+   "Five numbered bins (00-04) with % bars at the bottom; refining sends the selection into a bin",
+   "Bin drawer opens with four labeled meters (WO, FC, DR, MA) and the selected digits vanish from the grid",
+   "Footer hex coordinate readout (0x... : 0x...) and scanline styling"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing",
+  "slug": "monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing",
+  "name": "Code Font Specimen with Outline-Node Logo, Five Font Cards, Axis Playground and Texture-Healing Demo (Monaspace by GitHub Next)",
+  "date": "2026-10-12",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://monaspace.githubnext.com/",
+  "domain": "monaspace.githubnext.com",
+  "product": "Monaspace — superfamily of code fonts from GitHub Next",
+  "checkpoints": [
+   "Dark dotted-grid hero: wordmark drawn as glyph outlines with bezier node dots, version tag, Download / Learn more",
+   "Marquee rows of syntax-colored code lines sliding across",
+   "Five font cards (Ne Neon, Ar Argon, Xe Xenon, Rn Radon, Kr Krypton) that switch the playground font",
+   "Font playground: language tabs, numbered code editor, sliders for Font size, Weight, Width, Slant",
+   "Texture healing and Ligatures checkboxes plus theme dropdown (Dracula, GitHub Dark, Xcode Light ...)",
+   "Texture healing section: word (calming) shown cramped vs healed in stacked rows; What if Copilot had its own voice mix-and-match demo"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition",
+  "slug": "dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition",
+  "name": "Brand Guidelines Color-Block Mosaic with Tile Hover Invert and Full-Screen Chapter Transition (Dropbox Brand)",
+  "date": "2026-10-12",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://brand.dropbox.com/",
+  "domain": "brand.dropbox.com",
+  "product": "Dropbox Brand Guidelines site",
+  "checkpoints": [
+   "White hero with thin blue grid lines and a big blue grotesk statement, scroll arrow",
+   "Scroll in: blocks of color slide into a mosaic of 8 chapter tiles (Framework, Voice & Tone, Logo, Typography, Color, Iconography, Imagery, Motion)",
+   "Each tile has its own color and a mini illustration (node line, quote marks, logo, Aa, bezier curve, picture)",
+   "Hover a tile: colors invert (e.g. Typography turns dark with outline Aa)",
+   "Click a tile: full-screen dark panel with the chapter title animates in, then the chapter page loads",
+   "Chapter page: side rail with menu button and vertical label, glyph tiles and a B / I / width toolbar"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-histography-dot-grid-history-timeline-resizable-era-range-bar-bodoni-hover-cards",
   "slug": "histography-dot-grid-history-timeline-resizable-era-range-bar-bodoni-hover-cards",
   "name": "Dot-Grid History Timeline with Resizable Era Range Bar, Category Filters and Bodoni Event Hover Cards (Histography)",
