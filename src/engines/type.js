@@ -1593,5 +1593,185 @@ V['locomotive-stacked-echo-typing-preloader-glyph-scramble-wordmark'] = (root, T
     out.push('restored: homepage, slide 0, OS motion mode'); return out.join('; '); };
 };
 
+V['gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards'] = (root, T) => {
+  theme(root, T, { bg: '#0e100f', fg: '#fffce1', ac: '#0ae448', dark: true });
+  import('@fontsource-variable/dm-sans');
+  const F = "'DM Sans Variable','Helvetica Neue',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const C = { bg: '#0e100f', cr: '#fffce1', lime: '#0ae448', lime2: '#abff84', pink: '#fec5fb', org: '#ff8709', lil: '#9d95ff', blue: '#00bae2', gry: '#bbbaa6' };
+  // ---------- code-drawn shapes (stand-ins, no copied artwork) ----------
+  let gid = 0;
+  const SH = {
+    pin: () => { const g = 'gp' + gid++; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="${g}" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff8709"/><stop offset="1" stop-color="#f7bdf8"/></linearGradient></defs>${[0, 90, 180, 270].map((r) => `<path transform="rotate(${r} 50 50)" d="M50 50 C49 27 60 5 92 4 C93 30 76 50 50 50Z" fill="url(#${g})"/>`).join('')}</svg>`; },
+    ast: () => { const g = 'ga' + gid++; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6d4d"/><stop offset="1" stop-color="#ffc2ad"/></linearGradient></defs><g stroke="url(#${g})" stroke-width="12" stroke-linecap="round">${[0, 45, 90, 135].map((r) => `<line transform="rotate(${r} 50 50)" x1="50" y1="10" x2="50" y2="90"/>`).join('')}</g></svg>`; },
+    bolt: () => `<svg viewBox="0 0 100 100"><polygon points="62,0 16,60 46,58 30,100 84,34 54,36 72,0" fill="#0ae448"/></svg>`,
+    sq: () => { const g = 'gq' + gid++; return `<svg viewBox="0 0 100 100" style="overflow:visible"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7f6dff"/><stop offset=".6" stop-color="#b9a4ff"/><stop offset="1" stop-color="#e4b7ff"/></linearGradient></defs><path d="M40 4 C78 14 18 30 58 44 C96 58 20 66 50 82 C66 90 70 96 62 100" fill="none" stroke="url(#${g})" stroke-width="15" stroke-linecap="round"/><path d="M42 6 C74 15 22 30 58 42" fill="none" stroke="#fff6" stroke-width="3" stroke-linecap="round"/></svg>`; },
+    ring: () => `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="#ff8709" stroke-width="16"/></svg>`,
+    flower: () => `<svg viewBox="0 0 100 100">${[0, 60, 120, 180, 240, 300].map((r) => `<circle transform="rotate(${r} 50 50)" cx="50" cy="24" r="20" fill="#fec5fb"/>`).join('')}<circle cx="50" cy="50" r="14" fill="#f58fe8"/></svg>`,
+    dots: () => `<svg viewBox="0 0 100 50"><circle cx="25" cy="25" r="22" fill="#3b2a55"/><circle cx="72" cy="25" r="22" fill="#4a3366"/></svg>`,
+    dia: () => { const g = 'gd' + gid++; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9d95ff"/><stop offset="1" stop-color="#6c3bff"/></linearGradient></defs><rect x="22" y="22" width="56" height="56" rx="4" transform="rotate(45 50 50)" fill="url(#${g})"/></svg>`; },
+    arc: () => { const g = 'gr' + gid++; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7ee2"/><stop offset="1" stop-color="#c04bd8"/></linearGradient></defs><path d="M92 20 A42 42 0 0 1 10 60 L30 58 A24 24 0 0 0 74 24 Z" fill="url(#${g})"/></svg>`; },
+    horn: () => `<svg viewBox="0 0 100 100" fill="none" stroke="#fffce1" stroke-width="5" stroke-linejoin="round"><path d="M30 92 L26 56 L18 22 Q16 12 25 12 Q32 12 33 22 L40 46 L46 18 Q48 8 57 10 Q64 12 62 22 L58 50 L70 34 Q76 26 82 32 Q86 37 80 46 L66 72 Q60 86 46 92 Z"/></svg>`,
+  };
+  css(`.gs{position:absolute;inset:0;background:${C.bg};color:${C.cr};font-family:${F};overflow:hidden}
+.gs *{box-sizing:border-box}.gs svg{display:block;width:100%;height:100%}
+.gs-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#333 ${C.bg}}
+.gs-ban{height:50px;background:linear-gradient(90deg,#0ae448 0%,#abff84 60%,#abff84 100%);color:#0e100f;display:flex;align-items:center;justify-content:center;gap:12px;font:400 14.5px ${F};letter-spacing:-.01em}
+.gs-ban u{cursor:pointer;text-underline-offset:2px}.gs-ban i{width:20px;height:16px;display:inline-block}
+.gs-nav{position:sticky;top:0;z-index:20;height:76px;background:${C.bg};display:flex;align-items:center;margin:0 40px;border-bottom:1px solid #fffce12a}
+.gs-logo{font:italic 850 38px/1 ${F};letter-spacing:-.06em;color:${C.cr};cursor:pointer;transform:skewX(-6deg);margin-right:44px}
+.gs-nav nav{display:flex;gap:24px;font:420 19.5px ${F};color:${C.gry}}.gs-nav nav a,.gs-nav .lg{cursor:pointer;transition:color .2s}.gs-nav nav a:hover,.gs-nav .lg:hover{color:${C.cr}}
+.gs-nav .sp{flex:1}.gs-nav .lg{font:420 17px ${F};color:${C.gry};margin-right:16px}
+.gs .gs-pill{height:34px;padding:0 13px;border-radius:99px;border:1.5px solid ${C.cr};background:transparent;color:${C.cr};font:520 17px ${F};cursor:pointer;transition:background .2s,color .2s}
+.gs .gs-pill:hover{background:${C.cr};color:${C.bg}}
+.gs-hero{position:relative;height:calc(100vh - 38px - 126px);min-height:640px;cursor:pointer;user-select:none}
+.gs-line{position:absolute;white-space:nowrap;font-weight:500;line-height:1;letter-spacing:-.025em;color:${C.cr}}
+.gs-l{display:inline-block;position:relative}
+.gs-l .ch{display:inline-block;transform-origin:50% 85%}
+.gs-l .sh{position:absolute;left:50%;top:52%;width:.5em;height:.5em;margin:-.25em 0 0 -.25em;transform:scale(0);pointer-events:none}
+.gs-deco{position:absolute;pointer-events:none;transform-origin:50% 50%}
+.gs-tag{position:absolute;left:96px;bottom:13%;display:flex;align-items:center;gap:14px;font:420 22px/1.25 ${F};letter-spacing:-.01em}
+.gs-tag .br{font:200 92px/1 ${F};transform:scaleX(.55);color:${C.cr};margin-top:-14px}
+.gs .gs-get{position:absolute;right:97px;bottom:13.4%;height:58px;padding:0 50px;border-radius:99px;border:2px solid transparent;background:linear-gradient(${C.bg},${C.bg}) padding-box,linear-gradient(90deg,#0ae448,#abff84) border-box;color:${C.cr};font:500 22px ${F};display:flex;align-items:center;gap:10px;cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.gs .gs-get:hover{transform:scale(1.05)}.gs-get i{width:24px;height:24px;border:2px solid ${C.cr};border-radius:50%;display:grid;place-items:center;font:700 12px ${F};font-style:normal}
+.gs-why{position:relative;padding:150px 40px 120px;display:grid;grid-template-columns:1.25fr 1fr;gap:60px}
+.gs-why h3{grid-column:1/-1;margin:0;font:420 20px ${F};color:${C.gry}}
+.gs-why p{margin:0;font:420 52px/1.12 ${F};letter-spacing:-.025em}
+.gs-why p span{opacity:.14;transition:opacity .25s,color .25s}.gs-why p span.on{opacity:1}.gs-why p span.lime.on{color:${C.lime}}
+.gs-why .art{position:relative}.gs-why .art .gs-deco{transition:transform .9s cubic-bezier(.34,1.56,.64,1)}
+.gs-why .tagp{display:inline-block;background:${C.pink};color:${C.bg};font:520 26px ${F};padding:6px 14px;border-radius:5px;margin-top:20px}
+.gs-why .sub{grid-column:1/-1;border-top:1px solid #fffce12a;padding-top:40px;display:grid;grid-template-columns:1.25fr 1fr;gap:60px}
+.gs-why .sub b{font:500 44px/1.1 ${F};letter-spacing:-.03em}.gs-why .sub span{font:400 24px/1.4 ${F};color:${C.gry}}
+.gs-ease{position:relative;height:3600px}
+.gs-ease .st{position:sticky;top:76px;height:calc(100vh - 38px - 76px);overflow:hidden}
+.gs-ease .lab{position:absolute;left:40px;top:40px;font:420 20px ${F};color:${C.gry}}
+.gs-trk{position:absolute;top:44%;left:0;display:flex;align-items:center;white-space:nowrap;font:500 104px/1 ${F};letter-spacing:-.035em;will-change:transform}
+.gs-trk .w{display:inline-block;margin-right:.26em;will-change:transform,opacity}
+.gs-trk .ic{display:inline-block;width:1.05em;height:1.05em;margin-right:.26em;vertical-align:middle}
+.gs-trk .curve{display:inline-block;width:2.4em;height:1.6em;margin-right:.3em;vertical-align:middle}
+.gs-tools{padding:80px 40px 40px}
+.gs-brace{display:inline-flex;align-items:center;gap:6px;font:500 15px ${F};color:${C.cr};margin-bottom:30px}.gs-brace b{font:200 40px/1 ${F};transform:scaleX(.6)}
+.gs-row{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:center;padding:44px 0;border-bottom:1px solid #fffce12a;opacity:0;transform:translateY(60px);transition:opacity .7s,transform .9s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.gs-row.in{opacity:1;transform:none}
+.gs-row .icn{position:relative;width:170px;height:170px}
+.gs-row .icn>*{position:absolute;transition:transform .7s cubic-bezier(.34,1.56,.64,1),border-radius .7s}
+.gs-row:hover .icn>*:nth-child(1),.gs-row.hov .icn>*:nth-child(1){transform:rotate(-14deg) translate(-8px,-6px)}
+.gs-row:hover .icn>*:nth-child(2),.gs-row.hov .icn>*:nth-child(2){transform:rotate(90deg) scale(1.08);border-radius:50%}
+.gs-row h4{margin:0 0 18px;font:500 34px ${F};letter-spacing:-.02em}
+.gs-row p{margin:0 0 26px;font:420 38px/1.18 ${F};letter-spacing:-.025em;max-width:720px}
+.gs .gs-row .gs-pill{height:44px;padding:0 20px;font-size:18px}
+.gs-brands{padding:90px 40px}
+.gs-logos{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px;color:${C.cr};opacity:.92}
+.gs-logos span{font-size:30px;letter-spacing:-.02em}
+.gs-show{padding:20px 40px 120px}.gs-show h2{margin:0 0 30px;font:500 88px/1 ${F};letter-spacing:-.04em}
+.gs-cards{display:flex;gap:22px;overflow:hidden}.gs-card{flex:0 0 380px;height:250px;border-radius:12px;position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.gs-card:hover{transform:translateY(-8px) rotate(-1deg)}.gs-card b{position:absolute;left:18px;bottom:16px;font:600 20px ${F};color:#0e100f;background:#fffce1;padding:4px 10px;border-radius:6px}
+.gs-ft{padding:40px;border-top:1px solid #fffce12a;display:flex;justify-content:space-between;font:400 15px ${F};color:${C.gry}}
+`);
+  const el = h('div.gs'); root.append(el);
+  // ---------- hero letters ----------
+  const W1 = 'Animate', W2 = 'anything';
+  const slots = [];
+  const mkLine = (word, li) => h('div.gs-line', {}, [...word].map((c, i) => { const ch = h('span.ch', {}, c); const sh = h('span.sh'); const sp = h('span.gs-l', {}, ch, sh); const o = { el: sp, ch, sh, c, li, i, swapped: null }; slots.push(o);
+      sp.addEventListener('mouseenter', () => hoverSlot(o)); return sp; }));
+  const L1 = mkLine(W1, 0), L2 = mkLine(W2, 1);
+  const slot = (li, i) => slots.find((o) => o.li === li && o.i === i);
+  const pinD = h('div.gs-deco', { html: SH.pin() }), sqD = h('div.gs-deco', { html: SH.sq() }), dotD = h('div.gs-deco', { html: SH.dots() });
+  slot(0, 1).el.append(pinD); slot(1, 4).el.append(sqD); slot(0, 3).el.append(dotD);
+  Object.assign(pinD.style, { width: '.46em', height: '.46em', left: '-.22em', top: '-.33em' });
+  Object.assign(sqD.style, { width: '.32em', height: '.42em', left: '-.17em', top: '.56em', transform: 'rotate(8deg)' });
+  Object.assign(dotD.style, { width: '.34em', height: '.17em', left: '-.1em', top: '-.36em', opacity: 0 });
+  const tag = h('div.gs-tag', {}, h('span.br', {}, '{'), h('span', {}, 'GSAP – A wildly robust JavaScript', h('br'), 'animation library built for professionals'), h('span.br', {}, '}'));
+  const getB = h('button.gs-get', { onclick: (e) => { e.stopPropagation(); toast('npm install gsap'); } }, 'Get GSAP', h('i', {}, '↓'));
+  const hero = h('section.gs-hero', { title: 'Click to replay the letter assembly', onclick: () => replay() }, L1, L2, tag, getB);
+  const fit = () => { const Wd = hero.clientWidth || 1440; let fs = parseFloat(L1.style.fontSize) || 200; for (let k = 0; k < 3; k++) { [L1, L2].forEach((l) => (l.style.fontSize = fs + 'px')); const w1 = L1.getBoundingClientRect().width || 1, w2 = L2.getBoundingClientRect().width || 1; fs = Math.min(280, fs * Math.min((Wd * 0.6) / w1, (Wd * 0.62) / w2)); } [L1, L2].forEach((l) => (l.style.fontSize = fs + 'px'));
+    const Hh = hero.clientHeight; Object.assign(L1.style, { left: Wd * 0.067 + 'px', top: Hh * 0.115 + 'px' }); Object.assign(L2.style, { left: Wd * 0.305 + 'px', top: Hh * 0.115 + fs * 0.86 + 'px' }); };
+  // ---------- nav ----------
+  const ban = h('div.gs-ban', {}, h('i', { html: '<svg viewBox="0 0 20 16"><path d="M2 6h3l8-4v12l-8-4H2z M15 5c1.5 1 1.5 5 0 6" fill="none" stroke="#0e100f" stroke-width="1.6" stroke-linejoin="round"/></svg>' }), h('span', {}, 'GSAP is now ', h('u', { onclick: () => toast('free for everyone') }, 'free for everyone'), ', thanks to Webflow’s support!'));
+  const nav = h('header.gs-nav', {}, h('span.gs-logo', { onclick: () => (sc.scrollTop = 0) }, 'GSAP'), h('nav', {}, ['Tools', 'Showcase', 'Community', 'Learn GSAP', 'Docs', 'Demos'].map((t) => h('a', { onclick: () => { const tg = { Tools: tools, Showcase: show }[t]; if (tg) sc.scrollTo({ top: tg.offsetTop - 76, behavior: RM ? 'auto' : 'smooth' }); else toast(t); } }, t))),
+    h('span.sp'), h('span.lg', { onclick: () => toast('Login/Create Account') }, 'Login/Create Account'), h('button.gs-pill', { onclick: () => toast('npm install gsap') }, 'Get GSAP'));
+  // ---------- Why GSAP ----------
+  const WHY = 'GSAP lets you effortlessly animate anything JS can touch. Silky-smooth performance and rock-solid support so you can focus on the fun stuff.'.split(' ');
+  const whyP = h('p', {}, WHY.flatMap((w) => [h('span' + (w === 'effortlessly' ? '.lime' : ''), {}, w), ' ']));
+  const flw = h('div.gs-deco', { html: SH.flower(), style: { width: '190px', height: '190px', left: '60px', top: '40px', transform: 'scale(0) rotate(-90deg)' } });
+  const rng2 = h('div.gs-deco', { html: SH.ring(), style: { width: '150px', height: '150px', left: '260px', top: '200px', transform: 'scale(0)' } });
+  const astW = h('div.gs-deco', { html: SH.ast(), style: { width: '90px', height: '90px', left: '360px', top: '20px', transform: 'scale(0) rotate(-120deg)' } });
+  const why = h('section.gs-why', {}, h('h3', {}, 'Why GSAP®'), h('div', {}, whyP, h('span.tagp', {}, 'Animate Anything')), h('div.art', {}, flw, rng2, astW),
+    h('div.sub', {}, h('b', {}, 'That’s right, Anything'), h('span', {}, 'Whether you’re animating UI, SVG or building immersive WebGL scenes, GSAP has your back.')));
+  // ---------- ease scrub ----------
+  const curve = h('span.curve', { html: '<svg viewBox="0 0 240 160" style="overflow:visible"><line x1="20" y1="150" x2="20" y2="10" stroke="#fffce1" stroke-width="2" stroke-dasharray="4 6"/><path d="M20 150 C120 150 90 10 230 10" fill="none" stroke="#fffce1" stroke-width="4"/><rect x="8" y="138" width="22" height="22" fill="#abff84"/><circle cx="230" cy="10" r="10" fill="#0ae448"/></svg>' });
+  const SEQ = ['Add', 'personality', 'to', 'your', ['ic', 'horn'], 'animations', 'with', 'eases,', ['ic', 'arc'], 'or', 'build', 'your', 'own', curve, 'custom', 'curves.', ['ic', 'ast'], 'Choreograph', 'sequences', 'in', 'a', ['ic', 'dia'], 'snap.'];
+  const trk = h('div.gs-trk', {}, SEQ.map((x) => (typeof x === 'string' ? h('span.w', {}, x) : x.nodeType ? x : h('span.ic.w', { html: SH[x[1]]() }))));
+  const easeSec = h('section.gs-ease', {}, h('div.st', {}, h('div.lab', {}, 'Nice and easy easing'), trk));
+  // ---------- tools ----------
+  const sqr = (bg, x, y, w, hh, r = 6) => h('i', { style: { left: x + 'px', top: y + 'px', width: w + 'px', height: hh + 'px', background: bg, borderRadius: r + 'px' } });
+  const TOOLS = [['Scroll', C.lime, 'Create jaw-dropping scroll-based animations with minimal code.', [sqr('linear-gradient(135deg,#0ae448,#abff84)', 10, 40, 110, 110, 14), sqr('#abff84', 70, 6, 90, 70, 40)]],
+    ['SVG', C.org, 'Move, morph and much more with our SVG plugins.', [sqr('linear-gradient(135deg,#ff8709,#ffb347)', 50, 10, 110, 110, 4), sqr('linear-gradient(135deg,#ffd08a,#ff8709)', 6, 70, 92, 92, 46)]],
+    ['Text', C.lil, 'Leave them lost for words with seamless text effects.', [sqr('linear-gradient(135deg,#9d95ff,#d6d0ff)', 4, 4, 86, 86, 43), sqr('linear-gradient(135deg,#b5adff,#7c70ff)', 82, 84, 80, 80, 2)]],
+    ['UI', C.blue, 'Make your UI pop with interactive draggable, flip and observer magic.', [sqr('linear-gradient(90deg,#00bae2,#7fe7ff)', 4, 46, 160, 62, 31), sqr('#fffce1', 14, 54, 46, 46, 23)]]];
+  const rows = TOOLS.map(([n, col, d, icn]) => h('div.gs-row', {}, h('div.icn', {}, icn), h('div', {}, h('h4', { style: { color: col } }, n), h('p', {}, d), h('button.gs-pill', { onclick: (e) => { e.stopPropagation(); toast(`Explore ${n}`); } }, `Explore ${n}`))));
+  const tools = h('section.gs-tools', {}, h('div.gs-brace', {}, h('b', {}, '{'), 'GSAP® Tools', h('b', {}, '}')), rows);
+  const brands = h('section.gs-brands', {}, h('div.gs-brace', {}, h('b', {}, '{'), 'Brands using GSAP®', h('b', {}, '}')),
+    h('div.gs-logos', {}, [['chipco', '700'], ['Vidstream', '800'], ['—netweave—', '500'], ['parcelly', '700'], ['Motorline', 'italic 700'], ['LUMEN', '800']].map(([t, w]) => h('span', { style: { font: `${w} 30px ${F}` } }, t))));
+  const show = h('section.gs-show', {}, h('h2', {}, 'Showcase'), h('div.gs-cards', {}, [['#abff84', '#0ae448', 'Gallery'], ['#fec5fb', '#9d95ff', 'Studio'], ['#ffce8a', '#ff8709', 'Lab'], ['#7fe7ff', '#00bae2', 'Agency']].map(([a, b2, t]) => h('div.gs-card', { style: { background: `radial-gradient(circle at 30% 30%,${a},${b2})` } }, h('b', {}, t)))));
+  const ft = h('footer.gs-ft', {}, h('span', {}, '© GSAP homepage — demo clone (code-drawn shapes)'), h('span', {}, `${T.date} ${T.slot} KST`));
+  const sc = h('div.gs-sc', {}, ban, nav, hero, why, easeSec, tools, brands, show, ft);
+  el.append(sc);
+  // ---------- animation helpers ----------
+  const EB = 'cubic-bezier(.34,1.7,.5,1)', EO = 'cubic-bezier(.2,.8,.2,1)';
+  const SCR = 'aimt10e!';
+  const shapeOf = { '1,3': 'bolt', '0,5': 'ast', '1,2': 'sq' };
+  let anims = [], timers = [], idle = null, idleState = 0, assembling = false;
+  const later = (ms, f) => timers.push(setTimeout(f, ms));
+  const clearAll = () => { timers.forEach(clearTimeout); timers = []; anims.forEach((a) => a.cancel()); anims = []; clearInterval(idle); };
+  const setSwap = (o, kind, instant) => { o.swapped = kind; if (kind) { o.sh.innerHTML = SH[kind](); } const show = !!kind; const d = instant || RM ? 0 : 420;
+    anims.push(o.ch.animate([{ transform: getComputedStyle(o.ch).transform === 'none' ? 'scale(1)' : getComputedStyle(o.ch).transform }, { transform: show ? 'scale(0) rotate(-40deg)' : 'scale(1)' }], { duration: d, easing: EB, fill: 'forwards' }));
+    anims.push(o.sh.animate([{ transform: show ? 'scale(0) rotate(-90deg)' : 'scale(1)' }, { transform: show ? 'scale(1.05) rotate(0)' : 'scale(0) rotate(90deg)' }], { duration: d, easing: EB, fill: 'forwards' })); };
+  const settled = () => { clearAll(); slots.forEach((o) => { o.ch.textContent = o.c; o.ch.style.transform = ''; o.ch.style.opacity = ''; o.swapped = null; o.sh.innerHTML = ''; o.sh.style.transform = 'scale(0)'; });
+    [pinD, sqD].forEach((d) => (d.style.opacity = 1)); pinD.style.transform = 'rotate(0)'; sqD.style.transform = 'rotate(8deg)'; dotD.style.opacity = 0;
+    setSwap(slot(1, 3), 'bolt', true); idleState = 0; assembling = false; startIdle(); };
+  const startIdle = () => { clearInterval(idle); if (RM) return; idle = setInterval(() => { if (assembling) return; idleState ^= 1; const t = slot(1, 3), i = slot(1, 5);
+      if (idleState) { setSwap(t, null); i.ch.textContent = '!'; anims.push(i.ch.animate([{ transform: 'translateY(-30%) scale(.6)' }, { transform: 'none' }], { duration: 500, easing: EB })); }
+      else { i.ch.textContent = 'i'; setSwap(t, 'bolt'); } }, 2600); };
+  function replay() { if (RM) { settled(); return 'reduced-motion: settled instantly'; } clearAll(); assembling = true;
+    slots.forEach((o) => { o.swapped = null; o.sh.innerHTML = ''; o.sh.style.transform = 'scale(0)'; o.ch.style.opacity = 0; o.ch.textContent = o.c; });
+    [pinD, sqD].forEach((d) => (d.style.opacity = 0)); dotD.style.opacity = 1;
+    anims.push(dotD.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)', offset: 0.3 }, { transform: 'scale(1)', offset: 0.8 }, { transform: 'scale(0)' }], { duration: 1800, easing: EO, fill: 'forwards' }));
+    slots.forEach((o, k) => { const t0 = k * 85 + (o.li ? 250 : 0); const key = `${o.li},${o.i}`;
+      later(t0, () => { o.ch.style.opacity = 1; const scr = (k % 3 === 1) && !shapeOf[key]; if (scr) o.ch.textContent = SCR[k % SCR.length];
+        anims.push(o.ch.animate([{ transform: `translateY(${(k % 2 ? -1 : 1) * 60}%) scale(0) rotate(${(k % 5 - 2) * 18}deg)` }, { transform: 'none' }], { duration: 700, easing: EB, fill: 'none' }));
+        if (scr) later(320, () => (o.ch.textContent = o.c));
+        if (shapeOf[key]) { setSwap(o, shapeOf[key], true); o.sh.innerHTML = SH[shapeOf[key]](); anims.push(o.sh.animate([{ transform: 'scale(0) rotate(-180deg)' }, { transform: 'scale(1.05) rotate(0)' }], { duration: 650, easing: EB, fill: 'forwards' })); later(700 + (key === '1,3' ? 500 : 0), () => setSwap(o, null)); } }); });
+    later(1250, () => { pinD.style.opacity = 1; anims.push(pinD.animate([{ transform: 'translate(-120%,60%) scale(0) rotate(-240deg)' }, { transform: 'rotate(0)' }], { duration: 1100, easing: EB })); });
+    later(1900, () => { sqD.style.opacity = 1; anims.push(sqD.animate([{ transform: 'translateY(80%) scale(0) rotate(-60deg)' }, { transform: 'rotate(8deg)' }], { duration: 900, easing: EB, fill: 'forwards' })); });
+    later(2700, () => { assembling = false; setSwap(slot(1, 3), 'bolt'); startIdle(); });
+    return 'replaying'; }
+  const hoverSlot = (o) => { if (RM || assembling || o.swapped) return; anims.push(o.ch.animate([{ transform: 'none' }, { transform: 'translateY(-14%) rotate(-8deg) scale(1.08)', offset: 0.35 }, { transform: 'none' }], { duration: 650, easing: EO })); };
+  // ---------- scroll-driven ----------
+  const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add('in')), { root: sc, threshold: 0.2 });
+  rows.forEach((r) => io.observe(r));
+  const words = [...whyP.querySelectorAll('span')], tw = [...trk.children];
+  const onScroll = () => { const vh = sc.clientHeight, st = sc.scrollTop;
+    const wr = why.offsetTop - st; const pw = clamp((vh * 0.85 - wr) / (vh * 0.9), 0, 1); words.forEach((w, i) => w.classList.toggle('on', i / words.length < pw * 1.15));
+    const bl = pw > 0.45; flw.style.transform = bl ? 'scale(1) rotate(0)' : 'scale(0) rotate(-90deg)'; rng2.style.transform = bl ? 'scale(1)' : 'scale(0)'; astW.style.transform = pw > 0.7 ? 'scale(1) rotate(0)' : 'scale(0) rotate(-120deg)';
+    const er = easeSec.offsetTop - 76 - st; const pe = clamp(-er / (easeSec.offsetHeight - (vh - 76)), 0, 1); const W = sc.clientWidth; const tl = trk.scrollWidth;
+    trk.style.transform = `translate3d(${W * 0.75 - pe * (tl + W * 0.25)}px,-50%,0)`;
+    tw.forEach((w) => { const x = w.offsetLeft + W * 0.75 - pe * (tl + W * 0.25); const t = clamp((W * 0.98 - x) / (W * 0.4), 0, 1); const b = 1 + 2.7 * (t - 1) ** 3 + 1.7 * (t - 1) ** 2; w.style.transform = RM ? 'none' : `translateY(${(1 - b) * 70}px) rotate(${(1 - t) * 12}deg)`; w.style.opacity = RM ? 1 : 0.15 + 0.85 * t; }); };
+  sc.addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', () => { fit(); onScroll(); });
+  const boot = () => { fit(); onScroll(); };
+  boot(); (document.fonts?.ready || Promise.resolve()).then(() => setTimeout(boot, 60)); setTimeout(boot, 600);
+  if (RM) settled(); else replay();
+  // ---------- demo proof ----------
+  window.__demoProof = async () => { const o = []; sc.scrollTop = 0; await sleep(50); fit();
+    o.push(`replay: ${replay()}`); await sleep(RM ? 50 : 3000);
+    const vis = slots.filter((s0) => s0.ch.style.opacity !== '0').length; o.push(`assembled ${vis}/${slots.length} letters "${W1} ${W2}", lightning on "t"=${slot(1, 3).swapped || '-'}, pinwheel=${pinD.style.opacity}, squiggle=${sqD.style.opacity}`);
+    const s1 = slot(0, 2); s1.el.dispatchEvent(new MouseEvent('mouseenter')); o.push(`hover "${s1.c}" → bounce anims=${s1.ch.getAnimations().length}`);
+    sc.scrollTop = why.offsetTop - sc.clientHeight * 0.2; onScroll(); await sleep(80); o.push(`Why section: ${words.filter((w) => w.classList.contains('on')).length}/${words.length} words lit, lime word on=${whyP.querySelector('.lime').classList.contains('on')}, flower=${flw.style.transform}`);
+    sc.scrollTop = easeSec.offsetTop - 76 + (easeSec.offsetHeight - sc.clientHeight) * 0.5; onScroll(); await sleep(60); o.push(`ease scrub 50%: track ${trk.style.transform.match(/-?[\d.]+px/)[0]}, visible words ${tw.filter((w) => +w.style.opacity > 0.9).length}`);
+    sc.scrollTop = tools.offsetTop; await sleep(400); rows[1].classList.add('hov'); o.push(`tool rows revealed ${rows.filter((r) => r.classList.contains('in')).length}/4, hover SVG icon morph`); rows[1].classList.remove('hov');
+    sc.scrollTop = 0; onScroll(); settled(); o.push('restored: top, hero settled'); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

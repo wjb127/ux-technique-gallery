@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards",
+  "slug": "gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards",
+  "name": "Kinetic Letter-Assembly Hero with Shape Confetti, Inline-Shape Scroll Copy and Colored Tool Cards (GSAP)",
+  "date": "2026-10-11",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://gsap.com/",
+  "domain": "gsap.com",
+  "product": "GSAP — JavaScript animation library (homepage)",
+  "checkpoints": [
+   "Dark page, thin lime top banner, mono-ish nav (Tools/Showcase/Community/Learn/Docs/Demos) and outlined Get GSAP pill",
+   "Hero: 'Animate anything' letters fly/scale in one by one, some letters swapped for shapes (pink flower, asterisk, lightning, squiggle) before settling",
+   "Curly-brace tagline block bottom-left and lime-outlined Get GSAP button bottom-right",
+   "Scroll: Why GSAP paragraph where one word turns lime, pink Animate Anything tag, flower and ring shapes blooming in",
+   "Sentence 'Add personality to your animations with eases...' scrubs word by word with small shapes and an easing curve drawn inline",
+   "Tool cards (Scroll / SVG / Text / UI) each with a bright shape icon, then logo row and Showcase"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys",
+  "slug": "zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys",
+  "name": "Infinite-Zoom Painted Scene Loop with Nested Layer Scaling, Arrow-Key Speed and About Overlay (Zoomquilt)",
+  "date": "2026-10-11",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://zoomquilt.org/",
+  "domain": "zoomquilt.org",
+  "product": "The Zoomquilt — collaborative infinitely zooming painting (2004, Nikolaus Baumgarten + illustrators)",
+  "checkpoints": [
+   "Full-screen canvas showing a painted surreal scene that keeps zooming in on its own",
+   "Seamless loop: each layer is drawn inside the previous one at a fixed scale ratio, so the zoom never ends",
+   "Up and down keys change zoom direction and speed (hint text in the corner)",
+   "Small info overlay: title, one-line pitch, Created in 2004, illustrator credits, links to sister quilts",
+   "About modal with close button over the canvas",
+   "Respect prefers-reduced-motion: pause auto-zoom and show a play button"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed",
+  "slug": "pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed",
+  "name": "Horizontal To-Scale Solar System Scroll with Live km Counter, Unit Switcher, Planet Jump Icons and Light-Speed Autopilot (If the Moon Were Only 1 Pixel)",
+  "date": "2026-10-11",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html",
+  "domain": "joshworth.com",
+  "product": "If the Moon Were Only 1 Pixel — Josh Worth's tediously accurate scale map of the solar system",
+  "checkpoints": [
+   "Black intro with huge thin all-caps 'IF THE MOON WERE ONLY 1 PIXEL', a white circle as the O and a boxed 1",
+   "Vertical wheel drives horizontal scroll across a page about 1.7 million px wide; sun is a 400px yellow disc",
+   "Top bar of planet glyph icons that jump to each planet, with prev/next arrows",
+   "Bottom live distance counter (e.g. 150,087,536 km) with a unit dropdown: km / mi / AU / light minutes / earths / buses / blue whales / Great Walls",
+   "Planets as tiny dots with colored caps labels (EARTH, YOU ARE HERE) and witty text lines placed in the empty space between them",
+   "Light-speed button that auto-scrolls at the true speed of light, plus a ruler tick strip along the bottom"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall",
   "slug": "dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall",
   "name": "Color-Memory Game with Tilted Card-Stack Hub, Giant Countdown Color Reveal and Hue/Brightness Slider Recall (Dialed.gg)",

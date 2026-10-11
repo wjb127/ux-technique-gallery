@@ -1,4 +1,34 @@
 {
+ "gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards": {
+  "bg": "#0e100f",
+  "fg": "#ffffe5",
+  "panel": "#0d0e0e",
+  "dark": true,
+  "ac": "#abff84",
+  "ac2": "#24dc4e",
+  "ac3": "#3fee5c",
+  "coverage": 0.65
+ },
+ "zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys": {
+  "bg": "#212121",
+  "fg": "#bcaba1",
+  "panel": "#4b3d3c",
+  "dark": true,
+  "ac": "#a43e17",
+  "ac2": "#684b41",
+  "ac3": "#522d23",
+  "coverage": 0.23
+ },
+ "pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed": {
+  "bg": "#000000",
+  "fg": "#ffffff",
+  "panel": "#262626",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.89
+ },
  "dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall": {
   "bg": "#ffffff",
   "fg": "#000000",

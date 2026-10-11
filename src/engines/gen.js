@@ -1321,4 +1321,141 @@ V['humanssince1982-clock-wall-kinetic-hands-grid-live-since-counter-mono-nav'] =
     reset(); if (!RM) snapTime(); o.push(`restored: top, Cart ${cartA.querySelector('b').textContent}, wall shows ${timeDigits()}`); return o.join('; '); };
 };
 
+V['zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys'] = (root, T) => {
+  theme(root, T, { bg: '#17110f', fg: '#efe7dc', ac: '#d9531e', dark: true });
+  const F = "Georgia,'Times New Roman',serif", SF = "'Helvetica Neue',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const N = 4, R = 0.3, S = 1024, V0 = 0.11, Z0 = 0.12;
+  css(`.zq{position:absolute;inset:0;background:#120d0c;overflow:hidden;font-family:${SF};color:#efe7dc;cursor:crosshair}
+.zq canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.zq .zq-mb{position:absolute;left:18px;top:16px;width:34px;height:34px;border-radius:50%;border:1px solid #ffffff40;background:#0006;color:#eee;font:600 15px ${F};font-style:italic;cursor:pointer;opacity:.35;transition:opacity .3s;z-index:3}
+.zq:hover .zq-mb,.zq .zq-mb.on{opacity:1}
+.zq-hint{position:absolute;right:18px;bottom:14px;font:400 12px ${SF};color:#ffffffa0;letter-spacing:.04em;text-shadow:0 1px 4px #000;opacity:.0;transition:opacity .6s;z-index:2}.zq.act .zq-hint{opacity:1}
+.zq-hint kbd{display:inline-block;border:1px solid #ffffff70;border-radius:3px;padding:0 5px;margin:0 2px;font:600 11px ${SF}}
+.zq-spd{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:400 15px ${SF};background:#000a;padding:8px 16px;border-radius:20px;opacity:0;transition:opacity .4s;pointer-events:none;letter-spacing:.03em;z-index:2}.zq-spd.on{opacity:1}
+.zq-inf{position:absolute;left:18px;top:62px;width:330px;max-height:calc(100% - 84px);overflow:auto;background:#0e0a09e6;border:1px solid #ffffff1c;padding:22px 24px;font:400 13px/1.55 ${SF};color:#cfc6bb;transform:translateX(-380px);transition:transform .45s cubic-bezier(.2,.8,.2,1);z-index:3;scrollbar-width:thin}
+.zq-inf.on{transform:none}.zq-inf h1{margin:0 0 4px;font:400 30px ${F};color:#f3ece2;letter-spacing:.01em}.zq-inf .p{font:italic 400 16px ${F};color:#e9dfd2;margin:0 0 4px}
+.zq-inf .y{color:#9a8f84;margin-bottom:14px}.zq-inf .k{border-top:1px solid #ffffff1c;border-bottom:1px solid #ffffff1c;padding:10px 0;margin:10px 0;color:#efe7dc}
+.zq-inf .cr{font-size:12px;color:#968b80}.zq-inf a{color:#e9895c;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.zq-inf ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:3px}.zq-inf li a{text-decoration:none}.zq-inf li a:hover{text-decoration:underline}
+.zq-mod{position:absolute;inset:0;background:#000b;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .35s;z-index:5}
+.zq-mod.on{opacity:1;pointer-events:auto}.zq-mod .bx{width:min(640px,86%);max-height:78%;overflow:auto;background:#f1ebe2;color:#2a221e;padding:34px 40px;position:relative;font:400 15px/1.65 ${F};box-shadow:0 30px 80px #000}
+.zq-mod h2{margin:0 0 14px;font:400 28px ${F}}.zq-mod .x{position:absolute;right:14px;top:10px;border:0;background:none;font:300 26px ${SF};cursor:pointer;color:#2a221e}
+.zq .zq-play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px;border-radius:50%;border:2px solid #fff;background:#0007;color:#fff;font:400 30px ${SF};cursor:pointer;z-index:4;display:none}
+.zq .zq-play.on{display:block}
+`);
+  const el = h('div.zq'); root.append(el);
+  // ---------- procedural painted layers (code-drawn stand-ins for the illustrators' artwork) ----------
+  const P = (a) => a.map(([x, y]) => [x * S, y * S]);
+  const smooth = (g, pts) => { g.beginPath(); g.moveTo(...pts[0]); for (let i = 1; i < pts.length - 1; i++) { const [x, y] = pts[i], [nx, ny] = pts[i + 1]; g.quadraticCurveTo(x, y, (x + nx) / 2, (y + ny) / 2); } g.lineTo(...pts[pts.length - 1]); };
+  const tube = (g, pts, w, base, shade, hi, sharp) => { g.lineCap = 'round'; g.lineJoin = sharp ? 'miter' : 'round'; const path = () => { if (sharp) { g.beginPath(); g.moveTo(...pts[0]); pts.slice(1).forEach((p) => g.lineTo(...p)); } else smooth(g, pts); };
+    g.save(); g.translate(w * 0.12, w * 0.18); path(); g.strokeStyle = '#0008'; g.lineWidth = w * 1.05; g.stroke(); g.restore();
+    path(); g.strokeStyle = shade; g.lineWidth = w; g.stroke(); g.save(); g.translate(-w * 0.1, -w * 0.12); path(); g.strokeStyle = base; g.lineWidth = w * 0.72; g.stroke(); g.restore();
+    g.save(); g.translate(-w * 0.22, -w * 0.26); path(); g.strokeStyle = hi; g.lineWidth = w * 0.14; g.globalAlpha = 0.7; g.stroke(); g.restore(); };
+  const ribbon = (g, pts, w, c1, c2, ph = 0) => { const L = []; for (let i = 0; i < pts.length - 1; i++) for (let t = 0; t < 1; t += 0.05) { const [ax, ay] = pts[i], [bx, by] = pts[i + 1]; L.push([ax + (bx - ax) * t, ay + (by - ay) * t]); } L.push(pts[pts.length - 1]);
+    const sm = L.map((p, i) => { const a = L[Math.max(0, i - 3)], b = L[Math.min(L.length - 1, i + 3)]; return [(a[0] + p[0] * 2 + b[0]) / 4, (a[1] + p[1] * 2 + b[1]) / 4]; });
+    const top = [], bot = []; sm.forEach((p, i) => { const q = sm[Math.min(sm.length - 1, i + 1)], o = sm[Math.max(0, i - 1)]; let dx = q[0] - o[0], dy = q[1] - o[1]; const d = Math.hypot(dx, dy) || 1; dx /= d; dy /= d; const ww = w * (0.35 + 0.65 * Math.abs(Math.sin(i * 0.11 + ph))) * (1 - 0.6 * i / sm.length);
+      top.push([p[0] - dy * ww, p[1] + dx * ww]); bot.push([p[0] + dy * ww, p[1] - dx * ww]); });
+    const gr = g.createLinearGradient(...sm[0], ...sm[sm.length - 1]); gr.addColorStop(0, c1); gr.addColorStop(1, c2);
+    g.beginPath(); g.moveTo(...top[0]); top.forEach((p) => g.lineTo(...p)); bot.reverse().forEach((p) => g.lineTo(...p)); g.closePath(); g.fillStyle = gr; g.shadowColor = '#0007'; g.shadowBlur = w * 0.6; g.shadowOffsetY = w * 0.3; g.fill(); g.shadowColor = 'transparent';
+    g.beginPath(); g.moveTo(...top[0]); top.forEach((p) => g.lineTo(...p)); g.strokeStyle = '#ffb08066'; g.lineWidth = 3; g.stroke(); };
+  const bridge = (g, pts, w) => { const sm = []; for (let i = 0; i < pts.length - 1; i++) for (let t = 0; t <= 1; t += 0.04) sm.push([pts[i][0] + (pts[i + 1][0] - pts[i][0]) * t, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * t]);
+    smooth(g, pts); g.lineCap = 'round'; g.strokeStyle = '#4b4743'; g.lineWidth = w * 1.1; g.stroke(); smooth(g, pts); g.strokeStyle = '#8f8b86'; g.lineWidth = w * 0.85; g.stroke();
+    g.strokeStyle = '#c9c2b9'; g.lineWidth = Math.max(1.5, w * 0.08); sm.forEach(([x, y], i) => { const k = 1 - i / sm.length * 0.7; if (i % 2 === 0) { g.beginPath(); g.moveTo(x, y - w * 0.4); g.lineTo(x, y - w * 0.4 - w * 0.6 * k); g.stroke(); } });
+    g.save(); g.translate(0, -w * 0.4 - w * 0.6); smooth(g, pts); g.lineWidth = Math.max(2, w * 0.12); g.stroke(); g.restore(); };
+  const blocks = (g, r, c1, c2, y0, y1) => { for (let i = 0; i < 46; i++) { const x = r() * S, w = 40 + r() * 140, hh = 60 + r() * 260; const y = y0 * S + r() * (y1 - y0) * S; g.fillStyle = r() < 0.5 ? c1 : c2; g.globalAlpha = 0.65 + r() * 0.35; g.fillRect(x, y - hh, w, hh + S); } g.globalAlpha = 1; };
+  const grain = (g, r, n, cols) => { for (let i = 0; i < n; i++) { g.fillStyle = cols[(r() * cols.length) | 0]; g.globalAlpha = 0.05 + r() * 0.08; const x = r() * S, y = r() * S; g.save(); g.translate(x, y); g.rotate(r() * 3.14); g.fillRect(0, 0, 2 + r() * 9, 1 + r() * 2.5); g.restore(); } g.globalAlpha = 1; };
+  const OPEN = [{ k: 'tv', w: 0.27, h: 0.2 }, { k: 'arch', w: 0.22, h: 0.27 }, { k: 'circle', r: 0.135 }, { k: 'door', w: 0.17, h: 0.28 }];
+  const openPath = (g, n, cx, cy, sz) => { const o = OPEN[n]; g.beginPath(); if (o.k === 'circle') g.arc(cx, cy, o.r * sz, 0, Math.PI * 2);
+    else if (o.k === 'arch') { const w = o.w * sz, hh = o.h * sz; g.moveTo(cx - w / 2, cy + hh / 2); g.lineTo(cx - w / 2, cy - hh / 2 + w / 2); g.arc(cx, cy - hh / 2 + w / 2, w / 2, Math.PI, 0); g.lineTo(cx + w / 2, cy + hh / 2); g.closePath(); }
+    else { const w = o.w * sz, hh = o.h * sz, rr = (o.k === 'tv' ? 0.03 : 0.005) * sz; g.roundRect(cx - w / 2, cy - hh / 2, w, hh, rr); } };
+  const frame = (g, n, base, shade) => { g.save(); openPath(g, n, S / 2 + 10, S / 2 + 14, S); g.strokeStyle = '#000a'; g.lineWidth = 26; g.stroke(); openPath(g, n, S / 2, S / 2, S); g.strokeStyle = shade; g.lineWidth = 24; g.stroke(); openPath(g, n, S / 2 - 2, S / 2 - 3, S); g.strokeStyle = base; g.lineWidth = 15; g.stroke(); openPath(g, n, S / 2, S / 2, S); g.strokeStyle = '#3a302a'; g.lineWidth = 4; g.stroke(); g.restore(); };
+  const paint = (n) => { const cv = document.createElement('canvas'); cv.width = cv.height = S; const g = cv.getContext('2d'); const r = rng(101 + n * 37);
+    const pal = [
+      { s1: '#120d0c', s2: '#2c211e', b1: '#3e2f2b', b2: '#4a3833', st: '#d9d0c4', sh: '#8f8277', hi: '#fffaf0', r1: '#e2581f', r2: '#a8350f', stars: 1 },
+      { s1: '#24150f', s2: '#5a3524', b1: '#6b4330', b2: '#7d5038', st: '#cfc3b3', sh: '#7f7468', hi: '#fff6e6', r1: '#d24a19', r2: '#8f2c0c', stars: 0 },
+      { s1: '#86b5d1', s2: '#efe6c9', b1: '#5b8a3f', b2: '#3f6a2d', st: '#e4dacb', sh: '#9b8f80', hi: '#ffffff', r1: '#e0632a', r2: '#b13c12', stars: 0 },
+      { s1: '#1a0c10', s2: '#45201f', b1: '#55282a', b2: '#3a1a1d', st: '#d8ccbf', sh: '#86786c', hi: '#fff8ee', r1: '#ef6e2c', r2: '#b2410f', stars: 1 }][n];
+    const sk = g.createLinearGradient(0, 0, 0, S); sk.addColorStop(0, pal.s1); sk.addColorStop(1, pal.s2); g.fillStyle = sk; g.fillRect(0, 0, S, S);
+    if (pal.stars) for (let i = 0; i < 260; i++) { g.fillStyle = `rgba(255,248,235,${0.2 + r() * 0.6})`; g.fillRect(r() * S, r() * S * 0.5, 1.4, 1.4); }
+    if (n === 2) { for (let k = 0; k < 4; k++) { g.fillStyle = [pal.b1, pal.b2, '#77a24e', '#2f5523'][k]; g.beginPath(); g.moveTo(0, S); for (let x = 0; x <= S; x += 16) g.lineTo(x, S * (0.5 + k * 0.1) + Math.sin(x * 0.006 + k * 2) * 40 + Math.sin(x * 0.017 + k) * 14); g.lineTo(S, S); g.fill(); } }
+    else blocks(g, r, pal.b1, pal.b2, 0.4, 0.8);
+    grain(g, r, 2600, [pal.b1, pal.b2, pal.s2, '#000', pal.st]);
+    if (n === 0) { tube(g, P([[-0.05, 0.08], [0.12, 0.1], [0.14, 0.24], [0.06, 0.3], [0.07, 0.46], [0.22, 0.47], [0.27, 0.5], [0.36, 0.5]]), 46, pal.st, pal.sh, pal.hi, true);
+      tube(g, P([[0.18, -0.05], [0.22, 0.2], [0.3, 0.27], [0.31, 0.44], [0.4, 0.43]]), 30, pal.st, pal.sh, pal.hi, true);
+      tube(g, P([[0.2, 1.05], [0.3, 0.86], [0.24, 0.72], [0.36, 0.62], [0.42, 0.6]]), 52, pal.st, pal.sh, pal.hi);
+      ribbon(g, P([[-0.05, 0.84], [0.12, 0.8], [0.26, 0.66], [0.38, 0.6], [0.46, 0.58]]), 44, pal.r1, pal.r2, 0.4);
+      ribbon(g, P([[1.05, 0.22], [0.86, 0.25], [0.74, 0.34], [0.62, 0.4], [0.56, 0.44]]), 40, pal.r1, pal.r2, 1.3);
+      bridge(g, P([[1.05, 0.62], [0.86, 0.56], [0.74, 0.54], [0.64, 0.52]]), 46);
+      g.fillStyle = '#5a534d'; g.fillRect(0.5 * S, 0.7 * S, 0.36 * S, 0.3 * S); g.fillStyle = '#d6cdc1'; g.fillRect(0.5 * S, 0.68 * S, 0.34 * S, 0.3 * S); g.fillStyle = '#b3a99d'; g.fillRect(0.5 * S, 0.68 * S, 0.34 * S, 0.03 * S);
+      [[0.53, 0.74, 0.17, 0.18], [0.73, 0.76, 0.09, 0.13]].forEach(([x, y, w, hh]) => { g.fillStyle = '#2b2a29'; g.fillRect(x * S, y * S, w * S, hh * S); for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(200,200,200,${r() * 0.35})`; g.fillRect(x * S + r() * w * S, y * S + r() * hh * S, 1.5, 1.5); } }); }
+    if (n === 1) { for (let k = 0; k < 5; k++) { const x = (0.05 + k * 0.2) * S; g.fillStyle = '#00000030'; g.beginPath(); g.moveTo(x, S); g.lineTo(x, 0.35 * S); g.arc(x + 0.07 * S, 0.35 * S, 0.07 * S, Math.PI, 0); g.lineTo(x + 0.14 * S, S); g.fill(); }
+      for (let k = 0; k < 4; k++) tube(g, P([[-0.05, 0.62 + k * 0.07], [0.18, 0.62 + k * 0.07], [0.24, 0.56 + k * 0.03], [0.39, 0.54 + k * 0.02]]), 24, '#bdb6ad', '#6f6962', '#fff');
+      tube(g, P([[0.62, 1.05], [0.62, 0.72], [0.7, 0.62], [0.7, 0.2], [0.78, 0.08], [1.05, 0.08]]), 70, pal.st, pal.sh, pal.hi, true);
+      ribbon(g, P([[1.05, 0.9], [0.84, 0.86], [0.7, 0.74], [0.58, 0.64], [0.53, 0.6]]), 40, pal.r1, pal.r2, 2.1);
+      ribbon(g, P([[0.0, 0.18], [0.16, 0.24], [0.28, 0.34], [0.4, 0.4]]), 34, pal.r1, pal.r2, 0.2); bridge(g, P([[0.0, 0.94], [0.2, 0.86], [0.36, 0.72], [0.45, 0.64]]), 40); }
+    if (n === 2) { ribbon(g, P([[0.5, 1.05], [0.62, 0.92], [0.42, 0.8], [0.58, 0.7], [0.5, 0.62]]), 46, pal.r1, pal.r2, 0.7);
+      tube(g, P([[-0.05, 0.3], [0.1, 0.32], [0.2, 0.42], [0.36, 0.46]]), 40, pal.st, pal.sh, pal.hi); tube(g, P([[1.05, 0.36], [0.86, 0.4], [0.78, 0.5], [0.64, 0.5]]), 40, pal.st, pal.sh, pal.hi);
+      for (let i = 0; i < 18; i++) { const x = r() * S, y = 0.62 * S + r() * 0.35 * S, s0 = 10 + r() * 26; g.fillStyle = '#2c4d1e'; g.beginPath(); g.arc(x, y, s0, 0, 7); g.fill(); g.fillStyle = '#6f9a45'; g.beginPath(); g.arc(x - s0 * 0.25, y - s0 * 0.3, s0 * 0.6, 0, 7); g.fill(); }
+      for (let i = 0; i < 6; i++) { g.fillStyle = '#ffffffb0'; const x = r() * S, y = r() * 0.3 * S; g.beginPath(); g.ellipse(x, y, 60 + r() * 60, 14 + r() * 10, 0, 0, 7); g.fill(); } }
+    if (n === 3) { for (let i = 0; i < 14; i++) { const x = r() * S, w = 30 + r() * 60, l = 0.1 + r() * 0.25; g.fillStyle = r() < 0.5 ? '#2a1214' : '#5b2c2c'; g.beginPath(); g.moveTo(x - w, 0); g.lineTo(x, l * S); g.lineTo(x + w, 0); g.fill(); }
+      tube(g, P([[-0.05, 0.5], [0.12, 0.5], [0.12, 0.3], [0.3, 0.3], [0.3, 0.46], [0.41, 0.46]]), 40, pal.st, pal.sh, pal.hi, true);
+      tube(g, P([[1.05, 0.7], [0.88, 0.7], [0.88, 0.86], [0.7, 0.86], [0.7, 0.62], [0.59, 0.6]]), 44, pal.st, pal.sh, pal.hi, true);
+      ribbon(g, P([[1.05, 0.16], [0.85, 0.12], [0.72, 0.3], [0.58, 0.38], [0.54, 0.42]]), 44, pal.r1, pal.r2, 1.6); ribbon(g, P([[-0.05, 0.9], [0.2, 0.8], [0.34, 0.66], [0.44, 0.6]]), 38, pal.r1, pal.r2, 2.8);
+      bridge(g, P([[0.2, 1.05], [0.36, 0.84], [0.44, 0.7], [0.48, 0.64]]), 36); }
+    // focal frame around the opening the next painting sits inside
+    if (n === 0) { g.fillStyle = '#cfc5b8'; g.fillRect(0.47 * S, 0.37 * S, 0.06 * S, 0.04 * S); const dg = g.createRadialGradient(0.49 * S, 0.33 * S, 2, 0.5 * S, 0.36 * S, 0.05 * S); dg.addColorStop(0, '#6a6460'); dg.addColorStop(1, '#1d1a19'); g.fillStyle = dg; g.beginPath(); g.arc(0.5 * S, 0.375 * S, 0.042 * S, Math.PI, 0); g.fill(); }
+    if (n === 1) { tube(g, P([[0.5, 0.78], [0.5, 0.66]]), 40, pal.st, pal.sh, pal.hi, true); }
+    if (n === 3) { tube(g, P([[0.42, 0.33], [0.5, 0.29], [0.58, 0.33]]), 22, pal.st, pal.sh, pal.hi); }
+    frame(g, n, pal.st, pal.sh); openPath(g, n, S / 2, S / 2, S); g.fillStyle = '#0c0908'; g.fill();
+    grain(g, r, 1600, ['#000', '#fff', pal.r1, pal.st]);
+    const vg = g.createRadialGradient(S / 2, S / 2, S * 0.2, S / 2, S / 2, S * 0.75); vg.addColorStop(0, '#0000'); vg.addColorStop(1, '#00000055'); g.fillStyle = vg; g.fillRect(0, 0, S, S);
+    return cv; };
+  const layers = Array.from({ length: N }, (_, n) => paint(n));
+  // ---------- infinite zoom renderer: layer k sits inside layer k-1's opening at scale R ----------
+  const cv = h('canvas'); const g = cv.getContext('2d');
+  let z = Z0, v = RM ? 0 : V0, paused = RM, last = performance.now(), act = 0;
+  const draw = () => { const W = el.clientWidth || 1440, Hh = el.clientHeight || 862; if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+    const i = Math.floor(z), f = z - i, S0 = Math.max(W, Hh * 1.25) * 1.04, cx = W / 2, cy = Hh / 2;
+    g.save(); g.fillStyle = '#0c0908'; g.fillRect(0, 0, W, Hh);
+    for (let k = -2; k < 9; k++) { const sz = S0 * Math.pow(R, k - f); if (sz < 3) break; const n = (((i + k) % N) + N) % N; if (sz > 40 * S0) continue;
+      g.drawImage(layers[n], cx - sz / 2, cy - sz / 2, sz, sz); openPath(g, n, cx, cy, sz); g.clip(); }
+    g.restore(); };
+  const MOD = (x) => (((x % N) + N) % N);
+  const loop = (now) => { const dt = Math.min(0.05, (now - last) / 1000); last = now; if (!paused) z += v * dt; if (z > 1e6 || z < -1e6) z = MOD(z); draw(); requestAnimationFrame(loop); };
+  // ---------- UI ----------
+  const spd = h('div.zq-spd');
+  let spT; const showSpd = () => { spd.textContent = v === 0 ? 'stopped' : `${v > 0 ? 'zooming in' : 'zooming out'} · ${Math.abs(v / V0).toFixed(1)}×`; spd.classList.add('on'); clearTimeout(spT); spT = setTimeout(() => spd.classList.remove('on'), 900); };
+  const setV = (nv) => { v = clamp(Math.round(nv * 1000) / 1000, -0.66, 0.66); if (paused && v !== 0) setPaused(false); showSpd(); };
+  const play = h('button.zq-play', { title: 'Play (motion is paused because your OS prefers reduced motion)', onclick: (e) => { e.stopPropagation(); setPaused(false); if (!v) v = V0; } }, '▶');
+  const setPaused = (p) => { paused = p; play.classList.toggle('on', p); };
+  const about = h('div.zq-mod', { onclick: (e) => { if (e.target === about) about.classList.remove('on'); } }, h('div.bx', {}, h('button.x', { onclick: () => about.classList.remove('on') }, '×'), h('h2', {}, 'About the Zoomquilt'),
+    h('p', {}, 'Started in 2004, the Zoomquilt grew out of early-2000s online “quilts”: collaborative patchwork paintings where each artist received a tile with the neighbouring borders and had to blend their own picture into them, a little like the surrealist game Cadavre Exquis.'),
+    h('p', {}, 'The Zoomquilt turned that idea inward — every painting is hidden inside the previous one, so the camera can fall forever. It was first published in Shockwave/Flash and later rebuilt for the modern web; successors include Zoomquilt 2, Arkadia and Infinite Flowers.'),
+    h('p', { style: { fontSize: '13px', color: '#6b5f57' } }, 'This demo page uses procedurally drawn stand-in layers, not the original illustrations.')));
+  const LINKS = ['Screensaver for Mac', 'Live Wallpaper for Android', 'Organic City', 'Infinite Flowers', 'Arkadia', 'Zoomquilt 2'];
+  const inf = h('aside.zq-inf', { onclick: (e) => e.stopPropagation() }, h('h1', {}, 'The Zoomquilt'), h('div.p', {}, 'A collaborative infinitely zooming painting'), h('div.y', {}, 'Created in 2004'),
+    h('div.k', {}, 'Up and down keys to navigate'), h('div.cr', {}, 'A project by Nikolaus Baumgarten. Participating illustrators: Andreas Schumann, Eero Pitkänen, Florian Biege, Jann Kerntke, Lars Götze, Luis Felipe, Marcus Blättermann, Markus Neidel, Paul Painter, Oliver Schlemmer, Sonja Schneider, Thorsten Wolber, Tony Stanley, Ville Vanninen'),
+    h('p', {}, h('a', { onclick: () => about.classList.add('on') }, 'Read about the history of this project')), h('ul', {}, LINKS.map((l) => h('li', {}, h('a', { onclick: () => toast(l) }, l)))));
+  const mb = h('button.zq-mb', { title: 'Info', onclick: (e) => { e.stopPropagation(); inf.classList.toggle('on'); mb.classList.toggle('on', inf.classList.contains('on')); } }, 'i');
+  const hint = h('div.zq-hint', {}, h('kbd', {}, '↑'), h('kbd', {}, '↓'), ' to navigate');
+  el.append(cv, mb, inf, hint, spd, play, about);
+  const onKey = (e) => { if (!el.isConnected) return; if (e.key === 'ArrowUp') { e.preventDefault(); setV(v + 0.06); } else if (e.key === 'ArrowDown') { e.preventDefault(); setV(v - 0.06); } else if (e.key === ' ') { e.preventDefault(); setPaused(!paused); } else if (e.key === 'Escape') { about.classList.remove('on'); inf.classList.remove('on'); mb.classList.remove('on'); } };
+  addEventListener('keydown', onKey);
+  el.addEventListener('wheel', (e) => { e.preventDefault(); z += clamp(e.deltaY, -100, 100) * -0.002; }, { passive: false });
+  el.addEventListener('mousemove', () => { el.classList.add('act'); clearTimeout(act); act = setTimeout(() => el.classList.remove('act'), 2500); });
+  el.addEventListener('click', () => { inf.classList.remove('on'); mb.classList.remove('on'); });
+  setPaused(paused); requestAnimationFrame(loop);
+  // ---------- demo proof ----------
+  const key = (k) => dispatchEvent(new KeyboardEvent('keydown', { key: k, bubbles: true }));
+  window.__demoProof = async () => { const o = []; const pv = paused; setPaused(false);
+    z = Z0; v = V0; await sleep(400); o.push(`auto-zoom: z ${Z0} → ${z.toFixed(3)} at ${V0}/s`);
+    key('ArrowUp'); key('ArrowUp'); o.push(`↑↑ → speed ${(v / V0).toFixed(2)}× (${spd.textContent})`); const za = z; await sleep(400); o.push(`zoomed in Δz=+${(z - za).toFixed(3)}`);
+    for (let k = 0; k < 6; k++) key('ArrowDown'); const zb = z; await sleep(400); o.push(`↓×6 → speed ${v.toFixed(2)}, zoom out Δz=${(z - zb).toFixed(3)}`);
+    z = N - 0.001; draw(); const a = cv.getContext('2d').getImageData(cv.width / 2 + 200, cv.height / 2, 1, 1).data.join(); z = N + 0.001 - N; draw(); o.push(`loop seam: layer ${MOD(Math.floor(N - 0.001))}→${MOD(Math.floor(N + 0.001))} (wraps after ${N} layers, R=${R})`); void a;
+    mb.click(); o.push(`info overlay open=${inf.classList.contains('on')}`); inf.querySelector('p a').click(); o.push(`about modal open=${about.classList.contains('on')}`); about.querySelector('.x').click(); key('Escape');
+    o.push(`closed: modal=${!about.classList.contains('on')}, info panel=${!inf.classList.contains('on')}`);
+    z = Z0; v = RM ? 0 : V0; setPaused(RM ? true : pv && false); spd.classList.remove('on'); draw(); o.push(`restored z=${Z0}, speed ${v}/s${RM ? ', paused (reduced motion)' : ''}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['ritmo-simplex-wave-studio'])(root, T); }

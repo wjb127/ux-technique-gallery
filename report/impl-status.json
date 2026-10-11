@@ -3139,5 +3139,32 @@
   "proof": "hub: hero fan cards=3, game cards=3; start → \"ready\" flash, counter 1 / 5; reveal: card bg rgb(140, 51, 149), countdown \"383\"; recall: sliders=3; drag sliders → guess #a67121 live bg=rgb(166, 113, 33); confirm → round score 0.52 (ΔE 94.4); 5-round total \"40.52 / 50\" share btn=true; restored: intro card visible=true",
   "demoNodes": 210,
   "errors": []
+ },
+ "zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys": {
+  "url": "http://localhost:4173/t/zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys/",
+  "ok": true,
+  "at": "2026-10-11T04:05:11.926Z",
+  "http": 200,
+  "proof": "auto-zoom: z 0.12 → 0.164 at 0.11/s; ↑↑ → speed 2.09× (zooming in · 2.1×); zoomed in Δz=+0.096; ↓×6 → speed -0.13, zoom out Δz=-0.052; loop seam: layer 3→0 (wraps after 4 layers, R=0.3); info overlay open=true; about modal open=true; closed: modal=true, info panel=true; restored z=0.12, speed 0.11/s",
+  "demoNodes": 36,
+  "errors": []
+ },
+ "gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards": {
+  "url": "http://localhost:4173/t/gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards/",
+  "ok": true,
+  "at": "2026-10-11T04:05:11.910Z",
+  "http": 200,
+  "proof": "replay: replaying; assembled 15/15 letters \"Animate anything\", lightning on \"t\"=bolt, pinwheel=1, squiggle=1; hover \"i\" → bounce anims=1; Why section: 19/22 words lit, lime word on=true, flower=scale(1) rotate(0deg); ease scrub 50%: track -2090.98px, visible words 12; tool rows revealed 2/4, hover SVG icon morph; restored: top, hero settled",
+  "demoNodes": 271,
+  "errors": []
+ },
+ "pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed": {
+  "url": "http://localhost:4173/t/pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed/",
+  "ok": true,
+  "at": "2026-10-11T04:05:11.926Z",
+  "http": 200,
+  "proof": "vertical wheel 1200 → scrollLeft 1200px (world 1,705,142px); ☉ jump → 0.0 km; ⊕ jump → Earth, counter 150,451,890.4 km; unit AU → 1.0057 AU; light minutes → 8.36 light minutes; blue whales → 5,015,063,013 blue whales; light-speed 1 s → +295,358 km (c≈299,792 km/s, px rounding); next › → Mars; at 228,749,558.8 km; restored: intro, 0.0 km, light-speed off",
+  "demoNodes": 175,
+  "errors": []
  }
 }

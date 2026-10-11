@@ -1607,5 +1607,137 @@ V['mapiful-map-poster-editor-dark-icon-rail-tab-panels-live-poster-preview-coord
     reset(); o.push(`restored: ${t1.textContent}, theme ${THEMES[st.theme][0]}, tab ${st.tab}`); return o.join('; '); };
 };
 
+V['pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed'] = (root, T) => {
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#2ae5e8', dark: true });
+  import('@fontsource/montserrat/100.css'); import('@fontsource/montserrat/200.css'); import('@fontsource/montserrat/300.css');
+  const TF = "Montserrat,'Gotham','Helvetica Neue',Arial,sans-serif", HF = "'Helvetica Neue',Helvetica,Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const KMPX = 3474.8, C_KMS = 299792.458, SX = 2960, SUN_R = 1391400 / KMPX / 2;
+  const B = [ // name, distance from Sun (km), diameter (km), colour, glyph
+    ['Sun', 0, 1391400, '#ffe100', '☉'], ['Mercury', 57.91e6, 4879, '#b8b2aa', '☿'], ['Venus', 108.2e6, 12104, '#f0c879', '♀'], ['Earth', 149.6e6, 12742, '#2ae5e8', '⊕'], ['Mars', 227.9e6, 6779, '#ff6a3d', '♂'],
+    ['Jupiter', 778.5e6, 139820, '#f8a24c', '♃'], ['Saturn', 1.4335e9, 116460, '#ead08f', '♄'], ['Uranus', 2.8725e9, 50724, '#9fe6ec', '♅'], ['Neptune', 4.4951e9, 49244, '#5d86ff', '♆'], ['Pluto', 5.9064e9, 2377, '#cdb59a', '♇']];
+  const X = (km) => SX + km / KMPX; const WORLD = Math.ceil(X(B[9][1]) + 2400);
+  const UNITS = [['km', 1, 1, 'km'], ['mi', 0.621371, 1, 'mi'], ['AU', 1 / 149597870.7, 4, 'AU'], ['light minutes', 1 / 17987547.48, 2, 'light minutes'], ['earths', 1 / 12742, 1, 'earths'], ['buses', 1 / 0.012, 0, 'buses'], ['blue whales', 1 / 0.03, 0, 'blue whales'], ['Great Walls', 1 / 21196, 2, 'Great Walls']];
+  css(`.px{position:absolute;inset:0;background:#000;color:#fff;font-family:${HF};overflow:hidden}
+.px *{box-sizing:border-box}
+.px-sc{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}.px-sc::-webkit-scrollbar{display:none}
+.px-w{position:relative;height:100%}
+.px-t{position:absolute;left:96px;top:8%;font-family:${TF};font-weight:100;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.px-t div{white-space:nowrap}.px-t .a{font-size:104px;color:#bdbdbd}.px-t .b{font-size:148px;color:#fff;margin:2px 0 6px}.px-t .c{font-size:104px;color:#bdbdbd}
+.px-t .o{display:inline-block;width:.74em;height:.74em;border-radius:50%;background:#fff;vertical-align:-.02em;margin:0 .02em}
+.px-t .d{font-size:148px;color:#fff;margin-top:8px;display:flex;align-items:center;gap:.16em}.px-t .one{display:inline-grid;place-items:center;width:.62em;height:.74em;background:#fff;color:#000;font-weight:300;font-size:.92em;line-height:1;-webkit-text-stroke:3px #000}
+.px-t .sub{font:400 10.5px ${TF};letter-spacing:.09em;color:#e6e6e6;margin-top:26px}
+.px-t .go{text-transform:none;display:flex;align-items:center;gap:12px;font:400 11px ${HF};color:#3fd0c9;margin-top:22px;cursor:pointer}.px-t .go i{display:block;width:200px;height:1px;background:#3fd0c9;position:relative}.px-t .go i:after{content:'';position:absolute;right:0;top:-3px;border:3.5px solid transparent;border-left:6px solid #3fd0c9;border-right:0}
+.px-scale{position:absolute;top:31%;width:560px}.px-scale h3{margin:0;display:flex;align-items:center;gap:14px;font:200 32px ${TF};letter-spacing:.06em;color:#ddd}.px-scale h3 i{flex:1;height:1px;background:#999}
+.px-scale .r1{display:flex;align-items:center;gap:14px;margin:48px 0 0 0;font:300 15px ${TF};color:#ddd}.px-scale .r1 b{display:inline-block;width:1px;height:1px;background:#fff;outline:3px solid #fff3}
+.px-scale .r1 span.n{font:300 15px ${HF};color:#9ee8e1;max-width:200px;text-align:center;line-height:1.25}.px-scale .r1 em{font-style:normal;color:#9ee8e1}
+.px-scale .ru{position:relative;height:60px;margin-top:40px;background:repeating-linear-gradient(90deg,#bbb 0 1px,transparent 1px 28.8px) left center/288px 22px no-repeat}
+.px-scale .ru span{position:absolute;left:300px;top:44px;font:300 14px ${TF};color:#ddd}.px-scale .ru i{position:absolute;left:288px;top:6px;width:1px;height:42px;background:#ddd}
+.px-scale .hr{height:1px;background:#999;margin-top:40px}
+.px-b{position:absolute;top:46%}
+.px-dot{position:absolute;border-radius:50%;transform:translate(-50%,-50%)}
+.px-sun{display:grid;place-items:center;font:400 28px ${HF};color:#111}
+.px-lab{position:absolute;transform:translateX(-2px);white-space:nowrap;font:400 34px ${HF};letter-spacing:.005em}
+.px-lab small{display:block;font:400 14px ${HF};color:#888;margin-top:4px;letter-spacing:.02em}
+.px-ar{position:absolute;width:1px;background:#aaa}.px-ar:after{content:'';position:absolute;left:-3px;border:3.5px solid transparent}
+.px-ar.up:after{top:-6px;border-bottom:6px solid #aaa;border-top:0}.px-ar.dn:after{bottom:-6px;border-top:6px solid #aaa;border-bottom:0}
+.px-ml{position:absolute;white-space:nowrap;font:400 10px ${HF};color:#ccc;letter-spacing:.06em;text-transform:uppercase}
+.px-ml:before{content:'';position:absolute;left:0;top:13px;width:1px;height:6px;background:#888}
+.px-tx{position:absolute;top:46%;transform:translate(-50%,-50%);max-width:440px;font:400 17px/1.5 ${HF};color:#e8e8e8;text-align:left}
+.px-top{position:absolute;left:0;right:0;top:0;height:46px;display:flex;align-items:center;justify-content:center;gap:16px;z-index:3;pointer-events:none}
+.px-top>*{pointer-events:auto}
+.px-top .jw{position:absolute;left:20px;font:400 11px ${HF};color:#aaa;cursor:pointer;display:flex;align-items:center;gap:26px}
+.px-top .jw svg{width:16px;height:13px}
+.px .px-ic{width:26px;height:26px;border:0;background:none;color:#cfcfcf;font:400 17px 'DejaVu Sans','Segoe UI Symbol','Apple Symbols',sans-serif;cursor:pointer;padding:0;transition:color .2s,transform .2s;line-height:26px}
+.px .px-ic:hover,.px .px-ic.cur{color:#fff;transform:scale(1.2)}.px .px-ic.cur{text-shadow:0 0 8px #fff8}
+.px-top .sh{position:absolute;right:46px;top:12px;width:22px;height:22px;cursor:pointer}
+.px-ctr{position:absolute;left:50%;bottom:62px;transform:translateX(-50%);z-index:3;font:400 13px ${HF};color:#d0d0d0;cursor:pointer;user-select:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.px-ctr:after{content:'';display:inline-block;margin-left:6px;border:4px solid transparent;border-top:5px solid #d0d0d0;vertical-align:-1px}
+.px-um{position:absolute;left:50%;bottom:86px;transform:translateX(-50%);background:#111;border:1px solid #333;padding:6px 0;display:none;z-index:4;min-width:170px}
+.px-um.on{display:block}.px-um div{padding:5px 16px;font:400 13px ${HF};color:#ccc;cursor:pointer}.px-um div:hover,.px-um div.on{background:#222;color:#fff}.px-um div.on:before{content:'✓ ';color:#2ae5e8}
+.px .px-ls{position:absolute;right:50px;bottom:56px;width:34px;height:28px;border:0;background:none;cursor:pointer;z-index:3;opacity:.8;padding:0}.px .px-ls.on{opacity:1;filter:drop-shadow(0 0 6px #ffe100)}
+.px-lst{position:absolute;right:92px;bottom:62px;font:400 11px ${HF};color:#ffe100;z-index:3;opacity:0;transition:opacity .3s;font-variant-numeric:tabular-nums}.px-lst.on{opacity:1}
+.px-ru{position:absolute;left:0;right:0;bottom:0;height:34px;z-index:2;pointer-events:none;
+ background-image:repeating-linear-gradient(90deg,#8a8a8a 0 1px,transparent 1px 14.4px),repeating-linear-gradient(90deg,#bdbdbd 0 1px,transparent 1px 144px),repeating-linear-gradient(90deg,#e5e5e5 0 1px,transparent 1px 288px);
+ background-size:100% 15px,100% 26px,100% 34px;background-repeat:repeat-x;background-position:0 100%,0 100%,0 100%}
+`);
+  const el = h('div.px'); root.append(el);
+  const w = h('div.px-w', { style: { width: WORLD + 'px' } });
+  // intro title + scale legend
+  const title = h('div.px-t', {}, h('div.a', {}, 'If the'), h('div.b', {}, 'MO', h('span.o'), 'N'), h('div.c', {}, 'Were only'), h('div.d', {}, h('span.one', {}, '1'), 'Pixel'),
+    h('div.sub', {}, 'A tediously accurate scale model of the solar system'), h('div.go', { onclick: () => jumpTo(0) }, 'Scroll to explore', h('i')));
+  const scale = h('div.px-scale', { style: { left: SX - SUN_R - 212 - 560 + 'px' } }, h('h3', {}, 'Scale', h('i')),
+    h('div.r1', {}, h('b'), h('span', {}, '= 3,474.8 km'), h('em', {}, '⟵'), h('span.n', {}, 'The diameter of the moon (roughly the distance from New York to Las Vegas)')),
+    h('div.ru', {}, h('i'), h('span', {}, '1,000,000 km')), h('div.hr'));
+  w.append(title, scale);
+  // bodies
+  const bx = B.map(([n, km, d, col], i) => { const x = X(km), dp = Math.max(1, d / KMPX); if (i === 0) { w.append(h('div.px-b', { style: { left: x + 'px' } }, h('div.px-dot.px-sun', { style: { width: dp + 'px', height: dp + 'px', background: col } }, 'SUN'))); return x; }
+    const up = n === 'Mercury' || n === 'Mars' || n === 'Saturn' || n === 'Neptune'; const off = Math.max(dp / 2 + 10, 14);
+    const lab = h('div.px-lab', { style: { color: col, [up ? 'bottom' : 'top']: off + 52 + 'px' } }, n.toUpperCase(), n === 'Earth' ? h('small', {}, 'YOU ARE HERE') : n === 'Pluto' ? h('small', {}, '(we still love you)') : null);
+    const ar = h('div.px-ar.' + (up ? 'dn' : 'up'), { style: { left: '0px', height: '44px', [up ? 'bottom' : 'top']: off + 'px' } });
+    const ring = n === 'Saturn' ? h('div.px-dot', { style: { width: dp * 2.3 + 'px', height: dp * 0.5 + 'px', border: '2px solid #cdb37a', background: 'transparent', borderRadius: '50%', transform: 'translate(-50%,-50%) rotate(-12deg)' } }) : null;
+    w.append(h('div.px-b', { style: { left: x + 'px' } }, h('div.px-dot', { style: { width: dp + 'px', height: dp + 'px', background: col } }), ring, h('div', { style: { position: 'absolute', left: (dp > 6 ? -dp / 2 : 0) + 'px', top: 0 } }, ar, lab))); return x; });
+  const moon = (parent, n, km, d, up = true, big = false) => { const x = X(parent) + km / KMPX, dp = Math.max(1, d / KMPX);
+    w.append(h('div.px-b', { style: { left: x + 'px' } }, h('div.px-dot', { style: { width: dp + 'px', height: dp + 'px', background: '#ddd' } }), big ? h('div', { style: { position: 'absolute', left: 0, top: 0 } }, h('div.px-ar.dn', { style: { height: '44px', bottom: '12px' } }), h('div.px-lab', { style: { color: '#fff', bottom: '62px', fontSize: '30px' } }, n)) : h('div.px-ml', { style: { left: '0px', top: '-22px' } }, n))); };
+  moon(B[3][1], 'MOON', 384400, 3474.8, true, true);
+  [['IO', 421700, 3643], ['EUROPA', 671034, 3122], ['GANYMEDE', 1070412, 5268], ['CALLISTO', 1882709, 4821]].forEach(([n, k, d]) => moon(B[5][1], n, k, d));
+  moon(B[6][1], 'TITAN', 1221870, 5150);
+  // copy lines in the void (original wording for this demo)
+  const LINES = [[1, ['Every pixel on this page is 3,474.8 km wide — one moon across.', 'Nothing to see yet. Get used to it.', 'Space is mostly space.', 'Mercury is coming up. Squint.']],
+    [2, ['Mercury: check. Venus is next.', 'Still a while. Keep that wheel spinning.']], [3, ['Hold on. Home is close.', 'Sunlight needs about 8 minutes 20 seconds to get this far.']],
+    [4, ['Mars ahead. Pack snacks.', 'From here on, the gaps get serious.']],
+    [5, ['The asteroid belt is around here — every rock is far smaller than one pixel.', 'Still empty.', 'Yep. Still empty.', 'Your scroll wheel is doing great.', 'Fun fact: you have now scrolled past far more nothing than something.', 'Pop the confetti — that was a billion kilometres since the Sun. Almost.', 'Is that a speck? No.', 'Jupiter could hold over 1,300 Earths by volume.']],
+    [6, ['Saturn is almost twice as far from the Sun as Jupiter.', 'Try the light-speed button. Then go make coffee.', 'Most solar-system diagrams cheat on the empty bits. This one does not.', 'Deep breath.', 'This is what “astronomical” means.', 'Saturn soon. Promise.']],
+    [7, ['Uranus circles about twice as far out as Saturn.', 'Out here, sunlight is roughly 370 times dimmer than on Earth.', 'Still going?', 'Nothing. Lovely, uninterrupted nothing.', 'You could line up thousands of screens side by side and still not see the whole map.', 'Almost to Uranus.']],
+    [8, ['Halfway between Uranus and Neptune. Probably.', 'Neptune takes about 165 years to circle the Sun once.', 'Light from the Sun needs more than four hours to get here.', 'Imagine the hold music.', 'Nearly there.', 'Neptune, dead ahead.']],
+    [9, ['Past the last giant. Only the little one left.', 'The emptiness between the dots is the actual map.', 'Pluto is coming. Say hi.', 'Thanks for scrolling this far.']]];
+  LINES.forEach(([bi, ls]) => { const a = bx[bi - 1] + 900, b2 = bx[bi] - 900; ls.forEach((t, k) => w.append(h('div.px-tx', { style: { left: a + ((k + 1) / (ls.length + 1)) * (b2 - a) + 'px' } }, t))); });
+  w.append(h('div.px-tx', { style: { left: bx[9] + 1300 + 'px' } }, 'End of the map. Everything you just crossed was to scale.'));
+  const sc = h('div.px-sc', {}, w);
+  // chrome: top planet bar, counter + units, light speed, ruler
+  const icons = B.map(([n, , , , gl], i) => h('button.px-ic', { title: n, onclick: () => jumpTo(i) }, gl));
+  const top = h('div.px-top', {}, h('span.jw', {}, 'JoshWorth.com', h('span', { html: '<svg viewBox="0 0 16 13"><path d="M16 1.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8A3.3 3.3 0 0 0 7.8 4C5.1 3.9 2.7 2.6 1.1.6c-.9 1.5-.4 3.4 1 4.4-.5 0-1-.2-1.5-.4 0 1.6 1.1 3 2.6 3.3-.5.1-1 .2-1.5.1.4 1.3 1.7 2.3 3.1 2.3A6.6 6.6 0 0 1 0 11.5 9.3 9.3 0 0 0 14.3 3.2c.7-.4 1.2-1 1.7-1.7z" fill="#999"/></svg>' })),
+    h('button.px-ic', { title: 'Previous', onclick: () => step(-1) }, '‹'), icons, h('button.px-ic', { title: 'Next', onclick: () => step(1) }, '›'),
+    h('span.sh', { title: 'Share', onclick: () => toast('Share: If the Moon Were Only 1 Pixel'), html: '<svg viewBox="0 0 22 22" fill="none" stroke="#bbb" stroke-width="1.2"><rect x="1.5" y="2.5" width="19" height="14" rx="1.5"/><path d="M7 16.5 6 20.5 11 16.5"/><circle cx="11" cy="9.5" r="4.5"/><path d="M6.5 9.5h9M11 5c-2 2.6-2 6.4 0 9M11 5c2 2.6 2 6.4 0 9"/></svg>' }));
+  let unit = 0; const ctr = h('div.px-ctr', { title: 'Change unit', onclick: (e) => { e.stopPropagation(); um.classList.toggle('on'); } }, '0 km');
+  const um = h('div.px-um', {}, UNITS.map(([n], i) => h('div', { onclick: (e) => { e.stopPropagation(); setUnit(i); um.classList.remove('on'); } }, n)));
+  const setUnit = (i) => { unit = i; [...um.children].forEach((c, j) => c.classList.toggle('on', j === i)); upd(); };
+  const lsB = h('button.px-ls', { title: 'Travel at the speed of light', onclick: () => setLS(!ls), html: '<svg viewBox="0 0 34 28" fill="none" stroke="#e8e8e8" stroke-width="1.4" stroke-linecap="round"><circle cx="22" cy="14" r="4.5"/><path d="M22 4v3M22 21v3M30 14h3M27.7 8.3l2-2M27.7 19.7l2 2M16.3 8.3l-2-2M16.3 19.7l-2 2M2 11h10M5 14h7M2 17h10"/></svg>' });
+  const lsT = h('div.px-lst');
+  const ru = h('div.px-ru');
+  el.append(sc, top, ctr, um, lsB, lsT, ru);
+  // ---------- state ----------
+  const kmAt = () => Math.max(0, (sc.scrollLeft + sc.clientWidth / 2 - SX) * KMPX);
+  const fmt = (km) => { const [n, k, dp, lab] = UNITS[unit]; const v = km * k; return `${v.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp })} ${lab}`; void n; };
+  const curIdx = () => { const c = sc.scrollLeft + sc.clientWidth * 0.5; let bi = 0; bx.forEach((x, i) => { if (x <= c + 40) bi = i; }); return bi; };
+  const upd = () => { ctr.textContent = fmt(kmAt()); const sl = sc.scrollLeft; ru.style.backgroundPosition = `${-sl % 14.4}px 100%,${-sl % 144}px 100%,${-sl % 288}px 100%`;
+    const ci = curIdx(); icons.forEach((b, i) => b.classList.toggle('cur', i === ci && sl > 200)); };
+  sc.addEventListener('scroll', upd, { passive: true });
+  sc.addEventListener('wheel', (e) => { e.preventDefault(); stopAnim(); sc.scrollLeft += (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * (e.deltaMode === 1 ? 40 : 1); if (ls) lsPos = sc.scrollLeft; }, { passive: false });
+  let anim = 0; const stopAnim = () => { cancelAnimationFrame(anim); anim = 0; };
+  const scrollToX = (tx, dur = 1300) => { stopAnim(); tx = clamp(tx, 0, WORLD - sc.clientWidth); if (RM || dur === 0) { sc.scrollLeft = tx; lsPos = tx; upd(); return; } const x0 = sc.scrollLeft, t0 = performance.now();
+    const f = (now) => { const p = clamp((now - t0) / dur, 0, 1), e2 = p < 0.5 ? 4 * p * p * p : 1 - (-2 * p + 2) ** 3 / 2; sc.scrollLeft = x0 + (tx - x0) * e2; lsPos = sc.scrollLeft; if (p < 1) anim = requestAnimationFrame(f); else anim = 0; }; anim = requestAnimationFrame(f); };
+  const target = (i) => (i === 0 ? bx[0] - sc.clientWidth * 0.5 : bx[i] - sc.clientWidth * 0.33);
+  const jumpTo = (i, dur) => scrollToX(target(i), dur);
+  const step = (d) => { const c = sc.scrollLeft; const list = B.map((_, i) => target(i)); let i; if (d > 0) i = list.findIndex((t) => t > c + 5); else { i = -1; list.forEach((t, j) => { if (t < c - 5) i = j; }); } if (i < 0) i = d > 0 ? B.length - 1 : 0; jumpTo(i); return B[i][0]; };
+  addEventListener('keydown', (e) => { if (!el.isConnected) return; if (e.key === 'ArrowRight') { stopAnim(); sc.scrollLeft += 300; } else if (e.key === 'ArrowLeft') { stopAnim(); sc.scrollLeft -= 300; } });
+  el.addEventListener('click', () => um.classList.remove('on'));
+  // light-speed autopilot: true c = 299,792.458 km/s ÷ 3,474.8 km/px ≈ 86.3 px/s
+  let ls = false, lsPos = 0, lsT0 = 0, lsKm0 = 0, lsLast = 0;
+  const setLS = (on) => { ls = on; lsB.classList.toggle('on', on); lsT.classList.toggle('on', on); if (on) { stopAnim(); lsPos = sc.scrollLeft; lsT0 = lsLast = performance.now(); lsKm0 = kmAt(); requestAnimationFrame(lsTick); } };
+  const lsTick = (now) => { if (!ls) return; const dt = (now - lsLast) / 1000; lsLast = now; lsPos += (C_KMS / KMPX) * dt; sc.scrollLeft = lsPos; const s0 = (now - lsT0) / 1000;
+    lsT.textContent = `light speed · ${String(Math.floor(s0 / 60)).padStart(2, '0')}:${String(Math.floor(s0 % 60)).padStart(2, '0')} · ${Math.round(s0 * C_KMS).toLocaleString('en-US')} km`; requestAnimationFrame(lsTick); };
+  setUnit(0); upd();
+  // ---------- demo proof ----------
+  window.__demoProof = async () => { const o = []; setLS(false); stopAnim(); sc.scrollLeft = 0; setUnit(0); await sleep(30);
+    sc.dispatchEvent(new WheelEvent('wheel', { deltaY: 1200, bubbles: true, cancelable: true })); await sleep(30); o.push(`vertical wheel 1200 → scrollLeft ${sc.scrollLeft}px (world ${WORLD.toLocaleString()}px)`);
+    icons[0].click(); await sleep(RM ? 40 : 1450); o.push(`☉ jump → ${ctr.textContent}`);
+    icons[3].click(); await sleep(RM ? 40 : 1450); o.push(`⊕ jump → Earth, counter ${ctr.textContent}`);
+    setUnit(2); o.push(`unit AU → ${ctr.textContent}`); setUnit(3); o.push(`light minutes → ${ctr.textContent}`); setUnit(6); o.push(`blue whales → ${ctr.textContent}`); setUnit(0);
+    const k0 = kmAt(); setLS(true); await sleep(1000); setLS(false); o.push(`light-speed 1 s → +${Math.round(kmAt() - k0).toLocaleString('en-US')} km (c≈299,792 km/s, px rounding)`);
+    o.push(`next › → ${step(1)}`); await sleep(RM ? 40 : 1450); o.push(`at ${ctr.textContent}`);
+    stopAnim(); sc.scrollLeft = 0; setUnit(0); um.classList.remove('on'); upd(); o.push(`restored: intro, ${ctr.textContent}, light-speed off`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['weather-particle-globe'])(root, T); }
 
