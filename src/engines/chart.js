@@ -1,7 +1,7 @@
 import '@fontsource-variable/source-sans-3';
 import PT from '../data/ptable.json';
 import '@fontsource-variable/inter';
-import { h, s, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, audio, fitCanvas } from '../lib.js';
+import { h, s, css, drag, localPos, clamp, copy, toast, sleep, rng, pick, blip, audio, fitCanvas, noise2, fire } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle } from '../kit.js';
 import { scene } from './imagefx.js';
 const MONO = "'JetBrains Mono Variable',monospace";
@@ -293,4 +293,186 @@ V['ptable-property-heatmap-table'] = (root, T) => {
   root.append(top, disc, body); build(); setT(273); drawSel(E[0]);
   window.__demoProof = async () => { const n = cells.size; prop = 'en'; paint(); const fC = cells.get(9).style.background, cs = cells.get(55).style.background; prop = 'series'; paint(); setT(400); const hg = st(E[79]), ga = st(E[30]); setT(273); q = 'fe'; paint(); const hits = grid.querySelectorAll('.pt-el.hit').length, dims = grid.querySelectorAll('.pt-el.dim').length; q = ''; paint(); darkB.click(); const dk = root.classList.contains('pt-dark'); darkB.click(); wideB.click(); wideB.click(); drawSel(E[25]); const det = card.textContent.includes('Fe'); drawSel(E[0]); return `cells=${n}, EN heat F=${fC} vs Cs=${cs}, 400K Hg=${hg} Ga=${ga}, search fe→hit ${hits} dim ${dims}, dark=${dk}, detail card Fe=${det}; restored`; };
 };
+V['histography-dot-grid-history-timeline-resizable-era-range-bar-bodoni-hover-cards'] = (root, T) => {
+  import('@fontsource/bodoni-moda/700-italic.css'); import('@fontsource/bodoni-moda/400-italic.css'); import('@fontsource/lato/400.css'); import('@fontsource/lato/700.css'); import('@fontsource/lato/900.css'); import('@fontsource/lato/400-italic.css');
+  theme(root, T, { bg: '#8a8a8a', fg: '#fff', ac: '#e5a3bb', dark: true });
+  const BD = "'Bodoni Moda','Didot','Bodoni 72',serif", LT = "'Lato','Helvetica Neue',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SW = 258, SX = 274, SY = 14, GAP = 7, BH = 64;
+  css(`.hg{position:absolute;inset:0;background:#8a8a8a;overflow:hidden;font-family:${LT};user-select:none}
+.hg *{box-sizing:border-box}
+.hg-side{position:absolute;left:0;top:0;bottom:0;width:${SW}px;background:#3b3e42 repeating-linear-gradient(45deg,#ffffff05 0 1px,transparent 1px 3px);color:#fff;overflow:hidden}
+.hg-logo{position:absolute;left:78px;top:30px;width:60px;height:44px}
+.hg-ttl{position:absolute;left:18px;top:112px;width:226px;margin:0;font:700 italic 50px/.84 ${BD};letter-spacing:-.01em;word-break:break-all;text-transform:uppercase}
+.hg-ttl em{display:block;font-style:inherit}
+.hg-ttl span{color:#8d8f92}
+.hg-cats{position:absolute;left:0;right:0;top:auto;bottom:0;border-top:1px solid #ffffff26;padding:4px 26px 0 18px}
+.hg-cat{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px dashed #ffffff40;color:#fff;padding:7px 0 6px;cursor:pointer;transition:color .2s,opacity .2s}
+.hg .hg-cat b{display:block;font:900 10.5px ${LT};letter-spacing:.2em;text-transform:uppercase}
+.hg .hg-cat i{display:block;font:400 11px ${LT};font-style:normal;letter-spacing:.24em;color:#8d8f92;margin-top:3px;font-variant-numeric:tabular-nums}
+.hg-cat:hover b{color:#e5a3bb}.hg.filt .hg-cat:not(.on){opacity:.35}.hg-cat.on b{color:#e5a3bb}
+.hg-stage{position:absolute;left:${SX}px;top:${SY}px;right:14px;bottom:${BH + 28}px;background:#e5a3bb;overflow:hidden;cursor:crosshair}
+.hg-stage::before{content:'';position:absolute;inset:0;background-image:radial-gradient(#00000014 .7px,transparent 1px),radial-gradient(#ffffff18 .6px,transparent 1px);background-size:9px 11px,13px 7px;background-position:0 0,4px 3px;pointer-events:none}
+.hg-stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.hg-nav{position:absolute;top:13px;left:0;right:0;text-align:center;font:700 8.5px ${LT};letter-spacing:.32em;color:#3b3e42;z-index:3;pointer-events:none}
+.hg-nav a{pointer-events:auto;cursor:pointer;color:inherit;text-decoration:none}.hg-nav a:hover{color:#fff}.hg-nav em{font-style:normal;margin:0 14px}
+.hg .hg-luck{position:absolute;left:0;top:0;width:68px;height:68px;background:#c6dcd0;border:0;z-index:3;cursor:pointer;font:900 7.5px/1.5 ${LT};letter-spacing:.22em;color:#3b3e42;padding:0;transition:background .2s}
+.hg-luck:hover{background:#d8ece1}
+.hg-vl{position:absolute;top:0;bottom:0;width:1px;background:#fff;z-index:2;pointer-events:none;display:none}
+.hg-yr{position:absolute;top:0;transform:translateX(-50%);background:#2c2e31;color:#fff;font:900 10px ${LT};letter-spacing:.06em;padding:4px 6px;z-index:4;pointer-events:none;display:none}
+.hg-pin{position:absolute;z-index:3;pointer-events:none;transform:translate(-50%,-50%);transition:opacity .25s}
+.hg-pin .ph{width:58px;height:58px;border-radius:50%;border:3px solid #fff;overflow:hidden;box-shadow:0 1px 6px #0003;margin:0 auto;background:#555}
+.hg-pin .ph svg{display:block;width:100%;height:100%}
+.hg-pin .cd{position:absolute;left:50%;top:64px;transform:translateX(-50%);background:#fff;color:#1e1e1e;padding:7px 9px 6px;width:max-content;max-width:170px;box-shadow:0 1px 4px #0002}
+.hg-pin .cd b{display:block;font:900 8.5px/1.45 ${LT};letter-spacing:.06em;text-transform:uppercase}
+.hg-pin .cd b i{font:400 italic 9px ${BD};color:#999;letter-spacing:0;margin-left:3px}
+.hg-pin.big .ph{width:64px;height:64px}
+.hg-pin.big .cd{max-width:230px;padding:9px 12px 9px}
+.hg-pin.big .cd h3{margin:0;font:700 italic 17px/1.05 ${BD};text-transform:none}
+.hg-pin.big .cd h3 i{font:400 italic 13px ${BD};color:#999;margin-left:5px}
+.hg-pin.big .cd p{margin:5px 0 0;font:400 10.5px/1.45 ${LT};color:#555}
+.hg-pin.big .cd .k{display:block;margin-top:5px;font:900 7.5px ${LT};letter-spacing:.24em;color:#c47896}
+.hg-bar{position:absolute;left:${SX}px;right:14px;bottom:14px;height:${BH}px;background:#3b3e42;overflow:hidden;cursor:pointer}
+.hg-era{position:absolute;top:0;bottom:0;border-left:1px solid #ffffff12;font:700 8px ${LT};letter-spacing:.26em;color:#8d8f92;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9px;text-transform:uppercase;white-space:nowrap}
+.hg-era:hover{color:#fff}
+.hg-tk{position:absolute;top:0;width:1px;height:7px;background:#ffffff30}
+.hg-win{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,#e5a3bb 0 2px,#c98aa2 2px 4px);opacity:.92;cursor:grab}
+.hg-win:active{cursor:grabbing}
+.hg-hd{position:absolute;top:-4px;bottom:-4px;width:6px;background:#fff;cursor:ew-resize;z-index:2}
+.hg-hd.l{left:-3px}.hg-hd.r{right:-3px}
+.hg-wl{position:absolute;top:8px;font:900 9px ${LT};letter-spacing:.14em;color:#3b3e42;pointer-events:none;white-space:nowrap}
+.hg-wl.l{left:8px}.hg-wl.r{right:8px}
+.hg-ov{position:absolute;inset:0;background:#1d1517d0;z-index:6;display:grid;place-items:center;text-align:center;color:#fff;transition:opacity .35s}
+.hg-ov.off{opacity:0;pointer-events:none}
+.hg-ov p{margin:0;font:400 12.5px/1.55 ${LT};letter-spacing:.24em;text-transform:uppercase}
+.hg-ov p+p{margin-top:16px}
+.hg .hg-ok{margin-top:22px;background:none;border:1.5px solid #fff;color:#fff;font:700 italic 15px ${BD};letter-spacing:.06em;padding:8px 18px 9px;cursor:pointer}
+.hg-ok:hover{background:#fff;color:#1d1517}
+.hg-bub{position:absolute;right:146px;bottom:30px;width:42px;height:42px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 15px ${LT}}
+.hg-bub::after{content:'';position:absolute;left:50%;bottom:-9px;width:10px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateX(-50%) rotate(45deg);background:#2b2124}
+.hg-tip{position:absolute;left:${SW + 12}px;top:350px;width:300px;background:#fff;color:#2c2e31;padding:16px 18px;z-index:7;box-shadow:0 8px 30px #0005;display:none}
+.hg-tip.on{display:block}.hg-tip::before{content:'';position:absolute;left:-8px;top:24px;border:8px solid transparent;border-left:0;border-right-color:#fff}
+.hg-tip p{margin:0 0 6px;font:700 10px/1.6 ${LT};letter-spacing:.2em;text-transform:uppercase}
+.hg-tip .hg-ok{border-color:#2c2e31;color:#2c2e31;margin-top:10px}.hg-tip .hg-ok:hover{background:#2c2e31;color:#fff}
+.hg-about{position:absolute;inset:${SY}px 14px ${BH + 28}px ${SX}px;background:#2c2e31f2;color:#fff;z-index:8;display:none;padding:80px 140px;overflow:auto}
+.hg-about.on{display:block}.hg-about h2{font:700 italic 54px/1 ${BD};margin:0 0 20px}.hg-about p{font:400 14px/1.7 ${LT};max-width:640px;color:#ccc}
+.hg-about button{position:absolute;right:24px;top:20px;background:none;border:0;color:#fff;font:300 30px ${LT};cursor:pointer}
+`);
+  const el = h('div.hg'); root.append(el);
+  // ---------- data: synthetic Wikipedia-style events (seeded) ----------
+  const B = [-13.8e9, -3e6, -1e4, -3000, 500, 1400, 1760, 1950, 2016];
+  const ERAS = ['The Beginning', 'Prehistory', 'Stone Age', 'Ancient', 'Middle Ages', 'Renaissance', 'Industrial Age', 'Information Age'];
+  const NS = ERAS.length;
+  const bf = (y) => { let k = 0; while (k < NS - 1 && y >= B[k + 1]) k++; return (k + clamp((y - B[k]) / (B[k + 1] - B[k]), 0, 1)) / NS; };
+  const yf = (f) => { f = clamp(f, 0, 1) * NS; const k = Math.min(NS - 1, Math.floor(f)); return B[k] + (f - k) * (B[k + 1] - B[k]); };
+  const CATS = ['Literature', 'Music', 'Wars', 'Politics', 'Construction', 'Inventions', 'Riots', 'Women Rights', 'Disasters', 'Art', 'Nationality'];
+  const CW = [16, 10, 10, 8, 8, 6, 3.6, 2.6, 2.3, 1.8, 1.7];
+  const TPL = { Literature: ['A landmark novel is published', 'A poet’s first collection appears', 'An encyclopedia volume is printed'], Music: ['A symphony premieres', 'A new opera opens', 'A dance craze spreads'], Wars: ['A border war breaks out', 'A decisive siege ends', 'An armistice is signed'], Politics: ['A new constitution is adopted', 'A coalition government forms', 'A treaty is ratified'], Construction: ['A cathedral is completed', 'A great bridge opens', 'A canal is dug'], Inventions: ['A new engine is patented', 'A precision instrument is built', 'A chemical process is discovered'], Riots: ['Bread riots erupt', 'Dock workers strike', 'A student uprising'], 'Women Rights': ['Women win the vote in a province', 'The first women’s college opens', 'Equal pay act passed'], Disasters: ['A great flood', 'An earthquake levels a port city', 'A city-wide fire'], Art: ['A painting school emerges', 'A national gallery opens', 'A sculpture movement begins'], Nationality: ['A nation declares independence', 'A union of states forms', 'Borders are redrawn'] };
+  const REAL = [[1619, 'Slavery in America began', 'Wars', 'The first enslaved Africans arrive in the English colony of Virginia.'], [1676, 'Microscopic organisms first discovered', 'Inventions', 'Van Leeuwenhoek describes “animalcules” seen through his lenses.'], [1752, 'Electricity discovered', 'Inventions', 'Franklin’s kite experiment links lightning and electricity.'], [1804, 'The first train', 'Inventions', 'Trevithick’s steam locomotive hauls iron in South Wales.'], [1876, 'The invention of the telephone', 'Inventions', 'Bell is granted a patent for transmitting speech electrically.'], [1979, 'The Iranian revolution', 'Politics', 'The monarchy falls and an Islamic republic is declared.'], [1666, 'Great Fire of London', 'Disasters', 'A bakery fire spreads across the medieval City of London.'], [1687, 'Newton publishes the Principia', 'Literature', 'The laws of motion and universal gravitation are set out.'], [1789, 'The French Revolution', 'Riots', 'The storming of the Bastille begins a decade of upheaval.'], [1859, 'On the Origin of Species', 'Literature', 'Darwin publishes his theory of evolution by natural selection.'], [1893, 'Women vote in New Zealand', 'Women Rights', 'The first self-governing country to grant women the vote.'], [1914, 'World War I begins', 'Wars', 'The assassination in Sarajevo sets off a global war.'], [1928, 'Penicillin discovered', 'Inventions', 'Fleming notices mould killing bacteria in a petri dish.'], [1939, 'World War II begins', 'Wars', 'Germany invades Poland.'], [1969, 'Moon landing', 'Inventions', 'Apollo 11 lands; Armstrong steps onto the Moon.'], [1989, 'Fall of the Berlin Wall', 'Politics', 'Crossings open and the Wall comes down.'], [1440, 'The printing press', 'Inventions', 'Gutenberg’s movable type transforms the spread of ideas.'], [1503, 'Mona Lisa begun', 'Art', 'Leonardo starts his portrait of Lisa Gherardini.'], [-2560, 'Great Pyramid completed', 'Construction', 'The tomb of Khufu rises at Giza.'], [-13.8e9, 'The Big Bang', 'Disasters', 'Space, time and matter begin.'], [-4.5e9, 'Earth forms', 'Disasters', 'Our planet coalesces from the solar nebula.'], [-66e6, 'Dinosaurs go extinct', 'Disasters', 'An asteroid impact ends the Cretaceous.'], [1215, 'Magna Carta', 'Politics', 'King John agrees to limits on royal power.'], [476, 'Fall of the Western Roman Empire', 'Wars', 'Romulus Augustulus is deposed.']];
+  const R = rng(20261011); const EV = [];
+  const pickCat = () => { let t = R() * CW.reduce((a, b) => a + b), i = 0; while ((t -= CW[i]) > 0) i++; return i; };
+  const add = (y, ci, real) => EV.push({ y, f: bf(y), c: ci, t: real ? real[1] : pick(TPL[CATS[ci]], R), real: real ? real[3] : null, x: 0, yy: 0, tx: 0, ty: 0, vis: false });
+  const jag = noise2(5);
+  for (let y = 1400; y <= 2016; y++) { let rate = y < 1900 ? 1.2 * Math.exp((y - 1650) / 85) : 22.7 * Math.exp((y - 1900) / 55); if (y > 1995) rate *= Math.max(0.35, 1 - (y - 1995) / 28); if (y >= 1914 && y <= 1918) rate *= 2.1; if (y >= 1939 && y <= 1945) rate *= 2.4; rate *= (0.55 + jag(y * 0.31, 2) * 1.0) * 0.5;
+    const n = Math.floor(rate) + (R() < rate % 1 ? 1 : 0); for (let i = 0; i < n; i++) add(y + R() * 0.999, pickCat()); }
+  [[0, 70], [1, 110], [2, 150], [3, 420], [4, 560]].forEach(([k, n]) => { for (let i = 0; i < n; i++) add(B[k] + Math.pow(R(), k < 3 ? 0.55 : 0.8) * (B[k + 1] - B[k]), pickCat()); });
+  REAL.forEach((r) => add(r[0], CATS.indexOf(r[2]), r));
+  EV.sort((a, b) => a.f - b.f);
+  // ---------- DOM ----------
+  const logo = h('div.hg-logo', { html: '<svg viewBox="0 0 60 44"><path d="M4 40 L56 4" stroke="#fff" stroke-width="3"/><rect x="22" y="6" width="5" height="34" fill="#fff"/><rect x="35" y="2" width="5" height="34" fill="#fff"/><path d="M8 30h46" stroke="#fff" stroke-width="3"/></svg>' });
+  const ttl = h('h1.hg-ttl'); const catBox = h('div.hg-cats');
+  const catEls = CATS.map((c, i) => { const b = h('button.hg-cat', { onclick: () => toggleCat(i) }, h('b', {}, c), h('i', {}, '0')); catBox.append(b); return b; });
+  el.append(h('aside.hg-side', {}, logo, ttl, catBox));
+  const stage = h('div.hg-stage'); const cv = h('canvas'); const ctx = cv.getContext('2d');
+  const vl = h('div.hg-vl'), yr = h('div.hg-yr');
+  let soundOn = true; const sndA = h('a', { onclick: () => { soundOn = !soundOn; sndA.textContent = soundOn ? 'SOUND ON' : 'SOUND OFF'; } }, 'SOUND ON');
+  const about = h('div.hg-about', {}, h('button', { onclick: () => about.classList.remove('on') }, '×'), h('h2', {}, 'Histography'), h('p', {}, 'Every dot is a historic event drawn from Wikipedia, stacked by the year it happened. Resize the bar at the bottom to travel anywhere from the Big Bang to today; the dots reflow to fill the screen.'), h('p', {}, 'This page is a practice clone: the events are seeded stand-ins (plus a few well-known milestones), and every “photo” is drawn in code.'));
+  const nav = h('div.hg-nav', {}, h('a', { onclick: () => about.classList.add('on') }, 'ABOUT'), h('em', {}, '•'), h('a', { onclick: () => toast('Events are sourced from Wikipedia (stand-in data in this clone)') }, 'BASED ON WIKIPEDIA'), h('em', {}, '•'), sndA);
+  const luck = h('button.hg-luck', { title: 'Feeling lucky', onclick: () => lucky() }, 'FEEL', h('br'), 'ING', h('br'), 'LUCKY');
+  const pins = h('div'); const hov = h('div.hg-pin.big', { style: { display: 'none' } });
+  stage.append(cv, nav, luck, vl, yr, pins, hov);
+  const bar = h('div.hg-bar'); ERAS.forEach((e, k) => bar.append(h('div.hg-era', { style: { left: (k / NS * 100) + '%', width: (100 / NS) + '%' }, ondblclick: (ev) => { ev.stopPropagation(); setWin(k / NS + 0.002, (k + 1) / NS - 0.002, true); } }, e)));
+  for (let i = 0; i <= 160; i++) bar.append(h('div.hg-tk', { style: { left: (i / 160 * 100) + '%', height: i % 20 === 0 ? '12px' : '6px' } }));
+  const wl = h('span.hg-wl.l'), wr = h('span.hg-wl.r'); const hl = h('div.hg-hd.l'), hr = h('div.hg-hd.r');
+  const win = h('div.hg-win', {}, hl, hr, wl, wr); bar.append(win);
+  const ov = h('div.hg-ov', {}, h('div', {}, h('p', {}, 'Welcome to Histography', h('br'), 'where every dot is a historic event from Wikipedia'), h('p', {}, 'You are now viewing history from 1600 - 2000', h('br'), 'resize the bottom bar to view any time period or era'), h('button.hg-ok', { onclick: () => step(2) }, 'GOT IT')), h('div.hg-bub', {}, '↔'));
+  stage.append(ov);
+  const tip = h('div.hg-tip', {}, h('p', {}, 'Click a category to light up its events'), h('p', {}, 'Hover any dot to read the story · Feeling lucky jumps to a random one'), h('button.hg-ok', { onclick: () => step(0) }, 'GOT IT'));
+  el.append(stage, bar, tip, about);
+  // ---------- state ----------
+  const DEF = [bf(1600), bf(2000)];
+  let L = DEF[0], Rw = DEF[1], W = 1152, H = 756, cols = 164, rows = 108, active = new Set(), hovE = null, pinE = null, ob = 1;
+  const fmtY = (y) => y < -1e9 ? (-y / 1e9).toFixed(1) + 'B BC' : y < -1e6 ? Math.round(-y / 1e6) + 'M BC' : y < -2e4 ? Math.round(-y / 1e3) + 'K BC' : y < 0 ? Math.round(-y) + ' BC' : String(Math.floor(y));
+  const ONES = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'], TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+  const w99 = (n) => n < 20 ? ONES[n] : TENS[Math.floor(n / 10)] + (n % 10 ? ' ' + ONES[n % 10] : '');
+  const w999 = (n) => (n >= 100 ? ONES[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' : '') : '') + (n % 100 ? w99(n % 100) : '');
+  const words = (span) => { for (const [d, wd] of [[1e9, 'billion'], [1e6, 'million'], [1e3, 'thousand']]) if (span >= d) { const v = Math.max(1, Math.round(span / d)); return v < 1000 ? w999(v) + ' ' + wd : 'countless'; } const v = Math.max(1, span >= 100 ? Math.round(span / 10) * 10 : Math.round(span)); return w999(v); };
+  const fit = () => { const r = stage.getBoundingClientRect(); W = r.width || 1152; H = r.height || 756; const d = Math.min(2, devicePixelRatio || 1); cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); cols = Math.floor(W / GAP); rows = Math.floor(H / GAP); layout(true); moving = true; };
+  const layout = (snap) => { const per = new Map(); const cy = Math.round(H / 2 / GAP) * GAP; const counts = new Array(CATS.length).fill(0); const half = Math.floor(rows / 2) - 1;
+    for (const e of EV) { const xr = (e.f - L) / (Rw - L); e.vis = xr >= 0 && xr < 1; let col = Math.floor(xr * cols); e.tx = col * GAP + GAP / 2 + (W - cols * GAP) / 2;
+      if (e.vis) { counts[e.c]++; const k = per.get(col) || 0; per.set(col, k + 1); const off = ((k + 1) >> 1) * (k % 2 ? 1 : -1); e.clip = Math.abs(off) > half; e.ty = cy + off * GAP; } else { e.ty = cy; e.clip = false; }
+      if (snap || RM) { e.x = e.tx; e.yy = e.ty; } }
+    catEls.forEach((b, i) => (b.lastChild.textContent = counts[i])); const a = yf(L), b = yf(Rw);
+    ttl.replaceChildren(...words(b - a).split(' ').map((w) => h('em', {}, w)), h('em', {}, h('span', {}, 'years')));
+    win.style.left = (L * 100) + '%'; win.style.width = ((Rw - L) * 100) + '%'; wl.textContent = fmtY(a); wr.textContent = fmtY(b); wr.style.display = (Rw - L) * (W) < 110 ? 'none' : '';
+    placePins(); };
+  const vis = () => EV.filter((e) => e.vis && !e.clip);
+  // code-drawn circular "photos"
+  const GLY = { Literature: '<path d="M18 22h11v20H18zM31 22h11v20H31z" fill="none" stroke="#eee" stroke-width="2"/>', Music: '<path d="M27 40V20l14-3v19" fill="none" stroke="#eee" stroke-width="2.4"/><circle cx="24" cy="40" r="4" fill="#eee"/><circle cx="38" cy="36" r="4" fill="#eee"/>', Wars: '<path d="M18 42 42 18M42 42 18 18M16 36l8 8M44 36l-8 8" stroke="#eee" stroke-width="2.4"/>', Politics: '<path d="M20 44V16M20 18h22l-5 6 5 6H20" fill="none" stroke="#eee" stroke-width="2.2"/>', Construction: '<path d="M16 44V28a14 14 0 0 1 28 0v16M24 44V30a6 6 0 0 1 12 0v14" fill="none" stroke="#eee" stroke-width="2.2"/>', Inventions: '<path d="M33 14 22 33h8l-3 15 12-21h-8z" fill="#eee"/>', Riots: '<path d="M22 44V28h16v16M24 28v-8h4v8M28 20h4v8M32 22h4v6" fill="none" stroke="#eee" stroke-width="2"/>', 'Women Rights': '<circle cx="30" cy="25" r="8" fill="none" stroke="#eee" stroke-width="2.4"/><path d="M30 33v12M25 40h10" stroke="#eee" stroke-width="2.4"/>', Disasters: '<path d="M12 36q6-8 12 0t12 0 12 0M12 44q6-8 12 0t12 0 12 0" fill="none" stroke="#eee" stroke-width="2.2"/>', Art: '<rect x="17" y="18" width="26" height="24" fill="none" stroke="#eee" stroke-width="2.2"/><path d="M19 38l8-9 6 6 4-4 4 5" fill="none" stroke="#eee" stroke-width="1.8"/>', Nationality: '<circle cx="30" cy="30" r="13" fill="none" stroke="#eee" stroke-width="2"/><path d="M17 30h26M30 17q-8 13 0 26M30 17q8 13 0 26" fill="none" stroke="#eee" stroke-width="1.6"/>' };
+  const photo = (e) => { const R2 = rng(Math.floor(Math.abs(e.y) * 7) + e.c); const g1 = 60 + R2() * 70 | 0, g2 = 150 + R2() * 70 | 0; return `<svg viewBox="0 0 60 60"><defs><radialGradient id="hgp${e.c}${g1}" cx="${30 + R2() * 30}%" cy="${20 + R2() * 40}%"><stop offset="0" stop-color="rgb(${g2},${g2},${g2 - 6})"/><stop offset="1" stop-color="rgb(${g1},${g1},${g1 + 4})"/></radialGradient></defs><rect width="60" height="60" fill="url(#hgp${e.c}${g1})"/>${Array.from({ length: 30 }, () => `<rect x="${R2() * 60}" y="${R2() * 60}" width="1" height="1" fill="#fff" opacity="${R2() * 0.4}"/>`).join('')}${GLY[CATS[e.c]]}</svg>`; };
+  const card = (e, big) => big ? h('div.cd', {}, h('h3', {}, e.t, h('i', {}, fmtY(e.y))), h('p', {}, e.real || 'Stand-in event · a seeded dot in this clone, standing for one Wikipedia event.'), h('span.k', {}, CATS[e.c].toUpperCase())) : h('div.cd', {}, h('b', {}, e.t, h('i', {}, fmtY(e.y))));
+  const placePins = () => { pins.replaceChildren(); if (hovE || pinE) return; const real = vis().filter((e) => e.real && (!active.size || active.has(e.c))); const chosen = [];
+    for (const e of real.sort((a, b) => a.y - b.y)) if (chosen.every((c) => Math.abs(c.tx - e.tx) > 150) && chosen.length < 6) chosen.push(e);
+    chosen.forEach((e) => { const p = h('div.hg-pin', { style: { left: e.tx + 'px', top: clamp(e.ty, 50, H - 120) + 'px' } }, h('div.ph', { html: photo(e) }), card(e, false)); pins.append(p); }); };
+  // ---------- draw loop ----------
+  let raf = 0, moving = true;
+  const draw = () => { raf = requestAnimationFrame(draw); let mv = false;
+    for (const e of EV) { const dx = e.tx - e.x, dy = e.ty - e.yy; if (Math.abs(dx) > 0.3 || Math.abs(dy) > 0.3) { e.x += dx * 0.16; e.yy += dy * 0.16; mv = true; } else { e.x = e.tx; e.yy = e.ty; } }
+    if (!mv && !moving) return; moving = mv; ctx.clearRect(0, 0, W, H);
+    for (const pass of [0, 1]) { ctx.fillStyle = pass ? '#363636' : '#36363640'; ctx.beginPath();
+      for (const e of EV) { if (!e.vis || e.clip || e.x < -4 || e.x > W + 4) continue; const lit = !active.size || active.has(e.c); if (lit !== !!pass) continue; ctx.moveTo(e.x + 2.3, e.yy); ctx.arc(e.x, e.yy, 2.3, 0, 6.2832); }
+      ctx.fill(); }
+    const fe = hovE || pinE; if (fe) { ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(fe.x, fe.yy, 3.4, 0, 6.2832); ctx.fill(); } };
+  const kick = () => { moving = true; };
+  // ---------- interactions ----------
+  const showHover = (e, big = true) => { const fe = e; hov.style.display = fe ? '' : 'none'; vl.style.display = yr.style.display = fe ? 'block' : 'none'; if (!fe) { placePins(); kick(); return; }
+    vl.style.left = fe.tx + 'px'; yr.style.left = fe.tx + 'px'; yr.textContent = fmtY(fe.y); const top = clamp(fe.ty, 46, H - 190);
+    hov.style.left = clamp(fe.tx, 120, W - 120) + 'px'; hov.style.top = top + 'px'; hov.replaceChildren(h('div.ph', { html: photo(fe) }), card(fe, big)); pins.replaceChildren(); kick(); };
+  const nearest = (mx, my) => { let best = null, bd = 8 * 8; for (const e of EV) { if (!e.vis || e.clip) continue; if (Math.abs(e.tx - mx) > 8) continue; const d = (e.tx - mx) ** 2 + (e.ty - my) ** 2; if (d < bd) { bd = d; best = e; } } return best; };
+  let lastTick = 0;
+  stage.addEventListener('pointermove', (ev) => { if (!ov.classList.contains('off')) return; const p = localPos(ev, stage); const e = nearest(p.x, p.y); if (e === hovE) return; hovE = e; if (e) pinE = null; showHover(e || pinE);
+    if (e && soundOn && performance.now() - lastTick > 40) { lastTick = performance.now(); const ac = audio(); if (ac && ac.state === 'running') blip(900 + (e.c * 90), 0.05, 'sine', 0.03); } });
+  stage.addEventListener('pointerleave', () => { hovE = null; showHover(pinE); });
+  const toggleCat = (i) => { active.has(i) ? active.delete(i) : active.add(i); catEls.forEach((b, j) => b.classList.toggle('on', active.has(j))); el.classList.toggle('filt', active.size > 0); placePins(); kick(); };
+  const lucky = () => { const pool = vis().filter((e) => !active.size || active.has(e.c)); if (!pool.length) return; pinE = pool[Math.random() * pool.length | 0]; hovE = null; showHover(pinE); return pinE; };
+  const setWin = (a, b, anim) => { const MIN = 0.004; a = clamp(a, 0, 1 - MIN); b = clamp(b, a + MIN, 1); L = a; Rw = b; pinE = null; hovE = null; showHover(null); layout(!anim); kick(); };
+  let mode = null, sx = 0, s0 = [0, 0];
+  const bw = () => bar.getBoundingClientRect().width || 1152;
+  bar.addEventListener('pointerdown', (ev) => { const p = localPos(ev, bar); const f = p.x / bw(); mode = ev.target === hl ? 'l' : ev.target === hr ? 'r' : win.contains(ev.target) ? 'm' : 'jump';
+    if (mode === 'jump') { const w = Rw - L; setWin(f - w / 2, f + w / 2, true); mode = 'm'; } sx = f; s0 = [L, Rw]; try { bar.setPointerCapture(ev.pointerId); } catch {} });
+  bar.addEventListener('pointermove', (ev) => { if (!mode) return; const f = localPos(ev, bar).x / bw(), d = f - sx;
+    if (mode === 'l') setWin(Math.min(s0[0] + d, Rw - 0.004), Rw, true); else if (mode === 'r') setWin(L, Math.max(s0[1] + d, L + 0.004), true); else { const w = s0[1] - s0[0]; const a = clamp(s0[0] + d, 0, 1 - w); setWin(a, a + w, true); } });
+  bar.addEventListener('pointerup', () => { mode = null; });
+  stage.addEventListener('wheel', (ev) => { if (!ov.classList.contains('off')) return; ev.preventDefault(); const p = localPos(ev, stage), fx = L + (p.x / W) * (Rw - L), k = Math.exp(ev.deltaY * 0.0012); setWin(fx - (fx - L) * k, fx + (Rw - fx) * k, true); }, { passive: false });
+  const step = (n) => { ob = n; ov.classList.toggle('off', n !== 1); tip.classList.toggle('on', n === 2); };
+  // ---------- boot ----------
+  requestAnimationFrame(() => { fit(); draw(); }); new ResizeObserver(() => fit()).observe(stage);
+  // ---------- demo proof ----------
+  const reset = () => { active.clear(); catEls.forEach((b) => b.classList.remove('on')); el.classList.remove('filt'); soundOn = true; sndA.textContent = 'SOUND ON'; about.classList.remove('on'); setWin(DEF[0], DEF[1], false); step(1); };
+  window.__demoProof = async () => { const o = []; reset(); await sleep(60);
+    o.push(`onboarding step1 visible=${!ov.classList.contains('off')}`); ov.querySelector('.hg-ok').click(); o.push(`GOT IT → step2 tip=${tip.classList.contains('on')}`); tip.querySelector('.hg-ok').click(); o.push(`GOT IT → onboarding closed=${ov.classList.contains('off') && !tip.classList.contains('on')}`);
+    const tt = () => [...ttl.children].map((x) => x.textContent).join(" "); const n0 = vis().length, ttl0 = tt(); const bwid = bw();
+    hl.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, clientX: bar.getBoundingClientRect().left + L * bwid, clientY: bar.getBoundingClientRect().top + 30, pointerId: 1 }));
+    fire(bar, 'pointermove', bf(1900) * bwid, 30); fire(bar, 'pointerup', bf(1900) * bwid, 30); await sleep(380);
+    o.push(`drag left handle 1600→${fmtY(yf(L))}: dots ${n0}→${vis().length}, title "${ttl0}"→"${tt()}", reflow animating=${moving}`);
+    const mid = EV.find((e) => e.vis && !e.clip && Math.abs(e.ty - H / 2) < 8 && e.tx > W * 0.6);
+    fire(stage, 'pointermove', mid.tx, mid.ty); await sleep(60); o.push(`hover dot → card "${hov.querySelector('h3')?.firstChild?.textContent}" ${yr.textContent}, line=${vl.style.display}`);
+    catEls[2].click(); await sleep(40); o.push(`filter WARS → lit ${vis().filter((e) => active.has(e.c)).length}/${vis().length}`);
+    const lk = lucky(); o.push(`feeling lucky → "${lk?.t}" (${fmtY(lk?.y)}) in WARS=${lk?.c === 2}`);
+    sndA.click(); o.push(`sound toggle → ${sndA.textContent}`);
+    setWin(5 / NS + 0.002, 6 / NS - 0.002, true); o.push(`dbl-click era → ${fmtY(yf(L))}–${fmtY(yf(Rw))}`);
+    reset(); await sleep(40); stage.dispatchEvent(new PointerEvent('pointerleave')); document.querySelector('.tg-toast')?.classList.remove('on');
+    o.push(`restored 1600–2000 (${fmtY(yf(L))}–${fmtY(yf(Rw))}), filters cleared, onboarding back, dots ${vis().length}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['alg0-step-visualizer'])(root, T); }

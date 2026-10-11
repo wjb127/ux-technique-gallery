@@ -1,4 +1,4 @@
-import { h, s, css, drag, localPos, clamp, copy, toast, sleep, rng, hsl, pick, randHex, gesture } from '../lib.js';
+import { h, s, css, drag, localPos, clamp, copy, toast, sleep, rng, hsl, pick, randHex, gesture, noise2 } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, toggle, codebox } from '../kit.js';
 const ser = (el) => new XMLSerializer().serializeToString(el);
 const dl = (name, text) => { const a = h('a', { download: name, href: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(text) }); a.click(); toast(`${name} downloaded`); };
@@ -1588,6 +1588,255 @@ V['blush-illustration-remix-desk'] = (root, T) => {
     reset();
     return 'randomized once then reset to default peep';
   };
+};
+
+V['atlas-of-emotions-morphing-emotion-continents-fullpage-chapters-state-intensity-bands'] = (root, T) => {
+  import('@fontsource/raleway/300.css'); import('@fontsource/raleway/400.css'); import('@fontsource/raleway/500.css'); import('@fontsource/raleway/700.css'); import('@fontsource/raleway/800.css');
+  theme(root, T, { bg: '#ffffff', fg: '#222', ac: '#f58b1f', dark: false });
+  const RW = "'Raleway','Helvetica Neue',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SBW = 342;
+  css(`.ae{position:absolute;inset:0;background:#fff;color:#333;font-family:${RW};overflow:hidden}
+.ae *{box-sizing:border-box}
+.ae-main{position:absolute;inset:0;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
+.ae-main::-webkit-scrollbar{display:none}
+.ae-sec{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+.ae-in{position:absolute;left:${SBW}px;right:0;top:56px;bottom:0}
+.ae-side{position:absolute;left:0;top:0;bottom:0;width:${SBW}px;background:#eee;z-index:5;transition:transform .6s cubic-bezier(.6,0,.2,1)}
+.ae.intro .ae-side{transform:translateX(-100%)}
+.ae-logo{position:absolute;left:26px;top:24px;display:flex;align-items:center;gap:16px;z-index:6;cursor:pointer;color:#222}
+.ae-logo .c{width:84px;height:84px;border-radius:50%;background:#1d1d1d;display:grid;place-items:center}
+.ae-logo b{font:800 19px/1.2 ${RW};letter-spacing:.16em}
+.ae-st{position:absolute;left:27px;right:26px;top:128px}
+.ae-st h2{margin:0;padding-bottom:9px;border-bottom:2px solid #555;font:400 22px ${RW};color:#222;display:flex;justify-content:space-between;align-items:baseline}
+.ae-st h2 a{font:400 16px ${RW};color:#aaa;cursor:pointer}.ae-st h2 a:hover{color:#333}
+.ae-st p{margin:16px 0 0;font:300 16.5px/1.55 ${RW};color:#444}
+.ae-st h4{margin:22px 0 0;font:500 16px ${RW};color:#222;text-transform:uppercase;letter-spacing:.01em}
+.ae .ae-hbtn{margin-top:20px;width:100%;height:32px;border:1px solid #333;border-radius:4px;background:#fff;font:500 12.5px ${RW};letter-spacing:.04em;box-shadow:0 2px 3px #0002;cursor:pointer}
+.ae-lm{position:absolute;left:0;right:0;bottom:0;height:48px;border-top:1px solid #bbb;display:flex;align-items:center;justify-content:center;font:400 17px ${RW};color:#555;cursor:pointer}
+.ae-lm::after{content:'›';position:absolute;right:20px;font:300 26px ${RW}}
+.ae-lm:hover{background:#e4e4e4}
+.ae-nav{position:absolute;left:${SBW}px;right:0;top:0;height:56px;display:flex;align-items:center;justify-content:flex-end;gap:44px;padding-right:26px;z-index:5;background:#eee;transition:opacity .4s,transform .5s}
+.ae.dark .ae-nav{background:#eee}
+.ae.intro .ae-nav{opacity:0;pointer-events:none;transform:translateY(-100%)}
+.ae-nav a{font:400 18px ${RW};color:#8a8a8a;cursor:pointer;white-space:nowrap}.ae-nav a:hover{color:#333}.ae-nav a.on{color:#111;font-weight:700}
+.ae-nav .env{width:24px;height:18px;border:1.6px solid #888;border-radius:2px;position:relative;cursor:pointer}
+.ae-nav .env::after{content:'';position:absolute;left:3px;right:3px;top:-6px;height:14px;border-right:1.6px solid #888;border-bottom:1.6px solid #888;transform:scaleX(1.2) rotate(45deg);transform-origin:50% 50%;width:10px;margin:0 auto}
+.ae-lang{position:absolute;right:26px;top:16px;font:400 17px ${RW};color:#888;z-index:6}
+.ae-dots{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:grid;gap:12px;z-index:6}
+.ae-dots button{width:9px;height:9px;border-radius:50%;border:1.3px solid #999;background:transparent;padding:0;cursor:pointer;position:relative}
+.ae-dots button.on{background:#333;border-color:#333}
+.ae-dots button span{position:absolute;right:16px;top:50%;transform:translateY(-50%);font:500 11px ${RW};letter-spacing:.12em;text-transform:uppercase;color:#333;opacity:0;white-space:nowrap;transition:opacity .2s;pointer-events:none}
+.ae-dots button:hover span{opacity:1}
+.ae-intro{position:absolute;inset:0;display:grid;place-items:center}
+.ae-intro svg{position:absolute;left:50%;top:47%;width:820px;height:820px;transform:translate(-50%,-50%)}
+.ae-intro .tx{position:relative;text-align:center;margin-top:-30px}
+.ae-intro h1{margin:0;font:400 46px ${RW};color:#1d1d1d;letter-spacing:-.005em}
+.ae-intro h5{margin:12px 0 0;font:800 18.5px ${RW};color:#111}.ae-intro h5 a{font-weight:400;text-decoration:underline;cursor:pointer;text-underline-offset:3px}
+.ae-intro p{margin:22px auto 0;width:500px;font:300 21px/1.6 ${RW};color:#666}
+.ae .ae-begin{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);height:68px;padding:0 18px;border:1.5px solid #222;background:#fff;font:400 37px ${RW};color:#111;display:flex;align-items:center;gap:12px;cursor:pointer}
+.ae-begin:hover{background:#111;color:#fff}.ae-begin svg{width:40px;height:22px}
+.ae svg text{font-family:${RW}}
+.ae-lbl{font:400 18px ${RW};letter-spacing:.02em;text-transform:uppercase;cursor:pointer}
+.ae-box{position:absolute;width:276px;border:1.5px solid currentColor;background:#fffffff0;padding:14px 20px 14px 20px;display:none;z-index:3}
+.ae-box.on{display:block}.ae-box h3{margin:0 0 8px;font:400 18px ${RW};letter-spacing:.02em;text-transform:uppercase}
+.ae-box p{margin:0;font:400 13.5px/1.4 ${RW}}.ae-box button.x{position:absolute;right:12px;top:10px;border:0;background:none;color:inherit;font:300 26px/1 ${RW};cursor:pointer;padding:0}
+.ae-box a{display:inline-block;margin-top:10px;font:600 12.5px ${RW};letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-bottom:1px solid currentColor}
+.ae-tabs{position:absolute;left:0;right:0;bottom:0;height:56px;display:flex;justify-content:space-around;align-items:center}
+.ae-tabs a{font:400 17.5px ${RW};letter-spacing:.02em;text-transform:uppercase;color:#999;cursor:pointer}.ae-tabs a:hover{color:#333}.ae-tabs a.on{color:#111;font-weight:700}
+.ae-dark{background:#454545}.ae-dark .ae-tabs a{color:#ccc}.ae-dark .ae-tabs a.on{color:#fff}
+.ae-tl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:22px;color:#fff;font:400 20px ${RW};padding-bottom:40px}
+.ae-tl .ar{width:70px;height:2px;background:#bbb;position:relative;transform-origin:0 50%;transition:transform .6s}.ae-tl .ar::after{content:'';position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:9px solid #bbb;border-right:0}
+.ae-tl .em{width:154px;height:154px;border-radius:50%;display:grid;place-items:center;text-align:center;font:400 22px/1.2 ${RW};color:#ffffffcc;transition:background .5s,transform .5s}
+.ae-tl .rs{width:250px;opacity:0;transition:opacity .6s}.ae-tl .rs.on{opacity:1}
+.ae-tl select{background:transparent;color:#fff;border:0;border-bottom:1px dashed #999;font:400 20px ${RW};padding:2px 0;cursor:pointer}
+.ae-tl select option{color:#222}
+.ae-pk path{transition:opacity .25s,transform .35s}
+.ae-pk .pk{cursor:pointer}
+.ae-pill{display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;border-radius:20px;font:500 13px ${RW};letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .3s,opacity .3s}
+.ae-pills{position:absolute;right:46px;top:110px;width:250px;opacity:0;transform:translateY(10px);transition:.4s}.ae-pills.on{opacity:1;transform:none}
+.ae-pills h6{margin:14px 0 4px;font:700 11px ${RW};letter-spacing:.2em;color:#999}
+.ae-ab{position:absolute;inset:0;background:#fff;z-index:20;display:none;padding:110px 0 0 ${SBW + 60}px}
+.ae-ab.on{display:block}.ae-ab h2{font:300 44px ${RW};margin:0 0 18px}.ae-ab p{font:300 18px/1.65 ${RW};color:#555;max-width:620px}
+.ae .ae-ab button{position:absolute;right:40px;top:30px;width:44px;height:44px;border:0;background:none;font:200 44px/1 ${RW};cursor:pointer;color:#222}
+.ae-calm{position:absolute;inset:0;display:grid;place-items:center}
+.ae-calm .br{width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#cfe3f1 0,#a9c8e8 55%,#a9c8e800 72%);display:grid;place-items:center;font:300 26px ${RW};color:#456;transition:transform 4s ease-in-out}
+.ae-calm .br.in{transform:scale(1.45)}
+.ae-mood{position:absolute;inset:0}
+.ae-mood input{width:340px}
+@media (prefers-reduced-motion: reduce){.ae-calm .br{transition:none}}
+`);
+  const EM = [
+    { k: 'anger', n: 'Anger', c: '#e3857c', d: 'Anger arises when something blocks us from pursuing a goal and/or we are being treated unfairly.', home: [544, 580, 152], lab: [703, 696],
+      st: [['Annoyance', 'Mild anger caused by a nuisance'], ['Frustration', 'Responding to repeated failures to overcome an obstacle'], ['Exasperation', 'Anger caused by an extended or repeated frustration'], ['Argumentativeness', 'Taking a hostile position against someone'], ['Bitterness', 'Anger following unfair treatment'], ['Vengefulness', 'Wanting to retaliate against someone'], ['Fury', 'The most intense anger, losing control']],
+      ac: [['Dispute', 1], ['Protest', 1], ['Set limits', 1], ['Insult', 0], ['Quarrel', 0], ['Simmer', 0], ['Scream', 0]], trig: 'you argue back, raising your voice' },
+    { k: 'fear', n: 'Fear', c: '#d58ae0', d: 'Fear arises with the threat of harm, either physical, emotional, or psychological, real or imagined.', home: [340, 250, 140], lab: [198, 375],
+      st: [['Trepidation', 'Anticipation of the possibility of danger'], ['Nervousness', 'Uncertainty as to whether there is danger'], ['Anxiety', 'Fear of possible threats that might occur'], ['Dread', 'Anticipation of severe danger'], ['Desperation', 'A response to the inability to reduce danger'], ['Panic', 'Sudden uncontrollable fear'], ['Horror', 'Fear mixed with shock and disgust'], ['Terror', 'Intense, overwhelming fear']],
+      ac: [['Hesitate', 1], ['Withdraw', 1], ['Seek help', 1], ['Freeze', 0], ['Worry', 0], ['Ruminate', 0]], trig: 'you go quiet and step back' },
+    { k: 'disgust', n: 'Disgust', c: '#7ab89b', d: 'Disgust arises as a feeling of aversion towards something offensive.', home: [738, 394, 115], lab: [877, 555],
+      st: [['Dislike', 'A feeling of not liking something'], ['Aversion', 'An impulse to avoid something'], ['Distaste', 'Reaction to bad tastes, smells, things or ideas'], ['Repugnance', 'A strong aversion to something offensive'], ['Revulsion', 'A mixture of disgust and loathing'], ['Abhorrence', 'Intense dislike mixed with hatred'], ['Loathing', 'Intense disgust focused on a person']],
+      ac: [['Avoid', 1], ['Withdraw', 1], ['Set distance', 1], ['Dehumanize', 0], ['Vilify', 0], ['Exclude', 0]], trig: 'you avoid them for the rest of the day' },
+    { k: 'sadness', n: 'Sadness', c: '#a9c8e8', d: 'Sadness arises with the loss of something important.', home: [550, 215, 140], lab: [714, 77],
+      st: [['Disappointment', 'Feeling that expectations are not being met'], ['Discouragement', 'A response to repeated failures'], ['Distraughtness', 'Feeling agitated or upset'], ['Resignation', 'Giving up because nothing will change'], ['Helplessness', 'Knowing you can do nothing'], ['Hopelessness', 'Believing nothing will get better'], ['Misery', 'Unbearable sadness'], ['Despair', 'Loss of all hope'], ['Grief', 'Sadness over the loss of someone'], ['Sorrow', 'A deep feeling of loss'], ['Anguish', 'Intense sadness, sometimes with protest']],
+      ac: [['Mourn', 1], ['Seek comfort', 1], ['Protest', 1], ['Withdraw', 0], ['Ruminate', 0], ['Self-blame', 0]], trig: 'you feel hurt and pull away' },
+    { k: 'enjoyment', n: 'Enjoyment', c: '#f58b1f', d: 'Enjoyment describes the many good feelings that arise from experiences both novel and familiar.', home: [397, 516, 183], lab: null,
+      st: [['Sensory Pleasure', 'Enjoyment derived through one of the five senses'], ['Rejoicing', 'Overflowing joy at something good'], ['Compassion', 'Joy in another’s happiness'], ['Amusement', 'Pleasurable, relaxed excitation'], ['Schadenfreude', 'Enjoyment of the misfortunes of others'], ['Relief', 'When something unpleasant has been avoided'], ['Peace', 'Ease and contentment'], ['Pride', 'Pleasure in an accomplishment'], ['Fiero', 'Enjoyment of meeting a difficult challenge'], ['Naches', 'Joy in a child’s accomplishments'], ['Wonder', 'Encountering something incomprehensible'], ['Excitement', 'A strong response to novelty'], ['Ecstasy', 'Rapturous delight, nearly overwhelming']],
+      ac: [['Exclaim', 1], ['Engage/Connect', 1], ['Gloat', 0], ['Indulge', 0], ['Maintain', 1], ['Savor', 1], ['Seek more', 1]], trig: 'you laugh it off together' }];
+  const CH = [['intro', 'Introduction'], ['exp', 'Experience'], ['states', 'States'], ['tl', 'Timeline'], ['resp', 'Response'], ['mood', 'Moods'], ['calm', 'Strategies']];
+  const SIDE = { exp: ['Our Experience', 'Most emotions researchers agree on these five Universal Emotions: emotions that all humans, no matter where or how we were raised, have in common. The movement of the shapes reflects the fluid nature of emotions – the way their strength and frequency varies from moment to moment. Select an emotion to learn more.'],
+    states: ['Emotional States', 'Each emotion is a family of states that vary in intensity. Hover a band to see its name and what it feels like; the higher the band, the more intense the state.'],
+    tl: ['The Timeline', 'Our emotions unfold on a timeline. The timeline begins with a trigger that initiates an emotional experience and ultimately results in a response.\n\nTry choosing different emotions from the list below the timeline.\n\nNotice how the same trigger can lead to a different response, depending on the emotion we feel.'],
+    resp: ['Our Response', 'We respond to emotional states with our actions. Our responses to the same emotion may differ depending on the circumstances. Any response can be constructive and helpful to ourselves, others and the situation, or destructive and not helpful.'],
+    mood: ['Moods', 'Moods are like emotions that linger: they can last for hours or days and colour everything we notice. Drag the slider to stretch a feeling into a mood.'],
+    calm: ['Strategies', 'Calm is the ability to step back from our emotions so we can choose how to respond. Breathe with the circle: in as it grows, out as it shrinks.'] };
+  const el = h('div.ae.intro'); root.append(el);
+  const tri = '<svg width="34" height="30" viewBox="0 0 34 30"><path d="M17 2 32 28H2z" fill="#fff"/></svg>';
+  const logo = h('div.ae-logo', { onclick: () => go(0) }, h('div.c', { html: tri }), h('b', {}, 'ATLAS', h('br'), 'OF', h('br'), 'EMOTIONS'));
+  const stH = h('h2'), stP = h('div'); const st = h('div.ae-st', {}, stH, stP);
+  const about = h('div.ae-ab', {}, h('button', { onclick: () => about.classList.remove('on'), 'aria-label': 'Close' }, '×'), h('h2', {}, 'About the Atlas'), h('p', {}, 'The Atlas of Emotions maps five universal emotions and the states, triggers, actions and moods that belong to each. It was made to build a vocabulary of feelings and to show that emotions unfold on a timeline we can learn to notice.'), h('p', {}, 'This page is a practice clone: shapes, copy and interactions are rebuilt in code as stand-ins for the original.'));
+  const side = h('aside.ae-side', {}, st, h('div.ae-lm', { onclick: () => about.classList.add('on') }, 'Learn More'));
+  const navA = CH.slice(1).map(([k, n], i) => h('a', { onclick: () => go(i + 1) }, n));
+  const nav = h('nav.ae-nav', {}, navA, h('span.env', { title: 'Contact', onclick: () => toast('Newsletter sign-up (demo)') }), h('a', { onclick: () => toast('Language menu (demo)') }, '(English)'));
+  const dots = h('div.ae-dots', {}, CH.map(([k, n], i) => h('button', { onclick: () => go(i), 'aria-label': n }, h('span', {}, n))));
+  const main = h('div.ae-main'); el.append(main, side, nav, logo, dots, about);
+  const sec = CH.map(([k]) => { const x = h('section.ae-sec', { 'data-k': k }); main.append(x); return x; });
+  const NSV = 'http://www.w3.org/2000/svg';
+  const nz = noise2(42); const sn = (x, y) => (nz(x, y) - 0.5) * 2;
+  // ---------- 1. intro ----------
+  const iSvg = s('svg', { viewBox: '-410 -410 820 820' }); const iRings = [];
+  for (let i = 0; i < 9; i++) { const r = 400 - i * 38; const c = s('circle', { r, fill: i % 2 ? '#f3c9f2' : '#efd7f0', opacity: i % 2 ? 0.75 : 0.6, stroke: '#e6c2e8', 'stroke-width': 2 }); iRings.push(c); iSvg.append(c); }
+  iSvg.append(s('circle', { r: 24, fill: '#fff', opacity: 0.6 }));
+  sec[0].append(h('div.ae-intro', {}, iSvg, h('div.tx', {}, h('h1', {}, 'Welcome to the Atlas of Emotions'), h('h5', {}, 'SUPPORTED BY THE DALAI LAMA ', h('a', { onclick: () => about.classList.add('on') }, 'LEARN MORE')), h('p', {}, 'The Atlas is an interactive tool that builds your vocabulary of emotions and illuminates your emotional world.'))),
+    h('button.ae-begin', { onclick: () => go(1) }, 'Begin', h('span', { html: '<svg viewBox="0 0 40 22"><path d="M3 3l17 16L37 3" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>' })), h('div.ae-lang', {}, '(English)'));
+  // ---------- 2. experience: morphing continents ----------
+  const W2 = 1098, H2 = 806;
+  const eIn = h('div.ae-in'); sec[1].append(eIn);
+  const eSvg = s('svg', { viewBox: `0 0 ${W2} ${H2}`, width: '100%', height: '100%', style: 'position:absolute;inset:0' }); eIn.append(eSvg);
+  const box = h('div.ae-box', {}, h('button.x', { onclick: () => select(null), 'aria-label': 'Close' }, '×'), h('h3'), h('p'), h('a', { onclick: () => { if (sel) { stE = sel; go(2); } } }, 'See its states ↓')); eIn.append(box);
+  const PTS = 72; const order = [1, 3, 2, 0, 4];
+  EM.forEach((e, ei) => { e.g = s('g', { style: 'cursor:pointer' }); e.rings = e.st.map((x, i) => s('path', { fill: e.c, stroke: '#fff', 'stroke-width': 1.6, 'stroke-opacity': 0.6 })); e.core = s('circle', { r: 8, fill: '#fff' }); e.coreR = s('circle', { r: 20, fill: e.c, opacity: 0.6 });
+    e.lbls = e.st.map(([n]) => s('text', { 'text-anchor': 'middle', 'dominant-baseline': 'middle', fill: '#fff', 'font-size': 12.5, 'font-weight': 600, 'letter-spacing': '.06em', opacity: 0, style: 'pointer-events:none;text-transform:uppercase' }, n.toUpperCase()));
+    e.rings.forEach((r, i) => { r.addEventListener('pointerenter', () => { if (sel === e && e.m > 0.9) bandHover(e, i); }); });
+    e.g.append(...e.rings, e.coreR, e.core, ...e.lbls); e.g.addEventListener('click', (ev) => { ev.stopPropagation(); if (sel !== e) select(e); });
+    e.g.addEventListener('pointerenter', () => { e.hov = 1; }); e.g.addEventListener('pointerleave', () => { e.hov = 0; if (sel === e) bandHover(e, -1); });
+    e.lab && (e.lt = s('text', { x: e.lab[0], y: e.lab[1], fill: e.c, class: 'ae-lbl', 'font-size': 18, 'letter-spacing': '.02em', onclick: () => select(e) }, e.n.toUpperCase()));
+    e.m = 0; e.mt = 0; e.a = 1; e.hov = 0; e.hs = 1; e.seed = ei * 3.7; e.cx = e.home[0]; e.cy = e.home[1]; });
+  order.forEach((i) => eSvg.append(EM[i].g)); EM.forEach((e) => e.lt && eSvg.append(e.lt));
+  eSvg.addEventListener('click', () => select(null));
+  let sel = null, hovBand = -1;
+  const FOC = [300, 430];
+  const select = (e) => { sel = e; EM.forEach((x) => (x.mt = x === e ? 1 : 0)); box.classList.toggle('on', !!e); if (e) { box.style.color = e.k === 'sadness' ? '#6f9fd0' : e.k === 'disgust' ? '#4f9a78' : e.c; box.style.left = '560px'; box.style.top = '300px'; box.children[1].textContent = e.n; box.children[2].textContent = e.d; } hovBand = -1; };
+  const bandHover = (e, i) => { hovBand = i; if (i < 0) { box.children[1].textContent = e.n; box.children[2].textContent = e.d; return; } box.children[1].textContent = e.st[i][0]; box.children[2].textContent = e.st[i][1] + ` · intensity ${i + 1}/${e.st.length}`; };
+  const ease = (t) => t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+  const ringPath = (e, i, t, time) => { const n = e.rings.length, r0 = e.home[2] * e.hs, k = i / n; const r = r0 * (1 - k * 0.86); const m = ease(e.m);
+    const bandsH = Math.min(520, n * 46), bh = bandsH / n, by = FOC[1] + bandsH / 2 - (i + 0.5) * bh, bw = 300 * (1 - k * 0.55), hh = bh / 2 - 2.5;
+    let d = ''; for (let p = 0; p < PTS; p++) { const a = p / PTS * Math.PI * 2, ca = Math.cos(a), sa = Math.sin(a);
+      const wob = RM ? 0 : 0.045 * sn(ca * 1.2 + time * 0.25 + e.seed, sa * 1.2 + i * 0.35 + time * 0.18);
+      const cx = e.cx + (RM ? 0 : sn(time * 0.08 + e.seed, 3) * 10) * (1 - m), cy = e.cy + (RM ? 0 : sn(5, time * 0.08 + e.seed) * 10) * (1 - m);
+      const x1 = cx + ca * r * (1 + wob), y1 = cy + sa * r * (1 + wob);
+      const x2 = FOC[0] + clamp(ca * 1.45, -1, 1) * bw / 2, y2 = by + clamp(sa * 1.45, -1, 1) * hh;
+      d += (p ? 'L' : 'M') + (x1 + (x2 - x1) * m).toFixed(1) + ' ' + (y1 + (y2 - y1) * m).toFixed(1); }
+    return d + 'Z'; };
+  // ---------- 3. states: intensity peaks ----------
+  let stE = EM[4], hovPk = -1;
+  const sIn = h('div.ae-in'); sec[2].append(sIn);
+  const sSvg = s('svg', { viewBox: `0 0 ${W2} ${H2 - 56}`, width: '100%', height: H2 - 56, class: 'ae-pk', style: 'position:absolute;left:0;top:0' }); sIn.append(sSvg);
+  const sInfo = h('div', { style: { position: 'absolute', left: '60px', top: '24px', width: '420px' } }); sIn.append(sInfo);
+  const tabsS = h('div.ae-tabs', {}, EM.map((e) => h('a', { onclick: () => { stE = e; drawStates(); } }, e.n))); sIn.append(tabsS);
+  const peakPath = (x, base, w, hgt, lean = 0.3) => `M${x - w} ${base} C${x - w * 0.55} ${base - hgt * 0.25} ${x - w * 0.08} ${base - hgt * 0.7} ${x + lean * 10} ${base - hgt} C${x + w * 0.18} ${base - hgt * 0.62} ${x + w * 0.3} ${base - hgt * 0.25} ${x + w * 0.42} ${base} Z`;
+  const shade = (hex, k) => { const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)); const f = (v) => Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k).toString(16).padStart(2, '0'); return '#' + f(r) + f(g) + f(b); };
+  const drawStates = () => { sSvg.replaceChildren(); const e = stE, n = e.st.length, base = 560, x0 = 300, x1 = 860;
+    const defs = s('defs'); sSvg.append(defs);
+    sSvg.append(s('line', { x1: 230, y1: base, x2: 920, y2: base, stroke: '#ddd', 'stroke-width': 1.5 }), s('path', { d: `M200 ${base} V190`, stroke: '#bbb', 'stroke-width': 1.4 }), s('path', { d: 'M195 198l5-9 5 9', fill: 'none', stroke: '#bbb', 'stroke-width': 1.4 }), s('text', { x: 186, y: 178, 'font-size': 11, 'letter-spacing': '.2em', fill: '#999' }, 'INTENSITY'));
+    e.pk = e.st.map(([nm, ds], i) => { const gid = `aeg${e.k}${i}`; defs.append(s('linearGradient', { id: gid, x1: 0, y1: 1, x2: 0.4, y2: 0 }, s('stop', { offset: 0, 'stop-color': shade(e.c, 0.45) }), s('stop', { offset: 1, 'stop-color': shade(e.c, -0.08 - i / n * 0.15) })));
+      const x = x0 + (i / Math.max(1, n - 1)) * (x1 - x0), hg = 90 + (i / (n - 1)) * 330 + (i % 2 ? 18 : 0); const p = s('path', { class: 'pk', d: peakPath(x, base, 110 + i * 4, hg), fill: `url(#${gid})`, opacity: 0.88 });
+      p.addEventListener('pointerenter', () => peakHover(i)); p.addEventListener('pointerleave', () => peakHover(-1)); p.addEventListener('click', () => { respE = e; respState = i; go(4); }); sSvg.append(p); return { p, x, hg }; });
+    e.pkLbl = s('text', { 'text-anchor': 'middle', 'font-size': 15, fill: shade(e.c, -0.35), 'letter-spacing': '.08em', opacity: 0 }); sSvg.append(e.pkLbl);
+    [...tabsS.children].forEach((a, i) => a.classList.toggle('on', EM[i] === e)); peakHover(-1); };
+  const peakHover = (i) => { hovPk = i; const e = stE; e.pk.forEach((o, j) => o.p.setAttribute('opacity', i < 0 ? 0.88 : j === i ? 1 : 0.28));
+    if (i < 0) { e.pkLbl.setAttribute('opacity', 0); sInfo.replaceChildren(h('div', { style: { font: `400 15px ${RW}`, color: '#999', letterSpacing: '.04em' } }, `${e.n.toUpperCase()} · ${e.st.length} STATES`), h('p', { style: { font: `300 16px/1.5 ${RW}`, color: '#555', margin: '8px 0 0' } }, 'Hover a shape to read the state; click it to see the actions it can lead to.')); return; }
+    const o = e.pk[i]; e.pkLbl.setAttribute('x', o.x); e.pkLbl.setAttribute('y', 560 - o.hg - 14); e.pkLbl.textContent = e.st[i][0].toUpperCase(); e.pkLbl.setAttribute('opacity', 1);
+    sInfo.replaceChildren(h('div', { style: { font: `500 21px ${RW}`, color: shade(e.c, -0.3), letterSpacing: '.03em' } }, e.st[i][0].toUpperCase()), h('p', { style: { font: `300 16.5px/1.5 ${RW}`, color: '#444', margin: '8px 0 0' } }, e.st[i][1]), h('div', { style: { marginTop: '10px', height: '4px', width: '220px', background: '#eee' } }, h('div', { style: { height: '100%', width: ((i + 1) / e.st.length * 100) + '%', background: e.c } }))); };
+  // ---------- 4. timeline ----------
+  sec[3].classList.add('ae-dark'); const tIn = h('div.ae-in'); sec[3].append(tIn);
+  const TRIG = ['a friend gets upset with you', 'you miss the last train home', 'a stranger compliments your work'];
+  let tlE = EM[0];
+  const trigSel = h('select', { onchange: () => playTl() }, TRIG.map((t) => h('option', { value: t }, t)));
+  const emC = h('div.em'), rs = h('div.rs'), ar1 = h('div.ar'), ar2 = h('div.ar');
+  tIn.append(h('div.ae-tl', {}, trigSel, ar1, emC, ar2, rs));
+  const tabsT = h('div.ae-tabs', {}, EM.map((e) => h('a', { onclick: () => { tlE = e; playTl(); } }, e.n))); tIn.append(tabsT);
+  let tlT = 0;
+  const playTl = () => { clearTimeout(tlT); const e = tlE; [...tabsT.children].forEach((a, i) => a.classList.toggle('on', EM[i] === e));
+    emC.style.background = `radial-gradient(circle, ${shade(e.c, -0.15)} 0 34%, ${e.c}cc 35% 52%, ${e.c}88 53% 68%, ${e.c}55 69% 100%)`; emC.replaceChildren('you feel', h('br'), e.n.toUpperCase());
+    rs.classList.remove('on'); ar2.style.transform = 'scaleX(0)'; emC.style.transform = 'scale(.85)';
+    tlT = setTimeout(() => { emC.style.transform = 'scale(1)'; ar2.style.transform = 'scaleX(1)'; rs.textContent = '→ ' + e.trig; rs.classList.add('on'); }, RM ? 0 : 450); };
+  // ---------- 5. response ----------
+  let respE = EM[4], respState = -1, respAct = -1;
+  const rIn = h('div.ae-in'); sec[4].append(rIn);
+  const rSvg = s('svg', { viewBox: `0 0 ${W2} ${H2 - 56}`, width: '100%', height: H2 - 56, class: 'ae-pk', style: 'position:absolute;left:0;top:0' }); rIn.append(rSvg);
+  const pills = h('div.ae-pills'); rIn.append(pills);
+  const tabsR = h('div.ae-tabs', {}, EM.map((e) => h('a', { onclick: () => { respE = e; respState = -1; drawResp(); } }, e.n))); rIn.append(tabsR);
+  const drawResp = () => { rSvg.replaceChildren(); const e = respE, n = e.st.length, base = 380, cx = 470; const defs = s('defs'); rSvg.append(defs);
+    defs.append(s('linearGradient', { id: 'aerg', x1: 0, y1: 0, x2: 1, y2: 1 }, s('stop', { offset: 0, 'stop-color': shade(e.c, 0.5) }), s('stop', { offset: 1, 'stop-color': e.c })));
+    e.st.forEach(([nm], i) => { const x = 380 + (i / Math.max(1, n - 1)) * 240, hg = 70 + (i / (n - 1)) * 200; const p = s('path', { class: 'pk', d: peakPath(x, base, 70 + i * 2, hg), fill: 'url(#aerg)', opacity: respState < 0 ? 0.75 : i === respState ? 1 : 0.22 });
+      p.addEventListener('click', () => { respState = respState === i ? -1 : i; drawResp(); }); p.append(s('title', {}, nm)); rSvg.append(p); });
+    if (respState >= 0) rSvg.append(s('text', { x: cx, y: 70, 'text-anchor': 'middle', 'font-size': 16, 'letter-spacing': '.08em', fill: shade(e.c, -0.35) }, e.st[respState][0].toUpperCase()));
+    const A = e.ac, m = A.length, rad = 260; const grow = respState >= 0 ? 1 : 0.72;
+    A.forEach(([nm, good], i) => { const ang = Math.PI * (0.03 + 0.94 * (i / (m - 1))); const L2 = rad * (0.62 + 0.38 * Math.sin(ang)) * grow; const tx = cx - Math.cos(ang) * L2, ty = base + Math.sin(ang) * L2 * 0.75;
+      const nx = -Math.sin(ang) * 14, ny = Math.cos(ang) * 14 * 0.75; const mx = cx + (tx - cx) * 0.62, my = base + (ty - base) * 0.62;
+      const p = s('path', { d: `M${cx} ${base} Q${mx + nx} ${my + ny} ${tx} ${ty} Q${mx - nx} ${my - ny} ${cx} ${base}Z`, fill: good ? 'url(#aerg)' : shade(e.c, -0.1), opacity: respAct < 0 ? 0.9 : respAct === i ? 1 : 0.3, style: 'cursor:pointer', 'stroke-dasharray': good ? '' : '4 3', stroke: good ? 'none' : shade(e.c, -0.3) });
+      p.addEventListener('click', () => { respAct = respAct === i ? -1 : i; drawResp(); }); rSvg.append(p);
+      rSvg.append(s('text', { x: tx - Math.cos(ang) * 22, y: ty + Math.sin(ang) * 18 + 4, 'text-anchor': ang < 1.3 ? 'end' : ang > 1.85 ? 'start' : 'middle', 'font-size': 12.5, fill: shade(e.c, -0.1), 'letter-spacing': '.04em' }, nm.toUpperCase())); });
+    pills.classList.toggle('on', respState >= 0); pills.style.color = e.c;
+    pills.replaceChildren(h('div', { style: { font: `500 18px ${RW}`, color: '#222' } }, respState >= 0 ? `ACTIONS OF ${e.st[respState][0].toUpperCase()}` : ''), h('h6', {}, 'CONSTRUCTIVE'), ...A.filter((a) => a[1]).map(([nm]) => h('span.ae-pill', { style: { background: e.c, color: '#fff' } }, nm)), h('h6', {}, 'DESTRUCTIVE'), ...A.filter((a) => !a[1]).map(([nm]) => h('span.ae-pill', { style: { border: `1.5px dashed ${shade(e.c, -0.25)}`, color: shade(e.c, -0.25) } }, nm)));
+    [...tabsR.children].forEach((a, i) => a.classList.toggle('on', EM[i] === e)); };
+  // ---------- 6. moods ----------
+  const mIn = h('div.ae-in'); sec[5].append(mIn); let moodE = EM[3], moodV = 0.2;
+  const mSvg = s('svg', { viewBox: `0 0 ${W2} ${H2 - 56}`, width: '100%', height: H2 - 56, style: 'position:absolute;left:0;top:0' }, s('defs', {}, s('filter', { id: 'aeblur', x: '-50%', y: '-50%', width: '200%', height: '200%' }, s('feGaussianBlur', { stdDeviation: 8 }))));
+  const mBlob = s('path', { filter: 'url(#aeblur)', opacity: 0.8 }); mSvg.append(mBlob); mIn.append(mSvg);
+  const mRange = h('input', { type: 'range', min: 0, max: 1, step: 0.01, value: moodV, oninput: (ev) => { moodV = +ev.target.value; mTxt.textContent = moodV < 0.33 ? 'an emotion · seconds to minutes' : moodV < 0.66 ? 'a lingering feeling · hours' : 'a mood · days'; } });
+  const mTxt = h('div', { style: { font: `400 15px ${RW}`, letterSpacing: '.08em', color: '#777', marginTop: '6px', textTransform: 'uppercase' } }, 'an emotion · seconds to minutes');
+  mIn.append(h('div', { style: { position: 'absolute', left: '50%', bottom: '90px', transform: 'translateX(-50%)', textAlign: 'center' } }, mRange, mTxt));
+  const tabsM = h('div.ae-tabs', {}, EM.map((e) => h('a', { onclick: () => { moodE = e; [...tabsM.children].forEach((a, i) => a.classList.toggle('on', EM[i] === e)); } }, e.n))); mIn.append(tabsM); tabsM.children[3].classList.add('on');
+  // ---------- 7. calm ----------
+  const cIn = h('div.ae-in'); sec[6].append(cIn); const br = h('div.br', {}, 'breathe in'); cIn.append(h('div.ae-calm', {}, br));
+  let brT = setInterval(() => { if (RM) return; const inn = !br.classList.contains('in'); br.classList.toggle('in', inn); br.textContent = inn ? 'breathe in' : 'breathe out'; }, 4000);
+  // ---------- chapter state ----------
+  let cur = 0;
+  const setSide = (k) => { const sd = SIDE[k]; if (!sd) return; stH.replaceChildren(sd[0], k === 'tl' ? h('a', { onclick: () => playTl() }, 'restart ↻') : ''); stP.replaceChildren(...sd[1].split('\n\n').map((t) => h('p', {}, t)), k === 'tl' ? h('button.ae-hbtn', { onclick: () => toast('Trigger → experience → response') }, 'HOW DOES THIS HAPPEN?') : '', k === 'resp' ? h('h4', {}, `Actions of ${respE.n}`) : ''); };
+  const onCh = (i) => { if (i === cur && el.dataset.ch) return; cur = i; el.dataset.ch = CH[i][0]; el.classList.toggle('intro', i === 0); navA.forEach((a, j) => a.classList.toggle('on', j + 1 === i)); [...dots.children].forEach((b, j) => b.classList.toggle('on', j === i)); setSide(CH[i][0]);
+    if (CH[i][0] === 'tl') playTl(); if (CH[i][0] === 'states') drawStates(); if (CH[i][0] === 'resp') drawResp(); logo.style.display = ''; };
+  const go = (i, instant) => { main.scrollTo({ top: i * main.clientHeight, behavior: instant || RM ? 'instant' : 'smooth' }); if (instant) onCh(i); };
+  main.addEventListener('scroll', () => onCh(Math.round(main.scrollTop / (main.clientHeight || 1))));
+  // ---------- animation loop ----------
+  const t0 = performance.now();
+  const frame = () => { requestAnimationFrame(frame); const time = (performance.now() - t0) / 1000;
+    if (cur === 0) iRings.forEach((c, i) => c.setAttribute('r', (400 - i * 38) * (1 + (RM ? 0 : 0.012 * Math.sin(time * 0.9 - i * 0.5)))));
+    if (cur === 1 || cur === 2) EM.forEach((e) => { e.m += (e.mt - e.m) * 0.07; const ta = sel && sel !== e ? 0 : 1; e.a += (ta - e.a) * 0.1; e.hs += ((e.hov && !sel ? 1.06 : 1) - e.hs) * 0.15; const m = ease(e.m);
+      e.rings.forEach((r, i) => { r.setAttribute('d', ringPath(e, i, e.m, time)); const k = i / e.rings.length; const op = m > 0.5 ? (0.35 + 0.65 * k) * (hovBand < 0 || hovBand === i ? 1 : 0.35) : (i % 2 ? 0.32 : 0.2) + k * 0.12; r.setAttribute('fill-opacity', op.toFixed(3)); r.setAttribute('stroke-width', m > 0.5 ? 0 : 1.6); r.style.pointerEvents = m > 0.9 || i === 0 ? 'auto' : 'none'; });
+      const n = e.rings.length; e.lbls.forEach((l, i) => { const bandsH = Math.min(520, n * 46), bh = bandsH / n; l.setAttribute('x', FOC[0]); l.setAttribute('y', FOC[1] + bandsH / 2 - (i + 0.5) * bh + 1); l.setAttribute('opacity', Math.max(0, m * 1.4 - 0.4).toFixed(2)); l.setAttribute('font-size', Math.min(12.5, bh * 0.45)); });
+      const ccx = e.cx + (FOC[0] - e.cx) * m, ccy = e.cy; e.core.setAttribute('cx', ccx); e.core.setAttribute('cy', ccy); e.coreR.setAttribute('cx', ccx); e.coreR.setAttribute('cy', ccy); e.core.setAttribute('opacity', 1 - m); e.coreR.setAttribute('opacity', (1 - m) * 0.55); e.coreR.setAttribute('r', e.home[2] * 0.14);
+      e.g.setAttribute('opacity', e.a.toFixed(3)); e.g.style.pointerEvents = e.a < 0.3 ? 'none' : ''; if (e.lt) e.lt.setAttribute('opacity', (sel ? 0 : 1) * e.a); });
+    if (cur === 5) { const e = moodE, r = 150 + moodV * 90; let d = ''; for (let p = 0; p < 60; p++) { const a = p / 60 * 6.283, w = 1 + 0.18 * sn(Math.cos(a) + time * (0.5 - moodV * 0.4), Math.sin(a) + time * 0.2); d += (p ? 'L' : 'M') + (550 + Math.cos(a) * r * w).toFixed(1) + ' ' + (330 + Math.sin(a) * r * w * 0.9).toFixed(1); } mBlob.setAttribute('d', d + 'Z'); mBlob.setAttribute('fill', e.c); mBlob.firstChild || 0; mSvg.querySelector('feGaussianBlur').setAttribute('stdDeviation', 6 + moodV * 40); } };
+  EM.forEach((e) => (e.cx = e.home[0], e.cy = e.home[1]));
+  requestAnimationFrame(frame); onCh(0);
+  // ---------- demo proof ----------
+  const reset = () => { select(null); EM.forEach((e) => { e.m = 0; e.a = 1; }); stE = EM[4]; respE = EM[4]; respState = -1; respAct = -1; tlE = EM[0]; trigSel.value = TRIG[0]; moodE = EM[3]; moodV = 0.2; mRange.value = 0.2; about.classList.remove('on'); go(0, true); };
+  window.__demoProof = async () => { const o = []; reset(); await sleep(50);
+    o.push(`intro: sidebar hidden=${el.classList.contains('intro')}`); sec[0].querySelector('.ae-begin').click(); go(1, true); await sleep(120);
+    o.push(`Begin → chapter "${el.dataset.ch}", nav active="${navA.find((a) => a.classList.contains('on'))?.textContent}"`);
+    const p0 = EM[0].rings[0].getAttribute('d'); await sleep(250); o.push(`continents morphing (anger outline changed=${EM[0].rings[0].getAttribute('d') !== p0})`);
+    EM[0].g.dispatchEvent(new MouseEvent('click', { bubbles: true })); await sleep(1300);
+    o.push(`click ANGER → info box "${box.children[1].textContent}", expanded to ${EM[0].rings.length} intensity bands (morph=${EM[0].m.toFixed(2)}), others faded=${EM.filter((e) => e !== EM[0]).every((e) => e.a < 0.2)}`);
+    EM[0].rings[3].dispatchEvent(new PointerEvent('pointerenter')); o.push(`hover band 4 → "${box.children[1].textContent}": ${box.children[2].textContent}`);
+    box.querySelector('button.x').click(); await sleep(900); o.push(`× close → restored continents (anger morph=${EM[0].m.toFixed(2)})`);
+    go(2, true); tabsS.children[1].click(); stE.pk[5].p.dispatchEvent(new PointerEvent('pointerenter')); o.push(`States: FEAR tab, hover peak → "${sInfo.firstChild.textContent}"`);
+    go(3, true); tabsT.children[4].click(); await sleep(600); o.push(`Timeline: trigger "${trigSel.value}" + ENJOYMENT → "${emC.textContent}" ${rs.textContent}`);
+    go(4, true); respE = EM[4]; respState = -1; drawResp(); rSvg.querySelectorAll('.pk')[7].dispatchEvent(new MouseEvent('click')); o.push(`Response: click state → "${pills.firstChild.textContent}", constructive=[${[...pills.querySelectorAll('.ae-pill')].filter((p) => p.style.background).map((p) => p.textContent).join(', ')}], destructive=${pills.querySelectorAll('.ae-pill').length - pills.querySelectorAll('.ae-pill[style*="background"]').length}`);
+    main.dispatchEvent(new WheelEvent('wheel', { deltaY: 120 })); go(5, true); mRange.value = 0.9; mRange.dispatchEvent(new Event('input')); o.push(`Moods slider → "${mTxt.textContent}"`);
+    go(6, true); o.push(`Strategies: breathing "${br.textContent}"`);
+    side.querySelector('.ae-lm').click(); o.push(`About overlay open=${about.classList.contains('on')}`); about.querySelector('button').click(); o.push(`× → closed=${!about.classList.contains('on')}`);
+    reset(); await sleep(60); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored: intro chapter, continents home, scroll=${main.scrollTop}`); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

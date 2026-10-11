@@ -3193,5 +3193,32 @@
   "proof": "hero sky photo on=true, quote visible=true; photo swaps by section [0,1,2,-1,4,5] (-1 = starfield); device tool list scrolls inside mock: row 1 (Directions) → row 6 (Timer); tap tool → \"Directions\" selected; starfield frames +18, device peek top=1476.56px; LightOS step → \"Find your way around the real world.\" screen=dr; menu overlay open=true; cookie bar acknowledged → hidden=true; restored: top, sky photo, cookie bar back",
   "demoNodes": 183,
   "errors": []
+ },
+ "histography-dot-grid-history-timeline-resizable-era-range-bar-bodoni-hover-cards": {
+  "url": "http://localhost:4173/t/histography-dot-grid-history-timeline-resizable-era-range-bar-bodoni-hover-cards/",
+  "ok": true,
+  "at": "2026-10-11T12:10:36.971Z",
+  "http": 200,
+  "proof": "onboarding step1 visible=true; GOT IT → step2 tip=true; GOT IT → onboarding closed=true; drag left handle 1600→1899: dots 4558→3688, title \"fourhundredyears\"→\"onehundredyears\", reflow animating=true; hover dot → card \"A dance craze spreads\" 1972, line=block; filter WARS → lit 518/3688; feeling lucky → \"An armistice is signed\" (1939) in WARS=true; sound toggle → SOUND OFF; dbl-click era → 1405–1754; restored 1600–2000 (1600–2000), filters cleared, onboarding back, dots 4558",
+  "demoNodes": 549,
+  "errors": []
+ },
+ "atlas-of-emotions-morphing-emotion-continents-fullpage-chapters-state-intensity-bands": {
+  "url": "http://localhost:4173/t/atlas-of-emotions-morphing-emotion-continents-fullpage-chapters-state-intensity-bands/",
+  "ok": true,
+  "at": "2026-10-11T12:10:36.976Z",
+  "http": 200,
+  "proof": "intro: sidebar hidden=true; Begin → chapter \"exp\", nav active=\"Experience\"; continents morphing (anger outline changed=true); click ANGER → info box \"Anger\", expanded to 7 intensity bands (morph=1.00), others faded=true; hover band 4 → \"Argumentativeness\": Taking a hostile position against someone · intensity 4/7; × close → restored continents (anger morph=0.02); States: FEAR tab, hover peak → \"PANIC\"; Timeline: trigger \"a friend gets upset with you\" + ENJOYMENT → \"you feelENJOYMENT\" → you laugh it off together; Response: click state → \"ACTIONS OF PRIDE\", constructive=[Exclaim, Engage/Connect, Maintain, Savor, Seek more], destructive=2; Moods slider → \"a mood · days\"; Strategies: breathing \"breathe in\"; About overlay open=true; × → closed=true; restored: intro chapter, continents home, scroll=0",
+  "demoNodes": 341,
+  "errors": []
+ },
+ "unseen-audio-enter-gate-spaced-letter-loader-click-hold-drag-world-project-filter": {
+  "url": "http://localhost:4173/t/unseen-audio-enter-gate-spaced-letter-loader-click-hold-drag-world-project-filter/",
+  "ok": true,
+  "at": "2026-10-11T12:10:36.977Z",
+  "http": 200,
+  "proof": "loader letters U N S E E N → eyes=true, Enter ready=true; hover Enter → heart eyes=true; Enter without audio → mode=home, gate hidden=true, sound=false; WebGL scene rendering (frames +2); cursor label \"Click & Hold\" visible=true; click & hold → ring charged 64% → transition fired, mode=world; drag world → pan (0.0,0.0)→(14.4,2.5), inertia carried to (29.7,7.6); menu open=true items=[01Index 02Projects 03Contact 04World]; 02 Projects → overlay=true; filter Branding → 3/12 cards; filter Experiment → 3; sound toggle → true (audio running); restored: gate with eyes + Enter, filter All, sound off, world reset",
+  "demoNodes": 193,
+  "errors": []
  }
 }
