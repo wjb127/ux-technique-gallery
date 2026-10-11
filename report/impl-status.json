@@ -3247,5 +3247,32 @@
   "proof": "hero: statement visible, tiles off-stage (typography translateY 948px); scroll 45% → blue intro block 500px wide, tiles sliding (typography dy 715px); scroll end → mosaic assembled=true (8 chapter tiles + logo square), blue square 89px; hover Typography → inverted=true bg rgb(30, 25, 25); click → full-screen panel on=true, title \"Typography\"; chapter page loaded=true (rail label \"Typography\", tiles 3); toolbar B/I/↔ → weight 400, style italic, wide=true; menu → back to mosaic=true; restored: scrollTop 0, hero opacity 1, panel off=true",
   "demoNodes": 105,
   "errors": []
+ },
+ "minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes": {
+  "url": "https://ux-technique-gallery.vercel.app/t/minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes/",
+  "ok": true,
+  "at": "2026-10-11T20:06:04.357Z",
+  "http": 200,
+  "proof": "train moved true; underground: ground=0.08 subwayOpacity=1.00 buildings=0.06; playback 4x speed, clock 5:06:08 AM→5:06:10 AM, controls=flex; tracking panel rows=8; tracking JR Yamanote Line mode=heli info=true; restored default view",
+  "demoNodes": 231,
+  "errors": []
+ },
+ "underd0g-watch-customiser-dial-strap-swap-color-dot-lists-serif-hero": {
+  "url": "https://ux-technique-gallery.vercel.app/t/underd0g-watch-customiser-dial-strap-swap-color-dot-lists-serif-hero/",
+  "ok": true,
+  "at": "2026-10-11T20:06:12.319Z",
+  "http": 200,
+  "proof": "design→Desert Sky (Gen3) dial #e85a5c→#a8cfea outlined=true; strap→Forest Green Calfskin fill=#2f5a3c cta=\"ADD STRAP ($80.00 USD)\"; series options=3; carousel slide=1; restored Watermel0n (Gen3) + Milanese Mesh",
+  "demoNodes": 1307,
+  "errors": []
+ },
+ "isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play": {
+  "url": "https://ux-technique-gallery.vercel.app/t/isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play/",
+  "ok": true,
+  "at": "2026-10-11T20:06:16.061Z",
+  "http": 200,
+  "proof": "card dismissed=true; drag laid strip of 7 tiles; loop 20 road tiles; objects=10; cars=2; GO: 7 notes triggered by cars, audio=running; restored title card + empty island",
+  "demoNodes": 74,
+  "errors": []
  }
 }
