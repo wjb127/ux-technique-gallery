@@ -7600,4 +7600,154 @@ V['dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chap
     menu.click(); await sleep(700); o.push(`menu → back to mosaic=${!ov.classList.contains('on')}`);
     reset(); await sleep(30); o.push(`restored: scrollTop ${root.scrollTop}, hero opacity ${hero.style.opacity}, panel off=${!ov.classList.contains('on')}`); return o.join('; '); };
 };
+V['underd0g-watch-customiser-dial-strap-swap-color-dot-lists-serif-hero'] = (root, T) => {
+  theme(root, T, { bg: '#f6eeed', fg: '#1b1b1b', ac: '#ffadb1', dark: false }); scroll(root);
+  const SANS = "'Inter Variable','Helvetica Neue',Helvetica,Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.ud{min-height:100%;background:linear-gradient(180deg,#f6eeed 0%,#f8f2f1 55%,#fbf8f7 100%);color:#1b1b1b;font-family:${SANS};position:relative;overflow:hidden}
+.ud *{box-sizing:border-box}.ud button{font-family:inherit;cursor:pointer}
+.ud-nav{height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 50px;font:600 13px ${SANS};position:relative;z-index:3}
+.ud-nav .l{display:flex;gap:46px}.ud-nav .l span{display:flex;align-items:center;gap:12px;cursor:pointer}.ud-nav .l svg{width:12px}
+.ud-logo{font:700 15px/1.12 ${SANS};letter-spacing:-.01em}.ud-nav .r{justify-self:end;cursor:pointer}
+.ud-hero{text-align:center;padding:42px 0 0;position:relative;z-index:3}
+.ud-hero h1{margin:0;font:330 40px/1.1 'Fraunces Variable',Georgia,serif;font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 1;letter-spacing:-.012em}
+.ud-hero p{margin:14px 0 26px;font:400 14.2px ${SANS};color:#2b2b2b}
+.ud-ser{position:relative;width:228px;margin:0 auto;z-index:6}
+.ud .ud-ser>button{width:100%;height:40px;border:1px solid #e3dad9;border-radius:4px;background:#f9f4f3;display:flex;align-items:center;padding:0 16px;font:400 12.5px ${SANS};color:#222;text-align:left}
+.ud-ser>button span{flex:1}.ud-ser>button svg{transition:transform .2s}.ud-ser.on>button svg{transform:rotate(180deg)}
+.ud-ser ul{list-style:none;margin:4px 0 0;padding:4px;position:absolute;left:0;right:0;background:#fff;border:1px solid #e3dad9;border-radius:4px;box-shadow:0 10px 30px #0001;display:none}
+.ud-ser.on ul{display:block}.ud-ser li{padding:9px 12px;font:400 12.5px ${SANS};border-radius:3px;cursor:pointer}.ud-ser li:hover,.ud-ser li.on{background:#f6eeed}
+.ud-main{position:relative;display:grid;grid-template-columns:200px 1fr 200px;gap:20px;padding:30px 34px 0;z-index:3}
+.ud-col h4{margin:12px 0 18px;font:600 13px ${SANS}}
+.ud .ud-row{width:100%;height:40px;margin:0 0 11px;border:1px solid #e6dfde;border-radius:4px;background:#f8f4f3;display:flex;align-items:center;gap:6px;padding:0 6px;font:400 10.4px ${SANS};color:#1d1d1d;text-align:left;transition:border-color .2s,background .2s}
+.ud .ud-row:hover{border-color:#bdb4b3}.ud .ud-row.on{border-color:#2a2a2a;background:#faf6f5}
+.ud-row i{width:22px;height:22px;border-radius:50%;flex:none}.ud-row span{flex:1}.ud-row b{font:300 17px ${SANS};color:#888;width:18px;text-align:center}.ud-row.on b{color:#222}
+.ud-stage{position:relative;height:560px;display:flex;justify-content:center}
+.ud-stage svg.w{position:absolute;top:-62px;width:250px;height:600px;overflow:visible;filter:drop-shadow(10px 26px 22px #0000002e)}
+.ud-sh{position:absolute;left:52%;top:30px;width:540px;height:620px;background:radial-gradient(closest-side,#00000022,#0000 75%);transform:rotate(-30deg) skewX(-18deg);filter:blur(20px);pointer-events:none}
+.ud-streak{position:absolute;height:2px;background:linear-gradient(90deg,#fff0,#fffc,#fff0);transform-origin:left;pointer-events:none;z-index:2}
+.ud .fade{transition:opacity ${RM ? 0 : 0.45}s ease}
+.ud-cta{display:flex;justify-content:center;padding:4px 0 60px;position:relative;z-index:3}
+.ud .ud-cta button{height:34px;padding:0 26px;border:0;border-radius:2px;background:#ffadb1;color:#1b1b1b;font:700 13.5px ${SANS};letter-spacing:.06em;transition:background .2s,transform .1s}
+.ud .ud-cta button:hover{background:#ff9aa0}.ud .ud-cta button:active{transform:scale(.98)}
+.ud-car{position:relative;overflow:hidden;height:412px;z-index:3}
+.ud-track{display:flex;height:100%;transition:transform ${RM ? 0 : 0.6}s cubic-bezier(.3,.7,.2,1)}
+.ud-track>div{flex:none;width:23%;min-width:330px;height:100%;position:relative;overflow:hidden}
+.ud-track svg{width:100%;height:100%;display:block}
+.ud-arr{position:absolute;right:16px;bottom:44px;display:flex;gap:2px;z-index:4}
+.ud .ud-arr button{width:44px;height:26px;border:0;background:#0000;color:#fff;font:400 18px ${SANS}}.ud .ud-arr button.n{background:#8f2032cc}
+.ud-foot{height:120px}
+@media (max-width:760px){.ud-main{grid-template-columns:1fr;padding:20px 16px 0}.ud-stage{order:-1;height:560px}.ud-nav{padding:0 16px}.ud-nav .l{gap:16px}.ud-car{height:300px}.ud-track>div{min-width:240px}}
+`);
+  const DES = {
+    '01SERIES': [
+      ['Watermel0n (Gen3)', '#ffa6a8', { c: '#e85a5c', o: '#b9e78f', sR: '#8fd36c', sL: '#e2585b', sLr: '#b04044', tk: '#1e3d14', txt: '#1b1b1b', ring: '#7ec25a', grain: 0.5 }],
+      ['Desert Sky (Gen3)', '#b8dcf3', { c: '#a8cfea', o: '#eadcc0', sR: '#efe2c8', sL: '#9ec6e3', sLr: '#7aa7c8', tk: '#5b4b33', txt: '#2a2a2a', ring: '#d4c19c', grain: 0.35 }],
+      ['Go0fy Panda (Gen3)', '#e7e3dc', { c: '#f3f0ea', o: '#f3f0ea', sR: '#202020', sL: '#202020', sLr: '#444', tk: '#222', txt: '#1b1b1b', ring: '#c9c3b8', grain: 0.2 }],
+      ['Mint Ch0c Chip (Gen3)', '#d7f2e2', { c: '#bfe9d3', o: '#bfe9d3', sR: '#5b3b2b', sL: '#5b3b2b', sLr: '#3f2a1f', tk: '#3d2a1e', txt: '#2a1e17', ring: '#98d3b5', grain: 0.4, chips: true }],
+    ],
+    '02SERIES': [
+      ['Pistachi0 (Gen2)', '#d9ebc4', { c: '#cfe5b4', o: '#f4efe2', sR: '#f4efe2', sL: '#f4efe2', sLr: '#b9cf9c', tk: '#3b4a2a', txt: '#2b2b2b', ring: '#a9c58a', grain: 0.3 }],
+      ['Bl00d Orange (Gen2)', '#ffc4a3', { c: '#f08a4b', o: '#f6d3b9', sR: '#c7372f', sL: '#c7372f', sLr: '#8f2420', tk: '#3a1a10', txt: '#1b1b1b', ring: '#e7a37b', grain: 0.45 }],
+      ['Midnight (Gen2)', '#c9cfe0', { c: '#1d2740', o: '#2b3757', sR: '#e9e4d6', sL: '#e9e4d6', sLr: '#9aa3bb', tk: '#e9e4d6', txt: '#f1ede2', ring: '#55628a', grain: 0.25 }],
+    ],
+    '03SERIES': [
+      ['Ice Cream (Gen1)', '#fbd9e6', { c: '#fcd8e5', o: '#fff4dc', sR: '#a7d8f0', sL: '#fff4dc', sLr: '#e6b3c6', tk: '#5b3a46', txt: '#3a2a30', ring: '#e8b9c9', grain: 0.3 }],
+      ['Monaco Blue (Gen1)', '#b9c9ef', { c: '#2c4fa3', o: '#e9e6dd', sR: '#e9e6dd', sL: '#e9e6dd', sLr: '#9aa7c9', tk: '#1b2a55', txt: '#f4f1e8', ring: '#7d93cf', grain: 0.25 }],
+    ],
+  };
+  const STRAPS = [['Milanese Mesh', '#dcdde1', 'mesh', 100], ['Taupe Calfskin', '#ece8e0', '#b9ab98', 80], ['Forest Green Calfskin', '#dcebdc', '#2f5a3c', 80], ['Chocolate Brown Goatskin', '#f2e1d9', '#5a3524', 95], ['Black Calfskin', '#cfcfd1', '#1d1d1f', 80], ['Beige Calfskin', '#f6eee0', '#d9c3a0', 80]];
+  let series = '01SERIES', di = 0, si = 0, cart = 0, slide = 0;
+  const el = h('div.ud'); root.append(el);
+  const fitZ = () => { const w = root.clientWidth; el.style.zoom = w > 760 ? clamp(w / 1024, 1, 1.6) : 1; }; fitZ(); new ResizeObserver(fitZ).observe(root);
+  const chev = '<svg viewBox="0 0 12 8" width="12" height="8"><path d="M1 1.5l5 4.5 5-4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+  const cartEl = h('span.r', {}, 'Cart (0)');
+  el.append(h('div.ud-nav', {}, h('div.l', {}, h('span', { html: 'Watches ' + chev }), h('span', { html: 'Explore ' + chev })), h('div.ud-logo', {}, 'Studio', h('br'), 'Underd', h('span', { style: { display: 'inline-block', transform: 'rotate(-12deg)' } }, 'ø'), 'g'), cartEl));
+  const serBtn = h('button', { html: `<span>${series}</span>${chev}` }); const serUl = h('ul'); const ser = h('div.ud-ser', {}, serBtn, serUl);
+  serBtn.onclick = (e) => { e.stopPropagation(); ser.classList.toggle('on'); }; document.addEventListener('click', () => ser.classList.remove('on'));
+  const drawSer = () => { serBtn.querySelector('span').textContent = series; serUl.replaceChildren(...Object.keys(DES).map((k) => h('li' + (k === series ? '.on' : ''), { onclick: () => { series = k; di = 0; ser.classList.remove('on'); drawSer(); drawLists(); setDial(true); } }, k))); };
+  el.append(h('div.ud-hero', {}, h('h1', {}, 'Refresh, time'), h('p', {}, 'Give your watch a new look, or simply a refresh of your existing strap.'), ser));
+  // streaks + shadow decor
+  [[6, 760, 380, -14], [44, 900, 560, -18], [64, 610, 420, 24]].forEach(([l, t, w, a]) => el.append(h('div.ud-streak', { style: { left: l + '%', top: t + 'px', width: w + 'px', transform: `rotate(${a}deg)` } })));
+  const desL = h('div'), strL = h('div');
+  const row = (name, dot, on, plus, fn) => h('button.ud-row' + (on ? '.on' : ''), { onclick: fn }, h('i', { style: { background: dot } }), h('span', {}, name), plus ? h('b', {}, '+') : null);
+  const drawLists = () => { desL.replaceChildren(...DES[series].map(([n, dot], i) => row(n, dot, i === di, false, () => { di = i; drawLists(); setDial(); }))); strL.replaceChildren(...STRAPS.map(([n, dot], i) => row(n, dot, i === si, true, () => { si = i; drawLists(); setStrap(); }))); };
+  // ---------- code-drawn watch ----------
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'w'); svg.setAttribute('viewBox', '0 0 250 600');
+  svg.innerHTML = `<defs>
+<pattern id="udMesh" width="6" height="5" patternUnits="userSpaceOnUse"><rect width="6" height="5" fill="#b9bbc0"/><path d="M0 2.5Q1.5 0 3 2.5T6 2.5" fill="none" stroke="#f4f5f7" stroke-width="1.5"/><path d="M0 4.6Q1.5 2.1 3 4.6T6 4.6" fill="none" stroke="#83868c" stroke-width=".8"/></pattern>
+<linearGradient id="udMeshG" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".35"/><stop offset=".25" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></linearGradient>
+<linearGradient id="udSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f8fa"/><stop offset=".35" stop-color="#a9adb4"/><stop offset=".6" stop-color="#eef0f2"/><stop offset="1" stop-color="#7d828a"/></linearGradient>
+<radialGradient id="udCase" cx=".4" cy=".35"><stop offset=".85" stop-color="#d7dade"/><stop offset=".93" stop-color="#8c9198"/><stop offset="1" stop-color="#f4f5f6"/></radialGradient>
+<filter id="udGrain" x="0" y="0" width="1" height="1"><feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .5"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/></filter>
+<radialGradient id="udGlass" cx=".3" cy=".25" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="udLeather" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".3" stop-color="#fff" stop-opacity=".12"/><stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".32"/></linearGradient>
+<filter id="udLGrain"><feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="1" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .25"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/></filter>
+</defs><g class="strapA fade"></g><g class="strapB fade" opacity="0"></g><g class="case"></g><g class="dialA fade"></g><g class="dialB fade" opacity="0"></g><g class="hands"></g>`;
+  const CX = 125, CY = 300, RC = 112;
+  const caseG = svg.querySelector('.case');
+  caseG.innerHTML = `<path d="M62 210l-4-34h38l6 28zM188 210l4-34h-38l-6 28zM62 390l-4 34h38l6-28zM188 390l4 34h-38l-6-28z" fill="url(#udSteel)" stroke="#8a8f96" stroke-width=".8"/>
+<rect x="232" y="286" width="14" height="28" rx="3" fill="url(#udSteel)" stroke="#80858c"/><path d="M233 289h12M233 293h12M233 297h12M233 301h12M233 305h12M233 309h12" stroke="#8c9097" stroke-width=".7"/>
+<rect x="214" y="226" width="12" height="16" rx="2" transform="rotate(-38 220 234)" fill="url(#udSteel)" stroke="#80858c"/><rect x="214" y="358" width="12" height="16" rx="2" transform="rotate(38 220 366)" fill="url(#udSteel)" stroke="#80858c"/>
+<circle cx="${CX}" cy="${CY}" r="${RC + 8}" fill="url(#udCase)" stroke="#7e838a" stroke-width="1"/><circle cx="${CX}" cy="${CY}" r="${RC + 1}" fill="#e9ebee" stroke="#9ca1a8" stroke-width="1.5"/>`;
+  const dialSVG = (d) => {
+    const tk = []; for (let i = 0; i < 300; i++) { const a = (i / 300) * 6.283 - 1.5708, r1 = 101, long = i % 5 === 0; tk.push(`<line x1="${CX + Math.cos(a) * r1}" y1="${CY + Math.sin(a) * r1}" x2="${CX + Math.cos(a) * (r1 - (long ? 6 : 3))}" y2="${CY + Math.sin(a) * (r1 - (long ? 6 : 3))}" stroke="${d.tk}" stroke-width="${long ? 0.9 : 0.4}"/>`); }
+    const tach = [60, 70, 80, 90, 100, 120, 150, 200, 300, 500, 1000]; const nums = tach.map((v) => { const a = (3600 / v / 60) * 6.283 - 1.5708; return a < 4.7 ? `<text x="${CX + Math.cos(a) * 90}" y="${CY + Math.sin(a) * 90 + 2.5}" font-size="6.5" text-anchor="middle" fill="${d.tk}" font-family="Inter Variable,Arial" transform="rotate(${(a * 180) / Math.PI + 90} ${CX + Math.cos(a) * 90} ${CY + Math.sin(a) * 90})">${v}</text>` : ''; }).join('');
+    const idx = Array.from({ length: 12 }, (_, i) => { const a = (i / 12) * 6.283 - 1.5708; return i % 3 === 0 && i !== 0 ? '' : `<line x1="${CX + Math.cos(a) * 76}" y1="${CY + Math.sin(a) * 76}" x2="${CX + Math.cos(a) * 68}" y2="${CY + Math.sin(a) * 68}" stroke="#111" stroke-width="2.6" stroke-linecap="round"/>`; }).join('');
+    const sub = (x, c, rc, lab) => `<circle cx="${x}" cy="${CY}" r="23" fill="${c}"/><circle cx="${x}" cy="${CY}" r="23" fill="${c}" filter="url(#udGrain)" opacity="${d.grain}"/>${Array.from({ length: 30 }, (_, i) => { const a = (i / 30) * 6.283; return `<line x1="${x + Math.cos(a) * 22}" y1="${CY + Math.sin(a) * 22}" x2="${x + Math.cos(a) * (i % 5 ? 20 : 18)}" y2="${CY + Math.sin(a) * (i % 5 ? 20 : 18)}" stroke="${rc}" stroke-width=".6"/>`; }).join('')}${lab}`;
+    const chips = d.chips ? Array.from({ length: 46 }, (_, i) => { const R2 = rng(i + 3), a = R2() * 6.283, r = Math.sqrt(R2()) * 95; return `<path d="M${CX + Math.cos(a) * r} ${CY + Math.sin(a) * r}l${2 + R2() * 2} ${-1 - R2()}l${R2() * 2} ${2 + R2()}z" fill="#4a2f22"/>`; }).join('') : '';
+    return `<circle cx="${CX}" cy="${CY}" r="105" fill="${d.o}"/><circle cx="${CX}" cy="${CY}" r="105" fill="${d.o}" filter="url(#udGrain)" opacity="${d.grain}"/>
+<circle cx="${CX}" cy="${CY}" r="${d.c === d.o ? 0 : 84}" fill="${d.c}"/><circle cx="${CX}" cy="${CY}" r="${d.c === d.o ? 0 : 84}" fill="${d.c}" filter="url(#udGrain)" opacity="${d.grain}"/><circle cx="${CX}" cy="${CY}" r="84" fill="none" stroke="${d.ring}" stroke-width=".8"/>${chips}
+${tk.join('')}${nums}<text x="${CX - 52}" y="${CY - 74}" font-size="7" fill="${d.tk}" font-family="Inter Variable,Arial" transform="rotate(-38 ${CX - 52} ${CY - 74})">Base 1000</text>${idx}
+${sub(CX - 46, d.sL, d.sLr, '')}${sub(CX + 46, d.sR, d.tk, `<text x="${CX + 46}" y="${CY - 9}" font-size="5.5" text-anchor="middle" fill="${d.tk}">30</text><text x="${CX + 46}" y="${CY + 15}" font-size="5.5" text-anchor="middle" fill="${d.tk}">15</text><text x="${CX + 34}" y="${CY + 8}" font-size="5.5" text-anchor="middle" fill="${d.tk}">20</text><text x="${CX + 58}" y="${CY + 8}" font-size="5.5" text-anchor="middle" fill="${d.tk}">10</text>`)}
+<text x="${CX + 4}" y="${CY - 45}" font-size="8.6" font-weight="700" fill="${d.txt}" font-family="Inter Variable,Arial">Studio</text><text x="${CX + 4}" y="${CY - 35}" font-size="8.6" font-weight="700" fill="${d.txt}" font-family="Inter Variable,Arial">Underd0g</text>
+<text x="${CX - 40}" y="${CY - 22}" font-size="7.4" fill="${d.txt}" font-family="Inter Variable,Arial">Bicompax</text><text x="${CX - 36}" y="${CY - 14}" font-size="4.6" fill="${d.txt}" font-family="Inter Variable,Arial">ST-1901</text>
+<text x="${CX}" y="${CY + 52}" font-size="4.6" text-anchor="middle" fill="${d.txt}" font-family="Inter Variable,Arial">Assembled in</text><text x="${CX}" y="${CY + 58}" font-size="4.6" text-anchor="middle" fill="${d.txt}" font-weight="700" font-family="Inter Variable,Arial">Great Britain</text>`;
+  };
+  const hands = svg.querySelector('.hands');
+  const drawHands = () => { const t = new Date(), hr = (t.getHours() % 12) + t.getMinutes() / 60, mn = t.getMinutes() + t.getSeconds() / 60, sc = t.getSeconds();
+    const hand = (deg, len, w, tail = 10) => `<g transform="rotate(${deg} ${CX} ${CY})"><path d="M${CX - w / 2} ${CY + tail}L${CX - w * 0.35} ${CY - len}L${CX} ${CY - len - 4}L${CX + w * 0.35} ${CY - len}L${CX + w / 2} ${CY + tail}z" fill="#141414"/><path d="M${CX - w * 0.18} ${CY - 10}L${CX} ${CY - len + 4}L${CX + w * 0.18} ${CY - 10}z" fill="#3a3a3a"/></g>`;
+    hands.innerHTML = `${hand(hr * 30, 52, 6)}${hand(mn * 6, 82, 5)}<g transform="rotate(${sc * 6} ${CX - 46} ${CY})"><line x1="${CX - 46}" y1="${CY + 5}" x2="${CX - 46}" y2="${CY - 19}" stroke="#141414" stroke-width="1.6"/></g><circle cx="${CX - 46}" cy="${CY}" r="2.4" fill="#141414"/><line x1="${CX + 46}" y1="${CY + 4}" x2="${CX + 46}" y2="${CY - 18}" stroke="#141414" stroke-width="1.6"/><circle cx="${CX + 46}" cy="${CY}" r="2.4" fill="#141414"/><line x1="${CX}" y1="${CY + 18}" x2="${CX}" y2="${CY - 100}" stroke="#141414" stroke-width="1.1"/><circle cx="${CX}" cy="${CY}" r="4.4" fill="#141414"/><circle cx="${CX}" cy="${CY}" r="${RC}" fill="url(#udGlass)"/>`; };
+  drawHands(); setInterval(drawHands, 1000);
+  const strapSVG = ([, , kind]) => {
+    if (kind === 'mesh') return `<path d="M74 110h102v78H74zM74 412h102v150H74z" fill="url(#udMesh)"/><path d="M74 110h102v78H74zM74 412h102v150H74z" fill="url(#udMeshG)"/><path d="M74 110v78M176 110v78M74 412v150M176 412v150" stroke="#8b8e94" stroke-width="1.2"/>`;
+    const st2 = `fill="none" stroke="#ffffff55" stroke-width="1" stroke-dasharray="4 3"`;
+    return `<path d="M76 186V110h98v76zM76 414v120q0 26 26 26h46q26 0 26-26V414z" fill="${kind}"/><path d="M76 186V110h98v76zM76 414v120q0 26 26 26h46q26 0 26-26V414z" fill="${kind}" filter="url(#udLGrain)"/><path d="M76 186V110h98v76zM76 414v120q0 26 26 26h46q26 0 26-26V414z" fill="url(#udLeather)"/>
+<path d="M82 186V110M168 110v76M82 414v118q0 22 22 22h42q22 0 22-22V414" ${st2}/>${[50, 80, 110].map((y) => `<ellipse cx="125" cy="${590 - y}" rx="3" ry="4" fill="#00000055"/>`).join('')}<rect x="76" y="448" width="98" height="10" fill="#00000022"/>`;
+  };
+  const sA = svg.querySelector('.strapA'), sB = svg.querySelector('.strapB'), dA = svg.querySelector('.dialA'), dB = svg.querySelector('.dialB');
+  let sFront = sA, dFront = dA;
+  const swap = (front, back, html, set) => { back.innerHTML = html; back.setAttribute('opacity', '1'); front.setAttribute('opacity', '0'); set(back); };
+  function setDial(now) { const html = dialSVG(DES[series][di][2]); if (now) { dFront.innerHTML = html; return; } swap(dFront, dFront === dA ? dB : dA, html, (b) => (dFront = b)); drawCarousel(); }
+  function setStrap() { swap(sFront, sFront === sA ? sB : sA, strapSVG(STRAPS[si]), (b) => (sFront = b)); ctaB.textContent = `ADD STRAP ($${STRAPS[si][3].toFixed(2)} USD)`; drawCarousel(); }
+  dA.innerHTML = dialSVG(DES[series][di][2]); sA.innerHTML = strapSVG(STRAPS[si]);
+  const stage = h('div.ud-stage', {}, h('div.ud-sh'), svg);
+  el.append(h('div.ud-main', {}, h('div.ud-col', {}, h('h4', {}, 'Select design'), desL), stage, h('div.ud-col', {}, h('h4', {}, 'Select strap'), strL)));
+  const ctaB = h('button', { onclick: () => { cart++; cartEl.textContent = `Cart (${cart})`; toast(`${STRAPS[si][0]} strap added to cart (demo)`); } }, 'ADD STRAP ($100.00 USD)');
+  el.append(h('div.ud-cta', {}, ctaB));
+  // ---------- lifestyle carousel (code-drawn scenes using the current design + strap) ----------
+  const track = h('div.ud-track'); const car = h('div.ud-car', {}, track, h('div.ud-arr', {}, h('button', { title: 'Previous', onclick: () => go(-1) }, '‹'), h('button.n', { title: 'Next', onclick: () => go(1) }, '›')));
+  el.append(car, h('div.ud-foot'));
+  const mini = (x, y, sc, rot, strap = true) => { const d = DES[series][di][2], sk = STRAPS[si][2]; const sc2 = sk === 'mesh' ? '#c3c5ca' : sk; return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${sc})">${strap ? `<rect x="-38" y="-190" width="76" height="380" rx="${sk === 'mesh' ? 0 : 14}" fill="${sc2}"/>${sk === 'mesh' ? '<rect x="-38" y="-190" width="76" height="380" fill="url(#udMesh)" opacity=".8"/>' : ''}` : ''}<circle r="86" fill="#c9ccd1" stroke="#80858c" stroke-width="3"/><circle r="74" fill="${d.o}"/><circle r="${d.c === d.o ? 0 : 60}" fill="${d.c}"/><circle cx="-31" r="16" fill="${d.sL}"/><circle cx="31" r="16" fill="${d.sR}"/><path d="M0 0L-24 -40M0 0L46 -18" stroke="#111" stroke-width="5" stroke-linecap="round"/><circle r="4" fill="#111"/></g>`; };
+  const SCN = [
+    () => `<rect width="330" height="412" fill="#c89565"/>${Array.from({ length: 9 }, (_, i) => `<path d="M0 ${i * 48 + 10}C110 ${i * 48 + 22} 220 ${i * 48 - 4} 330 ${i * 48 + 14}" stroke="#a87449" stroke-width="2" fill="none" opacity=".5"/>`).join('')}${[[30, 40, 30], [300, 70, -40], [270, 300, 20], [20, 330, -10]].map(([x, y, r]) => `<g transform="translate(${x} ${y}) rotate(${r})"><path d="M-48 0A48 48 0 0 0 48 0z" fill="#3f7d34"/><path d="M-42 0A42 42 0 0 0 42 0z" fill="#eef3c9"/><path d="M-38 0A38 38 0 0 0 38 0z" fill="#e2464b"/>${[-20, -5, 10, 24].map((sx) => `<ellipse cx="${sx}" cy="${12 + (sx % 3)}" rx="2" ry="3.5" fill="#1a1a1a"/>`).join('')}</g>`).join('')}${mini(170, 210, 0.95, 12)}`,
+    () => `<rect width="330" height="412" fill="#1d241f"/><path d="M-20 0h330l-40 210H-20z" fill="#9aa59e"/><path d="M0 120c80-30 200-20 330 10v40c-120-20-240-30-330-10z" fill="#7f8a83"/><path d="M40 412c20-120 80-200 200-230l90 30v200z" fill="#c9926f"/><path d="M60 412c30-110 90-180 190-205" stroke="#a9765a" stroke-width="10" fill="none" opacity=".4"/>${mini(175, 270, 0.62, -28)}`,
+    () => `<rect width="330" height="412" fill="#c8323c"/>${Array.from({ length: 26 }, (_, i) => { const R2 = rng(i + 11); return `<rect x="${R2() * 330 - 30}" y="${R2() * 412 - 30}" width="${50 + R2() * 50}" height="${45 + R2() * 40}" rx="6" transform="rotate(${R2() * 60 - 30})" fill="${i % 5 === 0 ? '#3e8a3a' : i % 2 ? '#e14a52' : '#b8242f'}" opacity=".95"/>`; }).join('')}<g transform="translate(165 206)"><circle r="92" fill="#cfd2d6" stroke="#8a8f96" stroke-width="4"/><circle r="74" fill="#2a2a2c"/>${Array.from({ length: 6 }, (_, i) => `<circle cx="${Math.cos(i) * 34}" cy="${Math.sin(i * 1.7) * 30}" r="${10 + (i % 3) * 6}" fill="none" stroke="#d8b25a" stroke-width="3" stroke-dasharray="3 2"/>`).join('')}<circle cx="-30" cy="20" r="5" fill="#8a2a6a"/><circle cx="26" cy="-22" r="5" fill="#2a4a8a"/><path d="M-74 0h148M0-74v148" stroke="#ffffff22"/></g>`,
+    () => `<rect width="330" height="412" fill="#efe7df"/><rect x="0" y="250" width="330" height="162" fill="#d8cbbd"/>${mini(120, 220, 0.8, 70, true)}<circle cx="260" cy="120" r="40" fill="#e85a5c" opacity=".85"/><circle cx="260" cy="120" r="30" fill="#b9e78f" opacity=".7"/>`,
+    () => `<rect width="330" height="412" fill="#203a2a"/>${Array.from({ length: 14 }, (_, i) => `<path d="M${i * 26} 412C${i * 26 + 10} 300 ${i * 26 - 20} 200 ${i * 26 + 14} 80" stroke="#3d6b47" stroke-width="10" fill="none" opacity=".6"/>`).join('')}${mini(165, 206, 0.9, -8)}`,
+  ];
+  function drawCarousel() { track.replaceChildren(...SCN.map((f) => h('div', { html: `<svg viewBox="0 0 330 412" preserveAspectRatio="xMidYMid slice">${svg.querySelector('defs').outerHTML.replace(/id="ud/g, 'id="udc').replace(/url\(#ud/g, 'url(#udc')}${f().replace(/url\(#ud/g, 'url(#udc')}</svg>` }))); }
+  function go(d) { slide = clamp(slide + d, 0, SCN.length - 3); track.style.transform = `translateX(${-slide * Math.max(330, car.clientWidth * 0.23)}px)`; }
+  drawSer(); drawLists(); drawCarousel();
+  window.__demoProof = async () => {
+    const o = []; const w = () => sleep(RM ? 20 : 500);
+    const c0 = DES[series][di][2].c; desL.children[1].click(); await w(); o.push(`design→${DES[series][di][0]} dial ${c0}→${dFront.querySelector('circle:nth-of-type(3)').getAttribute('fill')} outlined=${desL.children[1].classList.contains('on')}`);
+    strL.children[2].click(); await w(); o.push(`strap→${STRAPS[si][0]} fill=${sFront.querySelector('path').getAttribute('fill')} cta="${ctaB.textContent}"`);
+    serBtn.click(); const n = serUl.children.length; document.body.click(); o.push(`series options=${n}`);
+    go(1); await w(); o.push(`carousel slide=${slide}`); go(-1);
+    desL.children[0].click(); strL.children[0].click(); await w(); o.push(`restored ${DES[series][di][0]} + ${STRAPS[si][0]}`); return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

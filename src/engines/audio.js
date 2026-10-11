@@ -2931,4 +2931,212 @@ V['imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card']
     reset(); await sleep(50); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored: all sounds off, vol ${DEF.vol}, pan 0, prefs cleared (${localStorage.getItem(KEY) === null}), playlist stopped`); return o.join('; '); };
 };
 
+V['isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play'] = (root, T) => {
+  import('@fontsource/lilita-one'); import('@fontsource/pt-sans'); import('@fontsource/oswald/500.css');
+  theme(root, T, { bg: '#8fbfd0', fg: '#f6efd8', ac: '#6c9e4f', dark: false });
+  const LOGO = "'Lilita One','Arial Rounded MT Bold',sans-serif", PT = "'PT Sans','Trebuchet MS',sans-serif", OSW = "'Oswald','Barlow Condensed',Impact,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.iot{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#a9d3e0 0%,#8fc1d3 55%,#6fa6bb 100%);font-family:${PT};user-select:none;touch-action:none}
+.iot canvas{position:absolute;inset:0;display:block}
+.iot-tb{position:absolute;left:0;right:0;bottom:12px;transform-origin:50% 100%;display:flex;align-items:center;justify-content:center;gap:9px;z-index:3;pointer-events:none}
+.iot-tb>*{pointer-events:auto}
+.iot .go{width:60px;height:60px;border:0;background:none;padding:0;cursor:pointer;margin-right:22px;position:relative}
+.iot .go svg{width:60px;height:60px;display:block}.iot .go span{position:absolute;inset:0;display:grid;place-items:center;font:500 19px ${OSW};color:#f4efe0;letter-spacing:.02em}
+.iot .go.on span{font-size:15px}
+.iot .tl{width:40px;height:40px;border-radius:50%;border:2px solid #e9efe0;background:#5f8a63;display:grid;place-items:center;cursor:pointer;padding:0;box-shadow:0 2px 0 #0003;transition:transform .12s}
+.iot .tl:hover{transform:translateY(-2px)}.iot .tl.on{border-radius:3px;background:#3e5f41;border-color:#cfe0c6;width:44px;height:44px}
+.iot .tl.er{background:#c25450}.iot .tl.er.on{background:#8f3330}
+.iot .tl svg{width:28px;height:28px}
+.iot .bx{min-width:42px;height:42px;border:2px solid #d8cf9e;background:#0000000f;color:#e9e1b9;font:500 13px/1 ${OSW};cursor:pointer;padding:3px 5px;display:grid;place-items:center;text-align:center}
+.iot .bx:hover{background:#ffffff1f}.iot .sep{width:18px}
+.iot-card{position:absolute;left:50%;top:50%;width:424px;transform:translate(-50%,-52%) scale(var(--z,1));background:#c4524f;border:3px solid #5a1f1d;outline:3px solid #f3e7c6;outline-offset:-9px;padding:16px 16px 12px;text-align:center;color:#f6e8c9;z-index:5;box-shadow:0 6px 22px #0004;transition:transform .35s cubic-bezier(.5,-.3,.6,1),opacity .35s}
+.iot-card.off{transform:translate(-50%,-40%) scale(calc(var(--z,1)*.9));opacity:0;pointer-events:none}
+.iot-card .cel{font:400 12px ${PT};margin-top:4px}
+.iot-logo{font:400 52px/1 ${LOGO};letter-spacing:.02em;color:#f2e4c0;margin:6px 0 4px;display:flex;align-items:center;justify-content:center;gap:4px;text-shadow:0 2px 0 #0002}
+.iot-logo .of{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#f2e4c0;color:#c4524f;font-size:14px;margin:0 2px;transform:translateY(3px)}
+.iot-card .wl{font:400 12px/1.35 ${PT}}
+.iot .play{margin:14px auto 12px;display:block;width:120px;height:54px;background:#6a9b4f;border:3px solid #e9dfb9;outline:2px solid #3f6a35;color:#f2e8c8;font:500 22px ${OSW};letter-spacing:.04em;cursor:pointer}
+.iot .play:hover{background:#78ab5b}
+.iot-hp{background:#5568c2;padding:10px 12px 10px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;text-align:left}
+.iot-hp h6{grid-column:1/-1;margin:0;font:400 20px ${LOGO};color:#f6efd8;text-align:center}.iot-hp h6 small{font:400 11px ${PT};margin-left:6px}
+.iot-hp ul{margin:0;padding-left:14px;font:400 11px/1.45 ${PT}}
+.iot-tab{width:148px;height:104px;background:#151515;border-radius:9px;padding:6px;box-shadow:0 3px 8px #0006}.iot-tab canvas{position:static;width:136px;height:92px;border-radius:2px;display:block}
+.iot-card .ft{font:400 11px ${PT};margin-top:9px;opacity:.95}
+.iot-hint{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:#0000002e;color:#fff;font:400 12px ${PT};padding:5px 12px;border-radius:12px;z-index:3;pointer-events:none;transition:opacity .4s}
+.iot-cp{position:absolute;right:10px;bottom:4px;font:400 9px ${PT};color:#ffffff99;z-index:3}
+`);
+  const el = h('div.iot'); root.append(el);
+  const cv = h('canvas'); el.append(cv);
+  // ---------- iso grid ----------
+  const N = 15; const TW = 54, TH = 27; let W = 0, H = 0, ox = 0, oy = 0, isl = [];
+  const iso = (gx, gy, z = 0) => [ox + (gx - gy) * TW / 2, oy + (gx + gy) * TH / 2 - z];
+  const unIso = (x, y) => { const a = (x - ox) / (TW / 2), b = (y - oy) / (TH / 2); return [(a + b) / 2, (b - a) / 2]; };
+  const ISLR = rng(17);
+  const jag = Array.from({ length: 64 }, () => ISLR());
+  const layout = () => { fitCanvas(cv, el); W = cv.W; H = cv.H; const sc = Math.min(W / 1440, (H - 20) / 862); TWs = 66 * Math.max(0.5, sc); const z = clamp(W / 1024, 0.7, 1.45); card.style.setProperty('--z', z); tb.style.transform = `scale(${clamp(W / 1100, 0.6, 1.35)})`; };
+  let TWs = 54;
+  const recompute = () => { layout(); const tw = TWs, th = tw / 2; ox = W / 2; oy = H * 0.5 - N * th / 2 - 14; // grid center at (N/2,N/2)
+    // island polygon: screen-rect-ish with jagged edges around the grid diamond's extents
+    const x0 = W * 0.137, x1 = W * 0.885, y0 = H * 0.055, y1 = H * 0.9; isl = []; const step = 9;
+    for (let i = 0; i <= step; i++) isl.push([x0 + (x1 - x0) * i / step + (jag[40 + i] - 0.5) * 30, y0 + (jag[i] - 0.5) * 26 - (i === 6 ? 10 : 0)]);
+    for (let i = 1; i <= step; i++) isl.push([x1 + (jag[17 + i] - 0.5) * 30, y0 + (y1 - y0) * i / step]);
+    for (let i = step - 1; i >= 0; i--) isl.push([x0 + (x1 - x0) * i / step + (jag[30 + i] - 0.5) * 30, y1 + (jag[34 + i] - 0.5) * 22]);
+    for (let i = step - 1; i > 0; i--) isl.push([x0 + (jag[50 + (i % 14)] - 0.5) * 32, y0 + (y1 - y0) * i / step]);
+    TWc = tw; THc = th; };
+  let TWc = 54, THc = 27;
+  const P2 = (gx, gy, z = 0) => [ox + (gx - gy) * TWc / 2, oy + (gx + gy) * THc / 2 - z];
+  const U2 = (x, y) => { const a = (x - ox) / (TWc / 2), b = (y - oy) / (THc / 2); return [(a + b) / 2, (b - a) / 2]; };
+  const inPoly = (x, y, poly) => { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; } return c; };
+  const G0 = -9, G1 = N + 9; // grid range (cells outside the island are rejected)
+  const valid = (i, j) => { if (i < G0 || j < G0 || i > G1 || j > G1) return false; const pts = [[i + 0.5, j + 0.5], [i, j], [i + 1, j], [i, j + 1], [i + 1, j + 1]]; return pts.every(([a, b]) => { const [x, y] = P2(a, b); return inPoly(x, y, isl) && y < H * 0.86; }); };
+  // ---------- state ----------
+  const key = (i, j) => `${i},${j}`;
+  const roads = new Set(), objs = new Map(), cars = []; let tool = 'road', playing = false, preview = [], notesPlayed = 0, started = false;
+  const DIRS = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+  const PENTA = [0, 2, 4, 7, 9, 12, 14, 16];
+  const KIND = { house: { base: 60, name: 'House · piano' }, tree: { base: 48, name: 'Tree · marimba' }, lamp: { base: 72, name: 'Lamp · bell' }, flower: { base: 67, name: 'Flowers · pluck' } };
+  const CARC = ['#d6443c', '#3b6fc4', '#e8c23a', '#f2f0ea', '#6a4fb3', '#e07b2c', '#2e9a6a', '#333'];
+  // ---------- sound ----------
+  const voice = (kind, note) => { const ac = audio(); if (!ac) return; const t = ac.currentTime + 0.005, f = midi(KIND[kind].base + PENTA[note % 8]); const out = ac.createGain(); out.connect(ac.destination);
+    const osc = (type, fr, v, d, delay = 0) => { const o = ac.createOscillator(), g2 = ac.createGain(); o.type = type; o.frequency.value = fr; g2.gain.setValueAtTime(0, t + delay); g2.gain.linearRampToValueAtTime(v, t + delay + 0.006); g2.gain.exponentialRampToValueAtTime(0.0001, t + delay + d); o.connect(g2).connect(out); o.start(t + delay); o.stop(t + delay + d + 0.05); return o; };
+    if (kind === 'house') { osc('triangle', f, 0.16, 0.9); osc('sine', f * 2, 0.05, 0.5); }
+    else if (kind === 'tree') { osc('sine', f, 0.26, 0.35); osc('sine', f * 4, 0.05, 0.08); }
+    else if (kind === 'lamp') { osc('sine', f, 0.11, 1.4); osc('sine', f * 2.76, 0.04, 0.9); osc('sine', f * 5.4, 0.02, 0.4); }
+    else { const o = ac.createOscillator(), fl = ac.createBiquadFilter(), g2 = ac.createGain(); o.type = 'sawtooth'; o.frequency.value = f; fl.type = 'lowpass'; fl.frequency.setValueAtTime(3200, t); fl.frequency.exponentialRampToValueAtTime(300, t + 0.25); g2.gain.setValueAtTime(0.12, t); g2.gain.exponentialRampToValueAtTime(0.0001, t + 0.3); o.connect(fl).connect(g2).connect(out); o.start(t); o.stop(t + 0.35); }
+    notesPlayed++; };
+  // ---------- drawing ----------
+  const g = () => cv.g;
+  const poly = (c, pts, fill, stroke, lw = 1) => { c.beginPath(); pts.forEach(([x, y], k) => (k ? c.lineTo(x, y) : c.moveTo(x, y))); c.closePath(); if (fill) { c.fillStyle = fill; c.fill(); } if (stroke) { c.strokeStyle = stroke; c.lineWidth = lw; c.stroke(); } };
+  const cellPts = (i, j, ins = 0, z = 0) => [P2(i + ins, j + ins, z), P2(i + 1 - ins, j + ins, z), P2(i + 1 - ins, j + 1 - ins, z), P2(i + ins, j + 1 - ins, z)];
+  const rect = (x0, y0, x1, y1, z = 0) => [P2(x0, y0, z), P2(x1, y0, z), P2(x1, y1, z), P2(x0, y1, z)];
+  const drawIsland = (c) => {
+    // shallow-water rims
+    [[26, '#c4e3ec55'], [16, '#d5edf366'], [8, '#e6f5f866']].forEach(([o, col]) => { c.save(); c.translate(0, 12); poly(c, isl.map(([x, y]) => [x + (x < W / 2 ? -o : o) * 0.7, y + (y < H / 2 ? -o : o) * 0.6]), col); c.restore(); });
+    // drop shadow to the right
+    c.save(); c.translate(26, 18); poly(c, isl, '#3f6f8044'); c.restore();
+    // cliff: island shifted down, sandy strata
+    const cl = 30; c.save(); const grd = c.createLinearGradient(0, H * 0.6, 0, H * 0.95); grd.addColorStop(0, '#cdb487'); grd.addColorStop(1, '#a88a5c'); c.translate(0, cl); poly(c, isl, grd); c.restore();
+    c.save(); c.beginPath(); isl.forEach(([x, y], k) => (k ? c.lineTo(x, y + cl) : c.moveTo(x, y + cl))); c.closePath(); c.clip(); c.strokeStyle = '#8f744a66'; c.lineWidth = 2; for (let x = 0; x < W; x += 12) { c.beginPath(); c.moveTo(x, 0); c.lineTo(x + 4, H); c.stroke(); } c.restore();
+    // grass top with iso checker
+    poly(c, isl, '#6d8f46'); c.save(); c.beginPath(); isl.forEach(([x, y], k) => (k ? c.lineTo(x, y) : c.moveTo(x, y))); c.closePath(); c.clip();
+    for (let i = G0; i < G1; i++) for (let j = G0; j < G1; j++) if ((i + j) % 2 === 0) poly(c, cellPts(i, j), '#6f9147');
+    const lg = c.createRadialGradient(W * 0.62, H * 0.62, 10, W * 0.5, H * 0.5, W * 0.6); lg.addColorStop(0, '#ffffff12'); lg.addColorStop(1, '#00000018'); c.fillStyle = lg; c.fillRect(0, 0, W, H);
+    c.restore(); poly(c, isl, null, '#5d7c3c', 1.5);
+  };
+  const drawRoads = (c, set, ghost) => {
+    const has = (i, j) => set.has(key(i, j));
+    const shapes = (i, j, w) => { const out = [rect(i + 0.5 - w / 2, j + 0.5 - w / 2, i + 0.5 + w / 2, j + 0.5 + w / 2)]; DIRS.forEach(([di, dj]) => { if (!has(i + di, j + dj)) return; if (di) out.push(rect(di > 0 ? i + 0.5 : i, j + 0.5 - w / 2, di > 0 ? i + 1 : i + 0.5, j + 0.5 + w / 2)); else out.push(rect(i + 0.5 - w / 2, dj > 0 ? j + 0.5 : j, i + 0.5 + w / 2, dj > 0 ? j + 1 : j + 0.5)); }); return out; };
+    const list = [...set].map((k) => k.split(',').map(Number));
+    c.globalAlpha = ghost ? 0.55 : 1;
+    list.forEach(([i, j]) => shapes(i, j, 0.66).forEach((p) => poly(c, p.map(([x, y]) => [x, y + 2]), '#00000022')));
+    list.forEach(([i, j]) => shapes(i, j, 0.66).forEach((p) => poly(c, p, '#b6a47c')));
+    list.forEach(([i, j]) => shapes(i, j, 0.54).forEach((p) => poly(c, p, '#efe6c6')));
+    c.strokeStyle = '#c9b88a'; c.lineWidth = 1.4; c.setLineDash([4, 4]);
+    list.forEach(([i, j]) => DIRS.forEach(([di, dj]) => { if (!has(i + di, j + dj)) return; const a = P2(i + 0.5, j + 0.5), b = P2(i + 0.5 + di * 0.5, j + 0.5 + dj * 0.5); c.beginPath(); c.moveTo(...a); c.lineTo(...b); c.stroke(); }));
+    c.setLineDash([]); c.globalAlpha = 1;
+  };
+  const roofHue = (n) => ['#c4504b', '#d07a3a', '#cfae3a', '#7aa040', '#3f9a8a', '#4a76c0', '#7a5bb5', '#b8508a'][n % 8];
+  const drawObj = (c, i, j, o, now) => {
+    const pulse = Math.max(0, 1 - (now - (o.hit || 0)) / 350); const bounce = RM ? 0 : Math.sin(pulse * Math.PI) * 6; const cx = i + 0.5, cy = j + 0.5, s = TWc / 54;
+    const box = (x0, y0, x1, y1, z0, z1, top, left, right) => { poly(c, [P2(x0, y1, z0), P2(x1, y1, z0), P2(x1, y1, z1), P2(x0, y1, z1)], left); poly(c, [P2(x1, y0, z0), P2(x1, y1, z0), P2(x1, y1, z1), P2(x1, y0, z1)], right); poly(c, rect(x0, y0, x1, y1, z1), top); };
+    if (o.k === 'house') { const z = bounce; poly(c, rect(cx - 0.34, cy - 0.34, cx + 0.38, cy + 0.38).map(([x, y]) => [x + 3, y + 2]), '#00000022'); box(cx - 0.3, cy - 0.3, cx + 0.3, cy + 0.3, z, z + 20 * s, '#efe6d6', '#e7dccb', '#cbbfa9');
+      const r = roofHue(o.note), zt = z + 20 * s, a = P2(cx - 0.34, cy - 0.34, zt), b = P2(cx + 0.34, cy - 0.34, zt), cc = P2(cx + 0.34, cy + 0.34, zt), d = P2(cx - 0.34, cy + 0.34, zt), pk = P2(cx, cy, zt + 16 * s);
+      poly(c, [d, cc, pk], r); poly(c, [cc, b, pk], shade(r, -0.22)); c.fillStyle = '#5b4a3a'; poly(c, [P2(cx - 0.05, cy + 0.3, z), P2(cx + 0.1, cy + 0.3, z), P2(cx + 0.1, cy + 0.3, z + 10 * s), P2(cx - 0.05, cy + 0.3, z + 10 * s)], '#6b5641'); }
+    else if (o.k === 'tree') { const [x, y] = P2(cx, cy, bounce); c.fillStyle = '#00000026'; c.beginPath(); c.ellipse(x + 3, y + 2, 12 * s, 6 * s, 0, 0, 7); c.fill(); c.fillStyle = '#6b4f33'; c.fillRect(x - 2 * s, y - 12 * s, 4 * s, 12 * s); const col = ['#4f7d39', '#5d8a3f', '#3f6e33', '#6a9645'][o.note % 4]; c.fillStyle = col; c.beginPath(); c.arc(x, y - 22 * s, 13 * s, 0, 7); c.fill(); c.fillStyle = '#ffffff22'; c.beginPath(); c.arc(x - 4 * s, y - 26 * s, 6 * s, 0, 7); c.fill(); c.fillStyle = '#0000001a'; c.beginPath(); c.arc(x + 4 * s, y - 18 * s, 8 * s, 0, 7); c.fill(); }
+    else if (o.k === 'lamp') { const [x, y] = P2(cx, cy, 0); c.fillStyle = '#00000026'; c.beginPath(); c.ellipse(x + 2, y + 1, 5 * s, 2.5 * s, 0, 0, 7); c.fill(); c.strokeStyle = '#2c2c2c'; c.lineWidth = 2 * s; c.beginPath(); c.moveTo(x, y); c.lineTo(x, y - 30 * s - bounce); c.lineTo(x + 7 * s, y - 32 * s - bounce); c.stroke(); c.fillStyle = pulse > 0 ? '#fff6b0' : '#e9e2c0'; c.beginPath(); c.arc(x + 8 * s, y - 30 * s - bounce, 4 * s, 0, 7); c.fill(); if (pulse > 0) { c.fillStyle = `rgba(255,240,150,${pulse * 0.45})`; c.beginPath(); c.arc(x + 8 * s, y - 30 * s - bounce, 14 * s, 0, 7); c.fill(); } }
+    else { const R3 = rng(i * 31 + j * 7); for (let k = 0; k < 7; k++) { const [x, y] = P2(cx + (R3() - 0.5) * 0.6, cy + (R3() - 0.5) * 0.6, bounce * R3()); c.fillStyle = '#3f6e2f'; c.fillRect(x - 0.6, y - 6 * s, 1.2, 6 * s); c.fillStyle = ['#f2d24a', '#e86a8a', '#f3f0ea', '#c58ae0'][(o.note + k) % 4]; c.beginPath(); c.arc(x, y - 7 * s, 3.2 * s, 0, 7); c.fill(); } }
+    if (pulse > 0) { const [x, y] = P2(cx, cy, 44 * s); c.globalAlpha = pulse; c.fillStyle = '#fff'; c.font = `700 ${11 * s + 3}px ${PT}`; c.textAlign = 'center'; c.fillText('♪', x, y - (1 - pulse) * 12); c.globalAlpha = 1; }
+  };
+  function shade(hex, k) { const n = parseInt(hex.slice(1), 16); const f = (v) => clamp(Math.round(v * (1 + k)), 0, 255); return `rgb(${f(n >> 16)},${f((n >> 8) & 255)},${f(n & 255)})`; }
+  const drawCar = (c, car) => { const s = TWc / 54; const [gx, gy] = car.pos; const [dx, dy] = car.dir; const L = 0.26, Wd = 0.15, px = -dy, py = dx; const corner = (a, b, z) => P2(gx + dx * a + px * b, gy + dy * a + py * b, z);
+    const base = [corner(-L, -Wd, 3 * s), corner(L, -Wd, 3 * s), corner(L, Wd, 3 * s), corner(-L, Wd, 3 * s)]; const top = base.map((_, k) => [corner(k === 1 || k === 2 ? L : -L, k < 2 ? -Wd : Wd, 11 * s)]).map((x) => x[0]);
+    poly(c, [corner(-L, -Wd, 0), corner(L, -Wd, 0), corner(L, Wd, 0), corner(-L, Wd, 0)].map(([x, y]) => [x + 2, y + 2]), '#00000033');
+    for (let k = 0; k < 4; k++) { const a = base[k], b = base[(k + 1) % 4], tb = top[(k + 1) % 4], ta = top[k]; poly(c, [a, b, tb, ta], shade(car.col, -0.25)); }
+    poly(c, top, car.col); const cab = [corner(-L * 0.45, -Wd * 0.8, 11 * s), corner(L * 0.35, -Wd * 0.8, 11 * s), corner(L * 0.35, Wd * 0.8, 11 * s), corner(-L * 0.45, Wd * 0.8, 11 * s)]; const cabT = [corner(-L * 0.35, -Wd * 0.7, 17 * s), corner(L * 0.2, -Wd * 0.7, 17 * s), corner(L * 0.2, Wd * 0.7, 17 * s), corner(-L * 0.35, Wd * 0.7, 17 * s)];
+    for (let k = 0; k < 4; k++) poly(c, [cab[k], cab[(k + 1) % 4], cabT[(k + 1) % 4], cabT[k]], '#2b3a48cc'); poly(c, cabT, shade(car.col, 0.12)); };
+  // ---------- cars ----------
+  const neighbors = (i, j) => DIRS.filter(([di, dj]) => roads.has(key(i + di, j + dj)));
+  const addCar = (i, j) => { if (cars.length >= 8 || !roads.has(key(i, j)) || cars.some((c) => c.cell[0] === i && c.cell[1] === j)) return false; const nb = neighbors(i, j); const d = nb[0] || [1, 0]; cars.push({ cell: [i, j], from: [i, j], to: [i, j], t: 1, dir: d, pos: [i + 0.5, j + 0.5], col: CARC[cars.length % CARC.length], start: [i, j, d] }); return true; };
+  const STEP = 0.34;
+  const stepCar = (car) => { const [i, j] = car.cell; const nb = neighbors(i, j); if (!nb.length) return; const [di, dj] = car.dir; const back = [-di, -dj]; let pick2 = nb.find(([a, b]) => a === di && b === dj);
+    if (!pick2) { const turns = nb.filter(([a, b]) => !(a === back[0] && b === back[1])); pick2 = turns.length ? turns[(car.turn = (car.turn || 0) + 1) % turns.length] : back; }
+    car.dir = pick2; car.from = [i, j]; car.to = [i + pick2[0], j + pick2[1]]; };
+  const arrive = (car, now) => { const [i, j] = car.cell; for (const [di, dj] of [...DIRS, [1, 1], [-1, -1], [1, -1], [-1, 1]]) { const o = objs.get(key(i + di, j + dj)); if (o && (Math.abs(di) + Math.abs(dj) === 1)) { voice(o.k, o.note); o.hit = now; } } };
+  // ---------- loop ----------
+  let last = performance.now();
+  const frame = (now) => { const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (playing) for (const car of cars) { car.t += dt / STEP; let guard = 0;
+      while (car.t >= 1 && guard++ < 4) { const moving = car.from[0] !== car.to[0] || car.from[1] !== car.to[1]; if (moving) { car.cell = car.to.slice(); arrive(car, now); } car.t -= 1; if (!neighbors(...car.cell).length) { car.from = car.cell.slice(); car.to = car.cell.slice(); car.t = 0; break; } stepCar(car); }
+      const [a, b] = car.from, [c2, d2] = car.to; const tt = Math.min(1, car.t); car.pos = [a + 0.5 + (c2 - a) * tt, b + 0.5 + (d2 - b) * tt]; }
+    const c = g(); c.clearRect(0, 0, W, H); drawIsland(c); drawRoads(c, roads, false); if (preview.length) drawRoads(c, new Set([...roads, ...preview.map(([i, j]) => key(i, j))]), true);
+    if (hover && started) { const ok = valid(...hover); poly(c, cellPts(hover[0], hover[1], 0.02), ok ? (tool === 'erase' ? '#c2545055' : '#ffffff30') : '#ff000022', ok ? '#ffffff88' : null, 1); }
+    const items = [...[...objs].map(([k, o]) => { const [i, j] = k.split(',').map(Number); return { d: i + j + 1, f: () => drawObj(c, i, j, o, now) }; }), ...cars.map((car) => ({ d: car.pos[0] + car.pos[1], f: () => drawCar(c, car) }))].sort((a, b) => a.d - b.d); items.forEach((x) => x.f());
+    requestAnimationFrame(frame); };
+  // ---------- input ----------
+  let hover = null, dragStart = null;
+  const cellAt = (e) => { const r = cv.getBoundingClientRect(); const [gx, gy] = U2(e.clientX - r.left, e.clientY - r.top); return [Math.floor(gx), Math.floor(gy)]; };
+  const line = (a, b) => { const di = b[0] - a[0], dj = b[1] - a[1]; const out = []; if (Math.abs(di) >= Math.abs(dj)) { for (let k = 0; k <= Math.abs(di); k++) out.push([a[0] + Math.sign(di) * k, a[1]]); } else for (let k = 0; k <= Math.abs(dj); k++) out.push([a[0], a[1] + Math.sign(dj) * k]); return out.filter(([i, j]) => valid(i, j)); };
+  const apply = (i, j) => { const k = key(i, j); if (!valid(i, j)) return;
+    if (tool === 'erase') { roads.delete(k); objs.delete(k); for (let n = cars.length - 1; n >= 0; n--) if (cars[n].cell[0] === i && cars[n].cell[1] === j) cars.splice(n, 1); return; }
+    if (tool === 'car') { if (!addCar(i, j)) toast(roads.has(k) ? 'Max 8 cars' : 'Cars go on roads'); return; }
+    if (KIND[tool]) { if (roads.has(k)) return; const o = objs.get(k); if (o && o.k === tool) o.note = (o.note + 1) % 8; else objs.set(k, { k: tool, note: (i * 3 + j * 2 + 64) % 8 }); const n = objs.get(k); n.hit = performance.now(); voice(n.k, n.note); return; } };
+  cv.addEventListener('pointermove', (e) => { hover = cellAt(e); if (dragStart && tool === 'road') preview = line(dragStart, hover); else if (dragStart && tool === 'erase') apply(...hover); });
+  cv.addEventListener('pointerleave', () => (hover = null));
+  cv.addEventListener('pointerdown', (e) => { if (!started) return; try { cv.setPointerCapture(e.pointerId); } catch {} const c0 = cellAt(e); dragStart = c0; if (tool === 'road') preview = line(c0, c0); else apply(...c0); });
+  cv.addEventListener('pointerup', () => { if (tool === 'road' && preview.length) { preview.forEach(([i, j]) => { roads.add(key(i, j)); objs.delete(key(i, j)); }); } preview = []; dragStart = null; });
+  // ---------- toolbar ----------
+  const ICO = {
+    road: '<svg viewBox="0 0 28 28"><path d="M3 15l11-6 11 6-11 6z" fill="#efe6c6" stroke="#b6a47c"/><path d="M8.5 12l11 6" stroke="#c9b88a" stroke-dasharray="2 2"/></svg>',
+    car: '<svg viewBox="0 0 28 28"><path d="M5 17l9-5 9 5-9 5z" fill="#eee"/><path d="M5 17v-3l9-5 9 5v3l-9 5z" fill="#f4f1ea" stroke="#555" stroke-width=".8"/><path d="M10 12.5l5-2.8 4 2.3-5 2.8z" fill="#3a4a5a"/></svg>',
+    lamp: '<svg viewBox="0 0 28 28"><path d="M13 24V7h5" stroke="#222" stroke-width="2" fill="none"/><circle cx="19" cy="8" r="2.6" fill="#f6efc0"/></svg>',
+    house: '<svg viewBox="0 0 28 28"><path d="M6 15l8-4 8 4v6l-8 4-8-4z" fill="#efe6d6"/><path d="M14 19v6l8-4v-6z" fill="#cbbfa9"/><path d="M5 15l9-9 9 9-9 4z" fill="#c4504b"/></svg>',
+    tree: '<svg viewBox="0 0 28 28"><rect x="13" y="16" width="2.4" height="8" fill="#6b4f33"/><circle cx="14" cy="12" r="7" fill="#e9efe0"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg>',
+    flower: '<svg viewBox="0 0 28 28">' + [[9, 12, '#f2d24a'], [15, 9, '#e86a8a'], [19, 14, '#f3f0ea'], [12, 17, '#c58ae0'], [17, 19, '#f2d24a']].map(([x, y, c]) => `<rect x="${x - 0.5}" y="${y}" width="1" height="5" fill="#2f5a25"/><circle cx="${x}" cy="${y}" r="2.6" fill="${c}"/>`).join('') + '</svg>',
+    erase: '<svg viewBox="0 0 28 28"><path d="M7 18l8-9 6 5-7 8H9z" fill="#f2e8e0"/><path d="M7 18l4-4.5 6 5L14 22H9z" fill="#e7a6a0"/></svg>',
+  };
+  const tbtn = {}; const toolBtn = (k, title) => (tbtn[k] = h('button.tl' + (k === 'erase' ? '.er' : ''), { title, html: ICO[k], onclick: () => setTool(k) }));
+  const OCT = (fill) => `<svg viewBox="0 0 60 60"><path d="M18 2h24l16 16v24L42 58H18L2 42V18z" fill="${fill}" stroke="#eef0e8" stroke-width="3"/><path d="M19 6h22l13 13v22L41 54H19L6 41V19z" fill="none" stroke="#ffffff55" stroke-width="1"/></svg>`;
+  const goBtn = h('button.go', { title: 'GO', html: OCT('#c6cbc4') + '<span>GO</span>', onclick: () => setPlay(!playing) });
+  const setPlay = (on) => { playing = on && cars.length > 0; if (on && !cars.length) toast('Place a car on a road first'); goBtn.classList.toggle('on', playing); goBtn.innerHTML = OCT(playing ? '#c4504b' : '#c6cbc4') + `<span>${playing ? 'STOP' : 'GO'}</span>`; if (playing) audio(); else cars.forEach((c) => { const [i, j, d] = c.start; c.cell = [i, j]; c.from = [i, j]; c.to = [i, j]; c.t = 1; c.dir = d; c.pos = [i + 0.5, j + 0.5]; }); };
+  const setTool = (k) => { tool = k; Object.entries(tbtn).forEach(([n, b]) => b.classList.toggle('on', n === k)); };
+  const encode = () => btoa(JSON.stringify({ r: [...roads], o: [...objs].map(([k, o]) => [k, o.k, o.note]), c: cars.map((c) => c.start) }));
+  const decode = (s2) => { try { const d = JSON.parse(atob(s2)); clearAll(); d.r.forEach((k) => roads.add(k)); d.o.forEach(([k, kk, n]) => objs.set(k, { k: kk, note: n })); d.c.forEach(([i, j]) => addCar(i, j)); return true; } catch { return false; } };
+  const clearAll = () => { setPlay(false); roads.clear(); objs.clear(); cars.length = 0; };
+  const bx = (label, title, fn) => h('button.bx', { title, onclick: fn, html: label });
+  const tb = h('div.iot-tb', {}, goBtn, toolBtn('road', 'Road — click or drag a straight strip'), toolBtn('car', 'Car — drop on a road'), toolBtn('lamp', 'Street lamp · bell'), toolBtn('house', 'House · piano'), toolBtn('tree', 'Tree · marimba'), toolBtn('flower', 'Flowers · pluck'), toolBtn('erase', 'Eraser'), h('span.sep'),
+    bx('SHARE', 'Copy a share link', () => copy(location.origin + location.pathname + '#isle=' + encode(), 'Island link copied')), bx('SAVE<br>⇩', 'Save to this browser', () => { localStorage.setItem('iot-island', encode()); toast('Island saved'); }), bx('⇧<br>LOAD', 'Load saved island', () => { const s2 = localStorage.getItem('iot-island'); toast(s2 && decode(s2) ? 'Island loaded' : 'Nothing saved yet'); }), bx('NEW', 'Clear the island', () => clearAll())); el.append(tb);
+  setTool('road');
+  const hint = h('div.iot-hint', {}, 'Drag to lay roads · place houses, trees, lamps beside them · drop a car · press GO'); hint.style.opacity = 0; el.append(hint, h('div.iot-cp', {}, 'practice clone · code-drawn · inspired by Isle of Tune (Jim Hall)'));
+  // ---------- title card ----------
+  const tab = h('canvas'); tab.width = 272; tab.height = 184;
+  const card = h('div.iot-card', {}, h('div.cel', {}, 'Celebrating tunes on a tiny island'), h('div.iot-logo', {}, 'iSLE', h('span.of', {}, 'OF'), 'tUNE'), h('div.wl', {}, 'Welcome!', h('br'), 'HTML5 practice clone for desktop — drag, build, play'),
+    h('button.play', { onclick: () => { card.classList.add('off'); started = true; audio(); hint.style.opacity = 1; setTimeout(() => (hint.style.opacity = 0), 4200); } }, 'PLAY'),
+    h('div.iot-hp', {}, h('h6', {}, 'iSLE OF tUNE', h('small', {}, 'how to play')), h('div.iot-tab', {}, tab), h('ul', {}, h('li', {}, 'Drag to lay straight roads'), h('li', {}, 'Houses, trees, lamps & flowers next to a road each play a note'), h('li', {}, 'Drop up to 8 cars on the road'), h('li', {}, 'Press GO and listen to the traffic'))),
+    h('div.ft', {}, '♪ code-drawn practice clone — not affiliated with Isle of Tune'));
+  el.append(card);
+  // tiny island preview in the tablet mock
+  const drawTab = () => { const c = tab.getContext('2d'); c.fillStyle = '#6d8f46'; c.fillRect(0, 0, 272, 184); const t = (i, j) => [136 + (i - j) * 13, 30 + (i + j) * 6.5]; const pr = (i, j, f) => { const p = [t(i, j), t(i + 1, j), t(i + 1, j + 1), t(i, j + 1)]; c.beginPath(); p.forEach(([x, y], k) => (k ? c.lineTo(x, y) : c.moveTo(x, y))); c.fill(); }; const RT = rng(5);
+    const rd = []; for (let i = 1; i < 10; i++) rd.push([i, 2], [i, 8]); for (let j = 2; j < 9; j++) rd.push([1, j], [9, j], [5, j]); c.fillStyle = '#efe6c6'; rd.forEach(([i, j]) => pr(i, j)); for (let k = 0; k < 26; k++) { const i = Math.floor(RT() * 11), j = Math.floor(RT() * 11); if (rd.some(([a, b]) => a === i && b === j)) continue; c.fillStyle = ['#c4504b', '#4f7d39', '#e86a8a', '#efe6d6'][k % 4]; const [x, y] = t(i + 0.5, j + 0.5); c.fillRect(x - 4, y - 8, 8, 8); } };
+  drawTab();
+  // ---------- boot ----------
+  const onR = () => recompute(); new ResizeObserver(onR).observe(el); recompute();
+  const hash = location.hash.match(/isle=([^&]+)/); if (hash && decode(hash[1])) { card.classList.add('off'); started = true; }
+  requestAnimationFrame(frame);
+  // demo tune used by the proof (also handy as a starter)
+  const center = () => { const [gx, gy] = U2(W / 2, H * 0.47); return [Math.floor(gx), Math.floor(gy)]; };
+  window.__demoProof = async () => {
+    const o = []; const ps = (ms) => sleep(ms);
+    card.querySelector('.play').click(); await ps(400); o.push(`card dismissed=${card.classList.contains('off')}`);
+    const r = cv.getBoundingClientRect(); const [ci, cj] = center(); const scr = (i, j) => { const [x, y] = P2(i + 0.5, j + 0.5); return { clientX: r.left + x, clientY: r.top + y, pointerId: 1, bubbles: true, button: 0 }; };
+    const dragLine = async (a, b) => { cv.dispatchEvent(new PointerEvent('pointerdown', scr(...a))); for (let k = 1; k <= 6; k++) { cv.dispatchEvent(new PointerEvent('pointermove', scr(a[0] + (b[0] - a[0]) * k / 6, a[1] + (b[1] - a[1]) * k / 6))); await ps(10); } cv.dispatchEvent(new PointerEvent('pointerup', scr(...b))); };
+    setTool('road'); const A = [ci - 3, cj - 2], Bq = [ci + 3, cj - 2], C = [ci + 3, cj + 2], D = [ci - 3, cj + 2];
+    await dragLine(A, Bq); const one = roads.size; await dragLine(Bq, C); await dragLine(C, D); await dragLine(D, A); o.push(`drag laid strip of ${one} tiles; loop ${roads.size} road tiles`);
+    const place = (t, i, j) => { setTool(t); const e = scr(i, j); cv.dispatchEvent(new PointerEvent('pointerdown', e)); cv.dispatchEvent(new PointerEvent('pointerup', e)); };
+    [['house', ci - 2, cj - 3], ['house', ci, cj - 3], ['tree', ci + 2, cj - 3], ['lamp', ci + 4, cj - 1], ['flower', ci + 4, cj + 1], ['house', ci + 1, cj + 3], ['tree', ci - 1, cj + 3], ['lamp', ci - 4, cj], ['flower', ci - 2, cj - 1], ['house', ci + 2, cj + 1]].forEach(([t, i, j]) => place(t, i, j));
+    o.push(`objects=${objs.size}`); place('car', ...A); place('car', ...C); o.push(`cars=${cars.length}`); setTool('road');
+    const n0 = notesPlayed; setPlay(true); await ps(RM ? 2600 : 2600); const played = notesPlayed - n0; o.push(`GO: ${played} notes triggered by cars, audio=${audio()?.state}`);
+    setPlay(false); clearAll(); card.classList.remove('off'); started = false; o.push('restored title card + empty island'); return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

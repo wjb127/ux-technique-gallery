@@ -2796,4 +2796,226 @@ V['unseen-audio-enter-gate-spaced-letter-loader-click-hold-drag-world-project-fi
     reset(); await sleep(RM ? 60 : 2400); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored: gate with eyes + Enter, filter All, sound off, world reset`); return o.join('; '); };
 };
 
+V['minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes'] = (root, T) => {
+  theme(root, T, { bg: '#26262c', fg: '#fff', ac: '#33b5e5', dark: true });
+  const SANS = "'Inter Variable','Helvetica Neue',Arial,sans-serif", BLUE = '#33b5e5';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.mt{position:absolute;inset:0;background:#26262c;font-family:${SANS};overflow:hidden;user-select:none}
+.mt *{box-sizing:border-box}
+.mt-lbl{position:absolute;left:0;top:0;pointer-events:none;z-index:2}
+.mt-lbl b{position:absolute;transform:translate(-50%,-140%);font:700 10.5px ${SANS};color:#fff;white-space:nowrap;text-shadow:0 0 2px #000,0 0 3px #000,0 0 4px #000;transition:opacity .4s}
+.mt-lbl i{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 1px 4px #0006;transition:opacity .4s}
+.mt-clk{position:absolute;left:8px;top:8px;z-index:5;background:#000000b8;color:#fff;border-radius:6px;padding:6px 8px 7px;min-width:110px;backdrop-filter:blur(2px)}
+.mt-clk .d{font:400 11px ${SANS};opacity:.95}.mt-clk .t{font:400 18px/1.25 ${SANS};letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.mt-clk .pb{display:none;margin-top:6px;gap:6px;flex-direction:column}.mt.play .mt-clk .pb{display:flex}
+.mt-clk .pb button{background:#ffffff14;border:1px solid #ffffff38;color:#fff;border-radius:4px;font:400 11px ${SANS};height:26px;cursor:pointer;padding:0 8px}
+.mt-clk .pb .sp{display:flex;align-items:center;border:1px solid #ffffff38;border-radius:4px;height:28px}
+.mt-clk .pb .sp button{border:0;background:none;width:28px;height:26px;font-size:16px;padding:0}.mt-clk .pb .sp span{flex:1;text-align:center;font:400 11px ${SANS};border-left:1px solid #ffffff38;border-right:1px solid #ffffff38;line-height:26px}
+.mt-clk .ed{display:none;gap:4px}.mt-clk .ed.on{display:flex}.mt-clk .ed input{width:100%;font:11px ${SANS};background:#111;color:#fff;border:1px solid #ffffff40;border-radius:3px;padding:3px}
+.mt-al{position:absolute;left:8px;top:58px;z-index:5;width:40px;height:44px;background:#000000b8;border-radius:6px;display:grid;place-items:center;color:#fff;font:400 7.5px ${SANS};cursor:pointer;padding-top:3px;transition:top .25s}
+.mt.play .mt-al{top:130px}
+.mt-al svg{display:block;margin:0 auto}.mt-al em{position:absolute;right:-4px;top:-5px;background:#e33;color:#fff;font:700 9px ${SANS};border-radius:9px;min-width:15px;height:15px;display:grid;place-items:center;font-style:normal}
+.mt-rail{position:absolute;right:8px;top:8px;z-index:5;display:flex;flex-direction:column;gap:8px}
+.mt-grp{background:#fff;border-radius:6px;box-shadow:0 0 0 2px #0000001a;display:flex;flex-direction:column;overflow:hidden}
+.mt-grp button{width:29px;height:29px;border:0;background:#fff;display:grid;place-items:center;cursor:pointer;padding:0;color:#333}
+.mt-grp button+button{border-top:1px solid #ddd}.mt-grp button:hover{background:#f2f2f2}.mt-grp button.on{color:${BLUE}}
+.mt-grp svg{width:18px;height:18px;fill:currentColor}
+.mt-pop{position:absolute;z-index:6;background:#000000d0;color:#fff;border-radius:6px;padding:10px 12px;font:400 12px ${SANS};display:none;backdrop-filter:blur(3px)}
+.mt-pop.on{display:block}
+.mt-trk{left:50%;top:50%;width:270px;transform:translate(-50%,-44%);padding:8px 8px 6px}
+.mt-trk h5{margin:0 0 6px;font:700 12.5px ${SANS};display:flex;align-items:center;padding:6px 0 4px}.mt-trk h5 span{flex:1}.mt-trk h5 button{background:none;border:0;color:#fff;font-size:18px;cursor:pointer;line-height:1}
+.mt-trk .r{display:flex;align-items:center;gap:8px;padding:3px 0;cursor:pointer;font:400 12px ${SANS}}
+.mt-trk .r i{width:36px;height:36px;border:1px solid #ffffff60;border-radius:4px;display:grid;place-items:center;background:#000}
+.mt-trk .r.on i{border:2px solid ${BLUE};box-shadow:0 0 6px ${BLUE}88}.mt-trk .r i svg{width:24px;height:24px;fill:#fff}
+.mt-srch{right:46px;top:8px;width:240px}.mt-srch input{width:100%;font:13px ${SANS};padding:6px 8px;border-radius:4px;border:0;margin-bottom:6px}
+.mt-srch div{padding:4px 2px;cursor:pointer;border-radius:3px}.mt-srch div:hover{background:#ffffff1c}
+.mt-lay{right:46px;top:250px;width:190px}.mt-lay label{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
+.mt-abt{left:50%;top:50%;transform:translate(-50%,-50%);width:340px;line-height:1.5}
+.mt-info{position:absolute;left:8px;bottom:30px;z-index:5;background:#000000c8;color:#fff;border-radius:6px;padding:8px 10px;font:400 11.5px/1.45 ${SANS};min-width:220px;display:none}
+.mt-info.on{display:block}.mt-info .ln{display:flex;align-items:center;gap:6px;font-weight:700;font-size:12.5px}.mt-info .ln i{width:12px;height:12px;border-radius:3px}
+.mt-attr{position:absolute;right:4px;bottom:2px;z-index:5;font:400 10px ${SANS};color:#ccc;background:#0007;padding:1px 6px;border-radius:3px}
+.mt-wm{position:absolute;left:8px;bottom:6px;z-index:5;font:700 13px ${SANS};color:#fff;opacity:.85;letter-spacing:-.01em;text-shadow:0 1px 3px #000}
+.mt-wm span{font-weight:400;opacity:.8}
+.mt-ug{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:5;background:#000000b8;color:#fff;font:400 11px ${SANS};border-radius:12px;padding:4px 12px;opacity:0;transition:opacity .4s;pointer-events:none}.mt.ug .mt-ug{opacity:1}
+`);
+  const el = h('div.mt'); root.append(el);
+  const S = stage(el, { bg: '#26262c' }); S.scene.fog = new THREE.Fog(0x26262c, 16, 42);
+  S.cam.fov = 38; S.cam.near = 0.05; S.cam.far = 200; S.cam.updateProjectionMatrix();
+  // ---------- ground (code-drawn dark map texture) ----------
+  const GW = 44, TX = 2048; const cv = document.createElement('canvas'); cv.width = cv.height = TX; const g = cv.getContext('2d');
+  const toT = (x, z) => [(x / GW + 0.5) * TX, (z / GW + 0.5) * TX]; const R = rng(9);
+  g.fillStyle = '#34343c'; g.fillRect(0, 0, TX, TX);
+  for (let k = 0; k < 2600; k++) { g.fillStyle = `rgba(${R() < 0.5 ? '60,60,70' : '44,44,52'},.55)`; const [x, y] = [R() * TX, R() * TX]; g.fillRect(x, y, 6 + R() * 26, 6 + R() * 26); }
+  g.strokeStyle = '#3e3e48'; g.lineWidth = 1.2; for (let k = 0; k < 900; k++) { const [x, y] = [R() * TX, R() * TX], a = (R() < 0.5 ? 0 : Math.PI / 2) + (R() - 0.5) * 0.5, l = 30 + R() * 120; g.beginPath(); g.moveTo(x, y); g.lineTo(x + Math.cos(a) * l, y + Math.sin(a) * l); g.stroke(); }
+  g.strokeStyle = '#4a4a55'; g.lineWidth = 3; for (let k = 0; k < 60; k++) { g.beginPath(); let [x, y] = [R() * TX, R() * TX]; g.moveTo(x, y); for (let s2 = 0; s2 < 6; s2++) { x += (R() - 0.5) * 340; y += (R() - 0.5) * 340; g.lineTo(x, y); } g.stroke(); }
+  const blob = (pts, fill) => { g.fillStyle = fill; g.beginPath(); pts.forEach(([x, z], i) => { const [a, b] = toT(x, z); i ? g.lineTo(a, b) : g.moveTo(a, b); }); g.closePath(); g.fill(); };
+  blob([[-2.2, -1.4], [-0.9, -1.5], [-0.6, -0.4], [-0.8, 0.5], [-2.0, 0.6], [-2.4, -0.4]], '#2c372f'); // Imperial Palace
+  blob([[-7.6, 0.2], [-6.9, 0.0], [-6.8, 1.3], [-7.7, 1.4]], '#2c372f'); blob([[-1.0, -4.6], [-0.2, -4.7], [-0.1, -3.9], [-0.9, -3.8]], '#2c372f'); blob([[-5.6, -0.6], [-4.9, -0.7], [-4.8, 0.0], [-5.6, 0.1]], '#2c372f'); blob([[-3.0, 1.4], [-2.4, 1.2], [-2.3, 2.0], [-3.0, 2.1]], '#2c372f');
+  blob([[3.4, 22], [3.2, 6], [5.5, 3.6], [9, 2.8], [22, 3.2], [22, 22]], '#1f2636'); // bay
+  g.strokeStyle = '#222a3a'; g.lineCap = 'round'; const river = (pts, w) => { g.lineWidth = w; g.beginPath(); pts.forEach(([x, z], i) => { const [a, b] = toT(x, z); i ? g.lineTo(a, b) : g.moveTo(a, b); }); g.stroke(); };
+  river([[2.6, -14], [2.4, -7], [1.9, -4.5], [2.2, -2.5], [1.6, -0.5], [1.9, 1.5], [2.4, 3.2], [3.4, 5]], 34); river([[4.6, -14], [4.9, -6], [5.6, -2], [7, 1], [8, 3]], 26); river([[-0.6, -1.9], [1.8, -2.1]], 10); river([[-11, -1.9], [-6, -1.6], [-3, -1.9], [-0.6, -1.9]], 8); river([[-2, 4.5], [0.2, 3.4], [1.8, 2.6]], 10);
+  const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+  const groundMat = new THREE.MeshBasicMaterial({ map: tex, transparent: true }); const ground = new THREE.Mesh(new THREE.PlaneGeometry(GW, GW), groundMat); ground.rotation.x = -Math.PI / 2; S.scene.add(ground);
+  S.scene.add(new THREE.HemisphereLight(0xdfe4ff, 0x2a2a30, 1.1)); const dl = new THREE.DirectionalLight(0xffffff, 1.4); dl.position.set(-6, 12, 8); S.scene.add(dl);
+  // ---------- buildings (instanced) ----------
+  const CEN = [[-0.2, 0.1, 1, 0.9], [-6.6, -1.1, 0.85, 1.0], [-6.4, 2.0, 0.6, 0.7], [-6.1, -5.0, 0.55, 0.7], [-2.4, 5.5, 0.5, 0.7], [-3.6, 2.6, 0.55, 0.8], [-1.6, 1.6, 0.55, 0.8], [0.4, -2.4, 0.35, 0.6], [1.4, 2.8, 0.4, 0.7]];
+  const bGeo = new THREE.BoxGeometry(1, 1, 1); bGeo.translate(0, 0.5, 0);
+  const bMat = new THREE.MeshStandardMaterial({ color: 0xa4a6b0, roughness: 0.8, metalness: 0.1, transparent: true });
+  const NB = 1100, bld = new THREE.InstancedMesh(bGeo, bMat, NB), M4 = new THREE.Matrix4(), q = new THREE.Quaternion(), BR = rng(4); let nb = 0;
+  for (let k = 0; k < 6000 && nb < NB; k++) { const c = CEN[Math.floor(BR() * CEN.length)]; const r = Math.abs((BR() + BR() + BR() - 1.5) / 1.5) * 2.4 * c[3], a = BR() * 6.283; const x = c[0] + Math.cos(a) * r, z = c[1] + Math.sin(a) * r; const ht = (0.05 + BR() ** 3 * 0.9 * c[2]) * Math.max(0.15, 1 - r / 2.6); const w = 0.05 + BR() * 0.12; q.setFromAxisAngle(new THREE.Vector3(0, 1, 0), (BR() - 0.5) * 0.4); M4.compose(new THREE.Vector3(x, 0, z), q, new THREE.Vector3(w, ht, w * (0.6 + BR() * 0.8))); bld.setMatrixAt(nb, M4); bld.setColorAt(nb, new THREE.Color().setHSL(0.63, 0.05, 0.5 + BR() * 0.35)); nb++; }
+  bld.count = nb; S.scene.add(bld);
+  // ---------- stations + lines (stylised Tokyo, km-ish units; x east, z south) ----------
+  const ST = { Tokyo: [0, 0], Kanda: [0, -1.3], Akihabara: [0.1, -2.2], Okachimachi: [0.05, -3.1], Ueno: [-0.2, -3.8], Nippori: [-0.8, -5.2], Tabata: [-1.8, -6.2], Komagome: [-3, -6.3], Sugamo: [-4, -5.9], Otsuka: [-5, -5.5], Ikebukuro: [-6.2, -5], Mejiro: [-6.6, -4], Takadanobaba: [-6.7, -3], 'Shin-Okubo': [-6.6, -2.2], Shinjuku: [-6.5, -1.2], Yoyogi: [-6.4, -0.5], Harajuku: [-6.6, 0.6], Shibuya: [-6.5, 2], Ebisu: [-5.8, 3.2], Meguro: [-5.6, 4.6], Gotanda: [-4.8, 5.4], Osaki: [-3.8, 5.8], Shinagawa: [-2.4, 5.6], Tamachi: [-1.6, 4.2], Hamamatsucho: [-1, 2.8], Shimbashi: [-0.6, 1.6], Yurakucho: [-0.3, 0.7], Ochanomizu: [-1, -1.6], Iidabashi: [-3, -2], Yotsuya: [-4, -0.8], Nakano: [-10, -2], Omotesando: [-5.4, 1.2], 'Akasaka-mitsuke': [-3.6, 0.2], Toranomon: [-1.8, 1.4], Ginza: [-0.1, 1.0], Nihombashi: [0.5, -0.3], Asakusa: [1.8, -4.0], Korakuen: [-2.5, -3.2], Otemachi: [-0.3, -0.5], Kasumigaseki: [-1.2, 0.8], Roppongi: [-3.6, 2.6], Hibiya: [-0.6, 0.4], Tsukiji: [0.6, 1.6], Kayabacho: [1.2, -0.4], 'Minami-senju': [0.6, -6], 'Monzen-nakacho': [2.6, 0.6], Toyocho: [4, 1], Daimon: [-1.4, 2.8], Kachidoki: [1, 2.8], Tsukishima: [1.6, 2.2], Ryogoku: [2, -1.8], Kudanshita: [-1.8, -1.4], 'Kiyosumi-shirakawa': [2.4, 0], Oshiage: [3.2, -3], 'Kita-senju': [1, -7.6], Mita: [-2, 3.6], Asakusabashi: [1.2, -2], 'Azabu-juban': [-3, 3.2], Nagatacho: [-2.8, 0.2], 'Naka-meguro': [-6.4, 4.2], 'Ichigaya': [-3.6, -1.5], Shiodome: [-0.4, 2.1], Toyosu: [2.8, 3.6], 'Takanawa Gateway': [-2.1, 4.9] };
+  const P = (n) => (Array.isArray(n) ? n : ST[n]);
+  const LINES = [
+    ['JR Yamanote Line', '#80c241', 0, ['Tokyo', 'Kanda', 'Akihabara', 'Okachimachi', 'Ueno', 'Nippori', 'Tabata', 'Komagome', 'Sugamo', 'Otsuka', 'Ikebukuro', 'Mejiro', 'Takadanobaba', 'Shin-Okubo', 'Shinjuku', 'Yoyogi', 'Harajuku', 'Shibuya', 'Ebisu', 'Meguro', 'Gotanda', 'Osaki', 'Shinagawa', 'Takanawa Gateway', 'Tamachi', 'Hamamatsucho', 'Shimbashi', 'Yurakucho'], true, 5],
+    ['JR Chuo Line Rapid', '#f15a22', 0, ['Tokyo', 'Kanda', 'Ochanomizu', 'Ichigaya', 'Yotsuya', 'Shinjuku', 'Nakano', [-16, -2.4]], false, 3],
+    ['JR Keihin-Tohoku Line', '#00b2e5', 0, [[1.2, -14], [0.6, -8], 'Tabata', [-0.6, -5.3], [0, -3.8], [0.25, -2.2], [0.15, -1.3], [0.12, 0], [-0.4, 1.6], [-0.85, 2.8], [-1.45, 4.2], [-2.3, 5.7], [-5, 10], [-6, 16]], false, 3],
+    ['JR Sobu Line', '#ffd400', 0, [[-16, -2.6], 'Nakano', 'Shinjuku', 'Yotsuya', 'Ichigaya', 'Iidabashi', 'Ochanomizu', 'Akihabara', 'Asakusabashi', 'Ryogoku', [6, -1.5], [14, -1.2]], false, 3],
+    ['Ginza Line', '#f39700', 1, ['Shibuya', 'Omotesando', 'Akasaka-mitsuke', 'Toranomon', 'Shimbashi', 'Ginza', 'Nihombashi', 'Kanda', 'Ueno', 'Asakusa'], false, 2],
+    ['Marunouchi Line', '#e60012', 1, ['Ikebukuro', 'Korakuen', 'Ochanomizu', 'Otemachi', 'Tokyo', 'Ginza', 'Kasumigaseki', 'Akasaka-mitsuke', 'Yotsuya', 'Shinjuku', [-11, -1.6]], false, 2],
+    ['Hibiya Line', '#9caeb7', 1, ['Naka-meguro', 'Ebisu', 'Roppongi', 'Kasumigaseki', 'Hibiya', 'Ginza', 'Tsukiji', 'Kayabacho', 'Akihabara', 'Ueno', 'Minami-senju', 'Kita-senju'], false, 2],
+    ['Tozai Line', '#009bbf', 1, ['Nakano', 'Takadanobaba', 'Iidabashi', 'Kudanshita', 'Otemachi', 'Nihombashi', 'Kayabacho', 'Monzen-nakacho', 'Toyocho', [9, 1.6], [16, 2.4]], false, 2],
+    ['Oedo Line', '#b6007a', 1, ['Shinjuku', 'Yoyogi', 'Roppongi', 'Azabu-juban', 'Daimon', 'Shiodome', 'Tsukiji', 'Kachidoki', 'Tsukishima', 'Monzen-nakacho', 'Kiyosumi-shirakawa', 'Ryogoku', 'Asakusabashi', 'Okachimachi', 'Korakuen', 'Iidabashi', 'Ichigaya', [-5.2, -1.6], 'Shinjuku'], false, 2],
+    ['Hanzomon Line', '#8f76d6', 1, ['Shibuya', 'Omotesando', 'Nagatacho', 'Kudanshita', 'Otemachi', [0.6, -0.6], 'Kiyosumi-shirakawa', [2.9, -1.6], 'Oshiage'], false, 2],
+    ['Chiyoda Line', '#00bb85', 1, [[-8.2, 1.2], 'Omotesando', 'Akasaka-mitsuke', 'Kasumigaseki', 'Hibiya', 'Otemachi', [-0.6, -2.2], [-0.8, -4.4], 'Nippori', 'Kita-senju'], false, 2],
+    ['Asakusa Line', '#e85298', 1, ['Gotanda', 'Mita', 'Daimon', 'Shimbashi', [0.3, 0.9], 'Nihombashi', 'Asakusabashi', 'Asakusa', 'Oshiage'], false, 2],
+    ['Namboku Line', '#00ac9b', 1, ['Meguro', 'Azabu-juban', [-2.4, 1.6], 'Nagatacho', 'Yotsuya', 'Ichigaya', 'Iidabashi', 'Korakuen', 'Komagome', [-2.8, -9]], false, 2],
+    ['Fukutoshin Line', '#9c5e31', 1, ['Shibuya', [-6.1, 0.6], [-6.0, -1.2], [-6.2, -3.2], 'Ikebukuro'], false, 2],
+    ['Yurikamome', '#1a5ba6', 0, ['Shimbashi', 'Shiodome', [0.2, 3.6], [1.2, 4.6], 'Toyosu'], false, 1],
+  ];
+  const lineObjs = [], trains = [], labels = [], LBL = h('div.mt-lbl'); el.append(LBL);
+  const Y0 = 0.035;
+  LINES.forEach(([name, col, sub, stops, loop, nTr], li) => {
+    const pts = stops.map((n) => { const [x, z] = P(n); return new THREE.Vector3(x, 0, z); });
+    const curve = new THREE.CatmullRomCurve3(pts, loop, 'centripetal', 0.3);
+    const tubeGeo = new THREE.TubeGeometry(curve, Math.max(80, pts.length * 26), sub ? 0.034 : 0.05, 6, loop);
+    const mat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: sub ? 0.42 : 1, fog: true });
+    const mesh = new THREE.Mesh(tubeGeo, mat); mesh.position.y = sub ? Y0 : 0.07; mesh.scale.y = 0.35; S.scene.add(mesh);
+    const lo = { name, col, sub, curve, mesh, mat, len: curve.getLength(), loop }; lineObjs.push(lo);
+    for (let k = 0; k < nTr; k++) {
+      const grp = new THREE.Group(); const cars = []; const nc = sub ? 3 : 4;
+      for (let c = 0; c < nc; c++) { const m = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.085, 0.24), new THREE.MeshStandardMaterial({ color: col, emissive: new THREE.Color(col).multiplyScalar(0.35), roughness: 0.4, transparent: true })); m.userData.train = trains.length; cars.push(m); grp.add(m); }
+      S.scene.add(grp);
+      trains.push({ lo, grp, cars, u: (k + 0.5 * (li % 2)) / nTr, dir: k % 2 && !loop ? -1 : 1, speed: (sub ? 0.32 : 0.42) / lo.len, id: `${name.split(' ').slice(-2, -1)[0] || 'T'}${1000 + li * 37 + k * 11}`, mats: cars.map((m) => m.material) });
+    }
+  });
+  // station nodes + labels
+  const nodeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }); const nodeGeo = new THREE.CylinderGeometry(0.14, 0.14, 0.035, 22); const nodes = [];
+  Object.entries(ST).forEach(([n, [x, z]]) => { const m = new THREE.Mesh(nodeGeo, nodeMat); m.position.set(x, 0.09, z); m.scale.set(1, 1, 0.62); S.scene.add(m); nodes.push(m); const b = h('b', {}, n); LBL.append(b); labels.push({ el: b, v: new THREE.Vector3(x, 0.12, z), kind: 'st', name: n }); });
+  const CAMS = [[-0.2, -2.6], [0.3, -1.6], [-0.1, 0.4], [-0.9, 1.9], [-3.2, -4.9], [3.6, -1.2], [-5.6, -6.2], [-0.4, 3.7], [1.2, -3.2]];
+  const CAMSVG = '<svg width="16" height="16" viewBox="0 0 24 24"><path d="M3 6h12a2 2 0 0 1 2 2v2.5l4-3v9l-4-3V16a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" fill="#111"/></svg>';
+  CAMS.forEach(([x, z]) => { const i = h('i', { html: CAMSVG }); LBL.append(i); labels.push({ el: i, v: new THREE.Vector3(x, 0.4, z), kind: 'cam' }); });
+  // ---------- camera / controls ----------
+  const ctl = new OrbitControls(S.cam, S.r.domElement); ctl.enableDamping = true; ctl.dampingFactor = 0.08; ctl.screenSpacePanning = false; ctl.maxPolarAngle = 1.32; ctl.minDistance = 1.2; ctl.maxDistance = 30;
+  ctl.mouseButtons = { LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.ROTATE };
+  const HOME = { tgt: new THREE.Vector3(-0.5, 0, 0.2), pos: new THREE.Vector3(1.2, 4.4, 7.0) };
+  const home = () => { ctl.target.copy(HOME.tgt); S.cam.position.copy(HOME.pos); ctl.update(); };
+  home();
+  // ---------- UI ----------
+  const IC = {
+    search: '<path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/>', plus: '<path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>', minus: '<path d="M5 11h14v2H5z"/>',
+    compass: '<path d="M12 2l4 9h-8z" fill="#333"/><path d="M12 22l-4-9h8z" fill="#aaa"/>', full: '<path d="M3 3h6v2H6.4l4 4L9 10.4l-4-4V9H3zm12 0h6v6h-2V6.4l-4 4L13.6 9l4-4H15zM3 15h2v2.6l4-4 1.4 1.4-4 4H9v2H3zm16 0h2v6h-6v-2h2.6l-4-4 1.4-1.4 4 4z"/>',
+    eye: '<path d="M12 5c5 0 9 4.5 10 7-1 2.5-5 7-10 7S3 14.5 2 12c1-2.5 5-7 10-7zm0 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>', play: '<circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#fff"/>',
+    eco: '<path d="M4 7h14a2 2 0 0 1 2 2v1h2v4h-2v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm0 2v6h14V9zm2 1h6v4H6z"/>', layers: '<path d="M12 2l10 5-10 5L2 7zm-7.6 8.2L12 14l7.6-3.8L22 11.4 12 16.4 2 11.4zm0 4.4L12 18.4l7.6-3.8L22 15.8l-10 5-10-5z"/>',
+    track: '<path d="M3 6h12a2 2 0 0 1 2 2v2.5l4-3v9l-4-3V16a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>', info: '<circle cx="12" cy="12" r="10"/><path d="M11 10h2v7h-2zm0-4h2v2h-2z" fill="#fff"/>',
+  };
+  const B = {}; const mk = (k, title, fn) => (B[k] = h('button', { title, onclick: fn, html: `<svg viewBox="0 0 24 24">${IC[k]}</svg>` }));
+  const st = { ug: false, play: false, eco: false, speed: 1, offset: 0, track: null, mode: 'position', layers: { bld: true, lbl: true, cam: true } };
+  const SPEEDS = [1, 2, 4, 10, 30, 60, 120, 300, 600, 1800, 3600];
+  const rail = h('div.mt-rail', {},
+    h('div.mt-grp', {}, mk('search', 'Station search', () => pop(srch))),
+    h('div.mt-grp', {}, mk('plus', 'Zoom in', () => zoom(0.7)), mk('minus', 'Zoom out', () => zoom(1.4)), mk('compass', 'Reset bearing to north', () => home())),
+    h('div.mt-grp', {}, mk('full', 'Enter fullscreen', () => { const d = document; if (d.fullscreenElement) d.exitFullscreen?.(); else el.requestFullscreen?.().catch(() => toast('Fullscreen not available')); })),
+    h('div.mt-grp', {}, mk('eye', 'Enter underground', () => setUG(!st.ug)), mk('play', 'Enter playback', () => setPlay(!st.play)), mk('eco', 'Enter eco mode', () => { st.eco = !st.eco; B.eco.classList.toggle('on', st.eco); B.eco.title = st.eco ? 'Exit eco mode' : 'Enter eco mode'; toast(st.eco ? 'Eco mode: 1 fps train updates' : 'Eco mode off'); })),
+    h('div.mt-grp', {}, mk('layers', 'Select layers', () => pop(lay)), mk('track', 'Select tracking mode', () => pop(trk)), mk('info', 'About Mini Tokyo 3D', () => pop(abt))));
+  const clkD = h('div.d'), clkT = h('div.t'); const spdL = h('span', {}, '1x speed');
+  const edDate = h('input', { type: 'date' }), edTime = h('input', { type: 'time', step: 1 }); const ed = h('div.ed', {}, edDate, edTime);
+  const applyEd = () => { if (!edDate.value || !edTime.value) return; const tgt = new Date(`${edDate.value}T${edTime.value}${edTime.value.length === 5 ? ':00' : ''}+09:00`).getTime(); if (!isNaN(tgt)) st.offset = tgt - Date.now(); };
+  edDate.onchange = applyEd; edTime.onchange = applyEd;
+  const clk = h('div.mt-clk', {}, clkD, clkT, h('div.pb', {}, h('button', { onclick: () => { ed.classList.toggle('on'); const d = now(); edDate.value = fmt(d, { year: 'numeric', month: '2-digit', day: '2-digit' }, 'sv-SE'); edTime.value = fmt(d, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }, 'sv-SE'); } }, 'Edit date & time'), ed,
+    h('div.sp', {}, h('button', { title: 'Slower', onclick: () => setSpeed(-1) }, '−'), spdL, h('button', { title: 'Faster', onclick: () => setSpeed(1) }, '+'))));
+  const al = h('div.mt-al', { title: 'Train status', onclick: () => toast('운행 정보 · 7 lines with delays (demo)'), html: '<svg width="20" height="18" viewBox="0 0 24 22"><path d="M12 1l11 20H1z" fill="#fff"/><path d="M11 8h2v6h-2zm0 8h2v2h-2z" fill="#000"/></svg><span>Status</span><em>7</em>' });
+  const MODES = [['position', 'Position only', '<circle cx="12" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="2.5"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5" stroke="#fff" stroke-width="2"/>'], ['back', 'Back', '<path d="M8 3h8l3 18H5z" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M7 8h10M6.5 12h11M6 16h12" stroke="#fff" stroke-width="1.6"/>'], ['topback', 'Top-back', '<path d="M12 2l8 10h-5v10H9V12H4z"/>'], ['front', 'Front', '<rect x="5" y="2" width="14" height="16" rx="3" fill="none" stroke="#fff" stroke-width="2"/><rect x="7.5" y="5" width="9" height="5"/><circle cx="9" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/><path d="M7 22l2-4M17 22l-2-4" stroke="#fff" stroke-width="2"/>'], ['topfront', 'Top-front', '<path d="M12 22l8-10h-5V2H9v10H4z"/>'], ['heli', 'Helicopter', '<path d="M2 5h20v1.6H2z"/><path d="M11 6h2v2h-2z"/><path d="M6 9h9a5 5 0 0 1 0 8H8a3 3 0 0 1-3-3zM15 12h7v1.6h-7zM8 19h9v1.4H8z"/>'], ['drone', 'Drone', '<path d="M1 7h8v1.5H1zM15 7h8v1.5h-8zM4 8h1.5v3H4zM18.5 8H20v3h-1.5zM4 11h16v2.5H4zM9 13.5h6l-1 3h-4z"/>'], ['bird', 'Bird', '<path d="M3 6c4 0 7 2 8 6 1-6 5-9 10-9-1 6-4 10-9 11l-2 7-2-6c-3-2-5-5-5-9z"/>']];
+  const trk = h('div.mt-pop.mt-trk', {}, h('h5', {}, h('span', {}, 'Tracking modes'), h('button', { onclick: () => pop(null) }, '✕')), ...MODES.map(([k, l, ic]) => h('div.r', { 'data-k': k, onclick: () => { setMode(k); if (st.track == null) startTrack(0); pop(null); } }, h('i', { html: `<svg viewBox="0 0 24 24">${ic}</svg>` }), l)));
+  const srchIn = h('input', { placeholder: 'Search station', oninput: () => listS() }), srchL = h('div'); const srch = h('div.mt-pop.mt-srch', {}, srchIn, srchL);
+  const listS = () => srchL.replaceChildren(...Object.keys(ST).filter((n) => n.toLowerCase().includes(srchIn.value.toLowerCase())).slice(0, 7).map((n) => h('div', { onclick: () => { flyTo(ST[n]); pop(null); } }, n))); listS();
+  const lay = h('div.mt-pop.mt-lay', {}, h('b', {}, 'Layers'), ...[['bld', '3D buildings'], ['lbl', 'Station names'], ['cam', 'Live cameras']].map(([k, l]) => h('label', {}, h('input', { type: 'checkbox', checked: true, onchange: (e) => { st.layers[k] = e.target.checked; if (k === 'bld') bld.visible = e.target.checked; } }), l)));
+  const abt = h('div.mt-pop.mt-abt', {}, h('b', {}, 'Mini Tokyo 3D — practice clone'), h('p', { style: { margin: '6px 0' } }, 'A real-time 3D digital map of Tokyo\'s public transport. Everything here is code-drawn: stylised geography, schematic rail lines and simulated trains (not live timetable data).'), h('button.k-btn', { onclick: () => pop(null), style: { color: '#fff' } }, 'Close'));
+  const info = h('div.mt-info');
+  const ugBadge = h('div.mt-ug', {}, 'Underground mode');
+  el.append(rail, clk, al, trk, srch, lay, abt, info, ugBadge, h('div.mt-wm', {}, 'mini tokyo 3d', h('span', {}, '-ish')), h('div.mt-attr', {}, '© code-drawn map · schematic lines · simulated trains'));
+  function pop(p) { [trk, srch, lay, abt].forEach((x) => x.classList.toggle('on', x === p && !x.classList.contains('on'))); if (p === srch && srch.classList.contains('on')) srchIn.focus(); }
+  const fmt = (d, o, loc = 'en-US') => new Intl.DateTimeFormat(loc, { timeZone: 'Asia/Tokyo', ...o }).format(d);
+  let simT = Date.now(), lastW = performance.now();
+  const now = () => new Date(simT);
+  function setSpeed(d) { const i = clamp(SPEEDS.indexOf(st.speed) + d, 0, SPEEDS.length - 1); st.speed = SPEEDS[i]; spdL.textContent = `${st.speed}x speed`; }
+  function setPlay(on) { st.play = on; el.classList.toggle('play', on); B.play.classList.toggle('on', on); B.play.title = on ? 'Exit playback' : 'Enter playback'; if (!on) { st.speed = 1; st.offset = 0; spdL.textContent = '1x speed'; ed.classList.remove('on'); simT = Date.now(); } }
+  const UGK = { k: 0 };
+  function setUG(on) { st.ug = on; el.classList.toggle('ug', on); B.eye.classList.toggle('on', on); B.eye.title = on ? 'Exit underground' : 'Enter underground'; }
+  function zoom(f) { const off = S.cam.position.clone().sub(ctl.target).multiplyScalar(f); if (off.length() < ctl.minDistance || off.length() > ctl.maxDistance) return; S.cam.position.copy(ctl.target).add(off); }
+  let fly = null; function flyTo([x, z]) { stopTrack(); const off = S.cam.position.clone().sub(ctl.target).setLength(4.5); fly = { t0: performance.now(), a: ctl.target.clone(), b: new THREE.Vector3(x, 0, z), pa: S.cam.position.clone(), pb: new THREE.Vector3(x, 0, z).add(off) }; }
+  function setMode(k) { st.mode = k; trk.querySelectorAll('.r').forEach((r) => r.classList.toggle('on', r.dataset.k === k)); }
+  setMode('position');
+  function startTrack(i) { st.track = i; ctl.enabled = false; info.classList.add('on'); B.track.classList.add('on'); trackOff = null; }
+  function stopTrack() { if (st.track == null) return; st.track = null; ctl.enabled = true; info.classList.remove('on'); B.track.classList.remove('on'); ctl.target.copy(tmpP); }
+  let trackOff = null;
+  // pick a train by click (not drag)
+  const ray = new THREE.Raycaster(), mv = new THREE.Vector2(); let downAt = null;
+  S.r.domElement.addEventListener('pointerdown', (e) => { downAt = [e.clientX, e.clientY]; });
+  S.r.domElement.addEventListener('pointerup', (e) => { if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 4) return; const r = S.r.domElement.getBoundingClientRect(); mv.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); ray.setFromCamera(mv, S.cam); const hit = ray.intersectObjects(trains.flatMap((t) => t.cars))[0]; if (hit) startTrack(hit.object.userData.train); else stopTrack(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') { stopTrack(); pop(null); } });
+  // ---------- animation ----------
+  const tmpP = new THREE.Vector3(), tmpD = new THREE.Vector3(), UP = new THREE.Vector3(0, 1, 0), v3 = new THREE.Vector3();
+  let ecoAcc = 0, lastF = performance.now();
+  const placeTrain = (t) => { const L = t.lo; for (let c = 0; c < t.cars.length; c++) { let u = t.u - t.dir * c * 0.262 / L.len; u = L.loop ? ((u % 1) + 1) % 1 : clamp(u, 0, 1); L.curve.getPointAt(u, v3); L.curve.getTangentAt(u, tmpD); const m = t.cars[c]; m.position.set(v3.x, (L.sub ? 0.06 : 0.1) + UGK.k * (L.sub ? 0.28 : 0), v3.z); m.lookAt(v3.x + tmpD.x * t.dir, m.position.y, v3.z + tmpD.z * t.dir); } };
+  S.on((ts) => {
+    const nowP = performance.now(), dt = Math.min(0.1, (nowP - lastF) / 1000); lastF = nowP;
+    simT += dt * 1000 * (st.play ? st.speed : 1); if (!st.play) simT = Date.now(); if (st.play && st.offset) { simT += st.offset; st.offset = 0; }
+    const d = now(); clkD.textContent = fmt(d, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }); clkT.textContent = fmt(d, { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+    // underground blend
+    UGK.k += ((st.ug ? 1 : 0) - UGK.k) * (RM ? 1 : Math.min(1, dt * 4.5)); const k = UGK.k;
+    groundMat.color.setScalar(1 - k * 0.92); bMat.opacity = 1 - k * 0.94; bld.visible = st.layers.bld && bMat.opacity > 0.03; nodeMat.opacity = 0.55 + k * 0.25;
+    S.scene.background.setRGB(0.149 * (1 - k), 0.149 * (1 - k), 0.172 * (1 - k)); S.scene.fog.color.copy(S.scene.background);
+    for (const L of lineObjs) { L.mat.opacity = L.sub ? 0.42 + k * 0.58 : 1 - k * 0.82; L.mesh.position.y = L.sub ? Y0 + k * 0.28 : 0.07; }
+    nodes.forEach((n) => (n.position.y = 0.09 + k * 0.28));
+    // trains
+    ecoAcc += dt; const step = st.eco ? (ecoAcc >= 1 ? ecoAcc : 0) : dt; if (!st.eco || ecoAcc >= 1) ecoAcc = 0;
+    const mul = st.play ? Math.min(st.speed, 60) : 1;
+    if (step) for (const t of trains) { t.u += t.dir * t.speed * step * mul; if (t.lo.loop) t.u = ((t.u % 1) + 1) % 1; else if (t.u > 1 || t.u < 0) { t.dir *= -1; t.u = clamp(t.u, 0, 1); } placeTrain(t); }
+    for (const t of trains) { const op = t.lo.sub ? 0.55 + k * 0.45 : 1 - k * 0.8; t.mats.forEach((m) => (m.opacity = op)); }
+    // camera
+    if (fly) { const e = Math.min(1, (nowP - fly.t0) / 1200), s2 = e * e * (3 - 2 * e); ctl.target.lerpVectors(fly.a, fly.b, s2); S.cam.position.lerpVectors(fly.pa, fly.pb, s2); if (e >= 1) fly = null; }
+    if (st.track != null) {
+      const t = trains[st.track]; const lead = t.cars[0]; tmpP.copy(lead.position); tmpD.set(0, 0, 1).applyQuaternion(lead.quaternion).setY(0).normalize();
+      const T2 = ts; let cp, look = tmpP.clone();
+      switch (st.mode) {
+        case 'back': cp = tmpP.clone().addScaledVector(tmpD, -1.0).addScaledVector(UP, 0.35); look = tmpP.clone().addScaledVector(tmpD, 1.2); break;
+        case 'topback': cp = tmpP.clone().addScaledVector(tmpD, -1.4).addScaledVector(UP, 2.4); break;
+        case 'front': cp = tmpP.clone().addScaledVector(tmpD, 1.0).addScaledVector(UP, 0.35); look = tmpP.clone().addScaledVector(tmpD, -1.2); break;
+        case 'topfront': cp = tmpP.clone().addScaledVector(tmpD, 1.4).addScaledVector(UP, 2.4); break;
+        case 'heli': cp = tmpP.clone().add(v3.set(Math.cos(T2 * 0.35) * 2.2, 1.6, Math.sin(T2 * 0.35) * 2.2)); break;
+        case 'drone': cp = tmpP.clone().add(v3.set(Math.cos(T2 * 0.12) * 4.2, 3.4, Math.sin(T2 * 0.12) * 4.2)); break;
+        case 'bird': cp = tmpP.clone().addScaledVector(tmpD, -2.2).add(v3.set(Math.sin(T2 * 0.6) * 0.8, 1.3 + Math.sin(T2 * 0.9) * 0.4, 0)); break;
+        default: if (!trackOff) trackOff = S.cam.position.clone().sub(ctl.target); cp = tmpP.clone().add(trackOff);
+      }
+      S.cam.position.lerp(cp, RM ? 1 : 0.12); ctl.target.lerp(look, RM ? 1 : 0.18); S.cam.lookAt(ctl.target);
+      const L = t.lo; const near = Object.entries(ST).reduce((b, [n, [x, z]]) => { const dd = Math.hypot(x - tmpP.x, z - tmpP.z); return dd < b[1] ? [n, dd] : b; }, ['', 1e9])[0];
+      info.replaceChildren(h('div.ln', {}, h('i', { style: { background: L.col } }), L.name), h('div', {}, `Train ${t.id} · ${t.lo.loop ? (t.dir > 0 ? 'Outer loop' : 'Inner loop') : t.dir > 0 ? 'Outbound' : 'Inbound'}`), h('div', { style: { opacity: .8 } }, `Near ${near} · ${st.mode === 'position' ? 'Position only' : MODES.find((m) => m[0] === st.mode)[1]} view`), h('div', { style: { opacity: .6, fontSize: '10.5px' } }, 'Esc or click the map to stop tracking'));
+    } else ctl.update();
+    // labels
+    const W = el.clientWidth, H = el.clientHeight; const cd = S.cam.position.distanceTo(ctl.target);
+    for (const l of labels) { v3.copy(l.v); if (l.kind === 'st') v3.y += k * 0.28; const dist = S.cam.position.distanceTo(v3); v3.project(S.cam); const vis = v3.z < 1 && Math.abs(v3.x) < 1.05 && Math.abs(v3.y) < 1.05 && dist < 17 && (l.kind === 'st' ? st.layers.lbl : st.layers.cam && k < 0.5); l.el.style.opacity = vis ? (l.kind === 'cam' ? 1 : clamp(1.6 - dist / 11, 0.2, 1)) : 0; if (vis) l.el.style.transform = `translate(${(v3.x * 0.5 + 0.5) * W}px,${(-v3.y * 0.5 + 0.5) * H}px)`; }
+  });
+  window.__demoProof = async () => {
+    const o = []; const wait = (ms) => sleep(RM ? 30 : ms);
+    // trains move
+    const t0 = trains[0].cars[0].position.clone(); await wait(400); o.push(`train moved ${(trains[0].cars[0].position.distanceTo(t0) > 0.001)}`);
+    setUG(true); await wait(900); o.push(`underground: ground=${groundMat.color.r.toFixed(2)} subwayOpacity=${lineObjs.find((l) => l.sub).mat.opacity.toFixed(2)} buildings=${bMat.opacity.toFixed(2)}`); setUG(false);
+    setPlay(true); setSpeed(1); setSpeed(1); const c1 = clkT.textContent; await wait(600); o.push(`playback ${spdL.textContent}, clock ${c1}→${clkT.textContent}, controls=${getComputedStyle(clk.querySelector('.pb')).display}`); setPlay(false);
+    pop(trk); o.push(`tracking panel rows=${trk.querySelectorAll('.r').length}`); trk.querySelector('[data-k="heli"]').click(); await wait(900); o.push(`tracking ${trains[st.track]?.lo.name} mode=${st.mode} info=${info.classList.contains('on')}`);
+    stopTrack(); setMode('position'); home(); await wait(200); o.push('restored default view'); return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }

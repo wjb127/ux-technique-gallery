@@ -77,7 +77,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'unseen-audio-enter-gate-spaced-letter-loader-click-hold-drag-world-project-filter': '오디오 게이트 · 홀드 · 드래그 월드',
   'lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress': 'CRT 매크로데이터 정제 숫자 그리드',
   'monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing': '코드 폰트 스페시먼 · 축 플레이그라운드',
-  'dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition': '컬러 블록 브랜드 모자이크 · 챕터 전환' };
+  'dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition': '컬러 블록 브랜드 모자이크 · 챕터 전환',
+  'minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes': '실시간 3D 교통 지도 · 지하 모드 · 추적 카메라',
+  'underd0g-watch-customiser-dial-strap-swap-color-dot-lists-serif-hero': '시계 커스터마이저 · 다이얼/스트랩 스왑',
+  'isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play': '아이소메트릭 섬 도로 시퀀서' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
