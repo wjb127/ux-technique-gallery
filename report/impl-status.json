@@ -3112,5 +3112,32 @@
   "proof": "slide dot → slide 2 \"Squeeze it on chips. Yes, really.\"; auto-advance step → slide 3; pause → paused=true, label \"▶ Play animations\"; add to cart ×2 → \"Cart [2]\"; fact strip → \"Fact 2 / 4\"; ticker items=8, product cards=3; restored: slide 1, Cart [0]",
   "demoNodes": 379,
   "errors": []
+ },
+ "ryanmulligan-skewed-bento-pen-strip-range-scrubber-unskew-theme-machine": {
+  "url": "http://localhost:4173/t/ryanmulligan-skewed-bento-pen-strip-range-scrubber-unskew-theme-machine/",
+  "ok": true,
+  "at": "2026-10-11T00:00:50.522Z",
+  "http": 200,
+  "proof": "hover tile → scale 1.04; range 60% → strip scrollLeft 1407; strip scroll → range 0; unskew → strip transform flat; re-skew → flat class=false; disable preview → true; pencil → tray open=true, dots=6; accent pink → --th #ec4899; dark → true; light → dark=false; now listening → Strawberry Flavored; restored: system appearance, default accent, skewed, scroll 0",
+  "demoNodes": 275,
+  "errors": []
+ },
+ "humanssince1982-clock-wall-kinetic-hands-grid-live-since-counter-mono-nav": {
+  "url": "http://localhost:4173/t/humanssince1982-clock-wall-kinetic-hands-grid-live-since-counter-mono-nav/",
+  "ok": true,
+  "at": "2026-10-11T00:00:50.525Z",
+  "http": 200,
+  "proof": "counter ticks: \"18 years : 6672 days : 576.536.452s\" → \"18 years : 6672 days : 576.536.453s\"; wall 12x6=72 clocks, 144 hands; click wall → choreography \"diagonal wave\" (2/6); time glyphs for 0900 valid=true; pause → true; Explore mega-menu open=true; CC24 hover → shows time 0900; add to cart → Cart 1; restored: top, Cart 0, wall shows 0900",
+  "demoNodes": 892,
+  "errors": []
+ },
+ "dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall": {
+  "url": "http://localhost:4173/t/dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall/",
+  "ok": true,
+  "at": "2026-10-11T00:00:50.512Z",
+  "http": 200,
+  "proof": "hub: hero fan cards=3, game cards=3; start → \"ready\" flash, counter 1 / 5; reveal: card bg rgb(71, 160, 127), countdown \"383\"; recall: sliders=3; drag sliders → guess #a67121 live bg=rgb(166, 113, 33); confirm → round score 1.35 (ΔE 64.0); 5-round total \"41.35 / 50\" share btn=true; restored: intro card visible=true",
+  "demoNodes": 210,
+  "errors": []
  }
 }

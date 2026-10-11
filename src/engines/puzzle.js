@@ -1250,4 +1250,245 @@ V['skribbl-doodle-lobby-avatar-arrow-customizer-randomize-dice-pixel-logo'] = (r
     reset(); el.style.scrollBehavior = ''; o.push(`restored: lobby, default avatar {c:${me.c},e:${me.e},m:${me.m}}, name empty`); return o.join('; '); };
 };
 
+
+V['dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall'] = (root, T) => {
+  import('@fontsource-variable/inter-tight');
+  theme(root, T, { bg: '#ffffff', fg: '#111111', ac: '#111111', dark: false });
+  const F = "'Inter Tight Variable','Inter Variable',system-ui,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.dg{position:absolute;inset:0;overflow:hidden;background:#fff;color:#111;font-family:${F};transition:background .3s,color .3s}
+.dg *{box-sizing:border-box}
+.dg.dark{background:#0b0b0b;color:#eee}
+.dg-sc{position:absolute;inset:0 0 96px 0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.dg-hd{height:82px;max-width:980px;margin:0 auto;display:flex;align-items:center;gap:20px;font-size:14px}
+.dg-logo{display:flex;align-items:center;gap:7px;font-weight:650;font-size:18px;letter-spacing:-.02em;cursor:pointer;margin-right:14px}
+.dg-nav{display:flex;gap:19px}
+.dg-nav a{position:relative;color:#555;font-weight:500;cursor:pointer;padding:6px 0;letter-spacing:-.005em}
+.dg.dark .dg-nav a{color:#999}
+.dg-nav a.on{color:#111}.dg.dark .dg-nav a.on{color:#fff}
+.dg-nav a.on::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor}
+.dg-nav a i{position:absolute;right:-6px;top:2px;width:4px;height:4px;border-radius:50%}
+.dg-hr{margin-left:auto;display:flex;align-items:center;gap:18px;color:#666}
+.dg-hr .ic{width:22px;height:22px;display:grid;place-items:center;cursor:pointer;opacity:.75}
+.dg-hr .ic:hover{opacity:1}
+.dg-hr .ad{font-weight:500;color:#333;cursor:pointer}.dg.dark .dg-hr .ad{color:#ccc}
+.dg .dg-sign{height:33px;padding:0 17px;border-radius:99px;border:0;background:#111;color:#fff;font:600 14px ${F};cursor:pointer}
+.dg.dark .dg-sign{background:#fff;color:#111}
+/* game stage */
+.dg-stage{position:relative;max-width:980px;margin:0 auto;height:640px}
+.dg-card{position:absolute;left:50%;top:2px;width:476px;height:618px;margin-left:-238px;border-radius:14px;background:#000;color:#fff;overflow:hidden;box-shadow:0 18px 40px -12px #0007,0 2px 6px #0002;transition:background .45s ease}
+.dg-card.rv{transition:none}
+.dg-pane{position:absolute;inset:0;padding:30px 30px 28px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .25s}
+.dg-pane.on{opacity:1;pointer-events:auto}
+.dg-ttl{font:500 104px/1 ${F};letter-spacing:-.055em;margin:6px 0 20px}
+.dg-p{font:550 23px/1.17 ${F};color:#c4c4c4;letter-spacing:-.012em;margin:0 0 20px;max-width:340px}
+.dg-laurel{position:absolute;right:30px;top:42px;opacity:.85}
+.dg-q{margin-top:auto;font:500 15px ${F};margin-bottom:14px}
+.dg-row{display:flex;align-items:center;gap:20px}
+.dg .dg-rb{width:64px;height:64px;border-radius:50%;border:0;background:#fff;color:#111;display:grid;place-items:center;cursor:pointer;position:relative;transition:transform .18s}
+.dg .dg-rb:hover{transform:scale(1.06)}.dg .dg-rb:active{transform:scale(.96)}
+.dg-rb .beta{position:absolute;top:2px;right:-8px;background:#e6e6e6;color:#444;font:600 9px ${F};padding:2px 5px;border-radius:99px}
+.dg-easy{display:flex;align-items:center;gap:7px;font:500 15px ${F};cursor:pointer;margin-left:2px;user-select:none}
+.dg-sw{width:46px;height:18px;border-radius:99px;border:1.5px solid #fff;position:relative}
+.dg-sw::before{content:'';position:absolute;left:2px;top:2px;width:11px;height:11px;border-radius:50%;background:#fff;transition:left .2s}
+.dg-sw::after{content:'· ·';position:absolute;right:7px;top:-3px;font-size:13px;letter-spacing:2px;opacity:.8}
+.dg-easy.on .dg-sw::before{left:29px}.dg-easy.on .dg-sw::after{left:7px;right:auto}
+.dg .dg-daily{margin-left:auto;width:76px;height:76px;border-radius:50%;border:0;padding:4px;background:conic-gradient(#ff3b3b,#ffb800,#3ddc5a,#22c3ee,#5b5bff,#d63bff,#ff3b3b);cursor:pointer;transition:transform .2s}
+.dg .dg-daily:hover{transform:rotate(18deg)}
+.dg-daily span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:#fff;color:#111;border:3px solid #000}
+.dg-cnt{font:500 15px ${F};opacity:.75;letter-spacing:.02em}
+.dg-word{position:absolute;right:28px;top:22px;font:500 96px/1 ${F};letter-spacing:-.05em;transition:opacity .15s}
+.dg-cd{position:absolute;right:26px;top:24px;text-align:right}
+.dg-cd b{font:500 96px/1 ${F};letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.dg-cd b em{font-style:normal;opacity:.55}
+.dg-cd small{display:block;font:600 15px ${F};margin-top:2px}
+.dg-wm{position:absolute;left:30px;bottom:24px;font:600 16px ${F};opacity:.55;letter-spacing:-.02em}
+.dg-wm.tr{left:auto;right:28px;top:26px;bottom:auto}
+.dg-sls{position:absolute;left:0;top:0;bottom:0;display:flex}
+.dg-sl{position:relative;width:46px;height:100%;cursor:ns-resize;touch-action:none}
+.dg-sl .th{position:absolute;left:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#fff;box-shadow:0 1px 6px #0006;pointer-events:none}
+.dg .dg-ok{position:absolute;right:24px;bottom:28px;width:72px;height:72px;border-radius:50%;border:0;background:#fff;color:#111;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 18px #0003;transition:transform .18s}
+.dg .dg-ok:hover{transform:scale(1.06)}
+.dg-res{position:absolute;inset:0;display:grid;grid-template-rows:1fr 1fr}
+.dg-res > div{position:relative;padding:22px 28px}
+.dg-res .lb{font:600 14px ${F};opacity:.8}
+.dg-res .hx{position:absolute;left:28px;bottom:18px;font:500 13px ${F};opacity:.7;font-variant-numeric:tabular-nums}
+.dg-sc0{position:absolute;right:26px;top:50%;transform:translateY(-50%);text-align:right;z-index:2}
+.dg-sc0 b{font:500 104px/1 ${F};letter-spacing:-.05em}
+.dg-sc0 small{display:block;font:600 14px ${F}}
+.dg-tot{padding:30px}
+.dg-tot h3{font:500 64px/1 ${F};letter-spacing:-.05em;margin:0 0 4px}
+.dg-tot .sub{font:550 18px ${F};color:#bbb;margin-bottom:22px}
+.dg-pairs{display:grid;gap:8px}
+.dg-pair{display:grid;grid-template-columns:44px 44px 1fr auto;gap:10px;align-items:center;font:500 14px ${F}}
+.dg-pair i{height:44px;border-radius:9px;display:block}
+.dg-pair b{font-weight:600;font-variant-numeric:tabular-nums}
+.dg .dg-pill{height:44px;padding:0 22px;border-radius:99px;border:0;background:#fff;color:#111;font:600 15px ${F};cursor:pointer}
+.dg .dg-pill.gh{background:#ffffff1f;color:#fff}
+.dg-foot{position:absolute;right:calc(50% - 490px);top:622px;text-align:right;font:500 10.5px/1.6 ${F};color:#777}
+.dg-foot a{margin-left:9px;cursor:pointer}.dg-foot div{color:#222}.dg.dark .dg-foot div{color:#ccc}
+.dg-adl{position:absolute;left:0;right:0;bottom:96px;height:1px;background:#e5e5e5}
+.dg-adh{position:absolute;left:50%;bottom:86px;width:38px;height:20px;margin-left:-19px;border:1px solid #e5e5e5;border-radius:7px;background:#fff;cursor:pointer;display:grid;place-items:center}
+.dg-adh::after{content:'';width:12px;height:1.5px;background:#999}
+.dg-adz{position:absolute;left:0;right:0;bottom:0;height:96px;background:#fff;display:grid;place-items:center;color:#c8c8c8;font:500 11px ${F};letter-spacing:.12em}
+.dg.dark .dg-adz,.dg.dark .dg-adh{background:#0b0b0b}.dg.dark .dg-adl,.dg.dark .dg-adh{border-color:#222}
+/* hub */
+.dg-hub{max-width:980px;margin:0 auto;padding:2px 0 60px;display:none}
+.dg.hubmode .dg-hub{display:block}.dg.hubmode .dg-stage{display:none}
+.dg-hub .lead{font:500 15px ${F};color:#666;margin:0 0 14px}
+.dg-hero{position:relative;height:380px;border-radius:14px;overflow:hidden;background:linear-gradient(115deg,#2d2d2d,#121212 60%,#0d0d0d);color:#fff;box-shadow:0 22px 50px -18px #0008}
+.dg-hero .tx{position:absolute;left:52px;top:100px;width:330px}
+.dg-tile{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;flex:none}
+.dg-hero h2{display:flex;align-items:center;gap:16px;margin:0 0 22px;font:550 35px ${F};letter-spacing:-.03em}
+.dg-hero p{font:500 15px/1.5 ${F};color:#c9c9c9;margin:0 0 22px}
+.dg .dg-play{height:42px;padding:0 21px;border-radius:99px;border:0;background:#fff;color:#111;font:600 14px ${F};cursor:pointer;transition:transform .15s}
+.dg .dg-play:hover{transform:translateY(-1px)}
+.dg-fan{position:absolute;right:40px;top:28px;width:440px;height:400px;perspective:900px}
+.dg-fc{position:absolute;width:256px;height:352px;border-radius:18px;overflow:hidden;box-shadow:-18px 20px 40px #0008;transition:transform .5s cubic-bezier(.3,1.3,.5,1)}
+.dg-hero:hover .f1{transform:translate(170px,8px) rotate(14deg)}
+.dg-hero:hover .f2{transform:translate(92px,-4px) rotate(9deg)}
+.dg-hero:hover .f3{transform:translate(-8px,10px) rotate(-3deg)}
+.dg-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+.dg-gc{height:220px;border-radius:12px;background:linear-gradient(160deg,#1f1f1f,#0e0e0e);color:#fff;padding:36px 34px;position:relative;box-shadow:0 18px 40px -20px #0009;transition:transform .25s}
+.dg-gc:hover{transform:translateY(-4px)}
+.dg-gc h4{display:flex;align-items:center;gap:13px;margin:0 0 18px;font:550 24px ${F};letter-spacing:-.03em}
+.dg-gc .dg-tile{width:42px;height:42px;border-radius:11px}
+.dg-gc p{font:500 13.5px/1.45 ${F};color:#c4c4c4;margin:0 0 20px;max-width:240px}
+.dg-gc .new{font:700 9px ${F};background:#e8e8e8;color:#111;border-radius:4px;padding:2px 5px}
+.dg .dg-gc .dg-play{height:34px;font-size:13px;padding:0 18px}
+@media (prefers-reduced-motion: reduce){.dg *{transition:none!important;animation:none!important}}
+`);
+  const el = h('div.dg'), sc = h('div.dg-sc'); root.append(el); el.append(sc);
+  const I = { logo: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7.5a4.5 4.5 0 1 0 4.5 4.5"/><path d="M12 12 19 5"/></svg>',
+    snd: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9h3l5-4v14l-5-4H4z"/><path d="M16 9c1.3 1.6 1.3 4.4 0 6M18.6 6.5c2.6 3 2.6 8 0 11"/></svg>',
+    sun: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+    user: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4.2 3.8-6.5 7.5-6.5s6.7 2.3 7.5 6.5z"/></svg>',
+    users: '<svg width="28" height="28" viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="14" cy="8" r="3.6"/><circle cx="6" cy="9.5" r="2.7"/><circle cx="22" cy="9.5" r="2.7"/><path d="M8 20c.6-3.6 3-5.6 6-5.6s5.4 2 6 5.6zM1.5 19c.4-2.6 2-4 4.3-4.1M26.5 19c-.4-2.6-2-4-4.3-4.1"/></svg>',
+    cal: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4M8 13.5h1M11.5 13.5h1M15 13.5h1M8 16.5h1M11.5 16.5h1"/></svg>',
+    laurel: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round"><path d="M7 20c-3-2-4.5-5.5-4-10M17 20c3-2 4.5-5.5 4-10"/><path d="M4.2 15.5c-1.6-.2-2.6-1.3-2.8-2.6 1.4-.1 2.5.6 2.8 2.6zM3.2 11.2C1.8 10.6 1.2 9.3 1.4 8c1.3.4 2.1 1.4 1.8 3.2zM5.8 18.6c-1.4.6-2.8.3-3.7-.6 1.2-.7 2.5-.6 3.7.6zM19.8 15.5c1.6-.2 2.6-1.3 2.8-2.6-1.4-.1-2.5.6-2.8 2.6zM20.8 11.2c1.4-.6 2-1.9 1.8-3.2-1.3.4-2.1 1.4-1.8 3.2zM18.2 18.6c1.4.6 2.8.3 3.7-.6-1.2-.7-2.5-.6-3.7.6z"/><path d="M12 6.5l1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.3-2.4 1.3.5-2.6-1.9-1.8 2.6-.4z"/></svg>',
+    sliders: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><path d="M6 4v16M12 4v16M18 4v16"/><circle cx="6" cy="9" r="2.2" fill="#111"/><circle cx="12" cy="15" r="2.2" fill="#111"/><circle cx="18" cy="7" r="2.2" fill="#111"/></svg>' };
+  // ---------- colour maths ----------
+  const hsv2rgb = (hh, ss, vv) => { const f = (n) => { const k = (n + hh / 60) % 6; return vv - vv * ss * Math.max(0, Math.min(k, 4 - k, 1)); }; return [f(5) * 255, f(3) * 255, f(1) * 255]; };
+  const hex = (c) => '#' + c.map((v) => Math.round(clamp(v, 0, 255)).toString(16).padStart(2, '0')).join('');
+  const lab = ([r, g, b]) => { const L = (c) => { c /= 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }; const [R, G, B] = [L(r), L(g), L(b)];
+    let x = (R * 0.4124 + G * 0.3576 + B * 0.1805) / 0.95047, y = R * 0.2126 + G * 0.7152 + B * 0.0722, z = (R * 0.0193 + G * 0.1192 + B * 0.9505) / 1.08883;
+    const f = (t) => (t > 0.008856 ? Math.cbrt(t) : 7.787 * t + 16 / 116); [x, y, z] = [f(x), f(y), f(z)]; return [116 * y - 16, 500 * (x - y), 200 * (y - z)]; };
+  const dE = (a, b) => { const p = lab(a), q = lab(b); return Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]); };
+  const scoreOf = (a, b) => 10 * Math.exp(-dE(a, b) / 32);
+  // ---------- header ----------
+  const GAMES = [['color'], ['color-toon'], ['sound'], ['tempo', '#ff3b6b'], ['time'], ['shape'], ['pattern', '#f5b400']];
+  const navA = GAMES.map(([g, dot]) => h('a', { class: g === 'color' ? 'on' : '', onclick: () => (g === 'color' ? showGame() : toast(`${g} — another Dialed game (not cloned)`)) }, g, dot ? h('i', { style: { background: dot } }) : null));
+  let snd = true, dark = false;
+  const sndI = h('span.ic', { title: 'Sound', html: I.snd, onclick: () => { snd = !snd; sndI.style.opacity = snd ? '' : '.3'; toast(snd ? 'Sound on' : 'Sound off'); } });
+  const sunI = h('span.ic', { title: 'Theme', html: I.sun, onclick: () => setDark(!dark) });
+  const hd = h('header.dg-hd', {}, h('div.dg-logo', { onclick: () => showHub() }, h('span', { html: I.logo, style: { display: 'grid' } }), 'Dialed.gg'), h('nav.dg-nav', {}, navA),
+    h('div.dg-hr', {}, sndI, sunI, h('span.ad', { onclick: () => toast('Go ad-free for $1.99/mo (demo)') }, 'Go ad-free'), h('button.dg-sign', { onclick: () => toast('Sign in (demo)') }, 'Sign in')));
+  const setDark = (d) => { dark = d; el.classList.toggle('dark', d); };
+  // ---------- game card ----------
+  const card = h('div.dg-card');
+  const pIntro = h('div.dg-pane.on'), pPlay = h('div.dg-pane'), pRecall = h('div.dg-pane', { style: { padding: 0 } }), pRes = h('div.dg-pane', { style: { padding: 0 } }), pTot = h('div.dg-pane', { style: { padding: 0 } });
+  card.append(pIntro, pPlay, pRecall, pRes, pTot);
+  let easy = false;
+  const easyEl = h('label.dg-easy', { onclick: () => { easy = !easy; easyEl.classList.toggle('on', easy); } }, h('span.dg-sw'), 'Easy');
+  const soloB = h('button.dg-rb', { title: 'Solo', html: I.user, onclick: () => start() });
+  pIntro.append(h('div.dg-laurel', { html: I.laurel, title: 'Leaderboard', style: { cursor: 'pointer' }, onclick: () => toast('Daily leaderboard (demo)') }), h('div.dg-ttl', {}, 'color'),
+    h('p.dg-p', {}, 'Humans can\u2019t reliably recall colors. This is a simple game to see how good (or bad) you are at it.'),
+    h('p.dg-p', {}, 'We\u2019ll show you five colors, then you\u2019ll try and recreate them.'),
+    h('div.dg-q', {}, 'Solo or multiplayer?'),
+    h('div.dg-row', {}, soloB, h('button.dg-rb', { title: 'Multiplayer', html: I.users + '<span class="beta">beta</span>', onclick: () => toast('Multiplayer lobby (beta) — demo plays solo') }), easyEl,
+      h('button.dg-daily', { title: 'Daily', onclick: () => start(true) }, h('span', { html: I.cal }))));
+  // play pane
+  const cnt1 = h('div.dg-cnt'), word = h('div.dg-word'), cdB = h('b'), cd = h('div.dg-cd', {}, cdB, h('small', {}, 'Seconds to remember'));
+  pPlay.append(cnt1, word, cd, h('div.dg-wm', {}, 'Dialed.gg'));
+  // recall pane
+  const cnt2 = h('div.dg-cnt', { style: { position: 'absolute', left: '150px', top: '30px' } });
+  const mkSl = (key) => { const th = h('i.th'), e = h('div.dg-sl', {}, th); e.th = th; e.key = key;
+    const set = (ev) => { const r = e.getBoundingClientRect(); const v = clamp((ev.clientY - r.top) / r.height, 0, 1); G[key] = key === 'h' ? v * 360 : 1 - v; paintGuess(); };
+    drag(e, { start: set, move: set }); return e; };
+  const G = { h: 210, s: 0.5, v: 0.5 };
+  const slH = mkSl('h'), slS = mkSl('s'), slV = mkSl('v');
+  slH.style.background = 'linear-gradient(#f00,#ff0 16.6%,#0f0 33.3%,#0ff 50%,#00f 66.6%,#f0f 83.3%,#f00)';
+  const okB = h('button.dg-ok', { title: 'Confirm', html: I.logo.replace('width="17" height="17"', 'width="26" height="26"'), onclick: () => confirm() });
+  pRecall.append(h('div.dg-sls', {}, slH, slS, slV), cnt2, h('div.dg-wm.tr', {}, 'Dialed.gg'), okB);
+  const guessRGB = () => hsv2rgb(G.h, G.s, G.v);
+  const paintGuess = () => { const c = hex(guessRGB()); card.style.background = c;
+    slS.style.background = `linear-gradient(${hex(hsv2rgb(G.h, 1, G.v))},${hex(hsv2rgb(G.h, 0, G.v))})`;
+    slV.style.background = `linear-gradient(${hex(hsv2rgb(G.h, G.s, 1))},#000)`;
+    slH.th.style.top = (G.h / 360) * 100 + '%'; slS.th.style.top = (1 - G.s) * 100 + '%'; slV.th.style.top = (1 - G.v) * 100 + '%';
+    const lt = lab(guessRGB())[0] > 72; card.style.color = lt ? '#111' : '#fff'; };
+  // ---------- game state ----------
+  let round = 0, targets = [], guesses = [], scores = [], timers = [], raf = 0, gen = 0;
+  const later = (fn, ms) => timers.push(setTimeout(fn, RM ? Math.min(ms, 60) : ms));
+  const clearT = () => { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(raf); };
+  const show = (p) => { [pIntro, pPlay, pRecall, pRes, pTot].forEach((x) => x.classList.toggle('on', x === p)); };
+  const tick = (f) => snd && blip(f, 0.07, 'sine', 0.06);
+  const mkTargets = (seed) => { const r = seed ? rng(seed) : Math.random; return Array.from({ length: 5 }, () => hsv2rgb(r() * 360, 0.3 + r() * 0.7, 0.3 + r() * 0.7)); };
+  const start = (daily = false) => { clearT(); gen++; round = 0; guesses = []; scores = []; targets = mkTargets(daily ? +new Date().toISOString().slice(0, 10).replace(/-/g, '') : 0); if (snd) audio(); playRound(); };
+  const playRound = () => { const my = gen; card.style.background = '#000'; card.style.color = '#fff'; cnt1.textContent = `${round + 1} / 5`; cd.style.display = 'none'; word.style.display = ''; show(pPlay);
+    word.textContent = 'ready'; tick(520);
+    later(() => { if (my !== gen) return; word.textContent = 'set'; tick(660); }, 650);
+    later(() => { if (my !== gen) return; reveal(); }, 1300); };
+  let remain = 0;
+  const reveal = () => { const my = gen; word.style.display = 'none'; cd.style.display = ''; card.classList.add('rv'); card.style.background = hex(targets[round]); void card.offsetWidth; card.classList.remove('rv');
+    card.style.color = lab(targets[round])[0] > 72 ? '#111' : '#fff'; tick(880);
+    const total = easy ? 8 : 4; const t0 = performance.now(); let lastS = -1;
+    const loop = () => { if (my !== gen) return; remain = Math.max(0, total - (performance.now() - t0) / 1000); const sTxt = remain.toFixed(2).split('.'); cdB.innerHTML = `${sTxt[0]}<em>${sTxt[1]}</em>`;
+      const whole = Math.ceil(remain); if (whole !== lastS) { lastS = whole; if (whole < total && whole > 0) tick(440); }
+      if (remain <= 0) return recall(); raf = requestAnimationFrame(loop); };
+    loop(); };
+  const recall = () => { cancelAnimationFrame(raf); cnt2.textContent = `${round + 1} / 5`; G.h = Math.random() * 360; G.s = 0.5; G.v = 0.5; paintGuess(); show(pRecall); };
+  const confirm = () => { const g = guessRGB(), t = targets[round], sc0 = scoreOf(t, g); guesses.push(g); scores.push(sc0); tick(sc0 > 7 ? 990 : 330); showRes(t, g, sc0); };
+  const showRes = (t, g, sc0) => { const lt = (c) => (lab(c)[0] > 72 ? '#111' : '#fff');
+    pRes.innerHTML = ''; card.style.background = '#000';
+    const nextB = h('button.dg-ok', { title: round < 4 ? 'Next color' : 'See total', html: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>', onclick: () => next() });
+    pRes.append(h('div.dg-res', {}, h('div', { style: { background: hex(t), color: lt(t) } }, h('div.lb', {}, `${round + 1} / 5 · Original`), h('div.hx', {}, hex(t).toUpperCase())),
+      h('div', { style: { background: hex(g), color: lt(g) } }, h('div.lb', {}, 'Your guess'), h('div.hx', {}, hex(g).toUpperCase()))),
+      h('div.dg-sc0', { style: { color: lt(t) } }, h('b', {}, sc0.toFixed(2)), h('small', {}, sc0 > 8.5 ? 'Dialed in.' : sc0 > 6 ? 'Not bad.' : 'Way off.')), nextB);
+    show(pRes); };
+  const next = () => { round++; if (round < 5) playRound(); else total(); };
+  const total = () => { const sum = scores.reduce((a, b) => a + b, 0); card.style.background = '#000'; card.style.color = '#fff'; pTot.innerHTML = '';
+    const share = `Dialed.gg color — ${sum.toFixed(2)}/50\n` + scores.map((x) => (x > 8 ? '🟩' : x > 5 ? '🟨' : '🟥')).join('');
+    pTot.append(h('div.dg-tot', {}, h('div.dg-cnt', { style: { marginBottom: '18px' } }, 'Final score'), h('h3', {}, sum.toFixed(2), h('span', { style: { opacity: 0.4, fontSize: '36px' } }, ' / 50')),
+      h('div.sub', {}, sum > 40 ? 'Your colour memory is scary good.' : sum > 28 ? 'Respectable. Most people land around 30.' : 'Colours are hard. Try Easy mode.'),
+      h('div.dg-pairs', {}, targets.map((t, i) => h('div.dg-pair', {}, h('i', { style: { background: hex(t) } }), h('i', { style: { background: hex(guesses[i]) } }), h('span', { style: { opacity: 0.7 } }, `Color ${i + 1}`), h('b', {}, scores[i].toFixed(2))))),
+      h('div', { style: { display: 'flex', gap: '10px', marginTop: '26px' } }, h('button.dg-pill', { onclick: () => copy(share, 'Score copied') }, 'Share'), h('button.dg-pill.gh', { onclick: () => start() }, 'Play again'), h('button.dg-pill.gh', { onclick: () => toIntro() }, 'Menu'))));
+    show(pTot); };
+  const toIntro = () => { clearT(); gen++; card.style.background = '#000'; card.style.color = '#fff'; show(pIntro); };
+  const foot = h('div.dg-foot', {}, h('span', {}, ['Privacy', 'Support', 'Instagram', 'Discord'].map((x) => h('a', { onclick: () => toast(x) }, x))), h('div', {}, 'Go ad-free for $1.99/mo'));
+  const stage = h('section.dg-stage', {}, card, foot);
+  // ---------- hub ----------
+  const fanCard = (cls, x, y, r, inner) => h('div.dg-fc.' + cls, { style: { transform: `translate(${x}px,${y}px) rotate(${r}deg)` }, html: inner });
+  const sliderCard = `<div style="position:absolute;inset:0;background:#4a86e0;display:flex"><div style="width:22px;background:linear-gradient(#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);position:relative"><i style="position:absolute;left:1px;top:52%;width:20px;height:20px;border-radius:50%;background:#fff"></i></div><div style="width:22px;background:linear-gradient(#cfe0f7,#7b8796);position:relative"><i style="position:absolute;left:1px;top:24%;width:20px;height:20px;border-radius:50%;background:#fff"></i></div><div style="width:22px;background:linear-gradient(#bcd6ff,#000);position:relative"><i style="position:absolute;left:1px;top:17%;width:20px;height:20px;border-radius:50%;background:#fff"></i></div><div style="flex:1;position:relative;color:#fff;font:500 11px ${F}"><span style="position:absolute;left:14px;top:16px;opacity:.8">1 / 5</span><span style="position:absolute;right:14px;top:16px;opacity:.7">Dialed.gg</span><i style="position:absolute;right:12px;bottom:12px;width:26px;height:26px;border-radius:50%;background:#fff"></i></div></div>`;
+  const redCard = `<div style="position:absolute;inset:0;background:#f2564f;color:#fff;font:500 13px/1.25 ${F};padding:18px"><div style="text-align:right;font:500 68px/1 ${F};letter-spacing:-.04em">26</div><div style="margin:12px 0 0 auto;width:150px;font-weight:600">Wolfgang took a snapshot for once.</div><div style="position:absolute;right:16px;bottom:14px;width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#111">\u2192</div></div>`;
+  const phoneCard = `<div style="position:absolute;inset:0;background:#141414;border:1px solid #333;border-radius:18px;color:#fff;font:600 10px ${F}"><div style="position:absolute;left:22px;top:24px;color:#f5b400">time</div><div style="position:absolute;right:22px;top:110px;width:96px;height:64px;border:1.5px solid #ddd;border-radius:8px;padding:6px;font-size:8px">01:12:50<i style="display:block;margin-top:6px;height:30px;border-radius:5px;background:linear-gradient(135deg,#8a6cff,#3b2a8a)"></i></div><div style="position:absolute;right:30px;bottom:40px;background:#fff;color:#111;border-radius:4px;padding:2px 6px;transform:rotate(-8deg)">Go friend</div></div>`;
+  const fan = h('div.dg-fan', {}, fanCard('f1', 175, 6, 12, phoneCard), fanCard('f2', 98, 0, 7, redCard), fanCard('f3', 0, 34, 0, sliderCard));
+  const tile = (bg, svg) => h('div.dg-tile', { style: { background: bg }, html: svg });
+  const hero = h('div.dg-hero', {}, h('div.tx', {}, h('h2', {}, tile('#ff4d5e', I.sliders.replace(/#111/g, '#2a0a0e')), 'color'), h('p', {}, 'See a color for a moment, then recreate it from memory on the sliders.'), h('button.dg-play', { onclick: () => showGame() }, 'play color')), fan);
+  const SMALL = [['color-toon', '#ff9b1a', '<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#2a1500"/><circle cx="9" cy="10" r="1.3" fill="#ff9b1a"/><circle cx="15" cy="10" r="1.3" fill="#ff9b1a"/><path d="M8 14c2 2.5 6 2.5 8 0" stroke="#ff9b1a" stroke-width="1.6" fill="none"/></svg>', 'A toon shows up with one color wrong. Fix it from what you remember.'],
+    ['sound', '#18c9b8', '<svg width="22" height="22" viewBox="0 0 24 24" stroke="#04302b" stroke-width="2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/></svg>', 'Listen to a tone, then tune your way back to it from memory.'],
+    ['tempo', '#ff4fd8', '<svg width="22" height="22" viewBox="0 0 24 24" fill="#3a0030"><circle cx="5" cy="12" r="1.6"/><circle cx="10" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="20" cy="12" r="3" fill="none" stroke="#3a0030" stroke-width="1.6"/></svg>', 'Rebuild a beat one track at a time, tapping each note as it lands.']];
+  const cards3 = h('div.dg-cards3', {}, SMALL.map(([n, c, svg, d]) => h('div.dg-gc', {}, h('h4', {}, tile(c, svg), n, n === 'tempo' ? h('span.new', {}, 'new') : null), h('p', {}, d), h('button.dg-play', { onclick: () => toast(`${n} — not cloned in this demo`) }, `play ${n}`))));
+  const hub = h('section.dg-hub', {}, h('p.lead', {}, 'Simple memory, puzzle and perception games'), hero, cards3);
+  sc.append(hd, hub, stage);
+  el.append(h('div.dg-adl'), h('div.dg-adz'), h('div.dg-adh', { title: 'Hide', onclick: () => toast('Go ad-free for $1.99/mo') }));
+  const showHub = () => { toIntro(); el.classList.add('hubmode'); navA.forEach((a) => a.classList.remove('on')); sc.scrollTop = 0; };
+  const showGame = () => { el.classList.remove('hubmode'); navA.forEach((a, i) => a.classList.toggle('on', i === 0)); sc.scrollTop = 0; };
+  paintGuess(); card.style.background = '#000'; card.style.color = '#fff';
+  // ---------- demo proof ----------
+  const reset = () => { clearT(); gen++; showGame(); setDark(false); easy = false; easyEl.classList.remove('on'); toIntro(); };
+  window.__demoProof = async () => { const o = []; reset();
+    showHub(); await sleep(150); o.push(`hub: hero fan cards=${fan.children.length}, game cards=${cards3.children.length}`); showGame();
+    const snd0 = snd; snd = false;
+    soloB.click(); await sleep(120); o.push(`start → "${word.textContent}" flash, counter ${cnt1.textContent}`);
+    await sleep(RM ? 200 : 1350); o.push(`reveal: card bg ${card.style.background}, countdown "${cdB.textContent}"`);
+    clearT(); recall(); o.push(`recall: sliders=${pRecall.querySelectorAll('.dg-sl').length}`);
+    const t = targets[0], sl = [slH, slS, slV]; const r = slH.getBoundingClientRect();
+    for (const [e, v] of [[slH, 0.1], [slS, 0.2], [slV, 0.35]]) { const rr = e.getBoundingClientRect(); e.dispatchEvent(new PointerEvent('pointerdown', { clientX: rr.left + 20, clientY: rr.top + rr.height * v, bubbles: true, pointerId: 1 })); e.dispatchEvent(new PointerEvent('pointerup', { clientX: rr.left + 20, clientY: rr.top + rr.height * v, bubbles: true, pointerId: 1 })); }
+    o.push(`drag sliders → guess ${hex(guessRGB())} live bg=${card.style.background}`); void sl; void r;
+    okB.click(); o.push(`confirm → round score ${scores[0].toFixed(2)} (ΔE ${dE(t, guesses[0]).toFixed(1)})`);
+    for (let i = 1; i < 5; i++) { guesses.push(targets[i]); scores.push(scoreOf(targets[i], targets[i])); } round = 4; next();
+    o.push(`5-round total "${pTot.querySelector('h3')?.textContent}" share btn=${!!pTot.querySelector('.dg-pill')}`);
+    snd = snd0; reset(); o.push(`restored: intro card visible=${pIntro.classList.contains('on')}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

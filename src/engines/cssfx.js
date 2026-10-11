@@ -1142,4 +1142,134 @@ ${k} [class^=extra]{display:none}`;
     await swap('001', { instant: true }); sc.scrollTop = 0; out.push(`restored default Tranquille, top; swaps=${swaps}`); return out.join('; '); };
 };
 
+
+V['ryanmulligan-skewed-bento-pen-strip-range-scrubber-unskew-theme-machine'] = (root, T) => {
+  import('@fontsource/noto-sans/400.css'); import('@fontsource/noto-sans/600.css'); import('@fontsource/noto-sans/700.css');
+  theme(root, T, { bg: '#fffcfa', fg: '#1b1b1b', ac: '#ef4444', dark: false });
+  const F = "'Noto Sans',system-ui,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ACC = [['default', '#ef4444', '#fdebd9', '#fffcfa'], ['pink', '#ec4899', '#fce4f1', '#fffafc'], ['blue', '#3b82f6', '#dde9fd', '#fafcff'], ['green', '#10b981', '#d5f5e8', '#f9fefc'], ['purple', '#8b5cf6', '#ebe4fe', '#fcfaff'], ['slate', '#475569', '#e2e8f0', '#fbfcfd']];
+  css(`.rm{position:absolute;inset:0;overflow:hidden;--th:#ef4444;--tint:#fdebd9;--pg:#fffcfa;--tx:#1b1b1b;--mut:#555;background:var(--pg);color:var(--tx);font-family:${F};transition:background .3s,color .3s}
+.rm.dk{--pg:#16161a;--tx:#ececec;--mut:#aaa}
+.rm.dk{--tint:color-mix(in srgb,var(--th) 22%,#16161a)}
+.rm *{box-sizing:border-box}
+.rm-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.rm-hd{height:132px;display:flex;justify-content:flex-end;align-items:center;gap:26px;padding:0 44px 18px 176px;position:relative;z-index:5}
+.rm-hd > a{font:400 18.5px ${F};color:var(--tx);cursor:pointer;text-decoration:none}.rm-hd > a:hover{text-decoration:underline;text-decoration-color:var(--th);text-underline-offset:4px}
+.rm-tm{position:relative;display:flex;margin-left:6px}
+.rm-ap{position:relative;display:flex;gap:5px;padding:5px;background:var(--tint);border-radius:99px;z-index:2;transition:background .3s}
+.rm-ap button{width:36px;height:36px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;color:var(--th);cursor:pointer;position:relative;z-index:1;padding:0}
+.rm-ap button.on{color:#111}.rm.dk .rm-ap button.on{color:#fff}
+.rm-hl{position:absolute;top:5px;left:5px;width:36px;height:36px;border-radius:50%;background:color-mix(in srgb,var(--th) 22%,var(--tint));transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
+.rm .rm-pen{margin-left:-22px;padding-left:22px;width:76px;height:46px;border:0;border-radius:0 99px 99px 0;background:var(--th);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .3s}
+.rm-tray{position:absolute;right:0;top:0;width:134px;padding:56px 10px 12px;border-radius:24px;background:var(--th);display:flex;gap:4px;justify-content:center;opacity:0;transform:scale(.6);transform-origin:top right;pointer-events:none;transition:opacity .2s,transform .3s cubic-bezier(.3,1.4,.5,1),background .3s;z-index:1}
+.rm-tm.open .rm-tray{opacity:1;transform:none;pointer-events:auto}
+.rm-tray button{width:17px;height:17px;border-radius:50%;border:2px solid #fff;padding:0;cursor:pointer;flex:none}
+.rm-tray button.on{box-shadow:inset 0 0 0 2px var(--th),inset 0 0 0 6px #fff}
+.rm-strip{position:relative;transition:transform .2s ease-out}
+.rm-ul{list-style:none;margin:0;padding:22px 0 30px 176px;display:grid;grid-template-rows:171px 171px;grid-auto-columns:171px;grid-auto-flow:column dense;gap:20px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;transform:skewY(-3deg);transition:transform .45s cubic-bezier(.3,1.2,.5,1)}
+.rm-ul::-webkit-scrollbar{display:none}
+.rm-ul::after{content:'';width:40px;grid-row:1}
+.rm-ul li{border-radius:10px;overflow:hidden;transform:skewY(3deg);transition:transform .45s cubic-bezier(.3,1.2,.5,1),scale .2s cubic-bezier(0,.55,.45,1);position:relative;cursor:pointer;background:var(--tint)}
+.rm.flat .rm-ul{transform:none}.rm.flat .rm-ul li{transform:none}
+.rm-ul li.big{grid-column:span 2;grid-row:span 2}
+.rm-ul li .art{position:absolute;inset:0;filter:grayscale(.55);transition:filter .3s}
+.rm-ul li::after{content:'';position:absolute;inset:0;background:var(--th);mix-blend-mode:multiply;opacity:.07;transition:opacity .3s;pointer-events:none}
+.rm-ul li:hover,.rm-ul li.hov{scale:1.04;z-index:2}
+.rm-ul li:hover::after,.rm-ul li.hov::after{opacity:0;transition-duration:.8s}
+.rm-ul li:hover .art,.rm-ul li.hov .art{filter:none;transition-duration:.8s}
+.rm:not(.nopv) .rm-ul li:hover .pv,.rm:not(.nopv) .rm-ul li.hov .pv{animation-play-state:running}
+.pv{animation-play-state:paused!important}
+.rm:not(.nopv) li:hover .pv,.rm:not(.nopv) li.hov .pv{animation-play-state:running!important}
+.rm-ctl{display:flex;align-items:center;gap:22px;padding:0 0 0 176px;margin:18px 0 44px}
+.rm-rng{-webkit-appearance:none;appearance:none;width:310px;height:5px;border-radius:3px;background:var(--tint);outline:none;cursor:pointer;margin:0}
+.rm-rng::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:13px;border-radius:2px;background:var(--th);border:0}
+.rm-rng::-moz-range-thumb{width:26px;height:13px;border-radius:2px;background:var(--th);border:0}
+.rm-ck{display:flex;align-items:center;gap:7px;font:700 10.5px ${F};letter-spacing:.04em;text-transform:uppercase;cursor:pointer;user-select:none}
+.rm-ck input{width:15px;height:15px;margin:0;accent-color:#1769e0;cursor:pointer}
+.rm-pr{padding:0 0 30px 176px;max-width:880px;font:400 17.5px/1.62 ${F}}
+.rm-pr p{margin:0 0 14px;max-width:680px}.rm-pr b{font-weight:700}
+.rm-pr ul{margin:0 0 40px;padding-left:20px}.rm-pr li{margin:2px 0}
+.rm-pr a{color:#1769e0;cursor:pointer}.rm.dk .rm-pr a{color:#7fb0ff}
+.rm-pr h2{font:700 15px ${F};letter-spacing:.06em;text-transform:uppercase;margin:46px 0 12px;color:var(--th)}
+.rm-art{list-style:none;padding:0!important}.rm-art li{display:flex;justify-content:space-between;gap:20px;padding:9px 0;border-bottom:1px dashed color-mix(in srgb,var(--tx) 18%,transparent)}
+.rm-art li a{color:var(--tx)!important;text-decoration:none}.rm-art li a:hover{text-decoration:underline;text-decoration-color:var(--th)}
+.rm-art time{font:600 12px ${F};color:var(--mut);white-space:nowrap}
+@keyframes rmSpin{to{transform:rotate(360deg)}}@keyframes rmBeat{30%{transform:scale(1.12)}60%{transform:scale(.96)}}@keyframes rmFlip{50%{transform:translateY(-14px) rotate(-200deg)}100%{transform:rotate(-360deg)}}
+@keyframes rmBob{50%{transform:translateY(-8px)}}@keyframes rmRay{to{transform:rotate(30deg)}}@keyframes rmPulse{50%{opacity:.35}}@keyframes rmUp{to{transform:translateY(-50%)}}@keyframes rmHue{to{filter:hue-rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.rm *{animation:none!important;transition:none!important}}
+`);
+  const el = h('div.rm'); const sc = h('div.rm-sc'); el.append(sc); root.append(el);
+  const I = { mon: '<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><rect x="2.5" y="4" width="19" height="12.5" rx="1.6"/><path d="M8 20h8M12 16.5V20" stroke="currentColor" stroke-width="2"/></svg>',
+    sun: '<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4.6"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></svg>',
+    moon: '<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/><circle cx="17" cy="6" r="1.2"/><circle cx="20" cy="9.5" r=".8"/></svg>',
+    pen: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M15.5 4.5 19.5 8.5 9 19H5v-4z"/><path d="M13 7l4 4"/></svg>' };
+  // ---------- theme machine ----------
+  let appearance = 'system', accent = 0;
+  const hl = h('i.rm-hl');
+  const apB = [['system', I.mon], ['light', I.sun], ['dark', I.moon]].map(([k, ic], i) => h('button', { title: k, html: ic, class: i === 0 ? 'on' : '', onclick: () => setAppearance(k) }));
+  const tray = h('div.rm-tray', {}, ACC.map(([n, c], i) => h('button', { title: n, class: i === 0 ? 'on' : '', style: { background: c }, onclick: () => setAccent(i) })));
+  const tm = h('div.rm-tm', {}, tray, h('div.rm-ap', {}, hl, apB), h('button.rm-pen', { title: 'Accent colour', html: I.pen, onclick: () => tm.classList.toggle('open') }));
+  const mq = matchMedia('(prefers-color-scheme: dark)');
+  const setAppearance = (k) => { appearance = k; const i = ['system', 'light', 'dark'].indexOf(k); hl.style.transform = `translateX(${i * 41}px)`; apB.forEach((b, j) => b.classList.toggle('on', j === i)); el.classList.toggle('dk', k === 'dark' || (k === 'system' && mq.matches)); if (typeof setAccent === 'function') setAccent(accent); };
+  var setAccent = (i) => { accent = i; const [, c, t, pg] = ACC[i]; el.style.setProperty('--th', c); el.style.setProperty('--tint', t); el.style.setProperty('--pg', pg); if (el.classList.contains('dk')) { el.style.removeProperty('--tint'); el.style.removeProperty('--pg'); } [...tray.children].forEach((b, j) => b.classList.toggle('on', j === i)); };
+  mq.addEventListener?.('change', () => appearance === 'system' && setAppearance('system'));
+  const hd = h('header.rm-hd', {}, ['Home', 'Blog', 'RSS'].map((x) => h('a', { onclick: () => toast(x) }, x)), tm);
+  // ---------- demo tiles (procedural stand-ins for CodePen thumbnails) ----------
+  const svg = (inner, bg = 'var(--tint)', vb = '0 0 200 200') => `<div class="art" style="background:${bg}"><svg viewBox="${vb}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">${inner}</svg></div>`;
+  const TILES = [
+    ['CSS is Awesome skateboard', true, svg(`<g class="pv" style="transform-origin:100px 100px;animation:rmFlip 2.4s cubic-bezier(.5,0,.3,1) infinite"><g transform="rotate(-32 100 100)"><rect x="22" y="80" width="156" height="40" rx="20" fill="#1d1a17"/><rect x="26" y="84" width="148" height="32" rx="16" fill="none" stroke="#f3e7d6" stroke-width="1.5"/><rect x="70" y="88" width="44" height="24" fill="none" stroke="#f3e7d6" stroke-width="1.5"/><text x="73" y="97" font-size="7" font-family="Noto Sans,Arial Black" font-weight="700" fill="#f3e7d6">CSS</text><text x="73" y="104" font-size="6" font-family="Noto Sans,Arial Black" font-weight="700" fill="#f3e7d6">IS</text><text x="73" y="111" font-size="7.4" font-family="Noto Sans,Arial Black" font-weight="700" fill="#f3e7d6">AWESOME</text><circle cx="42" cy="100" r="5" fill="#f3e7d6"/><circle cx="158" cy="100" r="5" fill="#f3e7d6"/><circle cx="42" cy="126" r="5" fill="#1d1a17"/><circle cx="158" cy="126" r="5" fill="#1d1a17"/></g></g>`)],
+    ['Color blob', false, `<div class="art" style="background:#0d0d0d;overflow:hidden"><div class="pv" style="position:absolute;inset:14%;border-radius:50%;background:conic-gradient(#e33 0 25%,#ffd84a 0 50%,#5fd1c2 0 70%,#2340d8 0);filter:blur(16px);animation:rmSpin 4s linear infinite"></div></div>`],
+    ['Heart buddy', false, svg(`<g class="pv" style="transform-origin:100px 100px;animation:rmRay 3s linear infinite">${Array.from({ length: 12 }, (_, i) => `<path d="M100 100 L${100 + 160 * Math.cos((i * 30 * Math.PI) / 180)} ${100 + 160 * Math.sin((i * 30 * Math.PI) / 180)} L${100 + 160 * Math.cos(((i * 30 + 15) * Math.PI) / 180)} ${100 + 160 * Math.sin(((i * 30 + 15) * Math.PI) / 180)}Z" fill="#ff7cc0"/>`).join('')}</g><g class="pv" style="transform-origin:100px 105px;animation:rmBeat 1s ease-in-out infinite"><path d="M100 160 C40 120 30 80 60 62 C80 50 96 62 100 76 C104 62 120 50 140 62 C170 80 160 120 100 160Z" fill="#c0001c"/><circle cx="84" cy="96" r="9" fill="#fff"/><circle cx="116" cy="96" r="9" fill="#fff"/><circle cx="85" cy="97" r="5" fill="#111"/><circle cx="117" cy="97" r="5" fill="#111"/><path d="M95 112 q5 6 10 0" stroke="#111" stroke-width="2" fill="none"/></g>`, '#ff9fd1')],
+    ['Gnome beat player', true, svg(`<rect width="200" height="200" fill="#1f1d1b"/><g class="pv" style="transform-origin:100px 110px;animation:rmBob .5s ease-in-out infinite"><path d="M48 92 L100 30 L152 92Z" fill="#6f8a63"/><path d="M42 96 h116 v10 a30 30 0 0 1 -30 30 h-56 a30 30 0 0 1 -30 -30z" fill="#e6dccb"/><circle cx="100" cy="88" r="14" fill="#d9b99b"/></g><path d="M58 158 h84" stroke="#888" stroke-width="1.5"/><rect x="88" y="154" width="8" height="8" fill="none" stroke="#ccc"/><text x="58" y="178" font-family="monospace" font-size="8" fill="#ccc">120 BPM</text><rect x="112" y="170" width="34" height="12" fill="none" stroke="#ccc"/><text x="121" y="179" font-family="monospace" font-size="7" fill="#ccc">PLAY</text>`, '#1f1d1b')],
+    ['Unlimited access button', false, `<div class="art" style="background:#020203;display:grid;place-items:center"><span class="pv" style="font:600 9px ${F};color:#ccd;padding:7px 12px;border-radius:7px;background:#0d0f1a;box-shadow:0 0 0 1px #20243a,0 0 22px #3b4cff55;animation:rmPulse 1.6s ease-in-out infinite">Get unlimited access</span></div>`],
+    ['Weather card', false, `<div class="art" style="background:var(--tint);display:grid;place-items:center"><div style="width:62%;height:86%;border:2px solid #666;border-radius:10px;background:#fff8;font:600 7px ${F};color:#333;text-align:center;padding-top:10px;overflow:hidden"><div>Fresh Coast</div><div class="pv" style="font:400 24px ${F};margin:4px 0;animation:rmPulse 2s infinite">78°</div><div style="font-weight:400">Sunny · H 80° L 62°</div><div style="margin:8px 6px 0;background:#e6e1dc;height:30px;border-radius:3px"></div><div style="margin:4px 6px 0;background:#e6e1dc;height:20px;border-radius:3px"></div></div></div>`],
+    ['Thought chat cards', true, `<div class="art" style="background:#2d2a8c;padding:16px 18px;display:grid;gap:12px;align-content:start;overflow:hidden"><div class="pv" style="display:grid;gap:12px;animation:rmUp 9s linear infinite">${['I refuse to answer that. I don’t know the question.', 'Whatever the problem, you can just sit around and wait for obstacles.', 'Never memorize something you can look up.', 'It’s no use going back to yesterday; I was a different person then.', 'I refuse to answer that. I don’t know the question.', 'Whatever the problem, you can just sit around and wait for obstacles.', 'Never memorize something you can look up.', 'It’s no use going back to yesterday; I was a different person then.'].map((q) => `<div style="background:#3c39a8;border-radius:8px;padding:12px 14px;font:400 11px/1.45 ${F};color:#d8d6ff">${q}</div>`).join('')}</div></div>`],
+    ['Burger boxer', true, svg(`<rect width="200" height="200" fill="#463c37"/><g class="pv" style="transform-origin:100px 120px;animation:rmBob .7s ease-in-out infinite"><path d="M52 98 a48 40 0 0 1 96 0z" fill="#d6a35c"/><rect x="50" y="98" width="100" height="12" rx="4" fill="#f3c54a"/><rect x="50" y="108" width="100" height="14" rx="5" fill="#6b2a16"/><path d="M52 122 h96 a14 14 0 0 1 -14 14 h-68 a14 14 0 0 1 -14 -14z" fill="#d6a35c"/><circle cx="82" cy="88" r="3" fill="#2a1a10"/><circle cx="118" cy="88" r="3" fill="#2a1a10"/><path d="M75 80 l12 3M125 80 l-12 3" stroke="#2a1a10" stroke-width="3"/><circle cx="44" cy="118" r="14" fill="#8e2b20"/><circle cx="158" cy="116" r="14" fill="#8e2b20"/></g>`, '#463c37')],
+    ['Good morning friends', false, svg(`<g class="pv" style="transform-origin:100px 100px;animation:rmRay 6s linear infinite">${Array.from({ length: 18 }, (_, i) => `<path d="M100 100 L${100 + 170 * Math.cos((i * 20 * Math.PI) / 180)} ${100 + 170 * Math.sin((i * 20 * Math.PI) / 180)} L${100 + 170 * Math.cos(((i * 20 + 8) * Math.PI) / 180)} ${100 + 170 * Math.sin(((i * 20 + 8) * Math.PI) / 180)}Z" fill="#f7e3a3"/>`).join('')}</g><text x="100" y="108" text-anchor="middle" font-family="Noto Sans,Arial Black" font-weight="700" font-style="italic" font-size="19" fill="#1d1a10">GOOD MORNING</text><text x="100" y="128" text-anchor="middle" font-family="Noto Sans,Arial Black" font-weight="700" font-style="italic" font-size="19" fill="#1d1a10">FRIENDS</text>`, '#e9cf7c')],
+    ['Ask a question', false, `<div class="art" style="background:#050505;padding:18px 14px;display:grid;gap:12px;align-content:center;font:400 10px Georgia,serif"><span style="background:#c58aa5;padding:6px 8px;border-radius:2px;color:#2a1020;justify-self:start">Ask me a yes or no question.</span><span class="pv" style="justify-self:center;font-size:16px;animation:rmBob 1s infinite">😊</span><span style="background:#9fb7c9;padding:6px 8px;border-radius:2px;color:#102030;justify-self:start">Ask a question...</span></div>`],
+    ['Simon game', false, svg(`<g class="pv" style="transform-origin:100px 100px;animation:rmSpin 6s linear infinite"><path d="M100 30 a70 70 0 0 1 70 70 h-34 a36 36 0 0 0 -36 -36z" fill="#b8364e"/><path d="M170 100 a70 70 0 0 1 -70 70 v-34 a36 36 0 0 0 36 -36z" fill="#68d3a3"/><path d="M100 170 a70 70 0 0 1 -70 -70 h34 a36 36 0 0 0 36 36z" fill="#f2ee80"/><path d="M30 100 a70 70 0 0 1 70 -70 v34 a36 36 0 0 0 -36 36z" fill="#3a2a9c"/></g><circle cx="100" cy="100" r="30" fill="#1a1a1a"/><text x="100" y="104" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#555">Start</text>`, '#0d0d0d')],
+    ['Checkout list', false, `<div class="art" style="background:var(--tint);display:grid;grid-template-columns:30% 1fr;gap:8px;padding:12px"><div style="display:grid;gap:6px">${'<i style="background:#0000000f;border-radius:3px"></i>'.repeat(4)}</div><div style="background:#fff9;border:1px solid #0001;border-radius:4px;padding:6px;font:600 6px ${F};display:grid;gap:4px;align-content:start">Selected Items${'<i class="pv" style="display:block;height:14px;background:#0000000c;border-radius:2px;animation:rmPulse 1.2s infinite"></i>'.repeat(4)}<div style="display:flex;gap:4px;margin-top:4px"><b style="background:#111;color:#fff;padding:2px 4px">Checkout</b><b style="border:1px solid #999;padding:2px 4px;font-weight:400">Empty Cart</b></div></div></div>`],
+    ['5,000,000 counter', true, `<div class="art" style="background:var(--tint);display:grid;place-items:center;overflow:hidden">${Array.from({ length: 40 }, (_, i) => `<i class="pv" style="position:absolute;left:${(i * 37) % 100}%;top:${(i * 53) % 100}%;width:3px;height:6px;background:${['#d98ca8', '#e8c37a', '#c9a3d8'][i % 3]};transform:rotate(${i * 27}deg);animation:rmBob ${1 + (i % 4) * 0.3}s ease-in-out infinite"></i>`).join('')}<div style="text-align:center"><div style="font:800 56px ${F};letter-spacing:-.02em;background:linear-gradient(90deg,#b56b8f,#d8a87a);-webkit-background-clip:text;background-clip:text;color:transparent">5,000,000</div><span style="display:inline-block;margin-top:10px;border:1.5px solid #6b3a4a;padding:4px 18px;font:400 11px ${F};color:#6b3a4a;background:#fff6">Restart</span></div></div>`],
+    ['Gradient fade', false, `<div class="art pv" style="background:linear-gradient(160deg,#b06a6a,#5a1d3a);animation:rmHue 5s linear infinite"></div>`],
+    ['Melting CSS', false, svg(`<rect width="200" height="200" fill="#0f1114"/><g class="pv" style="animation:rmBob 1.4s ease-in-out infinite"><text x="100" y="112" text-anchor="middle" font-family="Noto Sans,Arial Black" font-weight="700" font-size="56" fill="#efe6d0" stroke="#0f1114" stroke-width="3">CSS</text></g><path d="M30 120 q20 30 40 4 q18 34 36 0 q20 30 40 2 q14 20 24 0 v60 h-140z" fill="#efe6d0" opacity=".9"/>`, '#0f1114')],
+    ['Bouncing dots', false, `<div class="art" style="background:#14532d;display:flex;gap:10px;align-items:center;justify-content:center">${[0, 1, 2].map((i) => `<i class="pv" style="width:22px;height:22px;border-radius:50%;background:#bbf7d0;animation:rmBob .6s ${i * 0.12}s ease-in-out infinite"></i>`).join('')}</div>`],
+    ['Type specimen', true, `<div class="art" style="background:var(--tint);display:grid;place-items:center"><div class="pv" style="font:700 120px/1 Georgia,serif;color:var(--th);animation:rmBeat 1.4s infinite">Aa</div></div>`],
+    ['Orbit loader', false, `<div class="art" style="background:#1e1b4b;display:grid;place-items:center"><div class="pv" style="width:70px;height:70px;border-radius:50%;border:4px solid #6366f155;border-top-color:#a5b4fc;animation:rmSpin 1s linear infinite"></div></div>`] ];
+  const ul = h('ul.rm-ul'); const lis = TILES.map(([n, big, html]) => { const li = h('li', { class: big ? 'big' : '', title: n, html, onclick: () => toast(`Open pen: ${n} (demo)`) }); return li; });
+  ul.append(...lis);
+  const rng0 = h('input.rm-rng', { type: 'range', min: 0, max: 1000, value: 0, 'aria-label': 'Scroll demos' });
+  const syncR = () => { const m = ul.scrollWidth - ul.clientWidth; rng0.value = m > 0 ? Math.round((ul.scrollLeft / m) * 1000) : 0; };
+  rng0.addEventListener('input', () => { const m = ul.scrollWidth - ul.clientWidth; ul.scrollLeft = (rng0.value / 1000) * m; });
+  ul.addEventListener('scroll', syncR, { passive: true });
+  ul.addEventListener('wheel', (e) => { if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { ul.scrollLeft += e.deltaY; e.preventDefault(); } }, { passive: false });
+  const unsk = h('input', { type: 'checkbox', onchange: () => el.classList.toggle('flat', unsk.checked) });
+  const nopv = h('input', { type: 'checkbox', onchange: () => el.classList.toggle('nopv', nopv.checked) });
+  const ctl = h('div.rm-ctl', {}, rng0, h('label.rm-ck', {}, unsk, 'Unskew'), h('label.rm-ck', {}, nopv, 'Disable preview'));
+  // ---------- prose + live build note ----------
+  const bd = new Date(document.lastModified || Date.now()); const hr = bd.getHours();
+  const part = hr < 12 ? 'morning' : hr < 17 ? 'afternoon' : hr < 21 ? 'evening' : 'night';
+  const nth = (d) => d + (d % 10 === 1 && d !== 11 ? 'st' : d % 10 === 2 && d !== 12 ? 'nd' : d % 10 === 3 && d !== 13 ? 'rd' : 'th');
+  const TRACKS = [['Picto', 'Ulrika Spacek'], ['Strawberry Flavored', 'Wild Pink'], ['Cardinal', 'Pinegrove'], ['Seasons', 'Future Islands']]; let tk = 0;
+  const trackA = h('a', { onclick: () => { tk = (tk + 1) % TRACKS.length; trackA.textContent = TRACKS[tk][0]; byS.textContent = ` by ${TRACKS[tk][1]}`; } }, TRACKS[0][0]); const byS = h('span', {}, ` by ${TRACKS[0][1]}`);
+  const pr = h('section.rm-pr', {}, h('p', {}, 'This is a website made by me, ', h('b', {}, 'Ryan Mulligan'), ', a front-end builder of the web and fellow passenger through space and time.'),
+    h('ul', {}, h('li', {}, `The latest site build was deployed in the ${part} on ${bd.toLocaleString('en-US', { month: 'long' })} ${nth(bd.getDate())}.`), h('li', {}, 'During deployment, the weather over here was 61°F and overcast.'), h('li', {}, 'I was listening to ', h('span', {}, '♫ '), trackA, byS)),
+    h('h2', {}, 'Recent writing'), h('ul.rm-art', {}, [['Scroll-driven skew strips with a synced range input', 'Sep 2026'], ['A theme machine with light-dark() and accent tokens', 'Aug 2026'], ['Grid auto-flow dense bento layouts', 'Jun 2026'], ['Hover-to-preview video thumbnails, responsibly', 'Apr 2026']].map(([t, d]) => h('li', {}, h('a', { onclick: () => toast(t) }, t), h('time', {}, d)))));
+  sc.append(hd, h('div.rm-strip', {}, ul), ctl, pr);
+  setAppearance('system');
+  // ---------- demo proof ----------
+  const reset = () => { tm.classList.remove('open'); setAppearance('system'); setAccent(0); unsk.checked = false; nopv.checked = false; el.classList.remove('flat', 'nopv'); lis.forEach((l) => l.classList.remove('hov')); ul.scrollLeft = 0; syncR(); sc.scrollTop = 0; tk = 0; trackA.textContent = TRACKS[0][0]; byS.textContent = ` by ${TRACKS[0][1]}`; };
+  window.__demoProof = async () => { const o = []; reset();
+    lis[2].classList.add('hov'); await sleep(RM ? 30 : 260); o.push(`hover tile → scale ${getComputedStyle(lis[2]).scale}`); lis[2].classList.remove('hov');
+    rng0.value = 600; rng0.dispatchEvent(new Event('input')); await sleep(60); o.push(`range 60% → strip scrollLeft ${Math.round(ul.scrollLeft)}`);
+    ul.scrollLeft = 0; syncR(); o.push(`strip scroll → range ${rng0.value}`);
+    unsk.click(); await sleep(RM ? 30 : 520); o.push(`unskew → strip transform ${getComputedStyle(ul).transform === 'none' ? 'flat' : getComputedStyle(ul).transform}`); unsk.click(); o.push(`re-skew → flat class=${el.classList.contains('flat')}`);
+    nopv.click(); o.push(`disable preview → ${el.classList.contains('nopv')}`); nopv.click();
+    tm.querySelector('.rm-pen').click(); o.push(`pencil → tray open=${tm.classList.contains('open')}, dots=${tray.children.length}`);
+    tray.children[1].click(); o.push(`accent pink → --th ${el.style.getPropertyValue('--th')}`);
+    apB[2].click(); o.push(`dark → ${el.classList.contains('dk')}`); apB[1].click(); o.push(`light → dark=${el.classList.contains('dk')}`);
+    trackA.click(); o.push(`now listening → ${trackA.textContent}`);
+    reset(); o.push(`restored: system appearance, default accent, skewed, scroll 0`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['neumorph-softui-generator'])(root, T); }

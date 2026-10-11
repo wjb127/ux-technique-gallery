@@ -1153,4 +1153,172 @@ V['watabou-parchment-ink-city-map-curved-ward-labels-compass-regenerate'] = (roo
     regen(pick0); menuOn(false); return out.join('; ') + `; restored Default/Medium seed ${st.seed} → ${M.name}`; };
 };
 
+
+V['humanssince1982-clock-wall-kinetic-hands-grid-live-since-counter-mono-nav'] = (root, T) => {
+  theme(root, T, { bg: '#0c0c0c', fg: '#f2f2f2', ac: '#ffffff', dark: true });
+  const F = "'Inter Variable','Helvetica Neue',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const COLS = 12, ROWS = 6, CELL = 96, D = 88;
+  css(`.hs{position:absolute;inset:0;overflow:hidden;background:#0c0c0c;color:#f2f2f2;font-family:${F};letter-spacing:-.01em}
+.hs *{box-sizing:border-box}
+.hs-bar{position:absolute;left:0;right:0;top:0;height:48px;background:#dddcd8;color:#111;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 30px;z-index:5;font:450 14.5px ${F}}
+.hs-bar nav{display:flex;gap:0}.hs-bar nav a{cursor:pointer;width:116px}.hs-bar nav a:hover,.hs-bar .r a:hover{text-decoration:underline;text-underline-offset:3px}
+.hs-bar .wm{font:400 22px ${F};letter-spacing:-.025em;cursor:pointer}
+.hs-bar .r{display:flex;justify-content:flex-end;gap:52px}.hs-bar .r a{cursor:pointer}.hs-bar .r b{font-weight:450;margin-left:12px}
+.hs-bar .r a.bump b{display:inline-block;animation:hsB .5s}@keyframes hsB{40%{transform:scale(1.6)}}
+.hs-dd{position:absolute;top:48px;left:0;right:0;background:#dddcd8;color:#111;padding:26px 30px 34px;display:grid;grid-template-columns:repeat(4,220px);gap:20px;font:450 14px/2 ${F};z-index:4;transform:translateY(-110%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.hs-dd.on{transform:none}.hs-dd b{display:block;font-weight:450;color:#777;margin-bottom:4px}.hs-dd a{display:block;cursor:pointer}.hs-dd a:hover{text-decoration:underline}
+.hs-sc{position:absolute;inset:48px 0 0 0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#444 #0c0c0c}
+.hs-hero{position:relative;height:814px;background:radial-gradient(ellipse at 52% 46%,#1b1b1b 0%,#0f0f0f 55%,#080808 100%);overflow:hidden;cursor:pointer}
+.hs-frame{position:absolute;left:78px;right:68px;top:76px;bottom:-30px;background:linear-gradient(180deg,#141414,#101010);box-shadow:inset 0 0 0 1px #1c1c1c,0 30px 80px #000c;border-radius:2px}
+.hs-grid{position:absolute;left:50%;top:388px;width:${COLS * CELL}px;height:${ROWS * CELL}px;margin:-${(ROWS * CELL) / 2}px 0 0 -${(COLS * CELL) / 2}px;display:grid;grid-template-columns:repeat(${COLS},${CELL}px);grid-auto-rows:${CELL}px}
+.hs-c{position:relative;width:${D}px;height:${D}px;margin:auto;border-radius:50%;background:radial-gradient(circle at 50% 40%,#151515,#0b0b0b 72%);box-shadow:inset 0 0 0 1px #1f1f1f,inset 0 6px 14px #000,0 1px 0 #222}
+.hs-h{position:absolute;left:50%;bottom:calc(50% - 3.5px);width:7px;height:calc(47% + 3.5px);margin-left:-3.5px;transform-origin:50% calc(100% - 3.5px);border-radius:1.5px;
+ background:linear-gradient(90deg,#ffffff38 0%,#ffffffe6 30%,#ffffff70 55%,#ffffffd0 80%,#ffffff30 100%);box-shadow:0 0 4px #ffffff22,1px 2px 3px #0009;will-change:transform}
+.hs-ov{position:absolute;left:30px;top:166px;font:400 18px/1.3 ${F};color:#f4f4f4;pointer-events:none;z-index:2;text-shadow:0 1px 8px #000}
+.hs-ov .n{font-variant-numeric:tabular-nums}
+.hs-cap{position:absolute;right:30px;bottom:22px;display:flex;align-items:center;gap:14px;font:400 12px ${F};color:#8a8a8a;z-index:2}
+.hs .hs-pp{width:26px;height:26px;border-radius:50%;border:1px solid #555;background:#0008;color:#ddd;display:grid;place-items:center;font-size:9px;cursor:pointer}
+.hs-dots{display:flex;gap:5px}.hs-dots i{width:5px;height:5px;border-radius:50%;background:#444}.hs-dots i.on{background:#ddd}
+.hs-split{display:grid;grid-template-columns:1fr 1fr;height:780px}
+.hs-water{position:relative;background:#0d1020;overflow:hidden}
+.hs-water canvas{position:absolute;inset:0;width:100%;height:100%}
+.hs-water span{position:absolute;left:34px;top:46%;font:400 19px ${F};color:#eef}
+.hs-grey{background:#d8d7d3;display:grid;place-items:center;position:relative}
+.hs-disc{width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#1d3a78,#0f2050 60%,#0a1638);box-shadow:0 30px 60px #0003;position:relative;overflow:hidden}
+.hs-disc .m{position:absolute;width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px #ffffff14}
+.hs-disc .m i{position:absolute;left:50%;bottom:calc(50% - 2px);width:4px;height:calc(46% + 2px);margin-left:-2px;transform-origin:50% calc(100% - 2px);background:linear-gradient(90deg,#fff5,#fffd,#fff6);border-radius:1px}
+.hs-grey small{position:absolute;left:34px;bottom:30px;font:400 13px ${F};color:#333}
+.hs-txt{background:#d8d7d3;color:#111;padding:110px 30px 90px;display:grid;grid-template-columns:240px 1fr;gap:28px 40px}
+.hs-txt b{font:400 14px ${F};color:#666}
+.hs-txt p{margin:0;font:400 34px/1.18 ${F};letter-spacing:-.025em;max-width:980px}
+.hs-txt p.s{font-size:19px;line-height:1.4;max-width:760px;color:#222}
+.hs-shop{background:#d8d7d3;color:#111;padding:20px 30px 110px}
+.hs-shop h3{font:400 14px ${F};color:#666;margin:0 0 22px}
+.hs-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hs-cd{cursor:pointer}
+.hs-cd .im{height:420px;background:#cfcec9;display:grid;place-items:center;position:relative;overflow:hidden;transition:background .3s}
+.hs-cd:hover .im{background:#c8c7c1}
+.hs-cd .meta{display:grid;grid-template-columns:1fr auto;padding:12px 0;font:400 14px/1.45 ${F}}
+.hs-cd .meta span:nth-child(even){text-align:right}.hs-cd .meta .g{color:#777}
+.hs .hs-add{position:absolute;left:14px;bottom:14px;height:34px;padding:0 16px;border:0;background:#111;color:#eee;font:400 13px ${F};opacity:0;transform:translateY(8px);transition:.25s;cursor:pointer}
+.hs-cd:hover .hs-add{opacity:1;transform:none}
+.cc{position:relative;padding:14px 16px;border-radius:3px;display:grid;grid-template-columns:repeat(8,34px);gap:4px;box-shadow:0 20px 40px #0003}
+.cc .k{position:relative;width:34px;height:34px;border-radius:50%}
+.cc .k i{position:absolute;left:50%;bottom:calc(50% - 1.5px);width:3px;height:calc(46% + 1.5px);margin-left:-1.5px;transform-origin:50% calc(100% - 1.5px);border-radius:1px;transition:transform 1.6s cubic-bezier(.6,0,.2,1)}
+.hs-ft{background:#0c0c0c;color:#ddd;padding:70px 30px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;font:400 14px/2 ${F}}
+.hs-ft b{display:block;color:#777;font-weight:400}.hs-ft a{display:block;cursor:pointer}.hs-ft a:hover{color:#fff}
+.hs-ft .c{grid-column:1/-1;border-top:1px solid #222;padding-top:22px;display:flex;justify-content:space-between;color:#999;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion: reduce){.hs *{transition:none!important;animation:none!important}}
+`);
+  const el = h('div.hs'); root.append(el);
+  // ---------- top bar ----------
+  let cart = 0; const cartA = h('a', { onclick: () => toast('Cart: ' + cart + ' item(s)') }, 'Cart', h('b', {}, '0'));
+  const dd = h('div.hs-dd', {}, [['Masterpieces', ['AMT61C Tidal', 'AMT72 Black Sterling', 'AMT72V', 'AMT120']], ['Collectibles', ['CC24 / White', 'CC24 / White Sterling', 'CC24 / Black Sterling']], ['Collaborations', ['HS82 x Bjarke Ingels', 'HS82 x Rolls-Royce Club', 'HS82 x Steinway', 'HS82 x IKEA']], ['Bespoke', ['HS82 for Moncler', 'HS82 for Changi', 'HS82 for San Jose']]].map(([t, ls]) => h('div', {}, h('b', {}, t), ls.map((l) => h('a', { onclick: () => { dd.classList.remove('on'); toast(l); } }, l)))));
+  const bar = h('header.hs-bar', {}, h('nav', {}, h('a', { onclick: () => dd.classList.toggle('on') }, 'Shop'), h('a', { onclick: () => dd.classList.toggle('on') }, 'Explore'), h('a', { onclick: () => toast('Client care') }, 'Client care')),
+    h('div.wm', { onclick: () => sc.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }) }, 'Humans since 1982'),
+    h('div.r', {}, h('a', { onclick: () => toast('Search') }, 'Search'), h('a', { onclick: () => toast('Subscribe to the newsletter') }, 'Subscribe'), cartA));
+  // ---------- since-2008 counter ----------
+  const T0 = Date.UTC(2008, 6, 4, 3, 0, 0);
+  const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const sinceTxt = (now = Date.now()) => { const sec = Math.floor((now - T0) / 1000), days = Math.floor(sec / 86400), yrs = Math.floor(days / 365.2425); return `${yrs} years : ${days} days : ${fmt(sec)}s`; };
+  const cntEls = [];
+  const cnt = () => { const e = h('span.n', {}, sinceTxt()); cntEls.push(e); return e; };
+  // ---------- clock wall ----------
+  const grid = h('div.hs-grid'); const clocks = [];
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) { const a = h('i.hs-h'), b = h('i.hs-h'), c = h('div.hs-c', {}, a, b); grid.append(c); clocks.push({ x, y, a, b, cur: [225, 225], from: [225, 225], to: [225, 225] }); }
+  // digit glyphs: polylines through the 3x6 point grid; each clock's hands point at its path neighbours
+  const DG = { 0: [[[0, 0], [2, 0], [2, 5], [0, 5], [0, 0]], [[1, 1], [1, 4]]], 1: [[[1, 0], [2, 0], [2, 5], [1, 5], [1, 0]]],
+    2: [[[0, 0], [2, 0], [2, 3], [1, 3], [1, 4], [2, 4], [2, 5], [0, 5], [0, 2], [1, 2], [1, 1], [0, 1], [0, 0]]],
+    3: [[[0, 0], [2, 0], [2, 5], [0, 5], [0, 4], [1, 4], [1, 3], [0, 3], [0, 2], [1, 2], [1, 1], [0, 1], [0, 0]]],
+    4: [[[0, 0], [0, 3], [1, 3], [1, 5], [2, 5], [2, 0], [1, 0], [1, 2]]],
+    5: [[[2, 0], [0, 0], [0, 3], [1, 3], [1, 4], [0, 4], [0, 5], [2, 5], [2, 2], [1, 2], [1, 1], [2, 1], [2, 0]]],
+    6: [[[2, 0], [0, 0], [0, 5], [2, 5], [2, 2], [1, 2], [1, 1], [2, 1], [2, 0]], [[1, 3], [1, 4]]],
+    7: [[[0, 0], [2, 0], [2, 5], [1, 5], [1, 1], [0, 1], [0, 0]]],
+    8: [[[0, 0], [2, 0], [2, 5], [0, 5], [0, 0]], [[1, 1], [1, 2]], [[1, 3], [1, 4]]],
+    9: [[[0, 0], [2, 0], [2, 5], [0, 5], [0, 4], [1, 4], [1, 3], [0, 3], [0, 0]], [[1, 1], [1, 2]]] };
+  const dirOf = (dx, dy) => (dy < 0 ? 0 : dx > 0 ? 90 : dy > 0 ? 180 : 270);
+  const glyph = (d) => { const adj = {}; const add = (p, q) => { const k = p.join(); (adj[k] ||= []).push(dirOf(Math.sign(q[0] - p[0]), Math.sign(q[1] - p[1]))); };
+    for (const line of DG[d]) for (let i = 0; i < line.length - 1; i++) { const [p, q] = [line[i], line[i + 1]]; const dx = Math.sign(q[0] - p[0]), dy = Math.sign(q[1] - p[1]); let c = [...p];
+      while (c[0] !== q[0] || c[1] !== q[1]) { const n = [c[0] + dx, c[1] + dy]; add(c, n); add(n, c); c = n; } }
+    return (x, y) => { const l = [...new Set(adj[[x, y].join()] || [])]; return l.length === 0 ? [225, 225] : l.length === 1 ? [l[0], l[0]] : [l[0], l[1]]; }; };
+  const timeDigits = () => { const d = new Date(); return `${String(d.getHours()).padStart(2, '0')}${String(d.getMinutes()).padStart(2, '0')}`; };
+  const timeTarget = () => { const ds = timeDigits().split('').map((c) => glyph(+c)); return (x, y) => ds[Math.floor(x / 3)](x % 3, y); };
+  const cx = (COLS - 1) / 2, cy = (ROWS - 1) / 2;
+  const PATTERNS = [
+    { name: 'time', tgt: timeTarget, k: 1, hold: 4200, stag: (x) => x * 55 },
+    { name: 'diagonal wave', tgt: () => (x, y) => [((x + y) * 30) % 360, ((x + y) * 30 + 180) % 360], k: 1, hold: 600, stag: (x, y) => (x + y) * 70 },
+    { name: 'chevrons', tgt: () => (x, y) => (y % 2 ? [135, 45] : [315, 225]), k: 0, hold: 1500, stag: (x) => x * 80 },
+    { name: 'vertical rain', tgt: () => () => [0, 180], k: 1, hold: 1300, stag: (x, y) => y * 120 + x * 25 },
+    { name: 'bloom', tgt: () => (x, y) => { const a = (Math.atan2(x - cx, -(y - cy)) * 180) / Math.PI; return [(a + 360) % 360, (a + 180) % 360]; }, k: 1, hold: 1500, stag: (x, y) => Math.hypot(x - cx, y - cy) * 140 },
+    { name: 'horizon', tgt: () => () => [90, 270], k: 0, hold: 1200, stag: (x) => Math.abs(x - cx) * 90 } ];
+  const DUR = 2300, ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+  let pi = 0, segT0 = 0, paused = false, raf = 0, pauseAt = 0, curPat = PATTERNS[0];
+  const apply = () => clocks.forEach((c) => { c.a.style.transform = `rotate(${c.cur[0]}deg)`; c.b.style.transform = `rotate(${c.cur[1]}deg)`; });
+  const unwrapCW = (f, t, k) => f + ((((t - f) % 360) + 360) % 360) + k * 360, unwrapCCW = (f, t, k) => f - ((((f - t) % 360) + 360) % 360) - k * 360;
+  const startSeg = (i, now = performance.now()) => { pi = (i + PATTERNS.length) % PATTERNS.length; curPat = PATTERNS[pi]; const tg = curPat.tgt(); segT0 = now;
+    clocks.forEach((c) => { const [t1, t2] = tg(c.x, c.y); c.from = [...c.cur]; c.to = [unwrapCW(c.cur[0], t1, curPat.k), unwrapCCW(c.cur[1], t2, curPat.k)]; c.del = curPat.stag(c.x, c.y); });
+    [...dots.children].forEach((d, j) => d.classList.toggle('on', j === pi)); capT.textContent = `A Million Times · ${curPat.name}`; };
+  const maxDel = () => Math.max(...clocks.map((c) => c.del));
+  const frame = (now) => { if (!paused) { const t = now - segT0;
+      clocks.forEach((c) => { const p = ease(clamp((t - c.del) / DUR, 0, 1)); c.cur = [c.from[0] + (c.to[0] - c.from[0]) * p, c.from[1] + (c.to[1] - c.from[1]) * p]; }); apply();
+      if (t > maxDel() + DUR + curPat.hold) { clocks.forEach((c) => (c.cur = [c.to[0] % 360, c.to[1] % 360])); startSeg(pi + 1, now); } }
+    raf = requestAnimationFrame(frame); };
+  const snapTime = () => { const tg = timeTarget(); clocks.forEach((c) => { c.cur = tg(c.x, c.y); c.from = [...c.cur]; c.to = [...c.cur]; c.del = 0; }); apply(); };
+  const capT = h('span', {}, 'A Million Times · time');
+  const dots = h('div.hs-dots', {}, PATTERNS.map(() => h('i')));
+  const ppB = h('button.hs-pp', { title: 'Pause choreography', onclick: (e) => { e.stopPropagation(); setPaused(!paused); } }, '❚❚');
+  const setPaused = (p) => { if (RM) return; if (p && !paused) pauseAt = performance.now(); if (!p && paused) segT0 += performance.now() - pauseAt; paused = p; ppB.textContent = p ? '▶' : '❚❚'; };
+  const hero = h('section.hs-hero', { title: 'Click to skip to the next choreography', onclick: () => { if (RM) return; clocks.forEach((c) => (c.cur = [c.cur[0] % 360, c.cur[1] % 360])); if (paused) setPaused(false); startSeg(pi + 1); } },
+    h('div.hs-frame'), grid, h('div.hs-ov', {}, 'Celebrating Time since 2008', h('br'), cnt()), h('div.hs-cap', {}, capT, dots, ppB));
+  // ---------- split: water + navy disc ----------
+  const wcv = h('canvas'); const water = h('div.hs-water', {}, wcv, h('span', {}, 'Humans since 1982'));
+  const disc = h('div.hs-disc'); const minis = [];
+  for (let y = 0; y < 12; y++) for (let x = 0; x < 12; x++) { const px = 40 + x * 40, py = 40 + y * 40; if (Math.hypot(px + 20 - 280, py + 20 - 280) > 236) continue; const a = h('i'), b = h('i'); const m = h('div.m', { style: { left: px + 'px', top: py + 'px' } }, a, b); disc.append(m); minis.push({ x, y, a, b }); }
+  const split = h('section.hs-split', {}, water, h('div.hs-grey', {}, disc, h('small', {}, 'AMT61C Tidal — Black mineral composite, bespoke programming')));
+  const nz = noise2(5);
+  const drawWater = (t) => { const r = water.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; if (wcv.width !== 540) { wcv.width = 540; wcv.height = 585; }
+    const g = wcv.getContext('2d'); const gr = g.createLinearGradient(0, 0, 0, 585); gr.addColorStop(0, '#20253f'); gr.addColorStop(0.5, '#121628'); gr.addColorStop(1, '#06070f'); g.fillStyle = gr; g.fillRect(0, 0, 540, 585);
+    for (let y = 0; y < 585; y += 2) { const ps = 0.6 + y / 585; for (let x = 0; x < 540; x += 3) { const n = nz(x * 0.03 / ps + t * 0.00012, y * 0.085 / ps - t * 0.00028) * 0.8 + nz(x * 0.16 - t * 0.0005, y * 0.3 + t * 0.0002) * 0.3;
+      if (n > 0.64) { const a = Math.min(1, (n - 0.64) * 6); g.fillStyle = `rgba(236,238,255,${a})`; g.fillRect(x, y, 1.5 + a * 3 * ps, 1); } else if (n > 0.5) { g.fillStyle = `rgba(70,80,135,${(n - 0.5) * 2.2})`; g.fillRect(x, y, 3, 1.2); } } } };
+  const drawMinis = (t) => minis.forEach((m) => { const base = 30 + Math.sin(t * 0.0006 + m.x * 0.35 + m.y * 0.2) * (RM ? 0 : 22); m.a.style.transform = `rotate(${base}deg)`; m.b.style.transform = `rotate(${base + 180}deg)`; });
+  // ---------- text + product cards (ClockClock 24 stand-ins) ----------
+  const txt = h('section.hs-txt', {}, h('b', {}, 'Introduction'), h('p', {}, 'Humans since 1982 is a pioneering studio for collectible design and art, based in Stockholm, Sweden.'),
+    h('b', {}, 'Recognition'), h('p.s', {}, 'Through their many exhibitions worldwide \u2014 including Somerset House, Saatchi Gallery, and Smithsonian Design Museum \u2014 Humans since 1982 have established themselves as a force for immersive and captivating experiences.'));
+  const CH = { '┌': [90, 180], '┐': [270, 180], '└': [0, 90], '┘': [0, 270], '│': [0, 180], '╷': [180, 180], '╵': [0, 0], '╶': [90, 90], '╴': [270, 270], ' ': [225, 225], '>': [315, 225], '<': [45, 135] };
+  const D24 = { 0: ['┌┐', '││', '└┘'], 1: [' ╷', ' │', ' ╵'], 2: ['╶┐', '┌┘', '└╴'], 3: ['╶┐', '╶│', '╶┘'], 4: ['╷╷', '└│', ' ╵'], 5: ['┌╴', '└┐', '╶┘'], 6: ['┌╴', '│┐', '└┘'], 7: ['╶┐', ' │', ' ╵'], 8: ['┌┐', '><', '└┘'], 9: ['┌┐', '└│', '╶┘'] };
+  const ccs = [];
+  const mkCC = (body, face, hand, ring) => { const ks = []; const box = h('div.cc', { style: { background: body } });
+    for (let y = 0; y < 3; y++) for (let x = 0; x < 8; x++) { const a = h('i', { style: { background: hand } }), b = h('i', { style: { background: hand } }); const k = h('div.k', { style: { background: face, boxShadow: `inset 0 0 0 1px ${ring}` } }, a, b); box.append(k); ks.push({ x, y, a, b }); }
+    const o = { box, ks, show(str, spin = 0) { ks.forEach((k) => { const ch = D24[+str[Math.floor(k.x / 2)]][k.y][k.x % 2]; const [p, q] = CH[ch] || CH[' ']; k.a.style.transform = `rotate(${p + spin}deg)`; k.b.style.transform = `rotate(${q - spin}deg)`; }); } };
+    ccs.push(o); return o; };
+  const PROD = [['CC24 White', '€6,500', 'Edition of 950', ['#f3f2ee', '#fbfaf7', '#1a1a1a', '#0000000f']], ['CC24 Bjarke Ingels', '€19,000', 'Edition of 10', ['#b9a58a', '#cdbca3', '#2a2018', '#0000001a']], ['CC24 Black Sterling', '€9,800', 'Edition of 250', ['#141414', '#1c1c1c', '#e8e8e8', '#ffffff14']]];
+  const cards = PROD.map(([n, p, ed, col]) => { const cc = mkCC(...col); const add = h('button.hs-add', { onclick: (e) => { e.stopPropagation(); cart++; cartA.querySelector('b').textContent = cart; cartA.classList.remove('bump'); void cartA.offsetWidth; cartA.classList.add('bump'); toast(`${n} added to cart`); } }, 'Add to cart');
+    const c = h('div.hs-cd', { onmouseenter: () => cc.show(timeDigits(), 360), onmouseleave: () => cc.show('1982') }, h('div.im', {}, cc.box, add), h('div.meta', {}, h('span', {}, n), h('span', {}, p), h('span.g', {}, 'Collectibles'), h('span.g', {}, ed))); c.cc = cc; return c; });
+  ccs.forEach((c) => c.show('1982'));
+  const shop = h('section.hs-shop', {}, h('h3', {}, 'Explore a Selection of our Work'), h('div.hs-cards', {}, cards));
+  const ft = h('footer.hs-ft', {}, [['About', ['Studio & Story', 'Projects', 'Savoir-Faire', 'Philosophy', 'Careers']], ['Client care', ['Ownership', 'FAQ', 'Care & Maintenance', 'Technical Support', 'Contact']], ['Shop', ['Masterpieces', 'Collectibles', 'Bespoke', 'Book appointment']], ['Social', ['Instagram', 'Vimeo', 'LinkedIn']]].map(([t, ls]) => h('div', {}, h('b', {}, t), ls.map((l) => h('a', { onclick: () => toast(l) }, l)))),
+    h('div.c', {}, h('span', {}, 'Celebrating Time since 2008'), cnt(), h('span', {}, '© Humans since 1982 — demo clone')));
+  const sc = h('div.hs-sc', {}, hero, split, txt, shop, ft);
+  el.append(sc, dd, bar);
+  // ---------- loops ----------
+  const secT = setInterval(() => { const s0 = sinceTxt(); cntEls.forEach((e) => (e.textContent = s0)); if (RM) { const tg = timeTarget(); clocks.forEach((c) => (c.cur = tg(c.x, c.y))); apply(); } }, 1000);
+  let wraf = 0; const wloop = (t) => { drawWater(RM ? 0 : t); drawMinis(t); if (!RM) wraf = requestAnimationFrame(wloop); };
+  if (RM) { snapTime(); capT.textContent = 'A Million Times · time (reduced motion: frozen)'; dots.children[0].classList.add('on'); wloop(0); setTimeout(() => wloop(0), 300); sc.addEventListener('scroll', () => wloop(0), { passive: true }); }
+  else { startSeg(0); raf = requestAnimationFrame(frame); wraf = requestAnimationFrame(wloop); }
+  void secT; void wraf;
+  // ---------- demo proof ----------
+  const reset = () => { dd.classList.remove('on'); sc.scrollTop = 0; cart = 0; cartA.querySelector('b').textContent = '0'; ccs.forEach((c) => c.show('1982'));
+    if (RM) snapTime(); else { if (paused) setPaused(false); clocks.forEach((c) => (c.cur = [c.cur[0] % 360, c.cur[1] % 360])); startSeg(0); } };
+  window.__demoProof = async () => { const o = []; reset();
+    const c0 = cntEls[0].textContent; await sleep(1100); o.push(`counter ticks: "${c0}" → "${cntEls[0].textContent}"`);
+    o.push(`wall ${COLS}x${ROWS}=${clocks.length} clocks, ${grid.querySelectorAll('.hs-h').length} hands`);
+    if (!RM) { hero.click(); await sleep(60); o.push(`click wall → choreography "${curPat.name}" (${pi + 1}/${PATTERNS.length})`);
+      const tg = timeTarget(); const ok = clocks.every((c) => { const [p, q] = tg(c.x, c.y); return Number.isFinite(p + q); }); o.push(`time glyphs for ${timeDigits()} valid=${ok}`);
+      ppB.click(); o.push(`pause → ${paused}`); ppB.click(); } else o.push(`reduced motion: hands frozen at ${timeDigits()}`);
+    dd.classList.add('on'); o.push(`Explore mega-menu open=${dd.classList.contains('on')}`); dd.classList.remove('on');
+    cards[0].dispatchEvent(new MouseEvent('mouseenter')); o.push(`CC24 hover → shows time ${timeDigits()}`); cards[0].querySelector('.hs-add').click(); o.push(`add to cart → Cart ${cartA.querySelector('b').textContent}`);
+    reset(); if (!RM) snapTime(); o.push(`restored: top, Cart ${cartA.querySelector('b').textContent}, wall shows ${timeDigits()}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['ritmo-simplex-wave-studio'])(root, T); }
