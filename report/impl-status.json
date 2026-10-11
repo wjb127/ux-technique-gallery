@@ -3220,5 +3220,32 @@
   "proof": "loader letters U N S E E N → eyes=true, Enter ready=true; hover Enter → heart eyes=true; Enter without audio → mode=home, gate hidden=true, sound=false; WebGL scene rendering (frames +3); cursor label \"Click & Hold\" visible=true; click & hold → ring charged 53% → transition fired, mode=world; drag world → pan (0.0,0.0)→(14.4,2.5), inertia carried to (31.4,8.2); menu open=true items=[01Index 02Projects 03Contact 04World]; 02 Projects → overlay=true; filter Branding → 3/12 cards; filter Experiment → 3; sound toggle → true (audio running); restored: gate with eyes + Enter, filter All, sound off, world reset",
   "demoNodes": 193,
   "errors": []
+ },
+ "monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing": {
+  "url": "https://ux-technique-gallery.vercel.app/t/monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-healing/",
+  "ok": true,
+  "at": "2026-10-11T16:09:15.580Z",
+  "http": 200,
+  "proof": "fonts loaded 5/5; logo nodes 520; logo hover → 29 nodes swell; card Radon → editor font \"Monaspace Radon\", card active=true; axes → \"slnt\" -11, \"wdth\" 125, \"wght\" 700 size 20px; width axis widened code 545→673px; texture healing+ligatures off → \"calt\" 0, \"liga\" 0, \"ss01\" 0, …; grid overlay=true; tab Python → 14 lines, first \"# Summarise a run log\"; theme Dracula → editor bg rgb(40, 42, 54); healing demo switch → off: \"calt\" 0, on: \"calt\" (calt=1), highlighted m in \"calming\": 1; Copilot voice → true; restored: Neon, 16px wght 300 wdth 100 slnt 0, healing+ligatures on, grid off, GitHub Dark, JavaScript (\"slnt\" 0, \"wdth\" 100, \"wght\" 300)",
+  "demoNodes": 1233,
+  "errors": []
+ },
+ "lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress": {
+  "url": "https://ux-technique-gallery.vercel.app/t/lumon-mdr-crt-number-grid-cursor-magnify-lasso-refine-bins-progress/",
+  "ok": true,
+  "at": "2026-10-11T16:09:15.564Z",
+  "http": 200,
+  "proof": "magnify: digit under cursor ×2.70, neighbour ×1.51, far ×1.00; hex \"0x4EE285 : 0x4716DA\"; lasso calm 2×2 → drawn=true, selected 4; refine into 00 → ok=false, \"Nope\" shown=true; lasso scary cluster (5 jittering digits) → selected 6 incl. 5 scary, bins armed=true; refine into 02 → drawer open=true (WO 49% FC 4% DR 4% MA 4%), 6 digits flying, removed from grid 6, bin 02 15%, header \"3% Complete\"; restored: 0% Complete, bins 0%/0%/0%/0%/0%, drawer closed=true, selection 0, file Dranesville",
+  "demoNodes": 74,
+  "errors": []
+ },
+ "dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition/",
+  "ok": true,
+  "at": "2026-10-11T16:09:15.577Z",
+  "http": 200,
+  "proof": "hero: statement visible, tiles off-stage (typography translateY 948px); scroll 45% → blue intro block 500px wide, tiles sliding (typography dy 715px); scroll end → mosaic assembled=true (8 chapter tiles + logo square), blue square 89px; hover Typography → inverted=true bg rgb(30, 25, 25); click → full-screen panel on=true, title \"Typography\"; chapter page loaded=true (rail label \"Typography\", tiles 3); toolbar B/I/↔ → weight 400, style italic, wide=true; menu → back to mosaic=true; restored: scrollTop 0, hero opacity 1, panel off=true",
+  "demoNodes": 105,
+  "errors": []
  }
 }
