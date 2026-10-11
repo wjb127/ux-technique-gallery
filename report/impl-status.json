@@ -3166,5 +3166,32 @@
   "proof": "vertical wheel 1200 → scrollLeft 1200px (world 1,705,142px); ☉ jump → 0.0 km; ⊕ jump → Earth, counter 150,451,890.4 km; unit AU → 1.0057 AU; light minutes → 8.36 light minutes; blue whales → 5,015,063,013 blue whales; light-speed 1 s → +298,833 km (c≈299,792 km/s, px rounding); next › → Mars; at 228,749,558.8 km; restored: intro, 0.0 km, light-speed off",
   "demoNodes": 175,
   "errors": []
+ },
+ "sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects": {
+  "url": "http://localhost:4173/t/sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects/",
+  "ok": true,
+  "at": "2026-10-11T08:09:49.426Z",
+  "http": 200,
+  "proof": "hero poke: 'l' -22px) up, 'y' dropped (finger in place=true); bg per section [#f2c744→#f2c744, #617864→#617864, #617864→#617864, #4224d2→#4224d2, #2d3ff2→#2d3ff2]; Steasy→Enzyme boundary crossfade bg=#514e9b; Steasy object entrance p 0.00→0.96 (transform translate3d(4.8543px, 12.9448px, 0px) ro…); Lumi key lit=true, LEDs lit=1; Enzyme dash pattern breathing=true (55 bars); menu open=true; menu closed=true; logo/burger fixed over scroll, ui colour=#ffffff; restored top: bg=#f2c744",
+  "demoNodes": 499,
+  "errors": []
+ },
+ "imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card": {
+  "url": "http://localhost:4173/t/imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card/",
+  "ok": true,
+  "at": "2026-10-11T08:09:49.413Z",
+  "http": 200,
+  "proof": "toggle ▶ Rainy Day + Coffee Cups → on=[Coffee Cups, Rainy Day], audio running; Rainy Day gain fading in → 0.429 (target 0.563); window rain fx=true, cup steam fx=true; volume slider → Rainy Day vol 0.3; show pan controls → pan rows visible=true; pan slider → Coffee Cups pan -0.8 (node -0.79); save preferences → localStorage rows on=2, pan=true; mix preset \"Morning rush\" → 6/8 sounds on; playlist row 2 → playing \"World Spins Madly On\"; pumpkin → spooky decorations off; lights → night=true; sleep timer → 15 min; restored: all sounds off, vol 0.75, pan 0, prefs cleared (true), playlist stopped",
+  "demoNodes": 438,
+  "errors": []
+ },
+ "lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield": {
+  "url": "http://localhost:4173/t/lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield/",
+  "ok": true,
+  "at": "2026-10-11T08:09:49.433Z",
+  "http": 200,
+  "proof": "hero sky photo on=true, quote visible=true; photo swaps by section [0,1,2,-1,4,5] (-1 = starfield); device tool list scrolls inside mock: row 1 (Directions) → row 6 (Timer); tap tool → \"Directions\" selected; starfield frames +19, device peek top=1476.56px; LightOS step → \"Find your way around the real world.\" screen=dr; menu overlay open=true; cookie bar acknowledged → hidden=true; restored: top, sky photo, cookie bar back",
+  "demoNodes": 183,
+  "errors": []
  }
 }

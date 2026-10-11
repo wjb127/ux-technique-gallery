@@ -615,4 +615,202 @@ V['pointerpointer-photo-novelty'] = (root, T) => {
   };
 };
 
+V['lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield'] = (root, T) => {
+  theme(root, T, { bg: '#000000', fg: '#ffffff', ac: '#ffffff', dark: true });
+  const SN = "'Futura PT','Futura','Outfit Variable','Jost',Helvetica,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const W = 1440, Hh = 862;
+  css(`.lp{position:absolute;inset:0;overflow:hidden;background:#000;color:#fff;font-family:${SN};font-weight:400}
+.lp *{box-sizing:border-box}
+.lp-ph{position:absolute;inset:0;overflow:hidden}
+.lp-ph canvas{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease;will-change:opacity,transform}
+.lp-ph canvas.on{opacity:1}
+.lp-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}.lp-sc::-webkit-scrollbar{display:none}
+.lp-hd{position:absolute;left:0;right:0;top:0;height:76px;z-index:10;display:flex;align-items:center;padding:0 32px;pointer-events:none;color:var(--lp-ui,#fff);transition:color .4s}
+.lp-hd>*{pointer-events:auto}
+.lp-wm{font:300 italic 29px ${SN};letter-spacing:.01em;cursor:pointer;transform:skewX(-10deg);display:inline-block}
+.lp-dev{position:absolute;left:50%;transform:translateX(-50%);font:400 12.5px ${SN};cursor:pointer;letter-spacing:.01em}.lp-dev:hover{text-decoration:underline}
+.lp-hd .sp{flex:1}.lp-menu{font:500 17px ${SN};margin-right:24px;cursor:pointer;background:none;border:0;color:inherit;padding:0}
+.lp-shop{height:48px;width:93px;background:#fff;color:#111;border:0;font:400 17px ${SN};cursor:pointer;transition:background .2s}.lp-shop:hover{background:#ddd}
+.lp.lt .lp-shop{background:#111;color:#fff}
+.lp-sec{position:relative;min-height:${Hh}px}
+.lp-body{position:absolute;left:32px;max-width:860px;font:400 31px/1.38 ${SN};letter-spacing:.003em;text-shadow:0 1px 18px #0003}
+.lp-q{position:absolute;display:grid;grid-template-columns:28px 1fr;max-width:300px;font:400 14.5px/1.55 ${SN};letter-spacing:.01em;opacity:0;transform:translateY(16px);transition:opacity 1s,transform 1.2s}
+.lp-q.on{opacity:1;transform:none}.lp-q i{width:9px;height:9px;border-radius:50%;background:#fff;margin-top:5px}
+.lp-wrap{position:relative;height:${Hh * 2.3}px}
+.lp-mock{position:sticky;top:${Hh / 2 - 190}px;margin:0 auto;width:296px;height:420px;border:1.5px solid #ffffffd0;border-radius:12px;overflow:hidden;z-index:3;backdrop-filter:blur(1.5px)}
+.lp-mock ul{list-style:none;margin:0;padding:0;position:absolute;left:0;right:0;top:0;will-change:transform}
+.lp-mock li{height:58px;display:grid;place-items:center;font:400 31px ${SN};cursor:pointer;transition:opacity .3s,letter-spacing .3s}
+.lp-mock li:hover{letter-spacing:.03em}.lp-mock li.sel{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px}
+.lp-mock .dots{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:grid;gap:7px}.lp-mock .dots i{width:5px;height:5px;border-radius:50%;background:#ffffff55;transition:background .2s}.lp-mock .dots i.on{background:#fff}
+.lp-cap{position:sticky;top:${Hh / 2 + 248}px;margin:0 auto;width:max-content;display:flex;gap:12px;align-items:center;font:400 13px ${SN};cursor:pointer;z-index:3;margin-top:-40px}
+.lp-cap i{width:9px;height:9px;border-radius:50%;background:#fff}
+.lp-stars{position:relative;height:${Hh * 1.9}px;background:#000;overflow:hidden}
+.lp-stars canvas{position:sticky;top:0;display:block;width:100%;height:${Hh}px}
+.lp-eye{position:absolute;left:50%;top:120px;width:360px;margin-left:-180px}
+.lp-stars .cap2{position:absolute;left:50%;top:410px;transform:translateX(-50%);display:flex;gap:12px;align-items:center;font:400 13px ${SN}}.lp-stars .cap2 i{width:9px;height:9px;border-radius:50%;background:#fff}
+.lp-mani{position:absolute;left:32px;top:${Hh * 0.95}px;max-width:820px;font:400 31px/1.38 ${SN}}
+.lp-peek{position:absolute;left:50%;width:300px;height:470px;margin-left:-150px;border-radius:30px;background:linear-gradient(160deg,#3a3a3d,#19191b);box-shadow:inset 0 0 0 2px #4a4a4f,0 -10px 60px #ffffff10;will-change:transform}
+.lp-peek::before{content:'';position:absolute;left:24px;top:24px;width:12px;height:12px;border-radius:50%;background:#0b0b0c;box-shadow:inset 0 0 0 2px #333}
+.lp-peek::after{content:'';position:absolute;left:22px;right:22px;top:56px;bottom:90px;border-radius:6px;background:#0d0d0e}
+.lp-os{position:relative;height:${Hh * 2}px}
+.lp-os .stk{position:sticky;top:0;height:${Hh}px}
+.lp-phone{position:absolute;left:576px;top:150px;width:270px;height:400px;border-radius:14px;background:linear-gradient(170deg,#3b3b3e,#1d1d20 70%);box-shadow:inset 0 0 0 2px #505055,0 30px 60px #0006}
+.lp-phone .cam{position:absolute;left:18px;top:14px;width:13px;height:13px;border-radius:50%;background:#111;box-shadow:inset 0 0 0 2px #444}
+.lp-phone .spk{position:absolute;left:0;right:0;bottom:0;height:42px;border-radius:0 0 14px 14px;background-image:radial-gradient(circle,#0c0c0d 1.6px,transparent 2px);background-size:9px 9px;background-color:#29292b}
+.lp-phone .scr{position:absolute;left:24px;right:24px;top:44px;bottom:58px;display:grid;place-items:center;font:400 22px ${SN};color:#e8e8e8;transition:opacity .25s}
+.lp-phone .scr.fade{opacity:0}
+.lp-phone .kp{display:grid;grid-template-columns:repeat(3,52px);gap:10px 12px;text-align:center}
+.lp-phone .tl{display:grid;gap:10px;text-align:center;font-size:21px}
+.lp-phone .dr{display:grid;gap:10px;justify-items:center;font-size:15px;text-align:center}.lp-phone .dr b{font:300 54px/1 ${SN}}
+.lp-phone .side{position:absolute;right:-6px;top:120px;width:6px;height:46px;border-radius:0 3px 3px 0;background:#2a2a2d}.lp-phone .side.b{top:190px;height:30px}
+.lp-feat{position:absolute;left:1032px;top:190px;width:330px;border-left:0}
+.lp-feat .it{position:relative;padding:0 0 0 28px;margin-bottom:24px;cursor:pointer;color:#ffffff80;transition:color .3s}
+.lp-feat .it::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1.5px;background:#fff;transform:scaleY(0);transform-origin:top;transition:transform .45s}
+.lp-feat .it.on{color:#fff}.lp-feat .it.on::before{transform:none}
+.lp-feat h4{margin:0;font:400 19px ${SN};letter-spacing:.01em}.lp-feat p{margin:8px 0 0;font:400 14.5px/1.5 ${SN};display:none}.lp-feat .it.on p{display:block}
+.lp-feat button{margin:14px 0 0 28px;height:40px;padding:0 24px;background:transparent;border:1px solid #ffffffa0;color:#fff;font:400 14px ${SN};cursor:pointer}.lp-feat button:hover{background:#ffffff1a}
+.lp-two{background:#ededed;color:#111;padding:120px 32px 140px;min-height:${Hh}px}
+.lp-two h3{margin:0 0 80px;font:400 31px/1.38 ${SN};max-width:700px}
+.lp-pr{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+.lp-pr>div{display:grid;justify-items:center;gap:12px;text-align:center}
+.lp-pr .dv{height:260px;display:grid;place-items:end center}
+.lp-pr b{font:500 22px ${SN}}.lp-pr span{font:400 15px ${SN};color:#444}
+.lp-pr .bt{display:flex;gap:10px}.lp-pr button{height:40px;padding:0 22px;font:400 14px ${SN};border:1px solid #111;background:transparent;cursor:pointer}.lp-pr button.k{background:#111;color:#fff}
+.lp-ft{background:#ededed;color:#111;padding:40px 32px 200px;border-top:1px solid #d4d4d4;display:grid;grid-template-columns:1fr 1fr;gap:40px;font:400 15px/1.6 ${SN}}
+.lp-ft nav{display:flex;flex-wrap:wrap;gap:6px 22px}.lp-ft nav a{cursor:pointer}.lp-ft nav a:hover{text-decoration:underline}
+.lp-ft form{display:flex;border-bottom:1px solid #111}.lp-ft input{flex:1;border:0;background:none;font:400 15px ${SN};padding:10px 0;outline:none}.lp-ft form button{border:0;background:none;font:400 15px ${SN};cursor:pointer}
+.lp-ck{position:absolute;left:0;right:0;bottom:0;height:140px;background:#000;z-index:12;display:flex;justify-content:center;align-items:center;gap:24px;font:400 21px ${SN};transition:transform .5s cubic-bezier(.6,0,.2,1)}
+.lp-ck.off{transform:translateY(100%)}.lp-ck a{color:#fff;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.lp-ck button{height:62px;padding:0 13px;background:#000;border:2px solid #fff;color:#fff;font:500 30px ${SN};cursor:pointer;letter-spacing:.005em}.lp-ck button:hover{background:#fff;color:#000}
+.lp-nav{position:absolute;inset:0;z-index:11;background:#000;display:grid;align-content:center;justify-items:start;padding-left:32px;gap:4px;opacity:0;pointer-events:none;transition:opacity .4s}
+.lp-nav.on{opacity:1;pointer-events:auto}.lp-nav a{font:300 52px/1.18 ${SN};cursor:pointer;opacity:.85;transition:opacity .2s,transform .3s}.lp-nav a:hover{opacity:1;transform:translateX(8px)}
+.lp.nav .lp-hd{color:#fff}
+@media (prefers-reduced-motion: reduce){.lp *{transition:none!important;animation:none!important}}
+`);
+  const el = h('div.lp'); root.append(el);
+  // ---------- code-painted "photographs" (stand-ins for the real photography) ----------
+  const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = Hh; return c; };
+  const grain = (g, a = 14) => { const im = g.getImageData(0, 0, W, Hh), d = im.data; for (let i = 0; i < d.length; i += 4) { const n = (Math.random() - 0.5) * a; d[i] += n; d[i + 1] += n; d[i + 2] += n; } g.putImageData(im, 0, 0); };
+  const vign = (g, a = 0.45) => { const r = g.createRadialGradient(W / 2, Hh / 2, Hh * 0.3, W / 2, Hh / 2, W * 0.75); r.addColorStop(0, 'rgba(0,0,0,0)'); r.addColorStop(1, `rgba(0,0,0,${a})`); g.fillStyle = r; g.fillRect(0, 0, W, Hh); };
+  const puff = (g, x, y, r, c) => { const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, c); gr.addColorStop(0.55, c.replace(/[\d.]+\)$/, (m) => (parseFloat(m) * 0.6).toFixed(2) + ')')); gr.addColorStop(1, c.replace(/[\d.]+\)$/, '0)')); g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); };
+  const cloud = (g, R, cx, cy, w, hh, n) => { const pts = Array.from({ length: n }, () => { const a = R() * 6.283, d = Math.sqrt(R()); return [cx + Math.cos(a) * d * w, cy + Math.sin(a) * d * hh * (Math.sin(a) < 0 ? 1 : 0.55), 30 + R() * 70]; });
+    pts.forEach(([x, y, r]) => puff(g, x + 10, y + r * 0.45, r * 1.15, 'rgba(110,124,128,0.30)')); pts.forEach(([x, y, r]) => puff(g, x, y, r, 'rgba(206,210,204,0.50)')); pts.forEach(([x, y, r]) => puff(g, x - r * 0.2, y - r * 0.35, r * 0.62, 'rgba(236,238,232,0.45)')); };
+  const paintSky = (seed, low) => { const c = mk(), g = c.getContext('2d'), N = noise2(seed); const cw = 720, ch = 431, sm = document.createElement('canvas'); sm.width = cw; sm.height = ch; const sg = sm.getContext('2d'), im = sg.createImageData(cw, ch), d = im.data;
+    const M = low ? [[720, 1000, 1050, 300], [150, 800, 260, 90], [1300, 790, 280, 100]] : [[250, 340, 340, 440], [1370, 330, 210, 190], [1120, 930, 600, 280], [480, 840, 420, 150], [1180, 110, 90, 45]];
+    const dens = (X, Y) => { let m = 0; for (const [cx, cy, w, hh] of M) { const v = 1 - ((X - cx) / w) ** 2 - ((Y - cy) / hh) ** 2; if (v > m) m = v; } const n = (N(X / 230, Y / 230) - 0.5) * 2.4 + 0.5; return clamp((Math.min(1, m) * 0.9 + n * 0.7 - 0.6) * 1.8, 0, 1) ** 0.85; };
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) { const X = x * 2, Y = y * 2, t = Y / Hh, sk = [58 + t * 33, 101 + t * 29, 120 + t * 30]; const dd = dens(X, Y); let r = sk[0], gg = sk[1], b = sk[2];
+      if (dd > 0) { const up = dens(X - 6, Y - 22), l = clamp(0.32 + (N(X / 70 + 50, Y / 70) - 0.5) * 1.3 + (dd - up) * 2.6 + 0.3 * (1 - t) + dd * 0.15, 0, 1), cc = [104 + l * 130, 116 + l * 120, 120 + l * 110]; r += (cc[0] - r) * dd; gg += (cc[1] - gg) * dd; b += (cc[2] - b) * dd; }
+      const i = (y * cw + x) * 4; d[i] = r; d[i + 1] = gg; d[i + 2] = b; d[i + 3] = 255; }
+    sg.putImageData(im, 0, 0); g.imageSmoothingQuality = 'high'; g.filter = 'blur(1.2px)'; g.drawImage(sm, 0, 0, W, Hh); g.filter = 'none'; grain(g, 10); return c; };
+  const paintPark = () => { const c = mk(), g = c.getContext('2d'), R = rng(21); g.fillStyle = '#26301f'; g.fillRect(0, 0, W, Hh);
+    g.filter = 'blur(28px)'; for (let i = 0; i < 70; i++) { g.fillStyle = ['#5d6b3a', '#c8b04a', '#3a4a2a', '#8a8f5a', '#e0c85c', '#1d2616'][(R() * 6) | 0]; g.globalAlpha = 0.35 + R() * 0.5; g.beginPath(); g.arc(R() * W, R() * Hh * 0.8, 30 + R() * 90, 0, 7); g.fill(); }
+    g.globalAlpha = 1; g.fillStyle = '#4d5a40'; g.fillRect(0, Hh * 0.62, W, Hh); g.filter = 'blur(6px)';
+    g.filter = 'none';
+    g.save(); g.translate(250, 330); g.rotate(-0.13); g.fillStyle = '#b98668'; g.beginPath(); g.ellipse(-30, 225, 105, 85, -0.3, 0, 7); g.fill(); g.fillStyle = '#16181c'; g.beginPath(); g.roundRect(-120, -190, 240, 360, 18); g.fill(); g.strokeStyle = '#3a3d44'; g.lineWidth = 3; g.stroke();
+    g.fillStyle = '#f2f2f2'; g.font = `500 32px ${SN}`; g.textAlign = 'center'; ['Calendar', 'Podcast', 'Timer', 'Notes'].forEach((t, i) => { g.globalAlpha = i === 3 ? 0.4 : 1; g.fillText(t, 0, -70 + i * 52); }); g.globalAlpha = 1;
+    g.fillStyle = '#c9967a'; g.save(); g.translate(-104, 110); g.rotate(-0.55); g.beginPath(); g.roundRect(-26, -80, 52, 170, 26); g.fill(); g.restore(); [[-40, 18], [30, 16], [96, 14]].forEach(([y, r]) => { g.beginPath(); g.roundRect(108, y, 40, r * 2, r); g.fill(); });
+    g.fillStyle = '#e7e7e7'; g.beginPath(); g.arc(80, 30, 5, 0, 7); g.fill(); g.restore();
+    const sh = g.createLinearGradient(0, 0, W, 0); sh.addColorStop(0, 'rgba(0,0,0,.35)'); sh.addColorStop(0.6, 'rgba(0,0,0,0)'); g.fillStyle = sh; g.fillRect(0, 0, W, Hh); grain(g, 16); return c; };
+  const paintRoad = () => { const c = mk(), g = c.getContext('2d'), R = rng(5); const sk = g.createLinearGradient(0, 0, 0, Hh * 0.5); sk.addColorStop(0, '#53707f'); sk.addColorStop(1, '#8c9ba0'); g.fillStyle = sk; g.fillRect(0, 0, W, Hh);
+    const hz = Hh * 0.47; g.fillStyle = '#6e6f6c'; g.beginPath(); g.moveTo(0, hz + 10); for (let x = 0; x <= W; x += 20) g.lineTo(x, hz - 40 - Math.sin(x / 210) * 26 - Math.sin(x / 70 + 1) * 8 - (x > 300 && x < 900 ? 22 : 0)); g.lineTo(W, hz + 10); g.fill();
+    g.fillStyle = '#7d725c'; g.fillRect(0, hz, W, Hh); const gr = g.createLinearGradient(0, hz, 0, Hh); gr.addColorStop(0, '#8a8068'); gr.addColorStop(1, '#5a5244'); g.fillStyle = gr; g.fillRect(0, hz, W, Hh);
+    for (let i = 0; i < 260; i++) { const y = hz + Math.pow(R(), 1.6) * (Hh - hz), s = 3 + (y - hz) / (Hh - hz) * 60, x = R() * W; if (Math.abs(x - W / 2) < (y - hz) * 1.25 + 30) continue; g.fillStyle = ['#3b4630', '#4b5636', '#2e3626'][(R() * 3) | 0]; g.beginPath(); g.ellipse(x, y, s, s * 0.6, 0, 0, 7); g.fill(); }
+    const vx = W / 2 + 10; g.fillStyle = '#4f5151'; g.beginPath(); g.moveTo(vx - 8, hz); g.lineTo(vx + 8, hz); g.lineTo(W * 1.05, Hh); g.lineTo(-W * 0.05, Hh); g.fill();
+    g.strokeStyle = '#d9d6cc'; g.lineWidth = 3; g.beginPath(); g.moveTo(vx - 6, hz); g.lineTo(-W * 0.02, Hh); g.moveTo(vx + 6, hz); g.lineTo(W * 1.02, Hh); g.stroke();
+    g.fillStyle = '#c9a64a'; g.beginPath(); g.moveTo(vx - 1, hz); g.lineTo(vx + 1, hz); g.lineTo(vx + 9, Hh); g.lineTo(vx - 9, Hh); g.fill();
+    g.fillStyle = '#2a2c30'; g.fillRect(vx - 6, hz + 18, 12, 30); g.beginPath(); g.arc(vx, hz + 14, 6, 0, 7); g.fill();
+    const dim = g.createLinearGradient(0, 0, 0, Hh); dim.addColorStop(0, 'rgba(20,30,40,.25)'); dim.addColorStop(1, 'rgba(0,0,0,.35)'); g.fillStyle = dim; g.fillRect(0, 0, W, Hh); grain(g, 14); return c; };
+  const paintBridge = () => { const c = mk(), g = c.getContext('2d'), R = rng(8); const sk = g.createLinearGradient(0, 0, 0, Hh); sk.addColorStop(0, '#9aa3ab'); sk.addColorStop(1, '#c8c4bf'); g.fillStyle = sk; g.fillRect(0, 0, W, Hh);
+    const vx = 760, vy = 430; for (let i = 0; i < 26; i++) { const x = 820 + R() * 620, hb = 60 + R() * 260; g.fillStyle = ['#7d7570', '#8d837c', '#6a6560'][(R() * 3) | 0]; g.fillRect(x, vy - hb, 30 + R() * 60, hb + 20); }
+    g.fillStyle = '#5c5a5c'; g.fillRect(230, 0, 26, vy + 40); g.fillRect(1180, 0, 34, vy + 60);
+    g.fillStyle = '#6f6668'; g.beginPath(); g.moveTo(vx - 30, vy); g.lineTo(vx + 30, vy); g.lineTo(W * 1.3, Hh); g.lineTo(-W * 0.3, Hh); g.fill();
+    g.strokeStyle = '#c86c7c'; [[-1, 280], [1, 300]].forEach(([sd, top]) => { for (let k = 0; k < 4; k++) { g.lineWidth = 3 + k; g.beginPath(); g.moveTo(vx + sd * 40, vy - 20 + k * 8); g.lineTo(sd < 0 ? -40 : W + 40, top + k * 70); g.stroke(); } for (let t = 0; t < 1; t += 0.035) { const e = t * t; const x = vx + sd * 40 + (sd < 0 ? -40 - vx - sd * 40 : W + 40 - vx - sd * 40) * e, y1 = vy - 20 + (top - vy + 20) * e, y2 = vy + 4 + (top + 210 - vy - 4) * e; g.lineWidth = 1 + e * 10; g.beginPath(); g.moveTo(x, y1); g.lineTo(x, y2); g.stroke(); } });
+    g.fillStyle = '#3d3a3b'; g.beginPath(); g.arc(vx + 20, vy + 46, 7, 0, 7); g.fill(); g.fillRect(vx + 14, vy + 52, 12, 30);
+    const dim = g.createLinearGradient(0, 0, 0, Hh); dim.addColorStop(0, 'rgba(30,30,40,.2)'); dim.addColorStop(1, 'rgba(0,0,0,.4)'); g.fillStyle = dim; g.fillRect(0, 0, W, Hh); grain(g, 14); return c; };
+  const paintGold = () => { const c = mk(), g = c.getContext('2d'), R = rng(31); const bg = g.createLinearGradient(0, 0, W, Hh); bg.addColorStop(0, '#3e5a2c'); bg.addColorStop(1, '#1f2b17'); g.fillStyle = bg; g.fillRect(0, 0, W, Hh);
+    g.filter = 'blur(30px)'; for (let i = 0; i < 50; i++) { g.fillStyle = ['#6f8c3c', '#a8b860', '#2b3a1e', '#f0d890'][(R() * 4) | 0]; g.globalAlpha = 0.3 + R() * 0.5; g.beginPath(); g.arc(R() * W, R() * Hh * 0.7, 40 + R() * 120, 0, 7); g.fill(); }
+    g.globalAlpha = 0.9; const sun = g.createRadialGradient(1200, 120, 0, 1200, 120, 420); sun.addColorStop(0, 'rgba(255,230,170,.9)'); sun.addColorStop(1, 'rgba(255,230,170,0)'); g.fillStyle = sun; g.fillRect(0, 0, W, Hh); g.filter = 'blur(4px)'; g.globalAlpha = 1;
+    g.fillStyle = '#c38f6d'; g.beginPath(); g.ellipse(900, 330, 110, 135, 0, 0, 7); g.fill(); g.fillStyle = '#23272c'; g.beginPath(); g.ellipse(900, 260, 120, 80, 0, Math.PI, 0); g.fill(); g.fillStyle = '#2f3b4a'; g.beginPath(); g.ellipse(900, 760, 260, 320, 0, 0, 7); g.fill();
+    g.fillStyle = '#dbac8a'; g.beginPath(); g.ellipse(520, 380, 90, 110, 0, 0, 7); g.fill(); g.fillStyle = '#6b6f72'; g.beginPath(); g.ellipse(520, 300, 112, 64, -0.1, Math.PI * 1.05, -0.05); g.fill(); g.fillStyle = '#20232a'; g.beginPath(); g.ellipse(520, 760, 200, 280, 0, 0, 7); g.fill();
+    g.fillStyle = '#121214'; g.beginPath(); g.roundRect(820, 470, 150, 100, 10); g.fill(); g.fillStyle = '#d2a07e'; g.beginPath(); g.ellipse(800, 540, 44, 60, 0.5, 0, 7); g.fill(); g.beginPath(); g.ellipse(990, 530, 40, 58, -0.5, 0, 7); g.fill(); g.filter = 'none';
+    const dim = g.createLinearGradient(0, 0, W, 0); dim.addColorStop(0, 'rgba(0,0,0,.3)'); dim.addColorStop(0.5, 'rgba(0,0,0,0)'); dim.addColorStop(1, 'rgba(0,0,0,.35)'); g.fillStyle = dim; g.fillRect(0, 0, W, Hh); grain(g, 16); return c; };
+  const photos = [paintSky(11, false), paintPark(), paintRoad(), paintBridge(), paintSky(17, true), paintGold()];
+  const ph = h('div.lp-ph', {}, photos); photos[0].classList.add('on'); el.append(ph);
+  const sc = h('div.lp-sc'); el.append(sc);
+  // ---------- sections ----------
+  const QUOTES = [['“I love this phone. It will make you a happier, more present person.”', 626, 504], ['“The Light Phone has probably given me back thousands of hours.”', 320, 1040], ['“It’s like the fog in my head has finally been cleared out and I’m seeing and enjoying the world anew.”', 900, 1380]];
+  const qs = QUOTES.map(([t, x, y]) => h('div.lp-q', { style: { left: x + 'px', top: y + 'px' } }, h('i'), h('span', {}, t)));
+  const s0 = h('section.lp-sec', { style: { height: '1700px' }, 'data-ph': 0 }, qs);
+  const s1 = h('section.lp-sec', { style: { height: '1000px' }, 'data-ph': 1 }, h('div.lp-body', { style: { top: '330px' } }, 'Light Phones are simple devices with quality tools, designed to be used as little as possible.'));
+  const TOOLS = ['Phone', 'Alarm', 'Directions', 'Music', 'Notes', 'Calendar', 'Podcast', 'Timer', 'Calculator', 'Hotspot', 'Settings'];
+  let sel = -1; const lis = TOOLS.map((t, i) => h('li', { onclick: () => { sel = i; lis.forEach((x, j) => x.classList.toggle('sel', j === i)); toast(`${t} — a tool, not an app`); } }, t));
+  const ul = h('ul', {}, lis); const dots = h('div.dots', {}, TOOLS.map(() => h('i')));
+  const mock = h('div.lp-mock', {}, ul, dots);
+  let listOff = 0, manual = 0; const ROW = 58, MAXOFF = (TOOLS.length - 3) * ROW;
+  const setList = (off) => { listOff = clamp(off, -ROW * 1.3, MAXOFF); ul.style.transform = `translateY(${(140 - listOff).toFixed(1)}px)`; const c = Math.round(listOff / ROW); [...dots.children].forEach((d, i) => d.classList.toggle('on', i === clamp(c + 1, 0, TOOLS.length - 1))); lis.forEach((x, i) => (x.style.opacity = (1 - Math.min(0.8, Math.abs((i * ROW + 29 + 140 - listOff) - 210) / 260)).toFixed(2))); };
+  mock.addEventListener('wheel', (e) => { e.preventDefault(); manual += e.deltaY * 0.5; setList(listOff + e.deltaY * 0.5); }, { passive: false });
+  const wrap = h('div.lp-wrap', {}, h('div.lp-body', { style: { top: '130px' } }, 'The value of the Light Phone is not necessarily in any specific feature, but rather the experience we call going light. In our hyper-connected lives, going light is a profound shift.'),
+    h('div.lp-body', { style: { top: `${Hh * 1.42}px` } }, 'Light is an alternative to the tech monopolies that are fighting aggressively for our time & attention. We make tools that serve you, not the other way around.'),
+    h('div', { style: { height: '470px' } }), mock, h('div.lp-cap', { onclick: () => toast('What is a Light Phone?') }, h('i'), 'What is a Light Phone?'));
+  const s2 = h('section.lp-sec', { 'data-ph': 2 }, wrap);
+  // starfield + eye + manifesto + device peeking up
+  const stc = h('canvas', { width: W, height: Hh }); const SR0 = rng(99), STARS = Array.from({ length: 420 }, () => { const R = SR0; return [R() * W, R() * Hh, R() * 1.5 + 0.3, R() * 6.28, 0.4 + R() * 1.6]; });
+  let st = 0; const drawStars = (t) => { const g = stc.getContext('2d'); g.fillStyle = '#000'; g.fillRect(0, 0, W, Hh); STARS.forEach(([x, y, r, p, sp]) => { g.globalAlpha = RM ? 0.8 : 0.45 + 0.55 * Math.abs(Math.sin(p + t * 0.0012 * sp)); g.fillStyle = '#fff'; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); }); g.globalAlpha = 1; st++; };
+  const eye = h('div.lp-eye', { html: `<svg viewBox="0 0 360 260"><path d="M10 130 Q180 -40 350 130 Q180 300 10 130Z" fill="#fff"/><path d="M10 130 Q180 -40 350 130 Q180 300 10 130Z" fill="none" stroke="#000" stroke-width="3"/><circle cx="180" cy="130" r="78" fill="#e993c5" stroke="#111" stroke-width="5"/>
+    <g transform="rotate(-8 180 130)"><rect x="150" y="70" width="60" height="104" rx="9" fill="#e993c5" stroke="#111" stroke-width="4"/><path d="M160 92h40M160 108h40M160 124h40M160 140h30" stroke="#111" stroke-width="3.5"/><path d="M128 150 q20 -30 34 -6 q10 30 -14 46z" fill="#e993c5" stroke="#111" stroke-width="4" stroke-linejoin="round"/></g></svg>` });
+  const peek = h('div.lp-peek');
+  const stars = h('section.lp-stars', { 'data-ph': -1 }, stc, eye, h('div.cap2', {}, h('i'), 'A radically different phone'), h('div.lp-mani', {}, 'The Light operating system, LightOS, is built around intentionality & privacy.'), peek);
+  // LightOS feature steps with device
+  const FEATS = [['It’s a phone.', 'At its core, it is a simple communication device for staying in touch with those that matter most.', 'kp'], ['Just the tools you’ll need.', 'LightOS is built around a customizable menu of tools managed from the dashboard website.', 'tl'], ['Find your way around the real world.', 'With tools like directions, LightOS brings the most useful aspects of technology without endless feeds of distraction.', 'dr'], ['Be intentional, you’re in control.', 'Every tool is designed for very intentional utility. No getting lost in a scroll hole.', 'ck']];
+  const scr = h('div.scr'); const SCR = { kp: () => h('div.kp', {}, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#', '', '×', ''].map((k) => h('span', {}, k))), tl: () => h('div.tl', {}, ['Phone', 'Alarm', 'Directions', 'Music', 'Notes'].map((k) => h('span', {}, k))), dr: () => h('div.dr', {}, h('b', {}, '↰'), h('span', {}, 'Turn left on Morris Ave'), h('span', { style: { opacity: 0.6 } }, '200 ft · 4 min')), ck: () => h('div.dr', {}, h('b', {}, '9:41'), h('span', {}, 'Sun Oct 11'), h('span', { style: { opacity: 0.6 } }, 'no notifications')) };
+  let fi = -1; const items = FEATS.map(([t, p], i) => h('div.it', { onclick: () => setFeat(i, true) }, h('h4', {}, t), h('p', {}, p)));
+  const setFeat = (i, jump) => { if (i === fi) return; fi = i; items.forEach((x, j) => x.classList.toggle('on', j === i)); scr.classList.add('fade'); const k = FEATS[i][2]; setTimeout(() => { scr.replaceChildren(SCR[k]()); scr.dataset.k = k; scr.classList.remove('fade'); }, RM ? 0 : 180);
+    if (jump) { const y = os.offsetTop + (i / FEATS.length) * Hh * 1.0 + 5; sc.scrollTop = y; } };
+  const phone = h('div.lp-phone', {}, h('div.cam'), h('div.side'), h('div.side.b'), scr, h('div.spk'));
+  const os = h('section.lp-os', { 'data-ph': 4 }, h('div.stk', {}, phone, h('div.lp-feat', {}, items, h('button', { onclick: () => toast('How it works →') }, 'Read more about how it works'))));
+  const s5 = h('section.lp-sec', { style: { height: '1100px' }, 'data-ph': 5 }, h('div.lp-body', { style: { top: '300px', maxWidth: '640px' } }, 'Going light can be whatever you’d like it to be.'),
+    h('div.lp-feat', { style: { top: '300px' } }, [['Stay present during precious moments.', 'What are you missing out on when you pull out your smartphone hundreds of times a day? Life is just too short.'], ['Take your passions seriously.', 'Going light gives you the space you need to focus on what really moves and inspires you.'], ['A breath of fresh air.', 'It’s so refreshing to break free from your smartphone habits and the perpetual feeling of missing out.']].map(([t, p], i) => { const it = h('div.it' + (i ? '' : '.on'), {}, h('h4', {}, t), h('p', {}, p)); it.onclick = () => { [...it.parentNode.children].forEach((x) => x.classList.toggle('on', x === it)); }; return it; })));
+  const dev3 = `<svg width="170" height="250" viewBox="0 0 170 250"><rect x="4" y="4" width="162" height="242" rx="14" fill="#2d2d30" stroke="#55555a" stroke-width="3"/><rect x="16" y="30" width="138" height="170" rx="4" fill="#111"/><circle cx="24" cy="17" r="5" fill="#111"/><text x="85" y="100" fill="#ddd" text-anchor="middle" style="font:400 15px ${SN}">Camera</text><text x="85" y="124" fill="#ddd" text-anchor="middle" style="font:400 15px ${SN}">Phone</text><text x="85" y="148" fill="#999" text-anchor="middle" style="font:400 15px ${SN}">Notes</text><rect x="16" y="210" width="138" height="26" rx="4" fill="#202022"/></svg>`;
+  const flip = `<svg width="110" height="190" viewBox="0 0 110 190"><rect x="5" y="5" width="100" height="180" rx="12" fill="#1c1c1e" stroke="#47474b" stroke-width="3"/><rect x="5" y="92" width="100" height="6" fill="#0c0c0d"/><rect x="30" y="26" width="50" height="40" rx="3" fill="#0d0d0e"/><text x="55" y="51" fill="#bbb" text-anchor="middle" style="font:400 10px ${SN}">10:24</text></svg>`;
+  const two = h('section.lp-two', { 'data-ph': -2 }, h('h3', {}, 'There are two different Light Phones, depending on how light you want to go.'), h('div.lp-pr', {}, [['Light Phone III', 'Moves at the speed of light, now with a camera.', dev3], ['Light Flip', 'Timeless tactile form factor.', flip]].map(([n, t, svg]) => h('div', {}, h('div.dv', { html: svg }), h('b', {}, n), h('span', {}, t), h('div.bt', {}, h('button', { onclick: () => toast(`${n}: learn more`) }, 'Learn more'), h('button.k', { onclick: () => toast(`${n} added to cart`) }, 'Buy'))))));
+  const ft = h('footer.lp-ft', { 'data-ph': -2 }, h('div', {}, h('nav', {}, ['light', 'blog', 'plans', 'shop', 'faq', 'dashboard', 'support', 'about us'].map((t) => h('a', { onclick: () => toast(t) }, t))), h('p', { style: { color: '#666' } }, 'the light phone inc. 19 morris avenue brooklyn, ny 11205')),
+    h('div', {}, h('form', { onsubmit: (e) => { e.preventDefault(); toast('successfully submitted your email'); e.target.reset(); } }, h('input', { placeholder: 'subscribe to our newsletter, sent sparingly', type: 'email' }), h('button', {}, 'submit')), h('p', { style: { color: '#666' } }, 'terms · privacy policy · return policy · investment')));
+  sc.append(s0, s1, s2, stars, os, s5, two, ft);
+  // ---------- fixed chrome ----------
+  const nav = h('div.lp-nav', {}, ['Light Phone III', 'Light Flip', 'plans', 'shop', 'blog', 'faq', 'about us'].map((t) => h('a', { onclick: () => { setNav(false); toast(t); } }, t)));
+  const setNav = (on) => { nav.classList.toggle('on', on); el.classList.toggle('nav', on); menuB.textContent = on ? 'close' : 'menu'; };
+  const menuB = h('button.lp-menu', { onclick: () => setNav(!nav.classList.contains('on')) }, 'menu');
+  const hd = h('header.lp-hd', {}, h('span.lp-wm', { onclick: () => { setNav(false); sc.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }); } }, 'light'), h('span.lp-dev', { onclick: () => toast('Developer program →') }, 'Learn about our developer program !'), h('span.sp'), menuB, h('button.lp-shop', { onclick: () => toast('shop →') }, 'shop'));
+  const ckB = h('button', { onclick: () => ck.classList.add('off') }, 'acknowledged');
+  const ck = h('div.lp-ck', {}, h('span', {}, 'The internet can be sketchy. ', h('a', { onclick: () => toast('cookie policy') }, 'view our cookie policy')), ckB);
+  el.append(nav, hd, ck);
+  // ---------- scroll logic: photo swaps, quotes, list-in-device, starfield, feature steps ----------
+  const SECS = [s0, s1, s2, stars, os, s5, two, ft]; let curPh = 0;
+  const setPh = (i) => { if (i === curPh) return; curPh = i; photos.forEach((c, j) => c.classList.toggle('on', j === i)); };
+  const update = () => { const y = sc.scrollTop, mid = y + Hh * 0.5; let sec = SECS[0]; for (const s1_ of SECS) if (s1_.offsetTop <= mid) sec = s1_;
+    let pi = +sec.dataset.ph; if (sec === s2 && mid > s2.offsetTop + Hh * 1.3) pi = 3; setPh(pi); el.classList.toggle('lt', pi === -2); el.style.setProperty('--lp-ui', pi === -2 ? '#111' : '#fff');
+    if (!RM && pi >= 0) { const p = clamp((y - sec.offsetTop) / Math.max(1, sec.offsetHeight), -0.2, 1.2); photos[pi].style.transform = `scale(1.08) translateY(${(-p * 24).toFixed(1)}px)`; }
+    qs.forEach((q, i) => q.classList.toggle('on', y + Hh * 0.85 > QUOTES[i][2] && y < QUOTES[i][2] + 80));
+    const wp = (y - s2.offsetTop + Hh * 0.2) / (wrap.offsetHeight - Hh * 0.4); setList(clamp(wp, 0, 1) * MAXOFF + manual);
+    const sp = (y - stars.offsetTop) / (stars.offsetHeight - Hh); peek.style.top = `${Hh * 1.9 - 120 - clamp(sp, 0, 1) * 160}px`;
+    const op = (y - os.offsetTop) / Hh; if (op > -0.5 && op < 1.2) setFeat(clamp(Math.floor(op * FEATS.length), 0, FEATS.length - 1));
+  };
+  sc.addEventListener('scroll', () => { manual *= 0.9; update(); }, { passive: true });
+  const loop = (t) => { if (!el.isConnected) return; const y = sc.scrollTop; if (y + Hh > stars.offsetTop && y < stars.offsetTop + stars.offsetHeight) drawStars(t); requestAnimationFrame(loop); };
+  drawStars(0); setFeat(0); update(); if (!RM) requestAnimationFrame(loop); setTimeout(() => qs[0].classList.add('on'), RM ? 0 : 500);
+  // ---------- demo proof ----------
+  const go = (y) => { sc.scrollTop = y; update(); };
+  window.__demoProof = async () => { const o = []; manual = 0; go(0); ck.classList.remove('off');
+    o.push(`hero sky photo on=${photos[0].classList.contains('on')}, quote visible=${qs[0].classList.contains('on')}`);
+    const seq = []; for (const s_ of SECS.slice(0, 6)) { go(s_.offsetTop + 60); seq.push(curPh); } o.push(`photo swaps by section [${seq.join(',')}] (-1 = starfield)`);
+    go(s2.offsetTop); const a = Math.round(listOff / ROW); go(s2.offsetTop + wrap.offsetHeight - Hh); const b = Math.round(listOff / ROW); o.push(`device tool list scrolls inside mock: row ${a} (${TOOLS[clamp(a + 1, 0, 10)]}) → row ${b} (${TOOLS[clamp(b + 1, 0, 10)]})`);
+    lis[2].click(); o.push(`tap tool → "${TOOLS[sel]}" selected`); lis[2].classList.remove('sel'); sel = -1;
+    go(stars.offsetTop + 200); const f0 = st; await sleep(RM ? 0 : 300); o.push(`starfield frames +${st - f0}${RM ? ' (static: reduced motion)' : ''}, device peek top=${peek.style.top}`);
+    go(os.offsetTop); items[2].click(); await sleep(260); o.push(`LightOS step → "${FEATS[fi][0]}" screen=${scr.dataset.k}`);
+    setNav(true); o.push(`menu overlay open=${nav.classList.contains('on')}`); setNav(false);
+    ckB.click(); o.push(`cookie bar acknowledged → hidden=${ck.classList.contains('off')}`);
+    ck.classList.remove('off'); manual = 0; go(0); setFeat(0); o.push(`restored: top, sky photo, cookie bar back`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['dither-param-studio'])(root, T); }

@@ -2679,4 +2679,256 @@ V['plink-starfield-multiplayer-music-lobby-tilted-condensed-sticker-words-orbit-
     reset(); o.push(`restored: cookie card visible, mode=${mode}`); return o.join('; '); };
 };
 
+V['imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card'] = (root, T) => {
+  import('@fontsource-variable/fraunces/full.css');
+  theme(root, T, { bg: '#ffe8d6', fg: '#111112', ac: '#6b705c', dark: false });
+  const SR = "'Fraunces Variable','Cooper Black',Georgia,serif", SN = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const KEY = 'imissmycafe-demo-prefs';
+  css(`.mc{position:absolute;inset:0;overflow:hidden;background:var(--mc-bg,#ffe8d6);color:var(--mc-fg,#111112);font-family:${SR};font-variation-settings:'SOFT' 100,'WONK' 0;transition:background .5s,color .5s}
+.mc *{box-sizing:border-box}
+.mc.night{--mc-bg:#2a2421;--mc-fg:#f6e4d2;--mc-ol:#a3a58c}
+.mc h1{position:absolute;left:72px;top:168px;margin:0;font:900 78px/.84 ${SR};font-variation-settings:'SOFT' 100,'opsz' 144,'WONK' 1;letter-spacing:-.015em}
+.mc-tag{position:absolute;left:72px;top:334px;font:400 15px ${SR};letter-spacing:.005em}
+.mc-ic{position:absolute;right:22px;top:16px;display:flex;gap:9px;z-index:5}
+.mc-ic button{position:relative;width:35px;height:35px;border-radius:50%;border:0;padding:0;background:var(--mc-ol,#6b705c);display:grid;place-items:center;cursor:pointer;transition:transform .15s}
+.mc-ic button:hover{transform:scale(1.08)}.mc-ic button.on{box-shadow:0 0 0 2px var(--mc-bg,#ffe8d6),0 0 0 3.5px var(--mc-ol,#6b705c)}
+.mc-ic svg{width:22px;height:22px}.mc-ic .bd{position:absolute;right:-4px;top:-5px;min-width:16px;height:16px;border-radius:9px;background:#fff;color:#333;font:700 9px/16px ${SN};padding:0 3px;box-shadow:0 0 0 1.5px #6b705c}
+.mc-ic .dot{position:absolute;right:3px;top:2px;width:8px;height:8px;border-radius:50%;background:#fff;border:1.5px solid #6b705c}
+.mc-opts{position:absolute;right:76px;top:142px;display:grid;gap:8px;justify-items:end;font:400 12.5px ${SR}}
+.mc-opts label{display:flex;align-items:center;gap:9px;cursor:pointer}
+.mc-opts input{appearance:none;width:15px;height:15px;border:1.5px solid currentColor;border-radius:2px;margin:0;cursor:pointer;display:grid;place-items:center;background:transparent}
+.mc-opts input:checked::after{content:'';width:8px;height:8px;background:currentColor}
+.mc-rows{position:absolute;left:1060px;top:196px;width:290px;display:grid;gap:0}
+.mc-row{height:71px;position:relative}
+.mc-row .lb{display:flex;align-items:center;gap:7px;font:400 15px ${SR};height:22px;cursor:pointer;user-select:none;width:max-content}
+.mc-row .pl{width:0;height:0;border-left:9px solid currentColor;border-top:5.5px solid transparent;border-bottom:5.5px solid transparent;transition:all .15s}
+.mc-row.on .pl{width:9px;height:11px;border:0;border-left:3px solid currentColor;border-right:3px solid currentColor}
+.mc-row.on .lb span{font-weight:650}
+.mc-row .lb:hover .pl{transform:scale(1.2)}
+.mc-row .eq{display:none;gap:2px;align-items:flex-end;height:11px}.mc-row.on .eq{display:flex}
+.mc-row .eq i{width:2px;background:currentColor;height:4px;animation:mcEq .8s ease-in-out infinite alternate}.mc-row .eq i:nth-child(2){animation-delay:-.3s}.mc-row .eq i:nth-child(3){animation-delay:-.55s}
+@keyframes mcEq{to{height:11px}}
+.mc-sl{display:flex;align-items:center;gap:6px;height:22px;margin-top:5px}
+.mc-sl svg{width:15px;height:15px;flex:none}.mc-sl b{font:600 10px ${SN};width:15px;text-align:center;flex:none}
+.mc input[type=range]{-webkit-appearance:none;appearance:none;flex:1;height:14px;background:transparent;margin:0;cursor:pointer;color:inherit}
+.mc input[type=range]::-webkit-slider-runnable-track{height:1.5px;background:currentColor}
+.mc input[type=range]::-moz-range-track{height:1.5px;background:currentColor}
+.mc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:currentColor;margin-top:-5.25px;border:0}
+.mc input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:currentColor;border:0}
+.mc-pan{display:none}.mc.pan .mc-pan{display:flex}.mc.pan .mc-row{height:92px}.mc.pan .mc-rows{top:180px}
+.mc-row.mute input{opacity:.55}
+.mc-art{position:absolute;left:392px;top:76px;width:652px;height:680px;overflow:visible}
+.mc-art .ln{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.mc-art .fl{fill:var(--mc-bg,#ffe8d6);stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.mc-art .liq{fill:#78806a;stroke:currentColor;stroke-width:1.2}
+.mc-art .spk{transition:opacity .5s}.mc:not(.spooky) .spk{opacity:0}.mc.spooky .cls{opacity:0}.mc-art .cls{transition:opacity .5s}
+.mc-art .fx{opacity:0;transition:opacity .8s}.mc-art .fx.on{opacity:1}
+.mc-art .sway{transform-box:fill-box;transform-origin:50% 0}
+.mc-art .sway.on{animation:mcSway 2.4s ease-in-out infinite alternate}@keyframes mcSway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+.mc-art .rock.on{animation:mcRock 3.2s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:30% 100%}@keyframes mcRock{from{transform:rotate(-.9deg)}to{transform:rotate(1.1deg)}}
+.mc-art .buzz.on{animation:mcBuzz .09s linear infinite}@keyframes mcBuzz{0%{transform:translate(0,0)}50%{transform:translate(.7px,-.4px)}100%{transform:translate(-.5px,.4px)}}
+.mc-art .steam path{stroke-dasharray:6 7;animation:mcSteam 1.6s linear infinite}@keyframes mcSteam{to{stroke-dashoffset:-26}}
+.mc-art .steam{animation:mcRise 3s ease-in-out infinite alternate}@keyframes mcRise{from{transform:translateY(3px)}to{transform:translateY(-4px)}}
+.mc-art .rain line{animation:mcRain .7s linear infinite}@keyframes mcRain{from{transform:translateY(-30px)}to{transform:translateY(60px)}}
+.mc-art .flame{transform-box:fill-box;transform-origin:50% 100%}.mc-art .flame.on{animation:mcFlick .25s ease-in-out infinite alternate}@keyframes mcFlick{from{transform:scale(.85,1.12) rotate(-4deg)}to{transform:scale(1.08,.9) rotate(4deg)}}
+.mc-art .sun.on{animation:mcGlow 3s ease-in-out infinite alternate}@keyframes mcGlow{from{opacity:.55}to{opacity:1}}
+.mc-art .eyes ellipse.p{animation:mcLook 5s ease-in-out infinite}@keyframes mcLook{0%,40%{transform:translateX(0)}50%,90%{transform:translateX(3px)}}
+.mc-art .spider{animation:mcDrop 6s ease-in-out infinite alternate}@keyframes mcDrop{from{transform:translateY(-10px)}to{transform:translateY(14px)}}
+.mc-sp{position:absolute;left:72px;top:360px;width:250px;height:330px;border-radius:7px;overflow:hidden;background:linear-gradient(180deg,#3c3c3c 0,#202020 34%,#121212 100%);color:#fff;font:400 12.5px ${SN};box-shadow:0 2px 0 #0001}
+.mc-sp .hd{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:0;height:82px;background:linear-gradient(90deg,#4a4a4a,#2a2a2a)}
+.mc-sp .art{position:relative;width:78px;height:82px;background:#e9d6c3;overflow:hidden}
+.mc-sp .art svg{position:absolute;inset:0;width:100%;height:100%}
+.mc-sp .pb{position:absolute;left:50%;top:50%;width:38px;height:38px;margin:-19px;border-radius:50%;background:#000c;border:2px solid #fff;cursor:pointer;display:grid;place-items:center;padding:0}
+.mc-sp .pb i{width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.mc-sp .pb.on i{width:11px;height:13px;border:0;border-left:3.5px solid #fff;border-right:3.5px solid #fff;margin:0}
+.mc-sp .mt{padding:9px 10px 0 0;display:grid;gap:6px;align-content:start;position:relative}
+.mc-sp .mt b{font:500 13px ${SN};padding-right:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-sp .lg{position:absolute;right:8px;top:8px;width:16px;height:16px}
+.mc-sp .vr{display:flex;align-items:center;gap:6px}.mc-sp .vr i{display:block;flex:1;height:3px;background:#ffffff40;border-radius:2px;overflow:hidden}.mc-sp .vr i u{display:block;height:100%;background:#fff;width:42%}
+.mc-sp .ct{display:flex;align-items:center;gap:8px}.mc-sp .ct button{border:0;background:none;color:#fff;padding:0;cursor:pointer;font:12px ${SN};opacity:.9}
+.mc-sp .ct .bar{flex:1;height:3px;border-radius:2px;background:#ffffff40;overflow:hidden}.mc-sp .ct .bar u{display:block;height:100%;width:0;background:#1ed760}
+.mc-sp ol{list-style:none;margin:0;padding:6px 0 0;height:248px;overflow:hidden}
+.mc-sp li{display:grid;grid-template-columns:22px 1fr auto;gap:2px;padding:5px 12px 5px 11px;cursor:pointer;align-items:center}
+.mc-sp li:hover{background:#ffffff12}.mc-sp li.on{background:#ffffff1c}.mc-sp li.on .t{color:#1ed760}
+.mc-sp li .n{color:#b3b3b3;font-size:12px}.mc-sp li .t{font-size:13px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mc-sp li .a{grid-column:2;color:#a7a7a7;font-size:12px;margin-top:1px}
+.mc-sp li .d{grid-row:1;grid-column:3;color:#b3b3b3;font-size:12px}
+.mc-sp .ov{position:absolute;left:0;right:0;bottom:0;height:102px;background:linear-gradient(transparent,#000000f2 26%);display:grid;justify-items:center;align-content:end;gap:10px;padding:0 0 12px}
+.mc-sp .ov.hide{transform:translateY(64px)}.mc-sp .ov{transition:transform .3s}
+.mc-sp .ov div{font:600 14.5px ${SN};display:flex;gap:28px;align-items:center}.mc-sp .ov div span{cursor:pointer;font-size:11px}
+.mc-sp .ov button{width:206px;height:38px;border-radius:20px;border:0;background:#1db954;color:#fff;font:700 11.5px ${SN};letter-spacing:.06em;cursor:pointer}
+.mc-buy{position:absolute;left:20px;bottom:18px;height:36px;padding:0 16px 0 10px;border-radius:18px;background:var(--mc-ol,#6b705c);color:#fff;border:0;display:flex;align-items:center;gap:9px;font:400 16px ${SR};cursor:pointer}
+.mc-buy svg{width:26px;height:22px}
+.mc-cr{position:absolute;right:12px;bottom:9px;font:400 12.5px ${SR}}.mc-cr a{color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.mc-pop{position:absolute;right:22px;top:62px;width:250px;background:var(--mc-bg,#ffe8d6);border:1.5px solid currentColor;border-radius:8px;padding:14px 16px;font:400 14px/1.45 ${SR};z-index:6;display:none;box-shadow:4px 4px 0 currentColor}
+.mc-pop.on{display:block}.mc-pop h3{margin:0 0 6px;font:800 19px ${SR}}.mc-pop p{margin:0 0 8px}.mc-pop button{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid #0002;padding:7px 0;font:inherit;color:inherit;cursor:pointer}
+.mc-pop button:hover{text-decoration:underline}
+@media (prefers-reduced-motion: reduce){.mc-art *,.mc-row .eq i{animation:none!important}}
+`);
+  const el = h('div.mc.spooky'); root.append(el);
+  // ---------- line-art illustration (hand-coded SVG stand-in for the original illustration) ----------
+  const L = 'class="ln"', F = 'class="fl"';
+  const spindles = Array.from({ length: 7 }, (_, i) => { const x = 652 + i * 8.6, yt = 261 - i * 2.2 + Math.sin(i / 6 * Math.PI) * -6; return `<path ${L} d="M${x} ${yt + 4} L${x - 14 + i * 1.2} 392"/>`; }).join('');
+  const web = (() => { const cx = 730, cy = 87, out = []; const ang = Array.from({ length: 8 }, (_, i) => Math.PI * (0.5 + i / 7 * 0.5)); ang.forEach((a) => out.push(`<path ${L} d="M${cx} ${cy} L${cx + Math.cos(a) * 150} ${cy + Math.sin(a) * 150}"/>`));
+    for (let r = 18; r < 150; r += 17) { let d = ''; ang.forEach((a, i) => { const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r; if (!i) d += `M${x} ${y}`; else { const am = (a + ang[i - 1]) / 2, rm = r * 0.86; d += ` Q${cx + Math.cos(am) * rm} ${cy + Math.sin(am) * rm} ${x} ${y}`; } }); out.push(`<path ${L} d="${d}"/>`); } return out.join(''); })();
+  const candles = [[452, 236, 268], [467, 214, 248], [487, 228, 260], [503, 212, 246], [518, 222, 256]].map(([x, t, b], i) => `<rect ${F} x="${x - 3.2}" y="${t}" width="6.4" height="${b - t}" rx="1"/><path class="fl flame" data-k="flame" style="fill:currentColor;stroke:none" d="M${x} ${t - 11} q4 6 0 9 q-4 -3 0 -9z"/>`).join('');
+  const RR = rng(9);
+  const art = h('div.mc-art', { html: `<svg viewBox="280 80 464 484" width="652" height="680">
+  <defs><clipPath id="mcWin"><rect x="518" y="111" width="129" height="228"/></clipPath></defs>
+  <g class="sun fx" data-fx="sun" clip-path="url(#mcWin)"><rect x="518" y="111" width="129" height="228" fill="#ffd27a" opacity=".45"/><circle cx="600" cy="150" r="20" fill="#ffd27a"/>${Array.from({ length: 9 }, (_, i) => { const a = i / 9 * 6.28; return `<path class="ln" d="M${600 + Math.cos(a) * 26} ${150 + Math.sin(a) * 26} L${600 + Math.cos(a) * 36} ${150 + Math.sin(a) * 36}"/>`; }).join('')}</g>
+  <g class="rain fx" data-fx="rain" clip-path="url(#mcWin)">${Array.from({ length: 34 }, (_, i) => { const R = RR, x = 520 + R() * 128, y = 100 + R() * 240; return `<line class="ln" x1="${x}" y1="${y}" x2="${x - 3}" y2="${y + 11}" style="animation-delay:-${(R() * 0.7).toFixed(2)}s;stroke-width:1"/>`; }).join('')}</g>
+  <rect ${L} x="510" y="103" width="145" height="250"/><rect ${L} x="518" y="111" width="129" height="234"/>
+  <path ${L} d="M580 111V345M586 111V345M518 172H580M586 172H647M518 232H580M586 232H647M518 292H580M586 292H647"/>
+  <g class="spk eyes"><ellipse ${F} cx="541" cy="151" rx="10" ry="4.2"/><ellipse ${F} cx="564" cy="151" rx="10" ry="4.2"/><ellipse class="p" cx="543" cy="151" rx="3.2" ry="3.2" fill="currentColor"/><ellipse class="p" cx="566" cy="151" rx="3.2" ry="3.2" fill="currentColor"/><path ${L} d="M530 144l14 4M575 144l-14 4"/></g>
+  <g class="spk">${web}<path ${L} d="M620 88V198"/><g class="spider"><ellipse cx="620" cy="204" rx="4.5" ry="5.5" fill="currentColor"/><circle cx="620" cy="197" r="2.6" fill="currentColor"/>${[-1, 1].map((sd) => [0, 1, 2, 3].map((k) => `<path ${L} d="M${620 + sd * 3} ${200 + k * 2.4} q${sd * 7} ${-5 + k * 2} ${sd * 10} ${2 + k * 3}"/>`).join('')).join('')}</g></g>
+  <g class="cls"><path ${L} d="M532 330c-4-30 8-58 30-70M552 334c2-26 16-44 34-50M540 300c-10-6-24-4-30 6 12 6 24 4 30-6zM566 276c6-14 20-20 34-16-6 14-20 20-34 16z"/></g>
+  <!-- easel sign stand -->
+  <g class="sway" data-k="sign"><rect ${F} x="314" y="152" width="102" height="64"/><rect ${L} x="319" y="157" width="92" height="54"/>
+    <text x="365" y="180" text-anchor="middle" style="font:800 16px ${SR};font-variation-settings:'SOFT' 100;fill:currentColor">Today’s</text><text x="365" y="200" text-anchor="middle" style="font:800 16px ${SR};font-variation-settings:'SOFT' 100;fill:currentColor">Brew</text></g>
+  <path ${L} d="M306 222H426M306 228H426M310 222L298 468M316 228L304 468M420 222L432 418M426 228L438 418M298 468L288 480M304 468L318 482M432 418L418 438M438 418L444 438M300 452L320 470M434 404L414 428"/>
+  <g class="sway" data-k="pot" style="transform-origin:50% 0"><path ${L} d="M368 228V262"/><path ${L} d="M352 262H384V282M352 262V282"/>
+    <g class="spk"><path ${F} d="M334 300 a42 41 0 1 0 68 0 z"/><ellipse ${F} cx="368" cy="300" rx="34" ry="7.5"/><ellipse class="liq" cx="368" cy="300.5" rx="28" ry="5.2"/><path ${L} d="M336 300h-6M400 300h6"/></g>
+    <g class="cls"><path ${F} d="M342 290h52l-6 52h-40z"/><path ${L} d="M350 290c-16-24-6-40 4-46M368 290c0-26 10-40 22-44M384 290c10-16 24-18 30-14M356 260c-8 4-14 2-18-4 6-6 14-4 18 4zM386 254c4-8 12-10 18-6-4 8-12 10-18 6z"/></g>
+    <g class="steam fx" data-fx="potsteam"><path ${L} d="M352 284c-8-12 8-20 0-34M368 280c-8-12 8-20 0-36M384 284c-8-12 8-20 0-34"/></g></g>
+  <!-- table -->
+  <path ${F} d="M400 340 a118 26 0 0 0 236 0 v8 a118 26 0 0 1 -236 0z"/><ellipse ${F} cx="518" cy="340" rx="118" ry="26"/>
+  <path ${F} d="M506 372h24l-3 10q10 6 2 14q8 10 0 22l-2 44q10 6 4 14h-26q-6-8 4-14l-2-44q-8-12 0-22q-8-8 2-14z"/>
+  <path ${F} d="M500 476h36l50 28q10 6 2 12l-14 2-38-22-18 0-38 22-14-2q-8-6 2-12z"/><path ${L} d="M492 504l-4 18M546 504l4 18M518 492v8"/>
+  <!-- candelabra / vase -->
+  <g class="buzz" data-k="candel"><g class="spk"><path ${L} d="M482 330q-14 0-18-6q10-2 14-10v-40q-18 0-26-10M482 314v-58M482 284q16 0 21-14M482 296q-16 0-15-28M482 300q24 0 36-34M452 268v-4"/><ellipse ${F} cx="482" cy="330" rx="16" ry="4"/>${candles}</g>
+    <g class="cls"><path ${F} d="M472 330c-6-16 0-30 10-34 10 4 16 18 10 34z"/><path ${L} d="M482 296c-2-20 4-36 12-46M482 296c-6-18-16-26-26-28M494 250c6-4 14-2 16 4-6 4-14 2-16-4zM456 268c-6-6-6-14 0-18 6 4 6 12 0 18z"/></g></g>
+  <!-- book + cup -->
+  <path ${F} d="M520 334l52-10 18 10-52 12z"/><path ${F} d="M520 334v6l18 12v-6zM538 346v6l52-12v-6z"/><text x="0" y="0" transform="translate(546 341) rotate(-12) skewX(-14)" style="font:600 6.6px ${SN};letter-spacing:.06em;fill:currentColor" class="spk">POTIONS</text><text x="0" y="0" transform="translate(549 341) rotate(-12) skewX(-14)" style="font:600 6.6px ${SN};letter-spacing:.06em;fill:currentColor" class="cls">NOVELS</text>
+  <ellipse ${F} cx="563" cy="332" rx="24" ry="5"/><path ${F} d="M545 302h36l-4 26q-14 6-28 0z"/><path ${L} d="M581 308q12 0 9 10t-12 6"/><ellipse ${F} cx="563" cy="302" rx="18" ry="4.2"/><ellipse class="liq" cx="563" cy="302.5" rx="14" ry="2.8"/>
+  <g class="steam fx" data-fx="cupsteam"><path ${L} d="M556 294c-6-10 6-16 0-28M568 292c-6-10 6-16 0-30"/></g>
+  <!-- chair -->
+  <g class="rock" data-k="chair"><path ${F} d="M641 264q36-20 66-14l2 12q-30-4-66 14z"/>${spindles}<path ${L} d="M706 252l-10 140M712 254l-12 142"/>
+    <path ${F} d="M544 392q70-8 154-2l4 16q-80-8-156 2z"/><path ${L} d="M546 408l2 116M552 408l2 112M600 412l-6 108M606 412l-6 104M664 406l18 132M672 404l20 124M698 406l20 102M704 404l20 96M552 470l46 6M682 476l26-4"/></g>
+  <g class="fx" data-fx="glow"><ellipse cx="482" cy="200" rx="60" ry="46" fill="#ffb347" opacity=".18"/></g>
+  </svg>` });
+  // ---------- sounds: Web Audio synthesized stand-ins ----------
+  const NB = {}; const nbuf = (ac, kind) => NB[kind] ||= (() => { const len = ac.sampleRate * 3, b = ac.createBuffer(1, len, ac.sampleRate), d = b.getChannelData(0); let l = 0, b0 = 0, b1 = 0, b2 = 0;
+    for (let i = 0; i < len; i++) { const w = Math.random() * 2 - 1; if (kind === 'brown') { l = (l + 0.02 * w) / 1.02; d[i] = l * 3.5; } else if (kind === 'pink') { b0 = 0.99765 * b0 + w * 0.099046; b1 = 0.963 * b1 + w * 0.2965164; b2 = 0.57 * b2 + w * 1.0526913; d[i] = (b0 + b1 + b2 + w * 0.1848) * 0.16; } else d[i] = w; } return b; })();
+  const nsrc = (ac, kind) => { const s0 = ac.createBufferSource(); s0.buffer = nbuf(ac, kind); s0.loop = true; s0.start(0, Math.random() * 2.5); return s0; };
+  const flt = (ac, type, f, q = 0.7) => { const b = ac.createBiquadFilter(); b.type = type; b.frequency.value = f; b.Q.value = q; return b; };
+  const gn = (ac, v) => { const g = ac.createGain(); g.gain.value = v; return g; };
+  const ping = (ac, out, f, dur, vol, type = 'sine', t = ac.currentTime) => { const o = ac.createOscillator(), g = gn(ac, 0); o.type = type; o.frequency.value = f; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g).connect(out); o.start(t); o.stop(t + dur + 0.05); };
+  const burst = (ac, out, kind, ftype, f, q, dur, vol, t = ac.currentTime) => { const s0 = ac.createBufferSource(); s0.buffer = nbuf(ac, kind); const fl = flt(ac, ftype, f, q), g = gn(ac, 0); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + Math.min(0.01, dur / 3)); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); s0.connect(fl).connect(g).connect(out); s0.start(t, Math.random() * 2); s0.stop(t + dur + 0.05); };
+  const every = (ms, fn) => setInterval(fn, ms);
+  const SND = [
+    { n: 'Barista', fx: 'sign', icon: true, make(ac, out) { const o = ac.createOscillator(); o.type = 'sawtooth'; o.frequency.value = 150; const f1 = flt(ac, 'bandpass', 700, 4), f2 = flt(ac, 'bandpass', 1300, 5), env = gn(ac, 0), mix = gn(ac, 0.5); o.connect(f1); o.connect(f2); f1.connect(env); f2.connect(env); env.connect(mix).connect(out); o.start();
+      let ph = 0; const tm = every(170, () => { const t = ac.currentTime; if (ph <= 0) { if (Math.random() < 0.18) ph = 4 + (Math.random() * 10 | 0); return; } ph--; o.frequency.setTargetAtTime(125 + Math.random() * 70, t, 0.04); f1.frequency.setTargetAtTime(450 + Math.random() * 600, t, 0.03); f2.frequency.setTargetAtTime(1100 + Math.random() * 900, t, 0.03);
+        env.gain.cancelScheduledValues(t); env.gain.setTargetAtTime(0.22 + Math.random() * 0.12, t, 0.02); env.gain.setTargetAtTime(0, t + 0.09 + Math.random() * 0.06, 0.03); if (Math.random() < 0.05) ping(ac, out, 2900, 0.4, 0.05); });
+      return () => { clearInterval(tm); o.stop(); }; } },
+    { n: 'Preparing Drinks', fx: 'potsteam', make(ac, out) { const s0 = nsrc(ac, 'white'), hp = flt(ac, 'highpass', 2600), bp = flt(ac, 'bandpass', 5200, 1.2), env = gn(ac, 0); s0.connect(hp).connect(bp).connect(env).connect(out);
+      const p = nsrc(ac, 'pink'), pf = flt(ac, 'bandpass', 520, 2), pe = gn(ac, 0); p.connect(pf).connect(pe).connect(out); const gur = ac.createOscillator(), gg = gn(ac, 180); gur.frequency.value = 7; gur.connect(gg).connect(pf.frequency); gur.start();
+      let k = 0; const cyc = () => { const t = ac.currentTime; if (k++ % 2 === 0) { env.gain.setTargetAtTime(0.16, t, 0.3); env.gain.setTargetAtTime(0, t + 2.2 + Math.random() * 1.5, 0.4); bp.frequency.setTargetAtTime(3800, t, 1.5); } else { pe.gain.setTargetAtTime(0.5, t, 0.1); pe.gain.setTargetAtTime(0, t + 1.4, 0.2); bp.frequency.setValueAtTime(5600, t); } };
+      cyc(); const tm = every(3200, cyc); return () => { clearInterval(tm); s0.stop(); p.stop(); gur.stop(); }; } },
+    { n: 'Coffee Cups', fx: 'cupsteam', make(ac, out) { const clink = () => { const t = ac.currentTime + Math.random() * 0.2, b = 0.9 + Math.random() * 0.25; [2350, 3870, 5230].forEach((f, i) => ping(ac, out, f * b, 0.25 + Math.random() * 0.35 - i * 0.05, 0.06 / (i + 1), 'sine', t)); if (Math.random() < 0.3) burst(ac, out, 'white', 'bandpass', 1800, 3, 0.05, 0.12, t); };
+      const tm = every(420, () => { if (Math.random() < 0.45) clink(); }); clink(); return () => clearInterval(tm); } },
+    { n: 'Other Customers', fx: 'chair', make(ac, out) { const s0 = nsrc(ac, 'pink'), bp = flt(ac, 'bandpass', 650, 0.9), bp2 = flt(ac, 'peaking', 1500, 1); bp2.gain.value = 6; const am = gn(ac, 0.55); s0.connect(bp).connect(bp2).connect(am).connect(out);
+      const lf = [0.31, 0.73, 1.37, 2.9].map((r, i) => { const o = ac.createOscillator(), g = gn(ac, 0.12 - i * 0.02); o.frequency.value = r; o.connect(g).connect(am.gain); o.start(); return o; });
+      const tm = every(2600, () => { if (Math.random() < 0.3) { const t = ac.currentTime; for (let i = 0; i < 4; i++) ping(ac, out, 380 + Math.random() * 120, 0.12, 0.025, 'triangle', t + i * 0.13); } });
+      return () => { clearInterval(tm); s0.stop(); lf.forEach((o) => o.stop()); }; } },
+    { n: 'Machinery', fx: 'candel', make(ac, out) { const hum = ac.createOscillator(), h2 = ac.createOscillator(), hg = gn(ac, 0.07); hum.frequency.value = 60; h2.type = 'triangle'; h2.frequency.value = 120; hum.connect(hg); h2.connect(hg); hg.connect(out); hum.start(); h2.start();
+      const gr = ac.createOscillator(); gr.type = 'sawtooth'; gr.frequency.value = 170; const gf = flt(ac, 'bandpass', 1400, 2), ge = gn(ac, 0); const gn2 = nsrc(ac, 'white'), nf = flt(ac, 'bandpass', 2200, 1.5); gr.connect(gf); gn2.connect(nf).connect(gf); gf.connect(ge).connect(out); gr.start();
+      const pump = () => { const t = ac.currentTime; ge.gain.setTargetAtTime(0.18, t, 0.08); gr.frequency.setValueAtTime(150, t); gr.frequency.linearRampToValueAtTime(190, t + 2); ge.gain.setTargetAtTime(0, t + 2.4, 0.15); };
+      pump(); const tm = every(7000, pump); return () => { clearInterval(tm); [hum, h2, gr, gn2].forEach((o) => o.stop()); }; } },
+    { n: 'Rainy Day', fx: 'rain', make(ac, out) { const s0 = nsrc(ac, 'white'), lp = flt(ac, 'lowpass', 5200), hp = flt(ac, 'highpass', 450), g = gn(ac, 0.2); s0.connect(lp).connect(hp).connect(g).connect(out);
+      const r = nsrc(ac, 'brown'), rl = flt(ac, 'lowpass', 700), rg = gn(ac, 0.35); r.connect(rl).connect(rg).connect(out);
+      const tm = every(70, () => { if (Math.random() < 0.55) ping(ac, out, 1400 + Math.random() * 2600, 0.03, 0.02 + Math.random() * 0.03, 'sine', ac.currentTime + Math.random() * 0.06); });
+      return () => { clearInterval(tm); s0.stop(); r.stop(); }; } },
+    { n: 'Sunny Day', fx: 'sun', make(ac, out) { const s0 = nsrc(ac, 'pink'), lp = flt(ac, 'lowpass', 1100), g = gn(ac, 0.12); s0.connect(lp).connect(g).connect(out);
+      const chirp = () => { const t0 = ac.currentTime, base = 2600 + Math.random() * 1800, n = 2 + (Math.random() * 4 | 0); for (let i = 0; i < n; i++) { const t = t0 + i * (0.09 + Math.random() * 0.05), o = ac.createOscillator(), e = gn(ac, 0); o.frequency.setValueAtTime(base, t); o.frequency.exponentialRampToValueAtTime(base * (1.25 + Math.random() * 0.3), t + 0.05); o.frequency.exponentialRampToValueAtTime(base * 0.9, t + 0.08);
+        e.gain.setValueAtTime(0, t); e.gain.linearRampToValueAtTime(0.05, t + 0.01); e.gain.exponentialRampToValueAtTime(0.0001, t + 0.09); o.connect(e).connect(out); o.start(t); o.stop(t + 0.12); } };
+      const tm = every(600, () => { if (Math.random() < 0.38) chirp(); }); chirp(); return () => { clearInterval(tm); s0.stop(); }; } },
+    { n: 'Fireplace', fx: 'flame', make(ac, out) { const s0 = nsrc(ac, 'brown'), lp = flt(ac, 'lowpass', 380), g = gn(ac, 0.55); s0.connect(lp).connect(g).connect(out);
+      const tm = every(45, () => { const t = ac.currentTime + Math.random() * 0.04; if (Math.random() < 0.32) burst(ac, out, 'white', 'highpass', 1200 + Math.random() * 3000, 0.7, 0.004 + Math.random() * 0.012, 0.08 + Math.random() * 0.25, t); if (Math.random() < 0.012) burst(ac, out, 'white', 'bandpass', 700, 1, 0.05, 0.4, t); });
+      return () => { clearInterval(tm); s0.stop(); }; } }];
+  let ac = null, master = null; const ensure = () => { if (!ac) { ac = audio(); if (!ac) return null; master = gn(ac, 0.8); master.connect(ac.destination); } else if (ac.state === 'suspended') ac.resume(); return ac; };
+  const DEF = { vol: 0.75, pan: 0 };
+  const rows = SND.map((d, i) => { d.i = i; d.on = false; d.vol = DEF.vol; d.pan = DEF.pan;
+    const spk = `<svg viewBox="0 0 16 16"><path d="M2 6h3l4-3v10L5 10H2z" fill="currentColor"/><path d="M11 5.5q2 2.5 0 5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>`;
+    const vol = h('input', { type: 'range', min: 0, max: 1, step: 0.01, value: DEF.vol, 'aria-label': d.n + ' volume', oninput: (e) => setVol(i, +e.target.value) });
+    const pan = h('input', { type: 'range', min: -1, max: 1, step: 0.01, value: 0, 'aria-label': d.n + ' pan', oninput: (e) => setPan(i, +e.target.value), ondblclick: () => setPan(i, 0) });
+    const r = h('div.mc-row', {}, h('div.lb', { onclick: () => toggle(i), role: 'button', tabindex: 0, onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(i); } } }, h('span', {}, d.n),
+      d.icon ? h('span', { html: '<svg width="11" height="11" viewBox="0 0 12 12"><circle cx="6" cy="3.6" r="2.6" fill="currentColor"/><path d="M1 12c0-4 2.4-5.4 5-5.4s5 1.4 5 5.4z" fill="currentColor"/></svg>', style: { display: 'flex' } }) : null, h('i.pl'), h('span.eq', {}, h('i'), h('i'), h('i'))),
+      h('div.mc-sl', {}, h('span', { html: spk, style: { display: 'flex' } }), vol), h('div.mc-sl.mc-pan', {}, h('b', {}, 'L'), pan, h('b', {}, 'R')));
+    d.row = r; d.volEl = vol; d.panEl = pan; return r; });
+  const fxEl = (k) => art.querySelectorAll(`[data-fx="${k}"],[data-k="${k}"]${k === 'flame' ? ',.flame' : ''}`);
+  const setFx = (d) => fxEl(d.fx).forEach((e) => e.classList.toggle('on', d.on)); const glowFx = () => art.querySelector('[data-fx="glow"]').classList.toggle('on', SND[7].on);
+  const apply = (d) => { if (!d.g) return; const t = ac.currentTime; d.g.gain.cancelScheduledValues(t); d.g.gain.setTargetAtTime(d.on ? d.vol * d.vol : 0, t, d.on ? 0.35 : 0.12); d.p.pan.setTargetAtTime(d.pan, t, 0.05); };
+  const start = (d) => { if (!ensure()) return; if (d.stop) return; d.g = gn(ac, 0); d.p = ac.createStereoPanner(); d.p.pan.value = d.pan; d.g.connect(d.p).connect(master); d.stop = d.make(ac, d.g); };
+  const halt = (d) => { if (!d.stop) return; const st = d.stop, g = d.g, pn = d.p; d.stop = null; setTimeout(() => { try { st(); } catch {} try { g.disconnect(); pn.disconnect(); } catch {} }, 700); };
+  const save = () => { if (!saveCb.checked) return; try { localStorage.setItem(KEY, JSON.stringify({ pan: panCb.checked, rows: SND.map((d) => ({ on: d.on, vol: d.vol, pan: d.pan })) })); } catch {} };
+  const toggle = (i, force) => { const d = SND[i]; d.on = force ?? !d.on; d.row.classList.toggle('on', d.on); if (d.on) start(d); apply(d); if (!d.on) halt(d); setFx(d); glowFx(); save(); };
+  const setVol = (i, v) => { const d = SND[i]; d.vol = v; d.volEl.value = v; d.row.classList.toggle('mute', v === 0); apply(d); save(); };
+  const setPan = (i, v) => { const d = SND[i]; d.pan = v; d.panEl.value = v; apply(d); save(); };
+  const panCb = h('input', { type: 'checkbox', onchange: () => { el.classList.toggle('pan', panCb.checked); save(); } });
+  const saveCb = h('input', { type: 'checkbox', onchange: () => { if (saveCb.checked) save(); else try { localStorage.removeItem(KEY); } catch {} toast(saveCb.checked ? 'Preferences saved to this browser' : 'Saved preferences cleared'); } });
+  const opts = h('div.mc-opts', {}, h('label', {}, 'show pan controls', panCb), h('label', {}, 'save preferences', saveCb));
+  // ---------- playlist card (Spotify-style embed stand-in) ----------
+  const TR = [['Cut to the Feeling', 'Elijah Mann'], ['World Spins Madly On', 'The Weepies'], ['How Sweet It Is', 'Stephen Day'], ['Bookstore Girl', 'Charlie Burg'], ['Sober', 'Autoshe'], ['Coffee Shop Rain', 'Sera & the Kettles'], ['Window Seat', 'Low Tide Club']];
+  let cur = 0, playing = false, prog = 0, pT = 0, chordT = 0;
+  const prBar = h('u'); const pb = h('button.pb', { 'aria-label': 'Play preview', onclick: () => setPlay(!playing) }, h('i'));
+  const li = TR.map(([t, a], i) => h('li', { onclick: () => { cur = i; prog = 0; mark(); setPlay(true); } }, h('span.n', {}, i + 1), h('span.t', {}, t), h('span.d', {}, '0:30'), h('span.a', {}, a)));
+  const mark = () => li.forEach((x, j) => x.classList.toggle('on', playing && j === cur));
+  const titleEl = h('b', {}, 'I Miss My Cafe');
+  const ov = h('div.ov', {}, h('div', {}, 'Want the full playlist?', h('span', { onclick: () => ov.classList.toggle('hide') }, '▼')), h('button', { onclick: () => toast('Spotify login (demo) — previews only') }, 'LOGIN TO SPOTIFY'));
+  const CH = [[57, 60, 64, 67], [53, 57, 60, 64], [55, 59, 62, 65], [52, 55, 59, 62]];
+  const chord = (k) => { if (!ensure()) return; const t = ac.currentTime; CH[(k + cur) % 4].forEach((n, j) => { [0, 4].forEach((det) => { const o = ac.createOscillator(), g = gn(ac, 0); o.type = j ? 'sine' : 'triangle'; o.frequency.value = 440 * 2 ** ((n - 69) / 12) * (1 + det / 1200); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.035, t + 0.04); g.gain.exponentialRampToValueAtTime(0.001, t + 1.9); o.connect(g).connect(master); o.start(t + j * 0.03); o.stop(t + 2); }); }); };
+  const setPlay = (p) => { playing = p; pb.classList.toggle('on', p); mark(); clearInterval(pT); clearInterval(chordT); titleEl.textContent = p ? TR[cur][0] : 'I Miss My Cafe';
+    if (p) { let k = 0; chord(k++); chordT = setInterval(() => chord(k++), 2000); pT = setInterval(() => { prog += 0.25; prBar.style.width = (prog / 30 * 100) + '%'; if (prog >= 30) { cur = (cur + 1) % TR.length; prog = 0; titleEl.textContent = TR[cur][0]; mark(); } }, 250); } };
+  const sp = h('div.mc-sp', {}, h('div.hd', {}, h('div.art', { html: `<svg viewBox="0 0 78 82"><rect width="78" height="82" fill="#e9d6c3"/><g fill="none" stroke="#222" stroke-width="1.2"><rect x="10" y="10" width="30" height="40"/><path d="M25 10v40M10 30h30"/><ellipse cx="52" cy="52" rx="20" ry="5"/><path d="M52 57v18M44 76h16"/><path d="M47 40h10l-1 8h-8z"/></g><text x="39" y="78" text-anchor="middle" style="font:700 5px sans-serif;fill:#222;letter-spacing:.1em">IMISSMYCAFE</text></svg>` }, pb),
+    h('div.mt', {}, titleEl, h('span.lg', { html: '<svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#fff"/><path d="M4 6q4.5-1.4 8.4.8M4.5 8.4q3.6-1 6.9.6M5 10.6q2.8-.7 5.4.5" fill="none" stroke="#121212" stroke-width="1.3" stroke-linecap="round"/></svg>' }),
+      h('div.vr', { html: '<svg width="11" height="11" viewBox="0 0 16 16"><path d="M2 6h3l4-3v10L5 10H2z" fill="#fff"/></svg>' }, h('i', {}, h('u'))), h('div.ct', {}, h('button', { onclick: () => { cur = (cur + TR.length - 1) % TR.length; prog = 0; if (playing) setPlay(true); mark(); }, html: '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 0h1.6v10H1zM10 0v10L3 5z" fill="#fff"/></svg>' }), h('span.bar', {}, prBar),
+        h('button', { onclick: () => { cur = (cur + 1) % TR.length; prog = 0; if (playing) setPlay(true); mark(); }, html: '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M7.4 0H9v10H7.4zM0 0v10l7-5z" fill="#fff"/></svg>' })))), h('ol', {}, li), ov);
+  // ---------- top-right icon buttons ----------
+  const IC = { info: '<svg viewBox="0 0 22 22"><circle cx="11" cy="6" r="1.8" fill="#fff"/><path d="M8.5 9.5h3.4v7.5h1.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    sun: `<svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="4" fill="none" stroke="#fff" stroke-width="1.6"/>${Array.from({ length: 8 }, (_, i) => { const a = i / 8 * 6.28; return `<path d="M${11 + Math.cos(a) * 6.3} ${11 + Math.sin(a) * 6.3}L${11 + Math.cos(a) * 8.6} ${11 + Math.sin(a) * 8.6}" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>`; }).join('')}</svg>`,
+    clock: '<svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="7.4" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M11 6.6V11l3 2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    list: '<svg viewBox="0 0 22 22"><rect x="4.5" y="4.5" width="13" height="13" rx="1.5" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M7.5 9h2M11.5 9h3M7.5 12h2M11.5 12h3M7.5 15h2M11.5 15h3" stroke="#fff" stroke-width="1.4"/></svg>',
+    pump: '<svg viewBox="0 0 22 22"><path d="M11 6.5c-6 0-7.5 3-7.5 6s2 5 7.5 5 7.5-2 7.5-5-1.5-6-7.5-6z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M11 6.5c-2.2 0-3 4-3 5.5s.6 5.5 3 5.5 3-4 3-5.5-.8-5.5-3-5.5zM11 6.5V4.2q1-1 2.2-.6" fill="none" stroke="#fff" stroke-width="1.4"/></svg>' };
+  const pop = h('div.mc-pop'); const showPop = (kind) => { if (pop.dataset.k === kind && pop.classList.contains('on')) { pop.classList.remove('on'); return; } pop.dataset.k = kind; pop.replaceChildren(...POPS[kind]()); pop.classList.add('on'); };
+  const PRESET = { 'Morning rush': [1, 1, 1, 1, 1, 0, 1, 0], 'Rainy study': [0, 0, 1, 1, 0, 1, 0, 0], 'Cozy evening': [1, 0, 1, 0, 0, 1, 0, 1], 'Stop all': [0, 0, 0, 0, 0, 0, 0, 0] };
+  const preset = (name) => { PRESET[name].forEach((v, i) => { if (!!v !== SND[i].on) toggle(i, !!v); }); toast(`Mix: ${name}`); };
+  const POPS = { info: () => [h('h3', {}, 'I Miss My Cafe'), h('p', {}, 'Mix the sounds of your favourite coffee shop. Press ▶ next to a sound to fade it in, drag the slider to set its level, and tick “show pan controls” to place it left or right.'), h('p', { style: { opacity: 0.7, fontSize: '12.5px' } }, 'This demo synthesizes every sound live with Web Audio; the illustration is a hand-coded SVG stand-in.')],
+    list: () => [h('h3', {}, 'Mixes'), ...Object.keys(PRESET).map((k) => h('button', { onclick: () => { preset(k); pop.classList.remove('on'); } }, k))] };
+  let night = false, spooky = true, timerM = 0, timerT = 0;
+  const TIMES = [0, 15, 30, 60];
+  const badge = h('span.bd', { style: { display: 'none' } });
+  const bClock = h('button', { title: 'Sleep timer', html: IC.clock, onclick: () => setTimer(TIMES[(TIMES.indexOf(timerM) + 1) % TIMES.length]) });
+  const setTimer = (m) => { timerM = m; clearTimeout(timerT); bClock.append(badge); badge.style.display = m ? '' : 'none'; badge.textContent = m; bClock.classList.toggle('on', !!m); if (m) { timerT = setTimeout(() => { preset('Stop all'); setPlay(false); setTimer(0); }, m * 60000); toast(`Sounds stop in ${m} min`); } };
+  const bNight = h('button', { title: 'Lights', html: IC.sun, onclick: () => { night = !night; el.classList.toggle('night', night); bNight.classList.toggle('on', night); } });
+  const bPump = h('button', { title: 'Seasonal decorations', html: IC.pump, onclick: () => { spooky = !spooky; el.classList.toggle('spooky', spooky); bPump.classList.toggle('on', !spooky); } });
+  const bInfo = h('button', { title: 'About', html: IC.info, onclick: () => showPop('info') }, h('span.dot'));
+  const bList = h('button', { title: 'Mixes', html: IC.list, onclick: () => showPop('list') });
+  const icons = h('div.mc-ic', {}, bInfo, bNight, bClock, bList, bPump);
+  const credit = (t) => h('a', { onclick: () => toast(t) }, t);
+  el.append(h('h1', {}, 'I Miss', h('br'), 'My Cafe'), h('div.mc-tag', {}, 'Take a seat and stay awhile.'), sp, art, opts, h('div.mc-rows', {}, rows), icons, pop,
+    h('button.mc-buy', { onclick: () => toast('Thanks! ☕ (tip jar is a demo)'), html: '<svg viewBox="0 0 26 22"><rect x="1" y="2" width="19" height="16" rx="3" fill="#fff"/><path d="M20 6h2.5a2.5 2.5 0 0 1 0 6H20" fill="none" stroke="#fff" stroke-width="2"/><path d="M10.5 14.5s-5-3-5-6a2.4 2.4 0 0 1 5-1 2.4 2.4 0 0 1 5 1c0 3-5 6-5 6z" fill="#e8505b"/></svg>' }, 'Buy us a coffee?'),
+    h('div.mc-cr', {}, 'illustration by ', credit('sera takata'), ', code by ', credit('ifthencreate'), ', sound design by ', credit('evan cook'), '. inspired by ', credit('imissmybar'), ', ', credit('imisstheoffice'), ', and ', credit('coffitivity'), '.'));
+  el.addEventListener('click', (e) => { if (!pop.contains(e.target) && !icons.contains(e.target)) pop.classList.remove('on'); });
+  addEventListener('pointerdown', () => { if (SND.some((d) => d.on) && ac?.state === 'suspended') ac.resume(); }, { once: true });
+  // ---------- restore saved preferences ----------
+  try { const sv = JSON.parse(localStorage.getItem(KEY) || 'null'); if (sv) { saveCb.checked = true; panCb.checked = !!sv.pan; el.classList.toggle('pan', !!sv.pan); sv.rows?.forEach((r, i) => { if (!SND[i]) return; setVol(i, r.vol ?? DEF.vol); setPan(i, r.pan ?? 0); if (r.on) toggle(i, true); }); } } catch {}
+  // ---------- demo proof ----------
+  const reset = () => { SND.forEach((d, i) => { if (d.on) toggle(i, false); setVol(i, DEF.vol); setPan(i, DEF.pan); }); panCb.checked = false; el.classList.remove('pan'); saveCb.checked = false; try { localStorage.removeItem(KEY); } catch {}
+    setPlay(false); cur = 0; prog = 0; prBar.style.width = '0%'; mark(); setTimer(0); night = false; spooky = true; el.classList.remove('night'); el.classList.add('spooky'); bNight.classList.remove('on'); bPump.classList.remove('on'); pop.classList.remove('on'); ov.classList.remove('hide'); };
+  const fire = (inp, v) => { inp.value = v; inp.dispatchEvent(new Event('input', { bubbles: true })); };
+  window.__demoProof = async () => { const o = []; reset();
+    rows[5].querySelector('.lb').click(); rows[2].querySelector('.lb').click(); await sleep(500);
+    o.push(`toggle ▶ Rainy Day + Coffee Cups → on=[${SND.filter((d) => d.on).map((d) => d.n).join(', ')}], audio ${ac ? ac.state : 'unavailable'}`);
+    if (SND[5].g) o.push(`Rainy Day gain fading in → ${SND[5].g.gain.value.toFixed(3)} (target ${(DEF.vol ** 2).toFixed(3)})`);
+    o.push(`window rain fx=${art.querySelector('[data-fx="rain"]').classList.contains('on')}, cup steam fx=${art.querySelector('[data-fx="cupsteam"]').classList.contains('on')}`);
+    fire(SND[5].volEl, 0.3); o.push(`volume slider → Rainy Day vol ${SND[5].vol}`);
+    panCb.click(); o.push(`show pan controls → pan rows visible=${getComputedStyle(SND[0].panEl.parentNode).display !== 'none'}`);
+    fire(SND[2].panEl, -0.8); await sleep(250); o.push(`pan slider → Coffee Cups pan ${SND[2].pan}${SND[2].p?.pan ? ` (node ${SND[2].p.pan.value.toFixed(2)})` : ''}`);
+    saveCb.click(); let sv = null; try { sv = JSON.parse(localStorage.getItem(KEY)); } catch {} o.push(`save preferences → localStorage rows on=${sv ? sv.rows.filter((r) => r.on).length : 'n/a'}, pan=${sv?.pan}`);
+    bList.click(); pop.querySelector('button').click(); o.push(`mix preset "Morning rush" → ${SND.filter((d) => d.on).length}/8 sounds on`);
+    li[1].click(); await sleep(300); o.push(`playlist row 2 → playing "${titleEl.textContent}"`);
+    bPump.click(); o.push(`pumpkin → spooky decorations ${spooky ? 'on' : 'off'}`); bNight.click(); o.push(`lights → night=${night}`); bClock.click(); o.push(`sleep timer → ${timerM} min`);
+    reset(); await sleep(50); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored: all sounds off, vol ${DEF.vol}, pan 0, prefs cleared (${localStorage.getItem(KEY) === null}), playlist stopped`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['key-av-instrument'])(root, T); }

@@ -68,7 +68,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'ryanmulligan-skewed-bento-pen-strip-range-scrubber-unskew-theme-machine': '스큐 벤토 데모 스트립',
   'gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards': '키네틱 레터 조립 히어로',
   'zoomquilt-infinite-zoom-painting-layered-scale-loop-arrow-keys': '무한 줌 페인팅 루프',
-  'pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed': '1픽셀 달 스케일 태양계' };
+  'pixelspace-horizontal-scale-solar-map-km-counter-planet-jump-lightspeed': '1픽셀 달 스케일 태양계',
+  'imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card': '라인아트 카페 앰비언트 믹서',
+  'sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects': '컬러 블록 케이스 스터디 스크롤',
+  'lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield': '시네마틱 포토 스크롤 하드웨어 스토리' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

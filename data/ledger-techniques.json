@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card",
+  "slug": "imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card",
+  "name": "Line-Art Cafe Ambient Sound Mixer with Toggle Rows, Volume/Pan Sliders and Playlist Card (I Miss My Cafe)",
+  "date": "2026-10-11",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://imissmycafe.com/",
+  "domain": "imissmycafe.com",
+  "product": "I Miss My Cafe — ambient cafe sound mixer web toy",
+  "checkpoints": [
+   "Peach page; chunky black serif title I Miss My Cafe + tagline top-left; round social icons top-right",
+   "Center: black-ink line illustration of a cafe corner (window, table, chair, Today's Brew sign) as SVG",
+   "Right column: 8 sound rows (Barista, Preparing Drinks, Coffee Cups, Other Customers, Machinery, Rainy Day, Sunny Day, Fireplace) each with play triangle + thin volume slider",
+   "show pan controls checkbox reveals L/R pan sliders per row; save preferences checkbox persists to localStorage",
+   "Left: dark Spotify-style playlist card (track rows, 0:30 previews, green LOGIN TO SPOTIFY pill)",
+   "Toggled rows fade-in looping WebAudio with gain/pan; illustrated element subtly animates when its sound is on (rebuild enhancement)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects",
+  "slug": "sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects",
+  "name": "Color-Block Case-Study Scroll with Heavy Serif Headlines and Floating 3D Product Objects (Sennep)",
+  "date": "2026-10-11",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.sennep.com/",
+  "domain": "sennep.com",
+  "product": "Sennep — London digital product studio",
+  "checkpoints": [
+   "Mustard-yellow hero with heavy display serif (Digital experiences lovingly made with a human touch) and an illustrated pointing finger at bottom-right",
+   "Tiny stacked logo top-left, hamburger top-right, both staying fixed over every section",
+   "Sage-green WHAT WE DO intro paragraph in the same serif",
+   "Full-viewport case-study panels, each its own flat color (green Steasy, deep purple Enzyme, electric blue Lumi) with big serif title + VIEW CASE STUDY caps link",
+   "Floating 3D product object per panel (lunch box, phone, pattern tiles) sliding/rotating in as the panel enters",
+   "Background color crossfades between panels on scroll; FEATURED STORIES list below"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield",
+  "slug": "lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield",
+  "name": "Cinematic Photo-Scroll Story with Floating Quote Hero, Device Tool-Menu Mock and Starfield Manifesto (Light Phone)",
+  "date": "2026-10-11",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.thelightphone.com/",
+  "domain": "thelightphone.com",
+  "product": "The Light Phone — minimalist phone hardware",
+  "checkpoints": [
+   "Full-bleed sky/cloud photo hero with small italic light wordmark, menu + white shop pill, quotes floating in thin white type",
+   "Scroll swaps full-bleed photos (painting hands, park stairs) with short white body copy layered on top",
+   "Centered outlined device-screen mock listing tools (Phone, Alarm, Directions, Music, Notes) with a dot scroll indicator; the list scrolls inside it",
+   "Black starfield section with manifesto text and a device peeking up from the bottom",
+   "Black cookie bar: The internet can be sketchy + outlined acknowledged button",
+   "Respect reduced motion: no parallax, instant swaps"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards",
   "slug": "gsap-kinetic-letter-assembly-hero-shape-confetti-scroll-tool-cards",
   "name": "Kinetic Letter-Assembly Hero with Shape Confetti, Inline-Shape Scroll Copy and Colored Tool Cards (GSAP)",
