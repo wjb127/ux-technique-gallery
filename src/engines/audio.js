@@ -2757,7 +2757,7 @@ V['imissmycafe-line-art-cafe-ambient-mixer-sound-rows-volume-pan-playlist-card']
 .mc-sp .ov.hide{transform:translateY(64px)}.mc-sp .ov{transition:transform .3s}
 .mc-sp .ov div{font:600 14.5px ${SN};display:flex;gap:28px;align-items:center}.mc-sp .ov div span{cursor:pointer;font-size:11px}
 .mc-sp .ov button{width:206px;height:38px;border-radius:20px;border:0;background:#1db954;color:#fff;font:700 11.5px ${SN};letter-spacing:.06em;cursor:pointer}
-.mc-buy{position:absolute;left:20px;bottom:18px;height:36px;padding:0 16px 0 10px;border-radius:18px;background:var(--mc-ol,#6b705c);color:#fff;border:0;display:flex;align-items:center;gap:9px;font:400 16px ${SR};cursor:pointer}
+.mc .mc-buy{position:absolute;left:20px;bottom:18px;height:36px;padding:0 16px 0 10px;border-radius:18px;background:var(--mc-ol,#6b705c);color:#fff;border:0;display:flex;align-items:center;gap:9px;font:400 16px ${SR};cursor:pointer}
 .mc-buy svg{width:26px;height:22px}
 .mc-cr{position:absolute;right:12px;bottom:9px;font:400 12.5px ${SR}}.mc-cr a{color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 .mc-pop{position:absolute;right:22px;top:62px;width:250px;background:var(--mc-bg,#ffe8d6);border:1.5px solid currentColor;border-radius:8px;padding:14px 16px;font:400 14px/1.45 ${SR};z-index:6;display:none;box-shadow:4px 4px 0 currentColor}

@@ -630,8 +630,8 @@ V['lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield'] = (
 .lp-hd>*{pointer-events:auto}
 .lp-wm{font:300 italic 29px ${SN};letter-spacing:.01em;cursor:pointer;transform:skewX(-10deg);display:inline-block}
 .lp-dev{position:absolute;left:50%;transform:translateX(-50%);font:400 12.5px ${SN};cursor:pointer;letter-spacing:.01em}.lp-dev:hover{text-decoration:underline}
-.lp-hd .sp{flex:1}.lp-menu{font:500 17px ${SN};margin-right:24px;cursor:pointer;background:none;border:0;color:inherit;padding:0}
-.lp-shop{height:48px;width:93px;background:#fff;color:#111;border:0;font:400 17px ${SN};cursor:pointer;transition:background .2s}.lp-shop:hover{background:#ddd}
+.lp-hd .sp{flex:1}.lp .lp-menu{font:500 17px ${SN};margin-right:24px;cursor:pointer;background:none;border:0;color:inherit;padding:0}
+.lp .lp-shop{height:48px;width:93px;background:#fff;color:#111;border:0;font:400 17px ${SN};cursor:pointer;transition:background .2s}.lp-shop:hover{background:#ddd}
 .lp.lt .lp-shop{background:#111;color:#fff}
 .lp-sec{position:relative;min-height:${Hh}px}
 .lp-body{position:absolute;left:32px;max-width:860px;font:400 31px/1.38 ${SN};letter-spacing:.003em;text-shadow:0 1px 18px #0003}
@@ -810,7 +810,7 @@ V['lightphone-cinematic-photo-scroll-quote-hero-device-tool-menu-starfield'] = (
     go(os.offsetTop); items[2].click(); await sleep(260); o.push(`LightOS step → "${FEATS[fi][0]}" screen=${scr.dataset.k}`);
     setNav(true); o.push(`menu overlay open=${nav.classList.contains('on')}`); setNav(false);
     ckB.click(); o.push(`cookie bar acknowledged → hidden=${ck.classList.contains('off')}`);
-    ck.classList.remove('off'); manual = 0; go(0); setFeat(0); o.push(`restored: top, sky photo, cookie bar back`); return o.join('; '); };
+    ck.classList.remove('off'); manual = 0; go(0); setFeat(0); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored: top, sky photo, cookie bar back`); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['dither-param-studio'])(root, T); }

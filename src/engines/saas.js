@@ -7465,7 +7465,7 @@ V['sennep-color-block-case-study-scroll-heavy-serif-floating-3d-objects'] = (roo
     go(CASES[1].el.offsetTop); o.push(`Enzyme dash pattern breathing=${dash.classList.contains('on')} (${dash.children.length} bars)`);
     burg.click(); o.push(`menu open=${menu.classList.contains('on')}`); burg.click(); o.push(`menu closed=${!menu.classList.contains('on')}`);
     o.push(`logo/burger fixed over scroll, ui colour=${getComputedStyle(el).getPropertyValue('--sn-ui').trim()}`);
-    go(0); poke(true); o.push(`restored top: bg=${bgNow}`); return o.join('; '); };
+    go(0); poke(true); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored top: bg=${bgNow}`); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
