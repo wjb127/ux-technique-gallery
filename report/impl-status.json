@@ -3328,5 +3328,32 @@
   "proof": "role Creative Engineer→Conference Speaker (dom=\"Conference Speaker\"); wordmark marquee moving=true; box pop=true icons=7; sticker drag left 1074→1194; hover \"small studio’s\" → tile Studio Sallali hov=true preview=true; scrolled to blogs: header stuck=true cards=6; card tilt=true; back to top stuck=false; restored role=Creative Engineer",
   "demoNodes": 408,
   "errors": []
+ },
+ "dungeonscrawl-preset-rail-dual-sidebar-floating-draw-toolbar-hatching-map-inspector": {
+  "url": "http://localhost:4173/t/dungeonscrawl-preset-rail-dual-sidebar-floating-draw-toolbar-hatching-map-inspector/",
+  "ok": true,
+  "at": "2026-10-12T08:09:22.644Z",
+  "http": 200,
+  "proof": "default preset=Classic Hatching bg=#efeae2 cells=520; preset→Old School Module 1 bg=#4f93c4 layers[1]=\"Old School Module 1\"; preset→Ancient Map bg=#fdf4e3; preset→Rough Cavern roughness=3; rect drag (snap true, div 2) added 48 cells → 568; erase mode erased 16; walls width→9; toolbar active=Pan (Space); theme dark=true; restored Classic Hatching cells=520 tool=rect",
+  "demoNodes": 320,
+  "errors": []
+ },
+ "hookpad-roman-numeral-chord-palette-dual-staff-melody-chord-properties-transport": {
+  "url": "http://localhost:4173/t/hookpad-roman-numeral-chord-palette-dual-staff-melody-chord-properties-transport/",
+  "ok": true,
+  "at": "2026-10-12T08:09:22.660Z",
+  "http": 200,
+  "proof": "start modal visible=true options=Blank Project/Sparks/Templates/Open/Demo Tracks; Continue(Blank) → modal hidden=true, chords=0; typed 1,5,6,4 → I@0 V@4 vi@8 IV@12 cursor=16; clicked melody staff → G@0 E@1 C@2 A@5; Chord Properties: V → V⁶₅ (type 7, inv 1); key → G: chips G am bm C D em f♯°; play → playhead beat 2.75 visible=block; restored: start modal open, empty song, duration 4",
+  "demoNodes": 511,
+  "errors": []
+ },
+ "satus-darkroom-fluid-webgl-tracked-features-grid-transition-debug-overlay": {
+  "url": "http://localhost:4173/t/satus-darkroom-fluid-webgl-tracked-features-grid-transition-debug-overlay/",
+  "ok": true,
+  "at": "2026-10-12T08:09:22.655Z",
+  "http": 200,
+  "proof": "route=/features title=FEATURES cards=6 debug=/features:IDLE; → ABOUT mid-transition: pages=2 debug=/features:EXITING,/about:ENTERING; after: title=ABOUT nav.on=About debug=/about:IDLE blob→(0.66,0.55); wait-mode → / debug=/:IDLE; restored route=/features cards=6 mode=stack debug=/features:IDLE",
+  "demoNodes": 64,
+  "errors": []
  }
 }

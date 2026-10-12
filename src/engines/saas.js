@@ -7937,4 +7937,109 @@ ${fig(650, 260, 1.9, { skin: '#c48a68', top: '#5a3a2a', curls: true, legs: '#e8d
     root.scrollTop = 0; render(); await sleep(60); o.push(`restored p=${st.p} hero=${st.hO} pill=${hd.classList.contains('pill')}`); return o.join('; '); };
 };
 
+V['satus-darkroom-fluid-webgl-tracked-features-grid-transition-debug-overlay'] = (root, T) => {
+  import('@fontsource-variable/geist-mono');
+  theme(root, T, { bg: '#000', fg: '#f0f0f0', ac: '#e0161f', dark: true });
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MONO = "'Geist Mono Variable','JetBrains Mono Variable',ui-monospace,monospace";
+  css(`.su{position:absolute;inset:0;background:#000;color:#f2f2f2;font:400 12px/1.6 ${MONO};overflow:hidden}
+.su *{box-sizing:border-box}.su button,.su a{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0;text-decoration:none}
+.su-fl{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);filter:blur(13px) saturate(1.1);transform:translateZ(0)}
+.su-vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 45%,transparent 50%,#000c 100%);pointer-events:none}
+.su-grain{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.su-nav{position:absolute;left:0;right:0;top:0;height:46px;display:flex;align-items:center;padding:0 16px;gap:30px;z-index:5;font:400 10px/1 ${MONO};letter-spacing:.18em;text-transform:uppercase}
+.su-nav a{color:#8d8d8d;position:relative;padding:6px 0;transition:color .25s}.su-nav a:hover{color:#fff}.su-nav a.on{color:#fff}
+.su-nav a::after{content:'';position:absolute;left:0;right:.18em;bottom:1px;height:1px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.7,0,.2,1)}.su-nav a.on::after{transform:scaleX(1)}
+.su-nav .sp{flex:1}
+.su-pages{position:absolute;inset:0;z-index:2}
+.su-pg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0 60px}
+.su-h{font:400 clamp(44px,6.6vw,104px)/1 ${MONO};letter-spacing:.45em;text-indent:.45em;margin:0 0 6.5vh;color:#fff;white-space:nowrap;display:flex}
+.su-h span{display:inline-block;will-change:transform,opacity}
+.su-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:min(1100px,82vw)}
+.su-card{border:1px solid #ffffff26;background:#0000002e;padding:30px 32px 30px;min-height:150px;transition:border-color .3s,background .3s;backdrop-filter:blur(2px)}
+.su-card:hover{border-color:#ffffff66;background:#ffffff08}.su-card:hover h3{color:#fff}
+.su-card h3{margin:0 0 18px;font:500 12.5px/1 ${MONO};letter-spacing:.16em;color:#ededed}
+.su-card p{margin:0;font:400 11px/1.75 ${MONO};color:#8e8e8e;max-width:290px}
+.su-about{width:min(1100px,82vw);display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.su-about .su-card p{max-width:none;font-size:12px;color:#a2a2a2}
+.su-stack{list-style:none;margin:0;padding:0;font-size:11px;color:#9a9a9a}.su-stack li{display:flex;justify-content:space-between;border-bottom:1px solid #ffffff14;padding:7px 0}.su-stack li b{font-weight:400;color:#e6e6e6;letter-spacing:.08em}
+.su-cta{margin-top:5vh;border:1px solid #ffffff33;padding:12px 22px;letter-spacing:.2em;font-size:10.5px;text-transform:uppercase;color:#ddd;transition:border-color .3s,background .3s}.su-cta:hover{border-color:#fff;background:#ffffff0d}
+.su-sub{color:#9a9a9a;letter-spacing:.2em;font-size:11px;text-transform:uppercase;margin-top:-3vh}
+.su-dbg{position:absolute;right:16px;bottom:16px;width:200px;z-index:6;background:#0b0b0be6;border:1px solid #ffffff1c;border-radius:6px;padding:9px 10px 10px;font:400 9.5px/1.5 ${MONO};color:#cfcfcf;box-shadow:0 10px 30px #0008}
+.su-dbg .hd{display:flex;align-items:center;gap:6px;letter-spacing:.14em;color:#bdbdbd;margin-bottom:9px}.su-dbg .hd i{width:5px;height:5px;border-radius:50%;background:#ff3b30;box-shadow:0 0 6px #ff3b30}
+.su-dbg .hd.busy i{background:#ffb020;box-shadow:0 0 6px #ffb020}
+.su-dbg .chip{margin-left:auto;background:#262626;border-radius:3px;padding:1px 5px;font-size:8.5px;letter-spacing:.04em;color:#aaa;cursor:pointer}
+.su-dbg .rt{color:#a9a9a9;margin-bottom:8px}.su-dbg .rt b{font-weight:400;color:#fff}
+.su-dbg hr{border:0;border-top:1px solid #ffffff14;margin:0 0 7px}
+.su-dbg .pl{color:#9a9a9a;margin-bottom:4px}
+.su-dbg .row{display:flex;justify-content:space-between;align-items:center;border-left:2px solid #d9d9d9;padding:1px 0 1px 6px;margin:3px 0;color:#f0f0f0;transition:opacity .2s}
+.su-dbg .row em{font-style:normal;font-size:8.5px;letter-spacing:.08em;color:#bdbdbd}.su-dbg .row.ex{border-color:#ffb020}.su-dbg .row.ex em{color:#ffb020}.su-dbg .row.en{border-color:#36d07a}.su-dbg .row.en em{color:#36d07a}
+.su-foot{position:absolute;left:16px;bottom:16px;z-index:5;font:400 9px/1 ${MONO};letter-spacing:.2em;color:#7a7a7a}
+.su-grid{position:absolute;inset:0 16px;z-index:4;display:none;grid-template-columns:repeat(12,1fr);gap:16px;pointer-events:none}.su-grid.on{display:grid}.su-grid i{background:#ff00001a;border-left:1px solid #ff000040;border-right:1px solid #ff000040}
+@media (max-width:760px){.su-pages{overflow-y:auto}.su-pg{position:absolute;min-height:100%;height:auto;justify-content:flex-start;padding:96px 0 200px}.su-h{font-size:9.5vw;letter-spacing:.16em;text-indent:.16em;margin-bottom:36px}
+.su-cards,.su-about{grid-template-columns:1fr;width:calc(100% - 32px)}.su-card{padding:20px 20px;min-height:0}.su-card p{max-width:none}.su-nav{gap:18px}.su-dbg{width:170px;right:10px;bottom:10px}.su-foot{display:none}}
+${RM ? '.su *{transition:none!important;animation:none!important}' : ''}`);
+  const el = h('div.su'); root.append(el);
+  // ---------- fluid smoke field (low-res canvas, CSS-blurred) ----------
+  const fl = h('canvas.su-fl'); const FW = 150, FH = 96; fl.width = FW; fl.height = FH; const fg = fl.getContext('2d'); const img = fg.createImageData(FW, FH);
+  const P = new Uint8Array(512); { const R = rng(23); const p = [...Array(256).keys()]; for (let i = 255; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [p[i], p[j]] = [p[j], p[i]]; } for (let i = 0; i < 512; i++) P[i] = p[i & 255]; }
+  const vn = (x, y) => { const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi; const a = P[(P[xi & 255] + yi) & 511] / 255, b = P[(P[(xi + 1) & 255] + yi) & 511] / 255, c = P[(P[xi & 255] + yi + 1) & 511] / 255, d = P[(P[(xi + 1) & 255] + yi + 1) & 511] / 255; const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf); return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v; };
+  const fbm = (x, y) => vn(x, y) * 0.55 + vn(x * 2.03 + 5.2, y * 2.03 + 1.3) * 0.3 + vn(x * 4.1 + 9.7, y * 4.1 + 3.1) * 0.15;
+  const ROUTES = { '/': { cx: 0.5, cy: 0.5, amp: 1.06, hue: 0 }, '/features': { cx: 0.42, cy: 0.42, amp: 1, hue: 0 }, '/about': { cx: 0.66, cy: 0.55, amp: 1.12, hue: 1 } };
+  const F = { ...ROUTES['/features'] }; let FT = { ...F };
+  const splats = []; let tm = 7.3;
+  function fluid(dt) { tm += dt * 0.00009; for (const k of ['cx', 'cy', 'amp', 'hue']) F[k] += (FT[k] - F[k]) * (RM ? 1 : Math.min(1, dt * 0.004));
+    const d = img.data; for (let j = 0; j < FH; j++) for (let i = 0; i < FW; i++) { const x = i / FW, y = j / FH;
+      const wx = fbm(x * 4 + tm, y * 4 - tm * 0.7), wy = fbm(x * 4 - tm * 0.5 + 4, y * 4 + tm + 2);
+      let n = fbm(x * 5.2 + wx * 2.2 + tm * 0.6, y * 4.2 + wy * 2.2 - tm * 0.4);
+      const dc = Math.hypot((x - F.cx) * 1.4, y - F.cy); n *= F.amp * (1.08 - dc * 0.5);
+      for (const s2 of splats) { const dd = ((x - s2.x) ** 2 * 2.5 + (y - s2.y) ** 2) / (s2.r * s2.r); if (dd < 4) n += Math.exp(-dd) * s2.a; }
+      const v = clamp((n - 0.3) / 0.55, 0, 1); const v2 = v * v; const o = (j * FW + i) * 4;
+      d[o] = 5 + v2 * (128 + F.hue * 18) + v * 22; d[o + 1] = v2 * v2 * (14 + F.hue * 10); d[o + 2] = v2 * (16 + F.hue * 8) + 3; d[o + 3] = 255; }
+    fg.putImageData(img, 0, 0); for (let i = splats.length - 1; i >= 0; i--) { splats[i].a *= 0.965; if (splats[i].a < 0.02) splats.splice(i, 1); } }
+  el.addEventListener('pointermove', (e) => { if (RM) return; const r = fl.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; const l = splats[splats.length - 1]; if (l && Math.hypot(l.x - x, l.y - y) < 0.02) return; splats.push({ x, y, r: 0.07, a: 0.35 }); if (splats.length > 40) splats.shift(); });
+  let last = performance.now(), acc = 0; const loop = (now) => { if (!root.isConnected) return; const dt = Math.min(64, now - last); last = now; acc += dt; if (acc > 33) { fluid(acc); acc = 0; } requestAnimationFrame(loop); };
+  fluid(16); if (!RM) requestAnimationFrame(loop);
+  // ---------- nav / pages / debug ----------
+  const links = {}; const go = (p) => (e) => { e?.preventDefault(); navigate(p); };
+  const nav = h('nav.su-nav', {}, (links['/'] = h('a', { href: '#/', onclick: go('/') }, 'Satus')), (links['/features'] = h('a', { href: '#/features', onclick: go('/features') }, 'Features')), (links['/about'] = h('a', { href: '#/about', onclick: go('/about') }, 'About')), h('span.sp'), h('a', { href: 'https://github.com/darkroomengineering/satus', target: '_blank', rel: 'noopener' }, 'GitHub'));
+  const pages = h('div.su-pages'); const dbg = h('div.su-dbg'); const gridOv = h('div.su-grid', {}, Array.from({ length: 12 }, () => h('i')));
+  el.append(fl, h('div.su-vig'), h('div.su-grain'), gridOv, pages, nav, h('div.su-foot', {}, 'DARKROOM.ENGINEERING'), dbg);
+  const FEAT = [['Page Transitions', 'Overlap mode with anime.js choreography. Exit, enter, crossfade — all orchestrated.'], ['WebGL Canvas', 'Persistent global canvas with tunnels. Flowmap and fluid sim built in.'], ['Scroll Animations', 'Fold sections, progress text, scroll triggers. All hooked to Lenis.'], ['Design System', 'Themes, responsive tokens, generated CSS custom properties.'], ['Performance', 'React Compiler. Tempus RAF. Lazy loading. Code splitting. Zero overhead.'], ['Developer Tools', 'Orchestra debug panel. Theatre.js integration. Grid overlay. Stats.']];
+  const title = (t) => h('h1.su-h', { 'aria-label': t }, [...t].map((c) => h('span', {}, c)));
+  function build(p) { const pg = h('section.su-pg', { 'data-route': p });
+    if (p === '/features') pg.append(title('FEATURES'), h('div.su-cards', {}, FEAT.map(([t, d]) => h('article.su-card', {}, h('h3', {}, t.toUpperCase()), h('p', {}, d)))));
+    else if (p === '/about') pg.append(title('ABOUT'), h('div.su-about', {}, h('article.su-card', {}, h('h3', {}, 'SATUS'), h('p', {}, 'Satus (Latin: “beginning”) is the React starter darkroom.engineering uses to kick off every project. Opinionated where it matters, out of the way everywhere else — so day one is spent on craft, not configuration.'), h('p', { style: { marginTop: '14px' } }, 'Routes animate in overlap: the outgoing page exits while the next one enters on the same frame, and the global WebGL canvas survives every navigation.')),
+      h('article.su-card', {}, h('h3', {}, 'STACK'), h('ul.su-stack', {}, [['Next.js', 'App Router'], ['React', '19 + Compiler'], ['Lenis', 'smooth scroll'], ['Tempus', 'single RAF'], ['anime.js', 'transitions'], ['R3F', 'global canvas'], ['Theatre.js', 'studio']].map(([a, b]) => h('li', {}, h('b', {}, a), b))))));
+    else pg.append(title('SATUS'), h('div.su-sub', {}, 'a react starter by darkroom.engineering'), h('button.su-cta', { onclick: go('/features') }, 'Explore features →'));
+    return pg; }
+  const D = { from: '/features', to: '/features', mode: 'stack', stack: [['/features', 'IDLE']] };
+  function drawDbg() { const busy = D.stack.length > 1; dbg.replaceChildren(h('div.hd' + (busy ? '.busy' : ''), {}, h('i'), 'TRANSITION', h('span.chip', { title: 'Toggle transition mode', onclick: () => { D.mode = D.mode === 'stack' ? 'wait' : 'stack'; drawDbg(); } }, D.mode)),
+      h('div.rt', {}, D.from, ' → ', h('b', {}, D.to)), h('hr'), h('div.pl', {}, `pages (${D.stack.length})`), ...D.stack.map(([p, st]) => h('div.row' + (st === 'EXITING' ? '.ex' : st === 'ENTERING' ? '.en' : ''), {}, p, h('em', {}, st)))); dbg.dataset.state = D.stack.map((x) => x.join(':')).join(','); }
+  let cur = '/features', curPg = build(cur), busy = null; pages.append(curPg);
+  const EASE_OUT = 'cubic-bezier(.16,1,.3,1)', EASE_IN = 'cubic-bezier(.7,0,.84,0)';
+  const anim = (node, kf, o) => (RM ? null : node.animate(kf, { fill: 'both', ...o }));
+  async function exit(pg) { if (RM) return; const spans = [...pg.querySelectorAll('.su-h span')], rest = [...pg.querySelectorAll('.su-card,.su-sub,.su-cta')];
+    const a = [...spans.map((s2, i) => anim(s2, [{ opacity: 1, transform: 'none', filter: 'blur(0)' }, { opacity: 0, transform: 'translateY(-28px)', filter: 'blur(6px)' }], { duration: 420, delay: i * 28, easing: EASE_IN })), ...rest.map((c, i) => anim(c, [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-14px)' }], { duration: 380, delay: i * 30, easing: EASE_IN }))];
+    await Promise.all(a.map((x) => x.finished.catch(() => {}))); }
+  async function enter(pg) { if (RM) return; const spans = [...pg.querySelectorAll('.su-h span')], rest = [...pg.querySelectorAll('.su-card,.su-sub,.su-cta')];
+    const a = [...spans.map((s2, i) => anim(s2, [{ opacity: 0, transform: 'translateY(36px)', filter: 'blur(8px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 700, delay: 180 + i * 45, easing: EASE_OUT })), ...rest.map((c, i) => anim(c, [{ opacity: 0, transform: 'translateY(22px)' }, { opacity: 1, transform: 'none' }], { duration: 650, delay: 320 + i * 60, easing: EASE_OUT }))];
+    await Promise.all(a.map((x) => x.finished.catch(() => {}))); pg.getAnimations({ subtree: true }).forEach((x) => x.cancel()); }
+  async function navigate(p) { if (p === cur || busy) return busy; Object.entries(links).forEach(([k, a]) => a.classList.toggle('on', k === p));
+    const from = cur, old = curPg, nxt = build(p); D.from = from; D.to = p; D.stack = [[from, 'EXITING'], [p, 'ENTERING']]; drawDbg(); FT = { ...ROUTES[p] };
+    busy = (async () => { if (D.mode === 'wait') { await exit(old); old.remove(); pages.append(nxt); await enter(nxt); }
+      else { if (!RM) nxt.querySelectorAll('.su-h span,.su-card,.su-sub,.su-cta').forEach((n) => (n.style.opacity = 0)); pages.append(nxt); const ex = exit(old); nxt.querySelectorAll('.su-h span,.su-card,.su-sub,.su-cta').forEach((n) => (n.style.opacity = '')); await Promise.all([ex, enter(nxt)]); old.remove(); }
+      if (RM) { old.remove(); await sleep(260); } // labels still step EXITING/ENTERING → IDLE
+      cur = p; curPg = nxt; D.stack = [[p, 'IDLE']]; drawDbg(); busy = null; })();
+    return busy; }
+  links['/features'].classList.add('on'); drawDbg();
+  const onKey = (e) => { if (!root.isConnected) return removeEventListener('keydown', onKey); if (e.key === 'g' && !e.metaKey && !e.ctrlKey) gridOv.classList.toggle('on'); };
+  addEventListener('keydown', onKey);
+  window.__demoProof = async () => { const o = []; o.push(`route=${cur} title=${curPg.querySelector('.su-h').getAttribute('aria-label')} cards=${curPg.querySelectorAll('.su-card').length} debug=${dbg.dataset.state}`);
+    const pr = navigate('/about'); await sleep(RM ? 40 : 200); o.push(`→ ABOUT mid-transition: pages=${pages.children.length} debug=${dbg.dataset.state}`); await pr;
+    o.push(`after: title=${curPg.querySelector('.su-h').getAttribute('aria-label')} nav.on=${nav.querySelector('a.on').textContent} debug=${dbg.dataset.state} blob→(${FT.cx},${FT.cy})`);
+    D.mode = 'wait'; await navigate('/'); o.push(`wait-mode → ${cur} debug=${dbg.dataset.state}`); D.mode = 'stack';
+    await navigate('/features'); for (let i = 0; i < 20; i++) fluid(33); o.push(`restored route=${cur} cards=${curPg.querySelectorAll('.su-card').length} mode=${D.mode} debug=${dbg.dataset.state}`); drawDbg(); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

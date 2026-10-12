@@ -1526,4 +1526,268 @@ ${RM ? '.kp *{animation:none!important;transition:none!important}' : ''}`);
     o.push(`restored: tool=${S.tool} color=${S.color} splash`); return o.join('; '); };
 };
 
+V['dungeonscrawl-preset-rail-dual-sidebar-floating-draw-toolbar-hatching-map-inspector'] = (root, T) => {
+  theme(root, T, { bg: '#efeae2', fg: '#222', ac: '#c94545', dark: false });
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.ds{position:absolute;inset:0;display:grid;grid-template-columns:38px 252px 1fr 252px;grid-template-rows:30px 1fr;background:#efeae2;color:#26272b;font:400 12px/1.3 'Inter Variable',system-ui,sans-serif;--pn:#fff;--ln:#e4e4e7;--tx:#26272b;--mut:#71717a;--chip:#f1f1f3;--on:#e4e4e7;user-select:none}
+.ds.dark{--pn:#232428;--ln:#34353a;--tx:#e8e8ea;--mut:#9a9aa3;--chip:#2c2d32;--on:#3a3b41}
+.ds *{box-sizing:border-box}.ds button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+.ds-top{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:0 10px;background:var(--pn);border-bottom:1px solid var(--ln);color:var(--tx);position:relative;z-index:3}
+.ds-top .mn{display:flex;gap:12px}.ds-top .mn button{padding:3px 2px;border-radius:4px}.ds-top .mn button:hover{background:var(--chip)}
+.ds-crumb{position:absolute;left:50%;transform:translateX(-50%);font-weight:500}
+.ds-sp{flex:1}.ds-pro{background:linear-gradient(90deg,#7b2ff7,#b14dff)!important;color:#fff!important;border-radius:6px!important;padding:4px 10px!important;font-weight:600!important}
+.ds-su{background:#1f6fe5!important;color:#fff!important;border-radius:6px!important;padding:5px 12px!important;font-weight:600!important}
+.ds-lt{display:flex;align-items:center;gap:5px;background:#1f6fe5!important;color:#fff!important;border-radius:99px!important;padding:2px 8px 2px 3px!important;font-size:10px!important}.ds-lt i{width:15px;height:15px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#1f6fe5;font-style:normal;font-size:9px}
+.ds-rail{grid-row:2;background:var(--pn);border-right:1px solid var(--ln);display:flex;flex-direction:column;align-items:center;padding-top:4px;gap:4px;color:var(--tx)}
+.ds-rail button{width:30px;height:30px;border-radius:6px;display:grid;place-items:center;position:relative}.ds-rail button.on::before{content:'';position:absolute;left:-4px;top:4px;bottom:4px;width:2px;background:var(--tx);border-radius:2px}
+.ds-rail button:hover{background:var(--chip)}.ds-rail svg{width:19px;height:19px}
+.ds-left{grid-row:2;background:var(--pn);border-right:1px solid var(--ln);display:flex;flex-direction:column;min-height:0;color:var(--tx)}
+.ds-sec{display:flex;align-items:center;gap:8px;padding:10px 12px;font-weight:600}.ds-sec .chev{display:inline-block;transition:transform .15s}.ds-sec.cl .chev{transform:rotate(-90deg)}
+.ds-presets{flex:1;overflow:auto;padding:0 10px 10px;display:grid;grid-template-columns:1fr 1fr;gap:10px 8px;align-content:start}
+.ds-pre{display:flex;flex-direction:column;gap:5px;text-align:left}.ds-pre canvas{width:100%;aspect-ratio:1;border-radius:9px;display:block;box-shadow:0 0 0 1px var(--ln)}
+.ds-pre.on canvas{box-shadow:0 0 0 2px #c94545}.ds-pre:hover canvas{box-shadow:0 0 0 2px #c9454588}.ds-pre span{font-size:11px;color:var(--tx)}
+.ds-tool{border-top:1px solid var(--ln);padding:6px 12px 12px;display:grid;gap:9px}
+.ds-tool .rw{display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:6px}.ds-tool .rw>label{color:var(--tx)}
+.ds-sg{display:flex;gap:2px}.ds-sg button{flex:1;padding:5px 0;border-radius:6px;color:var(--mut)}.ds-sg button.on{background:var(--on);color:var(--tx);font-weight:500}
+.ds-k{background:#2b2b2e;color:#fff;border-radius:4px;font:600 9px/1 'Inter Variable';padding:4px 5px;min-width:18px;text-align:center}
+.ds-num{width:42px;border:1px solid var(--ln);border-radius:6px;padding:4px 6px;font:inherit;background:var(--pn);color:var(--tx)}
+.ds input[type=range]{accent-color:#8a8a92;width:100%;height:14px}
+.ds-stage{grid-row:2;position:relative;overflow:hidden;min-width:0}
+.ds-cv{position:absolute;inset:0;touch-action:none;cursor:crosshair}.ds-cv.pan{cursor:grab}.ds-cv.sel{cursor:default}
+.ds-bar{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:var(--pn);border-radius:10px;box-shadow:0 2px 12px #0002,0 0 0 1px var(--ln);display:flex;gap:4px;padding:5px 6px;color:var(--tx);z-index:2}
+.ds-bar button{width:30px;height:30px;border-radius:7px;display:grid;place-items:center}.ds-bar button:hover{background:var(--chip)}.ds-bar svg{width:19px;height:19px}
+.ds-bar button.on{background:#c94545;color:#fff}.ds-bar .b{background:#2b2b2e;color:#fff;border-radius:5px;width:18px;height:18px;font:600 10px/18px 'Inter Variable';text-align:center}
+.ds-tip{position:absolute;left:50%;bottom:60px;transform:translateX(-50%);background:#2b2b2e;color:#fff;padding:4px 9px;border-radius:6px;font-size:11px;pointer-events:none;opacity:0;transition:opacity .15s;white-space:nowrap}.ds-tip.on{opacity:1}
+.ds-right{grid-row:2;background:var(--pn);border-left:1px solid var(--ln);overflow:auto;color:var(--tx)}
+.ds-hd{display:flex;align-items:center;justify-content:space-between;padding:9px 12px 6px;font-weight:600}
+.ds-li{display:flex;align-items:center;gap:8px;margin:1px 8px;padding:6px 8px;border-radius:6px;cursor:pointer}.ds-li.on{background:var(--on)}.ds-li:hover{background:var(--chip)}.ds-li svg{width:14px;height:14px;flex:none}
+.ds-add{display:flex;gap:14px;padding:6px 14px 10px;color:var(--mut);font-size:11px}
+.ds-ins{border-top:1px solid var(--ln)}.ds-grp{padding:8px 12px 12px;border-bottom:1px solid var(--ln);display:grid;gap:9px}.ds-grp .gh{display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.ds-f{display:grid;grid-template-columns:70px 1fr;align-items:center;gap:8px;padding-left:10px}.ds-f.top{padding-left:0}
+.ds-col{display:flex;align-items:center;gap:8px;border:1px solid var(--ln);border-radius:6px;padding:4px 6px;font:500 11px 'Inter Variable';position:relative;cursor:pointer}.ds-col i{width:20px;height:18px;border-radius:4px;box-shadow:inset 0 0 0 1px #0002}.ds-col input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.ds-selx{border:1px solid var(--ln);border-radius:6px;padding:5px 6px;font:inherit;background:var(--pn);color:var(--tx);width:100%}
+.ds-nr{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:center}
+.ds-badge{background:#7b2ff7;color:#fff;font:700 8px/1 'Inter Variable';border-radius:99px;padding:3px 5px;margin-left:6px}
+.ds-eye{opacity:.6;width:14px;height:14px}
+.ds-assets{flex:1;overflow:auto;padding:0 10px 10px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start}
+.ds-asset{border:1px solid var(--ln);border-radius:8px;aspect-ratio:1;display:grid;place-items:center;background:#f6f3ec}.ds-asset.on{box-shadow:0 0 0 2px #c94545}.ds-asset svg{width:60%;height:60%}
+.ds-fade{animation:dsF .28s ease-out}@keyframes dsF{from{opacity:.35}to{opacity:1}}
+@media (max-width:760px){.ds{grid-template-columns:38px 1fr}.ds-left{position:absolute;left:38px;top:30px;bottom:0;width:min(252px,calc(100% - 38px));z-index:4;box-shadow:8px 0 30px #0003;display:none}.ds.lo .ds-left{display:flex}
+.ds-right{display:none}.ds-stage{grid-column:2}.ds-top .mn button:not(:first-child),.ds-crumb,.ds-pro{display:none}.ds-bar{max-width:calc(100% - 16px);overflow-x:auto;scrollbar-width:none}.ds-bar button{flex:none}}
+${RM ? '.ds *{animation:none!important;transition:none!important}' : ''}`);
+  const I = (p, vb = 20) => `<svg viewBox="0 0 ${vb} ${vb}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+  const IC = {
+    map: I('<rect x="2.5" y="2.5" width="15" height="15" rx="1"/><path d="M2.5 7.5h15M2.5 12.5h15M7.5 2.5v15M12.5 2.5v15"/>'),
+    img: I('<rect x="2.5" y="3.5" width="15" height="13" rx="1.5"/><circle cx="7" cy="8" r="1.5"/><path d="M3 15l4.5-4.5 3 3 2.5-2.5 4.5 4.5"/>'),
+    tok: I('<circle cx="6.5" cy="13" r="4"/><path d="M10 2.5l4.5 7.5h-9z"/><rect x="11" y="10" width="6.5" height="6.5" rx="1"/>'),
+    lay: I('<rect x="2.5" y="2.5" width="15" height="15"/><path d="M2.5 7l4.5-4.5M2.5 12l9.5-9.5M2.5 17l15-15M7.5 17.5l10-10M12.5 17.5l5-5"/>'),
+    bulb: I('<path d="M7 13.5c-1.6-1.2-2.5-2.8-2.5-4.6a5.5 5.5 0 0111 0c0 1.8-.9 3.4-2.5 4.6v1.5H7z"/><path d="M8 17.5h4"/>'),
+    dice: I('<path d="M10 2l7 4v8l-7 4-7-4V6z"/><path d="M3 6l7 4 7-4M10 10v8"/><circle cx="7" cy="12" r=".6" fill="currentColor"/><circle cx="13.5" cy="8" r=".6" fill="currentColor"/>'),
+    dl: I('<path d="M10 3v10M6 9.5l4 4 4-4M3.5 15.5v2h13v-2"/>'),
+    r20: `<svg viewBox="0 0 20 20"><path d="M10 1.5l7.4 4.25v8.5L10 18.5l-7.4-4.25v-8.5z" fill="#c4278c"/><path d="M10 5l4.3 2.5v5L10 15l-4.3-2.5v-5z" fill="none" stroke="#fff" stroke-width="1.2"/></svg>`,
+    mon: I('<rect x="2.5" y="3.5" width="15" height="10" rx="1"/><path d="M7 17h6M10 13.5V17"/>'),
+    pan: I('<path d="M10 2.5v15M2.5 10h15M10 2.5l-2 2M10 2.5l2 2M10 17.5l-2-2M10 17.5l2-2M2.5 10l2-2M2.5 10l2 2M17.5 10l-2-2M17.5 10l-2 2"/>'),
+    imgsel: I('<rect x="3" y="3" width="10" height="10" rx="1"/><circle cx="6.5" cy="6.5" r="1"/><path d="M3.5 12l3-3 2 2"/><path d="M11 10l6.5 3-3 1-1 3z" fill="currentColor"/>'),
+    rect: I('<rect x="4" y="4" width="12" height="12"/><circle cx="4" cy="4" r="2" fill="currentColor"/><circle cx="16" cy="16" r="2" fill="currentColor"/>'),
+    poly: I('<path d="M10 2.5l6.5 3.75v7.5L10 17.5l-6.5-3.75v-7.5z"/><circle cx="15" cy="5" r="2.2" fill="var(--pn)"/>'),
+    path: I('<circle cx="6" cy="4.5" r="2"/><circle cx="14" cy="8" r="2"/><circle cx="6" cy="11.5" r="2"/><circle cx="12" cy="16" r="2"/><path d="M8 5l4 2M12 9l-4 2M8 12.5l2.5 2"/>'),
+    free: I('<path d="M3 5l10-1 4 6-5 1 1 6-10-1z"/>'),
+    line: I('<path d="M2.5 6l3.5 9 4-7 4 7 3.5-9"/><circle cx="2.5" cy="6" r="1.4" fill="currentColor"/><circle cx="10" cy="8" r="1.4" fill="currentColor"/><circle cx="17.5" cy="6" r="1.4" fill="currentColor"/>'),
+    erase: I('<path d="M3 4h4M10 4h3M16 4v3M16 10v3M16 16h-3M10 16H7M3 16v-3M3 10V7"/><path d="M13 13l4 1.5-2 .5-.5 2z" fill="currentColor"/>'),
+    door: I('<path d="M2 10h3M15 10h3"/><rect x="5" y="7.5" width="10" height="5" rx=".5"/>'),
+    stair: I('<path d="M3 5h14M5 9h10M7 13h6M9 17h2"/>'),
+    text: I('<path d="M5 4.5h10M10 4.5v11.5M8 16h4"/>'),
+    stamp: I('<path d="M8 10V7a2 2 0 114 0v3"/><path d="M4 13h12v2.5H4zM6 10h8l1 3H5zM4 17.5h12"/>'),
+    trash: I('<path d="M4 6h12M8 6V4h4v2M5.5 6l1 11h7l1-11"/>'),
+    eye: I('<path d="M2 10s3-5.5 8-5.5S18 10 18 10s-3 5.5-8 5.5S2 10 2 10z"/><circle cx="10" cy="10" r="2.5"/>'),
+    dung: I('<path d="M10 2.5l7 4v7l-7 4-7-4v-7z"/><path d="M3 6.5l7 4 7-4M10 10.5v7"/>'),
+    help: I('<circle cx="10" cy="10" r="7.5"/><path d="M7.8 7.8a2.3 2.3 0 114 1.6c-.9.6-1.8 1.1-1.8 2.3"/><circle cx="10" cy="14.4" r=".5" fill="currentColor"/>'),
+  };
+  // ---------- styles (presets) ----------
+  const PRESETS = [
+    ['Classic Hatching', { bg: '#efeae2', bgGrid: 'dots', bgGridCol: '#8d8a83', floor: '#ffffff', gridCol: '#9a9a9a', grid: 'Neat', wall: '#000000', wallW: 5, rough: 1, hatch: 'classic', hatchCol: '#111111', shadow: 0, kind: 'line' }],
+    ['Old School Module', { bg: '#4f93c4', bgGrid: 'dots', bgGridCol: '#86b6da', floor: '#ffffff', gridCol: '#8fbfe3', grid: 'Neat', wall: '#4f93c4', wallW: 1, rough: 0, hatch: 'none', hatchCol: '#000', shadow: 0, kind: 'line' }],
+    ['Ancient Map', { bg: '#fdf4e3', bgGrid: 'dots', bgGridCol: '#c9b9a5', floor: '#fdf4e3', gridCol: '#e2cfc0', grid: 'Neat', wall: '#5b2a2a', wallW: 5, rough: 0, hatch: 'none', hatchCol: '#000', shadow: 0, kind: 'double' }],
+    ['Gray Hatching', { bg: '#ececec', bgGrid: 'dots', bgGridCol: '#9b9b9b', floor: '#ffffff', gridCol: '#9a9a9a', grid: 'Neat', wall: '#111111', wallW: 5, rough: 1, hatch: 'classic', hatchCol: '#2a2a2a', shadow: 0, kind: 'line' }],
+    ['Interior Wall Fill', { bg: '#ececec', bgGrid: 'dots', bgGridCol: '#8b8b8b', floor: '#f4f4f4', gridCol: '#a4a4a4', grid: 'Neat', wall: '#111111', wallW: 6, rough: 0, hatch: 'none', hatchCol: '#000', shadow: 0, kind: 'fill' }],
+    ['Rough Cavern', { bg: '#ececec', bgGrid: 'dots', bgGridCol: '#9b9b9b', floor: '#ffffff', gridCol: '#a0a0a0', grid: 'Neat', wall: '#111111', wallW: 5, rough: 3, hatch: 'stone', hatchCol: '#7a7a7a', shadow: 0, kind: 'line' }],
+    ['Gray Fill', { bg: '#8e8e8e', bgGrid: 'lines', bgGridCol: '#a5a5a5', floor: '#ffffff', gridCol: '#9c9c9c', grid: 'Neat', wall: '#111111', wallW: 3, rough: 0, hatch: 'none', hatchCol: '#000', shadow: 0, kind: 'line' }],
+    ['Simple Shadow', { bg: '#ffffff', bgGrid: 'none', bgGridCol: '#bbb', floor: '#ffffff', gridCol: '#a8a8a8', grid: 'Neat', wall: '#3d3d3d', wallW: 7, rough: 0, hatch: 'none', hatchCol: '#000', shadow: 0.45, kind: 'line' }],
+  ];
+  const hs = (x, y, k = 0) => { let n = (x * 374761393 + y * 668265263 + k * 2147483647) | 0; n = (n ^ (n >>> 13)) * 1274126177 | 0; n ^= n >>> 16; return ((n >>> 0) % 10000) / 10000; };
+  const K = (x, y) => x + ',' + y;
+  // render a dungeon (cells are half-grid units) into a 2D context
+  function render(g, W, H, vw, cells, st, opts = {}) {
+    const u = vw.G / 2, ox = vw.ox, oy = vw.oy, sc = vw.G / 36;
+    g.save(); g.clearRect(0, 0, W, H); g.fillStyle = st.bg; g.fillRect(0, 0, W, H);
+    // background grid (dots / lines) in grid units
+    const x0 = Math.floor(-ox / vw.G) - 1, x1 = Math.ceil((W - ox) / vw.G) + 1, y0 = Math.floor(-oy / vw.G) - 1, y1 = Math.ceil((H - oy) / vw.G) + 1;
+    if (st.bgGrid === 'dots') { g.fillStyle = st.bgGridCol; for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) g.fillRect(ox + x * vw.G - 1, oy + y * vw.G - 1, 2, 2); }
+    else if (st.bgGrid === 'lines') { g.strokeStyle = st.bgGridCol; g.lineWidth = 1; g.beginPath(); for (let x = x0; x <= x1; x++) { g.moveTo(ox + x * vw.G + 0.5, 0); g.lineTo(ox + x * vw.G + 0.5, H); } for (let y = y0; y <= y1; y++) { g.moveTo(0, oy + y * vw.G + 0.5); g.lineTo(W, oy + y * vw.G + 0.5); } g.stroke(); }
+    const list = [...cells].map((k) => k.split(',').map(Number)); const has = (x, y) => cells.has(K(x, y));
+    g.globalAlpha = opts.opacity ?? 1;
+    // outside band: hatching or stone
+    if (st.hatch !== 'none' && list.length) {
+      const band = new Map(); const R = 2;
+      for (const [cx, cy] of list) for (let dy = -R; dy <= R; dy++) for (let dx = -R; dx <= R; dx++) { const x = cx + dx, y = cy + dy; if (has(x, y)) continue; const d = Math.max(Math.abs(dx), Math.abs(dy)); const k = K(x, y); if (!band.has(k) || band.get(k) > d) band.set(k, d); }
+      g.lineCap = 'round';
+      for (const [k, d] of band) { const [x, y] = k.split(',').map(Number); if (d === 2 && hs(x, y, 9) < 0.3) continue; const px = ox + x * u, py = oy + y * u;
+        if (st.hatch === 'classic') { g.strokeStyle = st.hatchCol; g.lineWidth = 1.1 * sc; const n = 2 + (hs(x, y, 1) < 0.4 ? 1 : 0);
+          for (let c = 0; c < n; c++) { const cxp = px + hs(x, y, 2 + c) * u, cyp = py + hs(x, y, 5 + c) * u, a = hs(x, y, 11 + c) * Math.PI, L = u * (0.6 + hs(x, y, 17 + c) * 0.4), m = 3 + Math.floor(hs(x, y, 23 + c) * 3), sp = u * 0.16;
+            const ca = Math.cos(a), sa = Math.sin(a); g.beginPath(); for (let i = 0; i < m; i++) { const o = (i - (m - 1) / 2) * sp; const bx = cxp - sa * o, by = cyp + ca * o; g.moveTo(bx - ca * L / 2, by - sa * L / 2); g.lineTo(bx + ca * L / 2, by + sa * L / 2); } g.stroke(); } }
+        else if (st.hatch === 'stone') { g.fillStyle = d === 1 ? '#6f6f6f' : '#8f8f8f'; g.strokeStyle = '#3c3c3c'; g.lineWidth = 0.8 * sc; g.beginPath(); const n = 6; for (let i = 0; i < n; i++) { const a = (i / n) * Math.PI * 2 + hs(x, y, 3); const r = u * (0.55 + hs(x, y, 30 + i) * 0.35); const X = px + u / 2 + Math.cos(a) * r, Y = py + u / 2 + Math.sin(a) * r; i ? g.lineTo(X, Y) : g.moveTo(X, Y); } g.closePath(); g.fill(); if (d === 1) g.stroke(); } }
+    }
+    // floor (+ optional shadow)
+    const floor = () => { g.beginPath(); for (const [x, y] of list) g.rect(ox + x * u - 0.3, oy + y * u - 0.3, u + 0.6, u + 0.6); };
+    if (st.shadow > 0 && list.length) { g.save(); g.shadowColor = `rgba(0,0,0,${st.shadow})`; g.shadowBlur = 14 * sc; g.shadowOffsetY = 3 * sc; g.fillStyle = st.floor; floor(); g.fill(); g.restore(); }
+    g.fillStyle = st.floor; floor(); g.fill();
+    // interior grid
+    if (st.grid !== 'None' && list.length) { g.save(); floor(); g.clip(); g.strokeStyle = st.gridCol; g.lineWidth = (st.gridW || 1) * Math.max(0.6, sc * 0.9); if (st.grid === 'Dotted') g.setLineDash([2 * sc, 3 * sc]);
+      const xs = list.map((c) => c[0]), ys = list.map((c) => c[1]); const gx0 = Math.floor(Math.min(...xs) / 2), gx1 = Math.ceil((Math.max(...xs) + 1) / 2), gy0 = Math.floor(Math.min(...ys) / 2), gy1 = Math.ceil((Math.max(...ys) + 1) / 2);
+      g.beginPath(); for (let x = gx0; x <= gx1; x++) { g.moveTo(ox + x * vw.G, oy + gy0 * vw.G); g.lineTo(ox + x * vw.G, oy + gy1 * vw.G); } for (let y = gy0; y <= gy1; y++) { g.moveTo(ox + gx0 * vw.G, oy + y * vw.G); g.lineTo(ox + gx1 * vw.G, oy + y * vw.G); } g.stroke(); g.restore(); }
+    // walls: boundary edges between filled and empty half-cells, jittered per vertex for roughness
+    const rough = (st.rough || 0) + (opts.extraRough || 0); const J = (vx, vy) => rough ? [(hs(vx, vy, 41) - 0.5) * rough * 1.6 * sc, (hs(vx, vy, 43) - 0.5) * rough * 1.6 * sc] : [0, 0];
+    const P = (vx, vy) => { const j = J(vx, vy); return [ox + vx * u / 2 + j[0], oy + vy * u / 2 + j[1]]; }; // vertices on quarter-grid lattice for roughness subdivisions
+    const path = new Path2D(); const seg = (ax, ay, bx, by) => { const a = P(ax * 2, ay * 2), m = P(ax + bx, ay + by), b = P(bx * 2, by * 2); path.moveTo(...a); path.lineTo(...m); path.lineTo(...b); };
+    for (const [x, y] of list) { if (!has(x, y - 1)) seg(x, y, x + 1, y); if (!has(x, y + 1)) seg(x, y + 1, x + 1, y + 1); if (!has(x - 1, y)) seg(x, y, x, y + 1); if (!has(x + 1, y)) seg(x + 1, y, x + 1, y + 1); }
+    const w = st.wallW * 1.35 * sc; g.lineCap = 'round'; g.lineJoin = 'round';
+    if (st.kind === 'double') { g.strokeStyle = st.wall; g.lineWidth = w * 2.1; g.stroke(path); g.strokeStyle = '#c99d96'; g.lineWidth = w * 1.1; g.stroke(path); g.strokeStyle = st.wall; g.lineWidth = Math.max(1, w * 0.25); g.stroke(path); }
+    else if (st.kind === 'fill') { g.strokeStyle = st.wall; g.lineWidth = w * 2.2; g.stroke(path); const pc = document.createElement('canvas'); pc.width = pc.height = 8; const p2 = pc.getContext('2d'); p2.strokeStyle = '#fff'; p2.lineWidth = 1.6; p2.beginPath(); p2.moveTo(-2, 10); p2.lineTo(10, -2); p2.moveTo(-2, 2); p2.lineTo(2, -2); p2.moveTo(6, 10); p2.lineTo(10, 6); p2.stroke(); g.strokeStyle = g.createPattern(pc, 'repeat'); g.lineWidth = w * 1.3; g.stroke(path); }
+    else { g.strokeStyle = st.wall; g.lineWidth = w; g.stroke(path); }
+    // placed assets/tokens/labels
+    for (const a of opts.items || []) drawItem(g, ox + a.x * u, oy + a.y * u, vw.G, a);
+    g.restore();
+  }
+  function drawItem(g, x, y, G, a) {
+    g.save(); g.translate(x, y); const s1 = G / 36; g.lineWidth = 1.6 * s1; g.strokeStyle = '#111'; g.fillStyle = '#fff';
+    if (a.t === 'token') { g.fillStyle = a.c; g.beginPath(); g.arc(0, 0, G * 0.42, 0, 7); g.fill(); g.lineWidth = 2.5 * s1; g.strokeStyle = '#fff'; g.stroke(); g.fillStyle = '#fff'; g.font = `700 ${14 * s1}px 'Inter Variable'`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(a.l, 0, 1); }
+    else if (a.t === 'text') { g.fillStyle = '#111'; g.font = `italic 600 ${15 * s1}px Georgia,serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(a.l, 0, 0); }
+    else if (a.k === 'Barrel') { g.beginPath(); g.arc(0, 0, G * 0.32, 0, 7); g.fill(); g.stroke(); g.beginPath(); g.arc(0, 0, G * 0.18, 0, 7); g.stroke(); }
+    else if (a.k === 'Chest') { g.beginPath(); g.rect(-G * 0.38, -G * 0.24, G * 0.76, G * 0.48); g.fill(); g.stroke(); g.beginPath(); g.moveTo(-G * 0.38, -G * 0.04); g.lineTo(G * 0.38, -G * 0.04); g.stroke(); }
+    else if (a.k === 'Table') { g.beginPath(); g.rect(-G * 0.8, -G * 0.45, G * 1.6, G * 0.9); g.fill(); g.stroke(); }
+    else if (a.k === 'Stairs') { g.beginPath(); g.rect(-G * 0.5, -G * 0.9, G, G * 1.8); g.fill(); g.stroke(); for (let i = 1; i < 6; i++) { g.beginPath(); g.moveTo(-G * 0.5, -G * 0.9 + i * G * 0.3); g.lineTo(G * 0.5, -G * 0.9 + i * G * 0.3); g.stroke(); } }
+    else if (a.k === 'Pillar') { g.fillStyle = '#111'; g.beginPath(); g.arc(0, 0, G * 0.25, 0, 7); g.fill(); }
+    else { g.beginPath(); g.moveTo(0, -G * 0.4); g.lineTo(G * 0.35, G * 0.3); g.lineTo(-G * 0.35, G * 0.3); g.closePath(); g.fill(); g.stroke(); }
+    g.restore();
+  }
+  // ---------- state ----------
+  const S = { preset: 0, style: { ...PRESETS[0][1], gridW: 1 }, tool: 'rect', mode: 'draw', snap: true, div: 2, roughOn: false, radius: 0, opacity: 1, dark: false, tab: 'map', layer: 1, place: null };
+  const room = (cs, x, y, w, hh) => { for (let j = 0; j < hh; j++) for (let i = 0; i < w; i++) cs.add(K(x + i, y + j)); };
+  const DEFAULT = () => { const c = new Set(); room(c, 0, 0, 16, 12); room(c, 16, 4, 10, 4); room(c, 26, -2, 10, 10); room(c, 4, 12, 4, 4); room(c, 0, 16, 12, 8); room(c, 30, 8, 2, 8); room(c, 26, 16, 10, 6); return c; };
+  let cells = DEFAULT(); let items = [{ t: 'asset', k: 'Table', x: 8, y: 6 }, { t: 'asset', k: 'Barrel', x: 33, y: 1 }, { t: 'asset', k: 'Chest', x: 6, y: 20 }, { t: 'token', c: '#c94545', l: 'F', x: 29, y: 3 }, { t: 'text', l: 'Crypt', x: 31, y: 19 }];
+  const vw = { G: 36, ox: 0, oy: 0 };
+  // ---------- layout ----------
+  const el = h('div.ds'); root.append(el);
+  const sgFn = (opts, get, set) => { const w = h('div.ds-sg'); const draw = () => w.replaceChildren(...opts.map(([v, l]) => h('button' + (get() === v ? '.on' : ''), { onclick: () => { set(v); draw(); } }, l))); draw(); w.redraw = draw; return w; };
+  const ltB = h('button.ds-lt', { title: 'Toggle light / dark', onclick: () => { S.dark = !S.dark; el.classList.toggle('dark', S.dark); ltB.lastChild.textContent = S.dark ? 'Dark' : 'Light'; ltB.firstChild.textContent = S.dark ? '☾' : '☀'; } }, h('i', {}, '☀'), 'Light');
+  const menu = (n) => h('button', { onclick: () => toast(`${n} menu`) }, n);
+  el.append(h('div.ds-top', {}, h('div.mn', {}, ['File', 'Edit', 'View', 'Help', 'Language'].map(menu)), h('div.ds-crumb', {}, h('span', { style: { opacity: 0.55 } }, 'My Maps / '), 'Map'), h('span.ds-sp'),
+    h('button.ds-pro', { onclick: () => toast('Get Pro — floor textures, more presets') }, '✦ Get Pro'), h('button.ds-su', { onclick: () => toast('Sign up (demo)') }, 'Sign up'), h('button', { onclick: () => toast('Sign in (demo)') }, 'Sign in'), ltB));
+  const railDefs = [['map', 'Map · Dungeon presets', IC.map], ['assets', 'Assets', IC.img], ['tokens', 'Tokens', IC.tok], ['layers', 'Layers', IC.lay], ['light', 'Lighting', IC.bulb], ['dice', 'Dice', IC.dice], ['export', 'Export', IC.dl], ['r20', 'Roll20', IC.r20], ['present', 'Present', IC.mon]];
+  const railBs = {}; const rail = h('div.ds-rail', {}, railDefs.map(([k, t, ic]) => (railBs[k] = h('button', { title: t, html: ic, onclick: () => setTab(k) }))));
+  const left = h('div.ds-left'); const leftBody = h('div', { style: { flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' } });
+  // presets
+  const preBs = PRESETS.map(([n, st], i) => { const c = h('canvas'); c.width = c.height = 200; const b = h('button.ds-pre', { title: n, onclick: () => setPreset(i) }, c, h('span', {}, n)); const pc = new Set(); room(pc, 2, 2, 12, 12); render(c.getContext('2d'), 200, 200, { G: 44, ox: 18, oy: 18 }, pc, { ...st, gridW: 1 }); return b; });
+  const presetGrid = h('div.ds-presets', {}, preBs);
+  const secH = h('div.ds-sec', { style: { cursor: 'pointer' }, onclick: () => { secH.classList.toggle('cl'); presetGrid.style.display = secH.classList.contains('cl') ? 'none' : ''; } }, h('span.chev', {}, '⌄'), h('span', { html: IC.dung, style: { width: '15px', height: '15px', display: 'inline-flex' } }), 'Dungeon Presets');
+  // rectangle tool options
+  const toolTitle = h('span', {}, 'Rectangle Tool');
+  const modeSg = sgFn([['draw', 'Draw'], ['erase', 'Erase']], () => S.mode, (v) => (S.mode = v));
+  const snapSg = sgFn([[true, 'On'], [false, 'Off']], () => S.snap, (v) => (S.snap = v));
+  const roughSg = sgFn([[true, 'On'], [false, 'Off']], () => S.roughOn, (v) => { S.roughOn = v; draw(); });
+  const divIn = h('input.ds-num', { type: 'number', min: 1, max: 4, value: 2, oninput: (e) => (S.div = clamp(+e.target.value || 1, 1, 4)) });
+  const radNum = h('input.ds-num', { type: 'number', min: 0, max: 4, value: 0 }), radSl = h('input', { type: 'range', min: 0, max: 4, step: 1, value: 0 });
+  const setRad = (v) => { S.radius = clamp(+v || 0, 0, 4); radNum.value = S.radius; radSl.value = S.radius; }; radNum.oninput = (e) => setRad(e.target.value); radSl.oninput = (e) => setRad(e.target.value);
+  const toolPanel = h('div.ds-tool', {}, h('div.ds-sec', { style: { padding: '6px 0 2px' } }, toolTitle, h('span.ds-sp'), '⌄'),
+    h('div.rw', {}, h('label', {}, 'Mode'), modeSg, h('span.ds-k', {}, 'E')), h('div.rw', {}, h('label', {}, 'Snap'), snapSg, h('span.ds-k', {}, 'S')),
+    h('div.rw', {}, h('label', {}, 'Division'), h('div.k-row', { style: { gap: '6px', justifyContent: 'flex-end' } }, '1 /', divIn), h('span.ds-k', { title: 'Grid subdivisions to snap to', style: { background: 'none', color: 'var(--mut)', fontSize: '12px' } }, '?')),
+    h('div.rw', {}, h('label', {}, 'Rough'), roughSg, h('span.ds-k', {}, '⇧+R')), h('div.rw', { style: { gridTemplateColumns: '62px 46px 1fr' } }, h('label', {}, 'Corner radius'), radNum, radSl));
+  left.append(leftBody, toolPanel);
+  // stage + floating toolbar
+  const stage = h('div.ds-stage'); const cv = h('canvas.ds-cv'); const g = cv.getContext('2d'); const tip = h('div.ds-tip');
+  const TOOLS = [['select', 'Select (V)', '<span class="b">B</span>'], ['pan', 'Pan (Space)', IC.pan], ['imgsel', 'Select image', IC.imgsel], ['rect', 'Rectangle (R)', IC.rect], ['poly', 'Polygon (P)', IC.poly], ['path', 'Path', IC.path], ['free', 'Freeform polygon', IC.free], ['line', 'Line / Bezier wall', IC.line], ['erase', 'Eraser selection', IC.erase], ['door', 'Door', IC.door], ['stair', 'Stairs', IC.stair], ['text', 'Text (T)', IC.text], ['mirror', 'Stamp / Mirror', IC.stamp]];
+  const toolBs = {}; const bar = h('div.ds-bar', {}, TOOLS.map(([k, t, ic]) => (toolBs[k] = h('button', { title: t, html: ic, onclick: () => setTool(k), onpointerenter: () => { tip.textContent = t; tip.classList.add('on'); }, onpointerleave: () => tip.classList.remove('on') }))));
+  stage.append(cv, bar, tip);
+  // right sidebar
+  const right = h('div.ds-right'); const layerName = () => `${PRESETS[S.preset][0]} 1`;
+  const layerList = h('div'); const insTitle = h('span');
+  const drawLayers = () => { layerList.replaceChildren(...[['Images', IC.img], [layerName(), IC.dung], ['Background', '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3l7 7-7 7-7-7z"/></svg>']].map(([n, ic], i) => h('div.ds-li' + (S.layer === i ? '.on' : ''), { onclick: () => { S.layer = i; drawLayers(); } }, h('span', { html: ic, style: { display: 'inline-flex' } }), n))); insTitle.textContent = layerName(); };
+  const colorF = (label, key) => { const sw = h('i'); const tx = h('span'); const inp = h('input', { type: 'color', oninput: (e) => { S.style[key] = e.target.value; upd(); draw(); } }); const upd = () => { sw.style.background = S.style[key]; tx.textContent = S.style[key].toUpperCase(); inp.value = S.style[key]; }; upd(); const f = h('div.ds-f', {}, h('span', {}, label), h('label.ds-col', {}, sw, tx, inp)); f.upd = upd; return f; };
+  const numSl = (label, key, min, max, on) => { const n = h('input.ds-num', { type: 'number', min, max, value: S.style[key] }); const r = h('input', { type: 'range', min, max, step: 1, value: S.style[key] }); const set = (v) => { S.style[key] = clamp(+v || min, min, max); n.value = r.value = S.style[key]; on?.(); draw(); }; n.oninput = (e) => set(e.target.value); r.oninput = (e) => set(e.target.value); const f = h('div.ds-f', {}, h('span', {}, label), h('div.ds-nr', {}, n, r)); f.upd = () => { n.value = r.value = S.style[key]; }; f.set = set; return f; };
+  const opN = h('input.ds-num', { type: 'number', min: 0, max: 1, step: 0.1, value: 1 }), opR = h('input', { type: 'range', min: 0, max: 1, step: 0.05, value: 1 });
+  const setOp = (v) => { S.opacity = clamp(+v, 0, 1); opN.value = S.opacity; opR.value = S.opacity; draw(); }; opN.oninput = (e) => setOp(e.target.value); opR.oninput = (e) => setOp(e.target.value);
+  const wallCol = colorF('Color', 'wall'), wallW = numSl('Width', 'wallW', 1, 15), floorCol = colorF('Color', 'floor'), gridCol = colorF('Color', 'gridCol'), gridW = numSl('Width', 'gridW', 1, 4);
+  const roughW = sgFn([[0, 'Hide'], [1, '1'], [2, '2'], [3, '3']], () => S.style.rough, (v) => { S.style.rough = v; draw(); });
+  let lightBlock = true; const lightSg = sgFn([[true, 'Yes'], [false, 'No']], () => lightBlock, (v) => (lightBlock = v));
+  const gridSel = h('select.ds-selx', { onchange: (e) => { S.style.grid = e.target.value; draw(); } }, ['Neat', 'Dotted', 'None'].map((v) => h('option', { value: v }, v)));
+  const shN = h('input.ds-num', { type: 'number', min: 0, max: 1, step: 0.05 }), shR = h('input', { type: 'range', min: 0, max: 1, step: 0.05 });
+  const setSh = (v) => { S.style.shadow = clamp(+v || 0, 0, 1); shN.value = shR.value = S.style.shadow; draw(); }; shN.oninput = (e) => setSh(e.target.value); shR.oninput = (e) => setSh(e.target.value);
+  const blendSel = h('select.ds-selx', {}, ['Multiply', 'Normal', 'Darken'].map((v) => h('option', { value: v }, v)));
+  const eye = () => h('span.ds-eye', { html: IC.eye, style: { display: 'inline-flex' } });
+  right.append(h('div.ds-hd', {}, 'Maps', h('span', { style: { opacity: 0.6 } }, '⌃')), h('div.ds-li.on', {}, h('span', { html: IC.map, style: { display: 'inline-flex' } }), 'Map'), h('div.ds-add', {}, h('span', {}, '+ Add map'), h('span', {}, '+ Import save file')),
+    h('div.ds-hd', { style: { borderTop: '1px solid var(--ln)' } }, 'Layers', h('button', { onclick: () => toast('Add layer'), style: { fontSize: '16px' } }, '+')), layerList,
+    h('div.ds-ins', {}, h('div.ds-grp', {}, h('div.gh', {}, h('span.k-row', { style: { gap: '6px' } }, h('span', { html: IC.dung, style: { display: 'inline-flex', width: '14px' } }), insTitle), h('span.k-row', { style: { gap: '8px' } }, h('span', { html: IC.trash, style: { display: 'inline-flex', width: '14px', opacity: 0.6 } }), eye())),
+      h('div.ds-f.top', {}, h('span', {}, 'Opacity'), h('div.ds-nr', {}, opN, opR))),
+    h('div.ds-grp', {}, h('div.gh', {}, h('span', {}, 'Floor options', h('span.ds-badge', {}, 'PRO'))), h('div.ds-f.top', {}, h('span', {}, 'Floor texture'), h('select.ds-selx', { onchange: () => toast('Floor textures are a Pro feature') }, h('option', {}, 'None'), h('option', {}, 'Stone tiles'), h('option', {}, 'Wood planks')))),
+    h('div.ds-grp', {}, h('div.gh', {}, 'Walls', eye()), wallCol, wallW, h('div.ds-f', {}, h('span', {}, 'Roughness'), roughW), h('div.ds-f', {}, h('span', {}, 'Blocks light'), lightSg)),
+    h('div.ds-grp', {}, h('div.gh', {}, 'Floor', eye()), floorCol),
+    h('div.ds-grp', {}, h('div.gh', {}, 'Grid', eye()), h('div.ds-f', {}, h('span', {}, 'Variant'), gridSel), gridCol, gridW),
+    h('div.ds-grp', {}, h('div.gh', {}, 'Shadow', eye()), h('div.ds-f', {}, h('span', {}, 'Blend'), blendSel), h('div.ds-f', {}, h('span', {}, 'Opacity'), h('div.ds-nr', {}, shN, shR)))));
+  el.append(rail, left, stage, right);
+  const syncIns = () => { [wallCol, wallW, floorCol, gridCol, gridW].forEach((f) => f.upd()); roughW.redraw(); gridSel.value = S.style.grid; shN.value = shR.value = S.style.shadow; drawLayers(); };
+  // left tabs
+  const ASSETS = ['Table', 'Barrel', 'Chest', 'Stairs', 'Pillar', 'Statue'];
+  const TOKENS = [['F', '#c94545', 'Fighter'], ['W', '#3d6fd8', 'Wizard'], ['R', '#3a9a5b', 'Rogue'], ['C', '#c49a2a', 'Cleric'], ['G', '#6d4aa8', 'Goblin'], ['O', '#555', 'Ogre']];
+  const assetSvg = (k) => { const c = h('canvas'); c.width = c.height = 72; drawItem(c.getContext('2d'), 36, 36, k === 'Table' || k === 'Stairs' ? 26 : 40, { t: 'asset', k }); return c; };
+  function setTab(k) { if (['light', 'dice', 'export', 'r20', 'present'].includes(k)) { toast({ light: 'Lighting (Pro)', dice: 'Dice roller', export: 'Export PNG / save file', r20: 'Send to Roll20', present: 'Presentation mode' }[k]); if (k === 'export') { const a = h('a', { href: cv.toDataURL('image/png'), download: 'dungeon-map.png' }); a.click(); } return; }
+    if (!booting && matchMedia('(max-width:760px)').matches) el.classList.toggle('lo', !(S.tab === k && el.classList.contains('lo'))); S.tab = k; for (const [kk, b] of Object.entries(railBs)) b.classList.toggle('on', kk === k);
+    if (k === 'map') leftBody.replaceChildren(secH, presetGrid);
+    else if (k === 'assets' || k === 'tokens') { const grid = h('div.ds-assets', {}, (k === 'assets' ? ASSETS.map((a) => [a, a]) : TOKENS.map(([l, c, n]) => [n, l, c])).map(([n, l, c]) => { const b = h('button.ds-asset' + (S.place?.n === n ? '.on' : ''), { title: n + ' — click, then click the map', onclick: () => { S.place = k === 'assets' ? { n, t: 'asset', k: n } : { n, t: 'token', l, c }; setTab(k); toast(`Click the map to place ${n}`); } }); if (k === 'assets') b.append(assetSvg(n)); else b.append(h('span', { style: { width: '34px', height: '34px', borderRadius: '50%', background: c, color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 700, boxShadow: '0 0 0 2px #fff,0 0 0 3px #0002' } }, l)); return b; }));
+      leftBody.replaceChildren(h('div.ds-sec', {}, '⌄ ', k === 'assets' ? 'Assets' : 'Tokens'), grid); }
+    else { const ll = h('div'); ll.append(...['Images', layerName(), 'Background'].map((n, i) => h('div.ds-li' + (S.layer === i ? '.on' : ''), {}, n))); leftBody.replaceChildren(h('div.ds-sec', {}, '⌄ Layers'), ll); }
+  }
+  function setTool(k) { S.tool = k; S.place = null; for (const [kk, b] of Object.entries(toolBs)) b.classList.toggle('on', kk === k); const n = TOOLS.find((t) => t[0] === k)[1].replace(/\s*\(.*\)/, ''); toolTitle.textContent = `${n} Tool`;
+    cv.className = 'ds-cv' + (k === 'pan' ? ' pan' : k === 'select' || k === 'imgsel' ? ' sel' : '');
+    if (['poly', 'path', 'free', 'line', 'door', 'stair', 'mirror'].includes(k)) toast(`${n}: drag draws a snapped room in this clone`); }
+  function setPreset(i) { S.preset = i; S.style = { ...PRESETS[i][1], gridW: S.style.gridW || 1 }; preBs.forEach((b, j) => b.classList.toggle('on', j === i)); syncIns(); draw(); if (!RM) { cv.classList.remove('ds-fade'); void cv.offsetWidth; cv.classList.add('ds-fade'); } }
+  // ---------- canvas ----------
+  let preview = null; const dpr = Math.min(2, window.devicePixelRatio || 1);
+  function size() { const r = stage.getBoundingClientRect(); const W = Math.max(200, r.width), H = Math.max(200, r.height); if (cv._w === W && cv._h === H) return; cv._w = W; cv._h = H; cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; }
+  function center() { size(); const xs = [...cells].map((k) => +k.split(',')[0]), ys = [...cells].map((k) => +k.split(',')[1]); const gw = (Math.max(...xs) - Math.min(...xs) + 1) / 2, gh = (Math.max(...ys) - Math.min(...ys) + 1) / 2; vw.G = clamp(Math.min(cv._w / (gw + 4), (cv._h - 60) / (gh + 4)), 16, 36); const u = vw.G / 2; const cx = (Math.min(...xs) + Math.max(...xs) + 1) / 2, cy = (Math.min(...ys) + Math.max(...ys) + 1) / 2; vw.ox = Math.round(cv._w / 2 - cx * u); vw.oy = Math.round(cv._h / 2 - 20 - cy * u); vw.ox -= vw.ox % 1; }
+  function draw() { size(); g.setTransform(dpr, 0, 0, dpr, 0, 0); render(g, cv._w, cv._h, vw, cells, S.style, { opacity: S.opacity, extraRough: S.roughOn ? 1 : 0, items });
+    if (preview) { const u = vw.G / 2; g.save(); g.strokeStyle = S.mode === 'erase' ? '#1f6fe5' : '#c94545'; g.lineWidth = 2; g.setLineDash([6, 4]); g.fillStyle = S.mode === 'erase' ? '#1f6fe522' : '#c9454522'; g.fillRect(vw.ox + preview.x * u, vw.oy + preview.y * u, preview.w * u, preview.h * u); g.strokeRect(vw.ox + preview.x * u, vw.oy + preview.y * u, preview.w * u, preview.h * u); g.restore(); } }
+  const toCell = (e) => { const r = cv.getBoundingClientRect(); const u = vw.G / 2; return { x: (e.clientX - r.left - vw.ox) / u, y: (e.clientY - r.top - vw.oy) / u }; };
+  const snapV = (v, up) => { if (!S.snap) return up ? Math.ceil(v) : Math.floor(v); const st = 2 / S.div >= 1 ? Math.round(2 / S.div) : 1; return (up ? Math.ceil(v / st) : Math.floor(v / st)) * st; };
+  const rectOf = (a, b) => { const x0 = snapV(Math.min(a.x, b.x), false), y0 = snapV(Math.min(a.y, b.y), false), x1 = Math.max(x0 + 1, snapV(Math.max(a.x, b.x), true)), y1 = Math.max(y0 + 1, snapV(Math.max(a.y, b.y), true)); return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 }; };
+  function applyRect(R, erase) { const rr = S.radius * 2; let n = 0;
+    for (let j = 0; j < R.h; j++) for (let i = 0; i < R.w; i++) { if (rr) { const cx = i < rr ? rr : i >= R.w - rr ? R.w - rr : null, cy = j < rr ? rr : j >= R.h - rr ? R.h - rr : null; if (cx != null && cy != null && Math.hypot(i + 0.5 - cx, j + 0.5 - cy) > rr) continue; }
+      const k = K(R.x + i, R.y + j); if (erase) { if (cells.delete(k)) n++; } else if (!cells.has(k)) { cells.add(k); n++; } } return n; }
+  let st0 = null, panSt = null;
+  drag(cv, {
+    start: (e) => { const p = toCell(e);
+      if (S.place) { items.push({ ...S.place, x: Math.round(p.x), y: Math.round(p.y) }); draw(); return false; }
+      if (S.tool === 'text') { const l = prompt('Label text', 'Room ' + (items.filter((i) => i.t === 'text').length + 1)); if (l) { items.push({ t: 'text', l, x: p.x, y: p.y }); draw(); } return false; }
+      if (S.tool === 'pan') { panSt = { x: e.clientX, y: e.clientY, ox: vw.ox, oy: vw.oy }; cv.style.cursor = 'grabbing'; return; }
+      if (S.tool === 'select' || S.tool === 'imgsel') return false; st0 = p; preview = rectOf(p, p); draw(); },
+    move: (e) => { if (panSt) { vw.ox = panSt.ox + e.clientX - panSt.x; vw.oy = panSt.oy + e.clientY - panSt.y; draw(); return; } if (!st0) return; preview = rectOf(st0, toCell(e)); draw(); },
+    end: () => { if (panSt) { panSt = null; cv.style.cursor = ''; return; } if (!st0) return; const erase = S.mode === 'erase' || S.tool === 'erase'; const n = applyRect(preview, erase); preview = null; st0 = null; draw(); cv.dataset.last = `${erase ? 'erased' : 'added'} ${n}`; },
+  });
+  cv.addEventListener('wheel', (e) => { e.preventDefault(); const r = cv.getBoundingClientRect(); const mx = e.clientX - r.left, my = e.clientY - r.top; const G2 = clamp(vw.G * (e.deltaY < 0 ? 1.1 : 1 / 1.1), 14, 90); vw.ox = mx - (mx - vw.ox) * (G2 / vw.G); vw.oy = my - (my - vw.oy) * (G2 / vw.G); vw.G = G2; draw(); }, { passive: false });
+  const onKey = (e) => { if (!root.isConnected) return removeEventListener('keydown', onKey); if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return; const k = e.key.toLowerCase();
+    if (k === 'e') { S.mode = S.mode === 'erase' ? 'draw' : 'erase'; modeSg.redraw(); } else if (k === 's') { S.snap = !S.snap; snapSg.redraw(); } else if (k === 'r' && e.shiftKey) { S.roughOn = !S.roughOn; roughSg.redraw(); draw(); } else if (k === 'r') setTool('rect'); else if (k === 'v') setTool('select'); else if (k === 'p') setTool('poly'); else if (k === 't') setTool('text'); };
+  addEventListener('keydown', onKey);
+  new ResizeObserver(() => { const had = cv._w; size(); if (!had) center(); draw(); }).observe(stage);
+  let booting = true; setTab('map'); booting = false; setTool('rect'); setPreset(0); size(); center(); draw();
+  window.__demoProof = async () => { const o = []; const px = (x, y) => { const d = g.getImageData(Math.round(x * dpr), Math.round(y * dpr), 1, 1).data; return rgbToHex(d[0], d[1], d[2]); };
+    const c0 = cells.size; o.push(`default preset=${PRESETS[S.preset][0]} bg=${px(8, 8)} cells=${c0}`);
+    preBs[1].click(); await sleep(60); o.push(`preset→${layerName()} bg=${px(8, 8)} layers[1]="${layerList.children[1].textContent}"`);
+    preBs[2].click(); o.push(`preset→Ancient Map bg=${px(8, 8)}`); preBs[5].click(); o.push(`preset→Rough Cavern roughness=${S.style.rough}`);
+    preBs[0].click(); await sleep(40);
+    setTool('rect'); const u = vw.G / 2; const ax = vw.ox + 40 * u, ay = vw.oy + 2 * u; await gesture(cv, [[ax, ay], [ax + 40, ay + 30], [ax + 4 * vw.G, ay + 3 * vw.G]], 4); o.push(`rect drag (snap ${S.snap}, div ${S.div}) ${cv.dataset.last} cells → ${cells.size}`);
+    S.mode = 'erase'; modeSg.redraw(); await gesture(cv, [[ax + 6, ay + 6], [ax + vw.G * 2, ay + vw.G * 2]], 4); o.push(`erase mode ${cv.dataset.last}`);
+    wallW.set(9); o.push(`walls width→${S.style.wallW}`); toolBs.pan.click(); o.push(`toolbar active=${bar.querySelector('.on')?.title}`); ltB.click(); o.push(`theme dark=${el.classList.contains('dark')}`);
+    // restore defaults
+    ltB.click(); S.mode = 'draw'; modeSg.redraw(); cells = DEFAULT(); wallW.set(5); setPreset(0); setTool('rect'); center(); draw(); o.push(`restored Classic Hatching cells=${cells.size} tool=${S.tool}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['kleki-layered-paint-desk'])(root, T); }
