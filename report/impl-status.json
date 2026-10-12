@@ -3357,27 +3357,27 @@
   "errors": []
  },
  "arena-brutalist-channel-grid-view-switcher-blocks-table-index-meta-rail": {
-  "url": "http://127.0.0.1:4173/t/arena-brutalist-channel-grid-view-switcher-blocks-table-index-meta-rail/",
+  "url": "https://ux-technique-gallery.vercel.app/t/arena-brutalist-channel-grid-view-switcher-blocks-table-index-meta-rail/",
   "ok": true,
-  "at": "2026-10-12T11:54:21.283Z",
+  "at": "2026-10-12T11:57:02.754Z",
   "http": 200,
   "proof": "view=Channels tiles=8; Blocks=8; Table rows=8; Index links=8; restored view=Channels channels=8 openGreen=2",
   "demoNodes": 117,
   "errors": []
  },
  "panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands": {
-  "url": "http://127.0.0.1:4173/t/panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands/",
+  "url": "https://ux-technique-gallery.vercel.app/t/panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands/",
   "ok": true,
-  "at": "2026-10-12T11:54:21.301Z",
+  "at": "2026-10-12T11:57:02.754Z",
   "http": 200,
   "proof": "hero=Big Walk slides=4; rotate→Firewatch; popover=true title=Untitled Goose Game; appPop=Nova; slantBands=true icons=11; restored hero=Big Walk",
   "demoNodes": 70,
   "errors": []
  },
  "tweek-paper-weekly-planner-ruled-day-columns-inline-task-edit-color-chip-drag-someday-row": {
-  "url": "http://127.0.0.1:4173/t/tweek-paper-weekly-planner-ruled-day-columns-inline-task-edit-color-chip-drag-someday-row/",
+  "url": "https://ux-technique-gallery.vercel.app/t/tweek-paper-weekly-planner-ruled-day-columns-inline-task-edit-color-chip-drag-someday-row/",
   "ok": true,
-  "at": "2026-10-12T11:54:21.247Z",
+  "at": "2026-10-12T11:57:02.736Z",
   "http": 200,
   "proof": "drag 2026-10-12→2026-10-14; color #ffe566→#b8e0ff; inline add=\"Proof task\"; complete=true; week→W43; restored week=W42 tasks=6 someday=1",
   "demoNodes": 128,
