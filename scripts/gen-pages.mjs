@@ -89,7 +89,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll': '커버아트 콜라주 히어로 · 선셋 트레일러 · 풀블리드 스크롤',
   'dungeonscrawl-preset-rail-dual-sidebar-floating-draw-toolbar-hatching-map-inspector': '잉크 해칭 배틀맵 데스크 · 프리셋 레일 · 레이어 인스펙터',
   'hookpad-roman-numeral-chord-palette-dual-staff-melody-chord-properties-transport': '로마숫자 코드 팔레트 작곡 데스크 · 이중 스태프',
-  'satus-darkroom-fluid-webgl-tracked-features-grid-transition-debug-overlay': '다크 플루이드 피처 스테이지 · 트랜지션 디버그' };
+  'satus-darkroom-fluid-webgl-tracked-features-grid-transition-debug-overlay': '다크 플루이드 피처 스테이지 · 트랜지션 디버그',
+  'tweek-paper-weekly-planner-ruled-day-columns-inline-task-edit-color-chip-drag-someday-row': '페이퍼 위클리 플래너 · 인라인 편집 · 컬러칩 · 드래그',
+  'arena-brutalist-channel-grid-view-switcher-blocks-table-index-meta-rail': '브루탈리스트 채널 그리드 · 뷰 스위처 · 메타 레일',
+  'panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands': '로테이팅 게임 테이크오버 · 아이콘 선반 팝오버' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

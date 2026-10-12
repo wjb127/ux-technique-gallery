@@ -1,4 +1,34 @@
 {
+ "tweek-paper-weekly-planner-ruled-day-columns-inline-task-edit-color-chip-drag-someday-row": {
+  "bg": "#f3f3f3",
+  "fg": "#1a1a1a",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#2f6fed",
+  "ac2": "#ffe566",
+  "ac3": "#ff8fb8",
+  "coverage": 0.72
+ },
+ "arena-brutalist-channel-grid-view-switcher-blocks-table-index-meta-rail": {
+  "bg": "#ffffff",
+  "fg": "#111111",
+  "panel": "#f8f8f8",
+  "dark": false,
+  "ac": "#1a1f3a",
+  "ac2": "#17a34a",
+  "ac3": "#999999",
+  "coverage": 0.79
+ },
+ "panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands": {
+  "bg": "#0b0e1c",
+  "fg": "#e8eef5",
+  "panel": "#11131f",
+  "dark": true,
+  "ac": "#75a8e5",
+  "ac2": "#f7cb45",
+  "ac3": "#d1451f",
+  "coverage": 0.35
+ },
  "dungeonscrawl-preset-rail-dual-sidebar-floating-draw-toolbar-hatching-map-inspector": {
   "bg": "#efeae2",
   "fg": "#64666f",
