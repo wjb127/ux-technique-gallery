@@ -83,7 +83,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play': '아이소메트릭 섬 도로 시퀀서',
   'santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu': '일러스트 마을 히어로 · 플립 카운트다운 · 게임 카드 메뉴',
   'phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer': '아이콘 탐색기 · 굵기/크기/색 툴바 · 상세 드로어',
-  'notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf': '플레이풀 앱 카탈로그 · 3D 아이콘 카드 · 스킨 시리즈' };
+  'notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf': '플레이풀 앱 카탈로그 · 3D 아이콘 카드 · 스킨 시리즈',
+  'kidpix-retro-mac-paint-tool-column-pattern-option-bar-palette-splash-canvas': '레트로 1비트 페인트 앱 · 툴별 옵션 바',
+  'cydstumpel-giant-condensed-wordmark-rotating-serif-role-sticker-badges-rounded-work-tiles-pastel-blog-cards': '거대 워드마크 포트폴리오 · 회전 세리프 역할 · 스티커 배지',
+  'gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll': '커버아트 콜라주 히어로 · 선셋 트레일러 · 풀블리드 스크롤' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

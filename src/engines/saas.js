@@ -7750,4 +7750,191 @@ ${sub(CX - 46, d.sL, d.sLr, '')}${sub(CX + 46, d.sR, d.tk, `<text x="${CX + 46}"
   };
 };
 
+V['gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll'] = (root, T) => {
+  const fontsP = Promise.all([import('@fontsource/oswald/600.css'), import('@fontsource/oswald/700.css'), import('@fontsource/lilita-one')]).catch(() => {});
+  theme(root, T, { bg: '#0c0d1b', fg: '#fff', ac: '#ffb3c6', dark: true }); scroll(root);
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SANS = "'Inter Variable','Helvetica Neue',Arial,sans-serif", CON = "'Oswald','Arial Narrow',sans-serif", LOGO = "'Lilita One','Arial Rounded MT Bold',sans-serif";
+  const PINK = '#ffb3c6';
+  css(`.gt{position:relative;background:#0c0d1b;color:#fff;font:400 15px/1.45 ${SANS}}
+.gt *{box-sizing:border-box}.gt button{font-family:inherit;cursor:pointer;border:0;color:inherit;background:none;padding:0}
+.gt-hd{position:sticky;top:0;height:0;z-index:40}
+.gt-hd .in{position:absolute;left:0;right:0;top:0;height:76px;display:flex;align-items:center;padding:0 40px;gap:18px;pointer-events:none}
+.gt-hd .in>*{pointer-events:auto}.gt-vi{width:34px;height:24px}.gt-sp{flex:1}
+.gt-pre{height:30px;padding:0 16px;border-radius:99px;background:${PINK}!important;color:#1b0f24!important;font:600 12.5px ${SANS};box-shadow:0 0 22px #ff9dbb55;transition:opacity .35s,transform .35s cubic-bezier(.3,1.5,.5,1)}
+.gt-pre:hover{transform:scale(1.05)}.gt-hd .gt-pre{opacity:0;transform:translateY(-6px);pointer-events:none}.gt-hd.pill .gt-pre{opacity:1;transform:none;pointer-events:auto}
+.gt-burg{width:26px;height:22px;display:grid;align-content:center;gap:5px}.gt-burg i{display:block;height:3.5px;background:#fff;border-radius:1px}
+.gt-track{position:relative}
+.gt-stage{position:sticky;top:0;overflow:hidden;background:#0c0d1b}
+.gt-l{position:absolute;inset:0;will-change:opacity,transform}
+.gt-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(60% 50% at 50% 45%,#1d1836 0%,#0c0d1b 70%)}
+.gt-col{position:relative;width:min(74vw,1065px,calc((var(--vh) - 230px) * 1.78));aspect-ratio:1065/597;background:#1d1230;padding:1.1%;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(6,1fr);gap:.75%;box-shadow:0 30px 80px #0008}
+.gt-pn{position:relative;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.3,1.4,.5,1),filter .35s}
+.gt-pn svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gt-pn:hover,.gt-pn.hov{transform:scale(1.04);filter:brightness(1.12) saturate(1.1);z-index:2}
+.gt-logo{position:absolute;left:50%;top:50%;width:31%;transform:translate(-50%,-52%);pointer-events:none;z-index:3;filter:drop-shadow(0 8px 18px #0007)}
+.gt-meta{width:min(74vw,1065px,calc((var(--vh) - 230px) * 1.78));display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-top:24px}
+.gt-meta .c{font:700 15px/1.25 ${SANS};letter-spacing:.02em;text-transform:uppercase}
+.gt-meta .gt-pre{height:50px;padding:0 26px;font-size:15px}
+.gt-meta .pl{justify-self:end;text-align:right;font:700 13px/1.6 ${SANS};letter-spacing:.04em}
+.gt-chev{position:absolute;left:50%;bottom:16px;margin-left:-14px;width:28px;animation:gtB 1.6s ease-in-out infinite}@keyframes gtB{50%{transform:translateY(7px)}}
+.gt-scn svg{position:absolute;inset:0;width:100%;height:100%}
+.gt-title{position:absolute;left:0;right:0;top:9%;text-align:center;z-index:2}
+.gt-title h2{margin:0;font:300 clamp(28px,4.2vw,58px)/1 ${SANS};text-transform:uppercase;letter-spacing:.24em;text-indent:.24em}
+.gt-title p{margin:12px 0 0;font:700 12px ${SANS};letter-spacing:.32em;text-indent:.32em;opacity:.9}
+.gt-play{position:absolute;left:50%;top:50%;width:74px;height:74px;margin:-37px;border-radius:50%;background:#ffffffd9;display:grid;place-items:center;box-shadow:0 10px 40px #0005;z-index:3;transition:transform .2s}
+.gt-play:hover{transform:scale(1.1)}.gt-play svg{position:static;width:26px;height:26px}
+.gt-dark{position:absolute;inset:0;background:#0d0b1a;pointer-events:none}
+.gt-trs{display:flex;justify-content:center;align-items:center;gap:22px}
+.gt-tr{position:relative;width:min(30vw,440px);height:min(calc(var(--vh) * .72),620px);border-radius:22px;overflow:hidden;cursor:pointer;box-shadow:0 30px 80px #0009}
+.gt-tr svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .9s cubic-bezier(.2,.8,.2,1)}.gt-tr:hover svg,.gt-tr.hov svg{transform:scale(1.06)}
+.gt-tr .lb{position:absolute;left:0;right:0;top:26px;text-align:center}.gt-tr small{font:700 11px ${SANS};letter-spacing:.24em}.gt-tr b{display:block;font:700 clamp(30px,3.4vw,52px)/1 ${CON};letter-spacing:.01em;text-transform:uppercase;text-shadow:0 3px 20px #0006}
+.gt-tr .gt-play{width:62px;height:62px;margin:-31px}
+.gt-chr svg{position:absolute;inset:0;width:100%;height:100%}
+.gt-ue{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.gt-ucard{position:relative;width:min(74vw,980px);aspect-ratio:980/450;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#3a2a62 0%,#6a3f86 45%,#d86ea8 100%);display:grid;grid-template-columns:44% 1fr;align-items:center;padding:4% 5%;gap:5%;box-shadow:0 30px 90px #000a}
+.gt-ucard::before{content:'ULTIMATE EDITION';position:absolute;top:10px;left:0;right:0;text-align:center;font:400 11px ${SANS};letter-spacing:.7em;opacity:.45}
+.gt-ucard .mini{position:relative;aspect-ratio:1065/597;background:#1d1230;padding:1.5%;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(6,1fr);gap:1%;transform:rotate(-1deg);box-shadow:0 12px 40px #0007}
+.gt-ucard .mini .gt-pn{cursor:default}.gt-ucard .mini .gt-logo{width:30%}
+.gt-ucard h3{margin:0 0 10px;font:700 clamp(28px,3.3vw,48px)/.95 ${CON};text-transform:uppercase;color:#ffe9b8;letter-spacing:.005em}
+.gt-ucard p{margin:0 0 18px;font:500 14px/1.45 ${SANS};max-width:320px}
+.gt-lm{height:34px;padding:0 16px;border-radius:99px;background:#ffe9b8!important;color:#22152f!important;font:700 12.5px ${SANS};display:inline-flex;align-items:center;gap:8px}
+.gt-palms{position:absolute;inset:auto 0 0 0;height:60%;pointer-events:none;opacity:.35}
+.gt-bonus{position:relative;width:min(74vw,980px);height:min(22vh,190px);border-radius:22px;overflow:hidden;background:linear-gradient(90deg,#1a0820,#4b0d3f 50%,#1a0820)}
+.gt-bonus .neon{position:absolute;left:0;right:0;top:18%;text-align:center;font:700 clamp(34px,5vw,74px)/1 ${CON};letter-spacing:.06em;color:#ffd4f0;text-shadow:0 0 6px #ff4fc0,0 0 18px #ff2fa8,0 0 40px #ff2fa8}
+.gt-bonus .neon.flk{animation:gtFl 3.4s infinite}@keyframes gtFl{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:.35}}
+.gt-bonus small{position:absolute;left:0;right:0;bottom:16px;text-align:center;font:700 11px ${SANS};letter-spacing:.3em}
+.gt-night svg{position:absolute;inset:0;width:100%;height:100%}
+.gt-night h2{position:absolute;left:0;right:0;bottom:14%;margin:0;text-align:center;font:700 clamp(30px,4vw,56px) ${CON};color:#ff8fb8;letter-spacing:.01em;text-shadow:0 0 24px #ff5f9a88}
+.gt-night p{position:absolute;left:50%;bottom:4%;width:min(640px,86vw);transform:translateX(-50%);margin:0;text-align:center;font:400 15px/1.5 ${SANS};opacity:.85}
+.gt-after{position:relative;background:#0c0d1b;padding:80px 6vw 40px}
+.gt-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:60px}
+.gt-fc{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;cursor:pointer}.gt-fc svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .8s}.gt-fc:hover svg{transform:scale(1.05)}
+.gt-fc .t{position:absolute;left:24px;right:24px;bottom:24px}.gt-fc small{font:700 11px ${SANS};letter-spacing:.24em;opacity:.8}.gt-fc b{display:block;font:700 30px/1 ${CON};text-transform:uppercase;margin:6px 0 10px}.gt-fc p{margin:0 0 14px;font-size:13.5px;opacity:.85}
+.gt-news h4{display:flex;justify-content:space-between;margin:0 0 18px;font:700 24px ${CON};text-transform:uppercase}.gt-news h4 span{font:600 13px ${SANS};opacity:.7;align-self:center}
+.gt-nc{background:#16162a;border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .3s}.gt-nc:hover{transform:translateY(-4px)}.gt-nc svg{width:100%;aspect-ratio:16/9;display:block}.gt-nc div{padding:16px 18px 20px}.gt-nc b{display:block;font:600 15px/1.35 ${SANS}}.gt-nc small{opacity:.6;font-size:12px}
+.gt-ft{border-top:1px solid #ffffff1a;padding-top:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;font-size:12.5px}.gt-ft h5{margin:0 0 8px;font:700 22px ${CON};text-transform:uppercase}.gt-ft .s{display:flex;gap:16px;flex-wrap:wrap;opacity:.85}.gt-ft .lg{display:flex;gap:16px;flex-wrap:wrap;opacity:.6;margin-top:16px}.gt-ft .esrb{opacity:.55;line-height:1.5}
+.gt-menu{position:fixed;inset:var(--tg-h,38px) 0 0 0;z-index:60;background:#0c0d1bf2;backdrop-filter:blur(14px);display:flex;flex-direction:column;justify-content:center;padding:0 10vw;opacity:0;pointer-events:none;transition:opacity .35s}
+.gt-menu.on{opacity:1;pointer-events:auto}.gt-menu button.it{display:block;text-align:left;font:700 clamp(30px,5vw,64px)/1.08 ${CON};text-transform:uppercase;opacity:.86;transition:color .2s,transform .3s,opacity .2s;transform:translateX(-12px)}
+.gt-menu.on button.it{transform:none}.gt-menu button.it:hover{color:${PINK};opacity:1}.gt-menu .x{position:absolute;right:40px;top:26px;font:300 38px ${SANS}}
+.gt-vid{position:fixed;inset:var(--tg-h,38px) 0 0 0;z-index:70;background:#000e;display:none;align-items:center;justify-content:center}.gt-vid.on{display:flex}
+.gt-vid .fr{position:relative;width:min(88vw,calc((100vh - 140px) * 1.778));aspect-ratio:16/9;background:#000;overflow:hidden;border-radius:6px}
+.gt-vid .fr svg{position:absolute;inset:-6%;width:112%;height:112%}.gt-vid.play .fr svg{animation:gtKB 14s linear infinite alternate}@keyframes gtKB{to{transform:translate(-4%,-3%) scale(1.08)}}
+.gt-vid .ctl{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;display:flex;align-items:center;gap:14px;background:linear-gradient(0deg,#000c,#0000);font:600 12px ${SANS}}
+.gt-vid .bar{flex:1;height:4px;background:#ffffff40;border-radius:2px;overflow:hidden;cursor:pointer}.gt-vid .bar i{display:block;height:100%;width:0;background:${PINK}}
+.gt-vid .cap{position:absolute;left:0;right:0;top:40%;text-align:center;font:700 clamp(26px,4vw,54px) ${CON};text-transform:uppercase;letter-spacing:.02em;text-shadow:0 4px 30px #000a}
+.gt-vid .note{position:absolute;left:16px;top:12px;font:600 11px ${SANS};opacity:.6}.gt-vid .x{position:absolute;right:26px;top:16px;font:300 34px ${SANS};z-index:2}
+${RM ? '.gt *{animation:none!important}.gt-vid.play .fr svg{animation:none!important}' : ''}
+@media (max-width:760px){.gt-hd .in{padding:0 16px;height:60px}.gt-col,.gt-meta{width:94vw}.gt-meta{grid-template-columns:1fr 1fr;row-gap:14px}.gt-meta .gt-pre{grid-column:1/-1;grid-row:1;justify-self:center}
+.gt-trs{flex-direction:column;gap:14px}.gt-tr{width:80vw;height:calc(var(--vh) * .36)}.gt-ucard{grid-template-columns:1fr;width:92vw;aspect-ratio:auto;padding:30px 20px}.gt-bonus{width:92vw}.gt-row{grid-template-columns:1fr}.gt-ft{grid-template-columns:1fr}.gt-menu .x{right:16px}}`);
+  const el = h('div.gt'); root.append(el);
+  const setVH = () => el.style.setProperty('--vh', root.clientHeight + 'px'); setVH();
+  // ---------- code-drawn art (no Rockstar artwork; posterised vector stand-ins) ----------
+  const gid = (() => { let n = 0; return (p) => `${p}${++n}`; })();
+  const lg = (stops, x2 = 0, y2 = 1) => { const id = gid('gtg'); return [id, `<linearGradient id="${id}" x1="0" y1="0" x2="${x2}" y2="${y2}">${stops.map(([o, c]) => `<stop offset="${o}" stop-color="${c}"/>`).join('')}</linearGradient>`]; };
+  const palm = (x, y, s, c) => `<g transform="translate(${x} ${y}) scale(${s})" fill="${c}" stroke="${c}"><path d="M0 0q8-90 4-170" stroke-width="7" fill="none"/>${[[-70, 30], [-40, -10], [0, -30], [40, -12], [72, 26], [-60, 60], [60, 62]].map(([dx, dy]) => `<path d="M4 -170q${dx * 0.5} ${dy - 30} ${dx} ${dy + 10}q${-dx * 0.45} ${-dy * 0.4 - 20} ${-dx} ${-dy - 10}z" stroke-width="1"/>`).join('')}</g>`;
+  const sky = (stops) => { const [id, d] = lg(stops); return `<defs>${d}</defs><rect width="300" height="300" fill="url(#${id})"/>`; };
+  const skyline = (y, c, seed, n = 14, wmax = 26) => { const R = rng(seed); let x = -10, o = ''; for (let i = 0; i < n && x < 310; i++) { const w = 10 + R() * wmax, hh = 20 + R() * 90; o += `<rect x="${x.toFixed(1)}" y="${(y - hh).toFixed(1)}" width="${w.toFixed(1)}" height="${hh + 200}" fill="${c}"/>`; x += w + R() * 4; } return o; };
+  const fig = (x, y, s, o = {}) => { const { skin = '#c98a66', top = '#f4f1ea', hair = '#2a1a14', shades = false, legs = '#2b3a5a', curls = false } = o;
+    return `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-30 300l6-140h48l6 140z" fill="${legs}"/><path d="M-44 170q-4-80 18-96h52q22 16 18 96z" fill="${top}"/><path d="M-44 90q-22 40-16 100l14 2 10-90zM44 90q22 40 16 100l-14 2-10-90z" fill="${skin}"/><rect x="-9" y="52" width="18" height="24" fill="${skin}"/><ellipse cx="0" cy="34" rx="24" ry="29" fill="${skin}"/>${curls ? `<path d="M-30 30q-6-46 30-46 38 0 32 46 10 30-4 60-8-40-6-62-20-10-44 0 2 30-6 62-14-30-2-60z" fill="${hair}"/>` : `<path d="M-25 26q-2-34 25-34 28 0 25 34-8-18-25-18t-25 18z" fill="${hair}"/>`}${shades ? '<rect x="-20" y="26" width="17" height="9" rx="3" fill="#1a1a2a"/><rect x="3" y="26" width="17" height="9" rx="3" fill="#1a1a2a"/><path d="M-3 30h6" stroke="#1a1a2a" stroke-width="2"/>' : '<circle cx="-9" cy="32" r="2.4" fill="#2a1a14"/><circle cx="9" cy="32" r="2.4" fill="#2a1a14"/>'}</g>`; };
+  const ART = {
+    heli: () => `${sky([[0, '#8ccff0'], [0.6, '#cde3f2'], [1, '#f6c6d6']])}${skyline(250, '#a9bfe0', 3)}${skyline(280, '#8aa4cf', 9, 16, 18)}<g transform="translate(150 120) rotate(-12)"><path d="M-160 -48h320" stroke="#2a2a3a" stroke-width="5"/><rect x="-4" y="-48" width="8" height="18" fill="#2a2a3a"/><ellipse cx="0" cy="0" rx="56" ry="32" fill="#2d4fb0"/><path d="M-10-26a40 26 0 0 1 56 18l-56 6z" fill="#b5e3ff" opacity=".85"/><path d="M-50 0h-90l-10-16h14l14 10h70z" fill="#2d4fb0"/><path d="M-36 40h96M-30 30v12M40 30v12" stroke="#2a2a3a" stroke-width="5"/><rect x="-60" y="48" width="140" height="18" rx="9" fill="#e8eef6" stroke="#6a7a9a" stroke-width="3"/></g>`,
+    woman: () => `${sky([[0, '#f8c9d6'], [1, '#f39ab5']])}<rect x="180" y="40" width="140" height="260" fill="#f7d7e2"/>${[0, 1, 2, 3].map((i) => `<rect x="196" y="${60 + i * 56}" width="40" height="34" fill="#9fd8e8"/><rect x="250" y="${60 + i * 56}" width="40" height="34" fill="#9fd8e8"/>`).join('')}${palm(60, 300, 1.1, '#3a7a5a')}${fig(150, 70, 0.95, { skin: '#b97a55', top: '#3fbf86', curls: true, legs: '#f2f0f4' })}<text x="138" y="205" font-family="Oswald,Arial" font-weight="700" font-size="34" fill="#fff">6</text>`,
+    couple: () => `${sky([[0, '#f6a9cc'], [0.55, '#c88ad8'], [1, '#6a54c8']])}<circle cx="240" cy="80" r="42" fill="#ffd6a8" opacity=".9"/>${palm(40, 320, 1.4, '#5a3a8a')}${palm(270, 320, 1.2, '#5a3a8a')}${fig(110, 70, 1.05, { skin: '#c48a68', top: '#2a2438', curls: true, legs: '#2a2438' })}${fig(195, 46, 1.12, { skin: '#d79a74', top: '#f2f0ea', legs: '#3a4a6a' })}`,
+    car: () => `${sky([[0, '#5ec2c8'], [1, '#2f8d9a']])}<rect x="0" y="40" width="300" height="140" fill="#3fa7b2"/>${[0, 1, 2, 3, 4].map((i) => `<rect x="${14 + i * 58}" y="56" width="40" height="40" fill="#7fe0e6"/>`).join('')}${palm(250, 220, 0.9, '#1f5a5a')}<rect x="0" y="200" width="300" height="100" fill="#4a4a5c"/><g transform="translate(150 225)"><path d="M-130 30q10-40 60-50l60-24q60-6 120 26 30 14 20 48z" fill="#f6c21a"/><path d="M-60-20l50-22q40-2 70 16l-120 8z" fill="#2a2a38"/><path d="M-10-42l-40-70 10-6 44 74z" fill="#f6c21a"/><circle cx="-80" cy="34" r="22" fill="#1a1a1a"/><circle cx="-80" cy="34" r="10" fill="#c9c9d4"/><circle cx="90" cy="34" r="22" fill="#1a1a1a"/><circle cx="90" cy="34" r="10" fill="#c9c9d4"/></g>`,
+    boat: () => `${sky([[0, '#7fdcef'], [0.4, '#4fcfe6'], [1, '#2aa3d0']])}${Array.from({ length: 8 }, (_, i) => `<path d="M0 ${150 + i * 20}q75 -8 150 0t150 0" stroke="#ffffff55" stroke-width="3" fill="none"/>`).join('')}<g transform="translate(130 170) rotate(-14)"><path d="M-110 0h200q30 0 40-20l-30 50h-200z" fill="#fff"/><path d="M-100 16h220" stroke="#6a4ac8" stroke-width="8"/><path d="M-60-24h90l20 24h-120z" fill="#2a3a7a"/><path d="M-130 30q40 20 120 16" stroke="#fff" stroke-width="10" opacity=".6" fill="none"/></g><g transform="translate(240 70)"><path d="M0 0q-30 10-50 0 20 30 50 10z" fill="#ff6fa8"/><path d="M-6 6q10 30 30 20" stroke="#ff6fa8" stroke-width="5" fill="none"/><path d="M-40 4l-34-20M-40 4l-30 30" stroke="#ff6fa8" stroke-width="10"/><path d="M24 26l10 4" stroke="#222" stroke-width="5"/></g>`,
+    gator: () => `${sky([[0, '#7fd0c6'], [1, '#2a7a7a']])}<g transform="translate(150 190)"><path d="M-140 60q40-90 150-80l120 10-10 26-110-6q-60 4-60 70z" fill="#5a8a3a"/><path d="M-60 10l170 30-6 24-150-10z" fill="#e8d6c0"/><path d="M-50 4l170-60 6 22-140 50z" fill="#6a9a4a"/>${Array.from({ length: 8 }, (_, i) => `<path d="M${-30 + i * 18} ${-6 - i * 5}l6 12 6-14z" fill="#fff"/>`).join('')}<circle cx="-30" cy="-30" r="8" fill="#ffd23a"/><circle cx="-30" cy="-30" r="3" fill="#111"/></g>`,
+    boss: () => `${sky([[0, '#f6b55a'], [1, '#e2763a']])}${fig(150, 40, 1.35, { skin: '#6a422e', top: '#c43a5a', shades: true, legs: '#2a2a3a', hair: '#1a1210' })}<path d="M110 170q40 40 80 0" stroke="#ffd23a" stroke-width="7" fill="none"/><circle cx="150" cy="196" r="9" fill="#ffd23a"/>`,
+    gun: () => `${sky([[0, '#d6d0ea'], [1, '#9a8ec8']])}${skyline(200, '#b8b0d8', 21, 10, 40)}${fig(160, 40, 1.2, { skin: '#c99a76', top: '#f0eef4', shades: true, legs: '#4a3a6a', hair: '#2a1a14' })}<path d="M40 210l230-60 6 14-230 64z" fill="#2a2a32"/><rect x="120" y="180" width="40" height="30" transform="rotate(-15 140 195)" fill="#2a2a32"/>`,
+    bike: () => `${sky([[0, '#c9b8f0'], [1, '#e8b0d8']])}${skyline(170, '#b9a6e2', 33, 12, 30)}<rect x="0" y="230" width="300" height="70" fill="#8a8aa8"/><g transform="translate(60 250)"><rect x="-50" y="-30" width="110" height="34" rx="10" fill="#f4f4f8"/><rect x="-20" y="-50" width="60" height="22" rx="6" fill="#20203a"/><rect x="-10" y="-58" width="12" height="8" fill="#e02a2a"/><rect x="6" y="-58" width="12" height="8" fill="#2a5ae0"/><circle cx="-26" cy="6" r="12" fill="#111"/><circle cx="36" cy="6" r="12" fill="#111"/></g><g transform="translate(190 190) rotate(-32)"><circle cx="-60" cy="40" r="34" fill="none" stroke="#111" stroke-width="12"/><circle cx="60" cy="40" r="34" fill="none" stroke="#111" stroke-width="12"/><path d="M-60 40l40-50h70l10 50z" fill="#a43ad6"/><path d="M-20-10l30-34 40 4" stroke="#a43ad6" stroke-width="14" fill="none"/></g>${fig(200, 70, 0.6, { skin: '#c48a68', top: '#f0eef4', legs: '#2a2a3a' })}`,
+    motel: () => `${sky([[0, '#ff9ec4'], [1, '#c45aa8']])}<rect x="20" y="60" width="260" height="240" fill="#f7e6ee"/>${[0, 1, 2].map((r) => [0, 1, 2, 3].map((c) => `<rect x="${36 + c * 62}" y="${80 + r * 70}" width="44" height="44" fill="#4fd2e8"/>`).join('')).join('')}<text x="150" y="50" text-anchor="middle" font-family="Oswald,Arial" font-weight="700" font-size="44" fill="#fff" stroke="#ff3fa0" stroke-width="2">VICE</text>`,
+  };
+  const CELLS = [['heli', '1/1/3/3'], ['woman', '3/1/7/3'], ['couple', '1/3/4/6'], ['car', '4/3/7/6'], ['boat', '1/6/3/9'], ['motel', '3/6/5/8'], ['gator', '5/6/7/8'], ['boss', '3/8/7/10'], ['gun', '1/10/4/13'], ['bike', '4/10/7/13']];
+  const logoSVG = () => { const [g1, d1] = lg([[0, '#ff7fb6'], [0.45, '#ffb36e'], [1, '#9b4bdc']], 1, 1); return `<svg viewBox="0 0 300 250"><defs>${d1}</defs><path d="M6 6h86l58 150 36-150h46l-62 238h-74z" fill="url(#${g1})" stroke="#1a1028" stroke-width="6" stroke-linejoin="round"/><path d="M226 6h68v238h-68z" fill="url(#${g1})" stroke="#1a1028" stroke-width="6"/>
+<g font-family="${LOGO.replace(/"/g, '')}" font-size="56" text-anchor="middle" fill="#fff" stroke="#111" stroke-width="10" paint-order="stroke" letter-spacing="-1"><text x="158" y="104">grand</text><text x="164" y="152">theft</text><text x="150" y="202">auto</text></g></svg>`; };
+  const viMark = () => { const [g1, d1] = lg([[0, '#fff'], [1, '#fff']]); return `<svg class="gt-vi" viewBox="0 0 300 220"><defs>${d1}</defs><path d="M0 0h80l50 130 32-130h46l-56 220h-66z M222 0h66v220h-66z" fill="#fff"/></svg>`; };
+  const collage = (cls = '') => { const c = h('div.gt-col' + cls); CELLS.forEach(([k, area]) => { const p = h('div.gt-pn', { html: `<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">${ART[k]()}</svg>`, onclick: () => !cls && toast(`Artwork panel · ${k} (code-drawn stand-in)`) }); p.style.gridArea = area; p.dataset.k = k; c.append(p); }); c.append(h('div.gt-logo', { html: logoSVG() })); return c; };
+  const SUNSET = (W = 1440, H = 900) => { const [g1, d1] = lg([[0, '#2c2257'], [0.35, '#7a4aa6'], [0.62, '#e47bb0'], [0.8, '#ffb3b8'], [1, '#ffd2a6']]); const R = rng(8);
+    return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"><defs>${d1}</defs><rect width="${W}" height="${H}" fill="url(#${g1})"/><circle cx="${W * 0.5}" cy="${H * 0.66}" r="${H * 0.16}" fill="#ffd8a0" opacity=".85"/>${[0, 1, 2, 3].map((i) => `<rect x="0" y="${H * 0.62 + i * 14}" width="${W}" height="${4 + i * 2}" fill="#e98ab4" opacity=".7"/>`).join('')}
+<path d="M0 ${H * 0.2}L${W} ${H * 0.36}M0 ${H * 0.24}L${W} ${H * 0.42}" stroke="#2a1a3a" stroke-width="2" opacity=".6"/>${[0.08, 0.2, 0.84, 0.95].map((x, i) => `<g transform="translate(${W * x} ${H * 0.86}) scale(${1.1 + (i % 2) * 0.5})">${palm(0, 0, 1, '#3a2458').replace(/<g transform="translate\(0 0\) scale\(1\)"/, '<g')}</g>`).join('')}
+<rect x="0" y="${H * 0.78}" width="${W}" height="${H * 0.22}" fill="#4a3060"/><g><rect x="${W * 0.18}" y="${H * 0.55}" width="${W * 0.5}" height="${H * 0.05}" fill="#f4e6f0"/><rect x="${W * 0.18}" y="${H * 0.6}" width="${W * 0.5}" height="${H * 0.012}" fill="#3a6ad6"/>${[0.24, 0.4, 0.56].map((x) => `<rect x="${W * x}" y="${H * 0.612}" width="${W * 0.012}" height="${H * 0.18}" fill="#e8d8e8"/><rect x="${W * (x + 0.03)}" y="${H * 0.7}" width="${W * 0.03}" height="${H * 0.09}" rx="4" fill="#d84a7a"/>`).join('')}</g>
+<g transform="translate(${W * 0.78} ${H * 0.72})"><path d="M-160 60q10-50 70-58l40-34q70-6 130 30 40 6 50 62z" fill="#23233a"/><circle cx="-100" cy="62" r="26" fill="#111"/><circle cx="80" cy="62" r="26" fill="#111"/></g>
+${fig(W * 0.44, H * 0.28, 1.9, { skin: '#c48a68', top: '#e8e6f0', curls: true, legs: '#5a7ab8' })}${fig(W * 0.56, H * 0.24, 2.05, { skin: '#d49a74', top: '#7a8a9a', legs: '#8a6a4a' })}
+<path d="M${W * 0.44 - 40} ${H * 0.28 + 70}h80l-10 30h-60z" fill="#d43a5a"/><path d="M${W * 0.56 - 44} ${H * 0.24 + 72}h88l-10 34h-68z" fill="#2a2a3a"/>${Array.from({ length: 30 }, () => `<circle cx="${R() * W}" cy="${R() * H * 0.4}" r="${R() * 1.6}" fill="#fff" opacity="${0.3 + R() * 0.5}"/>`).join('')}</svg>`; };
+  const BEACH = () => { const [g1, d1] = lg([[0, '#6fb7e6'], [0.6, '#cfe8f4'], [1, '#f2e6d0']]); const R = rng(12); let towers = ''; for (let i = 0; i < 9; i++) { const x = i * 170 - 40 + R() * 40, w = 90 + R() * 80, hh = 300 + R() * 300; towers += `<rect x="${x}" y="${560 - hh}" width="${w}" height="${hh}" fill="${['#e6eef4', '#cfd9e2', '#f2f4f6'][i % 3]}"/>` + Array.from({ length: Math.floor(hh / 30) }, (_, k) => `<rect x="${x + 6}" y="${560 - hh + 10 + k * 30}" width="${w - 12}" height="12" fill="#8fb4d0" opacity=".7"/>`).join(''); }
+    return `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs>${d1}</defs><rect width="1440" height="900" fill="url(#${g1})"/>${towers}<rect y="540" width="1440" height="60" fill="#3fa9c8"/><rect y="590" width="1440" height="310" fill="#e8d6b6"/>${palm(120, 600, 1.6, '#2a6a4a')}${palm(1300, 620, 1.9, '#2a6a4a')}${palm(980, 580, 1.2, '#2a6a4a')}
+<g transform="translate(720 720)"><path d="M-520 120q0-90 120-110l140-90q160-40 330 0l130 80q140 10 150 120z" fill="#8fc49a"/><path d="M-250-70l120-50q140-20 250 10l80 60z" fill="#2a3a3a" opacity=".85"/><path d="M-520 120q0-90 120-110l140-90" stroke="#5a8a6a" stroke-width="10" fill="none"/><circle cx="-330" cy="130" r="70" fill="#1a1a1a"/><circle cx="-330" cy="130" r="32" fill="#c9c9d4"/><circle cx="330" cy="130" r="70" fill="#1a1a1a"/><circle cx="330" cy="130" r="32" fill="#c9c9d4"/></g>
+${fig(650, 260, 1.9, { skin: '#c48a68', top: '#5a3a2a', curls: true, legs: '#e8dcc8' })}${fig(780, 220, 2.1, { skin: '#d49a74', top: '#e8e2d2', legs: '#f2f0ea' })}</svg>`; };
+  const NIGHT = () => { const [g1, d1] = lg([[0, '#120c28'], [0.5, '#3a1e4a'], [0.75, '#c8584a'], [1, '#1a1030']]); const R = rng(30); let b = '', lights = '';
+    for (let x = -20; x < 1460;) { const w = 30 + R() * 70, hh = 60 + R() * 260; b += `<rect x="${x}" y="${620 - hh}" width="${w}" height="${hh}" fill="#0e0a1c"/>`; for (let k = 0; k < hh / 14; k++) for (let j = 0; j < w / 12; j++) if (R() < 0.35) lights += `<rect x="${x + 4 + j * 12}" y="${620 - hh + 6 + k * 14}" width="4" height="4" fill="${R() < 0.8 ? '#ffd88a' : '#9adfff'}"/>`; x += w + 6; }
+    return `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs>${d1}</defs><rect width="1440" height="900" fill="url(#${g1})"/>${b}${lights}<rect y="620" width="1440" height="280" fill="#120c22"/>${Array.from({ length: 60 }, () => `<rect x="${R() * 1440}" y="${640 + R() * 240}" width="${10 + R() * 40}" height="2" fill="#ffc87a" opacity="${0.2 + R() * 0.5}"/>`).join('')}</svg>`; };
+  const TRS = [['Trailer 2', SUNSET(440, 620)], ['Trailer 1', BEACH()]];
+  // ---------- header ----------
+  const menu = h('div.gt-menu'); const pre = () => toast('Pre-Order flow is out of scope for this clone (demo)');
+  const hd = h('div.gt-hd', {}, h('div.in', {}, h('button', { title: 'Homepage', html: viMark(), onclick: () => root.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }) }), h('span.gt-sp'), h('button.gt-pre', { onclick: pre }, 'Pre-Order Now'), h('button.gt-burg', { title: 'Expand Navigation Menu', onclick: () => setMenu(true) }, h('i'), h('i'), h('i'))));
+  // ---------- pinned scroll stage ----------
+  const hero = h('div.gt-l.gt-hero', {}, collage(), h('div.gt-meta', {}, h('div.c', {}, 'Coming', h('br'), 'November 19, 2026'), h('button.gt-pre', { onclick: pre }, 'Pre-Order Now'), h('div.pl', { html: '<span style="font-size:15px;letter-spacing:.02em">⏻ PS5</span><br>Ⓧ XBOX SERIES X|S' })), h('div.gt-chev', { html: '<svg viewBox="0 0 28 14"><path d="M2 2l12 10L26 2" stroke="#ffb3c6" stroke-width="3" fill="none" stroke-linecap="round"/></svg>' }));
+  const sunsetSvg = h('div.gt-l.gt-scn', { html: SUNSET() }); const playBig = h('button.gt-play', { title: 'Play', html: '<svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="#1b0f24"/></svg>', onclick: () => openVid('An Extended Look') });
+  const title = h('div.gt-title', {}, h('h2', {}, 'An Extended Look'), h('p', {}, 'NOW PLAYING'));
+  const sunset = h('div.gt-l', {}, sunsetSvg, title, playBig); const dark = h('div.gt-dark');
+  const trCards = TRS.map(([t, art]) => h('div.gt-tr', { onclick: () => openVid(t) }, h('div', { html: art.replace('<svg ', '<svg preserveAspectRatio="xMidYMid slice" ') }).firstChild, h('div.lb', {}, h('small', {}, 'WATCH'), h('b', {}, t)), h('span.gt-play', { html: '<svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="#1b0f24"/></svg>' })));
+  const trs = h('div.gt-l.gt-trs', {}, trCards);
+  const chr = h('div.gt-l.gt-chr', { html: BEACH() });
+  const ucard = h('div.gt-ucard', {}, h('div.gt-palms', { html: `<svg viewBox="0 0 980 270" preserveAspectRatio="xMidYMax slice">${palm(60, 270, 1.1, '#2a1a4a')}${palm(900, 270, 1.3, '#2a1a4a')}${palm(760, 270, 0.9, '#2a1a4a')}</svg>` }), (() => { const m = collage('.mini'); m.className = 'mini'; return m; })(),
+    h('div', { style: { position: 'relative' } }, h('h3', {}, 'Ultimate', h('br'), 'Edition'), h('p', {}, 'An exclusive collection of items threaded across all aspects of Jason and Lucia’s story.'), h('button.gt-lm', { onclick: () => toast('Ultimate Edition · Learn More (demo)') }, 'Learn More', h('span', {}, '→'))));
+  const neon = h('div.neon' + (RM ? '' : '.flk'), {}, 'OCEAN VIEW HOTEL');
+  const bonus = h('div.gt-bonus', {}, neon, h('small', {}, 'PRE-ORDER BONUSES · VINTAGE VICE CITY PACK'));
+  const ue = h('div.gt-l.gt-ue', {}, ucard, bonus);
+  const night = h('div.gt-l.gt-night', { html: NIGHT() }); night.append(h('h2', {}, 'Vice City, USA.'), h('p', {}, 'Jason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America.'));
+  const stage = h('div.gt-stage', {}, night, chr, ue, sunset, dark, trs, hero);
+  const track = h('div.gt-track', {}, stage);
+  // ---------- after-scroll content ----------
+  const FC = [['Music', 'In-Game Radio and Music', 'Preview hand-picked stations from the biggest selection of in-game radio yet.', 'Explore More', ['#ff7fb6', '#5a2a8a']], ['People & Places', 'Only in Leonida', 'Vice City, USA. The darkest side of the sunniest place in America.', 'Explore More', ['#ffb36e', '#c4386a']], ['Downloads', 'Media & Artwork', 'Download and share official videos, screenshots, and more.', 'See All', ['#7fdcef', '#3a3a9a']]];
+  const fcEls = FC.map(([s1, t, p, cta, [a, b]], i) => { const [id, d] = lg([[0, a], [1, b]]); return h('div.gt-fc', { onclick: () => toast(`${t} (demo)`), html: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice"><defs>${d}</defs><rect width="400" height="500" fill="url(#${id})"/>${palm(80 + i * 60, 520, 1.6, '#00000044')}${skyline(500, '#00000033', i + 40, 14, 40)}<rect width="400" height="500" fill="url(#gtShade)"/></svg>` }, h('div.t', {}, h('small', {}, s1.toUpperCase()), h('b', {}, t), h('p', {}, p), h('span.gt-lm', {}, cta, ' →'))); });
+  const NEWS = [['Grand Theft Auto VI Collection Now at the Rockstar Store', 'October 8, 2026'], ['The Music of Grand Theft Auto VI: In-Game Radio Stations', 'October 8, 2026'], ['Pre-Order The Goodtime State – Vice City Collection Now While Supplies Last', 'September 24, 2026']];
+  const after = h('div.gt-after', {}, h('svg', { html: '<defs><linearGradient id="gtShade" x1="0" y1="0" x2="0" y2="1"><stop offset=".4" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/></linearGradient></defs>', style: { position: 'absolute', width: 0, height: 0 } }),
+    h('div.gt-row', {}, fcEls), h('div.gt-news', {}, h('h4', {}, 'Featured News', h('span', {}, 'View all')), h('div.gt-row', {}, NEWS.map(([t, d], i) => h('div.gt-nc', { onclick: () => toast('Newswire post (demo)'), html: `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">${ART[['motel', 'couple', 'boat'][i]]().replace('width="300" height="300"', 'width="320" height="320"')}</svg>` }, h('div', {}, h('b', {}, t), h('small', {}, d)))))),
+    h('footer.gt-ft', {}, h('div', {}, h('h5', {}, 'Get Rockstar Propaganda'), h('p', { style: { opacity: 0.7, margin: '0 0 14px' } }, 'Get the latest game announcements, updates on special events and offers, and much more.'), h('div.s', {}, ['X', 'Instagram', 'YouTube', 'TikTok', 'Facebook', 'Twitch', 'Discord'].map((x) => h('span', {}, x))), h('div.lg', {}, ['Corporate', 'Privacy', 'Cookie Settings', 'Cookie Policy', 'Legal'].map((x) => h('span', {}, x)))), h('div.esrb', {}, 'Rating pending · fan-made UX study, not affiliated with Rockstar Games. All imagery is code-drawn.')));
+  el.append(hd, track, after, menu);
+  // ---------- menu + video modal ----------
+  const MENU = [['Trailers', 0.42], ['Ultimate Edition', 0.76], ['Pre-Order Bonuses', 0.8], ['Vice City, USA.', 0.95], ['Music', 'after'], ['Newswire', 'news']];
+  menu.append(h('button.x', { title: 'Close', onclick: () => setMenu(false) }, '×'), ...MENU.map(([t, p]) => h('button.it', { onclick: () => { setMenu(false); jump(p); } }, t)));
+  function setMenu(on) { menu.classList.toggle('on', on); }
+  const vid = h('div.gt-vid'); const vBar = h('i'); const vT = h('span', {}, '0:00 / 2:46'); const vCap = h('div.cap'); const vPP = h('button', { style: { font: '700 14px ' + SANS } }, '❚❚'); const vFr = h('div.fr'); let vP = 0, vOn = false, vTimer;
+  vid.append(h('button.x', { title: 'Close', onclick: () => closeVid() }, '×'), vFr);
+  vFr.append(h('div.note', {}, 'Simulated playback (no video assets)'), vCap, h('div.ctl', {}, vPP, h('div.bar', { onclick: (e) => { const r = e.currentTarget.getBoundingClientRect(); vP = (e.clientX - r.left) / r.width; tickV(); } }, vBar), vT));
+  const tickV = () => { vBar.style.width = (vP * 100).toFixed(1) + '%'; const s = Math.round(vP * 166); vT.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')} / 2:46`; };
+  vPP.onclick = () => { vOn = !vOn; vid.classList.toggle('play', vOn); vPP.textContent = vOn ? '❚❚' : '▶'; };
+  function openVid(t) { vFr.querySelector('svg')?.remove(); vFr.insertAdjacentHTML('afterbegin', t === 'Trailer 1' ? BEACH() : SUNSET()); vCap.textContent = t; vP = 0; tickV(); vOn = true; vid.classList.add('on', 'play'); vPP.textContent = '❚❚'; clearInterval(vTimer); vTimer = setInterval(() => { if (vOn) { vP = Math.min(1, vP + 1 / 166 / 4); tickV(); } }, 250); }
+  function closeVid() { vid.classList.remove('on', 'play'); vOn = false; clearInterval(vTimer); }
+  document.body.append(vid);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeVid(); setMenu(false); } });
+  // ---------- scroll choreography ----------
+  const sm = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+  let VH = root.clientHeight; const layout = () => { VH = root.clientHeight; setVH(); stage.style.height = VH + 'px'; track.style.height = VH * 8 + 'px'; };
+  const prog = () => clamp(root.scrollTop / (VH * 7), 0, 1);
+  const jump = (p) => { const top = p === 'after' ? track.offsetHeight : p === 'news' ? track.offsetHeight + after.querySelector('.gt-news').offsetTop : p * VH * 7; root.scrollTo({ top, behavior: RM ? 'auto' : 'smooth' }); };
+  const st = {};
+  function render() { const p = prog(), k = RM ? 0 : 1;
+    const hO = 1 - sm(0.05, 0.12, p); hero.style.opacity = hO; hero.style.transform = `scale(${1 + 0.18 * k * sm(0, 0.12, p)})`; hero.style.pointerEvents = hO > 0.5 ? 'auto' : 'none';
+    const sO = sm(0.06, 0.12, p) * (1 - sm(0.5, 0.54, p)); sunset.style.opacity = sO; sunsetSvg.style.transform = `scale(${1.18 - 0.18 * k * sm(0.08, 0.36, p)})`; sunset.style.pointerEvents = sO > 0.5 && p < 0.33 ? 'auto' : 'none';
+    title.style.opacity = sm(0.1, 0.16, p) * (1 - sm(0.3, 0.35, p)); title.style.letterSpacing = k ? `${(1 - sm(0.1, 0.2, p)) * 0.3}em` : ''; playBig.style.opacity = sm(0.12, 0.18, p) * (1 - sm(0.3, 0.34, p));
+    dark.style.opacity = sm(0.32, 0.4, p) * 0.82 * (1 - sm(0.5, 0.54, p));
+    const tO = sm(0.33, 0.4, p) * (1 - sm(0.5, 0.54, p)); trs.style.opacity = tO; trs.style.transform = `translateY(${(1 - sm(0.32, 0.43, p)) * 55 * k}vh)`; trs.style.pointerEvents = tO > 0.5 ? 'auto' : 'none';
+    const cO = sm(0.5, 0.54, p) * (1 - sm(0.84, 0.88, p)); chr.style.opacity = cO; const ins = (1 - sm(0.52, 0.64, p)) * 22; chr.style.clipPath = `inset(${ins}% ${ins * 1.4}% ${ins}% ${ins * 1.4}% round ${ins * 1.6}px)`; chr.querySelector('svg').style.transform = `scale(${1.25 - 0.25 * sm(0.52, 0.7, p)})`;
+    const uY = (1 - sm(0.66, 0.76, p)) * 110, uO = sm(0.66, 0.72, p) * (1 - sm(0.86, 0.9, p)); ue.style.opacity = uO; ucard.style.transform = `translateY(${uY}vh)`; bonus.style.transform = `translateY(${(1 - sm(0.7, 0.8, p)) * 120}vh)`; ue.style.pointerEvents = uO > 0.5 ? 'auto' : 'none';
+    night.style.opacity = sm(0.86, 0.92, p); night.querySelector('svg').style.transform = `scale(${1.12 - 0.12 * k * sm(0.86, 1, p)})`;
+    hd.classList.toggle('pill', p > 0.1 || root.scrollTop > track.offsetHeight - VH);
+    Object.assign(st, { p, hO, sO, tO, cO, uO, ins, nO: +night.style.opacity }); }
+  layout(); render(); root.addEventListener('scroll', render, { passive: true }); new ResizeObserver(() => { layout(); render(); }).observe(root);
+  window.__demoProof = async () => { await fontsP; const o = []; const to = async (p) => { root.scrollTop = p * VH * 7; render(); await sleep(60); };
+    const pn = hero.querySelector('.gt-pn[data-k="boat"]'); pn.classList.add('hov'); o.push(`hero collage panels=${hero.querySelectorAll('.gt-pn').length} hover=${getComputedStyle(pn).transform !== 'none' || RM}`); pn.classList.remove('hov');
+    await to(0.2); o.push(`p=.20 extended look opacity=${st.sO.toFixed(2)} hero=${st.hO.toFixed(2)} header pill=${hd.classList.contains('pill')}`);
+    await to(0.45); o.push(`p=.45 trailer cards opacity=${st.tO.toFixed(2)}`); trCards[0].click(); await sleep(600); o.push(`trailer modal open=${vid.classList.contains('on')} caption=${vCap.textContent} progress=${vBar.style.width}`); vPP.click(); o.push(`paused=${!vOn}`); closeVid();
+    await to(0.6); o.push(`p=.60 character panel opacity=${st.cO.toFixed(2)} inset=${st.ins.toFixed(1)}%`); await to(0.68); o.push(`p=.68 inset=${st.ins.toFixed(1)}% (full-bleed)`);
+    await to(0.8); o.push(`p=.80 Ultimate Edition opacity=${st.uO.toFixed(2)}`); await to(0.97); o.push(`p=.97 Vice City night=${st.nO.toFixed(2)}`);
+    setMenu(true); o.push(`menu open=${menu.classList.contains('on')} items=${MENU.length}`); setMenu(false);
+    root.scrollTop = 0; render(); await sleep(60); o.push(`restored p=${st.p} hero=${st.hO} pill=${hd.classList.contains('pill')}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

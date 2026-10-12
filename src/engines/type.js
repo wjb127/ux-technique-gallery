@@ -1963,5 +1963,202 @@ V['monaspace-type-specimen-outline-node-logo-font-cards-axis-playground-texture-
     o.push(`restored: Neon, 16px wght 300 wdth 100 slnt 0, healing+ligatures on, grid off, GitHub Dark, JavaScript (${getComputedStyle(code).fontVariationSettings})`); return o.join('; '); };
   if (!RM) setTimeout(() => logo.classList.remove('draw'), 2600); else logo.classList.remove('draw');
 };
+V['cydstumpel-giant-condensed-wordmark-rotating-serif-role-sticker-badges-rounded-work-tiles-pastel-blog-cards'] = (root, T) => {
+  const fontsP = Promise.all([import('@fontsource/anton'), import('@fontsource/instrument-serif/400.css'), import('@fontsource/instrument-serif/400-italic.css')]).catch(() => {});
+  theme(root, T, { bg: '#fff5ee', fg: '#111', ac: '#d9533f', dark: false });
+  root.classList.add('scroll'); root.style.overflow = 'auto';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const RED = '#d9533f', CREAM = '#fff5ee', AN = "'Anton','Bueno','Impact','Arial Narrow Bold',sans-serif", IS = "'Instrument Serif','Times New Roman',serif", SANS = "'Inter Variable',Helvetica,Arial,sans-serif";
+  css(`.cy{background:${CREAM};color:#111;font:400 24px/1.15 ${IS};position:relative;overflow-x:clip;min-height:100%}
+.cy *{box-sizing:border-box}.cy a{color:inherit}.cy button{font:inherit;cursor:pointer;background:none;border:0;color:inherit;padding:0}
+.cy-mq{overflow:hidden;white-space:nowrap;line-height:.84;user-select:none;pointer-events:none}
+.cy-mq .tr{display:inline-flex;will-change:transform}.cy-mq span{font:400 252px/.84 ${AN};color:${RED};letter-spacing:-.005em;padding-right:.22em;transform:scaleY(1.06);display:inline-block}
+.cy-top{padding-top:14px}
+.cy-box{position:absolute;left:50%;top:150px;width:150px;height:150px;margin-left:-20px;z-index:6;cursor:pointer}
+.cy-box svg.bx{position:absolute;left:0;top:40px;width:150px;height:120px;overflow:visible}
+.cy-box .ic{position:absolute;left:50px;top:70px;width:26px;height:26px;transition:transform .55s cubic-bezier(.3,1.7,.5,1);transform:translate(var(--x0),var(--y0)) rotate(var(--r0))}
+.cy-box:hover .ic,.cy-box.pop .ic{transform:translate(var(--x1),var(--y1)) rotate(var(--r1))}
+.cy-box.pop .ic{transition-duration:.35s}
+.cy-hd{position:sticky;top:0;z-index:20;height:86px;display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:0 64px;padding:0 24px;background:${CREAM}00;transition:background .25s,height .25s,border-color .25s;border-bottom:1.5px solid #d9533f00}
+.cy-hd.stuck{background:${CREAM};height:66px;border-color:${RED}}
+.cy-logo{font:400 54px/1 ${AN};color:${RED};letter-spacing:-.01em;transform:scaleY(1.1)}
+.cy-hd .mail{font:400 25px ${IS};text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;position:relative}
+.cy-hd .mail .cp{position:absolute;left:0;top:-18px;font:400 11px ${SANS};opacity:0;transition:.2s;text-decoration:none;white-space:nowrap}.cy-hd .mail:hover .cp{opacity:.7}
+.cy-av{display:flex;align-items:center;gap:10px;font:400 25px ${IS}}
+.cy-nav{display:flex;gap:24px;font:400 25px ${IS}}.cy-nav button{position:relative}.cy-nav button::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .3s}.cy-nav button:hover::after{transform:scaleX(1);transform-origin:left}
+.cy-hero{position:relative;height:860px}
+.cy-circ{position:absolute;left:-180px;top:180px;width:780px;height:780px;border-radius:50%;background:${RED}}
+.cy-por{position:absolute;left:40px;top:0;width:480px;height:860px}
+.cy-hl{position:absolute;left:612px;top:120px;z-index:4}
+.cy-hl .w{display:block;height:140px;overflow:hidden;position:relative}
+.cy-hl .w span{display:block;font:400 152px/140px ${IS};letter-spacing:-.02em;white-space:nowrap;transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .7s}
+.cy-hl .w1 span{font-style:italic}.cy-hl .w2{margin-left:118px}
+.cy-hl .w span.out{transform:translateY(-105%);opacity:0}.cy-hl .w span.in0{transform:translateY(105%);opacity:0}
+.cy-hl .w span.nx{position:absolute;left:0;top:0}
+.cy-intro{position:absolute;left:845px;top:420px;width:330px;font:400 13.4px/1.42 ${SANS};z-index:3}.cy-intro p{margin:0 0 12px}.cy-intro a{text-underline-offset:2px}
+.cy-stk{position:absolute;z-index:8;cursor:grab;touch-action:none;filter:drop-shadow(0 2px 0 #0002);transition:filter .2s}
+.cy-stk:active{cursor:grabbing;filter:drop-shadow(4px 10px 10px #0003)}.cy-stk.dragging{transition:none}
+.cy-stk svg{display:block;width:100%;height:100%;overflow:visible}
+.cy-ev{position:absolute;right:-14px;top:580px;width:170px;padding:10px 26px 12px 16px;border:3px solid ${RED};border-right:0;border-radius:14px 0 0 14px;background:${CREAM};font:400 13px/1.1 ${AN};color:${RED};text-transform:uppercase;z-index:5;box-shadow:inset 0 0 0 1.5px ${CREAM},inset 0 0 0 3px ${RED}}
+.cy-pill{display:inline-block;border:2px solid ${RED};border-radius:99px;padding:4px 12px 3px;font:400 12px/1.2 ${AN};color:${RED};text-transform:uppercase;box-shadow:0 3px 0 ${RED};background:${CREAM};transition:transform .15s,box-shadow .15s;cursor:pointer}
+.cy-pill:hover{transform:translateY(2px);box-shadow:0 1px 0 ${RED}}
+.cy-work{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:60px 24px 40px}
+.cy-tile{position:relative;aspect-ratio:1;border-radius:84px;overflow:hidden;cursor:pointer;isolation:isolate}
+.cy-tile svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.cy-tile:hover svg,.cy-tile.hov svg{transform:scale(1.07)}
+.cy-tile b{position:absolute;left:0;right:0;bottom:46px;text-align:center;font:400 46px/1 ${AN};color:#fff5ee;text-transform:uppercase;text-shadow:0 2px 0 #0006,0 0 18px #0004;letter-spacing:.005em;transform:scaleY(1.05)}
+.cy-tile .tags{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:6px;transform:translateY(30px);opacity:0;transition:.35s cubic-bezier(.3,1.5,.5,1)}
+.cy-tile:hover .tags,.cy-tile.hov .tags{transform:none;opacity:1}
+.cy-tile .tags i{font:400 11px/1 ${AN};font-style:normal;padding:4px 9px 3px;border-radius:99px;background:${CREAM};color:#111;border:1.5px solid #111}
+.cy-txt{align-self:center;padding:0 30px 0 0;font:400 31px/1.03 ${IS};letter-spacing:-.01em}.cy-txt a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;cursor:pointer}
+.cy-txt a.hl{color:${RED}}.cy-txt .cy-pill{margin-top:22px}
+.cy-prev{position:fixed;z-index:50;width:150px;height:110px;border-radius:24px;overflow:hidden;pointer-events:none;transform:translate(-50%,-115%) scale(.6) rotate(-6deg);opacity:0;transition:opacity .2s,transform .3s cubic-bezier(.3,1.5,.5,1)}
+.cy-prev.on{opacity:1;transform:translate(-50%,-115%) scale(1) rotate(-4deg)}.cy-prev svg{width:100%;height:100%}
+.cy-blogs{padding:40px 24px 60px}.cy-blogs h2{margin:0 0 16px;font:400 40px ${IS};letter-spacing:-.01em}
+.cy-bg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cy-card{position:relative;min-height:306px;border:2px solid var(--c);background:var(--b);border-radius:6px;padding:26px 24px 22px;color:var(--c);clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%);transition:transform .35s cubic-bezier(.3,1.4,.5,1);cursor:pointer;display:flex;flex-direction:column}
+.cy-card::after{content:'';position:absolute;right:-2px;top:-2px;width:20px;height:20px;background:linear-gradient(225deg,${CREAM} 50%,var(--c) 50% calc(50% + 2px),var(--b) calc(50% + 2px))}
+.cy-card:hover,.cy-card.hov{transform:rotate(var(--rt,-1.2deg)) translateY(-6px)}
+.cy-card .d{font:400 13px ${AN};text-transform:uppercase;letter-spacing:.01em}
+.cy-card .ch{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 18px}.cy-card .ch i{font:400 11px/1 ${AN};font-style:normal;text-transform:uppercase;border:2px solid var(--c);border-radius:99px;padding:5px 9px 4px;box-shadow:inset 0 0 0 1.5px var(--b),inset 0 0 0 3px var(--c)}
+.cy-card h3{margin:0;font:400 38px/1.02 ${AN};text-transform:uppercase;letter-spacing:.003em}
+.cy-card .wm{margin-top:auto;align-self:flex-end;font:400 11px ${AN};text-transform:uppercase;border:2px solid var(--c);border-radius:99px;padding:6px 10px 4px;box-shadow:inset 0 0 0 1.5px var(--b),inset 0 0 0 3px var(--c)}
+.cy-svc{display:flex;justify-content:center;padding:120px 24px 160px;gap:0}
+.cy-sc{position:relative;width:452px;height:620px;margin:0 -12px;background:${RED};border:2.5px solid #111;border-radius:18px;overflow:hidden;transition:transform .5s cubic-bezier(.3,1.4,.5,1);transform:rotate(var(--rt));cursor:pointer}
+.cy-sc:hover,.cy-sc.hov{transform:rotate(0deg) translateY(-14px) scale(1.02);z-index:3}
+.cy-sc h3{margin:0;padding:22px 22px 0;font:400 68px/1 ${AN};color:${CREAM};text-transform:uppercase;text-shadow:3px 3px 0 #111,-1px -1px 0 #111,1px -1px 0 #111,-1px 1px 0 #111;letter-spacing:.005em}
+.cy-sc img{position:absolute;right:-6px;bottom:44px;width:300px;image-rendering:pixelated;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.cy-sc:hover img,.cy-sc.hov img{transform:translate(-12px,-16px) rotate(-6deg)}
+.cy-sc .rail{position:absolute;left:0;right:0;bottom:12px;overflow:hidden;white-space:nowrap}
+.cy-sc .rail div{display:inline-flex;gap:6px;animation:cyRail 14s linear infinite}.cy-sc .rail i{font:400 11px/1 ${AN};font-style:normal;text-transform:uppercase;color:${RED};background:${CREAM};border-radius:99px;padding:5px 10px 4px;border:1.5px solid ${CREAM};box-shadow:inset 0 0 0 1.5px ${RED}}
+@keyframes cyRail{to{transform:translateX(-50%)}}
+.cy-ft{background:${RED};color:${CREAM};padding:130px 24px 40px;margin-top:40px}
+.cy-ft .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+.cy-ft .lg{font:400 54px/1 ${AN};transform:scaleY(1.1);transform-origin:left bottom;display:inline-block}
+.cy-ft p{margin:10px 0 0;font:400 36px/1.1 ${IS}}.cy-ft .r{text-align:right}.cy-ft .r .a{font:400 50px/1 ${IS}}
+.cy-ft .r a{font:400 36px ${IS};text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;cursor:pointer}
+.cy-ft .links{display:flex;justify-content:space-between;border-top:1px solid #fff5ee99;margin-top:42px;padding-top:24px;font:400 22px ${IS}}.cy-ft .links div{display:flex;gap:24px}.cy-ft .links .s span{text-decoration:underline;text-underline-offset:4px}
+.cy-mq.bot{padding-top:16px;background:${CREAM}}
+${RM ? '.cy *{transition-duration:.01s!important;animation:none!important}' : ''}
+@media (max-width:760px){.cy-mq span{font-size:96px}.cy-hd{grid-template-columns:auto 1fr auto;gap:12px;padding:0 14px;height:60px}.cy-hd>span{display:none}.cy-hd.stuck{height:54px}.cy-logo{font-size:34px}.cy-hd .mail{display:none}.cy-av{font-size:16px}.cy-nav{display:none}.cy-burger{display:block!important}
+.cy-box{top:40px;left:auto;right:18px;transform:scale(.55);transform-origin:top right;margin:0}
+.cy-hero{height:auto;padding:0 0 30px}.cy-circ{left:-120px;top:70px;width:420px;height:420px}.cy-por{position:relative;left:0;width:300px;height:480px;margin-left:10px}
+.cy-hl{position:relative;left:auto;top:auto;padding:0 16px;margin-top:-10px}.cy-hl .w{height:62px}.cy-hl .w span{font-size:68px;line-height:62px}.cy-hl .w2{margin-left:40px}
+.cy-intro{position:relative;left:auto;top:auto;width:auto;padding:16px 16px 0}.cy-ev{position:relative;right:auto;top:auto;margin:16px 0 0 auto}
+.cy-stk{transform:scale(.62);transform-origin:0 0}
+.cy-work{grid-template-columns:1fr 1fr;gap:10px;padding:30px 12px}.cy-tile{border-radius:40px}.cy-tile b{font-size:22px;bottom:22px}.cy-txt{grid-column:1/-1;font-size:24px;padding:10px 4px}
+.cy-bg{grid-template-columns:1fr}.cy-card{min-height:220px}.cy-card h3{font-size:28px}.cy-svc{flex-direction:column;align-items:center;padding:40px 12px 80px}.cy-sc{width:min(330px,90%);height:430px;margin:-16px 0}.cy-sc h3{font-size:46px}.cy-sc img{width:200px}
+.cy-ft{padding:60px 16px 30px}.cy-ft .row{flex-direction:column;align-items:flex-start}.cy-ft .r{text-align:left}.cy-ft p,.cy-ft .r a{font-size:24px}.cy-ft .r .a{font-size:32px}.cy-ft .links{flex-direction:column;gap:14px;font-size:18px}.cy-ft .links div{flex-wrap:wrap;gap:12px}}
+.cy-burger{display:none;font:400 20px ${IS};text-decoration:underline}`);
+  const el = h('div.cy'); root.append(el);
+  const vars = (e, o) => { for (const k in o) e.style.setProperty(k, o[k]); return e; };
+  const fitZ = () => { const w = root.clientWidth; el.style.zoom = w > 760 ? clamp(w / 1440, 0.62, 1.5) : 1; }; fitZ(); new ResizeObserver(fitZ).observe(root);
+  // ---------- wordmark marquee (scroll-velocity boosted) ----------
+  const mq = (cls = '') => { const tr = h('div.tr', {}, Array.from({ length: 8 }, () => h('span', {}, 'CYD STUMPEL'))); const w = h('div.cy-mq' + cls, {}, tr); w.tr = tr; w.x = 0; return w; };
+  const mTop = mq('.top'), mBot = mq('.bot'); mBot.x = -400;
+  // ---------- pink open box with doodle icons ----------
+  const ICON = { bulb: '<circle cx="13" cy="10" r="7" fill="#fff" stroke="#111" stroke-width="1.6"/><path d="M10 17h6v4h-6z" fill="#fff" stroke="#111" stroke-width="1.6"/><path d="M11 10l2 3 2-3" fill="none" stroke="#111" stroke-width="1.2"/>', arrow: '<path d="M6 3l14 9-6 1 4 7-3 2-4-7-5 4z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/>',
+    eyes: '<ellipse cx="9" cy="13" rx="5" ry="7" fill="#fff" stroke="#111" stroke-width="1.6"/><ellipse cx="18" cy="13" rx="5" ry="7" fill="#fff" stroke="#111" stroke-width="1.6"/><circle cx="10" cy="14" r="2.2" fill="#111"/><circle cx="19" cy="14" r="2.2" fill="#111"/>',
+    planet: '<circle cx="13" cy="13" r="6.5" fill="#fff" stroke="#111" stroke-width="1.6"/><ellipse cx="13" cy="13" rx="12" ry="3.5" fill="none" stroke="#111" stroke-width="1.6" transform="rotate(-20 13 13)"/>', hand: '<path d="M8 22v-8l-3-3 2-2 3 2V3h3v7l2-1 2 1 2-1 2 2v7l-3 4z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/>',
+    plant: '<path d="M7 15h12l-2 8H9z" fill="#fff" stroke="#111" stroke-width="1.6"/><path d="M13 15V8M13 10q-5-1-6-6 5 0 6 6M13 9q4-3 7-2-1 4-7 3" fill="#fff" stroke="#111" stroke-width="1.4"/>', cup: '<path d="M7 4h12v6a6 6 0 0 1-12 0z" fill="#fff" stroke="#111" stroke-width="1.6"/><path d="M13 16v4M9 22h8" stroke="#111" stroke-width="1.6"/><path d="M7 6H4v2a3 3 0 0 0 3 3M19 6h3v2a3 3 0 0 1-3 3" fill="none" stroke="#111" stroke-width="1.4"/>' };
+  const IP = [['hand', -46, -32, -20, -78, -96, -18], ['bulb', -24, -40, 10, -46, -120, 12], ['arrow', 0, -44, -10, 4, -128, -12], ['eyes', 22, -46, 8, 48, -116, 14], ['planet', 40, -30, 20, 84, -86, 24], ['plant', -14, -22, 0, -28, -70, -8], ['cup', 10, -20, -6, 24, -62, 10]];
+  const box = h('div.cy-box', { title: 'Open the box', html: `<svg class="bx" viewBox="0 0 150 120"><path d="M30 34l52-14 46 18-52 16z" fill="#c4544a"/><path d="M30 34l46 20v58l-46-22z" fill="#ec8c80"/><path d="M76 54l52-16v56l-52 18z" fill="#e57466"/><path d="M30 34L6 52l46 22 24-20z" fill="#f4a49a"/><path d="M128 38l20-24-48-12-18 18z" fill="#f2a198"/><path d="M82 20l-8-22-46 14 2 22z" fill="#f6b4ab" opacity=".95"/></svg>` });
+  IP.forEach(([k, x0, y0, r0, x1, y1, r1]) => box.append(vars(h('div.ic', { html: `<svg viewBox="0 0 26 26">${ICON[k]}</svg>` }), { '--x0': x0 * 0.4 + 'px', '--y0': y0 * 0.5 + 20 + 'px', '--r0': r0 + 'deg', '--x1': x1 + 'px', '--y1': y1 + 'px', '--r1': r1 + 'deg' })));
+  let popT; const pop = () => { box.classList.add('pop'); clearTimeout(popT); popT = setTimeout(() => box.classList.remove('pop'), 1400); }; box.onclick = pop;
+  // ---------- header (sticky) ----------
+  const EMAIL = 'info@cydstumpel.nl';
+  const mail = h('a.mail', { onclick: () => copy(EMAIL, 'Email copied') }, h('span.cp', {}, 'Copy email'), EMAIL);
+  const spark = '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M9 2q1 7 7 8-6 1-7 8-1-7-7-8 6-1 7-8zM19 1q.4 3 3 3.4-2.6.6-3 3.6-.4-3-3-3.6 2.6-.4 3-3.4z" fill="#111"/></svg>';
+  const secs = {};
+  const go = (k) => { const t = secs[k]; if (t) root.scrollTo({ top: k === 'About' ? 0 : t.offsetTop * (parseFloat(el.style.zoom) || 1) - 70, behavior: RM ? 'auto' : 'smooth' }); };
+  const navB = ['About', 'Archive', 'Speaking', 'Blogs', 'Contact'].map((k) => h('button', { onclick: () => go(k) }, k));
+  const hd = h('div.cy-hd', {}, h('div.cy-logo', {}, 'CYD'), h('div.k-row', { style: { gap: '64px' } }, mail, h('div.cy-av', { html: spark + 'Available November 2026' })), h('span'), h('nav.cy-nav', {}, navB), h('button.cy-burger', { onclick: () => go('Contact') }, 'Menu'));
+  // ---------- hero ----------
+  const por = `<svg class="cy-por" viewBox="0 0 480 860" preserveAspectRatio="xMidYMax meet"><defs><linearGradient id="cyH" x1="0" x2="1"><stop offset="0" stop-color="#4a2e22"/><stop offset=".5" stop-color="#7a5038"/><stop offset="1" stop-color="#5a3826"/></linearGradient><linearGradient id="cyJ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6a4c"/><stop offset="1" stop-color="#1d4a33"/></linearGradient></defs>
+<path d="M120 300q-20-170 120-180 150 0 140 170 0 120-30 230l-200 20q-40-120-30-240z" fill="url(#cyH)"/><path d="M190 470h80l10 80h-100z" fill="#e9b39a"/>
+<ellipse cx="236" cy="340" rx="92" ry="118" fill="#f2c4a8"/><path d="M146 300q10-120 100-122 90 0 96 110-40-70-110-76-50 30-86 88z" fill="url(#cyH)"/><path d="M146 300q-4 80 10 150-30-60-20-150zM334 290q20 80 0 180 30-80 12-180z" fill="#4a2e22"/>
+<ellipse cx="200" cy="340" rx="11" ry="6" fill="#3a2a22"/><ellipse cx="272" cy="340" rx="11" ry="6" fill="#3a2a22"/><path d="M185 318q15-8 30 0M257 318q15-8 30 0" stroke="#5a3a2a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M236 350q-6 30 4 40" stroke="#c99478" stroke-width="3" fill="none"/><path d="M206 412q30 22 62 0" stroke="#b86a5a" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="190" cy="388" rx="16" ry="9" fill="#f0a493" opacity=".5"/><ellipse cx="284" cy="388" rx="16" ry="9" fill="#f0a493" opacity=".5"/>
+<path d="M40 860q0-250 120-300l70 40 70-40q130 40 140 300z" fill="url(#cyJ)"/><path d="M180 560l50 90 50-90-20-14-30 40-30-40z" fill="#9aa0a4"/><path d="M160 560l-30 90 60 40zM300 560l30 90-60 40z" fill="#245a40"/><rect x="300" y="700" width="70" height="60" rx="6" fill="#1d4a33" stroke="#163a28" stroke-width="3"/><path d="M230 650v210" stroke="#163a28" stroke-width="3"/><circle cx="240" cy="700" r="5" fill="#111"/><circle cx="240" cy="760" r="5" fill="#111"/><circle cx="240" cy="820" r="5" fill="#111"/></svg>`;
+  const ROLES = [['Freelance', 'Developer'], ['Creative', 'Engineer'], ['Conference', 'Speaker'], ['Parttime', 'Lecturer'], ['Front end', 'Consultant']];
+  let ri = 1; const w1 = h('span.w.w1', {}, h('span', {}, ROLES[ri][0])), w2 = h('span.w.w2', {}, h('span', {}, ROLES[ri][1]));
+  const roll = (wrap, txt) => { const cur = wrap.querySelector('span:not(.out)'); const nx = h('span.nx.in0', {}, txt); wrap.append(nx); requestAnimationFrame(() => requestAnimationFrame(() => { cur.classList.add('out'); nx.classList.remove('in0'); })); setTimeout(() => { cur.remove(); nx.classList.remove('nx'); }, RM ? 20 : 760); };
+  const nextRole = (to) => { ri = to ?? (ri + 1) % ROLES.length; roll(w1, ROLES[ri][0]); setTimeout(() => roll(w2, ROLES[ri][1]), RM ? 0 : 90); };
+  let roleT = setInterval(() => !document.hidden && nextRole(), RM ? 4000 : 2600);
+  const hl = h('h1.cy-hl', { style: { margin: 0, fontWeight: 400 } }, w1, w2);
+  // stickers (draggable)
+  const circText = (txt, r, fs) => `<defs><path id="cyc${fs}" d="M50 50m-${r} 0a${r} ${r} 0 1 1 ${2 * r} 0a${r} ${r} 0 1 1 -${2 * r} 0"/></defs><text font-family="Anton,Impact" font-size="${fs}" letter-spacing="1.6" fill="#111"><textPath href="#cyc${fs}">${txt}</textPath></text>`;
+  const STK = [
+    ['award', 1074, 140, 200, 88, `<svg viewBox="0 0 200 88"><g transform="rotate(-6 100 44)"><rect x="6" y="8" width="188" height="72" rx="8" fill="#b18cff" stroke="#fff" stroke-width="5"/><text x="18" y="40" font-family="Anton,Impact" font-size="27" fill="#111">AWARD WINNING</text><text x="50" y="70" font-family="Anton,Impact" font-size="27" fill="#111">DEVELOPER</text><path d="M30 60l3 6 6-3-3 6 6 3-6 3 3 6-6-3-3 6-3-6-6 3 3-6-6-3 6-3-3-6 6 3z" fill="#111" transform="translate(-4 -12) scale(.9)"/><circle cx="177" cy="32" r="9" fill="#fff" stroke="#111" stroke-width="2"/></g></svg>`],
+    ['motion', 609, 238, 104, 104, `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#7cc6f2" stroke="#111" stroke-width="3"/><text x="50" y="36" text-anchor="middle" font-family="Anton,Impact" font-size="15" fill="#111">MOTION</text><text x="50" y="53" text-anchor="middle" font-family="Anton,Impact" font-size="15" fill="#111">WEB DESIGN</text><circle cx="50" cy="72" r="8" fill="#fff" stroke="#111" stroke-width="2"/><ellipse cx="50" cy="72" rx="16" ry="4.5" fill="none" stroke="#111" stroke-width="2" transform="rotate(-15 50 72)"/></svg>`],
+    ['a11y', 1203, 357, 104, 104, `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="#d9f36a" stroke="#fff" stroke-width="3"/>${circText('ACCESSIBILITY ✸ ACCESSIBILITY ✸ ', 35, 12)}<circle cx="50" cy="50" r="14" fill="#111"/><circle cx="50" cy="44" r="3" fill="#d9f36a"/><path d="M42 49h16M50 49v8l-5 6M50 57l5 6" stroke="#d9f36a" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>`],
+  ];
+  const MOB = matchMedia('(max-width:760px)').matches, MPOS = { award: [200, 40], motion: [236, 300], a11y: [16, 400] };
+  const stks = STK.map(([k, x, y, w, hh, svg]) => { if (MOB) [x, y] = MPOS[k]; const e = h('div.cy-stk', { 'data-k': k, html: svg, style: { left: x + 'px', top: y + 'px', width: w + 'px', height: hh + 'px' } }); e.home = [x, y]; return e; });
+  stks.forEach((e) => { let o = null; e.addEventListener('pointerdown', (ev) => { const z = parseFloat(el.style.zoom) || 1; o = { x: ev.clientX / z - e.offsetLeft, y: ev.clientY / z - e.offsetTop, z }; e.classList.add('dragging'); try { e.setPointerCapture(ev.pointerId); } catch {} ev.preventDefault(); });
+    e.addEventListener('pointermove', (ev) => { if (!o) return; e.style.left = ev.clientX / o.z - o.x + 'px'; e.style.top = ev.clientY / o.z - o.y + 'px'; e.style.rotate = clamp(ev.movementX * 1.5, -12, 12) + 'deg'; });
+    e.addEventListener('pointerup', () => { o = null; e.classList.remove('dragging'); e.style.rotate = '0deg'; }); });
+  const ev = h('div.cy-ev', {}, 'Next speaking event:', h('br'), '13 November 2026', h('div', { style: { marginTop: '8px' } }, h('span.cy-pill', { onclick: () => toast('FFConf · 13 November 2026 (demo)') }, 'FFConf')));
+  const intro = h('div.cy-intro', { html: `<p>I’m a creative developer &amp; teacher from Amsterdam, the Netherlands. I create accessible, creative, award winning websites for individuals and companies.</p><p>I teach the next generation of web developers at the Amsterdam University of Applied Sciences at the associate degree <a href="#">Frontend Design &amp; Development</a> and the Minor <a href="#">Web Design &amp; Development</a>.</p>` });
+  intro.querySelectorAll('a').forEach((a) => (a.onclick = (e) => e.preventDefault()));
+  const hero = h('section.cy-hero', {}, h('div.cy-circ'), h('div', { html: por }).firstChild, hl, intro, ...stks, ev);
+  // ---------- work tiles (code-drawn duotone scenes) ----------
+  const person = (x, y, s2, shirt, cap, extra = '') => `<g transform="translate(${x} ${y}) scale(${s2})"><path d="M-70 260q0-150 70-170 70 20 70 170z" fill="${shirt}"/><rect x="-14" y="60" width="28" height="36" fill="#d6a184"/><ellipse cx="0" cy="34" rx="34" ry="40" fill="#e4b394"/>${cap ? `<path d="M-36 24q0-40 36-42 38 2 38 42z" fill="${cap}"/><path d="M30 18q30 0 36 10l-36 4z" fill="${cap}"/>` : '<path d="M-36 30q-2-50 36-50 40 0 36 50-10-30-36-30t-36 30z" fill="#3a2a22"/>'}${extra}</g>`;
+  const WORK = [
+    ['Rotgans Media House', '#3d3540', ['2026', 'DEV', 'MOTION'], `<rect width="460" height="460" fill="#3d3540"/><path d="M60 0v120h90" stroke="#1e1a22" stroke-width="10" fill="none"/>${person(170, 110, 1.15, '#2aa36d', '#3d5a80', '<rect x="30" y="110" width="80" height="50" rx="8" fill="#1a1a1a"/><circle cx="96" cy="135" r="20" fill="#333" stroke="#111" stroke-width="6"/>')}<rect x="120" y="360" width="80" height="100" fill="#c9a77a"/>`],
+    ['Club NAR', '#1d3a2a', ['2026', 'DEV', 'GSAP', 'MOTION'], `<rect width="460" height="460" fill="#1d3a2a"/>${person(230, 70, 1.25, '#f2f0ea', '#1f2f6a', '<path d="M-60 140h120v130h-120z" fill="#1a1a1a"/>')}<ellipse cx="230" cy="380" rx="140" ry="40" fill="#2b2b2b"/><ellipse cx="230" cy="370" rx="110" ry="24" fill="#e2b04a"/>${Array.from({ length: 24 }, (_, i) => { const R2 = rng(i + 4); return `<circle cx="${130 + R2() * 200}" cy="${360 + R2() * 20}" r="${4 + R2() * 6}" fill="#f2cf6a"/>`; }).join('')}`],
+    ['De Visdeurbel', '#a383ff', ['2025', 'DEV', 'GSAP', 'MOTION'], `<rect width="460" height="460" fill="#a383ff"/>${person(300, 110, 1.2, '#1c2230', null, '<path d="M-10 96l10 80 10-80z" fill="#2a3a30"/><path d="M-16 96h32l-16 20z" fill="#e8dff0"/>')}<path d="M150 300q-30-60 10-90l20 60z" fill="#e4b394"/>`],
+    ['Studio Sallali', '#b5705f', ['2023', 'DEV', 'GSAP', 'MOTION'], `<rect width="460" height="460" fill="#b5705f"/><g transform="rotate(-24 230 230)"><rect x="40" y="130" width="250" height="300" fill="#f4f2ee"/><rect x="290" y="130" width="160" height="300" fill="#e6e3dd"/><rect x="310" y="160" width="120" height="80" fill="#1c1f2a"/><path d="M320 230l40-60 20 30 20-20 20 50z" fill="#4a7fd0"/><text x="330" y="270" font-family="Instrument Serif,serif" font-size="16" fill="#333">The Photographic</text><text x="330" y="290" font-family="Instrument Serif,serif" font-size="16" fill="#333">Surface</text></g>`],
+    ['BROED', '#dd1111', ['2024', 'DEV', 'GSAP', 'MOTION', 'THREE.JS'], `<rect width="460" height="460" fill="#dd1111"/>${person(110, 130, 1.1, '#cfd5dc', null, '<path d="M60 150l220 50" stroke="#e4b394" stroke-width="26" stroke-linecap="round"/>')}<path d="M340 250l-40 210M340 250l20 210" stroke="#c49a4a" stroke-width="6"/>`],
+    ['The Kotaverse', '#e026a0', ['2024', 'DEV', 'GSAP', 'THREE.JS'], `<rect width="460" height="460" fill="#e026a0"/>${[[150, 90, 1], [330, 120, 0.9]].map(([x, y, s2]) => `<g transform="translate(${x} ${y}) scale(${s2})"><ellipse cx="0" cy="40" rx="38" ry="42" fill="#f2f0ea"/><path d="M-30 40h60v20h-60z" fill="#111"/><path d="M-60 100q60-30 120 0v240h-120z" fill="#f2f0ea"/><path d="M-60 160h120v14h-120zM-20 100v240" stroke="#111" stroke-width="6"/></g>`).join('')}`],
+  ];
+  const tileSVG = (w) => `<svg viewBox="0 0 460 460" preserveAspectRatio="xMidYMid slice">${w[3]}</svg>`;
+  const tiles = WORK.map((w) => h('div.cy-tile', { title: w[0], html: tileSVG(w) + `<b>${w[0]}</b>`, onclick: () => toast(`${w[0]} · case study (demo)`) }, h('div.tags', {}, w[2].map((t) => h('i', {}, t)))));
+  const prev = h('div.cy-prev'); document.body.append(prev);
+  const lnk = (t, wi) => { const a = h('a', {}, t); a.onpointerenter = () => { tiles[wi].classList.add('hov'); a.classList.add('hl'); prev.innerHTML = tileSVG(WORK[wi]); prev.classList.add('on'); }; a.onpointermove = (e) => { prev.style.left = e.clientX + 'px'; prev.style.top = e.clientY + 'px'; }; a.onpointerleave = () => { tiles[wi].classList.remove('hov'); a.classList.remove('hl'); prev.classList.remove('on'); }; return a; };
+  const txt1 = h('div.cy-txt', {}, 'From ', lnk('small studio’s', 3), ' and ', lnk('freelancers', 2), ' to ', lnk('campaigns', 5), ' and ', lnk('large international companies', 4), ', I create websites for all of them.', h('br'), h('span.cy-pill', { onclick: () => toast('All work → archive (demo)') }, 'All work'));
+  const txt2 = h('div.cy-txt', { html: 'I talk about how I think we <i>should</i> build for the web, focussing on where design, code, and accessibility overlap.<br>' }, h('span.cy-pill', { onclick: () => go('Speaking') }, 'Speaking'));
+  const work = h('section.cy-work', {}, tiles[0], tiles[1], txt1, txt2, tiles[2], tiles[3], tiles[4], tiles[5]);
+  // ---------- blogs ----------
+  const BLOG = [['October 7, 2026', ['Animation', 'CSS', 'Rant', 'Scroll-driven animations'], 'Demo deep-dive, praise and thoughts from Fronteers Dark Mode Conference', 24, '#f2a200', '#fff4e0'],
+    ['September 15, 2026', ['CSS', 'New features', 'Scroll-triggered animations'], 'CSS scroll-triggered animations are here, and I completely missed them', 20, '#5b2d91', '#f5ecf0'], ['July 8, 2026', ['Animation', 'CSS', 'View transitions'], 'A deep dive into how I set up view transitions', 40, '#1e8ff0', '#f0f2f4'],
+    ['July 3, 2026', ['Case study', 'Experimental'], '(Showing how) the whole world rang the fish doorbell this season', 6, '#9f6cf5', '#f6eff8'], ['December 13, 2025', ['CSS', 'JS'], 'Why we teach our students progressive enhancement', 53, '#d9533f', '#fdeee6'], ['November 2, 2025', ['Animation'], 'How I turn static designs into rich experiences', 18, '#e8004f', '#fde9ec']];
+  const cards = BLOG.map(([d, ch, t, n, c, b], i) => vars(h('article.cy-card', { onclick: () => toast(`“${t.slice(0, 40)}…” (demo)`) }, h('div.d', {}, d), h('div.ch', {}, ch.map((x) => h('i', {}, x))), h('h3', {}, t), h('div.wm', {}, `${n} webmentions`)), { '--c': c, '--b': b, '--rt': (i % 2 ? 1.2 : -1.2) + 'deg' }));
+  const blogs = h('section.cy-blogs', {}, h('h2', {}, 'Latest blogs'), h('div.cy-bg', {}, cards));
+  // ---------- tilted service cards with pixel-art cursor icons ----------
+  const pixel = (draw, W = 26, H = 26) => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.fillStyle = '#000'; draw(g); const d = g.getImageData(0, 0, W, H); const m = (x, y) => x >= 0 && y >= 0 && x < W && y < H && d.data[(y * W + x) * 4 + 3] > 120;
+    const o = document.createElement('canvas'); o.width = W + 3; o.height = H + 3; const og = o.getContext('2d');
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if (m(x, y)) { og.fillStyle = '#111'; og.fillRect(x + 2, y + 2, 1, 1); }
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if (m(x, y)) { const e = !m(x - 1, y) || !m(x + 1, y) || !m(x, y - 1) || !m(x, y + 1); og.fillStyle = e ? '#111' : CREAM; og.fillRect(x, y, 1, 1); }
+    return o.toDataURL(); };
+  const PH = pixel((g) => { g.fillRect(9, 1, 4, 14); g.fillRect(13, 8, 3, 8); g.fillRect(16, 9, 3, 7); g.fillRect(19, 10, 3, 8); g.beginPath(); g.moveTo(9, 13); g.lineTo(4, 10); g.lineTo(3, 12); g.lineTo(8, 19); g.lineTo(8, 25); g.lineTo(21, 25); g.lineTo(22, 16); g.fill(); g.clearRect(13, 10, 1, 4); g.clearRect(16, 11, 1, 4); });
+  const PB = pixel((g) => { g.beginPath(); g.arc(13, 10, 8.5, 0, 7); g.fill(); g.fillRect(9, 17, 8, 8); g.clearRect(10, 8, 1, 7); g.clearRect(12, 8, 1, 7); g.clearRect(14, 8, 1, 7); g.clearRect(9, 20, 8, 1); });
+  const PP = pixel((g) => { g.beginPath(); g.arc(13, 13, 8, 0, 7); g.fill(); g.save(); g.translate(13, 13); g.rotate(-0.4); g.fillRect(-13, -2, 26, 4); g.restore(); g.clearRect(5, 12, 2, 1); });
+  const SVC = [['Web development', -3.5, PH, ['Front-end development', 'Service', 'Available November 2026', 'Creative development']], ['Consultancy', 3, PB, ['Service', 'Web development', 'Accessibility', 'Animation', 'GSAP', 'Three.js', 'Modernizing native tech stacks', '(New) CSS techniques']], ['Speaking', 1.2, PP, ['Conferences', 'Meetups', 'Workshops', 'Company talks']]];
+  const scs = SVC.map(([t, r, img, tags]) => vars(h('div.cy-sc', { onclick: () => toast(`${t} · Available November 2026`) }, h('h3', {}, ...t.split(' ').flatMap((w, i) => (i ? [h('br'), w] : [w]))), h('img', { src: img, alt: '' }), h('div.rail', {}, h('div', {}, [...tags, ...tags].map((x) => h('i', {}, x))))), { '--rt': r + 'deg' }));
+  const svc = h('section.cy-svc', {}, scs);
+  // ---------- footer ----------
+  const ft = h('footer.cy-ft', {}, h('div.row', {}, h('div', {}, h('div.lg', {}, 'CYD'), h('p', {}, 'I’m a creative developer & teacher from Amsterdam.')), h('div.r', {}, h('div.a', {}, 'Available November 2026'), h('p', {}, 'Have a project in mind?'), h('a', { onclick: () => copy(EMAIL, 'Email copied') }, EMAIL))),
+    h('div.links', {}, h('div', {}, ['About', 'Archive', 'Blogs', 'Speaking', 'Contact'].map((k) => h('span', { style: { cursor: 'pointer' }, onclick: () => go(k) }, k))), h('div.s', {}, ['Github', 'Codepen', 'Bluesky', 'Mastodon', 'Instagram', 'LinkedIn', 'RSS'].map((k) => h('span', {}, k)))));
+  Object.assign(secs, { About: hero, Archive: work, Speaking: svc, Blogs: blogs, Contact: ft });
+  el.append(h('div.cy-top', {}, mTop), box, hd, hero, work, blogs, svc, ft, mBot);
+  // ---------- motion loop: marquees + sticky state ----------
+  let lastY = 0, vel = 0, raf;
+  const loop = () => { const y = root.scrollTop; vel = vel * 0.9 + (y - lastY) * 0.1; lastY = y; const sp = 0.9 + Math.min(Math.abs(vel) * 0.4, 10);
+    if (!RM) { mTop.x -= sp; mBot.x += sp * 0.8; const W = mTop.tr.firstChild.offsetWidth || 1; if (mTop.x < -W) mTop.x += W; if (mBot.x > 0) mBot.x -= W; mTop.tr.style.transform = `translateX(${mTop.x}px)`; mBot.tr.style.transform = `translateX(${mBot.x}px)`; }
+    hd.classList.toggle('stuck', hd.getBoundingClientRect().top <= root.getBoundingClientRect().top + 1 && y > 20); raf = requestAnimationFrame(loop); };
+  loop();
+  window.__demoProof = async () => { await fontsP; const o = []; const w = (ms) => sleep(RM ? 40 : ms);
+    clearInterval(roleT); const r0 = ROLES[ri].join(' '); nextRole(); await w(900); o.push(`role ${r0}→${ROLES[ri].join(' ')} (dom="${w1.textContent} ${w2.textContent}")`);
+    const x0 = mTop.x; await sleep(300); o.push(`wordmark marquee moving=${RM ? 'off (reduced motion)' : mTop.x !== x0}`);
+    pop(); await w(400); o.push(`box pop=${box.classList.contains('pop')} icons=${box.querySelectorAll('.ic').length}`);
+    const s = stks[0], L0 = s.offsetLeft; const r = s.getBoundingClientRect(); s.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, clientX: r.left + 20, clientY: r.top + 20, pointerId: 7 })); s.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, clientX: r.left + 140, clientY: r.top + 60, pointerId: 7 })); s.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 7 }));
+    o.push(`sticker drag left ${L0}→${s.offsetLeft}`); stks.forEach((e) => { e.style.left = e.home[0] + 'px'; e.style.top = e.home[1] + 'px'; });
+    const a = txt1.querySelector('a'); a.onpointerenter(); o.push(`hover "${a.textContent}" → tile ${WORK[3][0]} hov=${tiles[3].classList.contains('hov')} preview=${prev.classList.contains('on')}`); a.onpointerleave();
+    root.scrollTop = blogs.offsetTop * (parseFloat(el.style.zoom) || 1); await sleep(200); o.push(`scrolled to blogs: header stuck=${hd.classList.contains('stuck')} cards=${cards.length}`);
+    cards[0].classList.add('hov'); scs[1].classList.add('hov'); await w(300); o.push(`card tilt=${getComputedStyle(cards[0]).transform !== 'none'}`); cards[0].classList.remove('hov'); scs[1].classList.remove('hov');
+    root.scrollTop = 0; await sleep(150); o.push(`back to top stuck=${hd.classList.contains('stuck')}`);
+    nextRole(1); roleT = setInterval(() => !document.hidden && nextRole(), RM ? 4000 : 2600); await w(800); o.push(`restored role=${ROLES[ri].join(' ')}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

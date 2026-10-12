@@ -1,4 +1,4 @@
-import { h, s, css, drag, localPos, clamp, copy, toast, gesture, sleep, hsl, hexToRgb, rgbToHex, fitCanvas, pick, rng } from '../lib.js';
+import { h, s, css, drag, localPos, clamp, copy, toast, gesture, sleep, hsl, hexToRgb, rgbToHex, fitCanvas, pick, rng, fire } from '../lib.js';
 import { theme, slider, seg, select, btn, panel, grid, toggle } from '../kit.js';
 css(`
 .pt-cv{position:absolute;inset:0;touch-action:none;cursor:crosshair}
@@ -1255,6 +1255,275 @@ V['metademolab-animated-drawings-4-step-upload-box-mask-joint-motion-wizard'] = 
     lf.querySelector('.pri').click(); await sleep(80); lc.querySelector('[data-m="Dab"]').click(); await sleep(900); const P1 = pose(st.rig, 'Dab', 0.2), P2 = pose(st.rig, 'Dab', 2.0); out.push(`step 5 Dab plays (wrist moves ${Math.round(Math.hypot(P1.r_ha[0] - P2.r_ha[0], P1.r_ha[1] - P2.r_ha[1]))}px)`);
     lc.querySelector('[data-m="Wave hello"]').click(); await sleep(300);
     return out.join('; ') + `; showing final step: ${st.motion} on ${CH[st.ch].name}`; };
+};
+
+V['kidpix-retro-mac-paint-tool-column-pattern-option-bar-palette-splash-canvas'] = (root, T) => {
+  const fontsP = Promise.all([import('@fontsource/silkscreen/400.css'), import('@fontsource/pixelify-sans/400.css'), import('@fontsource/pixelify-sans/700.css'), import('@fontsource/anton')]).catch(() => {});
+  theme(root, T, { bg: '#ffffff', fg: '#000', ac: '#0069ff', dark: false });
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const PX = "'Pixelify Sans','Chicago','Geneva',monospace", SK = "'Silkscreen','Pixelify Sans',monospace", POST = "'Anton','Impact',sans-serif";
+  css(`.kp{position:absolute;inset:0;background:#fff;color:#000;display:grid;grid-template-columns:calc(var(--u)*36px) calc(var(--u)*36px) 1fr;grid-template-rows:calc(var(--u)*36px) 1fr;user-select:none;-webkit-user-select:none;font:400 calc(var(--u)*9px) ${PX};overflow:hidden}
+.kp button{font:inherit;color:inherit;cursor:pointer;padding:0;margin:0;background:#fff}
+.kp-chip{grid-row:1;grid-column:1;border-right:1px solid #000;border-bottom:1px solid #000;display:grid;place-items:center;background:#fff}
+.kp-chip i{display:block;width:88%;height:88%;border:1px solid #000;box-shadow:inset 0 0 0 1px #fff}
+.kp-left{grid-row:2;grid-column:1;border-right:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+.kp-pal{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:calc(var(--u)*18px)}
+.kp-pal button{border:0;outline:1px solid #0000;position:relative}.kp-pal button.on::after{content:'';position:absolute;inset:2px;border:1px dotted #fff;mix-blend-mode:difference}
+.kp-meta{margin-top:auto;padding:2px 1px 3px;text-align:center;font:400 calc(var(--u)*6.4px) ${PX};border-top:1px solid #000;background:#efefef}
+.kp-meta div{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:2px}.kp-meta button{height:calc(var(--u)*15px);border:1px solid #888;font:400 calc(var(--u)*9px) ${PX};display:grid;place-items:center}
+.kp-meta button:active,.kp-meta button.flash{background:#000;color:#fff}
+.kp-meta svg{width:80%;height:80%}
+.kp-tools{grid-row:2;grid-column:2;display:flex;flex-direction:column;border-right:1px solid #000;overflow:hidden}
+.kp-save{grid-row:1;grid-column:2;border-right:1px solid #000;border-bottom:1px solid #000;display:grid;place-items:center}
+.kp-tool,.kp-save{height:calc(var(--u)*36px);flex:none;border:0!important;border-bottom:1px solid #000!important;display:grid;place-items:center;position:relative}
+.kp-tool svg,.kp-save svg,.kp-opt svg{width:72%;height:72%;image-rendering:pixelated}
+.kp-tool.on{background:#bdbdbd!important;box-shadow:inset 2px 2px 0 #7a7a7a,inset -1px -1px 0 #fff}
+.kp-tool:active,.kp-save:active{background:#000!important}.kp-tool:active svg{filter:invert(1)}
+.kp-bar{grid-row:1;grid-column:3;display:flex;align-items:stretch;border-bottom:1px solid #000;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;background:#fff}
+.kp-bar::-webkit-scrollbar{display:none}
+.kp-grp{display:flex;border-right:1px solid #000;border-left:1px solid #000;margin-right:calc(var(--u)*36px)}.kp-grp:first-child{border-left:0}
+.kp-opt{width:calc(var(--u)*36px);flex:none;border:0!important;border-right:1px solid #9a9a9a!important;display:grid;place-items:center;font:700 calc(var(--u)*14px) ${PX}}
+.kp-opt:last-child{border-right:0!important}
+.kp-opt.on{background:#bdbdbd!important;box-shadow:inset 2px 2px 0 #7a7a7a}
+.kp-opt.pat i{display:block;width:70%;height:70%;border:1px solid #000;image-rendering:pixelated;background-size:calc(var(--u)*8px) calc(var(--u)*8px)}
+.kp-opt.txt{font:700 calc(var(--u)*15px) ${PX};width:calc(var(--u)*26px)}
+.kp-stage{grid-row:2;grid-column:3;position:relative;overflow:hidden;background:#fff;border-top:0}
+.kp-cv{position:absolute;left:0;top:0;image-rendering:pixelated;touch-action:none;cursor:crosshair}
+.kp-fx{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.kp-truck{position:absolute;top:40%;width:calc(var(--u)*120px);height:calc(var(--u)*70px);image-rendering:pixelated}
+.kp-boom{position:absolute;inset:0;background:#fff;animation:kpBoom .5s steps(4) forwards}@keyframes kpBoom{0%{background:#000}50%{background:#ff0}100%{opacity:0}}
+.kp-hint{position:absolute;right:8px;bottom:6px;font:400 calc(var(--u)*7px) ${SK};background:#fff;border:1px solid #000;padding:2px 5px;pointer-events:none;opacity:.85}
+@media (max-width:640px){.kp-hint{display:none}}
+${RM ? '.kp *{animation:none!important;transition:none!important}' : ''}`);
+  const el = h('div.kp'); root.append(el);
+  const fitU = () => { const w = root.clientWidth, hh = root.clientHeight; el.style.setProperty('--u', clamp(Math.min(w / 1024, hh / 640), 0.78, 1.45).toFixed(3)); };
+  fitU();
+  // ---------- 1-bit icons (vector at 16px grid, crisp edges) ----------
+  const sv = (b) => `<svg viewBox="0 0 16 16" shape-rendering="crispEdges">${b}</svg>`;
+  const IC = {
+    save: sv('<rect x="2" y="2" width="12" height="12" fill="#000"/><rect x="4" y="2" width="7" height="4" fill="#d9d9d9"/><rect x="8" y="3" width="2" height="2" fill="#000"/><rect x="4" y="8" width="8" height="5" fill="#fff"/><rect x="5" y="9" width="6" height="1" fill="#e00"/><rect x="5" y="11" width="6" height="1" fill="#e00"/>'),
+    pencil: sv('<path d="M4 14l-1-3 7-8 3 2-7 8z" fill="#ffd400" stroke="#000"/><path d="M3 11l1 3 2-1z" fill="#f2c08a" stroke="#000"/><path d="M10 3l3 2 1-1-3-2z" fill="#ff7fa8" stroke="#000"/><rect x="3" y="13" width="1" height="1" fill="#000"/>'),
+    line: sv('<path d="M2 4L14 12" stroke="#000" stroke-width="1.6"/>'),
+    rect: sv('<rect x="2" y="4" width="12" height="8" fill="#888" stroke="#000"/>'),
+    oval: sv('<circle cx="8" cy="8" r="5.5" fill="#888" stroke="#000"/>'),
+    brush: sv('<path d="M2 3l6 6" stroke="#8a5a2b" stroke-width="2.4"/><path d="M7 8l3-1 3 4-3 3-4-3z" fill="#1aa31a" stroke="#000"/><path d="M11 13l2 2M13 11l2 1" stroke="#000"/><rect x="3" y="12" width="2" height="2" fill="#e00"/><rect x="1" y="9" width="1" height="1" fill="#e00"/>'),
+    bucket: sv('<path d="M3 7l5-5 6 6-5 5z" fill="#ddd" stroke="#000"/><path d="M3 7l6 6" stroke="#000"/><path d="M2 8c-2 3 0 5 1 5s2-2 1-4z" fill="#ffd400" stroke="#000"/><path d="M5 4l-1-2" stroke="#000"/>'),
+    eraser: sv('<path d="M2 10l6-6 6 4-6 6z" fill="#ff5a6a" stroke="#000"/><path d="M2 10l6 4v1l-6-4z" fill="#b8202e" stroke="#000"/><path d="M8 4l6 4" stroke="#fff"/>'),
+    text: sv('<path d="M3 14L7 2h2l4 12h-3l-1-3H7l-1 3zM7.6 8.6h1.6L8.4 5.6z" fill="#000"/>'),
+    stamp: sv('<circle cx="8" cy="3.5" r="2.5" fill="#000"/><rect x="7" y="5" width="2" height="4" fill="#000"/><rect x="3" y="9" width="10" height="3" fill="#ffd400" stroke="#000"/><rect x="2" y="12" width="12" height="2" fill="#000"/>'),
+    truck: sv('<rect x="1" y="4" width="9" height="7" fill="#e00" stroke="#000"/><path d="M10 6h3l2 3v2h-5z" fill="#e00" stroke="#000"/><rect x="11" y="7" width="2" height="2" fill="#fff"/><circle cx="4" cy="12.5" r="1.8" fill="#000"/><circle cx="12" cy="12.5" r="1.8" fill="#000"/><rect x="2" y="5" width="7" height="1" fill="#ff9"/>'),
+    face: sv('<circle cx="8" cy="8" r="6.5" fill="#f2c08a" stroke="#000"/><rect x="5" y="5" width="2" height="2" fill="#000"/><rect x="9" y="5" width="2" height="2" fill="#000"/><path d="M5 10q3 3 6 0" fill="none" stroke="#e00" stroke-width="1.2"/><path d="M4 3l1 1M12 3l-1 1M8 1v1" stroke="#000"/>'),
+    left: sv('<path d="M2 8l5-4v3h7v2H7v3z" fill="#000"/>'), right: sv('<path d="M14 8l-5-4v3H2v2h7v3z" fill="#000"/>'),
+    help: sv('<path d="M8 1l7 7-7 7-7-7z" fill="#000"/><path d="M6 6q0-2 2-2t2 2-2 2v1" fill="none" stroke="#fff" stroke-width="1.5"/><rect x="7.2" y="10.5" width="1.6" height="1.6" fill="#fff"/>'),
+    splash: sv('<circle cx="8" cy="8" r="6.5" fill="#fff" stroke="#000"/><circle cx="8" cy="8" r="3.5" fill="#0069ff" stroke="#000"/><circle cx="8" cy="8" r="1.2" fill="#000"/>'),
+    dice: sv('<rect x="2" y="2" width="12" height="12" rx="2" fill="#ff8040" stroke="#000"/><rect x="4" y="4" width="2" height="2"/><rect x="10" y="10" width="2" height="2"/><rect x="7" y="7" width="2" height="2"/><rect x="10" y="4" width="2" height="2"/><rect x="4" y="10" width="2" height="2"/>'),
+  };
+  // ---------- 8x8 dither patterns ----------
+  const PF = [(x, y) => 1, (x, y) => (x + y) % 2 === 0, (x, y) => x % 4 === 0 && y % 2 === 0 || (x + 2) % 4 === 0 && y % 2 === 1 && 0, (x, y) => (x % 4 === 0 && y % 4 === 0) || (x % 4 === 2 && y % 4 === 2),
+    (x, y) => y % 2 === 0, (x, y) => x % 2 === 0, (x, y) => (x + y) % 4 === 0, (x, y) => (x - y + 8) % 4 === 0, (x, y) => x % 4 === 0 || y % 4 === 0,
+    (x, y) => y % 4 === 0 || (y < 4 ? x === 0 : x === 4), (x, y) => (x + y) % 4 === 0 || (x - y + 8) % 4 === 0, (x, y) => !((x % 4 === 0 && y % 2 === 0)), (x, y) => Math.round(Math.sin(x / 8 * 6.283) * 1.6 + 3) === y % 6 || Math.round(Math.sin(x / 8 * 6.283) * 1.6 + 3) === y % 6 + 1 && 0,
+    (x, y) => { const dx = (x % 8) - 4, dy = (y % 4) * 2 - 1; return Math.abs(Math.hypot(dx, dy) - 3.5) < 0.8; }, (x, y) => (y % 4) === Math.abs((x % 8) - 4) % 4, (x, y) => Math.abs((x % 8) - 3.5) + Math.abs((y % 8) - 3.5) === 3, (x, y) => ((x >> 2) + (y >> 2)) % 2 === 0, (x, y) => ((x >> 1) + (y >> 1)) % 2 === 0 ? x % 2 === 0 : y % 2 === 0];
+  const patCache = new Map();
+  const patCanvas = (pi, color) => { const k = pi + color; if (patCache.has(k)) return patCache.get(k); const c = document.createElement('canvas'); c.width = c.height = 8; const g2 = c.getContext('2d'); g2.fillStyle = '#fff'; g2.fillRect(0, 0, 8, 8); g2.fillStyle = color; for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) if (PF[pi](x, y)) g2.fillRect(x, y, 1, 1); patCache.set(k, c); return c; };
+  const patURL = (pi) => patCanvas(pi, '#000').toDataURL();
+  // ---------- stamps: vector shapes rasterised to 1-bit with black outline ----------
+  const ST = [['Heart', '#ff0080', (g2) => { g2.beginPath(); g2.moveTo(10, 17); g2.bezierCurveTo(-4, 8, 4, -1, 10, 5); g2.bezierCurveTo(16, -1, 24, 8, 10, 17); g2.fill(); }],
+    ['Star', '#ffc31e', (g2) => { g2.beginPath(); for (let i = 0; i < 10; i++) { const a = i * Math.PI / 5 - Math.PI / 2, r = i % 2 ? 4 : 9.5; g2.lineTo(10 + Math.cos(a) * r, 10.5 + Math.sin(a) * r); } g2.fill(); }],
+    ['House', '#ff0000', (g2) => { g2.fillRect(4, 9, 12, 9); g2.beginPath(); g2.moveTo(2, 10); g2.lineTo(10, 2); g2.lineTo(18, 10); g2.fill(); g2.clearRect(8.5, 12, 3, 6); }],
+    ['Tree', '#008000', (g2) => { g2.beginPath(); g2.moveTo(10, 1); g2.lineTo(17, 14); g2.lineTo(3, 14); g2.fill(); g2.fillRect(8.5, 14, 3, 5); }],
+    ['Cat', '#808080', (g2) => { g2.beginPath(); g2.arc(10, 12, 7, 0, 7); g2.fill(); g2.beginPath(); g2.moveTo(3.5, 9); g2.lineTo(4, 2); g2.lineTo(9, 6); g2.moveTo(16.5, 9); g2.lineTo(16, 2); g2.lineTo(11, 6); g2.fill(); g2.clearRect(6.5, 10, 2, 2); g2.clearRect(11.5, 10, 2, 2); }],
+    ['Fish', '#0080ff', (g2) => { g2.beginPath(); g2.ellipse(9, 10, 7, 4.5, 0, 0, 7); g2.fill(); g2.beginPath(); g2.moveTo(15, 10); g2.lineTo(19.5, 5.5); g2.lineTo(19.5, 14.5); g2.fill(); g2.clearRect(5, 8, 2, 2); }],
+    ['Flower', '#ff00ff', (g2) => { for (let i = 0; i < 5; i++) { const a = i * 1.2566; g2.beginPath(); g2.arc(10 + Math.cos(a) * 5, 9 + Math.sin(a) * 5, 3.4, 0, 7); g2.fill(); } g2.fillRect(9.2, 13, 1.6, 7); g2.clearRect(8.5, 7.5, 3, 3); }],
+    ['Sun', '#ffff01', (g2) => { g2.beginPath(); g2.arc(10, 10, 5, 0, 7); g2.fill(); g2.lineWidth = 2; for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; g2.beginPath(); g2.moveTo(10 + Math.cos(a) * 7, 10 + Math.sin(a) * 7); g2.lineTo(10 + Math.cos(a) * 9.5, 10 + Math.sin(a) * 9.5); g2.strokeStyle = g2.fillStyle; g2.stroke(); } }],
+    ['Smiley', '#ffc31e', (g2) => { g2.beginPath(); g2.arc(10, 10, 8.5, 0, 7); g2.fill(); g2.clearRect(6, 6, 2, 3); g2.clearRect(12, 6, 2, 3); g2.clearRect(6, 12, 8, 1.5); g2.clearRect(5, 11, 1.5, 1.5); g2.clearRect(13.5, 11, 1.5, 1.5); }],
+    ['Car', '#8000ff', (g2) => { g2.fillRect(1, 9, 18, 5); g2.fillRect(5, 5, 9, 5); g2.beginPath(); g2.arc(5, 15, 2.6, 0, 7); g2.arc(15, 15, 2.6, 0, 7); g2.fill(); g2.clearRect(6.5, 6.5, 2.5, 2.5); g2.clearRect(10.5, 6.5, 2.5, 2.5); }],
+    ['Apple', '#ff0000', (g2) => { g2.beginPath(); g2.arc(7.5, 12, 5.5, 0, 7); g2.arc(12.5, 12, 5.5, 0, 7); g2.fill(); g2.fillRect(9.4, 2, 1.4, 5); g2.beginPath(); g2.ellipse(13, 4, 3, 1.5, -0.5, 0, 7); g2.fill(); }],
+    ['Moon', '#0000ff', (g2) => { g2.beginPath(); g2.arc(10, 10, 8.5, 0, 7); g2.fill(); g2.globalCompositeOperation = 'destination-out'; g2.beginPath(); g2.arc(14, 7, 7.5, 0, 7); g2.fill(); g2.globalCompositeOperation = 'source-over'; }],
+  ];
+  const stampBmp = (i) => { const [, col, draw] = ST[i]; const c = document.createElement('canvas'); c.width = c.height = 20; const g2 = c.getContext('2d'); g2.fillStyle = col; draw(g2);
+    const d = g2.getImageData(0, 0, 20, 20), m = (x, y) => x >= 0 && y >= 0 && x < 20 && y < 20 && d.data[(y * 20 + x) * 4 + 3] > 110; const out = g2.createImageData(20, 20); const [r, gg, b] = hexToRgb(col);
+    for (let y = 0; y < 20; y++) for (let x = 0; x < 20; x++) { if (!m(x, y)) continue; const edge = !m(x - 1, y) || !m(x + 1, y) || !m(x, y - 1) || !m(x, y + 1); const o = (y * 20 + x) * 4; out.data.set(edge ? [0, 0, 0, 255] : [r, gg, b, 255], o); }
+    g2.clearRect(0, 0, 20, 20); g2.putImageData(out, 0, 0); return c; };
+  const STB = ST.map((_, i) => stampBmp(i));
+  // ---------- layout ----------
+  const COLORS = ['#000000', '#ffffff', '#202020', '#404040', '#808080', '#c0c0c0', '#800000', '#ff0000', '#808000', '#ffff01', '#004040', '#006400', '#008000', '#00ff00', '#008080', '#80ffff', '#000080', '#0000ff', '#004080', '#0080ff', '#8000ff', '#8080ff', '#800080', '#ff00ff', '#800040', '#ff0080', '#493d26', '#886843', '#804000', '#ff8040', '#e18700', '#ffc31e'];
+  const S = { tool: 'pencil', color: '#000000', size: 1, pat: 0, fill: 1, wacky: 0, letter: 'A', stamp: 0, stampK: 3, erase: 1, sound: true };
+  const chipI = h('i', { style: { background: S.color } });
+  const pal = h('div.kp-pal', {}, COLORS.map((c) => h('button', { title: c, style: { background: c }, onclick: (e) => setColor(c, e.currentTarget) })));
+  const undoB = h('button', { title: 'Undo', html: IC.left, onclick: () => undo() }), redoB = h('button', { title: 'Redo', html: IC.right, onclick: () => redo() });
+  const splB = h('button', { title: 'Show splash again', html: IC.splash, onclick: () => { snap(); drawSplash(); } }), rndB = h('button', { title: 'Random colour', html: IC.dice, onclick: () => setColor(pick(COLORS)) });
+  el.append(h('div.kp-chip', { title: 'Current colour' }, chipI), h('div.kp-left', {}, pal, h('div.kp-meta', {}, 'kidpix.app', h('div', {}, undoB, redoB), h('div', {}, splB, rndB))));
+  const saveB = h('button.kp-save', { title: 'Save picture (PNG)', html: IC.save, onclick: () => save() }); el.append(saveB);
+  const TOOLS = [['pencil', 'Pencil'], ['line', 'Line'], ['rect', 'Rectangle'], ['oval', 'Oval'], ['brush', 'Wacky Brush'], ['bucket', 'Paint Can'], ['eraser', 'Eraser'], ['text', 'Alphabet'], ['stamp', 'Rubber Stamp'], ['truck', 'Moving Van'], ['face', 'Undo Guy']];
+  const toolBs = {}; const toolsEl = h('div.kp-tools', {}, TOOLS.map(([k, n]) => (toolBs[k] = h('button.kp-tool', { title: n, html: IC[k], onclick: () => (k === 'face' ? undoGuy() : setTool(k)) }))));
+  const bar = h('div.kp-bar'); const stage = h('div.kp-stage'); const cv = h('canvas.kp-cv'); const fx = h('div.kp-fx');
+  const hint = h('div.kp-hint', {}, 'Try tools with ⇧SHIFT (straight/square) · ALT (pick colour) · CTRL (rainbow)');
+  stage.append(cv, fx, hint); el.append(toolsEl, bar, stage);
+  const g = cv.getContext('2d', { willReadFrequently: true });
+  const sizeCv = () => { const r = stage.getBoundingClientRect(); const W = Math.max(320, Math.round(r.width)), H = Math.max(300, Math.round(r.height)); if (cv.width === W && cv.height === H) return;
+    const old = cv.width ? g.getImageData(0, 0, cv.width, cv.height) : null; cv.width = W; cv.height = H; cv.style.width = W + 'px'; cv.style.height = H + 'px'; g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); if (old) g.putImageData(old, 0, 0); g.imageSmoothingEnabled = false; };
+  // ---------- sounds (tiny square-wave chirps, only from real user gestures) ----------
+  let quiet = false; const chirp = (f = 520, d = 0.05, t = 'square') => { if (!S.sound || quiet) return; blipK(f, d, t); };
+  const blipK = (f, d, t) => { try { const ac = window.__kpAC || (window.__kpAC = new (window.AudioContext || window.webkitAudioContext)()); const o = ac.createOscillator(), gg = ac.createGain(); o.type = t; o.frequency.value = f; gg.gain.setValueAtTime(0.04, ac.currentTime); gg.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + d); o.connect(gg).connect(ac.destination); o.start(); o.stop(ac.currentTime + d + 0.02); } catch {} };
+  // ---------- option bars (swap per tool) ----------
+  const opt = (inner, on, fn, cls = '', title = '') => h('button.kp-opt' + (cls ? '.' + cls : '') + (on ? '.on' : ''), { title, html: inner, onclick: (e) => { fn(); chirp(880, 0.03); drawBar(); } });
+  const sizeIco = (n, kind) => sv(kind === 'line' ? `<path d="M2 12L14 4" stroke="#000" stroke-width="${0.6 + n * 0.75}"/>` : `<path d="M2 13l5-6" stroke="#000"/><circle cx="${9 + n * 0.3}" cy="${6 - n * 0.2}" r="${0.6 + n * 0.62}" fill="#000"/>`);
+  const patGrp = () => h('div.kp-grp', {}, PF.map((_, i) => { const b = opt('', S.pat === i, () => (S.pat = i), 'pat', `Pattern ${i + 1}`); b.append(h('i', { style: { backgroundImage: `url(${patURL(i)})` } })); return b; }));
+  const WK = ['Spray Can', 'Drippy Paint', 'Rainbow', 'Bubbles', 'Zig-Zag', 'Echo Circles'];
+  const wkIco = [sv('<g fill="#000">' + Array.from({ length: 22 }, (_, i) => { const R2 = rng(i + 3); const a = R2() * 6.28, r = Math.sqrt(R2()) * 6; return `<rect x="${(8 + Math.cos(a) * r).toFixed(0)}" y="${(8 + Math.sin(a) * r).toFixed(0)}" width="1" height="1"/>`; }).join('') + '</g>'),
+    sv('<path d="M2 4h12" stroke="#000" stroke-width="2"/><path d="M4 4v6M8 4v9M11 4v5" stroke="#000"/><circle cx="4" cy="11" r="1" fill="#000"/><circle cx="8" cy="14" r="1" fill="#000"/>'),
+    sv('<path d="M2 12q6-12 12 0" fill="none" stroke="#f00" stroke-width="1.6"/><path d="M4 12q4-8 8 0" fill="none" stroke="#fc0" stroke-width="1.6"/><path d="M6 12q2-4 4 0" fill="none" stroke="#08f" stroke-width="1.6"/>'),
+    sv('<circle cx="5" cy="10" r="3" fill="none" stroke="#000"/><circle cx="11" cy="6" r="2" fill="none" stroke="#000"/><circle cx="11" cy="12" r="1.4" fill="none" stroke="#000"/>'),
+    sv('<path d="M1 10l3-5 3 7 3-7 3 7 2-3" fill="none" stroke="#000" stroke-width="1.4"/>'),
+    sv('<circle cx="8" cy="8" r="6" fill="none" stroke="#000"/><circle cx="8" cy="8" r="3.5" fill="none" stroke="#000"/><circle cx="8" cy="8" r="1" fill="#000"/>')];
+  const VAN = [['clear', 'Clear page (the van hauls it away)', IC.truck], ['mirror', 'Mirror', sv('<path d="M8 1v14" stroke="#000" stroke-dasharray="2 1"/><path d="M6 4L1 8l5 4zM10 4l5 4-5 4z" fill="#000"/>')], ['flip', 'Flip', sv('<path d="M1 8h14" stroke="#000" stroke-dasharray="2 1"/><path d="M4 6L8 1l4 5zM4 10l4 5 4-5z" fill="#000"/>')], ['invert', 'Invert colours', sv('<rect x="2" y="2" width="12" height="12" fill="#fff" stroke="#000"/><path d="M2 2h12L2 14z" fill="#000"/>')]];
+  const ER = [['s', 'Small eraser', 8], ['m', 'Medium eraser', 18], ['l', 'Big eraser', 34]];
+  const ERX = [['firecracker', 'Firecracker: clear page', sv('<rect x="5" y="6" width="6" height="9" fill="#e00" stroke="#000"/><path d="M8 6q0-3 3-4" fill="none" stroke="#000"/><path d="M11 0l1 2 2-1-1 2 2 1-2 1" fill="#fc0" stroke="#000" stroke-width=".5"/>')], ['fade', 'Fade away', sv('<g fill="#000">' + Array.from({ length: 30 }, (_, i) => `<rect x="${(i * 7) % 15}" y="${(i * 5) % 15}" width="1" height="1"/>`).join('') + '</g>')], ['hole', 'Black hole', sv('<circle cx="8" cy="8" r="6.5" fill="#000"/><circle cx="8" cy="8" r="3" fill="#fff"/>')]];
+  function drawBar() {
+    const t = S.tool, g1 = h('div.kp-grp'); let extra = null;
+    if (t === 'pencil' || t === 'line') { [1, 2, 4, 7, 11, 16].forEach((sz, i) => g1.append(opt(sizeIco(i, t), S.size === sz, () => (S.size = sz), '', `Size ${sz}px`))); extra = patGrp(); }
+    else if (t === 'rect' || t === 'oval') { const shp = (f) => sv(t === 'rect' ? `<rect x="2" y="4" width="12" height="8" fill="${f ? '#000' : '#fff'}" stroke="#000"/>` : `<circle cx="8" cy="8" r="5.5" fill="${f ? '#000' : '#fff'}" stroke="#000" stroke-width="1.2"/>`); g1.append(opt(shp(0), !S.fill, () => (S.fill = 0), '', 'Outline'), opt(shp(1), !!S.fill, () => (S.fill = 1), '', 'Filled')); extra = patGrp(); }
+    else if (t === 'brush') WK.forEach((n, i) => g1.append(opt(wkIco[i], S.wacky === i, () => (S.wacky = i), '', n)));
+    else if (t === 'bucket') { PF.forEach((_, i) => { const b = opt('', S.pat === i, () => (S.pat = i), 'pat', `Fill pattern ${i + 1}`); b.append(h('i', { style: { backgroundImage: `url(${patURL(i)})` } })); g1.append(b); }); }
+    else if (t === 'eraser') { ER.forEach(([k, n, sz], i) => g1.append(opt(sv(`<rect x="${8 - (i + 1) * 2}" y="${8 - (i + 1) * 2}" width="${(i + 1) * 4}" height="${(i + 1) * 4}" fill="#fff" stroke="#000"/>`), S.erase === i, () => (S.erase = i), '', n))); extra = h('div.kp-grp', {}, ERX.map(([k, n, ic]) => opt(ic, false, () => bigClear(k), '', n))); }
+    else if (t === 'text') 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?'.split('').forEach((c) => g1.append(opt(c, S.letter === c, () => (S.letter = c), 'txt', `Letter ${c}`)));
+    else if (t === 'stamp') { ST.forEach(([n], i) => { const b = opt('', S.stamp === i, () => (S.stamp = i), '', n); const c = STB[i]; b.append(h('img', { src: c.toDataURL(), alt: n, style: { width: '76%', imageRendering: 'pixelated' } })); g1.append(b); }); extra = h('div.kp-grp', {}, [[2, 'Small'], [3, 'Medium'], [5, 'Big']].map(([k, n]) => opt(`<span style="font-size:${6 + k * 2.4}px">★</span>`, S.stampK === k, () => (S.stampK = k), '', n + ' stamp'))); }
+    else if (t === 'truck') VAN.forEach(([k, n, ic]) => g1.append(opt(ic, false, () => van(k), '', n)));
+    g1.append(opt(IC.help, false, () => toast(`${TOOLS.find((x) => x[0] === t)[1]} · drag on the canvas`), '', 'Help'));
+    bar.replaceChildren(g1, ...(extra ? [extra] : [])); bar.dataset.tool = t;
+  }
+  function setTool(k) { S.tool = k; for (const [kk, b] of Object.entries(toolBs)) b.classList.toggle('on', kk === k); if (k === 'line' && S.size > 7) S.size = 2; drawBar(); chirp(300 + TOOLS.findIndex((x) => x[0] === k) * 60, 0.06); cv.style.cursor = k === 'text' || k === 'stamp' ? 'copy' : k === 'bucket' ? 'cell' : 'crosshair'; }
+  function setColor(c, b) { S.color = c; chipI.style.background = c; [...pal.children].forEach((x) => x.classList.toggle('on', x.title === c)); chirp(660, 0.03, 'triangle'); }
+  // ---------- history ----------
+  const hist = [], fut = []; const snap = () => { hist.push(g.getImageData(0, 0, cv.width, cv.height)); if (hist.length > 30) hist.shift(); fut.length = 0; };
+  const undo = () => { if (!hist.length) return false; fut.push(g.getImageData(0, 0, cv.width, cv.height)); g.putImageData(hist.pop(), 0, 0); undoB.classList.add('flash'); setTimeout(() => undoB.classList.remove('flash'), 150); chirp(220, 0.12, 'sawtooth'); return true; };
+  const redo = () => { if (!fut.length) return; hist.push(g.getImageData(0, 0, cv.width, cv.height)); g.putImageData(fut.pop(), 0, 0); chirp(330, 0.1, 'sawtooth'); };
+  function undoGuy() { const ok = undo(); const b = toolBs.face; b.innerHTML = ok ? sv('<circle cx="8" cy="8" r="6.5" fill="#f2c08a" stroke="#000"/><rect x="4" y="5" width="3" height="3" fill="#000"/><rect x="9" y="5" width="3" height="3" fill="#000"/><ellipse cx="8" cy="11.5" rx="2.5" ry="2" fill="#e00" stroke="#000"/>') : IC.face; setTimeout(() => (b.innerHTML = IC.face), 500); if (!ok) toast('Nothing to undo'); }
+  function save() { const a = h('a', { href: cv.toDataURL('image/png'), download: 'kidpix-picture.png' }); document.body.append(a); a.click(); a.remove(); toast('Saved kidpix-picture.png'); chirp(990, 0.08); }
+  // ---------- drawing ----------
+  const paint = () => { const col = S.ctrlRainbow ? `hsl(${(performance.now() / 4) % 360} 100% 50%)` : S.color; return S.pat ? g.createPattern(patCanvas(S.pat, col), 'repeat') : col; };
+  let st = null, last = null, base = null;
+  const P = (e) => { const r = cv.getBoundingClientRect(); return { x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top) }; };
+  const pickAt = (p) => { const d = g.getImageData(p.x, p.y, 1, 1).data; setColor(rgbToHex(d[0], d[1], d[2])); toast('Picked ' + S.color); };
+  function stampAt(p) { const c = STB[S.stamp], k = S.stampK; g.imageSmoothingEnabled = false; g.drawImage(c, Math.round(p.x - 10 * k), Math.round(p.y - 10 * k), 20 * k, 20 * k); chirp(180 + S.stamp * 40, 0.09); }
+  function letterAt(p) { const sz = 64; g.font = `700 ${sz}px ${PX}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 3; g.strokeStyle = '#000'; g.strokeText(S.letter, p.x, p.y); g.fillStyle = paint(); g.fillText(S.letter, p.x, p.y); chirp(400 + S.letter.charCodeAt(0) * 5, 0.12, 'triangle'); }
+  function fill(p) { const W = cv.width, H = cv.height, img = g.getImageData(0, 0, W, H), d = img.data; const i0 = (p.y * W + p.x) * 4; const tr = d[i0], tg = d[i0 + 1], tb = d[i0 + 2];
+    const [cr, cg, cb] = hexToRgb(S.color); const pc = (x, y) => PF[S.pat](x & 7, y & 7); const want = (x, y) => (pc(x, y) ? [cr, cg, cb] : [255, 255, 255]);
+    const same = (i) => Math.abs(d[i] - tr) < 8 && Math.abs(d[i + 1] - tg) < 8 && Math.abs(d[i + 2] - tb) < 8; const seen = new Uint8Array(W * H); const stack = [p.x, p.y]; let n = 0;
+    while (stack.length) { const y = stack.pop(), x0 = stack.pop(); let x = x0; while (x >= 0 && !seen[y * W + x] && same((y * W + x) * 4)) x--; x++; let up = false, dn = false;
+      while (x < W && !seen[y * W + x] && same((y * W + x) * 4)) { const i = (y * W + x) * 4; seen[y * W + x] = 1; const w2 = want(x, y); d[i] = w2[0]; d[i + 1] = w2[1]; d[i + 2] = w2[2]; d[i + 3] = 255; n++;
+        if (y > 0) { const s2 = !seen[(y - 1) * W + x] && same(((y - 1) * W + x) * 4); if (s2 && !up) { stack.push(x, y - 1); up = true; } else if (!s2) up = false; }
+        if (y < H - 1) { const s2 = !seen[(y + 1) * W + x] && same(((y + 1) * W + x) * 4); if (s2 && !dn) { stack.push(x, y + 1); dn = true; } else if (!s2) dn = false; } x++; } }
+    g.putImageData(img, 0, 0); chirp(140, 0.18, 'triangle'); return n; }
+  function shape(a, b, shift) { let w = b.x - a.x, hh = b.y - a.y; if (shift) { const m = Math.max(Math.abs(w), Math.abs(hh)); w = Math.sign(w || 1) * m; hh = Math.sign(hh || 1) * m; }
+    g.beginPath(); if (S.tool === 'rect') g.rect(a.x + 0.5, a.y + 0.5, w, hh); else g.ellipse(a.x + w / 2, a.y + hh / 2, Math.abs(w / 2), Math.abs(hh / 2), 0, 0, 7);
+    if (S.fill) { g.fillStyle = paint(); g.fill(); g.lineWidth = 1; g.strokeStyle = '#000'; g.stroke(); } else { g.lineWidth = 2; g.strokeStyle = paint(); g.stroke(); } }
+  function wackySeg(a, b, t) { const k = S.wacky, col = S.color; const dist = Math.hypot(b.x - a.x, b.y - a.y);
+    if (k === 0) { g.fillStyle = col; for (let i = 0; i < 26; i++) { const an = Math.random() * 6.28, r = Math.sqrt(Math.random()) * 18; g.fillRect(Math.round(b.x + Math.cos(an) * r), Math.round(b.y + Math.sin(an) * r), 1, 1); } }
+    else if (k === 1) { g.strokeStyle = col; g.lineWidth = 6; g.lineCap = 'round'; g.beginPath(); g.moveTo(a.x, a.y); g.lineTo(b.x, b.y); g.stroke(); if (Math.random() < 0.25) { const len = 10 + Math.random() * 40; g.lineWidth = 2; g.beginPath(); g.moveTo(b.x, b.y); g.lineTo(b.x, b.y + len); g.stroke(); g.fillStyle = col; g.beginPath(); g.arc(b.x, b.y + len, 2.5, 0, 7); g.fill(); } }
+    else if (k === 2) { g.lineCap = 'round'; g.lineWidth = 14; g.strokeStyle = `hsl(${(t * 3) % 360} 100% 50%)`; g.beginPath(); g.moveTo(a.x, a.y); g.lineTo(b.x, b.y); g.stroke(); }
+    else if (k === 3) { if (dist > 0 && Math.random() < 0.6) { g.strokeStyle = '#000'; g.fillStyle = '#fff'; g.lineWidth = 1; const r = 3 + Math.random() * 12; g.beginPath(); g.arc(b.x + (Math.random() - 0.5) * 20, b.y + (Math.random() - 0.5) * 20, r, 0, 7); g.fill(); g.stroke(); g.fillStyle = col; g.fillRect(Math.round(b.x - r / 3), Math.round(b.y - r / 3), 2, 2); } }
+    else if (k === 4) { g.strokeStyle = col; g.lineWidth = 2; g.beginPath(); g.moveTo(a.x, a.y); const nx = -(b.y - a.y) / (dist || 1), ny = (b.x - a.x) / (dist || 1); const s2 = (t % 2 ? 1 : -1) * 12; g.lineTo((a.x + b.x) / 2 + nx * s2, (a.y + b.y) / 2 + ny * s2); g.lineTo(b.x, b.y); g.stroke(); }
+    else if (k === 5) { if (t % 4 === 0) { g.strokeStyle = col; g.lineWidth = 1; for (let r = 4; r < 30; r += 7) { g.beginPath(); g.arc(b.x, b.y, r, 0, 7); g.stroke(); } } } }
+  let tick = 0;
+  drag(cv, {
+    start: (e) => { sizeCv(); const p = P(e); S.ctrlRainbow = e.ctrlKey || e.metaKey; if (e.altKey) { pickAt(p); return false; } st = p; last = p; snap(); base = g.getImageData(0, 0, cv.width, cv.height);
+      if (S.tool === 'stamp') { stampAt(p); st = null; } else if (S.tool === 'text') { letterAt(p); st = null; } else if (S.tool === 'bucket') { fill(p); st = null; } else if (S.tool === 'truck') { toast('Moving Van: pick an action on the top bar'); hist.pop(); st = null; }
+      else if (S.tool === 'pencil') { g.fillStyle = paint(); g.beginPath(); g.arc(p.x, p.y, S.size / 2, 0, 7); g.fill(); chirp(700, 0.02); }
+      else if (S.tool === 'eraser') { const z = ER[S.erase][2]; g.fillStyle = '#fff'; g.fillRect(p.x - z / 2, p.y - z / 2, z, z); } },
+    move: (e) => { if (!st) return; const p = P(e); tick++;
+      if (S.tool === 'pencil') { g.strokeStyle = paint(); g.lineWidth = S.size; g.lineCap = 'round'; g.lineJoin = 'round'; g.beginPath(); g.moveTo(last.x, last.y); g.lineTo(p.x, p.y); g.stroke(); if (tick % 6 === 0) chirp(500 + (p.y % 200), 0.015); }
+      else if (S.tool === 'eraser') { const z = ER[S.erase][2]; g.fillStyle = '#fff'; const n = Math.ceil(Math.hypot(p.x - last.x, p.y - last.y) / 4) + 1; for (let i = 0; i <= n; i++) { const x = last.x + (p.x - last.x) * i / n, y = last.y + (p.y - last.y) * i / n; g.fillRect(Math.round(x - z / 2), Math.round(y - z / 2), z, z); } if (tick % 5 === 0) chirp(90, 0.03, 'sawtooth'); }
+      else if (S.tool === 'brush') { wackySeg(last, p, tick); if (tick % 4 === 0) chirp(300 + S.wacky * 90 + (tick % 8) * 20, 0.02, 'triangle'); }
+      else if (S.tool === 'line') { g.putImageData(base, 0, 0); let q = p; if (e.shiftKey) { const an = Math.round(Math.atan2(p.y - st.y, p.x - st.x) / (Math.PI / 4)) * (Math.PI / 4), L = Math.hypot(p.x - st.x, p.y - st.y); q = { x: st.x + Math.cos(an) * L, y: st.y + Math.sin(an) * L }; } g.strokeStyle = paint(); g.lineWidth = S.size; g.lineCap = 'round'; g.beginPath(); g.moveTo(st.x, st.y); g.lineTo(q.x, q.y); g.stroke(); }
+      else if (S.tool === 'rect' || S.tool === 'oval') { g.putImageData(base, 0, 0); shape(st, p, e.shiftKey); }
+      last = p; },
+    end: () => { if (st && (S.tool === 'line' || S.tool === 'rect' || S.tool === 'oval')) chirp(440, 0.06, 'triangle'); st = null; base = null; },
+  });
+  // ---------- big clears (eraser extras + moving van) ----------
+  const wipe = () => { g.fillStyle = '#fff'; g.fillRect(0, 0, cv.width, cv.height); };
+  async function bigClear(kind) { snap(); const W = cv.width, H = cv.height;
+    if (kind === 'firecracker' || RM || quiet) { wipe(); if (!RM && !quiet) { const b = h('div.kp-boom'); fx.append(b); setTimeout(() => b.remove(), 600); } chirp(70, 0.4, 'sawtooth'); return; }
+    if (kind === 'fade') { const order = []; for (let y = 0; y < H; y += 8) for (let x = 0; x < W; x += 8) order.push([x, y]); for (let i = order.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [order[i], order[j]] = [order[j], order[i]]; } g.fillStyle = '#fff'; const step = Math.ceil(order.length / 24); for (let i = 0; i < order.length; i += step) { for (const [x, y] of order.slice(i, i + step)) g.fillRect(x, y, 8, 8); await sleep(30); } return; }
+    if (kind === 'hole') { const R = Math.hypot(W, H) / 2; for (let r = 0; r <= R; r += R / 18) { g.fillStyle = '#000'; g.beginPath(); g.arc(W / 2, H / 2, r, 0, 7); g.fill(); await sleep(25); } wipe(); return; } }
+  async function van(kind) { const W = cv.width, H = cv.height; snap();
+    if (kind === 'mirror' || kind === 'flip') { const tmp = document.createElement('canvas'); tmp.width = W; tmp.height = H; tmp.getContext('2d').drawImage(cv, 0, 0); g.save(); g.setTransform(kind === 'mirror' ? -1 : 1, 0, 0, kind === 'flip' ? -1 : 1, kind === 'mirror' ? W : 0, kind === 'flip' ? H : 0); g.drawImage(tmp, 0, 0); g.restore(); chirp(500, 0.1); return; }
+    if (kind === 'invert') { const im = g.getImageData(0, 0, W, H); for (let i = 0; i < im.data.length; i += 4) { im.data[i] = 255 - im.data[i]; im.data[i + 1] = 255 - im.data[i + 1]; im.data[i + 2] = 255 - im.data[i + 2]; } g.putImageData(im, 0, 0); chirp(260, 0.12); return; }
+    // clear: the red van drives across, wiping the page behind it
+    if (RM || quiet) { wipe(); return; }
+    const tr = h('div.kp-truck', { html: IC.truck.replace('<svg ', '<svg style="width:100%;height:100%" ') }); fx.append(tr); const tw = tr.offsetWidth; const N = 28;
+    for (let i = 0; i <= N; i++) { const x = W + tw - (W + tw * 2) * (i / N); tr.style.left = x + 'px'; g.fillStyle = '#fff'; g.fillRect(x + tw * 0.5, 0, W, H); if (i % 3 === 0) chirp(80 + (i % 2) * 20, 0.05, 'sawtooth'); await sleep(28); }
+    wipe(); tr.remove(); }
+  // ---------- splash (code-drawn: Mac window + lavender dither bird + lime KID PIX poster) ----------
+  function bird(w, hh) { // greyscale bird + branch, ordered-dithered to 1-bit navy on lavender
+    const c = document.createElement('canvas'); c.width = w; c.height = hh; const b = c.getContext('2d'); b.fillStyle = '#fff'; b.fillRect(0, 0, w, hh); const k = w / 360; b.save(); b.scale(k, k);
+    const sh = (fn, col) => { b.fillStyle = col; b.beginPath(); fn(); b.fill(); };
+    sh(() => { b.moveTo(130, 300); b.bezierCurveTo(150, 250, 200, 230, 250, 250); b.bezierCurveTo(230, 270, 180, 280, 130, 300); }, '#777');
+    sh(() => { b.ellipse(225, 280, 40, 18, -0.6, 0, 7); }, '#888'); sh(() => { b.ellipse(260, 240, 28, 12, 0.8, 0, 7); }, '#999');
+    sh(() => { b.ellipse(170, 150, 62, 30, -0.45, 0, 7); }, '#3a3a3a'); sh(() => { b.ellipse(200, 128, 26, 22, 0, 0, 7); }, '#2a2a2a');
+    sh(() => { b.moveTo(218, 118); b.lineTo(330, 168); b.lineTo(218, 130); }, '#111');
+    sh(() => { b.moveTo(160, 132); b.bezierCurveTo(90, 40, 40, 30, 20, 60); b.bezierCurveTo(70, 80, 110, 120, 150, 160); }, '#555');
+    sh(() => { b.moveTo(118, 168); b.lineTo(60, 250); b.lineTo(80, 255); b.lineTo(140, 180); }, '#444');
+    sh(() => { b.ellipse(150, 180, 36, 18, -0.2, 0, 7); }, '#bbb'); sh(() => { b.arc(206, 124, 3.5, 0, 7); }, '#000');
+    b.strokeStyle = '#555'; b.lineWidth = 6; b.beginPath(); b.moveTo(110, 360); b.bezierCurveTo(150, 280, 210, 230, 280, 200); b.stroke(); b.restore();
+    const im = b.getImageData(0, 0, w, hh), d = im.data; const BY = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]; const R2 = rng(5);
+    for (let y = 0; y < hh; y++) for (let x = 0; x < w; x++) { const i = (y * w + x) * 4; const v = d[i] / 255 + (R2() - 0.5) * 0.18; const on = v < (BY[(y & 3) * 4 + (x & 3)] + 0.5) / 16; d.set(on ? [30, 28, 110, 255] : [170, 168, 255, 255], i); }
+    b.putImageData(im, 0, 0); return c; }
+  function drawSplash() { sizeCv(); const s = clamp(Math.min(cv.width / 735, cv.height / 545), 0.4, 1.5); const X = (v) => Math.round(v * s); g.save(); g.imageSmoothingEnabled = false;
+    // lavender block + bird
+    g.fillStyle = '#aaa8ff'; g.fillRect(0, X(242), X(365), X(296)); g.drawImage(bird(X(340), X(270)), X(14), X(262));
+    g.fillStyle = '#000'; g.textAlign = 'center'; g.textBaseline = 'alphabetic'; g.font = `400 ${X(13)}px ${PX}`; g.fillText('This copy of JSKIDPIX belongs to...', X(182), X(298)); g.font = `700 ${X(15)}px ${PX}`; g.fillText('YOU!', X(182), X(334));
+    // Mac window
+    g.fillStyle = '#fff'; g.fillRect(0, 0, X(365), X(242)); g.fillStyle = '#000'; g.fillRect(0, X(14), X(365), 1); g.fillRect(X(3), X(15), X(4), X(198)); g.fillRect(X(360), X(15), X(4), X(198));
+    g.fillRect(X(7), X(15), X(353), 2); g.fillRect(X(7), X(211), X(353), 2);
+    g.font = `700 ${X(9)}px ${PX}`; g.textAlign = 'left'; g.fillText('\uF8FF', X(12), X(10)); g.fillRect(X(12), X(3), X(7), X(8)); g.fillStyle = '#fff'; g.fillRect(X(15), X(2), X(2), X(2)); g.fillStyle = '#000'; g.fillText('File', X(26), X(10.5)); g.fillText('Edit', X(52), X(10.5));
+    g.strokeStyle = '#000'; g.lineWidth = 1; g.beginPath(); g.arc(X(327), X(7), X(4.5), 0, 7); g.stroke(); g.font = `700 ${X(7)}px ${PX}`; g.textAlign = 'center'; g.fillText('?', X(327), X(9.5)); g.fillRect(X(341), X(2), X(3), X(10));
+    g.font = `400 ${X(8)}px ${PX}`; g.fillText('JS', X(106), X(42)); g.font = `700 ${X(46)}px ${PX}`; g.fillText('Kid Pix', X(190), X(78));
+    g.font = `400 ${X(7.4)}px ${PX}`; g.fillText('Public Domain Version', X(185), X(96));
+    for (let i = 0; i < 11; i++) g.drawImage(STB[i], X(68 + i * 21), X(104), X(16), X(16));
+    g.font = `400 ${X(9.5)}px ${PX}`; g.fillText('by Craig Hickman', X(185), X(140));
+    g.font = `400 ${X(6.6)}px ${PX}`; g.fillText('This version of KID PIX is FREE.  For the expanded deluxe', X(190), X(170)); g.fillText('version select "COMMERCIAL" in the Apple menu.', X(176), X(180));
+    g.font = `400 ${X(5.4)}px ${PX}`; g.textAlign = 'left'; g.fillText('Version 1.0  November, 1989', X(14), X(205)); g.textAlign = 'right'; g.fillText('https://kidpix.app * https://kidpix.neocities.org', X(354), X(205));
+    // "Try tools" strip
+    g.fillStyle = '#fff'; g.fillRect(X(20), X(218), X(340), X(22)); g.strokeStyle = '#000'; g.lineWidth = Math.max(1, X(1.5)); g.strokeRect(X(20), X(218), X(340), X(22)); g.drawImage(patCanvas(1, '#000'), 0, X(218), X(20), X(22));
+    g.fillStyle = '#000'; g.textAlign = 'left'; g.font = `400 ${X(9.6)}px ${PX}`; let tx = X(26); const piece = (t, c) => { g.fillStyle = c; g.fillText(t, tx, X(234)); tx += g.measureText(t).width; };
+    piece('Try tools with ', '#000'); piece('⇧', '#8080ff'); piece('CTRL, ', '#000'); piece('⌘', '#8000ff'); piece('ALT, ', '#000'); piece('⌥', '#808080'); piece('OPTION, ', '#000'); piece('^', '#ff0080'); piece('SHIFT too!', '#000'); piece('✨', '#ffc31e');
+    // lime poster
+    const PX0 = X(365), PW = X(365); g.fillStyle = '#d0ff00'; g.fillRect(PX0, 0, PW, X(372)); g.fillStyle = '#fff'; g.fillRect(PX0 + X(22), X(20), X(300), X(232)); g.strokeStyle = '#8300d0'; g.lineWidth = X(7); g.strokeRect(PX0 + X(22), X(20), X(300), X(232));
+    for (let j = 0, r = 19; r > 0; j++, r -= 3.2) { g.fillStyle = j % 2 ? '#fff' : '#000'; g.beginPath(); g.arc(PX0 + X(185), X(18), X(r), 0, 7); g.fill(); }
+    g.save(); g.translate(PX0 + X(28), X(30)); g.rotate(-0.4); g.fillStyle = '#ff8fd0'; g.font = `400 ${X(30)}px ${POST}`; g.fillText('JS', 0, 0); g.restore();
+    g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = `400 ${X(100)}px ${POST}`; g.lineWidth = X(3); g.strokeStyle = '#000';
+    const L = (ch, x, y, fillF) => { g.save(); g.translate(PX0 + X(x), X(y)); g.scale(1.75, 1); fillF(); g.fillText(ch, 0, 0); g.restore(); };
+    L('K', 80, 88, () => (g.fillStyle = '#0069ff')); L('I', 165, 88, () => (g.fillStyle = '#ff0000'));
+    g.save(); g.beginPath(); g.rect(PX0 + X(200), 0, X(55), X(88)); g.clip(); L('D', 245, 88, () => (g.fillStyle = '#ff0000')); g.restore(); g.save(); g.beginPath(); g.rect(PX0 + X(255), 0, X(60), X(88)); g.clip(); L('D', 245, 88, () => (g.fillStyle = '#00a000')); g.restore();
+    g.save(); g.beginPath(); g.rect(PX0 + X(200), X(88), X(115), X(60)); g.clip(); L('D', 245, 88, () => (g.fillStyle = '#8300d0')); g.restore();
+    L('P', 85, 200, () => (g.fillStyle = '#ff0080')); g.fillStyle = '#fff'; g.beginPath(); g.ellipse(PX0 + X(78), X(178), X(22), X(12), 0, 0, 7); g.fill(); g.fillStyle = '#0069ff'; g.beginPath(); g.arc(PX0 + X(80), X(178), X(9), 0, 7); g.fill(); g.fillStyle = '#000'; g.beginPath(); g.arc(PX0 + X(80), X(178), X(4), 0, 7); g.fill();
+    const chk = document.createElement('canvas'); chk.width = chk.height = 2; const cg = chk.getContext('2d'); cg.fillStyle = '#e18700'; cg.fillRect(0, 0, 2, 2); cg.fillStyle = '#000'; cg.fillRect(0, 0, 1, 1); cg.fillRect(1, 1, 1, 1); const cp = g.createPattern(chk, 'repeat'); cp.setTransform(new DOMMatrix().scale(X(9)));
+    L('I', 165, 200, () => (g.fillStyle = cp)); L('X', 248, 200, () => (g.fillStyle = '#8300d0'));
+    [[150, 60, '#ff8040'], [300, 180, '#ff8040'], [228, 168, '#ff0000']].forEach(([x, y, c]) => { g.fillStyle = c; g.beginPath(); for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8, r = X(i % 2 ? 6 : 14); g.lineTo(PX0 + X(x) + Math.cos(a) * r, X(y) + Math.sin(a) * r); } g.fill(); });
+    // two scribble kids
+    [[272, 232], [312, 230]].forEach(([x, y], i) => { g.fillStyle = '#000'; g.beginPath(); g.arc(PX0 + X(x), X(y - 16), X(12), 0, 7); g.fill(); g.fillRect(PX0 + X(x - 10), X(y - 6), X(20), X(26)); g.fillStyle = '#fff'; g.fillRect(PX0 + X(x - 5), X(y - 20), X(3), X(3)); g.fillRect(PX0 + X(x + 2), X(y - 20), X(3), X(3)); g.fillStyle = i ? '#ff0080' : '#00a0ff'; g.fillRect(PX0 + X(x - 30), X(y + 2), X(42), X(5)); });
+    g.font = `400 ${X(7)}px ${PX}`; g.fillStyle = '#8300d0'; g.textAlign = 'left'; g.fillText('BASED ON PUBLIC DOMAIN  BY CRAIG HICKMAN', PX0 + X(26), X(262));
+    g.font = `900 ${X(46)}px 'Noto Sans CJK JP','Hiragino Sans','Yu Gothic',sans-serif`; let jx = PX0 + X(14); [['キ', '#0069ff'], ['ッ', '#ff0000'], ['ド', '#00a000'], ['ピ', '#ff0080'], ['ク', cp], ['ス', '#0069ff']].forEach(([ch, c]) => { g.fillStyle = c; g.strokeStyle = '#000'; g.lineWidth = X(1.5); g.fillText(ch, jx, X(318)); g.strokeText(ch, jx, X(318)); jx += X(55); });
+    g.restore(); }
+  // ---------- boot ----------
+  setColor('#000000'); setTool('pencil');
+  const boot = async () => { sizeCv(); try { await fontsP; await Promise.all([document.fonts.load(`700 40px 'Pixelify Sans'`), document.fonts.load(`400 12px 'Pixelify Sans'`), document.fonts.load(`400 12px Silkscreen`), document.fonts.load(`400 60px Anton`)]); } catch {} wipe(); drawSplash(); hist.length = 0; };
+  const ready = boot();
+  new ResizeObserver(() => { fitU(); sizeCv(); }).observe(root);
+  window.__demoProof = async () => { await ready; quiet = true; const o = []; const px = (x, y) => [...g.getImageData(x, y, 1, 1).data.slice(0, 3)];
+    const W = cv.width, H = cv.height, X = (f) => Math.round(W * f), ey = Math.round(H * 0.9);
+    pal.children[7].click(); toolBs.pencil.click(); const pb = bar.querySelectorAll('.kp-opt').length; bar.querySelector('.kp-opt:nth-child(4)').click();
+    await gesture(cv, Array.from({ length: 24 }, (_, i) => [X(0.04 + i * 0.012), ey + Math.sin(i / 3) * 12]), 2); o.push(`pencil red stroke px=${px(X(0.04), ey)} size=${S.size} bar(${bar.dataset.tool})=${pb} opts`);
+    toolBs.oval.click(); o.push(`oval bar swapped→${bar.dataset.tool} (${bar.querySelectorAll('.kp-opt').length} opts)`); await gesture(cv, [[X(0.36), ey - 50], [X(0.42), ey - 20], [X(0.5), ey + 10]], 2);
+    toolBs.stamp.click(); bar.querySelectorAll('.kp-opt')[1].click(); const sx = X(0.6), sy = ey - 20; fire(cv, 'pointerdown', sx, sy); fire(cv, 'pointerup', sx, sy); o.push(`stamp ${ST[S.stamp][0]} placed px=${px(sx, sy + 3)}`);
+    toolBs.brush.click(); bar.querySelectorAll('.kp-opt')[2].click(); await gesture(cv, Array.from({ length: 12 }, (_, i) => [X(0.68 + i * 0.01), ey - 30]), 2); o.push(`wacky ${WK[S.wacky]}`);
+    toolBs.text.click(); fire(cv, 'pointerdown', X(0.9), ey - 20); fire(cv, 'pointerup', X(0.9), ey - 20); o.push(`letter ${S.letter}`);
+    const h0 = hist.length; toolBs.face.click(); o.push(`undo guy: history ${h0}→${hist.length}`);
+    toolBs.truck.click(); o.push(`van bar=${bar.dataset.tool}`); await van('clear'); o.push(`van clear → px=${px(X(0.04), ey)} white=${px(X(0.04), ey).every((v) => v === 255)}`);
+    undo(); o.push(`undo restores drawing px=${px(X(0.04), ey)}`);
+    wipe(); drawSplash(); hist.length = 0; fut.length = 0; S.size = 1; S.pat = 0; S.wacky = 0; S.stamp = 0; setColor('#000000'); setTool('pencil'); quiet = false;
+    o.push(`restored: tool=${S.tool} color=${S.color} splash`); return o.join('; '); };
 };
 
 export function mount(root, variant, opts, T) { (V[variant] || V['kleki-layered-paint-desk'])(root, T); }

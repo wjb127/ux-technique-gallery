@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-kidpix-retro-mac-paint-tool-column-pattern-option-bar-palette-splash-canvas",
+  "slug": "kidpix-retro-mac-paint-tool-column-pattern-option-bar-palette-splash-canvas",
+  "name": "Retro Mac Paint App with Icon Tool Column, Per-Tool Option Bar, Color Grid and Splash Canvas (JS Kid Pix)",
+  "date": "2026-10-12",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://kidpix.app/",
+  "domain": "kidpix.app",
+  "product": "JS Kid Pix — browser recreation of the 1989 Kid Pix paint program (public-domain version by Craig Hickman)",
+  "checkpoints": [
+   "Left: 2-column color grid (black..orange) with current-color chip, plus vertical column of chunky 1-bit tool icons (pencil, line, rectangle, oval, wacky brush, paint bucket, eraser, text A, stamp, truck, face)",
+   "Top option bar that swaps content per tool: pencil sizes, dither/pattern swatches, circle sizes, stamp options",
+   "Canvas starts with a Mac-window splash (Kid Pix title, icon row, Try tools with CTRL/ALT/OPTION/SHIFT) beside a lime KID PIX poster and a dithered hummingbird",
+   "Pointer drag draws strokes on a canvas with the active tool and size",
+   "Stamp tool places small 1-bit pictures on click; truck tool clears the page (rebuild targets; not confirmed live)",
+   "Undo arrows and floppy save icon; optional click sounds per tool (rebuild enhancement)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-cydstumpel-giant-condensed-wordmark-rotating-serif-role-sticker-badges-rounded-work-tiles-pastel-blog-cards",
+  "slug": "cydstumpel-giant-condensed-wordmark-rotating-serif-role-sticker-badges-rounded-work-tiles-pastel-blog-cards",
+  "name": "Giant Condensed Wordmark Portfolio with Rotating Serif Role Word, Sticker Badges, Rounded Work Tiles and Pastel Blog Cards (Cyd Stumpel)",
+  "date": "2026-10-12",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://cydstumpel.nl/",
+  "domain": "cydstumpel.nl",
+  "product": "Cyd Stumpel — Amsterdam creative developer, teacher and speaker portfolio",
+  "checkpoints": [
+   "Cream page with a huge tomato-red condensed CYD STUMPEL wordmark running edge to edge, and an open pink box with doodle icons popping out",
+   "Header row: CYD mark, underlined email, Available November 2026 sparkle note, serif nav (About, Archive, Speaking, Blogs, Contact)",
+   "Portrait on a red half-circle; italic+roman serif headline whose role word rotates (Creative Engineer to Conference Speaker); round and tilted sticker badges (Award winning developer, Motion web design, Accessibility)",
+   "Work section: rounded image tiles with centered caps labels and colored pills, inline underlined client-type links",
+   "Latest blogs grid of pastel cards (yellow, lilac, blue, pink) with date tags, chips and webmention counts; tilted red service cards with pixel-art cursor icons",
+   "Red footer CTA and a giant wordmark repeat at the bottom"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll",
+  "slug": "gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll",
+  "name": "Cover-Art Collage Hero, Sunset Extended Look Section with Trailer Cards and Full-Bleed Character Scroll (Grand Theft Auto VI)",
+  "date": "2026-10-12",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.rockstargames.com/VI",
+  "domain": "rockstargames.com",
+  "product": "Grand Theft Auto VI — Rockstar Games launch site",
+  "checkpoints": [
+   "Deep navy page; centered 4x3 painted cover-art collage with the pink-orange gradient VI logo on top; COMING NOVEMBER 19, 2026 left, pink Pre-Order pill center, platform logos right",
+   "Small VI mark top-left and hamburger top-right fixed; bouncing chevron hint",
+   "Scroll: collage gives way to a pink-purple sunset gas-station scene with spaced caps AN EXTENDED LOOK / NOW PLAYING and a round play button",
+   "Scene darkens to two tall rounded trailer cards with play buttons (Trailer 2, Trailer 1)",
+   "Full-bleed character photo panel (couple on a green classic car) that scales up as you scroll, Pre-Order pill joining the header",
+   "Ultimate Edition purple gradient card rising over the photo; then news cards and footer"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu",
   "slug": "santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu",
   "name": "Illustrated Winter Village Hero with Flip Countdown, Big Play CTA and Colorful Game-Card Grid Menu (Google Santa Tracker)",
