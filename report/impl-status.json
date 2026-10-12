@@ -3382,5 +3382,32 @@
   "proof": "drag 2026-10-12→2026-10-14; color #ffe566→#b8e0ff; inline add=\"Proof task\"; complete=true; week→W43; restored week=W42 tasks=6 someday=1",
   "demoNodes": 128,
   "errors": []
+ },
+ "ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips": {
+  "url": "https://ux-technique-gallery.vercel.app/t/ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips/",
+  "ok": true,
+  "at": "2026-10-12T20:12:52.750Z",
+  "http": 200,
+  "proof": "drawer toggle closed→open; peek rail; family→HOBEAUX buy=\"BUY — $280\" hero=\"Hobeaux\" face=\"Bodoni Moda\"; family→DEGULAR; hero wght=200; txt caps=all-small-caps align=center; Firm size=150px; edit=\"Ohno!\"; drawer items=1 badge=1; restored drawer=open family=DEGULAR hero=\"Degular\" w=900 cart=0",
+  "demoNodes": 222,
+  "errors": []
+ },
+ "henryheffernan-bios-boot-start-gate-3d-desk-camera-zoom-into-crt-monitor-os": {
+  "url": "https://ux-technique-gallery.vercel.app/t/henryheffernan-bios-boot-start-gate-3d-desk-camera-zoom-into-crt-monitor-os/",
+  "ok": true,
+  "at": "2026-10-12T20:12:52.760Z",
+  "http": 200,
+  "proof": "gate→boot→room webgl=true; sound=true; zoom→os osVisible=true windows=1; showcase page=projects; startmenu=true; henordle row1=ccccx; drag dx=140; exit→room; restored state=gate windows=0 sound=false",
+  "demoNodes": 78,
+  "errors": []
+ },
+ "endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections": {
+  "url": "https://ux-technique-gallery.vercel.app/t/endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections/",
+  "ok": true,
+  "at": "2026-10-12T20:12:52.765Z",
+  "http": 200,
+  "proof": "more=6 items; nav Focus → card.on=focus; play=true mode=focus eq=true; switch→sleep; paused=true; hover boost activity; stats=#1|7x|3.6x|95%; modal=true; canvases=34; restored mode=relax playing=false modal=false",
+  "demoNodes": 363,
+  "errors": []
  }
 }
