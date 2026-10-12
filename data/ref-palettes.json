@@ -1,4 +1,34 @@
 {
+ "santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu": {
+  "bg": "#1abadc",
+  "fg": "#141414",
+  "panel": "#7edaea",
+  "dark": false,
+  "ac": "#1abadc",
+  "ac2": "#7edaea",
+  "ac3": "#2d3f56",
+  "coverage": 0.09
+ },
+ "phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer": {
+  "bg": "#eeeae3",
+  "fg": "#3e3d3a",
+  "panel": "#efebe5",
+  "dark": false,
+  "ac": "#acbb6c",
+  "ac2": "#c8ea55",
+  "ac3": "#c4e160",
+  "coverage": 0.57
+ },
+ "notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf": {
+  "bg": "#ffffff",
+  "fg": "#7d7dff",
+  "panel": "#e0e0e0",
+  "dark": false,
+  "ac": "#7d7dff",
+  "ac2": "#7a7aff",
+  "ac3": "#8484ff",
+  "coverage": 0.63
+ },
  "minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes": {
   "bg": "#3c3e48",
   "fg": "#d4d3ce",

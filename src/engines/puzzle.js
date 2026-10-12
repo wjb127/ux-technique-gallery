@@ -1491,4 +1491,148 @@ V['dialed-color-memory-game-tilted-card-hub-countdown-reveal-hue-slider-recall']
     snd = snd0; reset(); o.push(`restored: intro card visible=${pIntro.classList.contains('on')}`); return o.join('; '); };
 };
 
+V['santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu'] = (root, T) => {
+  import('@fontsource/lobster');
+  theme(root, T, { bg: '#2fb0f0', fg: '#fff', ac: '#ef1b5c', dark: true });
+  const LOB = "'Lobster',cursive", SANS = "'Roboto Flex Variable','Inter Variable',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.st{position:absolute;inset:0;overflow:hidden;font-family:${SANS};color:#fff;user-select:none;background:#2fb0f0}
+.st button{font-family:inherit;cursor:pointer;border:0}
+.st-vil{position:absolute;inset:0;width:100%;height:100%}
+.st .spin{transform-box:fill-box;transform-origin:50% 50%;animation:stSpin 6s linear infinite}
+@keyframes stSpin{to{transform:rotate(360deg)}}
+.st .walk{animation:stWalk var(--d,18s) linear infinite}.st .bob{animation:stBob .5s ease-in-out infinite alternate}
+@keyframes stWalk{from{transform:translateX(0)}50%{transform:translateX(var(--dx,160px))}to{transform:translateX(0)}}
+@keyframes stBob{to{transform:translateY(-3px)}}
+.st .flake{animation:stSnow var(--d,9s) linear infinite;animation-delay:var(--dl,0s)}@keyframes stSnow{from{transform:translate(0,-40px)}to{transform:translate(var(--dx,30px),940px)}}
+${RM ? '.st *{animation:none!important}' : ''}
+.st-hero{position:absolute;left:50%;top:44px;transform:translateX(-50%);text-align:center;z-index:3;pointer-events:none}
+.st-hero .g{font:500 21px ${SANS};letter-spacing:-.01em;opacity:.95}
+.st-hero h1{margin:0;font:400 86px/1.05 ${LOB};text-shadow:0 3px 0 #0001,0 0 30px #fff4;letter-spacing:.005em}
+.st-hero p{margin:10px auto 0;font:400 21px/1.2 ${SANS};max-width:420px;text-shadow:0 1px 6px #2a7fc066}
+.st .st-play{position:absolute;left:50%;top:292px;width:136px;height:136px;margin-left:-68px;border-radius:50%;background:#ef1b5c!important;color:#fff;font:400 38px ${LOB};box-shadow:0 0 0 7px #ffffffb0,0 14px 28px #0003;z-index:4;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.st-play:hover{transform:scale(1.07)}.st-play:active{transform:scale(.96)}
+.st-btns{position:absolute;left:72px;top:16px;display:flex;gap:14px;z-index:30}
+.st-btns button{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 -4px 0 #0003,0 3px 0 #0002;transition:transform .15s}
+.st-btns button:hover{transform:scale(1.08)}.st-btns .r{background:#ff3b3b;border:2px solid #d81e2c!important}.st-btns .p{background:#a10fb8;border:2px solid #7e0592!important}
+.st-cd{position:absolute;right:66px;top:12px;display:flex;background:#ff3a3a;border-radius:6px;box-shadow:0 4px 0 #c21c26,0 8px 18px #0003;z-index:30;padding:2px 0}
+.st-cd::before,.st-cd::after{content:'';position:absolute;top:50%;width:8px;height:8px;background:#ff3a3a;transform:translateY(-50%) rotate(45deg)}.st-cd::before{left:-3px}.st-cd::after{right:-3px}
+.st-cd>div{width:52px;height:64px;position:relative;text-align:center;border-left:1px solid #c8202a;perspective:120px}.st-cd>div:first-child{border:0}
+.st-cd .n{position:absolute;left:0;right:0;top:4px;font:400 33px/42px ${LOB};backface-visibility:hidden;transform-origin:50% 100%}
+.st-cd .n.in{animation:stFlipIn .45s ease-out}.st-cd .n.out{animation:stFlipOut .45s ease-in forwards;opacity:.55}
+@keyframes stFlipIn{from{transform:translateY(-22px) rotateX(70deg);opacity:0}to{transform:none;opacity:1}}@keyframes stFlipOut{to{transform:translateY(16px) rotateX(-80deg);opacity:0}}
+.st-cd small{position:absolute;left:0;right:0;bottom:6px;font:700 7.5px ${SANS};letter-spacing:.08em}
+.st-fam{position:absolute;left:34px;bottom:26px;height:46px;padding:0 20px 0 6px;border-radius:23px;background:#5fb2f7;display:flex;align-items:center;gap:12px;font:500 15px ${SANS};z-index:5;box-shadow:0 4px 12px #0002}
+.st-fam i{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 50% 38%,#7b4a2c 0 28%,#5a8df0 29% 100%)}
+.st-ck{position:absolute;right:16px;bottom:16px;width:450px;background:#202124;border-radius:6px;padding:16px 22px 12px;font:400 15px/1.35 ${SANS};z-index:6;box-shadow:0 6px 24px #0005}
+.st-ck div{display:flex;justify-content:flex-end;gap:36px;margin-top:14px}.st-ck button{background:none;color:#8ab4f8;font:500 14px ${SANS};letter-spacing:.03em}
+.st-menu{position:absolute;inset:0;background:#4f16d4;z-index:20;overflow:auto;opacity:0;pointer-events:none;transition:opacity .3s}
+.st-menu.on{opacity:1;pointer-events:auto}.st-menu::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(115deg,#ffffff07 0 60px,#0000 60px 140px);pointer-events:none}
+.st-grid{position:relative;display:grid;grid-template-columns:repeat(5,224px);gap:24px;justify-content:center;padding:92px 0 60px;transform:translateY(24px);transition:transform .45s cubic-bezier(.2,.9,.3,1)}
+.st-menu.on .st-grid{transform:none}
+.st-card{position:relative;height:224px;border-radius:30px;overflow:hidden;cursor:pointer;box-shadow:0 6px 0 #0002;transition:transform .2s cubic-bezier(.3,1.5,.5,1)}
+.st-card:hover{transform:translateY(-6px) scale(1.03)}.st-card.w{grid-column:span 2}
+.st-card svg{position:absolute;inset:0;width:100%;height:100%}
+.st-card b{position:absolute;left:0;right:0;bottom:28px;text-align:center;font:400 26px ${LOB};text-shadow:0 2px 3px #0005;letter-spacing:.01em}
+.st-scene{position:absolute;inset:0;z-index:15;background:#000;display:none}.st-scene.on{display:block}
+.st-scene .fr{position:absolute;left:0;right:0;top:44px;bottom:44px;overflow:hidden}
+.st-scene .fr svg{width:100%;height:100%}.st-scene .ttl{position:absolute;left:0;right:0;bottom:70px;text-align:center;font:400 46px ${LOB};text-shadow:0 3px 6px #0005}
+.st-pause{position:absolute;inset:0;background:#000a;display:none;place-items:center;font:400 64px ${LOB};z-index:2}.st-pause.on{display:grid}
+`);
+  const el = h('div.st'); root.append(el);
+  const R = rng(12);
+  // ---------- illustrated village (code-drawn flat vector) ----------
+  const W = 1440, H = 900;
+  const win = (x, y, w, hh, c = '#2d4fa8') => `<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="2" fill="#fff"/><rect x="${x + 2}" y="${y + 2}" width="${w - 4}" height="${hh - 4}" fill="${c}"/><path d="M${x + w / 2} ${y + 2}v${hh - 4}M${x + 2} ${y + hh / 2}h${w - 4}" stroke="#fff" stroke-width="1.5"/>`;
+  const house = (x, y, w, hh, body, sh = 0) => { let ws = ''; const cols = Math.max(1, Math.floor(w / 26)), rows = Math.max(1, Math.floor((hh - 20) / 34)); for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) ws += win(x + 8 + c * ((w - 16) / cols) + ((w - 16) / cols - 14) / 2, y + 14 + r * 34, 14, 22);
+    const drips = Array.from({ length: Math.ceil((w + 16) / 14) }, (_, i) => `<circle cx="${x - 8 + i * 14 + 7}" cy="${y - 2}" r="${4 + (i % 3)}" fill="#fff"/>`).join('');
+    return `<g><rect x="${x}" y="${y}" width="${w}" height="${hh}" fill="${body}"/><rect x="${x + w * 0.62}" y="${y}" width="${w * 0.38}" height="${hh}" fill="#0000001a"/>${ws}<path d="M${x - 10} ${y}L${x + w / 2} ${y - 26 - sh}L${x + w + 10} ${y}Z" fill="#fff"/><path d="M${x + w / 2} ${y - 26 - sh}L${x + w + 10} ${y}H${x + w / 2}Z" fill="#dce9f7"/>${drips}<rect x="${x + w * 0.7}" y="${y - 30 - sh}" width="10" height="18" fill="#b5523a"/><rect x="${x + w * 0.7 - 2}" y="${y - 34 - sh}" width="14" height="6" rx="3" fill="#fff"/></g>`; };
+  const tree = (x, y, s2 = 1, c = '#1aa37a') => `<g transform="translate(${x} ${y}) scale(${s2})"><path d="M0-62L22-10H-22Z" fill="${c}"/><path d="M0-46L28 6H-28Z" fill="${c}"/><path d="M0-30L34 22H-34Z" fill="${c}"/><path d="M0-62L22-10H0ZM0-46L28 6H0ZM0-30L34 22H0Z" fill="#00000022"/><rect x="-4" y="22" width="8" height="10" fill="#7a4a2a"/></g>`;
+  const bush = (x, y, r = 16) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#20a95a"/><path d="M${x} ${y - r}a${r} ${r} 0 0 1 0 ${2 * r}z" fill="#178a47"/><path d="M${x - r * 0.6} ${y - 2}h${r * 1.2}M${x - r * 0.5} ${y + 6}h${r}" stroke="#7ed67f" stroke-width="2"/>`;
+  const lamp = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-4" y="-70" width="8" height="70" fill="#1f9a4c"/><rect x="-10" y="-6" width="20" height="8" rx="2" fill="#178a47"/><circle cy="-80" r="13" fill="#fff"/><path d="M-13-80a13 13 0 0 0 26 0z" fill="#e6eef7"/><rect x="-9" y="-70" width="18" height="5" fill="#178a47"/></g>`;
+  const cane = (x, y) => `<g transform="translate(${x} ${y})"><rect x="-6" y="-80" width="12" height="80" fill="#fff"/>${[0, 1, 2, 3, 4, 5].map((i) => `<path d="M-6 ${-80 + i * 14}l12 -6v8l-12 6z" fill="#e8283a"/>`).join('')}<circle cy="-84" r="7" fill="#fff"/></g>`;
+  const elf = (x, y, body, k = 1, extra = '') => `<g transform="translate(${x} ${y}) scale(${k})"><ellipse cx="0" cy="34" rx="13" ry="3" fill="#0000001a"/><rect x="-6" y="18" width="5" height="16" fill="#3a2a5a"/><rect x="2" y="18" width="5" height="16" fill="#3a2a5a"/><rect x="-9" y="0" width="18" height="22" rx="5" fill="${body}"/><circle cx="0" cy="-6" r="8" fill="#f2b38a"/><path d="M-9-8Q0-34 14-26L9-10Z" fill="${body === '#e8283a' ? '#1f9a4c' : '#e8283a'}"/><circle cx="14" cy="-26" r="3" fill="#fff"/><rect x="-10" y="-11" width="19" height="4" rx="2" fill="#fff"/>${extra}</g>`;
+  const bike = (x, y, body, k = 1, d = 16, dx = 220) => `<g class="walk" style="--d:${d}s;--dx:${dx}px"><g transform="translate(${x} ${y}) scale(${k})"><circle cx="-22" cy="20" r="17" fill="none" stroke="#3b6fd8" stroke-width="3"/><circle cx="24" cy="20" r="17" fill="none" stroke="#3b6fd8" stroke-width="3"/><path d="M-22 20L-4 -2L18 -2L24 20M-4-2L2 20L18-2" fill="none" stroke="#3b6fd8" stroke-width="3"/>${elf(0, -30, body, 0.9)}</g></g>`;
+  const turb = (x, y, k) => `<g transform="translate(${x} ${y}) scale(${k})"><path d="M-2 0L-4 140H4L2 0Z" fill="#fff"/><g class="spin"><path d="M0 0L-3-70Q0-74 3-70Z M0 0L62 32Q63 37 58 37Z M0 0L-60 37Q-63 33-59 30Z" fill="#fff"/><circle r="5" fill="#e7f2fb"/></g></g>`;
+  const star4 = (x, y, r) => `<path d="M${x} ${y - r}Q${x + r * 0.15} ${y - r * 0.15} ${x + r} ${y}Q${x + r * 0.15} ${y + r * 0.15} ${x} ${y + r}Q${x - r * 0.15} ${y + r * 0.15} ${x - r} ${y}Q${x - r * 0.15} ${y - r * 0.15} ${x} ${y - r}Z" fill="#fff"/>`;
+  let v = `<defs><linearGradient id="stSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1ea6ee"/><stop offset=".55" stop-color="#5cc9f5"/><stop offset="1" stop-color="#d4f1fb"/></linearGradient><linearGradient id="stHill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe9f4"/></linearGradient></defs>
+<rect width="${W}" height="${H}" fill="url(#stSky)"/>${[[330, 40, 9], [930, 26, 7], [1100, 120, 8], [560, 160, 6], [240, 260, 5], [1240, 300, 6]].map(([x, y, r]) => star4(x, y, r)).join('')}
+<g opacity=".9"><path d="M260 70q20-34 52-14q22-26 50 0q30-6 30 22H250q-10-8 10-8z" fill="#fff"/><path d="M300 210q16-24 40-10q20-18 40 2q24-2 24 22H290z" fill="#fff"/></g>
+${turb(30, 130, 1)}${turb(118, 70, 1.25)}${turb(210, 160, 0.9)}${turb(355, 180, 0.8)}
+<path d="M0 330C200 250 360 300 520 250S900 180 1100 230 1400 160 1440 170V420H0Z" fill="#2f6fe0"/><path d="M0 360C240 300 420 340 640 290S1000 250 1200 300 1440 260 1440 260V440H0Z" fill="#4b8cec"/>
+${Array.from({ length: 34 }, (_, i) => `<path d="M${i * 44 + (i % 3) * 8} ${300 + (i % 4) * 9}l11-34 11 34z" fill="#2554b8"/>`).join('')}
+<path d="M0 390C300 360 600 380 760 350L1440 40V900H0Z" fill="url(#stHill)"/><path d="M760 350L1440 40V140L900 420Z" fill="#c9d9ea" opacity=".45"/>`;
+  [[10, 270, 120, 110, '#f6dba7'], [30, 190, 92, 80, '#fde0c4', 10], [138, 280, 76, 90, '#7fd0e8'], [210, 250, 70, 100, '#b6ec9f'], [282, 270, 64, 80, '#73b9f3'], [346, 290, 58, 70, '#bfe6f8']].forEach((a) => (v += house(...a)));
+  v += `<g transform="translate(215 330)"><path d="M0-200L58 20H-58Z" fill="#fff"/><path d="M0-200L58 20H0Z" fill="#e3edf8"/>${Array.from({ length: 22 }, (_, i) => `<circle cx="${(R() - 0.5) * (i * 4.6)}" cy="${-190 + i * 9.5}" r="3" fill="${pick(['#e8283a', '#ffd23a', '#2fb0f0', '#1f9a4c'], R)}"/>`).join('')}<path d="M0-226l6 14 15 1-11 9 4 15-14-8-14 8 4-15-11-9 15-1z" fill="#ffd23a"/></g>`;
+  [[1300, 30, 140, 210, '#bfe3fb', 12], [1180, 120, 120, 150, '#ffd9c6', 12], [1070, 220, 110, 120, '#fff4c2', 10], [960, 320, 110, 100, '#7cc7f5', 8], [870, 420, 100, 100, '#bff0c8'], [1040, 400, 120, 120, '#9be2a8', 10], [1210, 310, 230, 300, '#bde0fb', 20]].forEach((a) => (v += house(...a)));
+  v += `<path d="M0 520C300 470 700 470 1100 520S1440 560 1440 560V900H0Z" fill="#f4f8fc"/><ellipse cx="720" cy="700" rx="640" ry="150" fill="none" stroke="#dde5ef" stroke-width="44"/><ellipse cx="720" cy="700" rx="380" ry="90" fill="none" stroke="#e4ebf3" stroke-width="30"/>
+<g transform="translate(290 450)"><rect width="230" height="70" rx="4" fill="#f4874b" transform="skewX(-20)"/><rect y="70" width="230" height="10" fill="#c9622f" transform="skewX(-20)"/><path d="M40 0v70M80 0v70M120 0v70M160 0v70M200 0v70" stroke="#d96d36" stroke-width="2" transform="skewX(-20)"/></g>
+<g transform="translate(250 360)"><rect width="110" height="90" rx="44" fill="#e6f1fb"/><path d="M0 40q55-30 110 0v-6q-55-50-110 0z" fill="#fff"/><path d="M30 90v-34a25 25 0 0 1 50 0v34z" fill="#2a3f86"/></g>`;
+  v += [[580, 560], [880, 520], [1060, 640], [300, 690], [1300, 690]].map(([x, y]) => lamp(x, y)).join('') + [[560, 520], [870, 560], [1110, 700], [330, 760]].map(([x, y]) => cane(x, y)).join('');
+  v += [[120, 620], [150, 640], [520, 760], [540, 790], [600, 780], [880, 790], [940, 800], [1250, 610], [1330, 600], [1380, 640], [460, 870], [990, 880]].map(([x, y]) => bush(x, y, 16 + R() * 8)).join('');
+  v += tree(230, 780, 1.6, '#16a37f') + tree(1400, 760, 1.4, '#1a8d73') + tree(60, 470, 0.9);
+  v += `<g transform="translate(720 820)"><ellipse rx="170" ry="48" fill="#3aa5e8"/><ellipse rx="150" ry="38" fill="#7fd0f5"/><rect x="-60" y="-60" width="120" height="60" fill="#c9d3dd"/><ellipse cy="-60" rx="60" ry="16" fill="#dfe6ed"/><path d="M-4-60V-120h8V-60z" fill="#3aa5e8"/><path d="M-70-120q70-60 140 0q-14 18-26 4q-14 18-30 2q-14 18-28 2q-16 16-28 0q-14 14-28-8z" fill="#b9ecff"/><path d="M-62-116q62-40 124 0" fill="none" stroke="#fff" stroke-width="8"/></g>`;
+  v += elf(470, 470, '#e8283a') + elf(560, 430, '#1f9a4c', 1.1) + elf(640, 470, '#7a3fd0') + elf(1150, 520, '#1f9a4c', 1.2) + elf(1010, 360, '#e8283a', 0.9) + elf(160, 520, '#3b6fd8');
+  v += `<g class="walk" style="--d:22s;--dx:-180px">${elf(920, 600, '#e8283a', 1.1)}</g><g class="walk" style="--d:15s;--dx:140px">${elf(400, 610, '#1f9a4c', 1.05)}</g>`;
+  v += bike(470, 640, '#3b6fd8', 1, 14, 260) + bike(820, 620, '#e8283a', 1.05, 18, -240) + bike(1180, 590, '#1f9a4c', 0.95, 12, 140);
+  v += `<g transform="translate(300 800)"><path d="M-30 60V0q0-30 30-30t30 30v60z" fill="#fff"/><circle cy="-6" r="18" fill="#fff"/><path d="M-10-8h6M4-8h6M-6 2q6 5 12 0" stroke="#5a8df0" stroke-width="3" fill="none"/></g>`;
+  v += Array.from({ length: 70 }, (_, i) => `<circle class="flake" style="--d:${7 + R() * 9}s;--dl:${-R() * 16}s;--dx:${(R() - 0.5) * 80}px" cx="${R() * W}" cy="0" r="${1.5 + R() * 2.5}" fill="#fff" opacity="${0.6 + R() * 0.4}"/>`).join('');
+  const vil = h('div', { html: `<svg class="st-vil" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">${v}</svg>` }); el.append(vil);
+  el.append(h('div.st-hero', {}, h('div.g', {}, 'Google'), h('h1', {}, 'Santa Tracker'), h('p', {}, "Explore, play and learn with Santa's elves all December long")));
+  const ICO = { menu: '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>', home: '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z" fill="#fff"/></svg>', on: '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#fff"/><path d="M16 8q3 4 0 8M18.5 5.5q5 6.5 0 13" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>', off: '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="#fff"/><path d="M16 9l5 6M21 9l-5 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>', pause: '<svg width="20" height="20" viewBox="0 0 24 24"><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="#fff"/></svg>' };
+  let muted = true, menuOn = false, scene = null, paused = false;
+  const bMenu = h('button.r', { title: 'Menu', html: ICO.menu, onclick: () => (scene ? goHome() : setMenu(!menuOn)) });
+  const bMute = h('button.p', { title: 'Mute', html: ICO.off, onclick: () => { muted = !muted; bMute.innerHTML = muted ? ICO.off : ICO.on; if (!muted) blip(880, 0.12, 'triangle', 0.08); } });
+  const bPause = h('button.r', { title: 'Pause', html: ICO.pause, style: { display: 'none' }, onclick: () => { paused = !paused; pz.classList.toggle('on', paused); } });
+  el.append(h('div.st-btns', {}, bMenu, bMute, bPause));
+  // ---------- flip countdown (to 24 Dec, local time) ----------
+  const cells = ['DAYS', 'HRS', 'MIN', 'SEC'].map((l) => { const c = h('div', {}, h('span.n', {}, '00'), h('small', {}, l)); c.cur = ''; return c; }); const cd = h('div.st-cd', {}, cells); el.append(cd);
+  const flip = (c, val) => { if (c.cur === val) return; const old = c.querySelector('.n:not(.out)'); if (c.cur !== '' && !RM) { old.classList.remove('in'); old.classList.add('out'); setTimeout(() => old.remove(), 460); const n = h('span.n.in', {}, val); c.prepend(n); } else old.textContent = val; c.cur = val; };
+  const tick = () => { const now = new Date(); let tgt = Date.UTC(now.getUTCFullYear(), 11, 24, 10, 0, 0); if (now > tgt + 86400000) tgt = Date.UTC(now.getUTCFullYear() + 1, 11, 24, 10, 0, 0); let d = Math.max(0, (tgt - now) / 1000); /* Santa takes off 24 Dec 10:00 UTC */ const v4 = [Math.floor(d / 86400), Math.floor(d / 3600) % 24, Math.floor(d / 60) % 60, Math.floor(d) % 60]; cells.forEach((c, i) => flip(c, String(v4[i]).padStart(2, '0'))); return v4; };
+  tick(); const iv = setInterval(tick, 1000);
+  const play = h('button.st-play', { onclick: () => openGame(0) }, 'Play'); el.append(play);
+  el.append(h('div.st-fam', {}, h('i'), 'Family Guide'));
+  const ck = h('div.st-ck', {}, 'Google serves cookies to analyse traffic to this site, and to optimize your experience. Information about your use of our site is shared with Google for that purpose.', h('div', {}, h('button', { onclick: () => toast('Cookie details (demo)') }, 'SEE DETAILS'), h('button', { onclick: () => ck.remove() }, 'OK'))); el.append(ck);
+  // ---------- game-card grid menu (33 games) ----------
+  const ART = {
+    room: (c) => `<rect width="460" height="224" fill="#f7c12e"/><rect x="40" y="20" width="60" height="50" fill="#fff5" transform="rotate(-8 70 45)"/><rect x="170" y="30" width="50" height="44" fill="#e8283a"/><rect x="330" y="10" width="80" height="80" rx="10" fill="#e8283a"/><path d="M60 224V150q0-14 14-14h300q14 0 14 14v74z" fill="#9b4a2a"/><rect x="80" y="122" width="150" height="34" rx="12" fill="#fff"/><path d="M200 150q60-50 150-14l-6 18z" fill="#e8283a"/><rect x="190" y="100" width="70" height="50" rx="14" fill="#ff0000"/><path d="M216 112l20 13-20 13z" fill="#fff"/>`,
+    santa: () => `<circle cx="112" cy="140" r="78" fill="#e8283a"/><circle cx="112" cy="104" r="42" fill="#f2c1a0"/><path d="M70 110q42 90 84 0q4 40-42 70q-46-30-42-70z" fill="#fff"/><path d="M76 82q36-50 72 0z" fill="#fff"/><circle cx="98" cy="98" r="4" fill="#333"/><circle cx="126" cy="98" r="4" fill="#333"/><path d="M60 224q52-40 104 0z" fill="#333"/>`,
+    narwhal: () => `<rect width="224" height="224" fill="#1d5fa8"/><circle cx="40" cy="60" r="70" fill="#2e7ad0" opacity=".5"/><ellipse cx="120" cy="140" rx="90" ry="60" fill="#3b8ce0"/><ellipse cx="130" cy="160" rx="60" ry="34" fill="#cfe9ff"/><path d="M150 90l70-80" stroke="#fff" stroke-width="10" stroke-linecap="round"/><path d="M150 90l70-80" stroke="#e8283a" stroke-width="10" stroke-dasharray="8 8"/><circle cx="150" cy="120" r="8" fill="#123"/><path d="M130 150q14 10 30 0" stroke="#123" stroke-width="4" fill="none"/>`,
+    puzzle: (c) => `<rect x="34" y="40" width="74" height="70" rx="6" fill="#8a2be2"/><rect x="116" y="40" width="74" height="70" rx="6" fill="#2fa84f"/><rect x="34" y="118" width="74" height="70" rx="6" fill="#2fa84f"/><rect x="116" y="118" width="74" height="70" rx="6" fill="#8a2be2"/><circle cx="112" cy="75" r="12" fill="#8a2be2"/><circle cx="71" cy="114" r="12" fill="#2fa84f"/>${elf(70, 70, '#e8283a', 1.1)}${elf(150, 140, '#1f9a4c', 1.1)}`,
+    jet: () => `${elf(100, 100, '#3b6fd8', 1.6)}<path d="M80 150l-20 40M120 150l-6 44" stroke="#ff9a2e" stroke-width="10" stroke-linecap="round"/><path d="M150 60q20-30 40 0z" fill="#fff"/><path d="M152 60l18 26 18-26" stroke="#fff" fill="none"/><rect x="164" y="86" width="12" height="10" fill="#ffd23a"/>`,
+    band: () => `${elf(112, 100, '#e8283a', 2.2)}<path d="M40 160l120-50" stroke="#c9862e" stroke-width="12" stroke-linecap="round"/><rect x="130" y="120" width="50" height="16" rx="3" fill="#333"/>`,
+    snow: () => `${elf(80, 110, '#222', 1.8)}${elf(160, 130, '#ff7a2e', 1.4)}<circle cx="120" cy="60" r="10" fill="#fff"/><circle cx="190" cy="90" r="8" fill="#fff"/><ellipse cx="112" cy="190" rx="80" ry="10" fill="#0002"/>`,
+    maker: () => `${Array.from({ length: 7 }, (_, i) => `<circle cx="${112 + Math.cos(i * 0.9 - 2.8) * 80}" cy="${120 + Math.sin(i * 0.9 - 2.8) * 70}" r="16" fill="${['#222', '#fff', '#e8283a', '#222', '#ffd23a', '#fff', '#222'][i]}"/>`).join('')}${elf(112, 120, '#e8283a', 1.6)}`,
+    lab: (c) => `<rect x="30" y="50" width="70" height="40" rx="6" fill="#1e3f8a"/><rect x="124" y="50" width="70" height="40" rx="6" fill="#8a2be2"/><rect x="30" y="110" width="164" height="40" rx="6" fill="#8a2be2"/><rect x="30" y="160" width="70" height="30" rx="6" fill="#1e3f8a"/><circle cx="150" cy="130" r="12" fill="#fff"/><path d="M60 60h20v20H60z" fill="#e8a24a"/>`,
+    dj: () => `<rect x="20" y="70" width="40" height="70" rx="4" fill="#222"/><rect x="164" y="70" width="40" height="70" rx="4" fill="#222"/><circle cx="40" cy="100" r="12" fill="#555"/><circle cx="184" cy="100" r="12" fill="#555"/><rect x="40" y="140" width="144" height="20" fill="#f7a92e"/>${elf(112, 100, '#e8283a', 1.4)}<rect x="160" y="128" width="24" height="16" fill="#e8283a"/>`,
+    penguin: () => `<path d="M60 120q60-70 130-30q-40 50-130 30z" fill="#222"/><path d="M80 118q50-30 100-24q-40 30-100 24z" fill="#fff"/><path d="M160 78q20-24 40 0l-30 14z" fill="#e8283a"/><circle cx="175" cy="96" r="4" fill="#fff"/><path d="M40 130l-20 10M50 140l-30 0M44 120l-24-6" stroke="#2ea" stroke-width="3" stroke-dasharray="3 6"/>`,
+    rail: () => `<path d="M20 170q60-50 100-10t90-20" stroke="#e8283a" stroke-width="12" fill="none"/><path d="M20 182q60-50 100-10t90-20" stroke="#5a1ad6" stroke-width="6" fill="none"/><rect x="92" y="96" width="40" height="40" rx="6" fill="#ff7a2e"/>${elf(112, 70, '#3b6fd8', 1.1)}`,
+    bolt: () => `${elf(112, 90, '#e8283a', 2)}<rect x="82" y="130" width="60" height="50" rx="8" fill="#8a2be2"/><circle cx="170" cy="160" r="12" fill="none" stroke="#fff" stroke-width="5"/><circle cx="50" cy="160" r="5" fill="#e8283a"/>`,
+    sling: () => `<path d="M40 140h150q10 0 10 10t-10 10H40q-16 0-20-20z" fill="#ffd23a"/><circle cx="50" cy="120" r="22" fill="#ffd23a"/><path d="M28 118l-14 6 14 4z" fill="#ff7a2e"/>${elf(130, 100, '#3b6fd8', 1.2)}<rect x="150" y="96" width="30" height="40" fill="#e8283a"/><rect x="160" y="76" width="22" height="20" fill="#2fa84f"/>`,
+    gift: (c) => `<rect x="62" y="96" width="100" height="84" rx="6" fill="#e8283a"/><rect x="54" y="80" width="116" height="26" rx="5" fill="#ff4b4b"/><rect x="104" y="80" width="16" height="100" fill="#ffd23a"/><path d="M112 80q-40-40-40-10q0 10 40 10q40 0 40-10q0-30-40 10z" fill="none" stroke="#ffd23a" stroke-width="8"/>`,
+    elf: (c, i) => elf(112, 110, pick(['#e8283a', '#1f9a4c', '#3b6fd8', '#ff7a2e'], rng(i + 5)), 2.2),
+  };
+  const GAMES = [['Out Like A Light', '#f7c12e', 'room', 1], ['Santa Selfie', '#6fb7ff', 'santa'], ['Ollie Under The Sea', '#1d5fa8', 'narwhal'], ['Code Boogie', '#ffc23a', 'puzzle'], ['Elf Jetpack', '#9c8cf0', 'jet'], ['Elf Jamband', '#6aaff7', 'band'], ['Snowball Storm', '#94d7e6', 'snow'], ['Elf Maker', '#3b8cf0', 'maker'], ['Code Lab', '#2d4fa8', 'lab'], ['Wrap Battle', '#2f55b8', 'dj'], ['Penguin Dash', '#94dce6', 'penguin'], ['Railroad Ride', '#7d4ef0', 'rail'], ['Build & Bolt', '#f7c12e', 'bolt'], ['Gift Slingshot', '#52b8f0', 'sling'], ['Present Bounce', '#3fa9f5', 'gift', 1], ['Snowflake', '#bf8a5a', 'elf'], ['Rudolph Racer', '#28a8f0', 'elf'], ['Elf Glider', '#8a5cf0', 'elf'], ['Penguin Speed Skating', '#5ec3f0', 'penguin'], ['Gumball Tilt', '#f05ca0', 'gift'], ['Present Drop', '#2fa84f', 'gift'], ['Santa Search', '#ff7a2e', 'santa'], ['Traditions', '#6fb7ff', 'elf'], ['Translations', '#f7c12e', 'elf'], ['Wrap Battle Remix', '#2d4fa8', 'dj'], ['Snowbox', '#94d7e6', 'snow'], ['Elf Ski', '#3b8cf0', 'jet'], ['Boatload', '#1d5fa8', 'sling'], ['Mail Mayhem', '#e8283a', 'gift'], ['Speed Sketch', '#7d4ef0', 'band'], ['Seasons of Giving', '#2fa84f', 'maker'], ['Elf Ski Lift', '#9c8cf0', 'rail'], ['Air Traffic Control', '#28a8f0', 'puzzle']];
+  const art = (g, i, w = g[3] ? 472 : 224) => `<svg viewBox="0 0 ${w} 224" preserveAspectRatio="xMidYMid slice"><rect width="${w}" height="224" fill="${g[1]}"/>${g[2] === 'room' ? ART.room() : `<g transform="translate(${(w - 224) / 2} 0)">${(ART[g[2]] || ART.elf)(g[1], i)}</g>`}</svg>`;
+  const grid = h('div.st-grid', {}, GAMES.map((g, i) => h('div.st-card' + (g[3] ? '.w' : ''), { html: art(g, i) + `<b>${g[0]}</b>`, onclick: () => openGame(i) })));
+  const menu = h('div.st-menu', {}, grid); el.append(menu);
+  function setMenu(on) { menuOn = on; menu.classList.toggle('on', on); bMenu.innerHTML = ICO.menu; if (!muted) blip(on ? 660 : 440, 0.1, 'triangle', 0.08); }
+  // ---------- game scene (home / mute / pause; countdown stays) ----------
+  const pz = h('div.st-pause', {}, 'Paused'); const fr = h('div.fr'); const sc = h('div.st-scene', {}, fr, pz); el.append(sc);
+  const OLAL = `<svg viewBox="0 0 1440 812" preserveAspectRatio="xMidYMid slice"><rect width="1440" height="812" fill="#f9d33c"/><rect x="1250" width="190" height="812" fill="#e36633"/><circle cx="1440" cy="760" r="220" fill="#22704a"/><path d="M150 740L210 640H1240L1300 740Z" fill="#ff7a33"/><rect x="150" y="740" width="1150" height="72" fill="#d6531e"/><clipPath id="stHat"><path d="M370 560Q560 230 1100 220L1110 560Z"/></clipPath><path d="M370 560Q560 230 1100 220L1110 560Z" fill="#ff3a3a"/><g stroke="#a3140f" stroke-width="16" clip-path="url(#stHat)">${[0, 1, 2, 3, 4].map((i) => `<path d="M${420 + i * 150} 590L${520 + i * 150} 200"/><path d="M380 ${300 + i * 70}L1110 ${360 + i * 70}"/>`).join('')}</g><path d="M370 560Q560 230 1100 220L1110 560Z" fill="none"/><rect x="0" y="0" width="1" height="1" fill="none"/><ellipse cx="1265" cy="390" rx="125" ry="105" fill="#fff"/><rect x="240" y="560" width="960" height="210" rx="56" fill="#fff"/></svg>`;
+  function openGame(i) { const g = GAMES[i]; scene = g[0]; setMenu(false); paused = false; pz.classList.remove('on');
+    fr.innerHTML = i === 0 ? OLAL : `<svg viewBox="0 0 1440 812" preserveAspectRatio="xMidYMid slice"><rect width="1440" height="812" fill="${g[1]}"/><circle cx="1200" cy="120" r="260" fill="#fff1"/><circle cx="160" cy="700" r="300" fill="#0001"/><g transform="translate(470 120) scale(2.2)"><g class="bob">${(ART[g[2]] || ART.elf)(g[1], i)}</g></g></svg><div class="ttl">${g[0]}</div>`;
+    sc.classList.add('on'); bMenu.innerHTML = ICO.home; bMenu.title = 'Home'; bPause.style.display = ''; if (!muted) blip(784, 0.15, 'triangle', 0.08); }
+  function goHome() { scene = null; sc.classList.remove('on'); bMenu.innerHTML = ICO.menu; bMenu.title = 'Menu'; bPause.style.display = 'none'; paused = false; pz.classList.remove('on'); }
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (scene) goHome(); else setMenu(false); } });
+  window.__demoProof = async () => { const o = [], w = (ms) => sleep(RM ? 30 : ms);
+    const s0 = cells[3].cur; await sleep(1100); o.push(`countdown ${cells.map((c) => c.cur).join(':')} (sec ${s0}→${cells[3].cur}, flip=${!!cells[3].querySelector('.n.out') || RM})`);
+    bMenu.click(); await w(400); o.push(`menu open=${menu.classList.contains('on')} cards=${grid.children.length}`);
+    grid.children[1].click(); await w(200); o.push(`card→${scene} scene=${sc.classList.contains('on')} countdown kept=${getComputedStyle(cd).display !== 'none'} pause btn=${bPause.style.display !== 'none'}`);
+    bPause.click(); o.push(`paused=${pz.classList.contains('on')}`); bPause.click();
+    bMenu.click(); await w(150); o.push(`home→village=${!sc.classList.contains('on')}`);
+    play.click(); await w(150); o.push(`Play→${scene}`); bMenu.click(); await w(100);
+    o.push(`restored: menu=${menuOn} scene=${scene}`); return o.join('; '); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['css-grid-garden-puzzle'])(root, T); }

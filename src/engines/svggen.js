@@ -1839,4 +1839,115 @@ V['atlas-of-emotions-morphing-emotion-continents-fullpage-chapters-state-intensi
     reset(); await sleep(60); document.querySelector('.tg-toast')?.classList.remove('on'); o.push(`restored: intro chapter, continents home, scroll=${main.scrollTop}`); return o.join('; '); };
 };
 
+V['phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer'] = (root, T) => {
+  import('@fontsource-variable/manrope'); import('@fontsource/ibm-plex-mono/400.css');
+  theme(root, T, { bg: '#ece9e3', fg: '#35322c', ac: '#c5e157', dark: false }); root.classList.add('scroll'); root.style.overflow = 'auto';
+  const MAN = "'Manrope Variable','Inter Variable',sans-serif", MON = "'IBM Plex Mono',monospace", SANS = "'Inter Variable',Arial,sans-serif";
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  css(`.ph{background:#ece9e3;color:#35322c;font-family:${MAN};min-height:100%;position:relative}
+.ph *{box-sizing:border-box}.ph button{font-family:inherit;cursor:pointer;color:inherit}
+.ph-hero{position:relative;height:1480px;overflow:hidden}
+.ph-hero svg.desk{position:absolute;inset:0;width:1440px;height:1480px;left:50%;margin-left:-720px;pointer-events:none}
+.ph-toasts{position:absolute;left:50%;top:12px;width:830px;margin-left:-415px;z-index:5;display:grid;gap:8px}
+.ph-toast{display:flex;align-items:center;gap:20px;min-height:56px;padding:6px 14px 6px 16px;background:#c6e15a;border:1.5px solid #35322c;border-radius:8px;font:400 11px/1.45 ${MON};color:#35322c;transition:opacity .25s,transform .25s;box-shadow:0 2px 0 #35322c22}
+.ph-toast.gone{opacity:0;transform:translateY(-8px)}.ph-toast svg{flex:none}.ph-toast span{flex:1}.ph-toast u{text-underline-offset:2px}.ph-toast button{background:none;border:0;padding:4px;display:grid}
+.ph-logo{position:absolute;left:177px;top:54px;z-index:3}
+.ph-copy{position:absolute;left:177px;top:388px;z-index:3;width:660px}
+.ph-copy h1{margin:0;font:400 40.5px/1.27 ${MAN};letter-spacing:-.012em;color:#35322c}
+.ph-ctas{display:flex;gap:24px;margin:34px 0 52px}.ph .ph-ctas button{display:flex;align-items:center;gap:12px;height:56px;padding:0 34px 0 28px;border:1.5px solid #35322c;border-radius:6px;background:#fff;font:600 16px ${MAN};box-shadow:0 2px 0 #35322c22;transition:transform .15s,box-shadow .15s}
+.ph .ph-ctas button:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 #35322c}
+.ph-links{display:grid;grid-template-columns:230px 230px;gap:22px 0;font:400 16px ${MAN}}.ph-links a{display:flex;align-items:center;gap:14px;color:#35322c;text-decoration:none}.ph-links a:hover{text-decoration:underline}
+.ph-bar{position:sticky;top:0;z-index:20;height:66px;background:#35322c;display:flex;justify-content:center;align-items:center;gap:8px;box-shadow:0 1px 0 #0003}
+.ph-bar .bx{height:54px;background:#45423b;border-radius:6px;display:flex;align-items:center;color:#f5f2eb;font:500 17px ${MAN};position:relative}
+.ph-wt{width:198px;padding:0 20px 0 26px;gap:14px;cursor:pointer}.ph-wt span{flex:1}
+.ph-wt ul{position:absolute;left:0;top:58px;width:198px;margin:0;padding:6px;list-style:none;background:#45423b;border-radius:6px;box-shadow:0 12px 30px #0004;display:none}.ph-wt.on ul{display:block}
+.ph-wt li{display:flex;align-items:center;gap:14px;padding:10px 18px;border-radius:4px}.ph-wt li:hover,.ph-wt li.on{background:#5a564d}
+.ph-se{width:330px;padding:0 18px;gap:14px;transition:background .2s}.ph-se.f{background:#fff;color:#35322c}.ph-se input{flex:1;min-width:0;background:none;border:0;outline:0;color:inherit;font:500 17px ${MAN}}.ph-se input::placeholder{color:#f5f2ebcc}.ph-se.f input::placeholder{color:#888}
+.ph-se kbd{font:500 12.5px ${SANS};opacity:.85}.ph-se button{background:none;border:0;display:grid;padding:2px}
+.ph-sz{width:300px;padding:0 24px;gap:18px}.ph-sz output{width:46px;font:500 17px ${MAN}}.ph-sz input{flex:1;accent-color:#fff;height:2px}
+.ph-sz input{-webkit-appearance:none;appearance:none;background:#77736a;border-radius:2px}.ph-sz input::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;cursor:pointer}
+.ph .ph-col{width:132px;justify-content:center;border:0;font:500 17px ${MAN};letter-spacing:.02em;transition:background .2s}
+.ph .ph-ib{width:54px;justify-content:center;border:0}.ph .ph-ib:hover,.ph-wt:hover{background:#524e46}
+.ph-grid{display:grid;grid-template-columns:repeat(7,1fr);max-width:1300px;margin:0 auto;padding:28px 0 120px}
+.ph-ic{height:188px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border-radius:14px;cursor:pointer;transition:background .15s;text-align:center}
+.ph-ic:hover{background:#f3f1ec}.ph-ic.on{background:#f6f5f1}.ph-ic svg{transition:width .12s,height .12s}
+.ph-ic p{margin:0;font:400 13px/1.2 ${SANS};color:#5d5a53;display:flex;align-items:center;gap:6px}.ph-ic p i{width:6px;height:6px;border-radius:50%;background:#e5a021}.ph-ic p i.u{background:#9cbf3a}
+.ph-dr{grid-column:1/-1;position:relative;margin:4px 0 22px;border:1.5px solid #c9c4ba;border-radius:6px;display:grid;grid-template-columns:360px 1fr;gap:26px;padding:22px 26px;background:#ece9e3;animation:phIn .25s ease-out}
+@keyframes phIn{from{opacity:0;transform:translateY(-6px)}}
+.ph-dr .x{position:absolute;right:-14px;top:-14px;width:28px;height:28px;border-radius:50%;background:#35322c;border:0;display:grid;place-items:center}
+.ph-dr .l{border-right:0}.ph-dr .top{display:flex;gap:30px;align-items:center;padding-bottom:16px;border-bottom:1px solid #c9c4ba}
+.ph-dr .top b{display:block;font:500 19px ${MAN}}.ph-dr .top small{display:block;font:400 12px/1.5 ${SANS};color:#7a766d}
+.ph-dr .dl{display:grid;grid-template-columns:110px 110px 1fr;gap:10px 0;padding-top:14px;align-items:center}.ph-dr .dl button{display:flex;gap:10px;align-items:center;background:none;border:0;font:500 12.5px ${SANS};padding:2px 0}
+.ph-tabs{display:grid;grid-template-columns:repeat(7,1fr);font:400 13px ${SANS};text-align:center}.ph-tabs button{background:none;border:0;padding:10px 0;border-radius:6px 6px 0 0;font:400 13px ${SANS}}.ph-tabs button.on{background:#f6f5f1}
+.ph-tc{background:#f6f5f1;border-radius:0 6px 6px 6px;min-height:92px;padding:16px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.ph-tc span{font:400 12px ${MON};background:#e8e4dc;padding:5px 10px;border-radius:4px}.ph-tc pre{margin:0;font:400 12.5px/1.6 ${MON};white-space:pre-wrap;flex:1;cursor:copy}
+.ph-none{grid-column:1/-1;text-align:center;padding:80px 0;font:400 16px ${MAN};color:#77736a}
+`);
+  const el = h('div.ph'); root.append(el);
+  const P = { w: 'regular', size: 32, color: '#000000', q: '', sel: null, tab: 'Tags' };
+  let D = null; const ready = import('../data/phosphor-subset.json').then((m) => { D = m.default; build(); });
+  const icon = (n, sz = 24, w = 'regular', c = 'currentColor') => { const i = D?.icons.find((x) => x.n === n); return `<svg width="${sz}" height="${sz}" viewBox="0 0 256 256" fill="${c}">${i ? i.p[w] : ''}</svg>`; };
+  const H = (tag, a, html) => h(tag, { ...a, html });
+  function build() {
+    // ---------- hero: illustrated desk objects ----------
+    const clip = (x, y, r, k = 1) => `<g transform="translate(${x} ${y}) rotate(${r}) scale(${k})"><path d="M0 0v62a13 13 0 0 0 26 0V10a9 9 0 0 0-18 0v48" fill="none" stroke="#35322c" stroke-width="9" stroke-linecap="round"/><path d="M0 0v62a13 13 0 0 0 26 0V10a9 9 0 0 0-18 0v48" fill="none" stroke="#f3f0ea" stroke-width="4" stroke-linecap="round"/></g>`;
+    const pin = (x, y, n) => `<g transform="translate(${x} ${y})"><path d="M0 34C-18 14-22 8-22-4a22 22 0 0 1 44 0c0 12-4 18-22 38z" fill="#a6928f" stroke="#8b7774" stroke-width="1"/><g transform="translate(-11 -16)">${icon(n, 22, 'fill', '#f6efe9')}</g></g>`;
+    const keys = Array.from({ length: 13 }, (_, i) => `<rect x="${i * 54}" y="0" width="52" height="180" rx="5" fill="#fff" stroke="#35322c" stroke-width="1.5"/>`).join('') + [0, 1, 3, 4, 5, 7, 8, 10, 11].map((i) => `<rect x="${i * 54 + 36}" y="0" width="32" height="108" rx="4" fill="#3b3833"/>`).join('');
+    const desk = `<svg class="desk" viewBox="0 0 1440 1480">
+<g><rect x="486" y="-60" width="1100" height="290" rx="46" fill="#fff" stroke="#35322c" stroke-width="2"/><rect x="566" y="-60" width="900" height="246" fill="#a8979a"/><rect x="566" y="72" width="900" height="114" fill="#a8979a"/><path d="M566 74H1466" stroke="#988588" stroke-width="2"/><rect x="1262" y="98" width="48" height="48" rx="6" fill="#988588"/><g transform="translate(1271 107)">${icon('text-t', 30, 'regular', '#35322c')}</g><g transform="translate(1327 107)">${icon('at', 30, 'regular', '#35322c')}</g><g transform="translate(1383 107)">${icon('smiley', 30, 'regular', '#35322c')}</g></g>
+${clip(1030, 440, 54, 1.25)}${clip(1215, 400, -24, 1.2)}${clip(1320, 475, -18, 1.15)}
+<g transform="translate(260 1010) rotate(-6)"><path d="M0 0H1300V560H0Z" fill="#f6f1ea" stroke="#d8d1c6"/><path d="M0 70C180 40 260 140 220 260S60 420 0 400Z" fill="#e2ddd5"/><path d="M500 220C620 160 820 200 860 300S760 520 600 480 420 300 500 220Z" fill="#d5dcb6" stroke="#b9c08f"/><path d="M880 230c80-40 220-20 260 60s-40 180-140 160-180-160-120-220z" fill="#d5dcb6" stroke="#b9c08f"/><text x="250" y="200" font-family="Inter Variable" font-size="18" fill="#9b968c" transform="rotate(-10 250 200)">Vector Cove</text><text x="390" y="400" font-family="Inter Variable" font-size="18" fill="#9b968c" transform="rotate(-10 390 400)">Glyphsburg</text><text x="590" y="380" font-family="Inter Variable" font-size="18" fill="#7d8a52" transform="rotate(-10 590 380)">Mont Bezier</text><text x="1060" y="470" font-family="Inter Variable" font-size="18" fill="#9b968c" transform="rotate(-10 1060 470)">East Anglea</text></g>
+${pin(640, 1060, 'camera')}${pin(760, 1250, 'coffee')}${pin(700, 1330, 'heart')}${pin(820, 1390, 'house')}${pin(955, 1290, 'tree-evergreen')}${pin(1320, 1420, 'church')}
+<g transform="translate(330 1060) rotate(-6)"><rect x="40" y="0" width="120" height="420" rx="18" fill="#a9c25a" stroke="#35322c" stroke-width="2"/>${Array.from({ length: 22 }, (_, i) => `<path d="M58 ${16 + i * 18 + (i > 10 ? 50 : 0)}h84" stroke="#86a03e" stroke-width="5" stroke-linecap="round"/>`).join('')}<circle cx="100" cy="220" r="104" fill="#a9c25a" stroke="#35322c" stroke-width="2"/><circle cx="100" cy="220" r="88" fill="#3b3833"/><rect x="196" y="200" width="14" height="40" rx="4" fill="#3b3833"/><g transform="translate(82 168)">${icon('pen-nib', 36, 'regular', '#c6e15a')}</g><text x="100" y="236" text-anchor="middle" font-family="Manrope Variable" font-size="17" fill="#c6e15a">${(D.total ? 9072 : 0).toLocaleString('en')} icons</text><circle cx="96" cy="260" r="2.5" fill="#c6e15a"/><circle cx="104" cy="260" r="2.5" fill="#777"/></g>
+<g transform="translate(840 690) rotate(-4)"><rect width="760" height="500" rx="18" fill="#3b3833"/><rect x="0" y="0" width="760" height="500" rx="18" fill="none" stroke="#26241f" stroke-width="2"/><text x="250" y="292" font-family="Inter Variable" font-size="13" letter-spacing="3" fill="#f6b955">VOL</text><text x="360" y="292" font-family="Inter Variable" font-size="13" letter-spacing="3" fill="#f6b955">OCTAVE</text><text x="560" y="292" font-family="Inter Variable" font-size="13" letter-spacing="3" fill="#f6b955">WAVE</text><g transform="translate(40 304)">${keys}</g><circle cx="62" cy="66" r="24" fill="#f6b955" stroke="#26241f" stroke-width="2"/>${Array.from({ length: 9 }, (_, i) => `<rect x="0" y="${118 + i * 14}" width="170" height="8" rx="4" fill="#2c2a26"/>`).join('')}<rect x="226" y="40" width="12" height="220" rx="6" fill="#26241f"/><rect x="204" y="152" width="56" height="22" rx="4" fill="#f6b955" stroke="#8b6a2c"/><g fill="#4a4740" stroke="#26241f" stroke-width="2"><rect x="300" y="50" width="70" height="70" rx="8"/><rect x="300" y="146" width="70" height="70" rx="8"/></g><path d="M335 68l-14 16h8v14h12V84h8z M335 198l-14-16h8v-14h12v14h8z" fill="#f6b955"/><circle cx="530" cy="140" r="96" fill="#2c2a26" stroke="#4a4740" stroke-width="6"/><path d="M490 140h40" stroke="#f6b955" stroke-width="5" stroke-linecap="round"/><g transform="translate(420 115)">${icon('wave-sine', 30, 'regular', '#f6b955')}</g><g transform="translate(470 30)">${icon('wave-square', 26, 'regular', '#f6b955')}</g><g transform="translate(640 50)">${icon('wave-triangle', 26, 'regular', '#f6b955')}</g></g>
+${clip(270, 990, 40, 1.1)}${clip(200, 1150, 64, 1.1)}</svg>`;
+    const toasts = h('div.ph-toasts', {}, [['megaphone-simple', 'Some packages may be renaming icons in coming versions, and deprecating older names. Existing names will continue to work, but we recommend upgrading at your convenience. See <u>release notes</u> for details.'], ['hand-heart', 'We are now processing donations via <u>Buy Me a Coffee</u>, <u>Ko-fi</u>, and <u>Open Collective</u>! Your one-time or recurring contribution does a lot to keep us going. Please show us some support if you can!']].map(([ic, t]) => { const tt = h('div.ph-toast', { html: `${icon(ic, 30)}<span>${t}</span>` }); tt.append(H('button', { title: 'Dismiss', onclick: () => { tt.classList.add('gone'); tt._t = setTimeout(() => (tt.style.display = 'none'), 260); } }, icon('x-circle', 24))); return tt; }));
+    const logo = H('div.ph-logo', {}, `<svg width="32" height="46" viewBox="0 0 32 46"><path d="M2 2h12a14 14 0 0 1 0 28H2z" fill="none" stroke="#35322c" stroke-width="3"/><path d="M2 2l12 28V44" fill="none" stroke="#35322c" stroke-width="3"/><path d="M2 30a12 12 0 0 1 12 14H2z" fill="#35322c"/></svg>`);
+    const links = h('div.ph-links', {}, ['Download all (9,072)', 'GitHub', 'Figma plugin / library', 'Request an icon', 'Sketch plugin', 'Donate / Patreon', 'Showcase', 'Twitter'].map((t) => H('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(`${t} (demo link)`); } }, `${icon('arrow-elbow-down-right', 22)}${t}`)));
+    const copyEl = h('div.ph-copy', {}, h('h1', {}, 'Phosphor is a flexible icon family for interfaces, diagrams, presentations — whatever, really.'), h('div.ph-ctas', {}, H('button', { onclick: () => toast('Get started (demo)') }, `${icon('arrow-circle-up-right', 22)}Get started`), H('button', { onclick: () => bar.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }) }, `${icon('arrow-circle-down', 22)}Explore icons`)), links);
+    el.append(h('div.ph-hero', { html: desk }, toasts, logo, copyEl));
+    // ---------- sticky toolbar ----------
+    const W6 = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'], cap = (s2) => s2[0].toUpperCase() + s2.slice(1);
+    const wUl = h('ul'); const wLab = h('span'); const wIc = h('i', { style: { display: 'grid' } });
+    const wt = h('div.bx.ph-wt', { onclick: (e) => { e.stopPropagation(); wt.classList.toggle('on'); } }, wIc, wLab, H('i', { style: { display: 'grid' } }, icon('caret-down', 16)), wUl); document.addEventListener('click', () => wt.classList.remove('on'));
+    const drawW = () => { wLab.textContent = cap(P.w); wIc.innerHTML = icon('pencil-simple', 24, P.w); wUl.replaceChildren(...W6.map((w) => H('li' + (w === P.w ? '.on' : ''), { onclick: (e) => { e.stopPropagation(); setW(w); wt.classList.remove('on'); } }, `${icon('pencil-simple', 22, w)}${cap(w)}`))); };
+    const inp = h('input', { placeholder: 'Search', oninput: () => { P.q = inp.value; clr.style.display = P.q ? '' : 'none'; kbd.style.display = P.q ? 'none' : ''; draw(); }, onfocus: () => se.classList.add('f'), onblur: () => !P.q && se.classList.remove('f') });
+    const kbd = h('kbd', {}, 'Ctrl + K'); const clr = H('button', { title: 'Clear', style: { display: 'none' }, onclick: () => { inp.value = ''; inp.dispatchEvent(new Event('input')); inp.blur(); se.classList.remove('f'); } }, icon('x', 20));
+    const se = h('label.bx.ph-se', {}, H('i', { style: { display: 'grid' } }, icon('magnifying-glass', 24)), inp, kbd, clr);
+    addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); inp.focus(); } });
+    const szOut = h('output', {}, '32px'); const sz = h('input', { type: 'range', min: 16, max: 96, step: 4, value: 32, oninput: () => setSize(+sz.value) });
+    const colIn = h('input', { type: 'color', value: '#000000', style: { position: 'absolute', opacity: 0, pointerEvents: 'none', width: 0, height: 0 }, oninput: () => setColor(colIn.value) });
+    const colB = h('button.bx.ph-col', { title: 'Icon color', onclick: () => colIn.click() }, '#000000');
+    const ib = (n, t, f) => H('button.bx.ph-ib', { title: t, onclick: f }, icon(n, 24));
+    const bar = h('div.ph-bar', {}, wt, se, h('div.bx.ph-sz', {}, szOut, sz), h('div', { style: { position: 'relative' } }, colB, colIn), ib('arrow-counter-clockwise', 'Reset', () => reset()), ib('link', 'Copy link', () => copy(`${location.origin}${location.pathname}?weight=${P.w}&size=${P.size}&color=${P.color.slice(1)}`, 'Link copied')), ib('dice-five', 'Random color', () => setColor('#' + Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0'))));
+    el.append(bar);
+    const grid = h('div.ph-grid'); el.append(grid);
+    function setW(w) { P.w = w; drawW(); draw(); } function setSize(v) { P.size = v; sz.value = v; szOut.textContent = v + 'px'; draw(); }
+    function setColor(c) { P.color = c.toLowerCase(); colIn.value = P.color; const [r, g, b] = [1, 3, 5].map((i) => parseInt(P.color.slice(i, i + 2), 16)); colB.textContent = P.color.toUpperCase(); colB.style.background = P.color === '#000000' ? '#000' : P.color; colB.style.color = r * 0.3 + g * 0.59 + b * 0.11 > 150 ? '#35322c' : '#fff'; draw(); }
+    function reset() { P.sel = null; setColor('#000000'); setSize(32); setW('regular'); }
+    const list = () => { const q = P.q.trim().toLowerCase(); return q ? D.icons.filter((i) => i.n.includes(q) || i.tags.some((t) => t.includes(q))).sort((a, b) => (b.n.startsWith(q) || b.n === q) - (a.n.startsWith(q) || a.n === q)) : D.icons.filter((i, k, a) => a.findIndex((j) => j.n === i.n) === k); };
+    const pascal = (n) => n.split('-').map(cap).join('');
+    const SNIP = { React: (n) => `import { ${pascal(n)} } from "@phosphor-icons/react";\n\n<${pascal(n)} size={${P.size}} color="${P.color}" weight="${P.w}" />`, Web: (n) => `<i class="ph${P.w === 'regular' ? '' : '-' + P.w} ph-${n}"></i>`, Vue: (n) => `<Ph${pascal(n)} :size="${P.size}" color="${P.color}" weight="${P.w}" />`, Flutter: (n) => `PhosphorIcon(PhosphorIcons.${pascal(n).replace(/^./, (c) => c.toLowerCase())}${P.w === 'regular' ? '' : `(PhosphorIconsStyle.${P.w})`}, size: ${P.size}.0)`, Elm: (n) => `Phosphor.${pascal(n).replace(/^./, (c) => c.toLowerCase())} ${cap(P.w)}\n    |> withSize ${P.size}\n    |> toHtml []`, Swift: (n) => `Ph.${pascal(n).replace(/^./, (c) => c.toLowerCase())}.${P.w}\n    .color(Color(hex: "${P.color}"))\n    .frame(width: ${P.size}, height: ${P.size})` };
+    function drawer(i) { const tc = h('div.ph-tc'); const tabs = h('div.ph-tabs');
+      const drawTab = () => { tabs.replaceChildren(...['Tags', 'React', 'Web', 'Vue', 'Flutter', 'Elm', 'Swift'].map((t) => h('button' + (t === P.tab ? '.on' : ''), { onclick: () => { P.tab = t; drawTab(); } }, t))); tc.replaceChildren(...(P.tab === 'Tags' ? [...i.tags, i.n].map((t) => h('span', {}, t)) : [h('pre', { title: 'Click to copy', onclick: (e) => copy(e.target.textContent, `${P.tab} snippet copied`) }, SNIP[P.tab](i.n))])); };
+      drawTab(); const svgTxt = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="${P.color}">${i.p[P.w]}</svg>`;
+      const dlb = (ic, t, f) => H('button', { onclick: f }, `${icon(ic, 18, 'fill')}${t}`);
+      return h('div.ph-dr', {}, H('button.x', { title: 'Close', onclick: () => { P.sel = null; draw(); } }, icon('x', 14, 'bold', '#fff')), h('div.l', {}, H('div.top', {}, `${icon(i.n, 64, P.w, P.color)}<div><b>${i.n}</b><small>U+${i.cp.toString(16).toUpperCase()}</small><small>available in v${i.v}+</small></div>`), h('div.dl', {}, dlb('download-simple', 'SVG', () => { const a = h('a', { download: `${i.n}.svg`, href: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgTxt) }); a.click(); toast(`${i.n}.svg downloaded`); }), dlb('download-simple', 'SVG Raw', () => copy(i.p[P.w], 'Raw SVG path copied')), H('button', { title: 'More', style: { gridRow: 'span 2', justifySelf: 'end' }, onclick: () => toast('PNG / Raw options (demo)') }, '»'), dlb('copy', 'SVG', () => copy(svgTxt, 'SVG copied')), dlb('copy', 'SVG Raw', () => copy(i.p[P.w], 'Raw SVG copied')))), h('div', {}, tabs, tc)); }
+    function draw() { const L = list(); const cells = L.map((i) => H('div.ph-ic' + (P.sel === i.n ? '.on' : ''), { title: i.n, onclick: () => { P.sel = P.sel === i.n ? null : i.n; draw(); } }, `<svg width="${P.size}" height="${P.size}" viewBox="0 0 256 256" fill="${P.color}">${i.p[P.w]}</svg><p>${i.n}${i.isNew ? '<i></i>' : i.upd ? '<i class="u"></i>' : ''}</p>`));
+      const si = L.findIndex((i) => i.n === P.sel); if (si >= 0) cells.splice(Math.min(cells.length, (Math.floor(si / 7) + 1) * 7), 0, drawer(L[si]));
+      grid.replaceChildren(...(cells.length ? cells : [h('div.ph-none', {}, `No results for "${P.q}"`)])); }
+    drawW(); draw();
+    window.__phState = () => ({ ...P, n: grid.querySelectorAll('.ph-ic').length });
+    window.__demoProof = async () => { const o = [], w = () => sleep(RM ? 20 : 250);
+      toasts.firstChild.querySelector('button').click(); await w(); o.push(`toast dismissed=${toasts.firstChild.classList.contains('gone')}`);
+      setW('duotone'); o.push(`weight→Duotone (${grid.querySelector('.ph-ic svg path[opacity]') ? 'two-tone paths' : 'no duo'})`);
+      setColor('#e9542f'); o.push(`color→${colB.textContent}`); setSize(48); o.push(`size→${szOut.textContent} (svg ${grid.querySelector('.ph-ic svg').getAttribute('width')})`);
+      inp.value = 'cat'; inp.dispatchEvent(new Event('input')); o.push(`search "cat"→${grid.querySelectorAll('.ph-ic').length} icons, first=${grid.querySelector('.ph-ic').title}`);
+      grid.querySelector('.ph-ic').click(); const dr = grid.querySelector('.ph-dr'); o.push(`drawer=${!!dr} name=${dr?.querySelector('b')?.textContent} code=${dr?.querySelector('small')?.textContent} tags=${[...dr.querySelectorAll('.ph-tc span')].map((s2) => s2.textContent).join('/')}`);
+      dr.querySelectorAll('.ph-tabs button')[1].click(); o.push(`React tab: ${grid.querySelector('.ph-tc pre')?.textContent.split('\n').pop()}`); P.tab = 'Tags';
+      clr.click(); reset(); el.querySelectorAll('.ph-toast').forEach((t) => { clearTimeout(t._t); t.classList.remove('gone'); t.style.display = ''; }); root.scrollTop = 0; await w(); o.push(`restored: ${P.w}/${P.size}px/${P.color}, ${grid.querySelectorAll('.ph-ic').length} icons, drawer=${!!grid.querySelector('.ph-dr')}`); return o.join('; '); };
+  }
+  window.__demoProof = async () => { await ready; return window.__demoProof(); };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['blobmaker-organic-svg-desk'])(root, T); }

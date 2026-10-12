@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu",
+  "slug": "santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu",
+  "name": "Illustrated Winter Village Hero with Flip Countdown, Big Play CTA and Colorful Game-Card Grid Menu (Google Santa Tracker)",
+  "date": "2026-10-12",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://santatracker.google.com/",
+  "domain": "santatracker.google.com",
+  "product": "Google Santa Tracker — illustrated village hub of mini games and learning activities",
+  "checkpoints": [
+   "Full-bleed flat-vector winter village with animated elves, snow and windmills",
+   "Script display title + subtitle and a round pink Play button with drop shadow",
+   "Top-right red flip countdown card (DAYS/HRS/MIN/SEC) with ticking seconds",
+   "Top-left round red menu and purple mute buttons",
+   "Menu opens a purple overlay grid of rounded color cards (Out Like A Light, Santa Selfie, Code Boogie, Elf Jetpack...) with illustrated character art and script labels",
+   "Card click navigates to a game scene with home/mute/pause buttons and the countdown kept"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer",
+  "slug": "phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer",
+  "name": "Icon Explorer with Illustrated Desk-Object Hero, Sticky Weight/Size/Color Toolbar, Live Search and Icon Detail Drawer (Phosphor Icons)",
+  "date": "2026-10-12",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://phosphoricons.com/",
+  "domain": "phosphoricons.com",
+  "product": "Phosphor Icons — open-source icon family (9,072 icons) explorer",
+  "checkpoints": [
+   "Warm cream background with flat illustrated desk objects (tablet, synth keyboard, smartwatch showing 9,072 icons, paper map, paperclips)",
+   "Lime announcement toasts with close buttons",
+   "Dark sticky toolbar: weight dropdown (Thin..Duotone), search with clear, px size slider, color swatch button, reset/link/shuffle icons",
+   "Grid of icons with labels re-renders live on weight, color, size and search changes",
+   "Click an icon: selected tile highlight + bottom drawer with big preview, name, codepoint, version, SVG/PNG download & copy buttons",
+   "Drawer tabs (Tags, React, Web, Vue, Flutter, Elm, Swift) with tag chips"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf",
+  "slug": "notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf",
+  "name": "Playful Software Catalog with Giant Wordmark, 3D Clay App-Icon Cards, Serial-Number Labels and Skin Series Shelves (!Boring Software)",
+  "date": "2026-10-12",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://notbor.ing/",
+  "domain": "notbor.ing",
+  "product": "!Boring Software (Not Boring) — maker of playful 3D Weather, Timer, Calculator, Habits, Vibes, Camera apps",
+  "checkpoints": [
+   "Huge periwinkle !BORING wordmark under a floating half-black/half-white sphere and minimal mono nav",
+   "Grey band with big friendly headline Playful software for life's boring routines + emoji",
+   "Let's Play grid of soft 3D clay app icons on cream tiles with mono caps name, tagline and APPx00N serial",
+   "Feature statements (Built like a game, Runs like an app / Just what you need, Not a button more)",
+   "Skins section grouped by series (Debug, Artist, Andy x Presstube) with SKNx00N serial cards",
+   "Hover lift/tilt on icon cards (to implement; not verified live)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes",
   "slug": "minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes",
   "name": "Real-Time 3D Transit Map with Underground Mode, Playback Clock and Tracking Camera Modes (Mini Tokyo 3D)",

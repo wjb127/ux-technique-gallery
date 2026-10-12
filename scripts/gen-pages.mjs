@@ -80,7 +80,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'dropbox-brand-guidelines-color-block-mosaic-tile-hover-invert-fullscreen-chapter-transition': '컬러 블록 브랜드 모자이크 · 챕터 전환',
   'minitokyo3d-realtime-3d-transit-map-underground-mode-playback-clock-tracking-camera-modes': '실시간 3D 교통 지도 · 지하 모드 · 추적 카메라',
   'underd0g-watch-customiser-dial-strap-swap-color-dot-lists-serif-hero': '시계 커스터마이저 · 다이얼/스트랩 스왑',
-  'isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play': '아이소메트릭 섬 도로 시퀀서' };
+  'isleoftune-isometric-island-road-sequencer-tile-toolbar-drag-roads-car-play': '아이소메트릭 섬 도로 시퀀서',
+  'santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu': '일러스트 마을 히어로 · 플립 카운트다운 · 게임 카드 메뉴',
+  'phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer': '아이콘 탐색기 · 굵기/크기/색 툴바 · 상세 드로어',
+  'notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf': '플레이풀 앱 카탈로그 · 3D 아이콘 카드 · 스킨 시리즈' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
