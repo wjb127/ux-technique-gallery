@@ -3274,5 +3274,32 @@
   "proof": "card dismissed=true; drag laid strip of 7 tiles; loop 20 road tiles; objects=10; cars=2; GO: 7 notes triggered by cars, audio=running; restored title card + empty island",
   "demoNodes": 74,
   "errors": []
+ },
+ "phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer": {
+  "url": "https://ux-technique-gallery.vercel.app/t/phosphor-icons-illustrated-desk-hero-sticky-toolbar-weight-size-color-search-icon-detail-drawer/",
+  "ok": true,
+  "at": "2026-10-12T00:03:03.852Z",
+  "http": 200,
+  "proof": "toast dismissed=true; weight→Duotone (two-tone paths); color→#E9542F; size→48px (svg 48); search \"cat\"→35 icons, first=cat; drawer=true name=cat code=U+E748 tags=pets/animals/kitty/kitten/cat; React tab: <Cat size={48} color=\"#e9542f\" weight=\"duotone\" />; restored: regular/32px/#000000, 153 icons, drawer=false",
+  "demoNodes": 902,
+  "errors": []
+ },
+ "notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf": {
+  "url": "https://ux-technique-gallery.vercel.app/t/notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf/",
+  "ok": true,
+  "at": "2026-10-12T00:03:03.864Z",
+  "http": 200,
+  "proof": "hover tilt: translateY(-10px) rotateX(7.6deg) rotateY(9.2deg); app cards=6 serials=APPx006,APPx005,APPx004,APPx002,APPx001,APPx003; skin canvases=12 NORMAL cube pixel rgba(124,74,243,255); hero ball skin→MeshNormalMaterial; →wire=true; restored: ball MeshStandardMaterial, skin=null, scrollTop=0, frames=12",
+  "demoNodes": 299,
+  "errors": []
+ },
+ "santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu": {
+  "url": "https://ux-technique-gallery.vercel.app/t/santatracker-illustrated-village-hero-countdown-flip-play-cta-game-card-grid-menu/",
+  "ok": true,
+  "at": "2026-10-12T00:03:03.849Z",
+  "http": 200,
+  "proof": "countdown 73:09:56:53 (sec 55→53, flip=true); menu open=true cards=33; card→Santa Selfie scene=true countdown kept=true pause btn=true; paused=true; home→village=true; Play→Out Like A Light; restored: menu=false scene=null",
+  "demoNodes": 1708,
+  "errors": []
  }
 }
