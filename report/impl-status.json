@@ -3301,5 +3301,32 @@
   "proof": "countdown 73:09:56:53 (sec 55→53, flip=true); menu open=true cards=33; card→Santa Selfie scene=true countdown kept=true pause btn=true; paused=true; home→village=true; Play→Out Like A Light; restored: menu=false scene=null",
   "demoNodes": 1708,
   "errors": []
+ },
+ "kidpix-retro-mac-paint-tool-column-pattern-option-bar-palette-splash-canvas": {
+  "url": "https://ux-technique-gallery.vercel.app/t/kidpix-retro-mac-paint-tool-column-pattern-option-bar-palette-splash-canvas/",
+  "ok": true,
+  "at": "2026-10-12T04:06:32.077Z",
+  "http": 200,
+  "proof": "pencil red stroke px=255,0,0 size=7 bar(pencil)=25 opts; oval bar swapped→oval (21 opts); stamp Star placed px=255,195,30; wacky Rainbow; letter A; undo guy: history 5→4; van bar=truck; van clear → px=255,255,255 white=true; undo restores drawing px=255,0,0; restored: tool=pencil color=#000000 splash",
+  "demoNodes": 197,
+  "errors": []
+ },
+ "gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll": {
+  "url": "https://ux-technique-gallery.vercel.app/t/gta6-cover-art-collage-hero-sunset-extended-look-trailer-cards-fullbleed-character-scroll/",
+  "ok": true,
+  "at": "2026-10-12T04:06:32.095Z",
+  "http": 200,
+  "proof": "hero collage panels=10 hover=true; p=.20 extended look opacity=1.00 hero=0.00 header pill=true; p=.45 trailer cards opacity=1.00; trailer modal open=true caption=Trailer 2 progress=0.3%; paused=true; p=.60 character panel opacity=1.00 inset=5.7%; p=.68 inset=0.0% (full-bleed); p=.80 Ultimate Edition opacity=1.00; p=.97 Vice City night=1.00; menu open=true items=6; restored p=0 hero=1 pill=false",
+  "demoNodes": 2341,
+  "errors": []
+ },
+ "cydstumpel-giant-condensed-wordmark-rotating-serif-role-sticker-badges-rounded-work-tiles-pastel-blog-cards": {
+  "url": "https://ux-technique-gallery.vercel.app/t/cydstumpel-giant-condensed-wordmark-rotating-serif-role-sticker-badges-rounded-work-tiles-pastel-blog-cards/",
+  "ok": true,
+  "at": "2026-10-12T04:06:32.095Z",
+  "http": 200,
+  "proof": "role Creative Engineer→Conference Speaker (dom=\"Conference Speaker\"); wordmark marquee moving=true; box pop=true icons=7; sticker drag left 1074→1194; hover \"small studio’s\" → tile Studio Sallali hov=true preview=true; scrolled to blogs: header stuck=true cards=6; card tilt=true; back to top stuck=false; restored role=Creative Engineer",
+  "demoNodes": 408,
+  "errors": []
  }
 }
