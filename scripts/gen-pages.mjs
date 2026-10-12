@@ -92,7 +92,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'satus-darkroom-fluid-webgl-tracked-features-grid-transition-debug-overlay': '다크 플루이드 피처 스테이지 · 트랜지션 디버그',
   'tweek-paper-weekly-planner-ruled-day-columns-inline-task-edit-color-chip-drag-someday-row': '페이퍼 위클리 플래너 · 인라인 편집 · 컬러칩 · 드래그',
   'arena-brutalist-channel-grid-view-switcher-blocks-table-index-meta-rail': '브루탈리스트 채널 그리드 · 뷰 스위처 · 메타 레일',
-  'panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands': '로테이팅 게임 테이크오버 · 아이콘 선반 팝오버' };
+  'panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands': '로테이팅 게임 테이크오버 · 아이콘 선반 팝오버',
+  'ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips': '타입 파운드리 패밀리 레일 · 거대 가변 스페시먼 · 인라인 테스터',
+  'henryheffernan-bios-boot-start-gate-3d-desk-camera-zoom-into-crt-monitor-os': 'BIOS 부팅 게이트 · 3D 데스크 · CRT 모니터 줌 OS',
+  'endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections': '모노크롬 디바이스 라인업 · 모드 카드 · 제너레이티브 라인' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

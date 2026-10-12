@@ -3120,4 +3120,269 @@ V['notboring-playful-app-catalog-3d-icon-cards-serial-labels-skins-series-shelf'
     root.scrollTop = 0; await w(200); o.push(`restored: ball ${ball.material.type}, skin=${skin}, scrollTop=${root.scrollTop}, frames=${frames}`); return o.join('; '); };
 };
 
+
+V['henryheffernan-bios-boot-start-gate-3d-desk-camera-zoom-into-crt-monitor-os'] = (root, T) => {
+  import('@fontsource/ibm-plex-mono/400.css');
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#fff', dark: true });
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MONO = "'IBM Plex Mono','DejaVu Sans Mono',Menlo,monospace", W95 = "Tahoma,Verdana,'DejaVu Sans','Segoe UI',sans-serif", TIMES = "'Times New Roman',Times,'Liberation Serif',serif";
+  css(`.hh{position:absolute;inset:0;background:#000;color:#fff;overflow:hidden;font:400 13px/1.25 ${MONO}}
+.hh *{box-sizing:border-box}.hh button{font:inherit;color:inherit;cursor:pointer}
+.hh-gate{position:absolute;inset:0;display:grid;place-items:center;z-index:30;background:#000;transition:opacity .5s}
+.hh-gate .box{border:5px solid #fff;padding:18px 18px 18px;min-width:330px;max-width:92vw;background:#000;font:400 13px/1.05 ${MONO};letter-spacing:.02em}
+.hh-gate .cur{display:inline-block;width:8px;border-bottom:2px solid #fff;margin-left:6px;animation:hhBl 1s steps(1) infinite}@keyframes hhBl{50%{opacity:0}}
+.hh-gate .st{display:block;margin:13px auto 0;border:2px solid #fff;background:#000;padding:6px 6px;font:400 13px ${MONO};letter-spacing:.04em}
+.hh-gate .st:hover,.hh-gate .st:focus-visible{background:#fff;color:#000;outline:none}
+.hh-boot{position:absolute;inset:0;z-index:25;background:#000;padding:28px 34px;white-space:pre-wrap;font:400 14px/1.45 ${MONO};color:#ddd;transition:opacity .6s;overflow:hidden}
+.hh-boot .es{position:absolute;right:34px;top:26px;border:2px solid #ddd;padding:6px 10px;text-align:center;font:700 12px/1.2 ${MONO};color:#ddd}
+.hh-boot .es b{display:block;font-size:22px;letter-spacing:.08em}
+.hh-boot .bar{color:#fff}
+.hh-sc{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity 1.6s ease}.hh-sc.on{opacity:1}.hh-sc canvas{display:block;width:100%!important;height:100%!important}
+.hh-hud{position:absolute;inset:0;pointer-events:none;z-index:5;transition:opacity .4s}.hh-hud>*{pointer-events:auto}
+.hh-name{position:absolute;left:22px;top:20px;background:#000;padding:10px 14px 9px;border:0;font:400 12px/1.4 ${MONO}}.hh-name b{display:block;font:700 22px/1.1 ${MONO};letter-spacing:.02em}
+.hh-hint{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);background:#000c;border:1px solid #fff6;padding:7px 12px;font-size:12px;white-space:nowrap;animation:hhPulse 2.4s ease-in-out infinite}@keyframes hhPulse{50%{opacity:.45}}
+.hh-snd{position:absolute;left:22px;bottom:22px;width:40px;height:40px;background:#000;border:2px solid #fff;display:grid;place-items:center}
+.hh-snd:hover{background:#fff;color:#000}
+.hh-clock{position:absolute;right:22px;top:20px;background:#000;padding:8px 12px;font-size:12px}
+.hh-exit{position:absolute;right:12px;top:12px;z-index:60;background:#000;border:2px solid #fff;padding:6px 10px;font:400 12px ${MONO};opacity:0;pointer-events:none;transition:opacity .3s}
+.hh.os .hh-exit{opacity:1;pointer-events:auto}
+.hh-os{position:absolute;inset:0;z-index:50;opacity:0;pointer-events:none;transition:opacity .35s;background:#008080;font:400 12px/1.3 ${W95};color:#000;overflow:hidden;user-select:none}
+.hh.os .hh-os{opacity:1;pointer-events:auto}
+.hh-os::after{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(#0000 0 2px,#0000000d 2px 3px),radial-gradient(120% 120% at 50% 50%,#0000 60%,#0006);z-index:999}
+.hh-ic{position:absolute;width:84px;display:grid;justify-items:center;gap:4px;padding:4px;color:#fff;text-align:center;font-size:11.5px;cursor:default}
+.hh-ic span{padding:1px 3px}.hh-ic.sel span{background:#000080;outline:1px dotted #fff}.hh-ic.sel svg{filter:brightness(.6) sepia(1) hue-rotate(190deg) saturate(4)}
+.hh-win{position:absolute;background:#c0c0c0;border:2px solid;border-color:#fff #000 #000 #fff;box-shadow:inset -1px -1px #808080,inset 1px 1px #dfdfdf;padding:3px;display:flex;flex-direction:column;min-width:240px}
+.hh-win .tb{height:22px;display:flex;align-items:center;gap:4px;padding:0 3px 0 5px;background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-weight:700;cursor:move;flex-shrink:0}
+.hh-win:not(.act) .tb{background:linear-gradient(90deg,#808080,#b5b5b5)}
+.hh-win .tb span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hh-win .tb button,.hh-tbar button,.hh-bv{background:#c0c0c0;border:2px solid;border-color:#fff #000 #000 #fff;box-shadow:inset -1px -1px #808080;color:#000;padding:0;font:700 11px/1 ${W95}}
+.hh-win .tb button{width:18px;height:16px;display:grid;place-items:center}
+.hh-win .tb button:active,.hh-tbar button:active,.hh-tbar button.on,.hh-bv:active{border-color:#000 #fff #fff #000;box-shadow:inset 1px 1px #808080}
+.hh-win .bd{flex:1;background:#fff;margin-top:3px;border:2px solid;border-color:#808080 #fff #fff #808080;overflow:auto;min-height:0}
+.hh-tbar{position:absolute;left:0;right:0;bottom:0;height:34px;background:#c0c0c0;border-top:2px solid #fff;display:flex;align-items:center;gap:4px;padding:0 4px;z-index:900}
+.hh-tbar .start{height:26px;padding:0 8px;display:flex;align-items:center;gap:5px;font-weight:700;font-size:12.5px}
+.hh-tbar .tk{height:26px;min-width:140px;max-width:180px;padding:0 8px;text-align:left;font-weight:400;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hh-tbar .tray{margin-left:auto;height:26px;padding:0 10px;display:flex;align-items:center;gap:8px;border:1px solid;border-color:#808080 #fff #fff #808080;font-size:11.5px}
+.hh-sm{position:absolute;left:4px;bottom:34px;width:220px;background:#c0c0c0;border:2px solid;border-color:#fff #000 #000 #fff;display:flex;z-index:950}
+.hh-sm .side{width:26px;background:linear-gradient(#000080,#1084d0);color:#c0c0c0;writing-mode:vertical-rl;transform:rotate(180deg);font:900 17px ${W95};padding:6px 0;text-align:right}
+.hh-sm .it{flex:1;display:flex;flex-direction:column;padding:2px}.hh-sm .it button{background:none;border:0;text-align:left;padding:8px 10px;font:400 12.5px ${W95};display:flex;gap:10px;align-items:center}.hh-sm .it button:hover{background:#000080;color:#fff}
+.hh-sm hr{border:0;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 0}
+.hh-sh{display:flex;height:100%;font-family:${TIMES};color:#000}
+.hh-sh.home{display:grid;place-items:center;text-align:center;background:#fff}
+.hh-sh.home h1{margin:0;font:700 clamp(30px,5vw,64px)/1 ${TIMES}}.hh-sh.home h2{margin:10px 0 34px;font:400 clamp(16px,2vw,24px) ${TIMES}}
+.hh-sh nav{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}.hh-sh nav a,.hh-sh .side a{font:700 15px ${TIMES};color:#000;cursor:pointer;text-decoration:underline;text-transform:uppercase}
+.hh-sh nav a:hover,.hh-sh .side a:hover{color:#00f}.hh-sh .side a.on{color:#00f}
+.hh-sh .side{width:230px;flex-shrink:0;padding:30px 26px;border-right:1px solid #ddd;display:flex;flex-direction:column;gap:14px}.hh-sh .side h1{margin:0 0 18px;font:700 30px/1 ${TIMES}}
+.hh-sh .ct{padding:30px 34px;overflow:auto;font:400 16px/1.5 ${TIMES}}.hh-sh .ct h3{margin:0 0 12px;font:700 34px ${TIMES}}.hh-sh .ct .row{border-top:1px solid #ddd;padding:12px 0}.hh-sh .ct .row b{display:block;font-size:19px}
+.hh-sh .pj{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}.hh-sh .pj div{border:2px solid #000;padding:10px;min-height:100px;cursor:pointer}.hh-sh .pj div:hover{background:#000;color:#fff}
+.hh-dlg{padding:16px;display:grid;gap:12px;font:400 12px ${W95}}.hh-dlg .r{display:flex;gap:12px;align-items:center}
+.hh-bv{padding:5px 18px;font-weight:400;font-size:12px;justify-self:center}
+.hh-hn{display:grid;gap:6px;padding:14px;justify-content:center}.hh-hn .g{display:grid;grid-template-columns:repeat(5,34px);gap:4px}.hh-hn .g i{height:34px;border:2px solid #999;display:grid;place-items:center;font:700 18px ${W95};font-style:normal;text-transform:uppercase}
+.hh-hn .g i.c{background:#6aaa64;color:#fff;border-color:#6aaa64}.hh-hn .g i.p{background:#c9b458;color:#fff;border-color:#c9b458}.hh-hn .g i.x{background:#787c7e;color:#fff;border-color:#787c7e}
+.hh-hn input{font:700 16px ${W95};text-transform:uppercase;padding:4px;width:100%;border:2px solid;border-color:#808080 #fff #fff #808080}
+.hh-fb{position:absolute;inset:0;display:grid;place-items:center;color:#888;font-size:12px}
+@media (max-width:640px){.hh-name b{font-size:16px}.hh-name{padding:8px 10px}.hh-ic{width:70px;font-size:10.5px}.hh-tbar .tk{min-width:80px}.hh-sh .side{display:none}.hh-sh .ct{padding:18px}.hh-sh nav{gap:14px}.hh-clock{display:none}.hh-gate .box{min-width:0}}
+${RM ? '.hh *{animation:none!important;transition:none!important}' : ''}`);
+  const el = h('div.hh'); root.append(el);
+  // ---------------- state
+  let state = 'gate', sound = false, speed = 1;
+  // ---------------- gate
+  const startB = h('button.st', { onclick: () => start() }, 'START');
+  const gate = h('div.hh-gate', {}, h('div.box', {}, h('div', {}, 'Henry Heffernan Portfolio Showcase 2022'), h('div', {}, 'Click start to begin', h('span.cur', {}, '\u00a0')), startB));
+  el.append(gate);
+  const boot = h('div.hh-boot', { style: { display: 'none' } });
+  el.append(boot);
+  // ---------------- three.js scene
+  const sc = h('div.hh-sc'); el.append(sc);
+  const hud = h('div.hh-hud', { style: { opacity: 0 } }); el.append(hud);
+  const clockEl = h('div.hh-clock');
+  const sndB = h('button.hh-snd', { title: 'Toggle sound', onclick: () => toggleSound() });
+  const hint = h('div.hh-hint', {}, '▸ Click the monitor to enter');
+  hud.append(h('div.hh-name', {}, h('b', {}, 'HENRY HEFFERNAN'), 'Software Engineer'), clockEl, hint, sndB);
+  const drawSnd = () => { sndB.innerHTML = sound ? '<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 7h3l5-4v14l-5-4H3z"/><path d="M13.5 6.5a5 5 0 010 7M15.8 4.2a8.2 8.2 0 010 11.6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>' : '<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 7h3l5-4v14l-5-4H3z"/><path d="M13.5 7.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.6"/></svg>'; };
+  drawSnd();
+  const tick = () => { const d = new Date(); clockEl.textContent = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); osClock && (osClock.textContent = clockEl.textContent); };
+  let osClock = null; setInterval(tick, 10000);
+  let R = null; // renderer bundle
+  function buildScene() {
+    if (R) return R;
+    let renderer;
+    try { renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' }); } catch (e) { sc.append(h('div.hh-fb', {}, 'WebGL unavailable — click anywhere to use the computer')); sc.onclick = () => zoomIn(); R = { fallback: true }; return R; }
+    renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1)); renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+    sc.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color('#000'); scene.fog = new THREE.Fog('#000', 4, 11);
+    const cam = new THREE.PerspectiveCamera(38, 1, 0.01, 50);
+    const M = (c, o = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.75, metalness: 0.02, ...o });
+    const add = (geo, mat, x, y, z, parent = scene, shadow = true) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = shadow; m.receiveShadow = true; parent.add(m); return m; };
+    const BEIGE = M('#d9d0bc', { roughness: 0.6 }), BEIGE2 = M('#c8bea8', { roughness: 0.65 }), DARK = M('#2a2724'), WOOD = M('#4a3322', { roughness: 0.55 });
+    // floor + desk
+    add(new THREE.PlaneGeometry(30, 30), M('#0d0d0d', { roughness: 1 }), 0, 0, 0, scene, false).rotation.x = -Math.PI / 2;
+    add(new RoundedBoxGeometry(2.8, 0.07, 1.3, 2, 0.015), WOOD, 0, 0.735, 0.15);
+    for (const [x, z] of [[-1.3, -0.4], [1.3, -0.4], [-1.3, 0.7], [1.3, 0.7]]) add(new THREE.BoxGeometry(0.07, 0.7, 0.07), WOOD, x, 0.35, z);
+    // computer case + CRT
+    const pc = new THREE.Group(); scene.add(pc);
+    add(new RoundedBoxGeometry(1.02, 0.17, 0.82, 2, 0.02), BEIGE2, 0, 0.855, -0.05, pc);
+    add(new THREE.BoxGeometry(0.34, 0.012, 0.01), DARK, 0.26, 0.86, 0.366, pc, false); add(new THREE.BoxGeometry(0.34, 0.012, 0.01), DARK, 0.26, 0.82, 0.366, pc, false);
+    add(new THREE.BoxGeometry(0.03, 0.03, 0.01), M('#3c8f3c', { emissive: '#2f8f2f', emissiveIntensity: 1.4 }), -0.42, 0.85, 0.366, pc, false);
+    add(new THREE.CylinderGeometry(0.2, 0.24, 0.05, 24), BEIGE, 0, 0.965, -0.08, pc);
+    const mon = new THREE.Group(); mon.position.set(0, 1.33, -0.1); pc.add(mon);
+    add(new RoundedBoxGeometry(0.9, 0.74, 0.5, 3, 0.04), BEIGE, 0, 0, 0, mon);
+    const back = add(new THREE.CylinderGeometry(0.36, 0.22, 0.42, 4, 1), BEIGE2, 0, -0.02, -0.42, mon); back.rotation.x = Math.PI / 2; back.rotation.y = Math.PI / 4; back.scale.set(1.25, 1, 1);
+    add(new THREE.BoxGeometry(0.76, 0.58, 0.02), M('#14130f', { roughness: 0.4 }), 0, 0.03, 0.245, mon, false);
+    add(new THREE.BoxGeometry(0.1, 0.018, 0.01), DARK, 0.3, -0.31, 0.252, mon, false);
+    // screen texture
+    const scrC = document.createElement('canvas'); scrC.width = 1024; scrC.height = 768; const sg = scrC.getContext('2d');
+    const tex = new THREE.CanvasTexture(scrC); tex.colorSpace = THREE.SRGBColorSpace;
+    const SW = 0.7, SH = 0.525;
+    const screen = add(new THREE.PlaneGeometry(SW, SH), new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }), 0, 0.03, 0.257, mon, false); screen.castShadow = false;
+    const drawScreen = (t = 0) => { sg.fillStyle = '#008080'; sg.fillRect(0, 0, 1024, 768); const ic = ['My Showcase', 'Oregon Trail', 'Doom', 'Henordle', 'Credits']; ic.forEach((n, i) => { sg.fillStyle = '#c0c0c0'; sg.fillRect(34, 26 + i * 104, 52, 44); sg.fillStyle = '#000080'; sg.fillRect(40, 32 + i * 104, 40, 28); sg.fillStyle = '#fff'; sg.font = '15px Tahoma, Verdana, sans-serif'; sg.textAlign = 'center'; sg.fillText(n, 60, 90 + i * 104); });
+      sg.fillStyle = '#c0c0c0'; sg.fillRect(160, 60, 760, 560); sg.fillStyle = '#000080'; sg.fillRect(166, 66, 748, 30); sg.fillStyle = '#fff'; sg.textAlign = 'left'; sg.font = 'bold 17px Tahoma, Verdana, sans-serif'; sg.fillText('Henry Heffernan - Showcase 2022', 176, 87); sg.fillStyle = '#fff'; sg.fillRect(170, 102, 740, 512);
+      sg.fillStyle = '#000'; sg.textAlign = 'center'; sg.font = 'bold 62px "Times New Roman", serif'; sg.fillText('Henry Heffernan', 540, 320); sg.font = '28px "Times New Roman", serif'; sg.fillText('Software Engineer', 540, 365); sg.font = 'bold 18px "Times New Roman", serif'; ['HOME', 'ABOUT', 'EXPERIENCE', 'PROJECTS', 'CONTACT'].forEach((n, i) => sg.fillText(n, 300 + i * 120, 430));
+      sg.fillStyle = '#c0c0c0'; sg.fillRect(0, 728, 1024, 40); sg.fillStyle = '#fff'; sg.fillRect(0, 728, 1024, 2); sg.fillStyle = '#000'; sg.font = 'bold 18px Tahoma, sans-serif'; sg.textAlign = 'left'; sg.fillText('▣ Start', 12, 755); sg.textAlign = 'right'; sg.font = '16px Tahoma, sans-serif'; sg.fillText(clockEl.textContent || '12:00 PM', 1006, 755);
+      sg.fillStyle = 'rgba(0,0,0,.12)'; for (let y = 0; y < 768; y += 3) sg.fillRect(0, y, 1024, 1); const gr = sg.createRadialGradient(512, 384, 200, 512, 384, 700); gr.addColorStop(0, 'rgba(255,255,255,.06)'); gr.addColorStop(1, 'rgba(0,0,0,.45)'); sg.fillStyle = gr; sg.fillRect(0, 0, 1024, 768);
+      if (Math.floor(t * 1.2) % 2) { sg.fillStyle = '#000'; sg.fillRect(540 + 2, 440, 12, 3); } tex.needsUpdate = true; };
+    // keyboard, mouse, mug, books, papers
+    const kb = add(new RoundedBoxGeometry(0.82, 0.035, 0.26, 2, 0.01), BEIGE, -0.05, 0.79, 0.58); kb.rotation.x = 0.05;
+    const keyG = new THREE.BoxGeometry(0.042, 0.018, 0.04); const keys = new THREE.InstancedMesh(keyG, M('#e8e1d1', { roughness: 0.5 }), 15 * 5); let ki = 0; const dm = new THREE.Object3D();
+    for (let r = 0; r < 5; r++) for (let c = 0; c < 15; c++) { dm.position.set(-0.05 - 0.36 + c * 0.0515, 0.815, 0.58 - 0.09 + r * 0.047); dm.updateMatrix(); keys.setMatrixAt(ki++, dm.matrix); } keys.castShadow = true; scene.add(keys);
+    add(new RoundedBoxGeometry(0.07, 0.03, 0.12, 3, 0.012), BEIGE, 0.55, 0.785, 0.6); add(new THREE.BoxGeometry(0.28, 0.004, 0.23), M('#1a2a4a'), 0.55, 0.771, 0.6, scene, false);
+    add(new THREE.CylinderGeometry(0.055, 0.05, 0.12, 24), M('#7a1f1f', { roughness: 0.35 }), -0.85, 0.83, 0.42); const hdl = add(new THREE.TorusGeometry(0.03, 0.009, 8, 16), M('#7a1f1f'), -0.91, 0.83, 0.42); hdl.rotation.y = Math.PI / 2;
+    [['#29405e', 0.06], ['#7d6a3a', 0.05], ['#3d5a3a', 0.055]].forEach(([c, hh], i) => { const b = add(new THREE.BoxGeometry(0.34 - i * 0.02, hh, 0.25), M(c), 0.95, 0.77 + 0.03 + i * 0.058, -0.25); b.rotation.y = 0.15 * (i - 1); });
+    const pap = add(new THREE.PlaneGeometry(0.22, 0.3), M('#efe9da', { roughness: 0.9 }), -0.75, 0.772, 0.05, scene, false); pap.rotation.set(-Math.PI / 2, 0, 0.25);
+    // lights
+    scene.add(new THREE.AmbientLight('#8fa3c0', 0.12));
+    const spot = new THREE.SpotLight('#ffe6c4', 38, 9, 0.62, 0.65, 1.6); spot.position.set(0.9, 3.4, 1.6); spot.target.position.set(0, 0.8, 0); spot.castShadow = true; spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0004; scene.add(spot, spot.target);
+    const glow = new THREE.PointLight('#5fc8d8', 1.2, 2.2, 1.5); glow.position.set(0, 1.35, 0.6); scene.add(glow);
+    const rim = new THREE.DirectionalLight('#6b7fa8', 0.35); rim.position.set(-3, 2, -2); scene.add(rim);
+    // camera rig
+    const HOME = { pos: new THREE.Vector3(0.72, 1.72, 2.75), look: new THREE.Vector3(0, 1.08, 0) };
+    const scrCenter = new THREE.Vector3(); const camPos = HOME.pos.clone(), camLook = HOME.look.clone();
+    let mode = 'room', tw = null, ptr = { x: 0, y: 0 }, hover = false, intro = 0;
+    const ray = new THREE.Raycaster(), v2 = new THREE.Vector2();
+    const zoomPose = () => { screen.getWorldPosition(scrCenter); const a = cam.aspect, half = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)); const d = Math.max((SH / 2) / half, (SW / 2) / (half * a)) * 0.985; return { pos: scrCenter.clone().add(new THREE.Vector3(0, 0, d)), look: scrCenter.clone() }; };
+    const resize = () => { const r = sc.getBoundingClientRect(); if (!r.width) return; renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height; cam.fov = cam.aspect < 0.8 ? 58 : 38; cam.updateProjectionMatrix(); };
+    new ResizeObserver(resize).observe(sc); resize();
+    const pick = (e) => { const r = renderer.domElement.getBoundingClientRect(); v2.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); ray.setFromCamera(v2, cam); return ray.intersectObject(mon, true).length > 0; };
+    renderer.domElement.addEventListener('pointermove', (e) => { const r = renderer.domElement.getBoundingClientRect(); ptr.x = (e.clientX - r.left) / r.width - 0.5; ptr.y = (e.clientY - r.top) / r.height - 0.5; hover = mode === 'room' && pick(e); renderer.domElement.style.cursor = hover ? 'pointer' : 'default'; });
+    renderer.domElement.addEventListener('click', (e) => { if (mode === 'room' && pick(e)) zoomIn(); });
+    const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - (-2 * x + 2) ** 3 / 2);
+    const tween = (to, dur) => new Promise((res) => { tw = { fromP: camPos.clone(), fromL: camLook.clone(), to, t0: performance.now(), dur: RM ? 1 : dur, res }; });
+    let t = 0, lastT = performance.now(), lastScr = -1;
+    const loop = (now) => { const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now; t += dt; intro = Math.min(1, intro + dt / 2.2);
+      if (tw) { const p = Math.min(1, (now - tw.t0) / tw.dur), e = ease(p); camPos.lerpVectors(tw.fromP, tw.to.pos, e); camLook.lerpVectors(tw.fromL, tw.to.look, e); if (p >= 1) { const r2 = tw.res; tw = null; r2(); } }
+      else if (mode === 'room') { const k = RM ? 0 : 1; const ie = 1 - ease(intro); const tgt = HOME.pos.clone().add(new THREE.Vector3(Math.sin(t * 0.17) * 0.16 * k + ptr.x * 0.35 * k + ie * 1.4, Math.sin(t * 0.13) * 0.05 * k - ptr.y * 0.18 * k + ie * 0.8, Math.cos(t * 0.11) * 0.08 * k + ie * 1.8)); camPos.lerp(tgt, 0.06); camLook.lerp(HOME.look, 0.06); }
+      else if (mode === 'zoomed') { const z = zoomPose(); camPos.copy(z.pos); camLook.copy(z.look); }
+      cam.position.copy(camPos); cam.lookAt(camLook);
+      glow.intensity = 1.1 + Math.sin(t * 7) * 0.04 + (hover ? 0.9 : 0);
+      if (Math.floor(t * 1.2) !== lastScr) { lastScr = Math.floor(t * 1.2); drawScreen(t); }
+      if (el.isConnected && state !== 'gate' && state !== 'boot') renderer.render(scene, cam); requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
+    R = { renderer, scene, cam, get mode() { return mode; }, set mode(v) { mode = v; }, tween, zoomPose, HOME, camPos, camLook, resetIntro: () => { intro = 0; camPos.copy(HOME.pos).add(new THREE.Vector3(1.4, 0.8, 1.8)); } };
+    drawScreen(0); return R;
+  }
+  // ---------------- OS overlay (HeffernanOS look-alike)
+  const os = h('div.hh-os'); el.append(os);
+  const exitB = h('button.hh-exit', { onclick: () => zoomOut() }, '← Exit to room (Esc)'); el.append(exitB);
+  const ICON = {
+    pc: '<svg width="34" height="34" viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="3" y="4" width="26" height="18" fill="#c0c0c0" stroke="#000"/><rect x="6" y="7" width="20" height="12" fill="#008080"/><rect x="11" y="23" width="10" height="2" fill="#808080"/><rect x="6" y="25" width="20" height="3" fill="#c0c0c0" stroke="#000"/></svg>',
+    trail: '<svg width="34" height="34" viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="2" y="20" width="28" height="6" fill="#7a5a2a"/><path d="M6 20 Q16 4 26 20Z" fill="#f2f2e6" stroke="#000"/><circle cx="9" cy="26" r="3" fill="#333"/><circle cx="23" cy="26" r="3" fill="#333"/></svg>',
+    doom: '<svg width="34" height="34" viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="3" y="8" width="26" height="16" fill="#8b0000" stroke="#000"/><text x="16" y="21" font-size="10" font-weight="900" text-anchor="middle" fill="#ffcc00" font-family="Impact,sans-serif">DOOM</text></svg>',
+    word: '<svg width="34" height="34" viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="3" y="3" width="8" height="8" fill="#6aaa64"/><rect x="12" y="3" width="8" height="8" fill="#c9b458"/><rect x="21" y="3" width="8" height="8" fill="#787c7e"/><rect x="3" y="12" width="8" height="8" fill="#787c7e"/><rect x="12" y="12" width="8" height="8" fill="#6aaa64"/><rect x="21" y="12" width="8" height="8" fill="#6aaa64"/><rect x="3" y="21" width="26" height="8" fill="#fff" stroke="#000"/></svg>',
+    credits: '<svg width="34" height="34" viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="7" y="3" width="18" height="26" fill="#fff" stroke="#000"/><path d="M10 9h12M10 13h12M10 17h9M10 21h12" stroke="#000080"/></svg>',
+    win: '<svg width="16" height="14" viewBox="0 0 16 14" shape-rendering="crispEdges"><rect x="1" y="1" width="6" height="5" fill="#f00"/><rect x="8" y="1" width="6" height="5" fill="#0a0"/><rect x="1" y="7" width="6" height="5" fill="#00f"/><rect x="8" y="7" width="6" height="5" fill="#fc0"/></svg>',
+  };
+  const wins = []; let zTop = 10, tbTasks = null, startMenu = null;
+  const PAGES = {
+    about: ['About', [['Hi, I’m Henry.', 'A software engineer who builds playful, interactive things for the web — like this 3D desk you just zoomed into. (Look-alike placeholder copy.)'], ['Interests', 'Three.js, creative coding, retro computing, music.']]],
+    experience: ['Experience', [['Studio A — Software Engineer', 'Placeholder role · front-end + 3D web experiences.'], ['Company B — Engineering Intern', 'Placeholder role · internal tools and UI.'], ['University', 'Placeholder · Computer Science.']]],
+    projects: ['Projects', null],
+    contact: ['Contact', [['Send a message', 'Name · Email · Message — the real site has a form here.'], ['Elsewhere', 'GitHub · LinkedIn · Resume (placeholders)']]],
+  };
+  function showcaseBody(page = 'home') {
+    const nav = (tag) => h(tag, {}, ...['home', 'about', 'experience', 'projects', 'contact'].map((p) => h('a' + (p === page ? '.on' : ''), { onclick: () => setBody(showcaseBody(p)) }, p)));
+    let setBody; const wrap = h('div', { style: { height: '100%' } }); setBody = (n) => { wrap.replaceChildren(n); wrap.dataset.page = n.dataset.page; };
+    if (page === 'home') { const n = h('div.hh-sh.home', { 'data-page': 'home' }, h('div', {}, h('h1', {}, 'Henry Heffernan'), h('h2', {}, 'Software Engineer'), nav('nav'))); wrap.append(n); wrap.dataset.page = 'home'; return wrap; }
+    const [tt, rows] = PAGES[page];
+    const ct = h('div.ct', {}, h('h3', {}, tt), rows ? rows.map(([a, b]) => h('div.row', {}, h('b', {}, a), b)) : h('div.pj', {}, ...['Software', 'Music', 'Art', '3D Desk', 'Games', 'Tools'].map((p) => h('div', { onclick: () => openDialog(p, `“${p}” projects would open here.`) }, h('b', {}, p), h('br'), h('small', {}, 'click to open')))));
+    const n = h('div.hh-sh', { 'data-page': page }, h('div.side', {}, h('h1', {}, 'Henry', h('br'), 'Heffernan'), ...nav('div').children), ct); wrap.append(n); wrap.dataset.page = page; return wrap;
+  }
+  function win(id, title, body, { x, y, w, hh }) {
+    const ex = wins.find((o) => o.id === id); if (ex) { ex.el.style.display = ''; focusW(ex); return ex; }
+    const bd = h('div.bd', {}, body); const tb = h('div.tb', {}, h('span', {}, title), h('button', { title: 'Minimize', onclick: (e) => { e.stopPropagation(); o.el.style.display = 'none'; drawTasks(); } }, '_'), h('button', { title: 'Maximize', onclick: (e) => { e.stopPropagation(); o.max = !o.max; Object.assign(o.el.style, o.max ? { left: '0', top: '0', width: '100%', height: 'calc(100% - 34px)' } : o.geo); } }, '□'), h('button', { title: 'Close', onclick: (e) => { e.stopPropagation(); closeW(o); } }, '×'));
+    const geo = { left: x + 'px', top: y + 'px', width: w + 'px', height: hh + 'px' };
+    const o = { id, title, el: h('div.hh-win', { style: { ...geo }, onpointerdown: () => focusW(o) }, tb, bd), geo, bd };
+    drag(tb, { start: (e) => { if (e.target.closest('button') || o.max) return false; o.d = { x: e.clientX, y: e.clientY, l: o.el.offsetLeft, t: o.el.offsetTop }; }, move: (e) => { const r = os.getBoundingClientRect(); o.el.style.left = clamp(o.d.l + e.clientX - o.d.x, -o.el.offsetWidth + 60, r.width - 60) + 'px'; o.el.style.top = clamp(o.d.t + e.clientY - o.d.y, 0, r.height - 60) + 'px'; }, end: () => { o.geo = { ...o.geo, left: o.el.style.left, top: o.el.style.top }; } });
+    os.append(o.el); wins.push(o); focusW(o); return o;
+  }
+  const focusW = (o) => { wins.forEach((x) => x.el.classList.toggle('act', x === o)); o.el.style.zIndex = ++zTop; drawTasks(); };
+  const closeW = (o) => { o.el.remove(); wins.splice(wins.indexOf(o), 1); drawTasks(); };
+  const geoFor = (fw, fh) => { const r = os.getBoundingClientRect(); const w = Math.min(fw, r.width - 16), hh = Math.min(fh, r.height - 50); return { x: Math.max(8, (r.width - w) / 2 + (wins.length % 4) * 22), y: Math.max(8, (r.height - 34 - hh) / 2 + (wins.length % 4) * 18), w, hh }; };
+  function openShowcase() { return win('showcase', 'Henry Heffernan - Showcase 2022', showcaseBody('home'), geoFor(Math.max(560, os.clientWidth * 0.72), Math.max(380, os.clientHeight * 0.76))); }
+  function openDialog(title, msg) { return win('dlg-' + title, title, h('div.hh-dlg', {}, h('div.r', {}, h('span', { html: ICON.pc }), h('span', {}, msg)), h('button.hh-bv', { onclick: () => { const o = wins.find((x) => x.id === 'dlg-' + title); o && closeW(o); } }, 'OK')), geoFor(340, 150)); }
+  function openHenordle() { const ANS = 'SHELL'; const g = h('div.g'); const rows = []; for (let i = 0; i < 30; i++) g.append(h('i')); let row = 0; const inp = h('input', { maxlength: 5, placeholder: 'type a 5-letter word ⏎', onkeydown: (e) => { if (e.key !== 'Enter') return; const v = inp.value.toUpperCase().replace(/[^A-Z]/g, ''); if (v.length !== 5 || row > 5) return; [...v].forEach((c, i) => { const cell = g.children[row * 5 + i]; cell.textContent = c; cell.className = ANS[i] === c ? 'c' : ANS.includes(c) ? 'p' : 'x'; }); row++; inp.value = ''; if (v === ANS) toast('Henordle solved!'); } }); return win('henordle', 'Henordle', h('div.hh-hn', {}, g, inp), geoFor(260, 360)); }
+  const OPEN = { showcase: openShowcase, trail: () => openDialog('Oregon Trail', 'You have died of dysentery. (Game not included in this look-alike.)'), doom: () => openDialog('Doom', 'Loading DOOM.WAD … just kidding — game not bundled.'), henordle: openHenordle, credits: () => openDialog('Credits', 'Original: henryheffernan.com · this is a practice clone.') };
+  const ICONS = [['showcase', 'My Showcase', ICON.pc], ['trail', 'Oregon Trail', ICON.trail], ['doom', 'Doom', ICON.doom], ['henordle', 'Henordle', ICON.word], ['credits', 'Credits', ICON.credits]];
+  ICONS.forEach(([k, n, svg], i) => { const ic = h('div.hh-ic', { style: { left: '10px', top: 12 + i * 86 + 'px' }, onclick: () => { os.querySelectorAll('.hh-ic').forEach((x) => x.classList.remove('sel')); ic.classList.add('sel'); }, ondblclick: () => { OPEN[k](); click(); } }, h('div', { html: svg }), h('span', {}, n)); ic.dataset.k = k; os.append(ic); });
+  osClock = h('span'); tbTasks = h('div', { style: { display: 'flex', gap: '4px', overflow: 'hidden' } });
+  const startBtn = h('button.start', { onclick: (e) => { e.stopPropagation(); toggleStart(); } }, h('span', { html: ICON.win }), 'Start');
+  os.append(h('div.hh-tbar', {}, startBtn, tbTasks, h('div.tray', {}, h('span', { title: 'Sound', style: { cursor: 'pointer' }, onclick: () => toggleSound() }, '🔈'), osClock)));
+  os.addEventListener('pointerdown', (e) => { if (startMenu && !e.target.closest('.hh-sm,.start')) toggleStart(false); if (!e.target.closest('.hh-ic')) os.querySelectorAll('.hh-ic').forEach((x) => x.classList.remove('sel')); if (sound) click(); });
+  function toggleStart(v) { const on = v ?? !startMenu; startMenu?.remove(); startMenu = null; startBtn.classList.toggle('on', on); if (!on) return; startMenu = h('div.hh-sm', {}, h('div.side', {}, 'Heffernan', h('b', { style: { color: '#fff' } }, 'OS')), h('div.it', {}, ...[['showcase', '🖥  My Showcase'], ['henordle', '🟩  Henordle'], ['credits', '📄  Credits']].map(([k, t]) => h('button', { onclick: () => { toggleStart(false); OPEN[k](); } }, t)), h('hr'), h('button', { onclick: () => { toggleStart(false); zoomOut(); } }, '⏻  Shut Down…'))); os.append(startMenu); }
+  function drawTasks() { tbTasks.replaceChildren(...wins.map((o) => h('button.tk' + (o.el.classList.contains('act') && o.el.style.display !== 'none' ? '.on' : ''), { onclick: () => { if (o.el.style.display === 'none') { o.el.style.display = ''; focusW(o); } else if (o.el.classList.contains('act')) { o.el.style.display = 'none'; o.el.classList.remove('act'); drawTasks(); } else focusW(o); } }, o.title))); }
+  // ---------------- sound
+  let amb = null;
+  function click() { if (!sound) return; blip(1800, 0.03, 'square', 0.04); blip(900, 0.04, 'square', 0.03, 0.03); }
+  function toggleSound(v) { sound = v ?? !sound; drawSnd(); const ac = audio(); if (!ac) return; if (sound && !amb) { const len = ac.sampleRate * 2; const buf = ac.createBuffer(1, len, ac.sampleRate); const d = buf.getChannelData(0); let last = 0; for (let i = 0; i < len; i++) { const w = Math.random() * 2 - 1; last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } const src = ac.createBufferSource(); src.buffer = buf; src.loop = true; const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 380; const g = ac.createGain(); g.gain.value = 0; g.gain.setTargetAtTime(0.12, ac.currentTime, 0.4); const hum = ac.createOscillator(); hum.frequency.value = 60; const hg = ac.createGain(); hg.gain.value = 0.012; hum.connect(hg).connect(g); src.connect(lp).connect(g).connect(ac.destination); src.start(); hum.start(); amb = { src, hum, g }; }
+    else if (!sound && amb) { const a = amb; amb = null; a.g.gain.setTargetAtTime(0, ac.currentTime, 0.15); setTimeout(() => { try { a.src.stop(); a.hum.stop(); } catch {} }, 600); } }
+  // ---------------- flow
+  const BOOT = [
+    ['HHOS(R) Modular BIOS v1.0nb, An Energy Star Ally', 0], ['Copyright (C) 2000-2022, Heffernan Megatrends Inc.', 0], ['', 0], ['HSP S13 2000-2022 Special UC131S', 0], ['', 0],
+    ['HSP Showcase(tm) XX 113', 120], ['Checking RAM : 14000 MB ........ OK', 260], ['', 0], ['Press DEL to enter SETUP', 160], ['', 0],
+    ['Detecting Primary Master   ... WebGL Renderer', 200], ['Detecting Primary Slave    ... three.js', 160], ['Detecting Secondary Master ... Audio Context', 160], ['', 0],
+  ];
+  const ASSETS = ['textures/desk_wood.jpg', 'textures/crt_bezel.png', 'models/computer.glb', 'models/keyboard.glb', 'models/mug.glb', 'models/books.glb', 'audio/office_ambience.mp3', 'audio/keyboard_clicks.mp3', 'audio/startup.mp3', 'os/heffernan_os.html', 'fonts/ms_sans_serif.woff'];
+  let runId = 0;
+  async function start() {
+    if (state !== 'gate') return; state = 'boot'; const my = ++runId; click();
+    gate.style.opacity = '0'; await sleep(RM ? 0 : 250 / speed); gate.style.display = 'none';
+    boot.style.display = ''; boot.style.opacity = '1'; boot.textContent = '';
+    boot.append(h('div.es', {}, h('b', {}, 'HHOS'), 'energy', h('br'), 'ally'));
+    const log = h('div'); boot.append(log);
+    const line = (t) => { log.append(t + '\n'); };
+    buildScene();
+    for (const [t, d] of BOOT) { if (my !== runId) return; line(t); await sleep(d / speed); }
+    const bar = h('span.bar'); const lab = h('span'); log.append(lab, '\n', bar, '\n');
+    for (let i = 0; i < ASSETS.length; i++) { if (my !== runId) return; const p = Math.round(((i + 1) / ASSETS.length) * 100); lab.textContent = `Loading assets: ${ASSETS[i]} (${i + 1}/${ASSETS.length})`; bar.textContent = '[' + '#'.repeat(Math.round(p / 3.4)) + '.'.repeat(30 - Math.round(p / 3.4)) + `] ${p}%`; await sleep(110 / speed); }
+    line(''); line("All Content Loaded, launching 'Henry Heffernan Portfolio Showcase' V2.0"); await sleep(700 / speed); if (my !== runId) return;
+    boot.style.opacity = '0'; state = 'room'; tick(); R?.resetIntro?.(); sc.classList.add('on'); await sleep(RM ? 0 : 600 / speed); boot.style.display = 'none'; hud.style.opacity = '1';
+  }
+  async function zoomIn() {
+    if (state !== 'room') return; state = 'zooming'; hud.style.opacity = '0'; click();
+    if (sound) { blip(220, 0.5, 'sine', 0.05); }
+    if (R && !R.fallback) { await R.tween(R.zoomPose(), 1500 / speed); R.mode = 'zoomed'; }
+    state = 'os'; el.classList.add('os'); if (!wins.length) openShowcase();
+  }
+  async function zoomOut() {
+    if (state !== 'os') return; state = 'zooming'; toggleStart(false); el.classList.remove('os'); await sleep(RM ? 0 : 250 / speed);
+    if (R && !R.fallback) { R.mode = 'room'; await R.tween({ pos: R.HOME.pos.clone(), look: R.HOME.look.clone() }, 1300 / speed); }
+    state = 'room'; hud.style.opacity = '1';
+  }
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') zoomOut(); if ((e.key === 'Enter' || e.key === ' ') && state === 'gate' && document.activeElement === document.body) start(); });
+  function reset() { runId++; state = 'gate'; el.classList.remove('os'); wins.slice().forEach(closeW); toggleStart(false); hud.style.opacity = '0'; sc.classList.remove('on'); boot.style.display = 'none'; gate.style.display = ''; gate.style.opacity = '1'; if (R && !R.fallback) { R.mode = 'room'; R.camPos.copy(R.HOME.pos); R.camLook.copy(R.HOME.look); } if (sound) toggleSound(false); }
+  window.__hh = { start, zoomIn, zoomOut, reset, get state() { return state; } };
+  window.__demoProof = async () => {
+    const o = []; speed = 8;
+    reset(); await start(); o.push(`gate→boot→${state} webgl=${!!(R && !R.fallback)}`);
+    await sleep(150); toggleSound(true); o.push(`sound=${sound}`);
+    await zoomIn(); o.push(`zoom→${state} osVisible=${el.classList.contains('os')} windows=${wins.length}`);
+    const sw = wins.find((w) => w.id === 'showcase'); sw.bd.querySelector('a:nth-child(4)')?.click(); o.push(`showcase page=${sw.bd.firstChild.dataset.page}`);
+    toggleStart(true); o.push(`startmenu=${!!startMenu}`); toggleStart(false);
+    OPEN.henordle(); const inp = os.querySelector('.hh-hn input'); inp.value = 'shelf'; inp.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' })); o.push(`henordle row1=${[...os.querySelectorAll('.hh-hn .g i')].slice(0, 5).map((i) => i.className).join('')}`);
+    const l0 = sw.el.offsetLeft; const tsp = sw.el.querySelector('.tb span'); fire(tsp, 'pointerdown', 20, 10); for (const [x, y] of [[60, 30], [120, 40]]) { fire(tsp, 'pointermove', x, y); await sleep(10); } fire(tsp, 'pointerup', 120, 40); o.push(`drag dx=${sw.el.offsetLeft - l0}`);
+    await zoomOut(); o.push(`exit→${state}`);
+    toggleSound(false); reset(); speed = 1; o.push(`restored state=${state} windows=${wins.length} sound=${sound}`);
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['3d-blob-param-mixer'])(root, T); }

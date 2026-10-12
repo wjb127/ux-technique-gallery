@@ -2160,5 +2160,195 @@ ${RM ? '.cy *{transition-duration:.01s!important;animation:none!important}' : ''
     nextRole(1); roleT = setInterval(() => !document.hidden && nextRole(), RM ? 4000 : 2600); await w(800); o.push(`restored role=${ROLES[ri].join(' ')}`); return o.join('; '); };
 };
 
+
+V['ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips'] = (root, T) => {
+  import('@fontsource-variable/dm-sans/opsz.css'); import('@fontsource-variable/dm-sans/opsz-italic.css');
+  import('@fontsource/courier-prime/400-italic.css'); import('@fontsource/ibm-plex-mono/400.css'); import('@fontsource/ibm-plex-mono/600.css');
+  theme(root, T, { bg: '#fff', fg: '#000', ac: '#000', dark: false }); root.classList.add('scroll'); root.style.overflow = 'auto';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DG = "'DM Sans Variable','Helvetica Neue',Arial,sans-serif", IT = "'Courier Prime','Courier New',monospace", UI = "'IBM Plex Mono','JetBrains Mono Variable',monospace";
+  // stand-in faces for the other OH no families (lazy-loaded on click)
+  const LOAD = {
+    anton: () => import('@fontsource/anton'), fraunces: () => import('@fontsource-variable/fraunces/full.css'), gochi: () => import('@fontsource/gochi-hand'), lilita: () => import('@fontsource/lilita-one'),
+    archivo: () => import('@fontsource-variable/archivo/wdth.css'), federant: () => import('@fontsource/federant'), instr: () => import('@fontsource/instrument-serif/400.css'), playfair: () => import('@fontsource/playfair-display/900.css'),
+    bodoni: () => import('@fontsource/bodoni-moda/700.css'), pinyon: () => import('@fontsource/pinyon-script'), marker: () => import('@fontsource/permanent-marker'), gilda: () => import('@fontsource/gilda-display'),
+    coming: () => import('@fontsource/coming-soon'), nunito: () => import('@fontsource-variable/nunito'), outfit: () => import('@fontsource-variable/outfit'), fell: () => import('@fontsource/im-fell-english'),
+    courier: () => import('@fontsource/courier-prime/700.css'), garamond: () => import('@fontsource/eb-garamond'), jb: () => Promise.resolve(), silk: () => import('@fontsource/silkscreen'), cormorant: () => import('@fontsource/cormorant-upright/700.css'),
+  };
+  const F = (name, price, face, ld, w = 700, extra = {}) => ({ name, price, face, ld, w, ...extra });
+  const FAM = [F('BEASTLY', 60, "'Anton',Impact,sans-serif", 'anton', 400), F('CAMELION', 340, "'Fraunces Variable',serif", 'fraunces', 900, { vw: 1 }), F('CASSEROLE', 120, "'Gochi Hand',cursive", 'gochi', 400),
+    F('CHEEE', 150, "'Lilita One',sans-serif", 'lilita', 400), F('COMPADRE', 420, "'Archivo Variable',sans-serif", 'archivo', 800, { wdth: 125, vw: 1 }), F('CONIFEROUS', 90, "'Federant',serif", 'federant', 400),
+    F('COVIK', 260, "'Instrument Serif',serif", 'instr', 400), F('DEGULAR', 519, DG, null, 900, { variable: true }), F('ECKMANNPSYCH', 180, "'Cormorant Upright',serif", 'cormorant', 700),
+    F('FOREVS', 240, "'Playfair Display',serif", 'playfair', 900), F('HOBEAUX', 280, "'Bodoni Moda',serif", 'bodoni', 700), F('HOBEAUX ROCOCEAUX', 160, "'Pinyon Script',cursive", 'pinyon', 400),
+    F('IRREGARDLESS', 100, "'Permanent Marker',cursive", 'marker', 400), F('MONTREUIL', 220, "'Gilda Display',serif", 'gilda', 400), F('OBVIOUSLY', 650, "'Archivo Variable',sans-serif", 'archivo', 900, { wdth: 62, vw: 1 }),
+    F('OHNO BLAZEFACE', 300, "'Playfair Display',serif", 'playfair', 900, { ital: 1 }), F('OHNO CASUAL', 140, "'Coming Soon',cursive", 'coming', 400), F('OHNO FATFACE', 200, "'Bodoni Moda',serif", 'bodoni', 700, { ital: 1 }),
+    F('OHNO SOFTIE', 180, "'Nunito Variable',sans-serif", 'nunito', 900, { vw: 1 }), F('POLYMATH', 480, "'Outfit Variable',sans-serif", 'outfit', 800, { vw: 1 }), F('REGRETS', 80, "'IM Fell English',serif", 'fell', 400),
+    F('RETAIL', 160, "'Courier Prime',monospace", 'courier', 700), F('SWEAR', 360, "'EB Garamond',serif", 'garamond', 700), F('VIKTOR SCRIPT', 120, "'Pinyon Script',cursive", 'pinyon', 400),
+    F('VULF', 390, "'JetBrains Mono Variable',monospace", 'jb', 800, { vw: 1 }), F('YUMEX', 90, "'Silkscreen',monospace", 'silk', 400)];
+  const DEF = 'DEGULAR'; let act = FAM.find((f) => f.name === DEF);
+  const title = (n) => n.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+  css(`.oh{background:#fff;color:#000;min-height:100%;position:relative;font:400 11px/1.2 ${UI}}
+.oh *{box-sizing:border-box}.oh button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.oh-side{position:sticky;top:0;float:left;width:0;height:0;z-index:30}
+.oh-logo{position:absolute;left:28px;top:30px;width:32px;height:32px;display:block}.oh-logo svg{width:100%;height:100%}
+.oh-nav{position:absolute;left:32px;top:126px;display:flex;flex-direction:column;gap:4px;font:italic 400 20px/1.05 ${IT};letter-spacing:-.01em}
+.oh-nav button{text-align:left;color:#000;transition:opacity .15s;white-space:nowrap}.oh-nav button.on{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.oh-nav button:hover{opacity:.55}.oh-nav .ct{font:400 10px ${UI};vertical-align:super;margin-left:2px}
+.oh-sec{position:absolute;left:32px;top:274px;display:flex;flex-direction:column;gap:9px;font:400 10px/1 ${UI};letter-spacing:.05em}
+.oh-sec a{color:#000;text-decoration:none}.oh-sec a:hover{text-decoration:underline}
+.oh-drw{position:absolute;left:64px;top:0;height:100vh;display:flex;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s}
+.oh-drw.shut{transform:translateX(-24px);opacity:0}.oh-drw.shut *{pointer-events:none!important}
+.oh-fam{width:250px;height:100%;background:#fff;border-left:1px solid #000;padding:130px 0 0;pointer-events:auto;overflow:hidden}
+.oh-fam button{display:block;width:100%;text-align:left;padding:0 0 0 17px;height:28.6px;font:400 10.5px/28.6px ${UI};letter-spacing:.05em;white-space:nowrap}
+.oh-fam button:hover{text-decoration:underline}.oh-fam button.on{font-weight:600}
+.oh-sub{position:absolute;left:64px;top:0;width:190px;height:100%;background:#fff;border-left:1px solid #000;padding:128px 0 0;pointer-events:auto;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.oh-drw.peek .oh-sub{transform:translateX(150px)}
+.oh-sub button{display:block;width:100%;text-align:left;padding:0 0 0 16px;height:28.6px;font:400 10.5px/28.6px ${UI};letter-spacing:.05em;white-space:nowrap}
+.oh-sub button:hover{text-decoration:underline}.oh-sub .buy{background:#000;color:#fff;height:29px;line-height:29px;margin-bottom:0}.oh-sub .buy:hover{text-decoration:none;background:#222}
+.oh-main{margin-left:512px;max-width:820px;padding:150px 40px 160px 0}
+.oh-t{position:relative;margin-bottom:96px}
+.oh-lab{display:flex;align-items:center;gap:22px;min-height:20px;font:400 10px/1 ${UI};letter-spacing:.06em;color:#9b9b9b;text-transform:uppercase}
+.oh-ops{display:flex;gap:6px;opacity:0;transition:opacity .2s;margin-left:auto;color:#000;position:relative}
+.oh-t:hover .oh-ops,.oh-t.edit .oh-ops,.oh-t.pin .oh-ops{opacity:1}
+.oh-chip{border:1px solid #000!important;border-radius:99px;height:22px;padding:0 10px!important;font:400 10px/20px ${UI}!important;letter-spacing:.04em;background:#fff!important;white-space:nowrap}
+.oh-chip:hover,.oh-chip.on{background:#000!important;color:#fff!important}
+.oh-pop{position:absolute;right:0;top:28px;z-index:20;background:#fff;border:1px solid #000;padding:12px 14px;min-width:230px;display:grid;gap:10px;color:#000;font:400 10px ${UI}}
+.oh-pop label{display:grid;grid-template-columns:52px 1fr 36px;align-items:center;gap:8px}.oh-pop input[type=range]{accent-color:#000;width:100%}
+.oh-pop .opt{display:flex;flex-wrap:wrap;gap:5px}
+.oh-ed{outline:none;color:#000;word-break:break-word;caret-color:#000;transition:font-size .15s}
+.oh-ed:focus{background:linear-gradient(#0000 calc(100% - 1px),#0000)}
+.oh-hero .oh-ed{font-size:226px;line-height:1.08;letter-spacing:-.025em;margin:48px 0 0;white-space:nowrap;overflow:visible}
+.oh-txt .oh-ed{font-size:36px;line-height:1.26;letter-spacing:-.005em;margin-top:42px}
+.oh-mono .oh-ed{font:500 22px/1.35 ${UI};margin-top:36px}
+.oh-div{font:600 11px/1 ${UI};letter-spacing:.08em;text-align:center;margin:0 0 92px;white-space:nowrap;overflow:hidden}
+.oh-disp .oh-ed{font-size:150px;line-height:1.1;letter-spacing:-.02em;margin-top:28px;white-space:nowrap}
+.oh-co .oh-ed{font-size:62px;line-height:1.15;letter-spacing:-.01em;margin-top:22px}
+.oh-rd{position:absolute;right:0;bottom:-18px;font:400 10px ${UI};color:#9b9b9b;opacity:0;transition:opacity .2s}.oh-hero:hover .oh-rd{opacity:1}
+.oh-cart{position:fixed;top:var(--tg-h,38px);right:0;bottom:0;width:340px;background:#fff;border-left:1px solid #000;z-index:60;transform:translateX(101%);transition:transform .35s cubic-bezier(.2,.8,.2,1);padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+.oh-cart.on{transform:none}.oh-cart h3{margin:0;font:italic 400 24px ${IT}}.oh-cart .row{display:flex;justify-content:space-between;border-top:1px solid #000;padding:12px 0;font:400 11px ${UI};letter-spacing:.04em}
+.oh-cart .x{position:absolute;right:20px;top:24px;font:400 11px ${UI}}.oh-cart .co{margin-top:auto;background:#000;color:#fff;height:40px;font:400 11px ${UI};letter-spacing:.06em}
+.oh-mb{display:none}
+@media (max-width:820px){.oh-side{position:relative;float:none;width:auto;height:64px}.oh-logo{left:16px;top:16px}.oh-nav{left:auto;right:16px;top:20px;flex-direction:row;gap:12px;font-size:16px}.oh-sec{display:none}
+.oh-drw{position:fixed;left:0;top:calc(var(--tg-h,38px) + 64px);height:calc(100vh - 102px);z-index:40}.oh-fam{width:150px;padding-top:12px}.oh-sub{left:150px;width:160px;padding-top:12px;border-right:1px solid #000}.oh-drw.peek .oh-sub{transform:none}
+.oh-main{margin-left:0;padding:40px 16px 100px}.oh-hero .oh-ed{font-size:min(226px,24vw)}.oh-txt .oh-ed{font-size:23px}.oh-mono .oh-ed{font-size:15px}.oh-disp .oh-ed{font-size:min(150px,22vw)}.oh-co .oh-ed{font-size:30px}.oh-ops{opacity:1;flex-wrap:wrap}.oh-lab{flex-wrap:wrap;gap:8px}.oh-div{white-space:normal;line-height:1.5}.oh-cart{width:100%}}
+${RM ? '.oh *{transition:none!important}' : ''}`);
+  const el = h('div.oh'); root.append(el);
+  const logo = h('a.oh-logo', { href: '#', title: 'OH no Type Company', onclick: (e) => { e.preventDefault(); root.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }); },
+    html: '<svg viewBox="0 0 34 34" width="34" height="34"><ellipse cx="9.5" cy="17" rx="7" ry="13.5" fill="none" stroke="#000" stroke-width="4.6"/><path d="M17.5 3.5v27M31 3.5v27M17.5 17H31" stroke="#000" stroke-width="4.6" fill="none"/></svg>' });
+  let cart = [];
+  const ctBadge = h('span.ct');
+  const navB = {};
+  const nav = h('div.oh-nav', {}, ...[['fonts', () => toggleDrawer()], ['custom', () => toast('custom → bespoke type commissions')], ['drawer', () => openCart(true)], ['sign in', () => toast('sign in (demo)')]].map(([t, fn]) => (navB[t] = h('button', { onclick: fn }, t, t === 'drawer' ? ctBadge : null))));
+  const sec = h('div.oh-sec', {}, ...['INFO', 'DEMO FONTS', 'COLLECTIONS', 'INSTAGRAM', 'BLOG'].map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(t.toLowerCase()); } }, t)));
+  const famCol = h('div.oh-fam'); const buyB = h('button.buy', { onclick: () => addToCart() });
+  const SUB = [['STYLES', () => jump(sDisp)], ['IN-USE', () => toast('in-use gallery')], ['FEATURES', () => { jump(tHero); tHero.openPop('feat'); }], ['COLLECTIONS', () => toast('collections')], ['SPECIMEN ✧', () => jump(tHero)], ['DEMOS →', () => toast('download demo fonts')], ['PROCESS →', () => toast('process essay')]];
+  const subCol = h('div.oh-sub', {}, buyB, ...SUB.map(([t, fn]) => h('button', { onclick: fn }, t)));
+  const drw = h('div.oh-drw', { onpointerleave: () => drw.classList.remove('peek') }, famCol, subCol);
+  famCol.addEventListener('pointerenter', () => drw.classList.add('peek'));
+  subCol.addEventListener('pointerenter', () => drw.classList.remove('peek'));
+  el.append(h('div.oh-side', {}, logo, nav, sec, drw));
+  const main = h('div.oh-main'); el.append(main);
+  const jump = (n) => n.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
+  // ---- tester factory
+  const testers = [];
+  function tester(cls, label, text, st) {
+    const s0 = { ...st };
+    const t = h('div.oh-t.' + cls); const lab = h('span'); const ops = h('div.oh-ops');
+    const ed = h('div.oh-ed', { contenteditable: 'true', spellcheck: 'false' }, text);
+    ed.addEventListener('focus', () => t.classList.add('edit')); ed.addEventListener('blur', () => t.classList.remove('edit'));
+    const o = { el: t, ed, st: { ...st }, label, text, cls };
+    const apply = () => {
+      const f = o.st.face || act.face; const isDG = !o.st.face && act.variable;
+      ed.style.fontFamily = f;
+      ed.style.fontWeight = o.st.face || act.variable || act.vw ? (o.st.w ?? act.w) : act.w;
+      const fvs = []; if (isDG) fvs.push(`"opsz" ${o.st.opsz ?? 40}`); if (/Archivo/.test(f) && !o.st.face) fvs.push(`"wdth" ${act.wdth || 100}`);
+      ed.style.fontVariationSettings = fvs.join(',') || 'normal';
+      ed.style.fontStyle = o.st.ital || (!o.st.face && act.ital) ? 'italic' : 'normal';
+      const ff = []; if (o.st.tnum) ff.push('"tnum"'); if (o.st.ss01) ff.push('"ss01"'); if (o.st.frac) ff.push('"frac"');
+      ed.style.fontFeatureSettings = ff.join(',') || 'normal';
+      ed.style.fontVariantCaps = o.st.caps ? 'all-small-caps' : 'normal';
+      ed.style.letterSpacing = o.st.track != null ? o.st.track + 'em' : '';
+      ed.style.fontSize = o.st.size ? o.st.size + 'px' : '';
+      ed.style.textAlign = o.st.center ? 'center' : '';
+      const nm = act.name === DEF ? 'DEGULAR' : act.name;
+      lab.textContent = typeof label === 'function' ? label(nm, o.st) : label;
+      ops.querySelectorAll('[data-k]').forEach((b) => b.classList.toggle('on', !!o.st[b.dataset.k]));
+    };
+    o.apply = apply;
+    let pop = null;
+    const closePop = () => { pop?.remove(); pop = null; t.classList.remove('pin'); ops.querySelectorAll('.oh-chip.pp').forEach((b) => b.classList.remove('on')); };
+    const rng = (k, lbl, mn, mx, def, step = 1) => { const out = h('span', {}, String(Math.round(o.st[k] ?? def))); return h('label', {}, lbl, h('input', { type: 'range', min: mn, max: mx, step, value: o.st[k] ?? def, oninput: (e) => { o.st[k] = +e.target.value; out.textContent = Math.round(+e.target.value); apply(); } }), out); };
+    o.openPop = (kind) => {
+      const was = pop?.dataset.kind; closePop(); if (was === kind) return;
+      t.classList.add('pin');
+      const WTS = [['Thin', 100], ['Light', 300], ['Regular', 400], ['Medium', 500], ['Semibold', 600], ['Bold', 700], ['Black', 900]];
+      const body = kind === 'var' ? [rng('w', 'wght', 100, 1000, o.st.w ?? act.w), rng('opsz', 'opsz', 9, 40, o.st.opsz ?? 40, 0.1)]
+        : kind === 'size' ? [rng('size', 'size', 12, cls === 'oh-hero' ? 300 : 200, parseFloat(getComputedStyle(ed).fontSize)), rng('track', 'track', -0.08, 0.2, o.st.track ?? 0, 0.005)]
+          : kind === 'style' ? [h('div.opt', {}, ...WTS.map(([n, w]) => h('button.oh-chip' + ((o.st.w ?? act.w) === w ? '.on' : ''), { onclick: () => { o.st.w = w; apply(); o.openPop('style'); o.openPop('style'); } }, n)),
+            h('button.oh-chip' + (o.st.ital ? '.on' : ''), { onclick: () => { o.st.ital = !o.st.ital; apply(); o.openPop('style'); o.openPop('style'); } }, 'Italic'))]
+            : [h('div.opt', {}, ...[['ss01', 'ss01 alt'], ['tnum', 'tnum 0123'], ['frac', 'frac 1/2'], ['caps', 'Small caps'], ['center', 'Center']].map(([k, n]) => h('button.oh-chip' + (o.st[k] ? '.on' : ''), { onclick: () => { o.st[k] = !o.st[k]; apply(); o.openPop('feat'); o.openPop('feat'); } }, n)))];
+      pop = h('div.oh-pop', { 'data-kind': kind }, ...body,
+        h('button.oh-chip', { style: { justifySelf: 'start' }, onclick: () => { o.st = { ...s0 }; ed.textContent = text; apply(); closePop(); } }, 'Reset'));
+      ops.append(pop); ops.querySelector(`[data-p="${kind}"]`)?.classList.add('on');
+    };
+    const chips = (cls === 'oh-hero' ? [['var', 'Variables']] : [['style', 'Styles']]).concat([['size', 'Size'], ['feat', 'Opentype']]);
+    ops.append(...chips.map(([k, n]) => h('button.oh-chip.pp', { 'data-p': k, onclick: (e) => { e.stopPropagation(); o.openPop(k); } }, n + ' ▾')), h('span', { style: { color: '#9b9b9b', alignSelf: 'center', marginLeft: '8px' } }, 'Format  Opentype'));
+    t.append(h('div.oh-lab', {}, lab, ops), ed); apply(); testers.push(o); o.close = closePop; o.reset = () => { o.st = { ...s0 }; ed.textContent = text; closePop(); apply(); };
+    return o;
+  }
+  addEventListener('pointerdown', (e) => { if (!e.target.closest?.('.oh-ops')) testers.forEach((x) => x.close()); });
+  const tHero = tester('oh-hero', (n, st) => `${n} ${act.variable ? 'VARIABLE' : '— ' + (st.w >= 800 || (!st.w && act.w >= 800) ? 'BLACK' : 'REGULAR')}`, 'Degular', { w: 900 });
+  const rd = h('span.oh-rd'); tHero.el.append(rd);
+  // pointer scrub on the variable wordmark: x → wght
+  let scrub = false;
+  tHero.ed.addEventListener('pointermove', (e) => { if (!act.variable || document.activeElement === tHero.ed || tHero.el.classList.contains('pin')) return; const r = tHero.ed.getBoundingClientRect(); const w = Math.round(100 + clamp((e.clientX - r.left) / r.width, 0, 1) * 900); tHero.ed.style.fontWeight = w; rd.textContent = `wght ${w} · move ← → to scrub · click to type`; scrub = true; });
+  tHero.ed.addEventListener('pointerleave', () => { if (scrub) { scrub = false; tHero.apply(); } });
+  const W = 'From the foundry that → brought you, “Hobeaux” (2015), “Ohno™ Blazeface” (2019), and “Cheee” (2020), comes something with (significantly) less allure. ✧ While {most of} the fonts around here scream in desperate need of your peepers’ gaze, Degular aims to fade into the background [like the finest Japanese-made white noise machine as you drift off to ~dreamland~]. ¶ Degular also provides a once-in-a-lifetime opportunity to use an Ohno font more than once! 7 weights, 3 optical sizes, in ☑roman and ☑italic.';
+  const tTxt = tester('oh-txt', (n) => `${n} TEXT — LIGHT`, W, { w: 300, opsz: 14 });
+  const tMono = tester('oh-mono', 'DEGULAR MONO — MEDIUM', 'From the foundry that brought you “Degular” (2020), comes Degular Mono. 7 Add\'l styles. It\'s like Degular, but it\'s doing a robot voice.', { face: UI, w: 500 });
+  const div1 = h('div.oh-div', {}, '• • • • • • • §1: THE DISPLAY STYLES. USE THEM BIG. BE BOLD. BE PROUD. BE DEGULAR. • • • • • • •');
+  const sDisp = h('div'); const disp = [['BLACK', 900, 'Firm'], ['BOLD', 700, 'Trust'], ['SEMIBOLD', 600, 'Group'], ['MEDIUM', 500, 'Studio'], ['REGULAR', 400, 'House'], ['LIGHT', 300, 'Agency'], ['THIN', 100, 'Company']]
+    .map(([n, w, s]) => tester('oh-disp', (f) => `${f} DISPLAY — ${n}`, s, { w, opsz: 40 }));
+  const div2 = h('div.oh-div', {}, '• • • • • • • §2: THE DEGULAR STYLES. THEY’RE SOMEHOW MORE DEGULAR THAN DEGULAR ITSELF. • • • • • • •');
+  const cos = [['BLACK', 900, 'Ordinary Merchandising, LLC'], ['BOLD', 700, 'Unremarkable Enterprises Co.'], ['SEMIBOLD', 600, 'Supervanilla International GmbH'], ['MEDIUM', 500, 'Flat Services & Manufacturing Inc.'], ['REGULAR', 400, 'Monotony Systems Management AG'], ['LIGHT', 300, 'Basic Industries Marketing Group Corp.'], ['THIN', 100, 'Ho-Hum Business Collective']]
+    .map(([n, w, s]) => tester('oh-co', (f) => `${f} — ${n}`, s, { w, opsz: 24 }));
+  sDisp.append(div1, ...disp.map((x) => x.el));
+  main.append(tHero.el, tTxt.el, tMono.el, sDisp, div2, ...cos.map((x) => x.el), h('div', { style: { font: `italic 400 18px ${IT}`, marginTop: '40px' } }, '© OH no Type Company — fonts for people who like fonts (look-alike study).'));
+  // ---- family rail
+  function drawFam() { famCol.replaceChildren(...FAM.map((f) => h('button' + (f === act ? '.on' : ''), { onclick: () => selectFam(f.name) }, f.name))); buyB.textContent = `BUY — $${act.price}`; }
+  function selectFam(name) {
+    const f = FAM.find((x) => x.name === name); if (!f) return; act = f; f.ld && LOAD[f.ld]?.().catch(() => {});
+    tHero.ed.textContent = title(f.name); testers.forEach((x) => x.apply());
+    drawFam();
+  }
+  const toggleDrawer = (v) => { const open = v ?? drw.classList.contains('shut'); drw.classList.toggle('shut', !open); navB.fonts.classList.toggle('on', open); };
+  function openCart(on) {
+    let c = el.querySelector('.oh-cart');
+    if (!c) { c = h('aside.oh-cart'); el.append(c); }
+    const total = cart.reduce((a, x) => a + x.price, 0);
+    c.replaceChildren(h('h3', {}, 'drawer'), h('button.x', { onclick: () => openCart(false) }, 'CLOSE ✕'),
+      ...(cart.length ? cart.map((x, i) => h('div.row', {}, h('span', {}, `${x.name} — COMPLETE FAMILY`), h('span', {}, `$${x.price} `, h('button', { onclick: () => { cart.splice(i, 1); ctBadge.textContent = cart.length || ''; openCart(true); } }, '✕')))) : [h('div', { style: { font: `italic 400 16px ${IT}` } }, 'your drawer is empty (for now).')]),
+      h('div.row', {}, h('span', {}, 'TOTAL'), h('span', {}, `$${total}`)), h('button.co', { onclick: () => toast('checkout (demo — nothing is charged)') }, 'CHECK OUT →'));
+    requestAnimationFrame(() => c.classList.toggle('on', on));
+  }
+  function addToCart() { if (!cart.find((x) => x.name === act.name)) cart.push({ name: act.name, price: act.price }); ctBadge.textContent = cart.length; openCart(true); }
+  const DRW0 = !matchMedia('(max-width:820px)').matches; drawFam(); toggleDrawer(DRW0);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') { openCart(false); testers.forEach((x) => x.close()); } });
+  window.__demoProof = async () => {
+    const o = [];
+    toggleDrawer(false); await sleep(60); toggleDrawer(true); await sleep(60); o.push(`drawer toggle closed→${drw.classList.contains('shut') ? 'closed' : 'open'}`);
+    drw.classList.add('peek'); await sleep(40); o.push('peek rail'); drw.classList.remove('peek');
+    selectFam('HOBEAUX'); await sleep(250); o.push(`family→${act.name} buy="${buyB.textContent}" hero="${tHero.ed.textContent}" face=${tHero.ed.style.fontFamily.split(',')[0]}`);
+    selectFam(DEF); o.push(`family→${act.name}`);
+    tHero.openPop('var'); const sl = tHero.el.querySelector('.oh-pop input'); sl.value = 200; sl.dispatchEvent(new Event('input')); o.push(`hero wght=${getComputedStyle(tHero.ed).fontWeight}`); tHero.reset();
+    tTxt.openPop('feat'); tTxt.st.caps = true; tTxt.st.center = true; tTxt.apply(); o.push(`txt caps=${getComputedStyle(tTxt.ed).fontVariantCaps} align=${getComputedStyle(tTxt.ed).textAlign}`); tTxt.reset();
+    disp[0].openPop('size'); disp[0].st.size = 90; disp[0].apply(); o.push(`Firm size=${getComputedStyle(disp[0].ed).fontSize}`); disp[0].reset();
+    tHero.ed.textContent = 'Ohno!'; o.push(`edit="${tHero.ed.textContent}"`); tHero.reset();
+    addToCart(); o.push(`drawer items=${cart.length} badge=${ctBadge.textContent}`); cart = []; ctBadge.textContent = ''; openCart(false);
+    toggleDrawer(DRW0); await sleep(380); o.push(`restored drawer=${DRW0 ? 'open' : 'closed'} family=${act.name} hero="${tHero.ed.textContent}" w=${tHero.st.w} cart=${cart.length}`);
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['modular-typescale-studio'])(root, T); }
 

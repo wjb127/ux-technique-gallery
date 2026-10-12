@@ -8625,4 +8625,216 @@ V['panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-ba
 };
 
 
+
+V['endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections'] = (root, T) => {
+  import('@fontsource-variable/plus-jakarta-sans');
+  theme(root, T, { bg: '#000', fg: '#fff', ac: '#fff', dark: true }); scroll(root);
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const F = "'Plus Jakarta Sans Variable','Helvetica Neue',Arial,sans-serif";
+  const MODES = [
+    { k: 'relax', n: 'Relax', d: 'Calms your mind to create feelings of comfort and safety', sub: 'Morning Energy Rise' },
+    { k: 'focus', n: 'Focus', d: 'Boosts your productivity by helping you concentrate for longer', sub: 'Midday Energy Peak' },
+    { k: 'sleep', n: 'Sleep', d: 'Soothes you into a deep sleep with soft, gentle sounds', sub: 'Night Wind-Down' },
+    { k: 'activity', n: 'Activity', d: 'Powers your movement with sounds to keep you present and grounded', sub: 'Steady Pace' },
+  ];
+  let mode = 'relax', playing = false;
+  css(`.en{background:#000;color:#fff;font:400 16px/1.45 ${F};min-height:100%;overflow-x:clip}
+.en *{box-sizing:border-box}.en button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}.en a{color:inherit;text-decoration:none}
+.en-nav{position:sticky;top:0;z-index:40;height:70px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 16px 0 15px;background:linear-gradient(#000e,#0000)}
+.en-logo{width:40px;height:40px;display:block}
+.en-links{display:flex;gap:31px;font:500 19.5px/1 ${F};letter-spacing:-.005em}.en-links button{opacity:.92;transition:opacity .2s}.en-links button:hover{opacity:.6}
+.en-links .more{display:flex;align-items:center;gap:9px;position:relative}.en-links .more svg{transition:transform .25s}.en-links .more.on svg{transform:rotate(180deg)}
+.en-dd{position:absolute;top:44px;left:50%;transform:translateX(-50%);background:#161616;border:1px solid #2a2a2a;border-radius:16px;padding:10px;min-width:210px;display:grid;gap:2px;font:500 15px ${F};box-shadow:0 20px 60px #000c}
+.en-dd button{text-align:left;padding:10px 14px;border-radius:10px}.en-dd button:hover{background:#252525}
+.en-r{display:flex;justify-content:flex-end;gap:12px}
+.en .glow{height:42px;padding:0 15px;border-radius:12px;background:#2b2b2b;border:1px solid #6e6e6e;font:500 15px ${F};box-shadow:0 0 14px 1px #ffffff45,inset 0 0 8px #ffffff18;transition:box-shadow .3s}
+.en .glow:hover{box-shadow:0 0 22px 4px #ffffff66,inset 0 0 10px #ffffff22}
+.en .sgn{height:42px;padding:0 15px;border-radius:12px;background:#262626;font:500 15px ${F}}.en .sgn:hover{background:#333}
+.en-hero{text-align:center;padding:46px 20px 0}
+.en-hero h1{margin:0;font:500 60px/1.1 ${F};letter-spacing:-.01em}
+.en-hero p{margin:24px auto 0;max-width:560px;color:#c9c9c9;font:400 21px/1.36 ${F}}
+.en .out{margin-top:40px;height:55px;padding:0 37px;border:2px solid #d9d9d9;border-radius:12px;font:500 21px ${F};transition:background .2s,color .2s}.en .out:hover{background:#fff;color:#000}
+.en-stw{position:relative;margin:4px auto 0;width:100%;max-width:1440px;overflow:hidden}
+.en-st{position:relative;width:1330px;height:530px;transform-origin:0 0;left:50%;margin-left:-665px}
+.en-dev{position:absolute;overflow:hidden}.en-dev canvas{position:absolute;inset:0;width:100%;height:100%}
+.en-ph{border-radius:30px;background:#0b0b0b;border:5px solid #555;box-shadow:0 0 0 2px #222,0 30px 50px #000}
+.en-ph .bar{position:absolute;left:18px;right:18px;top:12px;display:flex;justify-content:space-between;font:600 10px ${F};color:#ddd;z-index:2}
+.en-ph .ttl{position:absolute;left:0;right:0;top:36px;text-align:center;font:500 12px/1.3 ${F};z-index:2}.en-ph .ttl small{display:block;font-size:9px;color:#bbb}
+.en-ph .dock{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:9px;z-index:2}.en-ph .dock i{width:22px;height:22px;border-radius:50%;border:1.3px solid #aaa;display:block}.en-ph .dock i.on{border-color:#fff;background:#fff2}
+.en-tv{background:#050505;border-radius:4px;box-shadow:0 0 0 1px #1d1d1d}
+.en-lap{background:#0c0c0c;border:7px solid #2c2c2c;border-radius:12px 12px 4px 4px;box-shadow:0 20px 40px #000}
+.en-lap .ui{position:absolute;inset:8px;font:500 9px ${F};color:#ddd}.en-lap .ui b{font:600 14px ${F};display:block;margin:20px 0 10px}
+.en-lap .gr{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.en-lap .gr i{aspect-ratio:1;border-radius:50%;border:1.2px solid #bbb;display:block}
+.en-lap .tg{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}.en-lap .tg span{background:#2b2b2b;border-radius:3px;padding:3px 6px;font-size:7.5px}
+.en-puck{border-radius:50%;background:radial-gradient(circle at 40% 30%,#3a3a3a,#111 70%);box-shadow:0 25px 40px #000,inset 0 2px 3px #fff3;display:grid;place-items:center}
+.en-hp{border-radius:28px;background:linear-gradient(#2c2c2c,#141414);box-shadow:inset 0 2px 2px #fff2}
+.en-atv{border-radius:22px;background:linear-gradient(#3a3a3a,#1a1a1a);display:grid;place-items:center;font:600 34px ${F};color:#ddd;box-shadow:inset 0 2px 2px #fff3}
+.en-vr{border-radius:46% 46% 40% 40%/60% 60% 40% 40%;background:linear-gradient(#5a5a5a,#1d1d1d 30%,#0b0b0b 70%,#333);box-shadow:inset 0 0 0 9px #444,inset 0 0 0 12px #111,0 30px 50px #000}
+.en-w{border-radius:34px;background:#0b0b0b;border:5px solid #4a4a4a;box-shadow:0 20px 40px #000}.en-w.rd{border-radius:50%}
+.en-w .tt{position:absolute;left:0;right:0;text-align:center;font:500 9px ${F};z-index:2;color:#ddd}
+.en-press{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 30px;max-width:1120px;margin:90px auto 0;padding:0 30px;align-items:center;justify-items:center;color:#bdbdbd}
+.en-press span{white-space:nowrap;opacity:.9}
+.en-big{position:relative;height:640px;margin-top:70px;display:grid;place-items:center}
+.en-big canvas.bk{position:absolute;inset:0;width:100%;height:100%}
+.en-big .phone{position:relative;width:256px;height:520px}
+.en-big .icons{position:absolute;left:0;right:0;top:78px;display:grid;justify-items:center;gap:14px;z-index:3}
+.en-big .icons button{width:68px;height:68px;border-radius:50%;transition:transform .3s,filter .3s}.en-big .icons button:hover{transform:scale(1.07)}.en-big .icons button.on{filter:drop-shadow(0 0 10px #fffa)}
+.en-big .play{position:absolute;left:50%;top:236px;width:52px;height:52px;margin-left:-26px;border-radius:50%;background:#fff;color:#000;z-index:4;display:grid;place-items:center;box-shadow:0 0 30px #fff6;transition:transform .2s}.en-big .play:hover{transform:scale(1.08)}
+.en-modes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1150px;margin:40px auto 0;padding:0 30px}
+.en-card{background:#0d0d0d;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.en-card:hover,.en-card.on{transform:translateY(-4px);box-shadow:0 0 0 1px #3a3a3a,0 20px 50px #000}
+.en-card .vis{position:relative;height:250px;background:radial-gradient(120% 90% at 50% 20%,#3b3b3b,#151515 60%,#0d0d0d)}
+.en-card .vis canvas{position:absolute;inset:0;width:100%;height:100%}
+.en-card .pl{position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:50%;background:#ffffff1a;display:grid;place-items:center;backdrop-filter:blur(4px);transition:background .2s}.en-card .pl:hover{background:#ffffff40}
+.en-card .tx{padding:14px 16px 20px}.en-card h3{margin:0 0 12px;font:500 21px ${F};color:#d6d6d6}.en-card p{margin:0;color:#d0d0d0;font-size:15px;line-height:1.55;min-height:70px}
+.en-card .lm{display:inline-flex;gap:8px;margin-top:20px;font:500 15px ${F}}.en-card .lm:hover{text-decoration:underline;text-underline-offset:4px}
+.en-sci{text-align:center;max-width:1150px;margin:110px auto 0;padding:0 30px}
+.en-sci h2,.en-sec h2{margin:0;font:500 44px/1.18 ${F};letter-spacing:-.01em}.en-sci>p,.en-sec>p{max-width:740px;margin:22px auto 0;color:#cfcfcf;font-size:20.5px;line-height:1.36}
+.en-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.en-stat{display:grid;justify-items:center}.en-stat svg{height:78px;width:150px;margin-bottom:-26px}.en-stat b{font:700 98px/1 ${F};letter-spacing:-.02em;font-variant-numeric:tabular-nums}.en-stat span{margin-top:18px;font-size:15.5px;color:#ddd;max-width:250px}.en-stat sup,.en-fn sup{font-size:9px}
+.en-fn{margin-top:46px;font-size:13.5px;color:#cfcfcf;line-height:1.75}.en-fn p{margin:0 auto 6px;max-width:540px}
+.en-sec{text-align:center;max-width:1150px;margin:130px auto 0;padding:0 30px}
+.en-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;text-align:left}
+.en-pc{background:#121212;border-radius:16px;overflow:hidden}.en-pc .vis{position:relative;height:360px;background:radial-gradient(90% 80% at 50% 40%,#3a3a3a,#1a1a1a 55%,#111)}
+.en-pc .vis canvas{position:absolute;inset:0;width:100%;height:100%}.en-pc .tx{padding:26px 26px 30px}.en-pc h3{margin:0 0 18px;font:500 36px/1.12 ${F};letter-spacing:-.01em}.en-pc p{margin:0;color:#cfcfcf;font-size:16.5px;line-height:1.6}
+.en-pc .tn{display:inline-flex;gap:8px;margin-top:22px;font:500 16px ${F}}.en-pc .tn:hover{text-decoration:underline;text-underline-offset:4px}
+.en-foot{margin-top:140px;border-top:1px solid #1f1f1f;padding:60px 40px 80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;color:#aaa;font-size:14px}.en-foot b{color:#fff;font-weight:500;display:block;margin-bottom:12px}.en-foot div>span{display:block;margin:6px 0}
+.en-mod{position:fixed;inset:var(--tg-h,38px) 0 0 0;z-index:80;background:#000b;backdrop-filter:blur(8px);display:grid;place-items:center;opacity:0;transition:opacity .25s}.en-mod.on{opacity:1}
+.en-mod>div{width:min(440px,92vw);background:#121212;border:1px solid #2c2c2c;border-radius:22px;padding:30px;text-align:center;box-shadow:0 0 50px #fff1}
+.en-mod h3{margin:14px 0 8px;font:500 28px ${F}}.en-mod p{color:#bbb;margin:0 0 20px}.en-mod .pf{display:grid;gap:10px}.en-mod .pf button{height:48px;border-radius:12px;background:#222;border:1px solid #333}.en-mod .pf button:hover{background:#2e2e2e}
+.en-eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px;margin-left:8px}.en-eq i{width:2px;background:#fff;height:4px;display:block}.en.pl .en-eq i{animation:enEq .9s ease-in-out infinite}.en-eq i:nth-child(2){animation-delay:-.3s!important}.en-eq i:nth-child(3){animation-delay:-.6s!important}
+@keyframes enEq{50%{height:12px}}
+@media (max-width:900px){.en-links{display:none}.en-nav{grid-template-columns:1fr auto}.en-hero h1{font-size:44px}.en-hero p{font-size:17px}.en-modes,.en-stats{grid-template-columns:1fr 1fr}.en-pair{grid-template-columns:1fr}.en-press{grid-template-columns:repeat(3,1fr);gap:18px 10px;font-size:.8em}.en-stat b{font-size:58px}.en-sci h2,.en-sec h2{font-size:30px}.en-sci>p,.en-sec>p{font-size:16px}.en-pc h3{font-size:26px}.en-pc .vis{height:250px}.en-foot{grid-template-columns:1fr 1fr}.en-big{height:560px}}
+@media (max-width:520px){.en-modes{grid-template-columns:1fr}.en .glow,.en .sgn{height:36px;font-size:13px;padding:0 11px}}
+${RM ? '.en *{animation:none!important;transition:none!important}' : ''}`);
+  const el = h('div.en'); root.append(el);
+  const LOGO = (sz = 40, sw = 1.6) => `<svg class="en-logo" viewBox="0 0 40 40" width="${sz}" height="${sz}"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#fff" stroke-width="${sw}"/><path d="M20 4.5c-5.2 0-7.6 3.4-7.6 6.9 0 4.6 7.6 5.3 7.6 9.4 0 3.2-3.6 3.6-3.6 6.7 0 3 2.6 4.6 5.1 4.6 4.5 0 7.6-3.7 7.6-7.9" fill="none" stroke="#fff" stroke-width="${sw}" stroke-linecap="round"/></svg>`;
+  const ARR = '<svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 9L9 2M3.5 2H9v5.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+  const PLAY = (c = '#000', z = 18) => `<svg width="${z}" height="${z}" viewBox="0 0 20 20"><path d="M6 3.5l11 6.5-11 6.5z" fill="${c}"/></svg>`;
+  const PAUSE = (c = '#000', z = 18) => `<svg width="${z}" height="${z}" viewBox="0 0 20 20"><rect x="5" y="4" width="3.4" height="12" rx="1" fill="${c}"/><rect x="11.6" y="4" width="3.4" height="12" rx="1" fill="${c}"/></svg>`;
+  // ---------------- generative line art
+  const W = 'rgba(255,255,255,', TAU = Math.PI * 2;
+  const ART = {
+    relax(g, w, hh, t, a = 1) { g.lineWidth = 1.1; for (let k = 0; k < 7; k++) { g.strokeStyle = W + (0.35 + 0.6 * (k % 2)) * a + ')'; g.beginPath(); for (let y = 0; y <= hh; y += 3) { const env = Math.sin((y / hh) * Math.PI) ** 0.7; const x = w / 2 + Math.sin((y / hh) * Math.PI * 3.2 + t * 0.9 + k * 0.9) * w * 0.34 * env * (0.45 + 0.55 * Math.cos(k * 1.3 + t * 0.2)); y ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); } for (let i = 0; i < 26; i++) { const x = (Math.sin(i * 91.7) * 0.5 + 0.5) * w, y = (Math.sin(i * 37.1) * 0.5 + 0.5) * hh; g.fillStyle = W + (0.25 + 0.5 * Math.abs(Math.sin(t + i))) * a + ')'; g.fillRect(x, y, 1.4, 1.4); } },
+    focus(g, w, hh, t, a = 1) { const n = 5, cw = w / n, chh = hh / 7; g.strokeStyle = W + 0.55 * a + ')'; g.lineWidth = 1; for (let i = 1; i < n; i++) { g.beginPath(); g.moveTo(i * cw, 0); g.lineTo(i * cw, hh); g.stroke(); } for (let j = 1; j < 7; j++) { g.beginPath(); const gap = (Math.sin(j * 2.3 + t * 0.5) * 0.5 + 0.5) * w; g.moveTo(0, j * chh); g.lineTo(Math.max(0, gap - cw * 0.6), j * chh); g.moveTo(gap + cw * 0.6, j * chh); g.lineTo(w, j * chh); g.stroke(); } g.lineWidth = 1.6; g.strokeStyle = W + 0.95 * a + ')'; for (let q = 0; q < 3; q++) { const p = (t * 0.25 + q / 3) % 1; const x = (Math.floor(p * n * 3 + q) % n) * cw + cw * 0.3, y = (Math.floor(p * 7 + q * 2) % 7) * chh + chh * 0.25; g.strokeRect(x, y, cw * 0.4, cw * 0.4); } },
+    sleep(g, w, hh, t, a = 1) { const cx = w * 0.5, cy = hh * 0.36, r = Math.min(w, hh) * 0.2; g.strokeStyle = W + 0.9 * a + ')'; g.lineWidth = 1.4; g.beginPath(); g.arc(cx, cy, r, 0.5, TAU - 0.5); g.arc(cx + r * 0.55, cy - r * 0.15, r * 0.82, TAU - 0.75, 0.75, true); g.closePath(); g.stroke(); for (let i = 0; i < 40; i++) { const x = (Math.sin(i * 12.9898) * 43758.5453 % 1 + 1) % 1 * w, y = (Math.sin(i * 78.233) * 12543.21 % 1 + 1) % 1 * hh * 0.7; g.fillStyle = W + (0.2 + 0.7 * (Math.sin(t * 1.3 + i * 2) * 0.5 + 0.5)) * a + ')'; g.beginPath(); g.arc(x, y, 1, 0, TAU); g.fill(); } g.lineWidth = 1; for (let k = 0; k < 6; k++) { g.strokeStyle = W + (0.15 + k * 0.1) * a + ')'; g.beginPath(); for (let x = 0; x <= w; x += 4) { const y = hh * (0.62 + k * 0.06) + Math.sin(x / w * TAU * 1.2 + t * 0.35 + k) * hh * 0.025; x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); } },
+    activity(g, w, hh, t, a = 1) { g.lineWidth = 1.3; const rows = 9; for (let j = 0; j < rows; j++) { const y = hh * (0.12 + j * 0.095); const off = ((t * (40 + j * 7)) % 90) - 90; g.strokeStyle = W + (0.35 + 0.6 * (j % 3 === 1)) * a + ')'; for (let x = off; x < w + 90; x += 90) { g.beginPath(); g.moveTo(x, y); g.lineTo(x + 54, y); g.lineTo(x + 46, y - 6); g.moveTo(x + 54, y); g.lineTo(x + 46, y + 6); g.stroke(); } } },
+    sun(g, w, hh, t, a = 1) { const cx = w * 0.5, cy = hh * 0.74; g.lineWidth = 1; for (let i = 0; i < 26; i++) { const an = Math.PI + (i / 25) * Math.PI; const L = hh * (0.55 + 0.12 * Math.sin(i * 1.7 + t * 0.6)); g.strokeStyle = W + (0.55 + 0.4 * Math.sin(i + t)) * a + ')'; g.beginPath(); g.moveTo(cx + Math.cos(an) * hh * 0.08, cy + Math.sin(an) * hh * 0.08); g.lineTo(cx + Math.cos(an) * L, cy + Math.sin(an) * L); g.stroke(); } for (let i = 0; i < 70; i++) { const x = ((i * 0.6180339) % 1) * w, y = ((i * 0.41421) % 1) * hh * 0.7; g.fillStyle = W + (0.15 + 0.5 * (Math.sin(t * 2 + i) * 0.5 + 0.5)) * a + ')'; g.fillRect(x, y, 1.2, 1.2); } for (let k = 0; k < 5; k++) { const gr = g.createLinearGradient(0, hh * 0.6, 0, hh); gr.addColorStop(0, `rgba(${90 - k * 12},${90 - k * 12},${90 - k * 12},1)`); gr.addColorStop(1, '#050505'); g.fillStyle = gr; g.beginPath(); g.moveTo(0, hh); for (let x = 0; x <= w; x += 8) g.lineTo(x, hh * (0.66 + k * 0.065) + Math.sin(x / w * TAU * (0.8 + k * 0.3) + k * 2 + t * 0.15) * hh * 0.035); g.lineTo(w, hh); g.fill(); } },
+    graph(g, w, hh, t, a = 1) { g.strokeStyle = W + 0.25 * a + ')'; g.lineWidth = 1; for (let x = 0; x < w; x += w / 9) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, hh); g.stroke(); } for (let y = 0; y < hh; y += hh / 7) { g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); } g.lineWidth = 2.2; for (let k = 0; k < 3; k++) { g.strokeStyle = W + (k ? 0.45 : 0.95) * a + ')'; g.beginPath(); for (let x = 0; x <= w; x += 3) { const y = hh * 0.55 + Math.sin(x / w * TAU * (2 + k * 0.7) - t * (1 + k * 0.3)) * hh * (0.22 - k * 0.04); x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); } g.lineWidth = 2; g.strokeStyle = W + 0.9 * a + ')'; g.beginPath(); for (let x = 0; x <= w; x += 4) { const y = hh * 0.9 - (x / w) ** 1.6 * hh * 0.7; x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); const px = ((t * 0.08) % 1) * w; g.setLineDash([6, 5]); g.beginPath(); g.moveTo(px, 0); g.lineTo(px, hh); g.stroke(); g.setLineDash([]); g.fillStyle = '#fff'; g.beginPath(); g.arc(px, hh * 0.86, 6, 0, TAU); g.fill(); },
+    orbit(g, w, hh, t, a = 1) { const cx = w / 2, cy = hh / 2, R = Math.min(w, hh) * 0.36; const ic = ['relax', 'sleep', 'focus', 'activity', 'sun', 'relax', 'focus', 'sleep']; g.strokeStyle = W + 0.3 * a + ')'; g.lineWidth = 1; for (let i = 0; i < 8; i++) { const an = (i / 8) * TAU - Math.PI / 2 + Math.sin(t * 0.2) * 0.05; const x = cx + Math.cos(an) * R, y = cy + Math.sin(an) * R; g.beginPath(); g.moveTo(cx, cy); g.lineTo(x, y); g.stroke(); const rr = i % 2 ? 26 : 34; g.save(); g.beginPath(); g.arc(x, y, rr, 0, TAU); g.fillStyle = '#111'; g.fill(); g.strokeStyle = W + 0.9 * a + ')'; g.lineWidth = 1.6; g.stroke(); g.clip(); g.translate(x - rr, y - rr); ART[ic[i]](g, rr * 2, rr * 2, t + i, a); g.restore(); } g.beginPath(); g.arc(cx, cy, 40, 0, TAU); g.fillStyle = '#111'; g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 2; g.stroke(); g.beginPath(); g.moveTo(cx, cy - 26); g.bezierCurveTo(cx - 22, cy - 22, cx - 4, cy - 2, cx, cy); g.bezierCurveTo(cx + 4, cy + 2, cx + 22, cy + 22, cx, cy + 26); g.stroke(); },
+  };
+  // canvas registry with one shared loop; only draws visible canvases
+  const cvs = [];
+  const addC = (parent, art, opt = {}) => { const c = h('canvas'); parent.append(c); const o = { c, art, ...opt, vis: true, boost: 0 }; cvs.push(o); io.observe(c); return o; };
+  const io = new IntersectionObserver((es) => es.forEach((e) => { const o = cvs.find((x) => x.c === e.target); if (o) o.vis = e.isIntersecting; }), { root });
+  let tt = 0, last = performance.now(), raf;
+  const drawC = (o) => { const r = o.c.getBoundingClientRect(); if (!r.width) return; const d = Math.min(2, devicePixelRatio || 1); const W2 = Math.round(r.width * d), H2 = Math.round(r.height * d); if (o.c.width !== W2 || o.c.height !== H2) { o.c.width = W2; o.c.height = H2; } const g = o.c.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, r.width, r.height); const sp = (o.speed || 1) * (1 + o.boost * 1.5) * (playing && (o.mode === mode || !o.mode) ? 1.6 : 1); o.t = (o.t || 0) + o.dt * sp; ART[o.art](g, r.width, r.height, o.t + (o.seed || 0), (o.alpha || 1) * (0.75 + o.boost * 0.25)); };
+  const loop = (now) => { const dt = Math.min(0.05, (now - last) / 1000); last = now; tt += dt; for (const o of cvs) { if (!o.vis) continue; o.dt = RM ? 0 : dt; drawC(o); } raf = requestAnimationFrame(loop); };
+  // ---------------- nav
+  const moreB = h('button.more', { onclick: (e) => { e.stopPropagation(); toggleMore(); } }, 'More', h('span', { html: '<svg width="15" height="9" viewBox="0 0 15 9"><path d="M1 1l6.5 6.5L14 1" fill="none" stroke="#fff" stroke-width="1.6"/></svg>' }));
+  let dd = null;
+  const toggleMore = (v) => { const on = v ?? !dd; dd?.remove(); dd = null; moreB.classList.toggle('on', on); if (on) { dd = h('div.en-dd', {}, ...['Science', 'Business', 'Blog', 'Gift Card', 'Help Center', 'Careers'].map((t) => h('button', { onclick: () => { toast(t); toggleMore(false); } }, t))); moreB.append(dd); } };
+  addEventListener('pointerdown', (e) => { if (dd && !e.target.closest?.('.more')) toggleMore(false); });
+  const tryB = h('button.glow', { onclick: () => modal() }, 'Try Today');
+  const eq = h('span.en-eq', { title: 'Now playing' }, h('i'), h('i'), h('i'));
+  el.append(h('div.en-nav', {}, h('a', { href: '#', onclick: (e) => { e.preventDefault(); root.scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' }); }, html: LOGO() }),
+    h('div.en-links', {}, h('button', { onclick: () => toast('ADHD — focus support soundscapes') }, 'ADHD'), ...['Sleep', 'Focus', 'Relax', 'Activity'].map((n) => h('button', { onclick: () => goMode(n.toLowerCase()) }, n)), moreB),
+    h('div.en-r', {}, eq, tryB, h('button.sgn', { onclick: () => toast('Sign In (demo)') }, 'Sign In'))));
+  // ---------------- hero + device lineup
+  el.append(h('section.en-hero', {}, h('h1', {}, 'Endel'), h('p', {}, 'Personalized soundscapes to help you focus, relax, and sleep. Backed by neuroscience.'), h('button.out', { onclick: () => modal() }, 'Try Today')));
+  const stw = h('div.en-stw'); const st = h('div.en-st'); stw.append(st); el.append(stw);
+  const dev = (cls, x, y, w, hh, z, kids = []) => { const d = h('div.en-dev.' + cls, { style: { left: x + 'px', top: y + 'px', width: w + 'px', height: hh + 'px', zIndex: z } }, ...kids); st.append(d); return d; };
+  const tv = dev('en-tv', 352, 10, 650, 372, 1); addC(tv, 'sun', { speed: 0.6 });
+  dev('en-hp', 1004, 56, 172, 210, 2);
+  dev('en-atv', 1166, 128, 150, 158, 3, [h('span', {}, 'tv')]);
+  const ph2 = dev('en-ph', 118, 56, 210, 370, 4, [h('div.bar', {}, h('span', {}, '9:40'), h('span', {}, '▮▮▮ 100%')), h('div.ttl', {}, 'Focus', h('small', {}, 'Midday Energy Peak'))]); const p2 = h('div', { style: { position: 'absolute', inset: '78px 16px 30px' } }); ph2.append(p2); addC(p2, 'focus', { mode: 'focus', seed: 3 });
+  const lap = dev('en-lap', 298, 222, 258, 272, 5, [h('div.ui', {}, h('div', { style: { display: 'flex', gap: '10px', opacity: .7 } }, '▮ ⟲ ⓘ', h('span', { style: { flex: 1, height: '2px', background: '#666', alignSelf: 'center' } })), h('b', {}, 'Focus ılıl'), h('div.gr', {}, ...Array.from({ length: 8 }, (_, i) => { const c = h('i', { style: { position: 'relative', overflow: 'hidden' } }); return c; })), h('div', { style: { marginTop: '12px', opacity: .7, fontSize: '7px', letterSpacing: '.08em' } }, 'SCENARIOS'), h('div.tg', {}, ...['Deep Work', 'Chill', 'Self Care', 'Meditate', 'Workout', '···'].map((t) => h('span', {}, t))))]);
+  lap.querySelectorAll('.gr i').forEach((c, i) => addC(c, ['focus', 'relax', 'sleep', 'activity'][i % 4], { seed: i, alpha: 0.9 }));
+  const ph1 = dev('en-ph', 8, 128, 205, 386, 6, [h('div.bar', {}, h('span', {}, '9:40'), h('span', {}, '▮▮▮')), h('div.ttl', {}, 'Relax', h('small', {}, 'Morning Energy Rise')), h('div.dock', {}, h('i'), h('i.on'), h('i'), h('i'), h('i'))]); const p1 = h('div', { style: { position: 'absolute', inset: '76px 10px 54px' } }); ph1.append(p1); addC(p1, 'relax', { mode: 'relax' });
+  dev('en-puck', 196, 318, 212, 196, 7, [h('div', { html: LOGO(120, 3.2) })]);
+  const vr = dev('en-vr', 890, 248, 440, 252, 7); const vrs = h('div', { style: { position: 'absolute', inset: '26px 40px 40px', borderRadius: '42%', overflow: 'hidden', opacity: .35 } }); vr.append(vrs); addC(vrs, 'sun', { seed: 5, alpha: 0.6 });
+  const w1 = dev('en-w.rd', 716, 290, 156, 210, 8, [h('div.tt', { style: { top: '38px' } }, 'Relax')]); w1.style.borderRadius = '50% / 42%'; const w1c = h('div', { style: { position: 'absolute', inset: '50px 22px 44px' } }); w1.append(w1c, h('div.tt', { style: { bottom: '28px' } }, 'Midday Energy Rise')); addC(w1c, 'relax', { mode: 'relax', seed: 9 });
+  const w2 = dev('en-w', 846, 302, 138, 198, 9, [h('div.tt', { style: { top: '16px', textAlign: 'right', paddingRight: '18px' } }, '9:40'), h('div.tt', { style: { bottom: '38px' } }, 'Relax')]); const w2c = h('div', { style: { position: 'absolute', inset: '50px 12px 62px' } }); w2.append(w2c); addC(w2c, 'graph', { seed: 2, alpha: 0.8 });
+  const fit = () => { const s0 = Math.min(1, stw.clientWidth / 1330); st.style.transform = `scale(${s0})`; st.style.marginLeft = (-665 * s0) + 'px'; stw.style.height = 530 * s0 + 'px'; };
+  new ResizeObserver(fit).observe(stw); fit();
+  // ---------------- press
+  const PR = [['THE WALL STREET JOURNAL.', "600 13px Georgia,serif", '.02em'], ['Rolling Stone', "italic 700 26px Georgia,serif", '-.02em'], ['WIRED', "900 26px 'Courier New',monospace", '.06em'], ['Pitchfork', "700 26px Georgia,serif", '-.01em'], ['The Guardian', "700 24px Georgia,serif", '-.02em'],
+    ['HYPEBEAST', "800 22px Arial,sans-serif", '.02em'], ['DAZED', "900 26px Impact,'Arial Black',sans-serif", '.04em'], ['billboard', `800 26px ${F}`, '-.04em'], ['i-D', `800 28px ${F}`, '0'], ['THE NEW YORKER', "400 22px Georgia,serif", '.02em'],
+    ['V MAGAZINE', "700 22px 'Arial Narrow',Arial,sans-serif", '0'], ['VOGUE', "400 30px 'Didot','Bodoni 72',Georgia,serif", '.06em'], ['TechCrunch', `700 21px ${F}`, '-.02em'], ['THE VERGE', "900 22px Arial,sans-serif", '0'], ['Variety', "italic 700 26px Georgia,serif", '0']];
+  el.append(h('div.en-press', {}, ...PR.map(([t, f, ls]) => h('span', { style: { font: f, letterSpacing: ls } }, t))));
+  // ---------------- big phone with play
+  const big = h('section.en-big'); el.append(big);
+  const bk = addC(big, 'sleep', { alpha: 0.5, speed: 0.4 }); bk.c.className = 'bk';
+  const ph = h('div.en-dev.en-ph.phone', { style: { position: 'relative' } }, h('div.bar', {}, h('span', {}, '9:41'), h('span', {}, '▮▮▮ ◔ ▬')));
+  const rays = h('div', { style: { position: 'absolute', inset: '30px 0 0' } }); ph.append(rays); addC(rays, 'sun', { seed: 11, alpha: 0.35, speed: 0.4 });
+  const icons = h('div.icons'); ph.append(icons);
+  const iconB = {}; for (const m of ['relax', 'focus', 'sleep', 'activity']) { const b = h('button', { title: m, onclick: () => setMode(m, true) }); b.style.position = 'relative'; b.style.overflow = 'hidden'; b.style.border = '1.6px solid #fff'; b.style.background = '#0b0b0b'; addC(b, m, { mode: m, seed: 2 }); icons.append(b); iconB[m] = b; }
+  const playB = h('button.play', { 'aria-label': 'Play', onclick: () => togglePlay() }); ph.append(playB); big.append(ph);
+  // ---------------- mode cards
+  const cardsEl = h('div.en-modes'); el.append(cardsEl);
+  const cards = {};
+  MODES.forEach((m) => { const vis = h('div.vis'); const cv = addC(vis, m.k, { mode: m.k, alpha: 0.9 }); const pl = h('button.pl', { 'aria-label': 'Play ' + m.n, onclick: (e) => { e.stopPropagation(); if (mode === m.k && playing) togglePlay(false); else { setMode(m.k); togglePlay(true); } } }); vis.append(pl);
+    const c = h('div.en-card', { 'data-mode': m.k, onpointerenter: () => (cv.boost = 1), onpointerleave: () => (cv.boost = 0), onclick: () => setMode(m.k) }, vis, h('div.tx', {}, h('h3', {}, m.n), h('p', {}, m.d), h('a.lm', { href: '#', onclick: (e) => { e.preventDefault(); e.stopPropagation(); toast(`${m.n} — learn more`); } }, 'Learn More ', h('span', { html: ARR }))));
+    cards[m.k] = { c, cv, pl }; cardsEl.append(c); });
+  // ---------------- neuroscience stats
+  const STATS = [['#', 1, '', 'for increasing focus vs playlists', 1, 0], ['', 7, 'x', 'increase in focus', 1, 0], ['', 3.6, 'x', 'decrease in stress with regular use', 2, 1], ['', 95, '%', 'Longer, more consistent focus; maintained 95% of listening time', 2, 0]];
+  const arrow = (down) => `<svg viewBox="0 0 150 78"><defs><linearGradient id="enA${down}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>${down ? '<path d="M20 22 C70 8 110 20 126 52" fill="none" stroke="url(#enA1)" stroke-width="9" stroke-linecap="round"/><path d="M110 50 L132 66 L136 38 Z" fill="#fff"/>' : '<path d="M14 74 C60 70 100 50 122 22" fill="none" stroke="url(#enA0)" stroke-width="9" stroke-linecap="round"/><path d="M106 22 L134 8 L130 38 Z" fill="#fff"/>'}</svg>`;
+  const statEls = STATS.map(([pre, v, suf, lbl, fn, down]) => { const b = h('b', {}, pre + '0' + suf); return { b, v, pre, suf, el: h('div.en-stat', {}, h('span', { html: arrow(down), style: { margin: 0, maxWidth: 'none' } }), b, h('span', {}, lbl, h('sup', {}, String(fn)))) }; });
+  const setStats = (p) => statEls.forEach((s0) => { const val = s0.v * p; s0.b.textContent = s0.pre + (s0.v % 1 ? val.toFixed(1) : Math.round(val)) + s0.suf; });
+  const sci = h('section.en-sci', {}, h('h2', {}, 'Backed by neuroscience'), h('p', {}, 'Our patented technology creates soundscapes that adapt in real-time. It reacts to inputs like time of day, weather, heart rate, and location. Neuroscience shows Endel consistently improves focus and lowers stress.'),
+    h('div.en-stats', {}, ...statEls.map((x) => x.el)), h('div.en-fn', {}, h('p', {}, '1) *Read the Whitepaper on Bioarxiv ', h('span', { html: ARR })), h('p', {}, '2) Survey methodology: The Experience Sampling Method provided by Mihaly Csikszentmihalyi (Professor of Psychology and Management at Claremont Graduate University, author of the best-selling book Flow)')));
+  el.append(sci); setStats(1);
+  let counted = false; const countUp = async () => { counted = true; if (RM) return setStats(1); const t0 = performance.now(); await new Promise((res) => { const f = (now) => { const p = Math.min(1, (now - t0) / 1400); setStats(1 - (1 - p) ** 3); p < 1 ? requestAnimationFrame(f) : res(); }; requestAnimationFrame(f); }); };
+  new IntersectionObserver((es) => { if (es[0].isIntersecting && !counted) countUp(); }, { root, threshold: 0.35 }).observe(sci.querySelector('.en-stats'));
+  setStats(0);
+  // ---------------- app sections
+  const SEC = [['Endel Mobile app.', 'Sound wellness anywhere.', 'With over 4 million downloads, our award-winning app for iOS and Android puts powerful wellness and productivity tools in the palm of your hand.',
+    [['graph', 'Real-time personalized soundscapes', 'Focus, relax, and sleep with personalized sounds that adapt to you and your environment in real-time. Each with their own generative visual to help put you in the right state of mind.'], ['orbit', 'Round-the-clock sound with Autoplay', 'Autoplay automatically chooses the perfect soundscape for your current state. Whether it’s your morning productivity peak, or an early-evening time-out, Endel supports you with Focus, Relax, or Sleep. Just press start.']]],
+  ['Endel for Apple Watch.', 'A wearable award winner.', 'Endless soundscapes on the go, in an award-winning format. Taking our patented tech down to watch size made Endel the winner of Apple Watch App of the Year 2020.',
+    [['watch:relax', 'Detailed personal inputs', 'Using accurate heart rate sensors, light intake and other biometric data makes Endel’s Apple Watch soundscapes intricately personalized and increasingly effective.'], ['watch:activity', 'Keep your phone at home', 'Go anywhere with soundscapes on your wrist. Working independently from the iPhone, the Apple Watch app is a standalone product that generates endlessly supporting sound on the fly.']]],
+  ['Endel for Amazon Alexa.', 'Just a phrase away.', 'Includes Echo devices, Fire Tablets, Fire TV, Alexa Auto, and the Alexa App. No installation needed, just say “Alexa, start Endel”.',
+    [['speaker:sleep', 'Screen-free sleep with smart speakers', 'Make your bedroom a screen-free sleep sanctuary. Just say “Alexa, start Sleep with Endel” and be prepared for drift-off. With Routines, Timers, and Smart Alarms, you can automate your way to a better night’s sleep.'], ['speaker:focus', 'Automate your day with Routines', 'Endel soundscapes work with Alexa Routines, so they can be automated to make your mornings, workdays and evenings flow — without lifting a finger.']]]];
+  SEC.forEach(([a, b, p, pair], si) => {
+    const sec = h('section.en-sec', {}, h('h2', {}, a, h('br'), b), h('p', {}, p)); const pr = h('div.en-pair');
+    pair.forEach(([art, t, d], i) => { const vis = h('div.vis'); const [kind, m] = art.split(':');
+      if (kind === 'watch') { const wd = h('div.en-dev.en-w' + (i ? '' : '.rd'), { style: { left: '50%', top: '50%', width: '150px', height: '186px', transform: 'translate(-50%,-50%)', borderRadius: i ? '36px' : '50% / 42%' } }); const wc = h('div', { style: { position: 'absolute', inset: '30px 16px' } }); wd.append(wc); vis.append(wd); addC(wc, m, { mode: m }); const bg = addC(vis, 'sun', { alpha: 0.18, speed: 0.3, seed: si * 3 + i }); bg.c.style.zIndex = 0; wd.style.zIndex = 1; }
+      else if (kind === 'speaker') { const sp = h('div.en-dev.en-puck', { style: { left: '50%', top: '52%', width: '200px', height: '200px', transform: 'translate(-50%,-50%)', zIndex: 1 } }); const ring = h('div', { style: { position: 'absolute', inset: '30px', borderRadius: '50%', overflow: 'hidden', border: '1.5px solid #fff8' } }); sp.append(ring); addC(ring, m, { mode: m }); vis.append(sp); const bg = addC(vis, 'relax', { alpha: 0.2, speed: 0.4, seed: i * 4 }); bg.c.style.zIndex = 0; }
+      else addC(vis, kind, { seed: i });
+      pr.append(h('div.en-pc', {}, vis, h('div.tx', {}, h('h3', {}, t), h('p', {}, d), h('a.tn', { href: '#', onclick: (e) => { e.preventDefault(); modal(); } }, 'Try Now ', h('span', { html: ARR }))))); });
+    sec.append(pr); el.append(sec);
+  });
+  el.append(h('footer.en-foot', {}, h('div', {}, h('div', { html: LOGO(34) }), h('p', { style: { maxWidth: '300px', marginTop: '16px' } }, 'Endel — personalized soundscapes. Look-alike study for UX practice; not affiliated.')),
+    ...[['Product', 'Mobile', 'Apple Watch', 'Alexa', 'Mac'], ['Company', 'Science', 'Careers', 'Blog', 'Press'], ['Support', 'Help Center', 'Gift Card', 'Terms', 'Privacy']].map(([hd, ...ls]) => h('div', {}, h('b', {}, hd), ...ls.map((l) => h('span', {}, l))))));
+  // ---------------- behaviour
+  function setMode(m, fromPhone) { mode = m; Object.entries(cards).forEach(([k, c]) => c.c.classList.toggle('on', k === m)); Object.entries(iconB).forEach(([k, b]) => b.classList.toggle('on', k === m)); if (playing) startSound(); drawPlay(); if (fromPhone) toast(`${MODES.find((x) => x.k === m).n} selected`); }
+  function goMode(m) { setMode(m); cards[m].c.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'center' }); }
+  function drawPlay() { playB.innerHTML = playing ? PAUSE() : PLAY(); Object.entries(cards).forEach(([k, c]) => (c.pl.innerHTML = playing && k === mode ? PAUSE('#fff', 14) : PLAY('#fff', 14))); el.classList.toggle('pl', playing); eq.style.display = playing ? '' : 'none'; }
+  // generative WebAudio soundscape per mode
+  let snd = null;
+  function stopSound() { if (!snd) return; const ac = audio(); const t = ac ? ac.currentTime : 0; snd.g.gain.cancelScheduledValues(t); snd.g.gain.setTargetAtTime(0, t, 0.25); const s1 = snd; setTimeout(() => { s1.nodes.forEach((n) => { try { n.stop(); } catch {} }); clearInterval(s1.iv); s1.g.disconnect(); }, 900); snd = null; }
+  function startSound() { stopSound(); const ac = audio(); if (!ac) return; const g = ac.createGain(); g.gain.value = 0; g.connect(ac.destination); g.gain.setTargetAtTime(0.16, ac.currentTime, 0.6); const nodes = []; const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = mode === 'sleep' ? 420 : mode === 'focus' ? 1600 : 900; lp.connect(g);
+    const roots = { relax: [146.8, 220, 293.7], focus: [196, 293.7, 392], sleep: [98, 146.8, 196], activity: [130.8, 196, 261.6] }[mode];
+    roots.forEach((f, i) => { const o = ac.createOscillator(); o.type = i ? 'sine' : 'triangle'; o.frequency.value = f; o.detune.value = (i - 1) * 6; const og = ac.createGain(); og.gain.value = 0.22 / (i + 1); const l = ac.createOscillator(); l.frequency.value = 0.07 + i * 0.05; const lg = ac.createGain(); lg.gain.value = 0.08; l.connect(lg).connect(og.gain); o.connect(og).connect(lp); o.start(); l.start(); nodes.push(o, l); });
+    let step = 0; const iv = setInterval(() => { if (!snd) return; const sc = [0, 2, 4, 7, 9, 12]; const base = roots[1] * 2; const f = base * 2 ** (sc[(step * 3 + (step >> 2)) % sc.length] / 12); if (mode !== 'sleep' || step % 3 === 0) blip(f, mode === 'activity' ? 0.25 : 1.2, 'sine', mode === 'activity' ? 0.05 : 0.03); step++; }, mode === 'activity' ? 250 : mode === 'focus' ? 600 : 1200);
+    snd = { g, nodes, iv }; }
+  function togglePlay(v) { playing = v ?? !playing; playing ? startSound() : stopSound(); drawPlay(); }
+  function modal() { const m = h('div.en-mod', { onclick: (e) => { if (e.target === m) close(); } }); const close = () => { m.classList.remove('on'); setTimeout(() => m.remove(), 250); };
+    m.append(h('div', {}, h('div', { html: LOGO(54) }), h('h3', {}, 'Try Endel free for 7 days'), h('p', {}, 'Personalized soundscapes for focus, relax and sleep — on every device.'), h('div.pf', {}, ...['  Download on the App Store', '▶ Get it on Google Play', '⌘ Endel for Mac', '◎ Continue on the web'].map((t) => h('button', { onclick: () => { toast(t.trim() + ' (demo)'); close(); } }, t))), h('button', { style: { marginTop: '16px', color: '#999' }, onclick: close }, 'Not now')));
+    el.append(m); requestAnimationFrame(() => m.classList.add('on')); return m; }
+  setMode('relax'); drawPlay(); raf = requestAnimationFrame(loop);
+  window.__demoProof = async () => {
+    const o = [];
+    toggleMore(true); o.push(`more=${el.querySelectorAll('.en-dd button').length} items`); toggleMore(false);
+    goMode('focus'); await sleep(80); o.push(`nav Focus → card.on=${cardsEl.querySelector('.en-card.on')?.dataset.mode}`);
+    togglePlay(true); await sleep(120); o.push(`play=${playing} mode=${mode} eq=${eq.style.display !== 'none'}`);
+    setMode('sleep'); o.push(`switch→${mode}`); togglePlay(false); o.push(`paused=${!playing}`);
+    cards.activity.cv.boost = 1; await sleep(60); o.push('hover boost activity'); cards.activity.cv.boost = 0;
+    setStats(0); await countUp(); o.push(`stats=${statEls.map((s0) => s0.b.textContent).join('|')}`);
+    const m = modal(); await sleep(60); o.push(`modal=${!!el.querySelector('.en-mod')}`); m.click(); await sleep(300);
+    o.push(`canvases=${cvs.length}`);
+    setMode('relax'); root.scrollTo({ top: 0 }); await sleep(80); o.push(`restored mode=${mode} playing=${playing} modal=${!!el.querySelector('.en-mod')}`);
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
