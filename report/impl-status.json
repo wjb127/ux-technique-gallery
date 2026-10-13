@@ -3440,25 +3440,25 @@
  "oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal": {
   "url": "https://ux-technique-gallery.vercel.app/t/oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal/",
   "ok": true,
-  "at": "2026-10-13T03:59:46.235Z",
+  "at": "2026-10-13T04:02:07.019Z",
   "http": 200,
-  "proof": "proof-error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'join')\n    at window.__demoProof (https://ux-technique-gallery.vercel.app/assets/saas-BJe1B9Dy.js:2468:11447)\n    at async eval (eval at evaluate (:311:30), <anonymous>:1:35)\n    at async <anonymous>:337:30",
+  "proof": "toggles F/S/M=101; necessary locked=true; custom accept→closed=true saved=Necessary+Functional+Marketing; accept all→true; decline all→1000 closed=true; pixel reveal 40→24→14→8→4→2→1px final=1; filter PRODUCTS→3/12 cards active=true; filter cleared→12; show more 12→18 (18 items loaded); globe popover=true; read more open=true; restored modal=true cards=12 filter=null",
   "demoNodes": 147,
   "errors": []
  },
  "liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case-card-rail": {
   "url": "https://ux-technique-gallery.vercel.app/t/liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case-card-rail/",
   "ok": true,
-  "at": "2026-10-13T03:59:46.246Z",
+  "at": "2026-10-13T04:02:07.041Z",
   "http": 200,
-  "proof": "headline default word=\"collaborative\" tag=Steven; collab select=Steven typed→\"multiplayer\" by Steven; click word→tag=You sel=true; scene dot→AI agents; glass logo drag yawΔ=1.00; rail drag Δ=300px cards=10; comment posted→2; spline object rot=90; live cursor mirrored=translate(80px, 90px); code tab→Zustand true; restored word=collaborative by Steven scene=Sync",
+  "proof": "headline word=\"collaborative\" phase=sel tag=Steven; collab select=Steven typed→\"multiplayer\" by Steven; click word→tag=You sel=true; scene dot→AI agents; glass logo drag yawΔ=1.00; rail drag Δ=300px cards=10; comment posted→2; spline object rot=90; live cursor mirrored=translate(80px, 90px); code tab→Zustand true; restored word=collaborative by Steven scene=Sync",
   "demoNodes": 329,
   "errors": []
  },
  "analogue-3d-black-product-launch-scroll-story-numbered-feature-stepper-crt-mode-sections": {
   "url": "https://ux-technique-gallery.vercel.app/t/analogue-3d-black-product-launch-scroll-story-numbered-feature-stepper-crt-mode-sections/",
   "ok": true,
-  "at": "2026-10-13T03:59:46.244Z",
+  "at": "2026-10-13T04:02:07.032Z",
   "http": 200,
   "proof": "hero console drag yawΔ=48°; buy→cart=1 fly=true; edition→white topColor=#ffffff; stepper next→2; stepper #4→4 active=true; wrap→1; crt mode→bvm; split→0.25; scanline rows(after) 170,172,71,71,171,172,71,71; multiplayer slide→2; restored mode=crt step=1 cart=0",
   "demoNodes": 251,
