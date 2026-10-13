@@ -101,7 +101,10 @@ const LABEL_OVERRIDE = { 'heron-architectural-drawing-sheet-elevation-loader-tit
   'endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections': '모노크롬 디바이스 라인업 · 모드 카드 · 제너레이티브 라인',
   'santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story': '코믹북 WebGL 브랜드 여정 · 연령 게이트 · 홀드 투 푸어',
   'noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail': '에너지 등급 컨트롤 · 다크/애니메이션 절감 · 3D 가구 컬러 피커',
-  'trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound': '홀드 투 블라스트 3D 히어로 · 슬라이드 메뉴 · 라이언 스탯 카드' };
+  'trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound': '홀드 투 블라스트 3D 히어로 · 슬라이드 메뉴 · 라이언 스탯 카드',
+  'aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact': 'LiDAR 스캔-리졸브 · 스크램블 라벨 · 탭 WebGL',
+  'colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel': '과거/현재 3D 단지 맵 · 뮤럴 핀 · 나이트 모드',
+  'odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index': '엣지 스플릿 헤드라인 · 풀블리드 필름 · 닷 인덱스' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

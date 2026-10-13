@@ -10386,4 +10386,512 @@ V['nickho-giant-car-number-hero-greyscale-photo-scroll-helmet-360-six-column-hai
     root.scrollTop = 0; onScroll(); await sleep(850); o.push(`restored top 98 scale=${n98.style.transform.match(/scale\(([^)]+)/)[1]}`); return o.join('; ');
   };
 };
+V['aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact'] = (root, T) => {
+  theme(root, T, { bg: '#f7f8f9', fg: '#1a1c1e', ac: '#3aa0ff', dark: false }); scroll(root);
+  import('@fontsource-variable/inter-tight'); import('@fontsource/ibm-plex-mono/400.css'); import('@fontsource/ibm-plex-mono/500.css');
+  const G = "'Inter Tight Variable','Inter Variable',system-ui,sans-serif", M = "'IBM Plex Mono','JetBrains Mono Variable',ui-monospace,monospace", BL = '#3aa0ff', INK = '#1a1c1e', MUTE = '#9aa0a6';
+  css(`.ae{background:#f7f8f9;color:${INK};font:400 14px/1.45 ${G};min-height:100%;overflow-x:clip;position:relative}
+.ae *{box-sizing:border-box}.ae button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.ae-nav{position:sticky;top:0;z-index:40;height:46px;display:flex;align-items:center;gap:10px;padding:0 18px;background:#f7f8f9cc;backdrop-filter:blur(10px);border-bottom:1px solid #e4e7ea;font-size:12px}
+.ae-logo{display:flex;align-items:center;gap:8px;font:600 14px ${G};letter-spacing:-.02em}.ae-logo svg{width:16px;height:16px}
+.ae-dot{width:3px;height:3px;background:#c5c9ce;border-radius:1px}.ae-sp{flex:1}.ae-meta{color:#6b7076;display:flex;gap:14px;align-items:center}
+.ae-menu{padding:5px 10px;background:#e8ebef;border-radius:4px;font:500 11px ${G};letter-spacing:.02em}
+.ae-hero{position:relative;height:calc(100vh - 46px);min-height:560px;overflow:hidden;display:grid;place-items:center}
+.ae-ghost{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font:200 clamp(80px,18vw,260px)/.85 ${G};letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px #d5d9dd;user-select:none;pointer-events:none;white-space:nowrap}
+.ae-drone{position:absolute;left:50%;top:40%;width:min(420px,58vw);aspect-ratio:1.6;transform:translate(-50%,-50%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .8s}
+.ae-drone.out{transform:translate(42%,-70%) rotate(18deg) scale(.55);opacity:.35}
+.ae-hero .hl{position:absolute;left:5%;bottom:12%;max-width:420px}.ae-hero .hl h1{margin:0;font:500 clamp(22px,2.4vw,34px)/1.15 ${G};letter-spacing:-.03em}
+.ae-hero .hl p{margin:8px 0 0;color:${MUTE};font:400 15px/1.4 ${G}}.ae-scroll{position:absolute;right:5%;bottom:12%;font:500 11px ${G};color:${MUTE};letter-spacing:.04em}
+.ae-sec{padding:70px 5%;border-top:1px solid #e4e7ea;position:relative}
+.ae-split{display:grid;grid-template-columns:1fr 1px 1fr;min-height:70vh;border-top:1px solid #e4e7ea}
+.ae-split .vline{background:#e4e7ea}.ae-copy{padding:80px 6% 60px;display:grid;align-content:center;gap:8px}
+.ae-copy .line{font:400 clamp(26px,3.2vw,44px)/1.15 ${G};letter-spacing:-.035em;display:flex;flex-wrap:wrap;gap:0 .35em}
+.ae-copy .line span{color:#c8ccd0;transition:color .45s}.ae-copy .line span.on{color:${INK}}.ae-copy .line span.b.on{font-weight:600}
+.ae-gear{padding:90px 5% 40px;border-top:1px solid #e4e7ea;display:flex;justify-content:space-between;align-items:flex-end}
+.ae-gear h2{margin:0;font:500 clamp(64px,10vw,140px)/.9 ${G};letter-spacing:-.05em}.ae-gear .badge{width:36px;height:36px;border:1px solid #c5c9ce;border-radius:50%;display:grid;place-items:center;font:500 13px ${M}}
+.ae-pay{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px 5% 70px;border-top:1px solid #e4e7ea;align-items:start}
+.ae-pay .lab{font:500 11px ${M};letter-spacing:.08em;text-transform:uppercase;color:#6b7076}.ae-pay .txt{font:400 clamp(18px,2vw,28px)/1.3 ${G};color:#8a9096;letter-spacing:-.02em}
+.ae-specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #e4e7ea;border-bottom:1px solid #e4e7ea}
+.ae-spec{padding:36px 28px;border-left:1px solid #e4e7ea}.ae-spec:first-child{border-left:0}
+.ae-spec .br{font:500 10px ${M};letter-spacing:.1em;color:#8a9096;margin-bottom:14px}.ae-spec .val{font:500 clamp(36px,4.5vw,64px)/1 ${G};letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.ae-spec .val.scr{font-family:${M};font-size:clamp(22px,2.8vw,36px);letter-spacing:.04em}
+.ae-caps{display:grid;grid-template-columns:220px 1fr 260px;gap:0;min-height:520px;border-top:1px solid #e4e7ea}
+.ae-tabs{display:flex;flex-direction:column;border-right:1px solid #e4e7ea;padding:40px 0}
+.ae-tab{padding:18px 28px;text-align:left;font:500 clamp(22px,2.2vw,32px)/1.1 ${G};letter-spacing:-.03em;color:#c5c9ce;transition:color .25s,background .25s}.ae-tab.on{color:${INK};background:#eef1f4}
+.ae-stage{position:relative;background:#0e1216;overflow:hidden;min-height:420px}.ae-stage canvas{width:100%;height:100%;display:block}
+.ae-stage .ov{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,#0000 30%,#0e121688 100%)}
+.ae-side{padding:40px 28px;border-left:1px solid #e4e7ea;display:grid;align-content:start;gap:14px}
+.ae-side .num{font:500 clamp(48px,5vw,72px)/1 ${G};letter-spacing:-.04em}.ae-side .sent{font:400 14px/1.5 ${G};color:#6b7076}
+.ae-poster{padding:60px 5% 20px;font:200 clamp(48px,8vw,110px)/.9 ${G};letter-spacing:-.05em;color:#d0d4d8}
+.ae-ft{padding:40px 5% 60px;border-top:1px solid #e4e7ea;display:flex;justify-content:space-between;gap:20px;font:400 12px ${G};color:#8a9096}
+@media (max-width:860px){.ae-split{grid-template-columns:1fr}.ae-split .vline{display:none}.ae-specs{grid-template-columns:1fr}.ae-spec{border-left:0;border-top:1px solid #e4e7ea}.ae-caps{grid-template-columns:1fr}.ae-tabs{flex-direction:row;overflow:auto;border-right:0;border-bottom:1px solid #e4e7ea;padding:0}
+.ae-tab{padding:14px 16px;font-size:16px;white-space:nowrap}.ae-side{border-left:0;border-top:1px solid #e4e7ea}.ae-pay{grid-template-columns:1fr}.ae-hero .hl{left:5%;right:5%;max-width:none}.ae-ghost{font-size:72px}}
+`);
+  const scramble = (el, target, dur = 700) => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789±/+-';
+    const t0 = performance.now(); let raf = 0;
+    const tick = (t) => {
+      const p = clamp((t - t0) / dur, 0, 1);
+      if (p < 1) {
+        el.textContent = [...target].map((c, i) => (c === ' ' || c === '±' || /\d/.test(c) && p > i / target.length ? (p > (i + .3) / target.length ? c : chars[(Math.random() * chars.length) | 0]) : (/\s/.test(c) ? c : chars[(Math.random() * chars.length) | 0]))).join('');
+        el.classList.add('scr'); raf = requestAnimationFrame(tick);
+      } else { el.textContent = target; el.classList.remove('scr'); }
+    };
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); return () => cancelAnimationFrame(raf);
+  };
+  // drone SVG
+  const droneSvg = () => h('div.ae-drone', { html: `<svg viewBox="0 0 420 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="ae-g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8ecf0"/><stop offset="1" stop-color="#b8c0c8"/></linearGradient>
+<radialGradient id="ae-l" cx=".5" cy=".5" r=".5"><stop stop-color="#5ec8ff"/><stop offset="1" stop-color="#3aa0ff00"/></radialGradient></defs>
+<ellipse cx="210" cy="230" rx="90" ry="10" fill="#00000018"/>
+<rect x="150" y="110" width="120" height="40" rx="8" fill="url(#ae-g)" stroke="#8a929a" stroke-width="1.2"/>
+<rect x="175" y="95" width="70" height="22" rx="4" fill="#d5dce2" stroke="#8a929a"/>
+<circle cx="210" cy="125" r="14" fill="#1a1c1e"/><circle cx="210" cy="125" r="9" fill="url(#ae-l)"/><circle cx="210" cy="125" r="4" fill="#7fd4ff"/>
+<path d="M150 120 L70 70 M270 120 L350 70 M150 140 L70 190 M270 140 L350 190" stroke="#8a929a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="70" cy="70" r="28" stroke="#a8b0b8" stroke-width="2" fill="#eef1f4aa"/><circle cx="350" cy="70" r="28" stroke="#a8b0b8" stroke-width="2" fill="#eef1f4aa"/>
+<circle cx="70" cy="190" r="28" stroke="#a8b0b8" stroke-width="2" fill="#eef1f4aa"/><circle cx="350" cy="190" r="28" stroke="#a8b0b8" stroke-width="2" fill="#eef1f4aa"/>
+<path d="M70 70 l-22-6 M70 70 l22-6 M70 70 l-6-22 M70 70 l-6 22" stroke="#6b7076" stroke-width="1.5"/>
+<path d="M350 70 l-22-6 M350 70 l22-6 M350 70 l6-22 M350 70 l6 22" stroke="#6b7076" stroke-width="1.5"/>
+<path d="M70 190 l-22 6 M70 190 l22 6 M70 190 l-6 22 M70 190 l-6-22" stroke="#6b7076" stroke-width="1.5"/>
+<path d="M350 190 l-22 6 M350 190 l22 6 M350 190 l6 22 M350 190 l6-22" stroke="#6b7076" stroke-width="1.5"/>
+</svg>` });
+  const logoSvg = () => h('span', { html: `<svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5 14 8 8 14.5 2 8Z" stroke="${INK}" stroke-width="1.2"/><path d="M8 4.5 11.5 8 8 11.5 4.5 8Z" fill="${INK}"/></svg>` });
+  const clock = h('span'); const tickClock = () => { const d = new Date(); const h0 = d.getUTCHours(), m0 = d.getUTCMinutes(); const ap = h0 >= 12 ? 'pm' : 'am'; const hh = ((h0 + 11) % 12) + 1; clock.textContent = `GMT ${hh}:${String(m0).padStart(2, '0')} ${ap}`; };
+  tickClock(); setInterval(tickClock, 15000);
+  const nav = h('div.ae-nav', {}, h('div.ae-logo', {}, logoSvg(), 'aevion'), h('span.ae-dot'), h('span', { style: { color: '#6b7076', fontSize: '12px' } }, 'Lidar Drone Scanning'), h('span.ae-sp'), h('div.ae-meta', {}, h('span', {}, 'Tech Demo By Riotters'), clock), h('button.ae-menu', { onclick: () => toast('menu (placeholder)') }, 'menu'));
+  const drone = droneSvg();
+  const hero = h('section.ae-hero', {}, h('div.ae-ghost', {}, 'aevion'), drone,
+    h('div.hl', {}, h('h1', {}, 'Autonomous LIDAR inspection systems.'), h('p', {}, 'Precision that secures critical infrastructure.')),
+    h('div.ae-scroll', {}, 'Scroll Down'));
+  // word-by-word dual register
+  const WORDS = [['Detecting', 0], ['cracks,', 1], ['deformations', 1], ['and', 0], ['structural', 1], ['risks', 0], ['before', 0], ['they', 0], ['become', 0], ['failures.', 0]];
+  const spans = WORDS.map(([w, b]) => h(`span${b ? '.b' : ''}`, {}, w));
+  const copy = h('div.ae-copy', {}, h('div.line', {}, spans.slice(0, 2)), h('div.line', {}, spans.slice(2, 4)), h('div.line', {}, spans.slice(4, 6)), h('div.line', {}, spans.slice(6)));
+  const split = h('section.ae-split', {}, copy, h('div.vline'), h('div', { style: { background: 'linear-gradient(180deg,#f7f8f9,#e8eef3)' } }));
+  const gear = h('section.ae-gear', {}, h('h2', {}, 'Gear'), h('div.badge', {}, '3'));
+  const pay = h('section.ae-pay', {}, h('div', {}, h('div.lab', {}, '■ PAYLOAD'), h('div.txt', {}, 'Engineered around the DJI Zenmuse L2 LiDAR payload. Our system delivers frame-based point cloud acquisition with up to 240,000 pts/s and five simultaneous returns per pulse.')), h('div'));
+  // scramble specs
+  const SPECS = [['[ TECH ]', '5 returns', 'MAX RETURNS'], ['[ TECH ]', '±2 cm', 'DETECTION ACCURACY'], ['[ TECH ]', '450 m', 'MAX RANGE']];
+  const specVals = SPECS.map(([, v]) => h('div.val', {}, v));
+  const specs = h('section.ae-specs', {}, SPECS.map(([br, , lab], i) => h('div.ae-spec', {}, h('div.br', {}, br), specVals[i], h('div.br', { style: { marginTop: '12px' } }, `[ ${lab} ]`))));
+  let scrambled = false;
+  const runScramble = () => { scrambled = true; SPECS.forEach(([, v], i) => scramble(specVals[i], v, 800 + i * 120)); };
+  // capabilities canvas
+  const cv = h('canvas'); const cx = cv.getContext('2d');
+  let tab = 0, fold = 1, ang = 0, raf = 0;
+  const TABS = [
+    { n: 'Scan', num: '01', sent: 'Terrain point cloud resolves as the LiDAR cone sweeps — colour reserved for return intensity.' },
+    { n: 'Connection', num: '02', sent: 'Mesh uplink keeps the operator linked across line-of-sight gaps with sub-second telemetry.' },
+    { n: 'Compactness', num: '03', sent: 'Arms fold to a 42 cm pack — backpack-ready for tower climbs and rooftop launches.' },
+  ];
+  const tabBtns = TABS.map((t, i) => h('button.ae-tab', { onclick: () => setTab(i) }, t.n));
+  const numEl = h('div.num', {}, TABS[0].num); const sentEl = h('div.sent', {}, TABS[0].sent);
+  const setTab = (i) => { tab = i; tabBtns.forEach((b, k) => b.classList.toggle('on', k === i)); numEl.textContent = TABS[i].num; sentEl.textContent = TABS[i].sent; fold = i === 2 ? 0.35 : 1; };
+  const resizeCv = () => { const r = cv.parentElement?.getBoundingClientRect(); if (!r) return; const dpr = Math.min(2, devicePixelRatio || 1); cv.width = Math.max(2, r.width * dpr); cv.height = Math.max(2, r.height * dpr); };
+  const drawCloud = (t) => {
+    const W = cv.width, H = cv.height; if (!W) return; cx.clearRect(0, 0, W, H);
+    cx.fillStyle = '#0e1216'; cx.fillRect(0, 0, W, H);
+    ang = t * 0.00015; const pts = 1800;
+    // terrain
+    for (let i = 0; i < pts; i++) {
+      const u = (i * 0.618) % 1, v = ((i * 0.317) % 1);
+      const x0 = (u - .5) * 2.2, z0 = (v - .5) * 2.2;
+      const y0 = Math.sin(x0 * 2.1 + ang) * .18 + Math.cos(z0 * 1.7 - ang * .7) * .12 + (tab === 0 ? Math.sin(u * 20 + t * .002) * .02 : 0);
+      const sc = tab === 2 ? fold : 1;
+      let x = x0 * sc, y = y0, z = z0 * sc;
+      if (tab === 1) { const r = Math.hypot(x, z); x = x + Math.sin(t * .001 + r * 3) * .05; }
+      // camera cut per tab
+      const yaw = tab === 0 ? .4 : tab === 1 ? 1.1 : -.2;
+      const pitch = tab === 0 ? .55 : tab === 1 ? .35 : 1.2;
+      const cosY = Math.cos(yaw), sinY = Math.sin(yaw), cosP = Math.cos(pitch), sinP = Math.sin(pitch);
+      let X = x * cosY - z * sinY, Z = x * sinY + z * cosY, Y = y;
+      const Y2 = Y * cosP - Z * sinP; Z = Y * sinP + Z * cosP; Y = Y2;
+      const f = 2.2 / (2.6 + Z); const px = W * .5 + X * f * W * .38, py = H * .55 + Y * f * H * .45;
+      if (px < 0 || px > W || py < 0 || py > H) continue;
+      const inten = clamp(.25 + (1.2 - Z) * .25 + (tab === 0 ? (y0 + .2) * .8 : .2), 0, 1);
+      const g = Math.round(120 + inten * 100), b = Math.round(180 + inten * 75);
+      cx.fillStyle = `rgba(${40 + inten * 40},${g},${b},${.35 + inten * .55})`;
+      const s = Math.max(1.1, 2.4 * f * (devicePixelRatio || 1));
+      cx.fillRect(px, py, s, s);
+    }
+    // scan cone
+    if (tab === 0) {
+      cx.strokeStyle = '#3aa0ff66'; cx.lineWidth = 1.5 * (devicePixelRatio || 1);
+      cx.beginPath(); cx.moveTo(W * .5, H * .22); cx.lineTo(W * .22, H * .78); cx.lineTo(W * .78, H * .78); cx.closePath(); cx.stroke();
+      cx.fillStyle = '#3aa0ff14'; cx.fill();
+    }
+    if (tab === 2) {
+      cx.fillStyle = '#ffffffcc'; cx.font = `500 ${14 * (devicePixelRatio || 1)}px ${M}`; cx.fillText('42 cm pack', W * .08, H * .12);
+    }
+  };
+  const loop = (t) => { drawCloud(t); raf = requestAnimationFrame(loop); };
+  const stage = h('div.ae-stage', {}, cv, h('div.ov'));
+  const caps = h('section.ae-caps', {}, h('div.ae-tabs', {}, tabBtns), stage, h('div.ae-side', {}, numEl, sentEl));
+  const poster = h('div.ae-poster', {}, 'Capabilities');
+  const ft = h('footer.ae-ft', {}, h('span', {}, 'Aevion — autonomous LiDAR inspection · tech demo look-alike for UX practice. Not affiliated with Riotters.'), h('span', {}, 'Scroll · scramble · tab the capabilities'));
+  const el = h('div.ae', {}, nav, hero, split, gear, pay, specs, poster, caps, ft);
+  root.append(el); setTab(0);
+  requestAnimationFrame(() => { resizeCv(); raf = requestAnimationFrame(loop); });
+  new ResizeObserver(() => resizeCv()).observe(stage);
+  const onScroll = () => {
+    const st = root.scrollTop, vh = root.clientHeight;
+    drone.classList.toggle('out', st > vh * .15);
+    const r = split.getBoundingClientRect();
+    const p = clamp((vh * .75 - r.top) / (r.height * .7), 0, 1);
+    const n = Math.round(p * spans.length);
+    spans.forEach((s, i) => s.classList.toggle('on', i < n));
+    if (st > specs.offsetTop - vh * .8 && !scrambled) runScramble();
+  };
+  root.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  window.__demoProof = async () => {
+    const o = [];
+    root.scrollTop = split.offsetTop - 40; onScroll(); await sleep(100);
+    o.push(`words on=${spans.filter((s) => s.classList.contains('on')).length}/${spans.length}`);
+    root.scrollTop = specs.offsetTop - 80; onScroll(); await sleep(1400);
+    o.push(`scramble→[${specVals.map((v) => v.textContent).join('|')}]`);
+    setTab(0); await sleep(200); o.push(`tab Scan cone`);
+    setTab(1); await sleep(200); o.push(`tab Connection`);
+    setTab(2); await sleep(300); o.push(`tab Compactness fold=${fold.toFixed(2)} num=${numEl.textContent}`);
+    setTab(0); root.scrollTop = 0; onScroll(); drone.classList.remove('out'); scrambled = false;
+    SPECS.forEach(([, v], i) => { specVals[i].textContent = v; specVals[i].classList.remove('scr'); });
+    await sleep(200); o.push('restored'); return o.join('; ');
+  };
+};
+
+V['colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel'] = (root, T) => {
+  theme(root, T, { bg: '#e8dfd0', fg: '#111', ac: '#c47a2c', dark: false });
+  import('@fontsource/barlow-condensed/700.css'); import('@fontsource/barlow-condensed/600.css'); import('@fontsource/libre-baskerville/400.css'); import('@fontsource/libre-baskerville/400-italic.css');
+  const C = "'Barlow Condensed','Arial Narrow',sans-serif", S = "'Libre Baskerville',Georgia,serif", OCH = '#c47a2c', PUTTY = '#e8dfd0';
+  css(`.zc{position:absolute;inset:0;background:#1a1c18;color:#111;font:400 13px/1.4 ${S};overflow:hidden;user-select:none}
+.zc *{box-sizing:border-box}.zc button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.zc-land{position:absolute;inset:0;z-index:20;display:grid;place-items:center;transition:opacity .7s,visibility .7s}
+.zc-land.off{opacity:0;visibility:hidden;pointer-events:none}
+.zc-land canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.05)}
+.zc-land .veil{position:absolute;inset:0;background:linear-gradient(#0002,#0006)}
+.zc-fly{position:absolute;left:2%;top:50%;transform:translateY(-50%);font:700 clamp(64px,11vw,140px)/.85 ${C};letter-spacing:-.02em;text-transform:uppercase;color:#0c0c0c;z-index:2;text-shadow:0 1px 0 #fff3}
+.zc-zac{position:absolute;right:2%;top:50%;transform:translateY(-50%);font:700 clamp(64px,11vw,140px)/.85 ${C};letter-spacing:-.02em;text-transform:uppercase;color:#0c0c0c;z-index:2;text-align:right;text-shadow:0 1px 0 #fff3}
+.zc-pwr{position:absolute;right:3%;top:4%;font:600 9px ${C};letter-spacing:.14em;color:#0008;z-index:2}
+.zc-cta{position:relative;z-index:3;display:grid;justify-items:center;gap:18px;margin-top:18%}
+.zc-cta .btn{display:inline-flex;align-items:center;gap:10px;background:#0c0c0c;color:#fff;padding:12px 22px 12px 26px;border-radius:99px;font:600 15px ${C};letter-spacing:.06em;text-transform:uppercase;transition:transform .2s}.zc-cta .btn:hover{transform:scale(1.04)}
+.zc-cta .btn i{width:18px;height:18px;border-radius:50%;background:#fff;display:grid;place-items:center}.zc-cta .btn i b{width:6px;height:6px;border-radius:50%;background:#0c0c0c;display:block}
+.zc-cta p{margin:0;text-align:center;font:italic 400 13px/1.45 ${S};color:#0c0c0c;text-shadow:0 1px 2px #fff6}
+.zc-map{position:absolute;inset:0;background:${PUTTY};cursor:grab}.zc-map:active{cursor:grabbing}
+.zc-map canvas{position:absolute;inset:0;width:100%;height:100%}
+.zc-ctrl{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:10px;background:#0c0c0cee;color:#fff;padding:8px 10px 8px 8px;border-radius:14px;backdrop-filter:blur(8px)}
+.zc-ctrl .th{width:44px;height:44px;border-radius:10px;background:#3a342c;overflow:hidden;flex:none}.zc-ctrl .th canvas{width:100%;height:100%}
+.zc-ctrl .ar{width:32px;height:32px;border-radius:8px;background:#ffffff14;font:700 16px ${C}}
+.zc-tog{display:flex;background:#ffffff14;border-radius:8px;padding:3px;gap:2px}.zc-tog button{padding:7px 12px;border-radius:6px;font:700 11px ${C};letter-spacing:.08em;color:#fff8}.zc-tog button.on{background:${OCH};color:#fff}
+.zc-night{width:36px;height:36px;border-radius:50%;background:#ffffff14;display:grid;place-items:center;font-size:16px}.zc-night.on{background:#1a2744;box-shadow:0 0 0 2px ${OCH}}
+.zc-panel{position:absolute;top:0;right:0;bottom:0;width:min(380px,92vw);background:${OCH};color:#1a1208;z-index:15;transform:translateX(105%);transition:transform .55s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px #0005}
+.zc-panel.on{transform:translateX(0)}
+.zc-panel .ph{display:flex;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid #0002}
+.zc-panel .ph button{width:32px;height:32px;border-radius:8px;background:#0001;font:700 16px ${C}}
+.zc-panel .ph .sp{flex:1}.zc-panel .ph .x{font-size:18px}
+.zc-panel .body{padding:22px 22px 30px;overflow:auto;flex:1}
+.zc-panel h2{margin:0 0 6px;font:700 clamp(32px,5vw,44px)/.9 ${C};text-transform:uppercase;letter-spacing:-.01em}
+.zc-panel .art{margin:14px 0;aspect-ratio:16/10;border-radius:4px;background:#0002;overflow:hidden;position:relative}
+.zc-panel .art canvas{width:100%;height:100%}
+.zc-panel .credit{font:600 11px ${C};letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.zc-panel .body p{margin:0;font:400 14px/1.55 ${S}}
+.zc-chip{position:absolute;left:18px;top:18px;z-index:8;font:700 11px ${C};letter-spacing:.12em;padding:6px 10px;border-radius:6px;background:#0c0c0cee;color:#fff}
+@media (max-width:860px){.zc-fly,.zc-zac{font-size:56px;top:38%}.zc-cta{margin-top:28%}.zc-ctrl{left:10px;right:10px;transform:none;width:auto;justify-content:space-between}}
+`);
+  const MURALS = [
+    { id: 0, n: 'FROM THORNS', a: 'Colectivo Raíz', x: .28, y: .42, locked: false, blurb: 'Thorns become flowers along the block wall — a regenerative mural painted with neighbours after the rains.' },
+    { id: 1, n: 'SANTA ZACAMIL', a: 'Adoratorio + CMS', x: .48, y: .38, locked: false, blurb: 'Patron saint of the colonia, rendered larger than the tower she watches from the courtyard.' },
+    { id: 2, n: 'A BETTER CHILDHOOD', a: 'Niños de Zacamil', x: .62, y: .52, locked: false, blurb: 'Kids drew their own future on corrugated tin; artists scaled the doodles into a four-storey story.' },
+    { id: 3, n: 'PAZ Y PACHAMAMA', a: 'Taller Tierra', x: .38, y: .58, locked: false, blurb: 'Peace and earth mother intertwined — ochre and leaf green over bare concrete.' },
+    { id: 4, n: 'THE DOVE', a: 'Anon. 2019', x: .72, y: .44, locked: false, blurb: 'A white dove lifts from the stairwell, visible from the drone path used to map the estate.' },
+    { id: 5, n: 'HIDDEN TALENTS', a: 'Workshop 12', x: .22, y: .62, locked: true, blurb: 'Incomplete — named on the map, waiting for the next paint day.' },
+    { id: 6, n: 'FIRE TREE', a: 'Luna M.', x: .55, y: .28, locked: false, blurb: 'A ceiba on fire with birds, marking the plaza where the night market starts.' },
+    { id: 7, n: 'MAYAN TEMPLES', a: 'Grupo Sol', x: .78, y: .60, locked: false, blurb: 'Stepped temples climb the end wall of Block C, lit amber after dark.' },
+    { id: 8, n: 'OUR VOICE', a: 'Radio Zacamil', x: .33, y: .30, locked: false, blurb: 'Microphones and speech ribbons — the community radio tower painted as myth.' },
+    { id: 9, n: 'INTERCONNECTION', a: 'CMS residency', x: .68, y: .32, locked: false, blurb: 'Wires become vines; every window a node on the estate network.' },
+    { id: 10, n: 'MIGRATIONS', a: 'Familias Unidas', x: .18, y: .48, locked: false, blurb: 'Suitcases and birds in flight — stories of leaving and returning home.' },
+    { id: 11, n: 'VOLCANO', a: 'Geo Lab', x: .85, y: .36, locked: true, blurb: 'Locked mural reserved for the volcano ridge wall.' },
+  ];
+  // aerial landing canvas
+  const landCv = h('canvas'); const paintLand = () => {
+    const dpr = Math.min(2, devicePixelRatio || 1); const W = Math.max(2, root.clientWidth * dpr), H = Math.max(2, root.clientHeight * dpr);
+    landCv.width = W; landCv.height = H; const x = landCv.getContext('2d');
+    const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, '#c4b396'); g.addColorStop(.5, '#8a7a5e'); g.addColorStop(1, '#4a5340'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+    // blocks
+    const r = rng(4);
+    for (let row = 0; row < 7; row++) for (let col = 0; col < 5; col++) {
+      const bx = W * (.28 + col * .09 + row * .01), by = H * (.22 + row * .09), bw = W * .07, bh = H * .055;
+      x.fillStyle = row % 2 ? '#b8a88a' : '#9e9178'; x.fillRect(bx, by, bw, bh);
+      x.fillStyle = '#6a6250'; x.fillRect(bx, by, bw, bh * .18);
+      for (let w = 0; w < 4; w++) for (let fl = 0; fl < 3; fl++) { x.fillStyle = r() > .5 ? '#d9cbb0' : '#2a2e28'; x.fillRect(bx + bw * (.12 + w * .2), by + bh * (.28 + fl * .22), bw * .1, bh * .12); }
+    }
+    // trees
+    for (let i = 0; i < 80; i++) { x.fillStyle = `rgb(${40 + r() * 40|0},${90 + r() * 60|0},${50 + r() * 30|0})`; x.beginPath(); x.ellipse(r() * W, r() * H, 8 + r() * 18, 6 + r() * 12, r(), 0, 7); x.fill(); }
+    // roads
+    x.strokeStyle = '#3a3a36'; x.lineWidth = 10 * dpr; x.beginPath(); x.moveTo(W * .1, H * .7); x.quadraticCurveTo(W * .4, H * .55, W * .9, H * .65); x.stroke();
+    // warm light
+    const sun = x.createRadialGradient(W * .8, H * .1, 10, W * .6, H * .4, W * .7); sun.addColorStop(0, '#ffc07055'); sun.addColorStop(1, '#0000'); x.fillStyle = sun; x.fillRect(0, 0, W, H);
+  };
+  const landBtn = h('button.btn', { onclick: () => enterMap() }, 'Discover', h('i', {}, h('b')));
+  const land = h('div.zc-land', {}, landCv, h('div.veil'), h('div.zc-pwr', {}, 'POWERED BY CMS'), h('div.zc-fly', {}, 'FLY', h('br'), 'TO'), h('div.zc-zac', {}, 'ZACAMIL'),
+    h('div.zc-cta', {}, landBtn, h('p', {}, 'Zacamil is more than just buildings.', h('br'), 'Activate audio for the full experience.')));
+
+  // map state
+  const mapCv = h('canvas'); let night = false, mode = 'present', panX = 0, panY = 0, zoom = 1, sel = -1;
+  const thCv = h('canvas', { width: 88, height: 88 });
+  const drawMuralArt = (x, W, H, id, past) => {
+    const r = rng(id * 17 + 3); x.fillStyle = past ? '#9a9488' : ['#c47a2c', '#2f6b4f', '#3a4a8a', '#a83a3a', '#d4a84a'][id % 5]; x.fillRect(0, 0, W, H);
+    if (past) { for (let i = 0; i < 20; i++) { x.fillStyle = '#00000018'; x.fillRect(r() * W, r() * H, 8, H); } return; }
+    for (let i = 0; i < 12; i++) { x.fillStyle = `hsla(${(id * 40 + i * 25) % 360},55%,45%,.85)`; x.beginPath(); x.moveTo(r() * W, r() * H); x.lineTo(r() * W, r() * H); x.lineTo(r() * W, r() * H); x.closePath(); x.fill(); }
+    x.fillStyle = '#fff8'; x.font = `700 ${Math.max(14, W * .08)}px ${C}`; x.fillText(MURALS[id].n.split(' ')[0], 10, H * .55);
+  };
+  const drawMap = () => {
+    const dpr = Math.min(2, devicePixelRatio || 1); const W = Math.max(2, root.clientWidth * dpr), H = Math.max(2, root.clientHeight * dpr);
+    mapCv.width = W; mapCv.height = H; const x = mapCv.getContext('2d');
+    x.fillStyle = night ? '#0d1218' : PUTTY; x.fillRect(0, 0, W, H);
+    x.save(); x.translate(W / 2 + panX * dpr, H / 2 + panY * dpr); x.scale(zoom * dpr, zoom * dpr);
+    // isometric-ish estate
+    const blocks = [];
+    for (let row = 0; row < 6; row++) for (let col = 0; col < 4; col++) blocks.push({ x: (col - 1.5) * 140 + row * 12, y: (row - 2.5) * 70, w: 110, d: 50, h: 70 + (row + col) % 3 * 18 });
+    const r = rng(9);
+    // ground
+    x.fillStyle = night ? '#1a222c' : '#d5cbb8'; x.beginPath(); x.moveTo(-520, 40); x.lineTo(520, 40); x.lineTo(420, 320); x.lineTo(-420, 320); x.closePath(); x.fill();
+    // trees
+    for (let i = 0; i < 40; i++) {
+      const tx = (r() - .5) * 900, ty = 60 + r() * 240; x.fillStyle = night ? '#1e3a28' : '#2f5a38';
+      x.beginPath(); x.moveTo(tx, ty); x.lineTo(tx + 14, ty - 36 - r() * 20); x.lineTo(tx + 28, ty); x.fill();
+    }
+    // tiny cars
+    for (let i = 0; i < 8; i++) { const cx0 = -400 + i * 100 + (performance.now() / 40 + i * 30) % 800; x.fillStyle = night ? '#ffcc66' : '#333'; x.fillRect(cx0, 280 + (i % 3) * 8, 18, 8); }
+    blocks.forEach((b, i) => {
+      const { x: bx, y: by, w, d, h } = b;
+      // iso diamond
+      const iso = (px, py, pz) => [px - py, (px + py) * .5 - pz];
+      const p0 = iso(bx, by, 0), p1 = iso(bx + w, by, 0), p2 = iso(bx + w, by + d, 0), p3 = iso(bx, by + d, 0);
+      const t0 = iso(bx, by, h), t1 = iso(bx + w, by, h), t2 = iso(bx + w, by + d, h), t3 = iso(bx, by + d, h);
+      // walls
+      const wallCol = night ? '#243040' : (mode === 'past' ? '#b0a898' : '#cfc6b4');
+      x.fillStyle = wallCol; x.beginPath(); x.moveTo(...p3); x.lineTo(...p2); x.lineTo(...t2); x.lineTo(...t3); x.closePath(); x.fill();
+      x.fillStyle = night ? '#1a2430' : '#b8b09e'; x.beginPath(); x.moveTo(...p0); x.lineTo(...p3); x.lineTo(...t3); x.lineTo(...t0); x.closePath(); x.fill();
+      x.fillStyle = night ? '#2a3545' : '#e6dece'; x.beginPath(); x.moveTo(...t0); x.lineTo(...t1); x.lineTo(...t2); x.lineTo(...t3); x.closePath(); x.fill();
+      // mural on front face when present
+      if (mode === 'present' && i % 2 === 0) {
+        const mid = MURALS[i % MURALS.length];
+        if (!mid.locked) {
+          const grd = x.createLinearGradient(t3[0], t3[1], p2[0], p2[1]);
+          grd.addColorStop(0, ['#c47a2c', '#2f6b4f', '#3a4a8a', '#a83a3a'][i % 4]);
+          grd.addColorStop(1, ['#e8a85a', '#5a9a6a', '#6a7aba', '#d46a4a'][i % 4]);
+          x.fillStyle = night ? grd : grd; x.globalAlpha = night ? 1 : .95;
+          x.beginPath(); x.moveTo(p3[0] + 8, p3[1] - 8); x.lineTo(p2[0] - 8, p2[1] - 8); x.lineTo(t2[0] - 8, t2[1] + 8); x.lineTo(t3[0] + 8, t3[1] + 8); x.closePath(); x.fill(); x.globalAlpha = 1;
+          if (night) { x.fillStyle = '#ffcc6644'; x.fill(); }
+        }
+      }
+      // windows
+      for (let wy = 0; wy < 3; wy++) for (let wx = 0; wx < 3; wx++) {
+        const [ux, uy] = iso(bx + 18 + wx * 28, by + d, 18 + wy * 20);
+        x.fillStyle = night ? (r() > .4 ? '#ffd080' : '#1a2030') : '#8a8478';
+        x.fillRect(ux - 4, uy - 5, 8, 7);
+      }
+    });
+    // pins
+    MURALS.forEach((m, i) => {
+      const px = (m.x - .5) * 900, py = (m.y - .5) * 520 + 80;
+      const [ix, iy] = [px, py * .5];
+      x.fillStyle = m.locked ? '#0004' : OCH;
+      if (night && !m.locked) { x.shadowColor = '#ffaa44'; x.shadowBlur = 16; }
+      x.beginPath(); x.arc(ix, iy, sel === i ? 14 : 9, 0, 7); x.fill();
+      x.shadowBlur = 0; x.fillStyle = '#fff'; x.beginPath(); x.arc(ix, iy, 3.5, 0, 7); x.fill();
+      if (sel === i) { x.strokeStyle = '#fff'; x.lineWidth = 2; x.beginPath(); x.arc(ix, iy, 18, 0, 7); x.stroke(); }
+    });
+    x.restore();
+    // thumbnail
+    const tx = thCv.getContext('2d'); drawMuralArt(tx, 88, 88, sel >= 0 ? sel : 0, mode === 'past');
+  };
+  let mapRaf = 0; const mapLoop = () => { drawMap(); mapRaf = requestAnimationFrame(mapLoop); };
+  // panel
+  const pTitle = h('h2'); const pCredit = h('div.credit'); const pBody = h('p'); const pArt = h('canvas');
+  const openPanel = (i) => {
+    sel = i; const m = MURALS[i]; pTitle.textContent = m.n; pCredit.textContent = m.locked ? 'LOCKED · COMING SOON' : `ARTIST · ${m.a}`;
+    pBody.textContent = m.blurb; const ax = pArt.getContext('2d'); pArt.width = 640; pArt.height = 400; drawMuralArt(ax, 640, 400, i, mode === 'past');
+    panel.classList.add('on'); chip.textContent = mode === 'past' ? '[PAST]' : '[PRESENT]'; drawMap();
+  };
+  const closePanel = () => { sel = -1; panel.classList.remove('on'); drawMap(); };
+  const stepMural = (d) => { let i = sel < 0 ? 0 : sel; do { i = (i + d + MURALS.length) % MURALS.length; } while (MURALS[i].locked && i !== sel); openPanel(i); };
+  const panel = h('div.zc-panel', {},
+    h('div.ph', {}, h('button', { onclick: () => stepMural(-1) }, '←'), h('button', { onclick: () => stepMural(1) }, '→'), h('span.sp'), h('button.x', { onclick: closePanel }, '✕')),
+    h('div.body', {}, pTitle, pArt, pCredit, pBody));
+  const togP = h('button', { onclick: () => setMode('present') }, '[PRESENT]');
+  const togA = h('button', { onclick: () => setMode('past') }, '[PAST]');
+  const nightBtn = h('button.zc-night', { title: 'Night mode', onclick: () => { night = !night; nightBtn.classList.toggle('on', night); nightBtn.textContent = night ? '🌙' : '☀'; drawMap(); } }, '☀');
+  const setMode = (m) => { mode = m; togP.classList.toggle('on', m === 'present'); togA.classList.toggle('on', m === 'past'); if (sel >= 0) openPanel(sel); else drawMap(); chip.textContent = m === 'past' ? '[PAST]' : '[PRESENT]'; };
+  const chip = h('div.zc-chip', {}, '[PRESENT]');
+  const ctrl = h('div.zc-ctrl', {}, h('div.th', {}, thCv), h('button.ar', { onclick: () => stepMural(-1) }, '‹'), h('button.ar', { onclick: () => stepMural(1) }, '›'),
+    h('div.zc-tog', {}, togP, togA), nightBtn);
+  const map = h('div.zc-map', {}, mapCv, chip, ctrl, panel);
+  // pan / zoom / pin hit
+  let dragging = false, lx = 0, ly = 0;
+  map.addEventListener('pointerdown', (e) => { if (e.target.closest('.zc-ctrl,.zc-panel')) return; dragging = true; lx = e.clientX; ly = e.clientY; map.setPointerCapture(e.pointerId); });
+  map.addEventListener('pointermove', (e) => { if (!dragging) return; panX += e.clientX - lx; panY += e.clientY - ly; lx = e.clientX; ly = e.clientY; });
+  map.addEventListener('pointerup', (e) => {
+    if (!dragging) return; dragging = false;
+    // pin hit test in screen space (approx)
+    const rect = map.getBoundingClientRect(); const mx = e.clientX - rect.left - rect.width / 2 - panX, my = e.clientY - rect.top - rect.height / 2 - panY;
+    const hit = MURALS.findIndex((m) => { const px = (m.x - .5) * 900 * zoom, py = ((m.y - .5) * 520 + 80) * .5 * zoom; return Math.hypot(mx - px, my - py) < 22; });
+    if (hit >= 0 && !MURALS[hit].locked) openPanel(hit);
+  });
+  map.addEventListener('wheel', (e) => { e.preventDefault(); zoom = clamp(zoom * (e.deltaY > 0 ? .92 : 1.08), .6, 2.2); }, { passive: false });
+
+  const enterMap = () => { land.classList.add('off'); setMode('present'); cancelAnimationFrame(mapRaf); mapRaf = requestAnimationFrame(mapLoop); };
+  const el = h('div.zc', {}, map, land);
+  root.append(el); paintLand(); setMode('present'); drawMap();
+  new ResizeObserver(() => { if (!land.classList.contains('off')) paintLand(); }).observe(root);
+
+  window.__demoProof = async () => {
+    const o = [];
+    enterMap(); await sleep(400); o.push(`map entered landOff=${land.classList.contains('off')}`);
+    setMode('past'); await sleep(150); o.push(`mode=${mode}`);
+    setMode('present');
+    night = true; nightBtn.classList.add('on'); nightBtn.textContent = '🌙'; drawMap(); o.push(`night=${night}`);
+    openPanel(1); await sleep(350); o.push(`panel=${panel.classList.contains('on')} title="${pTitle.textContent}"`);
+    stepMural(1); await sleep(200); o.push(`step→"${pTitle.textContent}"`);
+    closePanel(); night = false; nightBtn.classList.remove('on'); nightBtn.textContent = '☀'; setMode('present');
+    land.classList.remove('off'); cancelAnimationFrame(mapRaf); drawMap();
+    await sleep(200); o.push('restored landing'); return o.join('; ');
+  };
+};
+
+V['odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index'] = (root, T) => {
+  theme(root, T, { bg: '#1a1f2a', fg: '#f5f1ea', ac: '#683b28', dark: true }); scroll(root);
+  import('@fontsource/playfair-display/400.css'); import('@fontsource/playfair-display/500.css'); import('@fontsource-variable/inter');
+  const SER = "'Playfair Display',Georgia,serif", SAN = "'Inter Variable',Helvetica,Arial,sans-serif", NAVY = '#1a2744', CREAM = '#f5f1ea';
+  css(`.od{background:#0e1218;color:${CREAM};font:400 13px/1.45 ${SAN};min-height:100%;overflow-x:clip;position:relative}
+.od *{box-sizing:border-box}.od button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.od-sec{position:relative;height:calc(100vh - 38px);min-height:560px;overflow:hidden;display:grid;align-items:center}
+.od-film{position:absolute;inset:0;transition:opacity 1s ease}.od-film canvas{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.55) contrast(1.05)}
+.od-film .shade{position:absolute;inset:0;background:linear-gradient(90deg,#0e1218aa 0%,#0e121822 28%,#0e121822 72%,#0e1218aa 100%),linear-gradient(#0000 50%,#0e121866)}
+.od-band{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:0 3%;width:100%;pointer-events:none}
+.od-band > *{pointer-events:auto}
+.od-left{display:flex;align-items:baseline;gap:14px;max-width:42%}
+.od-mark{font:500 clamp(28px,3.2vw,44px)/1 ${SER};letter-spacing:.02em;text-transform:uppercase}
+.od-tag{font:400 clamp(13px,1.2vw,16px)/1.3 ${SER};opacity:.92;max-width:220px}
+.od-nav{display:flex;gap:clamp(12px,2vw,28px);font:500 11px/1 ${SAN};letter-spacing:.14em;text-transform:uppercase}
+.od-nav button{opacity:.85;transition:opacity .2s}.od-nav button:hover,.od-nav button.on{opacity:1}
+.od-split{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-start;padding:0 3%;width:100%}
+.od-split .L,.od-split .R{font:400 clamp(36px,5.5vw,72px)/1.05 ${SER};letter-spacing:-.02em;max-width:38%}
+.od-split .R{text-align:right}
+.od-idx{position:fixed;left:18px;bottom:24px;z-index:30;display:grid;gap:10px;font:500 10px/1 ${SAN};letter-spacing:.14em;text-transform:uppercase}
+.od-idx button{display:flex;align-items:center;gap:8px;opacity:.55;transition:opacity .25s;color:${CREAM}}.od-idx button.on{opacity:1}
+.od-idx i{width:7px;height:7px;border-radius:50%;background:#fff3;display:block;transition:background .25s,box-shadow .25s}.od-idx button.on i{background:#fff;box-shadow:0 0 0 3px #fff3}
+.od-about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:0 6%;align-items:center;position:relative;z-index:3}
+.od-about .copy h2{margin:0 0 16px;font:400 clamp(32px,4vw,52px)/1.1 ${SER}}
+.od-about .copy p{margin:0;font:400 14px/1.6 ${SAN};opacity:.85;max-width:420px}
+.od-frame{position:relative;aspect-ratio:4/5;max-width:380px;margin-left:auto;border:1px solid #ffffff33;padding:10px;background:#ffffff08;backdrop-filter:blur(4px)}
+.od-frame canvas{width:100%;height:100%;display:block;filter:saturate(.7)}
+.od-frame .cap{position:absolute;left:18px;bottom:18px;font:500 10px ${SAN};letter-spacing:.12em;text-transform:uppercase}
+.od-ft{padding:40px 3% 60px;display:flex;justify-content:space-between;gap:16px;font:500 10px ${SAN};letter-spacing:.1em;text-transform:uppercase;opacity:.55;border-top:1px solid #ffffff14}
+@media (max-width:860px){.od-band{flex-direction:column;align-items:flex-start;gap:18px;padding-top:10vh}.od-nav{flex-wrap:wrap;gap:12px 16px}.od-split .L,.od-split .R{max-width:46%;font-size:28px}
+.od-about{grid-template-columns:1fr;padding:0 5%}.od-frame{margin:20px auto 0;max-width:280px}.od-idx{left:12px;bottom:16px}}
+`);
+  // procedural film frames
+  const paintPortrait = (cv, seed = 1, tone = 'warm') => {
+    const W = cv.width, H = cv.height, x = cv.getContext('2d'), r = rng(seed);
+    const bg = x.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, tone === 'navy' ? '#2a3348' : '#d8d2c8'); bg.addColorStop(1, tone === 'navy' ? '#121820' : '#b0a89c');
+    x.fillStyle = bg; x.fillRect(0, 0, W, H);
+    // soft figure silhouette
+    x.fillStyle = tone === 'navy' ? '#3a4558' : '#c4b6a6';
+    x.beginPath(); x.ellipse(W * .52, H * .38, W * .18, H * .22, 0, 0, 7); x.fill(); // head
+    x.beginPath(); x.moveTo(W * .32, H); x.quadraticCurveTo(W * .35, H * .55, W * .52, H * .55); x.quadraticCurveTo(W * .72, H * .55, W * .78, H); x.fill();
+    // hands / surface
+    x.fillStyle = tone === 'navy' ? '#2a3140' : '#efeae2'; x.fillRect(0, H * .78, W, H * .22);
+    x.fillStyle = tone === 'navy' ? '#9aa3b0' : '#d2c4b4'; x.beginPath(); x.ellipse(W * .38, H * .8, W * .1, H * .03, -.2, 0, 7); x.fill();
+    x.beginPath(); x.ellipse(W * .62, H * .8, W * .1, H * .03, .2, 0, 7); x.fill();
+    // film grain
+    const img = x.getImageData(0, 0, W, H), p = img.data;
+    for (let i = 0; i < p.length; i += 4) { const g = (r() - .5) * 18; p[i] += g; p[i + 1] += g; p[i + 2] += g; }
+    x.putImageData(img, 0, 0);
+    // vignette
+    const v = x.createRadialGradient(W / 2, H / 2, H * .2, W / 2, H / 2, W * .7); v.addColorStop(0, '#0000'); v.addColorStop(1, '#0006'); x.fillStyle = v; x.fillRect(0, 0, W, H);
+  };
+  const paintHydrangea = (cv) => {
+    const W = cv.width, H = cv.height, x = cv.getContext('2d'), r = rng(21);
+    x.fillStyle = '#2a3344'; x.fillRect(0, 0, W, H);
+    for (let i = 0; i < 60; i++) {
+      const cx0 = W * (.3 + r() * .5), cy0 = H * (.25 + r() * .45);
+      x.fillStyle = `hsla(${250 + r() * 40},35%,${55 + r() * 25}%,.7)`;
+      x.beginPath(); x.arc(cx0, cy0, 8 + r() * 18, 0, 7); x.fill();
+    }
+    x.fillStyle = '#1a2030'; x.fillRect(0, H * .85, W, H * .15);
+  };
+  const SECTIONS = [
+    { id: 'home', label: 'Home', split: null },
+    { id: 'treatments', label: 'Treatments', L: 'science', R: 'with you.' },
+    { id: 'modalities', label: 'modalities', L: 'care that', R: 'listens.' },
+    { id: 'pre-aftercare', label: 'pre-aftercare', L: 'before &', R: 'after.' },
+    { id: 'about', label: 'About', split: 'about' },
+  ];
+  const films = SECTIONS.map(() => h('canvas'));
+  const filmLayers = SECTIONS.map((sec, i) => {
+    const wrap = h(`div.od-film`, { style: { opacity: i === 0 ? 1 : 0 } }, films[i], h('div.shade'));
+    return wrap;
+  });
+  const paintAll = () => {
+    films.forEach((cv, i) => {
+      const w = Math.min(1600, Math.max(720, root.clientWidth));
+      cv.width = w; cv.height = Math.round(w * .7);
+      if (i === 4) paintPortrait(cv, 40 + i, 'navy');
+      else paintPortrait(cv, 10 + i, i % 2 ? 'warm' : 'warm');
+    });
+  };
+  let cur = 0;
+  const navLinks = ['TREATMENTS', 'CONCERNS', 'ABOUT', 'BOOK CONSULTATION'].map((t) => h('button', { onclick: () => {
+    if (t === 'TREATMENTS') go(1); else if (t === 'ABOUT') go(4); else if (t === 'BOOK CONSULTATION') toast('Book consultation (placeholder)'); else go(2);
+  } }, t));
+  const homeBand = h('div.od-band', {},
+    h('div.od-left', {}, h('div.od-mark', {}, 'ODYSSÉE'), h('div.od-tag', {}, 'Medical aesthetics for timeless results.')),
+    h('nav.od-nav', {}, navLinks));
+  const mkSplit = (L, R) => h('div.od-split', {}, h('div.L', {}, L), h('div.R', {}, R));
+  const hyCv = h('canvas'); const about = h('div.od-about', {},
+    h('div.copy', {}, h('h2', {}, 'A clinic that feels', h('br'), 'like a quiet pause.'), h('p', {}, 'Odyssée sits in Hunters Hill — navy walls, off-white linen, and film stills that crossfade as you move. Type stays in two voices: serif for headlines, tracked grotesk for the index.')),
+    h('div.od-frame', {}, hyCv, h('div.cap', {}, 'Waiting room · hydrangea')));
+  const sections = SECTIONS.map((sec, i) => {
+    const body = i === 0 ? homeBand : i === 4 ? about : mkSplit(sec.L, sec.R);
+    return h(`section.od-sec#od-${sec.id}`, {}, filmLayers[i], body);
+  });
+  const idxBtns = SECTIONS.map((sec, i) => h('button', { onclick: () => go(i) }, h('i'), sec.label));
+  const idx = h('div.od-idx', {}, idxBtns);
+  const ft = h('footer.od-ft', {}, h('span', {}, 'Odyssée Clinic — look-alike study · not affiliated'), h('span', {}, 'NIGHTJAR SOTD reference'));
+  const el = h('div.od', {}, ...sections, idx, ft);
+  root.append(el);
+  const paintHy = () => { hyCv.width = 640; hyCv.height = 800; paintHydrangea(hyCv); };
+  paintAll(); paintHy();
+  const go = (i, instant = false) => {
+    cur = i; filmLayers.forEach((f, k) => { f.style.opacity = k === i ? 1 : 0; });
+    idxBtns.forEach((b, k) => b.classList.toggle('on', k === i));
+    navLinks.forEach((b) => b.classList.toggle('on', false));
+    if (i === 1) navLinks[0].classList.add('on');
+    if (i === 4) navLinks[2].classList.add('on');
+    if (instant) root.scrollTop = sections[i].offsetTop;
+    else sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const onScroll = () => {
+    const mid = root.scrollTop + root.clientHeight * .45;
+    let best = 0, bestD = 1e9;
+    sections.forEach((s, i) => { const c = s.offsetTop + s.offsetHeight / 2; const d = Math.abs(c - mid); if (d < bestD) { bestD = d; best = i; } });
+    if (best !== cur) {
+      cur = best; idxBtns.forEach((b, k) => b.classList.toggle('on', k === cur));
+      filmLayers.forEach((f, k) => { f.style.opacity = k === cur ? 1 : 0; });
+    }
+  };
+  root.addEventListener('scroll', onScroll, { passive: true }); go(0); onScroll();
+  let rT = 0; new ResizeObserver(() => { clearTimeout(rT); rT = setTimeout(() => { if (root.isConnected) paintAll(); }, 200); }).observe(root);
+
+  window.__demoProof = async () => {
+    const o = [];
+    go(1, true); await sleep(300); o.push(`treatments split L="${sections[1].querySelector('.L')?.textContent}" R="${sections[1].querySelector('.R')?.textContent}"`);
+    go(2, true); await sleep(250); o.push(`modalities idx=${idxBtns[2].classList.contains('on')}`);
+    go(4, true); await sleep(300); o.push(`about frame=${!!sections[4].querySelector('.od-frame')} filmOp=${filmLayers[4].style.opacity}`);
+    go(0, true); root.scrollTop = 0; onScroll(); filmLayers.forEach((f, k) => { f.style.opacity = k === 0 ? 1 : 0; }); idxBtns.forEach((b, k) => b.classList.toggle('on', k === 0));
+    await sleep(200); o.push(`home mark=${sections[0].querySelector('.od-mark')?.textContent} nav=${navLinks.length} restored`);
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

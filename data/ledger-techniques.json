@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact",
+  "slug": "aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact",
+  "name": "LiDAR Scan-Resolve Product Demo with Scramble Labels, Dual-Register Type, and Tabbed WebGL Capabilities (Aevion / Riotters)",
+  "date": "2026-10-14",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://drone.riotters.com/",
+  "domain": "drone.riotters.com",
+  "product": "Aevion — autonomous LiDAR inspection drone (Riotters tech demo)",
+  "checkpoints": [
+   "Thin top chrome: wordmark + Tech Demo By Riotters + live GMT clock + menu; white/blue-grey/slate palette with colour reserved for scan points",
+   "Hero: pale outline full-width \"aevion\" wordmark with white drone covering middle letters; two-tone Switzer sublines; green-blue point square in lens",
+   "On scroll: drone banks out; three-column spec band (5 returns / ±2 cm / 450 m) with Proto Mono bracket labels that scramble then settle",
+   "Human copy (Switzer) reveals word-by-word grey→ink; machine voice stays mono scramble — two registers",
+   "Capabilities: poster word + left tabs (Scan / Connection / Compactness) + centre WebGL + right number/sentence; inactive tabs same size light grey",
+   "Scan shows terrain point cloud + blue cone; Compactness top-down fold to 42 cm; footer admits tech demo"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel",
+  "slug": "colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel",
+  "name": "Past/Present 3D Estate Map with Mural Pins, Night Mode, and Slide-In Story Panel (Colonia Zacamil)",
+  "date": "2026-10-14",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://coloniazacamil.com/",
+  "domain": "coloniazacamil.com",
+  "product": "Colonia Zacamil — regenerative placemaking / public mural map (CMS + Adoratorio)",
+  "checkpoints": [
+   "Landing: tall condensed FLY TO ZACAMIL with drone film in rounded window between TO and ZACAMIL; Discover CTA + sound prompt; warm putty + black",
+   "Discover drops camera onto hand-drawn 3D estate; drag pan, scroll zoom; flat ink trees, pencil ground, tiny moving cars/people",
+   "22 mural pins (ochre); saturated murals only colour accents; incomplete murals named but locked",
+   "Bottom control: thumbnail + arrows + [PRESENT]/[PAST] — same camera, walls strip murals to bare concrete",
+   "Sun icon night mode: murals lit, streets dark, pins glow ochre",
+   "Pin click: camera flies to wall; right ochre panel with condensed title, artist film, credit, serif body; top arrows step murals"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index",
+  "slug": "odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index",
+  "name": "Split Edge Headlines Over Full-Bleed Film with Serif/Sans Dual Voice and Dot Section Index (Odyssée Clinic)",
+  "date": "2026-10-14",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://odysseeclinic.com.au/",
+  "domain": "odysseeclinic.com.au",
+  "product": "Odyssée — Hunters Hill medical aesthetics clinic (NIGHTJAR)",
+  "checkpoints": [
+   "Every page: full-bleed desaturated film; headline torn in two halves pinned to left and right edges so footage owns the centre gap",
+   "Home: single-band logo + tagline + four nav links across model shoulders; eyes/mouth stay clear of type",
+   "Treatments etc.: break after key word (\"science\" / \"with you.\"); eye reads left half → crosses image → finishes sentence",
+   "Type system: light tight serif for headlines/wordmark only; small tracked uppercase grotesk for nav, captions, index — never mixed in one line",
+   "Bottom-left uppercase section index with white current-section dot (Treatments / modalities / pre-aftercare)",
+   "About: framed hydrangea still layered on right over waiting-room pan; navy + off-white palette; GSAP film page transitions"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-heron-architectural-drawing-sheet-elevation-loader-title-block-orange-redline-chat-widget",
   "slug": "heron-architectural-drawing-sheet-elevation-loader-title-block-orange-redline-chat-widget",
   "name": "Architectural Drawing-Sheet BIM Product Site with Elevation Loader, Title Block, Orange Redline and Floating Chat Widget (Heron AI)",

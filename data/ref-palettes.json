@@ -1,4 +1,34 @@
 {
+ "aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact": {
+  "bg": "#fdfdfd",
+  "fg": "#141414",
+  "panel": "#e2e9ec",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.17
+ },
+ "colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel": {
+  "bg": "#1c1f20",
+  "fg": "#aeaa9e",
+  "panel": "#3e382b",
+  "dark": true,
+  "ac": "#374e59",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index": {
+  "bg": "#dde1e4",
+  "fg": "#683b28",
+  "panel": "#d7d8d9",
+  "dark": false,
+  "ac": "#683b28",
+  "ac2": "#85533e",
+  "ac3": "#946149",
+  "coverage": 0.07
+ },
  "heron-architectural-drawing-sheet-elevation-loader-title-block-orange-redline-chat-widget": {
   "bg": "#f5f5ee",
   "fg": "#62625d",
