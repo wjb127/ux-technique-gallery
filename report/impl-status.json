@@ -3409,5 +3409,32 @@
   "proof": "more=6 items; nav Focus → card.on=focus; play=true mode=focus eq=true; switch→sleep; paused=true; hover boost activity; stats=#1|7x|3.6x|95%; modal=true; canvases=34; restored mode=relax playing=false modal=false",
   "demoNodes": 363,
   "errors": []
+ },
+ "noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail/",
+  "ok": true,
+  "at": "2026-10-13T00:12:06.785Z",
+  "http": 200,
+  "proof": "menu open=true; usage Low→dark=true reduce=true rating=High animOff=true; usage High→dark=false reduce=false rating=Low; darkToggle→true usage=Med darkClass=true; reduceToggle→true rail anim=none; Lighty color→Chalk; Move color→Ink; 3D open=true yawΔ=1.20; ingredient tip=true; stories scrolled=true; restored dark=false reduce=false menu=false colors=Sunshine/Coal",
+  "demoNodes": 840,
+  "errors": []
+ },
+ "santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story": {
+  "url": "https://ux-technique-gallery.vercel.app/t/santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story/",
+  "ok": true,
+  "at": "2026-10-13T00:12:06.772Z",
+  "http": 200,
+  "proof": "gate NO→\"Come back when you are. Atone later.\"; gate YES entered=true gateHidden=true; audio bars on=true; story=I · The Pilgrim > II · The Vortex > III · The Colonnade > IV · The Pedestal panelsIn=4/4 webgl=true; hold-to-pour level=1.00 salute=true; menu→collection active=true; next→Notturno Oro; pick→Notturno Rosso; restored gate=true scroll=0 sel=Notturno Blu level=0",
+  "demoNodes": 491,
+  "errors": []
+ },
+ "trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound": {
+  "url": "https://ux-technique-gallery.vercel.app/t/trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound/",
+  "ok": true,
+  "at": "2026-10-13T00:12:06.783Z",
+  "http": 200,
+  "proof": "menu open=true links=6; menu closed=true; sound=true; hold charge=1.00 blast=true webgl=true; reassembled=true; lines touched=30; headline something→impact; stats=50+/1.5K+/20+; strip-drag offset=197; footer lines plucked=12; restored scroll=0 word=something sound=false menu=false",
+  "demoNodes": 801,
+  "errors": []
  }
 }
