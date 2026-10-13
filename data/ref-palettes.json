@@ -4168,5 +4168,35 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.32
+ },
+ "santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story": {
+  "bg": "#121212",
+  "fg": "#888888",
+  "panel": "#111111",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.96
+ },
+ "noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail": {
+  "bg": "#f1eee9",
+  "fg": "#634032",
+  "panel": "#e7e2da",
+  "dark": false,
+  "ac": "#dfc58f",
+  "ac2": "#634032",
+  "ac3": "#ab7358",
+  "coverage": 0.42
+ },
+ "trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound": {
+  "bg": "#0c0c0c",
+  "fg": "#aeaaa1",
+  "panel": "#0b0c0f",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.66
  }
 }

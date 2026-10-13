@@ -95,7 +95,10 @@ const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-
   'panic-rotating-game-takeover-hero-icon-shelf-popover-cards-slanted-section-bands': '로테이팅 게임 테이크오버 · 아이콘 선반 팝오버',
   'ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips': '타입 파운드리 패밀리 레일 · 거대 가변 스페시먼 · 인라인 테스터',
   'henryheffernan-bios-boot-start-gate-3d-desk-camera-zoom-into-crt-monitor-os': 'BIOS 부팅 게이트 · 3D 데스크 · CRT 모니터 줌 OS',
-  'endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections': '모노크롬 디바이스 라인업 · 모드 카드 · 제너레이티브 라인' };
+  'endel-monochrome-device-lineup-hero-mode-cards-generative-line-visual-dark-sections': '모노크롬 디바이스 라인업 · 모드 카드 · 제너레이티브 라인',
+  'santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story': '코믹북 WebGL 브랜드 여정 · 연령 게이트 · 홀드 투 푸어',
+  'noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail': '에너지 등급 컨트롤 · 다크/애니메이션 절감 · 3D 가구 컬러 피커',
+  'trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound': '홀드 투 블라스트 3D 히어로 · 슬라이드 메뉴 · 라이언 스탯 카드' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

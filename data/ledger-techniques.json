@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story",
+  "slug": "santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story",
+  "name": "Comic-Book WebGL Brand Journey with Age Gate, Hold-to-Pour Cocktail, Notturno Collection and Vortex Story Transitions (Santioni Spirits)",
+  "date": "2026-10-13",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://santionispirits.com/",
+  "domain": "santionispirits.com",
+  "product": "Santioni Spirits — ready-to-pour cocktail brand (Notturno launch experience by Active Theory)",
+  "checkpoints": [
+   "Full-width age gate: 'Are you of legal age?' with ornamental figure between Yes/No",
+   "Minimal chrome: logo top-left, boxed Experience/Collection menu, hand-cut audio toggle bars",
+   "Scroll-driven comic panels with ink-hatch frames; red accent phrases inside caption boxes",
+   "Story pilgrimage: saint walking, portal/vortex, cathedral colonnade, bottle pedestal",
+   "Hold-to-pour / pouring beverage interaction on coupe glass before drink moment",
+   "Notturno collection / flavor selection with three brightly colored bottles on red hall"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail",
+  "slug": "noho-energy-rating-dark-mode-reduce-motion-3d-explore-color-picker-stories-rail",
+  "name": "Sustainable Furniture Brand with Energy-Usage Rating Controls, Dark Mode, Reduce-Animation Toggle, Explore-in-3D Product and Color Picker Stories Rail (Noho)",
+  "date": "2026-10-13",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://noho.ink/",
+  "domain": "noho.ink",
+  "product": "Noho — New Zealand flexible/sustainable furniture brand site",
+  "checkpoints": [
+   "Header energy controls: Energy usage / Energy rating + Dark mode + Reduce animation toggles",
+   "Hero: 'We make furniture that's flexible, and playful, to fit modern life' + product photography",
+   "Product line cards (Noho Move, Noho Lighty) with 'Explore in 3D' and 'Pick a color'",
+   "Sustainable ingredients band: castor beans, old carpets, recycled fishing nets",
+   "People stories: pastel square photo rail over giant 'People stories' title + starred testimonial cards",
+   "Noho stories horizontal editorial cards with date/category and 'Read article >'"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound",
+  "slug": "trionn-hold-to-blast-3d-hero-slide-menu-stats-cards-lion-imagery-sound",
+  "name": "Dark Studio Site with Hold-to-Blast 3D Hero, Slide Menu, Surreal Lion Stat Cards and Sound-Aware Footer Lines (TRIONN)",
+  "date": "2026-10-13",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://trionn.com/",
+  "domain": "trionn.com",
+  "product": "TRIONN — AI-powered creative design & development studio site",
+  "checkpoints": [
+   "Dark hero: geometric TRIONN mark + 'Designed to mean impact/purpose' headline",
+   "Center 3D slab mark with radiating lines; bottom cue 'HOLD TO BLAST / DARE TO TOUCH THE LINES'",
+   "Top-right: mute icon, white 'LET'S TALK' pill, outlined MENU = slide panel",
+   "EST. 2012 / 14+ years chip with globe icon + mission blurb bottom-right",
+   "Three stats cards: Featured & Awards 50+, Projects Completed 1.5K+, Team 20+ with lion-headed imagery",
+   "Business partners logo row; culture/work paths include strip-drag lion and floating project gallery (site-documented)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips",
   "slug": "ohnotype-drawer-family-rail-giant-variable-specimen-inline-type-tester-option-chips",
   "name": "Playful Type Foundry Font Page with Italic-Serif Nav, Cascading Family Rail + Black BUY Chip Submenu, Giant Variable Specimen and Inline Editable Type Testers (OH no Type Co)",
