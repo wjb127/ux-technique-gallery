@@ -3519,27 +3519,27 @@
   "errors": []
  },
  "aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact": {
-  "url": "http://127.0.0.1:4173/t/aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact/",
+  "url": "https://ux-technique-gallery.vercel.app/t/aevion-lidar-scan-resolve-scramble-labels-tabbed-webgl-capabilities-fold-compact/",
   "ok": true,
-  "at": "2026-10-13T16:01:55.875Z",
+  "at": "2026-10-13T16:04:41.705Z",
   "http": 200,
-  "proof": "words on=10/10; scramble→[5 returns|±2 OD|450 V]; tab Scan cone; tab Connection; tab Compactness fold=0.35 num=03; restored",
+  "proof": "words on=10/10; scramble→[5 returns|±2 cm|450 m]; tab Scan cone; tab Connection; tab Compactness fold=0.35 num=03; restored",
   "demoNodes": 98,
   "errors": []
  },
  "colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel": {
-  "url": "http://127.0.0.1:4173/t/colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel/",
+  "url": "https://ux-technique-gallery.vercel.app/t/colonia-zacamil-past-present-3d-map-mural-pins-night-mode-slide-panel/",
   "ok": true,
-  "at": "2026-10-13T16:01:59.514Z",
+  "at": "2026-10-13T16:04:45.977Z",
   "http": 200,
   "proof": "map entered landOff=true; mode=past; night=true; panel=true title=\"SANTA ZACAMIL\"; step→\"A BETTER CHILDHOOD\"; restored landing",
   "demoNodes": 37,
   "errors": []
  },
  "odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index": {
-  "url": "http://127.0.0.1:4173/t/odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index/",
+  "url": "https://ux-technique-gallery.vercel.app/t/odyssee-split-edge-headline-full-bleed-film-serif-sans-section-dot-index/",
   "ok": true,
-  "at": "2026-10-13T16:02:02.649Z",
+  "at": "2026-10-13T16:04:49.310Z",
   "http": 200,
   "proof": "treatments split L=\"science\" R=\"with you.\"; modalities idx=true; about frame=true filmOp=1; home mark=ODYSSÉE nav=4 restored",
   "demoNodes": 61,
