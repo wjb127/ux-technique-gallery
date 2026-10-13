@@ -3490,5 +3490,32 @@
   "proof": "sheet open=true amt=$25; balance $789.13→$814.13; overdraw blocked=true; savings 980→990; section→Cash App Card card=rgb(255, 79, 163); tag→cash.app/$grok is available ✓; lock=true; menu=true; stats=59million+|4.8★|9.9m+|4.5★; restored bal=$789.13",
   "demoNodes": 218,
   "errors": []
+ },
+ "nickho-giant-car-number-hero-greyscale-photo-scroll-helmet-360-six-column-hairlines": {
+  "url": "http://localhost:4173/t/nickho-giant-car-number-hero-greyscale-photo-scroll-helmet-360-six-column-hairlines/",
+  "ok": true,
+  "at": "2026-10-13T12:03:27.636Z",
+  "http": 200,
+  "proof": "loader off=true; manifesto filled=29/32 yellow=7; helmet scroll HELMET 360 · 180°; drag HELMET 360 · 270°; history ch=4/5 \"Carrera Cup Deutschland\" odo=translateY(-88px); menu open=true links=5; calendar filter supercup rows=1; form invalid→\"4 fields need attention\"; form ok→\"Thanks — Nick will get back to you.\"; restored top 98 scale=1",
+  "demoNodes": 278,
+  "errors": []
+ },
+ "maria-vasilyeva-five-line-score-stave-tracklist-nav-sound-annotations-project-bars": {
+  "url": "http://localhost:4173/t/maria-vasilyeva-five-line-score-stave-tracklist-nav-sound-annotations-project-bars/",
+  "ok": true,
+  "at": "2026-10-13T12:03:27.638Z",
+  "http": 200,
+  "proof": "loader done=true • 100%; go→Photoncycle bar collapsed=7 cards=7; wheel→Diir; bar click→Genomapp; menu tracks=NOTES/MELODY/OVERTURE/JAZZ hover spacing=16.5173px; NOTES→Selected bars=5 menu=false; MELODY→All bars=9; annotations off=true; sound=ON; restored Phantom sound=OFF ann=ON",
+  "demoNodes": 341,
+  "errors": []
+ },
+ "heron-architectural-drawing-sheet-elevation-loader-title-block-orange-redline-chat-widget": {
+  "url": "http://localhost:4173/t/heron-architectural-drawing-sheet-elevation-loader-title-block-orange-redline-chat-widget/",
+  "ok": true,
+  "at": "2026-10-13T12:03:27.628Z",
+  "http": 200,
+  "proof": "loader 20% lines=9/33 boot=2; loader hidden=true; RESOURCES dropdown items=3 open=true; redline=true \"IBC 1015.3 GUARDRAIL REQUIRED FOR FALL PROTECTION\"; chat open=true answer=\"IBC 1015.3Guards must be at least 42 in.…\"; plan fix → resolved=1 step=ACT; cookie accepted=true; statement words filled=26/26; restored",
+  "demoNodes": 1003,
+  "errors": []
  }
 }

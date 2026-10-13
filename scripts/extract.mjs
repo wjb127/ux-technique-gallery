@@ -56,7 +56,7 @@ export function extract() {
   const secs = mdSections();
   // data/ledger-overrides.json: id -> {name, product, checkpoints, checkpoint_source} for ledger entries stored as bare id strings
   const OV = fs.existsSync('data/ledger-overrides.json') ? JSON.parse(fs.readFileSync('data/ledger-overrides.json', 'utf8')) : {};
-  for (const [id, o] of Object.entries(OV)) { const t = techById[id]; if (t && (!t.checkpoints?.length || t.name === id)) techById[id] = { ...t, ...o, id }; }
+  for (const [id, o] of Object.entries(OV)) { const t = techById[id]; if (!t || !t.checkpoints?.length || t.name === id) techById[id] = { ...(t || {}), ...o, id }; } // also covers briefing ids missing from used_techniques
   const seen = new Map();
   for (const b of L.briefings) {
     b.technique_ids.forEach((id, i) => {
