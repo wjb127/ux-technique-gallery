@@ -9142,7 +9142,7 @@ V['oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal
   }
   function pixel(c, b) { const { _cv: cv, _src: src } = c; const g = cv.getContext('2d'); c._px = b; if (b <= 1) { g.imageSmoothingEnabled = true; g.drawImage(src, 0, 0); c.dataset.px = 1; return; } const sw = Math.max(1, Math.ceil(cv.width / b)), sh = Math.max(1, Math.ceil(cv.height / b)); const t = pixel._t ||= document.createElement('canvas'); t.width = sw; t.height = sh; const tg = t.getContext('2d'); tg.imageSmoothingEnabled = true; tg.drawImage(src, 0, 0, sw, sh); g.imageSmoothingEnabled = false; g.clearRect(0, 0, cv.width, cv.height); g.drawImage(t, 0, 0, sw, sh, 0, 0, cv.width, cv.height); c.dataset.px = b; }
   const STEPS = [40, 24, 14, 8, 4, 2, 1];
-  async function reveal(c, force) { if (c._busy || (!force && c._px === 1)) return c._seen; c._busy = true; const seen = []; for (const b of (RM ? [1] : STEPS)) { pixel(c, b); seen.push(b); await sleep(RM ? 0 : 95); } c._busy = false; c._seen = seen; return seen; }
+  async function reveal(c, force) { while (c._busy) await sleep(30); if (!force && c._px === 1) return c._seen || [1]; c._busy = true; const seen = []; for (const b of (RM ? [1] : STEPS)) { pixel(c, b); seen.push(b); await sleep(RM ? 0 : 95); } c._busy = false; c._seen = seen; return seen; }
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const c = e.target; setTimeout(() => reveal(c), 120 + Math.random() * 380); io.unobserve(c); } }), { root, threshold: 0.25 });
   let shown = 0; const PAGE = 12;
   const cnt = h('div'); const moreB = h('button', { onclick: () => loadMore() }, 'Show more');
@@ -9169,7 +9169,7 @@ V['oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal
     ov.querySelector('.bt button:last-child').click(); o.push(`custom accept→closed=${ov.classList.contains('off')} saved=${CATS.filter((_, i) => cons[i]).join('+')}`);
     openCk(); cons.fill(false); cons[0] = true; syncT(); ov.querySelector('.bt button:last-child').click(); o.push(`accept all→${cons.every(Boolean)}`);
     openCk(); ov.querySelector('.bt button').click(); o.push(`decline all→${cons.map((v) => +v).join('')} closed=${ov.classList.contains('off')}`);
-    const c0 = cards[2]; pixel(c0, 40); const seen = await reveal(c0, true); o.push(`pixel reveal ${seen.join('→')}px final=${c0.dataset.px}`);
+    const c0 = cards[2]; while (c0._busy) await sleep(30); pixel(c0, 40); const seen = await reveal(c0, true); o.push(`pixel reveal ${seen.join('→')}px final=${c0.dataset.px}`);
     navBtns[0].click(); await sleep(30); const vis = cards.filter((c) => !c.classList.contains('hide')).length; o.push(`filter PRODUCTS→${vis}/${cards.length} cards active=${navBtns[0].classList.contains('on')}`); navBtns[0].click(); o.push(`filter cleared→${cards.filter((c) => !c.classList.contains('hide')).length}`);
     const before = shown; moreB.click(); o.push(`show more ${before}→${shown} (${cnt.textContent})`);
     while (cards.length > PAGE) { const c = cards.pop(); io.unobserve(c); c.remove(); } shown = PAGE; cnt.textContent = `${shown} items loaded`; moreB.style.display = '';
@@ -9512,7 +9512,7 @@ V['liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case
   renderW(); drawBg(); setScene(0); drawCode(); start();
   window.__demoProof = async () => {
     const o = [];
-    o.push(`headline default word="${wEl.textContent.replace(/Steven|Alicia|Marc|Olivier|You/, '')}" tag=${wEl.querySelector('.tag').textContent}`);
+    o.push(`headline word="${wEl.querySelector('.tx').textContent.replace(/\u200b/g, '')}" phase=${mode} tag=${wEl.querySelector('.tag').textContent}`);
     speed = 25; loopTok++; wi = 0; pi = 0; who = PEOPLE[0]; start(); const seenSel = wEl.classList.contains('sel') && wEl.querySelector('.tag').textContent; let typed = ''; for (let i = 0; i < 100 && wi === 0; i++) await sleep(15); typed = wEl.querySelector('.tx').textContent; o.push(`collab select=${seenSel} typed→"${typed}" by ${who[0]}`);
     takeOver(); o.push(`click word→tag=${wEl.querySelector('.tag').textContent} sel=${wEl.classList.contains('sel')}`); clearTimeout(takeT);
     dots[2].click(); await sleep(220); o.push(`scene dot→${SCENES[sc].n}`);
