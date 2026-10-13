@@ -3463,5 +3463,32 @@
   "proof": "hero console drag yawΔ=48°; buy→cart=1 fly=true; edition→white topColor=#ffffff; stepper next→2; stepper #4→4 active=true; wrap→1; crt mode→bvm; split→0.25; scanline rows(after) 170,172,71,71,171,172,71,71; multiplayer slide→2; restored mode=crt step=1 cart=0",
   "demoNodes": 251,
   "errors": []
+ },
+ "fishwife-illustrated-tin-bundle-builder-size-pills-discount-badges-slot-progress-track": {
+  "url": "http://localhost:4179/t/fishwife-illustrated-tin-bundle-builder-size-pills-discount-badges-slot-progress-track/",
+  "ok": true,
+  "at": "2026-10-13T07:50:13.887Z",
+  "http": 200,
+  "proof": "size→9 pills on=true; size→15 badge=15% Off; added 3 → track 3/15 slots filled=3/15 sub=$27.00$22.95; sold-out click picks=3; remove slot→2; 9-size full=9/9 atc=Add to Cart; announcement next ok; notify→✓ We'll email you; restored size=12 picks=0",
+  "demoNodes": 288,
+  "errors": []
+ },
+ "devolver-dark-game-hub-auto-rotating-hero-thumbnail-strip-new-hotness-grid-snarky-newsletter-band": {
+  "url": "http://localhost:4179/t/devolver-dark-game-hub-auto-rotating-hero-thumbnail-strip-new-hotness-grid-snarky-newsletter-band/",
+  "ok": true,
+  "at": "2026-10-13T07:50:13.899Z",
+  "http": 200,
+  "proof": "hero=Shroom and Gloom thumbs=7; thumb→Inscryption framed=true headline=Play the Game; auto-advance Baby Steps→Shroom and Gloom; hover pause=true; bad email→\"That is not an email. That is a cry for help.\"; signup→\"Congrats. You are now legally …\"; tab→Latest Propaganda cards=4; restored hero=Shroom and Gloom",
+  "demoNodes": 148,
+  "errors": []
+ },
+ "cashapp-neon-green-phone-mockup-hero-balance-cards-section-story-stats-row": {
+  "url": "http://localhost:4179/t/cashapp-neon-green-phone-mockup-hero-balance-cards-section-story-stats-row/",
+  "ok": true,
+  "at": "2026-10-13T07:50:13.901Z",
+  "http": 200,
+  "proof": "sheet open=true amt=$25; balance $789.13→$814.13; overdraw blocked=true; savings 980→990; section→Cash App Card card=rgb(255, 79, 163); tag→cash.app/$grok is available ✓; lock=true; menu=true; stats=59million+|4.8★|9.9m+|4.5★; restored bal=$789.13",
+  "demoNodes": 218,
+  "errors": []
  }
 }

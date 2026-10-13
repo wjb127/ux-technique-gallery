@@ -9527,4 +9527,350 @@ V['liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case
     return o.join('; ');
   };
 };
+V['fishwife-illustrated-tin-bundle-builder-size-pills-discount-badges-slot-progress-track'] = (root, T) => {
+  theme(root, T, { bg: '#fff', fg: '#1d1d1b', ac: '#f6c443', dark: false }); scroll(root);
+  const F = "'Inter Variable',system-ui,sans-serif", SF = "'Fraunces Variable',Georgia,serif";
+  css(`.fw{background:#fff;color:#1d1d1b;font:400 15px/1.45 ${F};min-height:100%;overflow-x:clip}
+.fw *{box-sizing:border-box}.fw button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.fw-ann{height:34px;background:#fdf1e2;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font:500 12.5px ${F}}
+.fw-ann .m{transition:opacity .3s}.fw-ann .ct{display:flex;gap:10px}
+.fw-nav{display:flex;align-items:center;gap:9px;padding:12px 30px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:20}
+.fw-logo{display:flex;align-items:center;gap:6px;margin-right:24px}.fw-logo .b{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#f6c443 0 30%,#e2443a 31% 58%,#1d4e9c 59%);border:2px solid #1d1d1b;position:relative}
+.fw-logo .b::after{content:'';position:absolute;left:12px;top:9px;width:16px;height:20px;border-radius:50% 50% 40% 40%;background:#fbe3c4;border:2px solid #1d1d1b}
+.fw-logo i{font:italic 800 27px/1 ${SF};letter-spacing:-.03em;color:#1d1d1b;font-variation-settings:'SOFT' 100,'WONK' 1}.fw-logo small{display:block;font:600 8px ${F};letter-spacing:.12em;margin-top:-2px}
+.fw .fw-p{border:1.5px solid #1d1d1b;border-radius:99px;padding:6px 13px;font:500 13.5px ${F};white-space:nowrap;transition:background .15s}.fw .fw-p:hover{background:#fdf1e2}.fw .fw-p.y{background:#f6c443}.fw .fw-p.y:hover{background:#f2b81e}
+.fw-nav .sp{flex:1}.fw .fw-ic{width:26px;height:26px;border-radius:50%;border:1.5px solid #1d1d1b;display:grid;place-items:center;font-size:12px;position:relative}.fw-ic b{position:absolute;top:-6px;right:-6px;background:#e2443a;color:#fff;font:700 9px/16px ${F};min-width:16px;height:16px;border-radius:9px}
+.fw-hero{position:relative;height:330px;overflow:hidden;background:#d84d3c}
+.fw-col{position:absolute;inset:-30px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;transform:rotate(-2deg);transition:transform 6s linear}
+.fw-tile{border-radius:10px;padding:10px 12px;font:900 30px/0.92 ${SF};letter-spacing:-.01em;text-transform:uppercase;position:relative;overflow:hidden;box-shadow:0 6px 16px #0004;min-height:140px}
+.fw-tile small{display:block;font:italic 700 15px ${SF};text-transform:none;margin-top:6px}
+.fw-tile::after{content:'';position:absolute;right:-14px;bottom:-14px;width:70px;height:70px;border-radius:50%;background:currentColor;opacity:.18}
+.fw-hc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#2f6f3ecc;border-radius:16px;padding:18px 26px;text-align:center;color:#fff;backdrop-filter:blur(2px);box-shadow:0 0 0 1px #ffffff40}
+.fw-hc h1{margin:0;font:600 40px/1.1 ${SF};letter-spacing:-.01em}.fw-hc p{margin:8px 0 0;font:500 16px ${F};opacity:.95}
+.fw-main{display:grid;grid-template-columns:1fr 370px;gap:44px;max-width:1240px;margin:0 auto;padding:40px 22px 30px;align-items:start}
+.fw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 40px}
+.fw-card{text-align:center;position:relative}.fw-card .art{aspect-ratio:1;border-radius:4px;display:grid;place-items:center;position:relative;background:#f6f1ea;overflow:hidden}
+.fw-card.so .art{background:#8f8f8f}.fw-card.so .art .tin{opacity:.55;filter:saturate(.6)}.fw-card .sob{position:absolute;background:#2a2a2a;color:#fff;font:600 12px ${SF};padding:4px 8px;border-radius:3px}
+.fw-tin{width:64%;aspect-ratio:1.35;border-radius:9px;padding:9px;font:900 15px/.95 ${SF};text-transform:uppercase;letter-spacing:-.01em;box-shadow:0 0 0 3px #1d1d1b,0 10px 18px #0003;display:flex;flex-direction:column;justify-content:space-between;text-align:left;transition:transform .25s}
+.fw-tin i{font:italic 800 13px/1 ${SF};text-transform:none;opacity:.9}
+.fw-card:not(.so):hover .fw-tin{transform:rotate(-4deg) scale(1.04)}
+.fw-card .add{position:absolute;right:8px;bottom:8px;background:#f6c443;border:1.5px solid #1d1d1b;border-radius:99px;padding:5px 11px;font:600 12.5px ${F};opacity:0;transform:translateY(6px);transition:all .2s}.fw-card:hover .add,.fw-card .add.q{opacity:1;transform:none}
+.fw-card .st{margin-top:12px;font:500 14px ${F};color:#1d1d1b}.fw-card .st span{color:#f2a900;letter-spacing:1px}
+.fw-card h4{margin:4px 0 4px;font:700 17px/1.15 ${SF}}.fw-card.so h4{color:#888}.fw-card a{font-size:12.5px;color:#1d1d1b;text-decoration:underline;cursor:pointer}
+.fw-panel{position:sticky;top:84px;border:1.5px solid #1d1d1b;border-radius:10px;padding:22px 28px 26px}
+.fw-step{display:flex;align-items:center;gap:10px;font:700 24px/1 ${SF}}.fw-step b{width:22px;height:22px;border-radius:50%;background:#f6c443;border:1.5px solid #1d1d1b;display:grid;place-items:center;font:700 12px ${SF}}
+.fw-sz{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 22px}
+.fw-sz button{position:relative;border:1.5px solid #1d1d1b;border-radius:99px;height:34px;font:600 15px ${SF};transition:background .15s}.fw-sz button.on{background:#f6c443}.fw-sz button:hover:not(.on){background:#fdf1e2}
+.fw-sz em{position:absolute;left:50%;top:-13px;transform:translateX(-50%);background:#4f9a5b;color:#fff;font:600 11px/1 ${SF};font-style:normal;padding:4px 6px;border-radius:2px;white-space:nowrap}
+.fw-hr{height:1.5px;background:#1d1d1b;margin:4px 0 22px}
+.fw-tr{position:relative;height:20px;margin:22px 0 18px}.fw-tr .ln{position:absolute;left:8px;right:8px;top:8px;height:4px;border:1.5px solid #1d1d1b;border-radius:3px}
+.fw-tr .fl{position:absolute;left:8px;top:8px;height:4px;background:#f6c443;border-radius:3px;transition:width .35s cubic-bezier(.3,1.4,.5,1)}
+.fw-tr .k{position:absolute;top:0;width:18px;height:18px;border-radius:50%;border:1.5px solid #1d1d1b;background:#f6c443;font:700 10px/15px ${SF};text-align:center;transition:left .35s cubic-bezier(.3,1.4,.5,1)}
+.fw-tr .k0{left:0;background:#fff}.fw-tr .kn{right:0;left:auto}
+.fw-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.fw-slot{aspect-ratio:1.05;border:1.5px dashed #9fb4d8;border-radius:6px;display:grid;place-items:center;position:relative;transition:border-color .2s}
+.fw-slot.f{border-style:solid;border-color:#1d1d1b;background:#fdf8f1;cursor:pointer}.fw-slot .fw-tin{width:72%;font-size:8px;padding:4px;border-radius:5px;box-shadow:0 0 0 2px #1d1d1b;animation:fwpop .35s cubic-bezier(.3,1.6,.5,1)}.fw-slot .fw-tin i{display:none}
+.fw-slot.f:hover::after{content:'×';position:absolute;top:2px;right:6px;font-size:14px}
+@keyframes fwpop{from{transform:scale(.3) rotate(-20deg);opacity:0}}
+.fw-sum{display:flex;justify-content:space-between;margin-top:18px;font:500 14px ${F}}.fw-sum s{color:#888;margin-right:6px}
+.fw .fw-atc{width:100%;margin-top:12px;height:44px;border-radius:99px;background:#1d1d1b;color:#fff!important;font:600 15px ${F};transition:opacity .2s}.fw .fw-atc:disabled{opacity:.35;cursor:not-allowed}
+.fw-cur{max-width:1240px;margin:20px auto 70px;padding:0 22px}.fw-cur h2{font:700 30px ${SF};margin:0 0 18px}
+.fw-rail{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}.fw-rail::-webkit-scrollbar{height:6px}.fw-rail::-webkit-scrollbar-thumb{background:#1d1d1b33;border-radius:3px}
+.fw-bd{flex:none;width:250px;scroll-snap-align:start;border:1.5px solid #1d1d1b;border-radius:10px;padding:14px;background:#fdf8f1}.fw-bd .row{display:flex;gap:4px;height:80px;align-items:center;justify-content:center}.fw-bd .fw-tin{width:56px;font-size:7px;padding:4px;border-radius:5px;box-shadow:0 0 0 2px #1d1d1b}.fw-bd .fw-tin i{display:none}.fw-bd .fw-tin+.fw-tin{margin-left:-14px}
+.fw-bd h5{margin:10px 0 2px;font:700 16px ${SF}}.fw-bd p{margin:0 0 10px;font-size:12.5px;color:#555}.fw-bd button{width:100%;border:1.5px solid #1d1d1b;border-radius:99px;height:32px;font:600 13px ${F}}.fw-bd button.y{background:#f6c443}.fw-bd button.ok{background:#4f9a5b;color:#fff}
+.fw-ft{background:#2f6f3e;color:#fdf1e2;padding:30px;font-size:12px;text-align:center}
+@media (max-width:860px){.fw-nav{padding:10px 14px;overflow-x:auto}.fw-nav .fw-p:not(.y){display:none}.fw-main{grid-template-columns:1fr;padding:24px 14px}.fw-panel{position:relative;top:0;order:-1}.fw-grid{grid-template-columns:repeat(2,1fr);gap:24px 16px}.fw-hc h1{font-size:28px}.fw-hc{width:86%}.fw-col{grid-template-columns:repeat(3,1fr)}}
+`);
+  const TINS = [
+    { n: 'Fly By Jing Smoked Salmon', t: 'Smoked Salmon', s: 'Fly By Jing', bg: '#14233f', fg: '#f6c443', r: '4.9', so: true },
+    { n: 'Gold Label Smoked Salmon', t: 'Gold Label Smoked Salmon', s: 'our original recipe', bg: '#1b1b1f', fg: '#f3d27a', r: '4.9' },
+    { n: 'Smoked Salmon', t: 'Smoked Salmon', s: 'Fishwife', bg: '#c8323a', fg: '#fbe3c4', r: '5.0', so: true },
+    { n: 'Sardines with Preserved Lemon', t: 'Sardines', s: 'with preserved lemon', bg: '#f3c33b', fg: '#c8323a', r: '4.8' },
+    { n: 'Albacore Tuna in Spicy Olive Oil', t: 'Albacore Tuna', s: 'in spicy olive oil', bg: '#f08fb0', fg: '#1d3f8f', r: '4.9' },
+    { n: 'Slow-Smoked Mussels', t: 'Smoked Mussels', s: 'slow smoked', bg: '#2d6e8e', fg: '#fde7b5', r: '4.7' },
+    { n: 'Anchovies in Olive Oil', t: 'Anchovies', s: 'what is a fishwife?', bg: '#7dc9e8', fg: '#c8323a', r: '4.8' },
+    { n: 'Smoked Rainbow Trout', t: 'Rainbow Trout', s: 'smoked', bg: '#6aa84f', fg: '#fff3d6', r: '4.9' },
+    { n: 'Salmon with Chili Crisp', t: 'Salmon Chili Crisp', s: 'Fly By Jing', bg: '#e86a2a', fg: '#14233f', r: '5.0' },
+  ];
+  const tinEl = (d) => h('div.fw-tin', { style: { background: d.bg, color: d.fg } }, h('i', {}, 'Fishwife'), h('span', {}, d.t));
+  const MSG = ['Free Shipping On Orders $75+', 'Build a bundle, save up to 15%', 'New: Salmon with Chili Crisp is back'];
+  let mi = 0, annPaused = false; const annM = h('span.m', {}, MSG[0]);
+  const setAnn = (d) => { mi = (mi + d + MSG.length) % MSG.length; annM.style.opacity = 0; setTimeout(() => { annM.textContent = MSG[mi]; annM.style.opacity = 1; }, 180); };
+  const pauseB = h('button', { title: 'Pause', onclick: () => { annPaused = !annPaused; pauseB.textContent = annPaused ? '▶' : '❚❚'; } }, '❚❚');
+  const ann = h('div.fw-ann', {}, h('button', { onclick: () => setAnn(-1) }, '←'), annM, h('div.ct', {}, pauseB, h('button', { onclick: () => setAnn(1) }, '→')));
+  setInterval(() => { if (!annPaused && root.isConnected) setAnn(1); }, 4000);
+  const cartN = h('b', { style: { display: 'none' } }, '0');
+  const nav = h('div.fw-nav', {}, h('div.fw-logo', {}, h('div.b'), h('div', {}, h('i', {}, 'Fishwife'), h('small', {}, 'TINNED SEAFOOD CO.'))),
+    h('button.fw-p.y', { onclick: () => toast('Starter Pack (placeholder)') }, 'Try the Starter Pack 🐟'), ...['Shop ▾', 'Gifts ▾', 'Build Your Own Bundle', 'Recipes', 'Store Locator', 'Story'].map((t) => h('button.fw-p', { onclick: () => toast(`${t.replace(' ▾', '')} (placeholder)`) }, t)),
+    h('span.sp'), h('button.fw-ic', { onclick: () => toast('Search (placeholder)') }, '⌕'), h('button.fw-ic', { onclick: () => toast('Account (placeholder)') }, '◡'), h('button.fw-ic', { onclick: () => toast('Cart (placeholder)') }, '⛟', cartN));
+  const COL = [['Smoked Salmon', '#f08fb0', '#c8323a', 'Fishwife'], ['Sardines', '#f3c33b', '#c8323a', 'with preserved lemon'], ['Anchovies', '#7dc9e8', '#c8323a', 'what is a fishwife?'], ['Smoked Salmon', '#c8323a', '#fbe3c4', 'Fishwife'], ['Albacore Tuna', '#f08fb0', '#1d3f8f', 'in spicy olive oil'], ['Smoked Mussels', '#2d6e8e', '#fde7b5', 'slow smoked'], ['Rainbow Trout', '#6aa84f', '#fff3d6', 'raised in Denmark'], ['Gold Label', '#1b1b1f', '#f3d27a', 'our original'], ['Anchovies', '#fde7b5', '#2d6e8e', 'brash & foul-mouthed'], ['Sardines', '#e86a2a', '#14233f', 'with lemon'], ['Smoked Salmon', '#f3c33b', '#c8323a', 'Fishwife'], ['Chili Crisp', '#14233f', '#f6c443', 'Fly By Jing']];
+  const col = h('div.fw-col', {}, [...COL, ...COL].map(([t, b, f, s2], i) => h('div.fw-tile', { style: { background: b, color: f, transform: `rotate(${(i % 3 - 1) * 2}deg)` } }, t, h('small', {}, s2))));
+  const hero = h('section.fw-hero', {}, col, h('div.fw-hc', {}, h('h1', {}, 'Build Your Own Bundle'), h('p', {}, 'Stock up on your favorites or find something new')));
+  hero.addEventListener('pointermove', (e) => { const r = hero.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5; col.style.transition = 'transform .4s'; col.style.transform = `rotate(-2deg) translate(${-x * 30}px,0)`; });
+  // bundle state
+  const SIZES = [{ n: 9, off: 0 }, { n: 12, off: 10 }, { n: 15, off: 15 }]; let size = 12; let picks = [];
+  const PRICE = 9;
+  const szBtns = SIZES.map((z) => h('button', { onclick: () => setSize(z.n) }, `${z.n} Tins`, z.off ? h('em', {}, `${z.off}% Off`) : null));
+  const knobN = h('div.k.kn'); const fill = h('div.fl'); const knob = h('div.k'); const slots = h('div.fw-slots');
+  const sub = h('span'); const atc = h('button.fw-atc', { onclick: () => { toast(`Bundle of ${size} added to cart (demo)`); cartN.style.display = ''; cartN.textContent = String(+cartN.textContent + 1); } }, 'Add to Cart');
+  const panel = h('aside.fw-panel', {}, h('div.fw-step', {}, h('b', {}, '1'), 'Pick Your Bundle Size'), h('div.fw-sz', {}, szBtns), h('div.fw-hr'), h('div.fw-step', {}, h('b', {}, '2'), 'Pick Your Tins'),
+    h('div.fw-tr', {}, h('div.ln'), fill, h('div.k.k0', {}, '0'), knobN, knob), slots, h('div.fw-sum', {}, h('span', {}, 'Subtotal'), sub), atc);
+  const cards = []; const addBtns = [];
+  const grid = h('div.fw-grid', {}, TINS.map((d, i) => { const b = h('button.add', { onclick: (e) => { e.stopPropagation(); addTin(i); } }, '+ Add'); addBtns[i] = b; const c = h(`div.fw-card${d.so ? '.so' : ''}`, {}, h('div.art', {}, h('div.tin', { style: { width: '100%', height: '100%', display: 'grid', placeItems: 'center' } }, tinEl(d)), d.so ? h('span.sob', {}, 'Sold Out') : b), h('div.st', {}, h('span', {}, '★★★★★'), ' ', d.r), h('h4', {}, d.n), h('a', { onclick: () => toast(`${d.n}: product info (placeholder)`) }, 'Product Info')); if (d.so) c.onclick = () => toast('Sold out — pick another tin'); cards.push(c); return c; }));
+  const setSize = (n) => { size = n; if (picks.length > n) picks = picks.slice(0, n); render(); };
+  const addTin = (i) => { if (TINS[i].so) return toast('Sold out'); if (picks.length >= size) { toast(`Your ${size}-tin bundle is full — bump the size or remove one`); return; } picks.push(i); render(); };
+  const removeAt = (k) => { picks.splice(k, 1); render(); };
+  function render() {
+    szBtns.forEach((b, k) => b.classList.toggle('on', SIZES[k].n === size));
+    const p = picks.length / size; knobN.textContent = size; knob.textContent = picks.length; knob.style.display = picks.length && picks.length < size ? '' : 'none';
+    fill.style.width = `calc((100% - 16px) * ${p})`; knob.style.left = `calc((100% - 18px) * ${p})`; knobN.style.background = picks.length >= size ? '#f6c443' : '#fff';
+    slots.replaceChildren(...Array.from({ length: size }, (_, k) => picks[k] != null ? h('div.fw-slot.f', { title: 'Remove', onclick: () => removeAt(k) }, tinEl(TINS[picks[k]])) : h('div.fw-slot')));
+    const off = SIZES.find((z) => z.n === size).off; const full = picks.length * PRICE;
+    sub.replaceChildren(off && picks.length ? h('s', {}, `$${full.toFixed(2)}`) : '', `$${(full * (1 - off / 100)).toFixed(2)}`);
+    atc.disabled = picks.length < size; atc.textContent = picks.length < size ? `Add ${size - picks.length} more tin${size - picks.length > 1 ? 's' : ''}` : 'Add to Cart';
+    TINS.forEach((d, i) => { const q = picks.filter((x) => x === i).length; if (addBtns[i]) { addBtns[i].textContent = q ? `+ Add (${q})` : '+ Add'; addBtns[i].classList.toggle('q', q > 0); } });
+  }
+  const BUNDLES = [['The Starter Pack', [3, 4, 1], true], ['Smoked Salmon Lovers', [1, 2, 8], false], ['Spicy Bundle', [4, 8, 5], true], ['Anchovy Party', [6, 3, 5], false], ['The Fishwife Classic', [1, 3, 6], true]];
+  const rail = h('div.fw-rail', {}, BUNDLES.map(([n, ids, ok]) => { const b = h(`button${ok ? '.y' : ''}`, {}, ok ? 'Add Bundle' : 'Tell me when it\'s back'); b.onclick = () => { if (ok) { toast(`${n} added (demo)`); } else { b.className = 'ok'; b.textContent = '✓ We\'ll email you'; } }; return h('div.fw-bd', {}, h('div.row', {}, ids.map((i) => tinEl(TINS[i]))), h('h5', {}, n), h('p', {}, ok ? `${ids.length * 4} tins · Save 10%` : 'Sold out for now'), b); }));
+  const el = h('div.fw', {}, ann, nav, hero, h('div.fw-main', {}, grid, panel), h('section.fw-cur', {}, h('h2', {}, 'Curated Bundles'), rail), h('footer.fw-ft', {}, 'Look-alike study of eatfishwife.com for UX practice — not affiliated with Fishwife Tinned Seafood Co. Tin art is CSS-drawn.'));
+  root.append(el); render();
+  window.__demoProof = async () => {
+    const o = []; setSize(12); picks = []; render();
+    szBtns[0].click(); o.push(`size→${size} pills on=${szBtns[0].classList.contains('on')}`); szBtns[2].click(); o.push(`size→${size} badge=${szBtns[2].querySelector('em').textContent}`);
+    addTin(1); addTin(3); addTin(4); await sleep(50); o.push(`added 3 → track ${knob.textContent}/${knobN.textContent} slots filled=${slots.querySelectorAll('.fw-slot.f').length}/${slots.children.length} sub=${sub.textContent}`);
+    cards[0].click(); o.push(`sold-out click picks=${picks.length}`);
+    slots.querySelector('.fw-slot.f').click(); o.push(`remove slot→${picks.length}`);
+    szBtns[0].click(); for (let i = 0; i < 9; i++) addTin(3); o.push(`9-size full=${picks.length}/${size} atc=${atc.disabled ? 'disabled' : atc.textContent}`);
+    setAnn(1); o.push(`announcement next ok`); const rb = rail.querySelectorAll('button')[1]; rb.click(); o.push(`notify→${rb.textContent}`); rb.className = ''; rb.textContent = "Tell me when it's back";
+    picks = []; size = 12; render(); root.scrollTop = 0; o.push(`restored size=${size} picks=0`); return o.join('; ');
+  };
+};
+V['cashapp-neon-green-phone-mockup-hero-balance-cards-section-story-stats-row'] = (root, T) => {
+  theme(root, T, { bg: '#00d632', fg: '#000', ac: '#000', dark: false }); scroll(root);
+  const F = "'Inter Variable','Helvetica Neue',Arial,sans-serif";
+  css(`.ca{background:#00d632;color:#000;font:400 15px/1.4 ${F};min-height:100%;overflow-x:clip;letter-spacing:-.01em;transition:background .5s}
+.ca *{box-sizing:border-box}.ca button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.ca-nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:6px;padding:14px;}
+.ca-logo{width:34px;height:34px;border-radius:9px;background:#000;display:grid;place-items:center;color:#00d632;font:900 22px/1 ${F}}
+.ca-nav .sp{flex:1}.ca .ca-pl{height:34px;border-radius:99px;padding:0 15px;font:500 11.5px ${F};display:flex;align-items:center;gap:6px;transition:transform .15s}.ca .ca-pl:hover{transform:scale(1.04)}.ca .ca-pl.w{background:#fff}.ca .ca-pl.b{background:#000;color:#fff!important}
+.ca .ca-mn{width:34px;height:34px;border-radius:50%;background:#000;display:grid;place-items:center}.ca-mn i{display:block;width:13px;height:1.5px;background:#fff;box-shadow:0 4px #fff,0 -4px #fff}
+.ca-menu{position:fixed;inset:0;background:#000;color:#fff;z-index:40;display:flex;flex-direction:column;justify-content:center;padding:60px;gap:6px;font:500 48px/1.1 ${F};letter-spacing:-.04em;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1)}.ca-menu.on{transform:none}.ca-menu button{text-align:left;color:#fff!important}.ca-menu button:hover{color:#00d632!important}
+.ca-story{position:relative;display:grid;grid-template-columns:1fr 330px 1fr;gap:40px;padding:0 14px}
+.ca-left,.ca-right{display:flex;flex-direction:column}
+.ca-sec{min-height:560px;display:flex;flex-direction:column;justify-content:center}
+.ca-left h1,.ca-left h2{margin:0;font:500 46px/1 ${F};letter-spacing:-.045em}.ca-left .k{font:600 12px ${F};letter-spacing:.02em;margin-bottom:12px;opacity:.7}
+.ca-right p{margin:0;font:400 14.5px/1.4 ${F};max-width:250px}.ca .ca-right .ca-pl{margin-top:22px;align-self:flex-start;height:30px;font-size:12px}
+.ca-phw{position:sticky;top:96px;height:620px;align-self:start;margin-top:40px}
+.ca-ph{width:310px;height:600px;border-radius:44px;background:#f4f4f4;box-shadow:0 0 0 1px #0001,0 30px 60px #0002;overflow:hidden;position:relative;margin:0 auto}
+.ca-ph .sb{height:44px;display:flex;justify-content:space-between;align-items:center;padding:6px 28px 0 42px;font:600 14px ${F};position:absolute;top:0;left:0;right:0;z-index:3}
+.ca-ph .sb span{letter-spacing:2px;font-size:10px}
+.ca-scr{position:absolute;inset:0;transition:opacity .45s,transform .45s cubic-bezier(.2,.8,.2,1);overflow:hidden}.ca-scr.off{opacity:0;transform:translateY(24px) scale(.97);pointer-events:none}
+.ca-in{padding:44px 12px 20px;transition:transform .9s cubic-bezier(.4,0,.2,1)}
+.ca-hd{margin:-44px -12px 10px;padding:56px 18px 18px;color:#fff;background:radial-gradient(ellipse 40px 22px at 18% 30%,#38472a 98%,#0000),radial-gradient(ellipse 60px 26px at 72% 62%,#2a361f 98%,#0000),radial-gradient(ellipse 34px 18px at 46% 84%,#4a5a34 98%,#0000),radial-gradient(ellipse 50px 20px at 88% 20%,#3d4b2c 98%,#0000),#1f2717}
+.ca-hd .r{display:flex;justify-content:space-between;align-items:center;font:600 20px ${F}}.ca-hd .av{width:28px;height:28px;border-radius:50%;background:#00d632;color:#000;font:700 12px/28px ${F};text-align:center}
+.ca-hd small{display:block;margin-top:18px;font:500 12px ${F};opacity:.75}.ca-hd b{font:600 36px/1.05 ${F};letter-spacing:-.03em;display:block;font-variant-numeric:tabular-nums}
+.ca-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.ca-btns button{height:42px;border-radius:99px;background:#fff;font:500 14px ${F};transition:transform .1s}.ca-btns button:active{transform:scale(.96)}
+.ca-cd{background:#fff;border-radius:22px;padding:16px 18px;margin-bottom:10px;font:500 13px ${F}}
+.ca-cd .t{display:flex;justify-content:space-between;align-items:center}.ca-cd .bar{height:4px;background:#eee;border-radius:2px;margin-top:14px}.ca-cd .bar i{display:block;height:100%;background:#00d632;border-radius:2px;transition:width .6s}
+.ca-cd .big{font:600 27px/1.1 ${F};letter-spacing:-.03em;margin-top:4px;font-variant-numeric:tabular-nums}.ca-cd .sm{color:#666;font-size:12px}
+.ca-ring{width:48px;height:48px}.ca-ring circle{fill:none;stroke-width:3}
+.ca-sheet{position:absolute;left:0;right:0;bottom:0;height:78%;background:#fff;border-radius:28px 28px 0 0;z-index:5;transform:translateY(105%);transition:transform .4s cubic-bezier(.2,.9,.2,1);padding:18px;text-align:center;box-shadow:0 -10px 30px #0002}.ca-sheet.on{transform:none}
+.ca-sheet .amt{font:600 54px/1 ${F};letter-spacing:-.04em;margin:26px 0 6px;font-variant-numeric:tabular-nums}.ca-sheet .lb{font:500 13px ${F};color:#666}
+.ca-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:18px 0 12px}.ca-pad button{height:42px;font:500 20px ${F};border-radius:12px}.ca-pad button:hover{background:#f2f2f2}
+.ca-sheet .go{width:100%;height:44px;border-radius:99px;background:#00d632;font:600 15px ${F}}
+.ca-card{width:250px;height:158px;border-radius:16px;margin:120px auto 0;position:relative;transform:rotate(-8deg);box-shadow:0 20px 40px #0003;padding:18px;color:#fff;font:600 14px ${F};transition:transform .5s,background .4s}
+.ca-card .ch{position:absolute;left:18px;top:62px;width:34px;height:26px;border-radius:5px;background:linear-gradient(135deg,#d9c27a,#a9893c)}.ca-card .v{position:absolute;right:18px;bottom:14px;font:italic 800 22px ${F}}
+.ca-sw{display:flex;gap:8px;justify-content:center;margin-top:40px}.ca-sw button{width:26px;height:26px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px #0002}.ca-sw button.on{box-shadow:0 0 0 2px #fff,0 0 0 4px #000}
+.ca-li{display:flex;align-items:center;gap:10px;padding:10px 6px;border-bottom:1px solid #eee;font:500 13px ${F}}.ca-li .a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 13px ${F};flex:none}.ca-li .m{flex:1}.ca-li small{display:block;color:#888;font-size:11px}
+.ca-tag{font:700 34px ${F};text-align:center;margin:90px 0 6px;letter-spacing:-.03em}.ca-tagin{display:flex;justify-content:center}.ca-tagin input{border:2px solid #000;border-radius:99px;padding:9px 14px;font:600 15px ${F};width:200px;text-align:center;outline:0}
+.ca-shield{width:120px;height:140px;margin:110px auto 16px;background:#00d632;clip-path:path('M60 0 L120 22 V70 C120 108 92 130 60 140 C28 130 0 108 0 70 V22 Z');display:grid;place-items:center;font:900 54px ${F};transition:transform .3s}
+.ca-trust{text-align:center;padding:110px 20px 70px}.ca-trust h2{margin:0;font:500 64px/1 ${F};letter-spacing:-.05em}.ca-trust p{margin:10px 0 40px;font:500 16px ${F}}
+.ca-stats{display:flex;justify-content:center;gap:70px}.ca-stats b{display:block;font:500 40px/1 ${F};letter-spacing:-.04em;font-variant-numeric:tabular-nums}.ca-stats span{font:500 13px ${F};opacity:.75}
+.ca-cta{background:#000;color:#fff;margin:0 14px 14px;border-radius:28px;padding:80px 30px;text-align:center}.ca-cta h2{margin:0 0 24px;font:500 56px/1 ${F};letter-spacing:-.05em}.ca .ca-cta .ca-pl{display:inline-flex;height:44px;font-size:15px;padding:0 24px;background:#00d632;color:#000!important}
+.ca-ft{padding:20px 28px 30px;font-size:11px;opacity:.7}
+.ca-ck{position:fixed;left:28px;bottom:24px;z-index:35;width:318px;background:#fff;border:1px solid #ddd;padding:14px 30px 14px 14px;font:400 10px/1.35 ${F};box-shadow:0 6px 18px #0002}.ca-ck button{position:absolute;right:8px;top:6px;font-size:14px}.ca-ck u{font-weight:600}
+@media (max-width:860px){.ca-story{grid-template-columns:1fr;padding:0 16px}.ca-phw{position:relative;top:0;order:-1;height:auto;margin:10px 0 0}.ca-ph{transform:scale(.88);transform-origin:top center;margin-bottom:-60px}.ca-sec{min-height:auto;padding:30px 0}.ca-left h1,.ca-left h2{font-size:38px}.ca-right{display:none}.ca-stats{flex-direction:column;gap:22px}.ca-trust h2,.ca-cta h2{font-size:40px}.ca-ck{left:10px;right:10px;width:auto}.ca-menu{font-size:34px;padding:30px}}
+`);
+  const SEC = [
+    { k: '', h: ['The way money', h('br'), 'should work'], p: 'From getting paid to growing what you\'ve got, Cash App makes managing your money effortless and instant—without all the fees.', c: 'Get started', scr: 'home', bg: '#00d632' },
+    { k: 'Cash App Green', h: ['Banking perks', h('br'), 'that add up'], p: 'Unlock free overdraft coverage, higher savings rates and more when you get paid into Cash App.', c: 'See Green perks', scr: 'home2', bg: '#00d632' },
+    { k: 'Cash App Card', h: ['Your card,', h('br'), 'your way'], p: 'A free, customizable debit card with instant discounts at places you love. Pick a color to preview it.', c: 'Design your card', scr: 'card', bg: '#00d632' },
+    { k: 'Borrow', h: ['Borrow up', h('br'), 'to $500'], p: 'Get a fast short-term loan right in the app when you qualify. Pay back on your schedule.', c: 'Learn about Borrow', scr: 'borrow', bg: '#00d632' },
+    { k: 'Tags', h: ['Your $cashtag', h('br'), 'is your name'], p: 'Get paid by anyone with a unique $cashtag—no account numbers needed. Try claiming one.', c: 'Claim yours', scr: 'tag', bg: '#00d632' },
+    { k: 'Send money', h: ['Send and receive', h('br'), 'instantly'], p: 'Split dinner or pay rent in seconds. Free, fast, and it just works.', c: 'Send money', scr: 'send', bg: '#00d632' },
+    { k: 'Security', h: ['Protection', h('br'), 'built in'], p: 'Fraud alerts, account lock and FDIC pass-through insurance keep your money safe.', c: 'How we protect you', scr: 'sec', bg: '#00d632' },
+  ];
+  let bal = 789.13, savings = 980, goal = 1000, menuOn = false;
+  const fmt = (v) => '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const menu = h('div.ca-menu', {}, ['Money', 'Card', 'Borrow', 'Tags', 'Security', 'Help'].map((t, i) => h('button', { onclick: () => { toggleMenu(false); goSec(Math.min(i + 1, SEC.length - 1)); } }, t)));
+  const toggleMenu = (v = !menuOn) => { menuOn = v; menu.classList.toggle('on', v); mnB.style.background = v ? '#fff' : '#000'; mnB.firstChild.style.background = v ? '#000' : '#fff'; mnB.firstChild.style.boxShadow = v ? 'none' : ''; };
+  const mnB = h('button.ca-mn', { onclick: () => toggleMenu() }, h('i'));
+  mnB.style.zIndex = 45; mnB.style.position = 'relative';
+  const nav = h('div.ca-nav', {}, h('div.ca-logo', {}, '$'), h('span.sp'), h('button.ca-pl.w', { onclick: () => toast('Sign up (placeholder)') }, 'Sign up', h('span', {}, '→')), h('button.ca-pl.b', { onclick: () => toast('Log in (placeholder)') }, 'Log in'), mnB);
+  // phone screens
+  const balEl = h('b', {}, fmt(bal)); const savEl = h('div.big', {}, fmt(savings)); const goalEl = h('div.sm', {}, `$${goal - savings} to goal`);
+  const ringC = h('div', { html: '' }); const drawRing = () => { const p = Math.min(1, savings / goal), L = 2 * Math.PI * 21; ringC.innerHTML = `<svg class="ca-ring" viewBox="0 0 48 48"><circle cx="24" cy="24" r="21" stroke="#e6e6e6"/><circle cx="24" cy="24" r="21" stroke="#00d632" stroke-dasharray="${L * p} ${L}" transform="rotate(-90 24 24)" stroke-linecap="round"/><text x="24" y="29" text-anchor="middle" font-size="15" font-weight="700" fill="#00d632">$</text></svg>`; };
+  const greenBar = h('i', { style: { width: '14%' } }); const renewEl = h('span', {}, '$440 to renew');
+  const homeIn = h('div.ca-in', {},
+    h('div.ca-hd', {}, h('div.r', {}, 'Money', h('span', { style: { display: 'flex', gap: '10px', alignItems: 'center', fontSize: '16px' } }, '⌕', h('span.av', {}, 'JW'))), h('small', {}, 'Cash balance'), balEl),
+    h('div.ca-btns', {}, h('button', { onclick: () => openSheet('add') }, 'Add money'), h('button', { onclick: () => openSheet('wd') }, 'Withdraw')),
+    h('div.ca-cd', {}, h('div.t', {}, h('span', { style: { display: 'flex', alignItems: 'center', gap: '8px' } }, h('span', { style: { width: '10px', height: '15px', border: '2px solid #00d632', borderRadius: '2px' } }), 'Green status'), renewEl), h('div.bar', {}, greenBar)),
+    h('div.ca-cd', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }, onclick: () => { savings = Math.min(goal, savings + 10); updNums(); toast('Round-up +$10 to Savings'); } }, h('div', {}, 'Savings', savEl, goalEl), ringC),
+    h('div.ca-cd', {}, 'Borrow', h('div.big', { style: { fontSize: '20px' } }, '◔ $150.00 ', h('span', { style: { color: '#666', fontSize: '15px' } }, 'available')), h('div.big', { style: { fontSize: '20px' } }, '◌ $50.00 ', h('span', { style: { color: '#666', fontSize: '15px' } }, 'owed'))),
+    h('div.ca-cd', {}, 'Bitcoin', h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' } }, h('div', {}, h('div.big', {}, '$8.05'), h('div.sm', { style: { color: '#00a827' } }, '↑ 1.18% today')), h('div', { html: '<svg width="90" height="40" viewBox="0 0 90 40"><polyline fill="none" stroke="#00d632" stroke-width="2.5" points="0,30 10,22 18,34 28,12 36,26 46,18 56,28 66,8 74,20 82,10 90,4"/></svg>' }))));
+  const amtEl = h('div.amt', {}, '$0'); const sheetLb = h('div.lb'); let amtStr = '', sheetMode = 'add';
+  const goB = h('button.go', { onclick: () => commitSheet() }, 'Add');
+  const sheet = h('div.ca-sheet', {}, h('div', { style: { width: '40px', height: '4px', background: '#ddd', borderRadius: '2px', margin: '0 auto', cursor: 'pointer' }, onclick: () => sheet.classList.remove('on') }), amtEl, sheetLb,
+    h('div.ca-pad', {}, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', '⌫'].map((k) => h('button', { onclick: () => key(k) }, k))), goB);
+  const key = (k) => { if (k === '⌫') amtStr = amtStr.slice(0, -1); else if (k === '.' ? !amtStr.includes('.') : (amtStr.split('.')[1] || '').length < 2 && amtStr.length < 6) amtStr += k; amtEl.textContent = '$' + (amtStr || '0'); };
+  const openSheet = (m) => { sheetMode = m; amtStr = ''; amtEl.textContent = '$0'; sheetLb.textContent = m === 'add' ? 'Add from linked bank •• 4021' : `Withdraw to bank · ${fmt(bal)} available`; goB.textContent = m === 'add' ? 'Add' : 'Cash out'; sheet.classList.add('on'); };
+  const commitSheet = () => { const v = parseFloat(amtStr || '0'); if (!v) return toast('Enter an amount'); if (sheetMode === 'wd' && v > bal) return toast('Not enough balance'); tweenBal(sheetMode === 'add' ? bal + v : bal - v); sheet.classList.remove('on'); toast(sheetMode === 'add' ? `${fmt(v)} added` : `${fmt(v)} on its way`); };
+  let tw; const tweenBal = (to) => { const from = bal, t0 = performance.now(); bal = to; cancelAnimationFrame(tw); const st = (t) => { const p = Math.min(1, (t - t0) / 600); balEl.textContent = fmt(from + (to - from) * (1 - (1 - p) ** 3)); if (p < 1) tw = requestAnimationFrame(st); }; tw = requestAnimationFrame(st); };
+  const updNums = () => { savEl.textContent = fmt(savings); goalEl.textContent = savings >= goal ? 'Goal reached 🎉' : `$${goal - savings} to goal`; drawRing(); };
+  const homeScr = h('div.ca-scr', {}, homeIn);
+  const CARDC = ['#111', '#00d632', '#ff4fa3', '#6b4cff', '#f5f5f5'];
+  const cardEl = h('div.ca-card', { style: { background: '#111' } }, h('span', {}, '$'), h('div.ch'), h('div.v', {}, 'VISA'), h('div', { style: { position: 'absolute', left: '18px', bottom: '16px', fontSize: '12px', opacity: .8 } }, 'JUNBOK W'));
+  const sw = h('div.ca-sw', {}, CARDC.map((c, i) => h(`button${i ? '' : '.on'}`, { style: { background: c }, onclick: (e) => { cardEl.style.background = c; cardEl.style.color = c === '#f5f5f5' ? '#000' : '#fff'; cardEl.style.transform = `rotate(${-8 + i * 4}deg)`; sw.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b === e.currentTarget)); } })));
+  const cardScr = h('div.ca-scr', { style: { background: '#f4f4f4' } }, cardEl, sw);
+  const borrowScr = h('div.ca-scr', { style: { background: '#fff', padding: '70px 18px', textAlign: 'center' } }, h('div', { style: { font: `500 13px ${F}`, color: '#666' } }, 'Borrow up to'), h('div', { style: { font: `600 56px/1 ${F}`, letterSpacing: '-.04em', margin: '10px 0 30px' } }, '$500'), ...[['Amount', '$150'], ['Due', 'in 4 weeks'], ['Flat fee', '5%']].map(([a, b]) => h('div.ca-li', {}, h('span.m', {}, a), h('b', {}, b))), h('button.go', { style: { width: '100%', height: '44px', borderRadius: '99px', background: '#00d632', marginTop: '30px', font: `600 15px ${F}` }, onclick: () => toast('Borrow (demo)') }, 'Borrow $150'));
+  const tagIn = h('input', { value: 'junbok', maxLength: 20, oninput: () => { tagIn.value = tagIn.value.replace(/[^a-z0-9]/gi, '').toLowerCase(); tagOk.textContent = tagIn.value.length >= 3 ? `cash.app/$${tagIn.value} is available ✓` : 'At least 3 characters'; } });
+  const tagOk = h('div', { style: { font: `500 12px ${F}`, color: '#00a827', textAlign: 'center', marginTop: '10px' } }, 'cash.app/$junbok is available ✓');
+  const tagScr = h('div.ca-scr', { style: { background: '#fff' } }, h('div.ca-tag', {}, '$', h('span', {}, 'Tag')), h('div.ca-tagin', {}, tagIn), tagOk);
+  const PPL = [['Mina', '#ff4fa3', 'Dinner 🍜', '-$24.00'], ['Alex', '#6b4cff', 'Rent split', '+$600.00'], ['Sora', '#f59f00', 'Concert tix', '-$45.50'], ['Leo', '#00b8d9', 'Coffee', '+$5.75']];
+  const sendList = h('div', {}, PPL.map(([n, c, m, a]) => h('div.ca-li', {}, h('span.a', { style: { background: c } }, n[0]), h('span.m', {}, n, h('small', {}, m)), h('b', { style: { color: a[0] === '+' ? '#00a827' : '#000' } }, a))));
+  const sendScr = h('div.ca-scr', { style: { background: '#fff', padding: '60px 14px' } }, h('div', { style: { font: `600 20px ${F}`, margin: '0 6px 10px' } }, 'Activity'), sendList, h('button', { style: { width: '100%', height: '44px', borderRadius: '99px', background: '#00d632', marginTop: '20px', font: `600 15px ${F}` }, onclick: () => { sendList.prepend(h('div.ca-li', {}, h('span.a', { style: { background: '#000' } }, 'J'), h('span.m', {}, 'You → Mina', h('small', {}, 'Just now')), h('b', {}, '-$10.00'))); toast('$10 sent to Mina'); } }, 'Pay $10'));
+  const shield = h('div.ca-shield', {}, '✓'); let locked = false;
+  const lockB = h('button', { style: { display: 'block', margin: '0 auto', height: '40px', padding: '0 20px', borderRadius: '99px', background: '#000', color: '#fff', font: `600 13px ${F}` } }, 'Lock card');
+  lockB.onclick = () => { locked = !locked; lockB.textContent = locked ? 'Unlock card' : 'Lock card'; shield.style.background = locked ? '#000' : '#00d632'; shield.style.color = locked ? '#00d632' : '#000'; shield.textContent = locked ? '🔒' : '✓'; shield.style.transform = 'scale(1.08)'; setTimeout(() => (shield.style.transform = ''), 250); };
+  const secScr = h('div.ca-scr', { style: { background: '#fff', textAlign: 'center' } }, shield, h('div', { style: { font: `600 16px ${F}`, marginBottom: '14px' } }, 'Security lock'), lockB);
+  const SCR = { home: homeScr, home2: homeScr, card: cardScr, borrow: borrowScr, tag: tagScr, send: sendScr, sec: secScr };
+  const phone = h('div.ca-ph', {}, h('div.sb', {}, '9:41', h('span', {}, '▂▄▆ ◠ ▭')), homeScr, cardScr, borrowScr, tagScr, sendScr, secScr, sheet);
+  let cur = -1;
+  const setSec = (i) => { if (i === cur) return; cur = i; const s = SCR[SEC[i].scr]; Object.values(SCR).forEach((x) => x.classList.toggle('off', x !== s)); homeIn.style.transform = SEC[i].scr === 'home2' ? 'translateY(-150px)' : ''; greenBar.style.width = SEC[i].scr === 'home2' ? '72%' : '14%'; renewEl.textContent = SEC[i].scr === 'home2' ? 'Green ✓ active' : '$440 to renew'; };
+  const lefts = SEC.map((s, i) => h('div.ca-sec', {}, s.k ? h('div.k', {}, s.k) : null, h(i ? 'h2' : 'h1', {}, ...s.h)));
+  const rights = SEC.map((s) => h('div.ca-sec', {}, h('p', {}, s.p), h('button.ca-pl.w', { onclick: () => toast(`${s.c} (placeholder)`) }, s.c, h('span', {}, '→'))));
+  const goSec = (i) => { const t = lefts[i]; root.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); };
+  const story = h('section.ca-story', {}, h('div.ca-left', {}, lefts), h('div.ca-phw', {}, phone), h('div.ca-right', {}, rights));
+  const pick = () => { const mid = root.getBoundingClientRect().top + root.clientHeight * .5; let best = 0; lefts.forEach((l, i) => { const r = l.getBoundingClientRect(); if (r.top < mid) best = i; }); setSec(best); };
+  root.addEventListener('scroll', pick, { passive: true });
+  const STATS = [[59, 'million+', 'accounts'], [4.8, '★', 'App Store'], [9.9, 'm+', 'ratings'], [4.5, '★', 'Google Play']];
+  const statEls = STATS.map(([v, u, l]) => { const b = h('b', {}, '0' + u); b._v = v; b._u = u; return h('div', {}, b, h('span', {}, l)); });
+  const countUp = () => statEls.forEach((d) => { const b = d.firstChild, t0 = performance.now(); const st = (t) => { const p = Math.min(1, (t - t0) / 1000); const v = b._v * (1 - (1 - p) ** 3); b.textContent = (b._v % 1 ? v.toFixed(1) : Math.round(v)) + b._u; if (p < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); });
+  const trust = h('section.ca-trust', {}, h('h2', {}, '59 million+'), h('p', {}, 'people trust Cash App with their money'), h('div.ca-stats', {}, statEls));
+  let counted = false; new IntersectionObserver((es) => { if (es[0].isIntersecting && !counted) { counted = true; countUp(); } }, { root }).observe(trust);
+  const ck = h('div.ca-ck', {}, h('button', { onclick: () => ck.remove() }, '×'), 'We and our partners may use cookies and similar technologies ("cookies") for site performance, analytics, advertising, and more. Some are required to use our website and can\'t be turned off. For more info, visit ', h('u', {}, 'Cookie Preferences.'));
+  const el = h('div.ca', {}, nav, story, trust, h('section.ca-cta', {}, h('h2', {}, 'Sign up now'), h('button.ca-pl', { onclick: () => toast('Sign up (placeholder)') }, 'Get Cash App →')), h('div.ca-ft', {}, 'Look-alike study of cash.app for UX practice — not affiliated with Block, Inc. Figures are demo values.'));
+  root.append(menu, el, ck); drawRing(); setSec(0);
+  window.__demoProof = async () => {
+    const o = []; const b0 = bal;
+    openSheet('add'); ['2', '5'].forEach(key); o.push(`sheet open=${sheet.classList.contains('on')} amt=${amtEl.textContent}`); commitSheet(); await sleep(700); o.push(`balance ${fmt(b0)}→${balEl.textContent}`);
+    openSheet('wd'); ['9', '9', '9', '9'].forEach(key); commitSheet(); o.push(`overdraw blocked=${sheet.classList.contains('on')}`); sheet.classList.remove('on');
+    const s0 = savings; homeIn.children[3].click(); o.push(`savings ${s0}→${savings}`);
+    setSec(2); sw.children[2].click(); o.push(`section→${SEC[cur].k} card=${cardEl.style.background}`);
+    setSec(4); tagIn.value = 'Grok!'; tagIn.dispatchEvent(new Event('input')); o.push(`tag→${tagOk.textContent}`);
+    setSec(6); lockB.click(); o.push(`lock=${locked}`); lockB.click();
+    toggleMenu(true); o.push(`menu=${menu.classList.contains('on')}`); toggleMenu(false);
+    countUp(); await sleep(1100); o.push(`stats=${statEls.map((d) => d.firstChild.textContent).join('|')}`);
+    bal = b0; balEl.textContent = fmt(bal); savings = s0; updNums(); cardEl.style.background = '#111'; cardEl.style.transform = ''; sw.querySelectorAll('button').forEach((b, i) => b.classList.toggle('on', i === 0)); tagIn.value = 'junbok'; tagIn.dispatchEvent(new Event('input')); cur = -1; setSec(0); root.scrollTop = 0;
+    o.push(`restored bal=${balEl.textContent}`); return o.join('; ');
+  };
+};
+V['devolver-dark-game-hub-auto-rotating-hero-thumbnail-strip-new-hotness-grid-snarky-newsletter-band'] = (root, T) => {
+  theme(root, T, { bg: '#121212', fg: '#fff', ac: '#ef5b4c', dark: true }); scroll(root);
+  const F = "'Inter Variable','Arial Black',sans-serif", MO = "'JetBrains Mono Variable',ui-monospace,monospace";
+  css(`.dv{background:#141414;color:#fff;font:400 14px/1.5 ${F};min-height:100%;overflow-x:clip}
+.dv *{box-sizing:border-box}.dv button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.dv-top{height:4px;background:#ef5b4c}
+.dv-nav{display:flex;align-items:flex-start;gap:30px;padding:6px 18px 0;position:sticky;top:0;z-index:20;background:#141414;height:52px}
+.dv-logo{display:flex;flex-direction:column;align-items:center;margin-top:2px}.dv-logo b{font:900 21px/1 ${F};letter-spacing:-.02em;color:#ef3b2d;-webkit-text-stroke:1px #fff;paint-order:stroke fill;font-style:italic;transform:skewX(-6deg)}.dv-logo small{font:600 7px ${F};letter-spacing:.3em;color:#aaa;margin-top:1px}
+.dv-nav .lk{display:flex;gap:22px;margin-top:9px}.dv-nav .lk button{font:900 15.5px ${F};letter-spacing:.01em;text-transform:uppercase;transition:color .15s}.dv-nav .lk button:hover{color:#ef5b4c}
+.dv-nav .sp{flex:1}.dv-ut{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-top:-6px}
+.dv-ub{display:flex;background:#ef5b4c;padding:2px 6px;gap:12px;font:500 12px ${MO};color:#111}.dv-ub button:hover{text-decoration:underline}
+.dv-so{display:flex;gap:11px;font-size:11px;color:#ef5b4c;padding-right:4px}
+.dv-hero{position:relative;margin:8px 74px 0;height:470px;overflow:hidden;background:#000}
+.dv-art{position:absolute;inset:0;transition:opacity .7s;opacity:0}.dv-art.on{opacity:1}
+.dv-art canvas{position:absolute;inset:0;width:100%;height:100%}
+.dv-art::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#000c 0,#0006 38%,#0000 60%)}
+.dv-gl{position:absolute;left:36px;top:70px;z-index:2;font:900 54px/.85 ${F};text-transform:uppercase;letter-spacing:-.03em;transform:rotate(-4deg);transition:transform .6s cubic-bezier(.2,1.4,.4,1),opacity .4s}
+.dv-cp{position:absolute;left:36px;bottom:34px;z-index:2;max-width:300px}.dv-cp h2{margin:0;font:900 22px/1 ${F};text-transform:uppercase;letter-spacing:-.005em}.dv-cp h3{margin:6px 0 8px;font:500 12.5px/1.15 ${MO};text-transform:uppercase}.dv-cp p{margin:0;font:400 10.5px/1.5 ${MO};color:#ddd}
+.dv-cp .bt{display:flex;gap:8px;margin-top:16px}.dv-cp .bt button{border:1px solid #fff;padding:5px 9px;font:500 10.5px ${MO};display:flex;gap:10px;transition:all .15s}.dv-cp .bt button:hover{background:#fff;color:#000}
+.dv-cp>*{transition:opacity .35s,transform .35s}.dv-cp.sw>*{opacity:0;transform:translateY(8px)}
+.dv-th{display:flex;justify-content:center;gap:12px;margin-top:-30px;position:relative;z-index:3}
+.dv-th button{width:56px;height:32px;position:relative;outline:2px solid #0000;outline-offset:2px;transition:outline-color .2s,transform .2s;overflow:hidden}.dv-th button:hover{transform:translateY(-2px)}.dv-th button.on{outline-color:#fff}
+.dv-th button i{position:absolute;left:0;bottom:0;height:2px;background:#ef5b4c;width:0}.dv-th button.on i{animation:dvp var(--dur) linear forwards}.dv-th.pz button.on i{animation-play-state:paused}@keyframes dvp{to{width:100%}}
+.dv-th button span{position:absolute;inset:0;display:grid;place-items:center;font:900 8px/1 ${F};text-transform:uppercase;text-shadow:0 1px 2px #000}
+.dv-h{margin:30px 94px 14px;font:900 22px ${F};text-transform:uppercase;letter-spacing:.005em}
+.dv-nh{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 76px}.dv-nh .c{position:relative;height:260px;overflow:hidden;cursor:pointer}.dv-nh .c.big{grid-row:span 2;height:536px}
+.dv-nh .c canvas{width:100%;height:100%;display:block;transition:transform .5s}.dv-nh .c:hover canvas{transform:scale(1.05)}
+.dv-nh .c .lb{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(#0000,#000d);display:flex;justify-content:space-between;align-items:flex-end}.dv-nh .c b{font:900 19px/1 ${F};text-transform:uppercase}.dv-nh .c .pf{display:flex;gap:6px;font:500 10px ${MO};color:#ccc}.dv-nh .c .pf span{border:1px solid #fff6;padding:1px 4px}
+.dv-st{background:#ef5b4c;color:#111;margin:50px 0 0;padding:40px 94px;display:grid;grid-template-columns:auto 1fr;gap:20px 60px;align-items:center}
+.dv-st h2{margin:0;font:900 44px/.9 ${F};text-transform:uppercase;letter-spacing:-.02em}.dv-st form{display:flex;gap:0}.dv-st input{flex:1;background:#141414;border:0;color:#fff;padding:12px 14px;font:500 13px ${MO};outline:0}.dv-st input::placeholder{color:#888}
+.dv-st form button{background:#141414;color:#ef5b4c!important;border-left:1px solid #333;padding:0 18px;font:900 13px ${F};text-transform:uppercase}.dv-st form button:hover{background:#000}
+.dv-st small{grid-column:1/-1;font:400 10.5px/1.5 ${MO};max-width:820px}.dv-st .ok{grid-column:2;font:500 12px ${MO}}
+.dv-tabs{display:flex;gap:18px;margin:50px 94px 14px}.dv-tabs button{font:900 22px ${F};text-transform:uppercase;color:#555;transition:color .2s}.dv-tabs button.on{color:#fff}.dv-tabs button:hover{color:#ef5b4c}
+.dv-gr{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0 76px 60px}.dv-gr .c{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;animation:dvin .4s both}.dv-gr .c canvas{width:100%;height:100%;display:block;transition:filter .3s}.dv-gr .c:hover canvas{filter:brightness(1.2)}
+@keyframes dvin{from{opacity:0;transform:translateY(10px)}}
+.dv-gr .c .lb{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;background:linear-gradient(#0000,#000e)}.dv-gr .c b{font:900 15px/1 ${F};text-transform:uppercase;display:block}.dv-gr .c em{font:500 10px ${MO};font-style:normal;color:#ef5b4c}
+.dv-ft{border-top:1px solid #2a2a2a;padding:26px 94px 50px;color:#777;font:400 11px ${MO}}
+@media (max-width:860px){.dv-nav .lk{display:none}.dv-hero{margin:8px 0 0;height:520px}.dv-gl{font-size:40px;left:20px}.dv-cp{left:20px;right:20px}.dv-th{gap:6px;margin-top:12px;flex-wrap:wrap}.dv-th button{width:44px;height:28px}.dv-h,.dv-tabs{margin-left:16px;margin-right:16px}.dv-tabs button{font-size:16px}.dv-nh,.dv-gr{margin:0 12px}.dv-nh{grid-template-columns:1fr}.dv-nh .c.big{height:300px;grid-row:auto}.dv-gr{grid-template-columns:repeat(2,1fr)}.dv-st{grid-template-columns:1fr;padding:30px 16px}.dv-st .ok{grid-column:1}.dv-ub{font-size:9px;gap:5px;padding:2px 4px}.dv-nav{gap:10px}.dv-so{display:none}}
+`);
+  const GAMES = [
+    { n: 'Shroom and Gloom', a: ['#0d2a10', '#1f6b25', '#6dff6a'], lg: ['#6dff6a', '#3a7bff'], h: 'Eat Your Enemies', s: 'Shroom and Gloom is out now in Early Access', p: 'Gather and grow cards in Shroom & Gloom, a moody first-person, roguelike double-deckbuilder bursting with fungal foes and mountains of mega-combos.', b: ['Play Now', 'Watch the Launch Trailer'], m: 'spike' },
+    { n: 'Cult of the Lamb', a: ['#2a0a14', '#a3233f', '#ffd36b'], lg: ['#fff3d6', '#ff4d6d'], h: 'Start a Cult', s: 'The Woolhaven expansion is out now', p: 'Build a flock of loyal woodland followers, spread the word of the One Who Waits, and try not to get sacrificed yourself. Fluffy. Mostly.', b: ['Buy Now', 'Watch the Trailer'], m: 'moon' },
+    { n: 'Enter the Gungeon', a: ['#120a2a', '#5a2fd1', '#ff9b3d'], lg: ['#ffcf3d', '#ff5b2e'], h: 'Shoot Your Past', s: 'Bullet hell dungeon crawler', p: 'A band of misfits seeks to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon\'s ultimate treasure.', b: ['Play Now', 'Watch the Trailer'], m: 'grid' },
+    { n: 'Inscryption', a: ['#140d06', '#5b3a1a', '#d9a441'], lg: ['#e8d6a8', '#9c2b1b'], h: 'Play the Game', s: 'An inky black card-based odyssey', p: 'Sit across from a shadowy figure, draw cards, make sacrifices, and try very hard not to think about what is going on behind that cabin door.', b: ['Buy Now', 'Watch the Trailer'], m: 'cards' },
+    { n: 'Hyper Light', a: ['#0a1630', '#19a3c2', '#ff3fae'], lg: ['#5ff3ff', '#ff3fae'], h: 'Drift Forward', s: 'A neon action-adventure', p: 'Explore a vast, ruined world filled with forgotten technology and unseen dangers. Dash, slash, and uncover what really happened here.', b: ['Play Now', 'Watch the Trailer'], m: 'tri' },
+    { n: 'Gris', a: ['#1a1220', '#c2557a', '#f2d0a9'], lg: ['#fff', '#f2a0b8'], h: 'Feel Everything', s: 'A serene journey through grief', p: 'Gris is a hopeful young girl lost in her own world, dealing with a painful experience in her life. Her journey through sorrow is manifested in her dress.', b: ['Buy Now', 'Watch the Trailer'], m: 'moon' },
+    { n: 'Baby Steps', a: ['#0d1a24', '#3c6e7a', '#ffb84d'], lg: ['#ffb84d', '#fff'], h: 'Put One Foot', s: 'In front of the other. Badly.', p: 'A walking game about a man in a onesie who must learn to put one foot in front of the other. Climb the mountain. Do not fall. You will fall.', b: ['Buy Now', 'Watch the Trailer'], m: 'spike' },
+  ];
+  const paint = (cv, g, seed, W = 900, H = 500) => { cv.width = W; cv.height = H; const x = cv.getContext('2d'); const r = rng(seed); const gr = x.createLinearGradient(0, 0, W, H); gr.addColorStop(0, g.a[0]); gr.addColorStop(.6, g.a[1]); gr.addColorStop(1, g.a[0]); x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    for (let i = 0; i < 40; i++) { x.strokeStyle = g.a[2] + '22'; x.lineWidth = 1 + r() * 2; x.beginPath(); x.moveTo(r() * W, r() * H); x.lineTo(r() * W, r() * H); x.stroke(); }
+    x.save(); x.translate(W * .68, H * .55); x.lineWidth = 3;
+    for (let k = 0; k < 3; k++) { x.save(); x.translate((k - 1) * W * .14, (k % 2) * 30); const s = .7 + r() * .5; x.scale(s, s);
+      x.fillStyle = g.a[1]; x.strokeStyle = '#000';
+      if (g.m === 'spike') { for (let j = 0; j < 7; j++) { x.save(); x.rotate(-1.2 + j * .4); x.beginPath(); x.moveTo(-14, -40); x.lineTo(0, -150 - r() * 40); x.lineTo(14, -40); x.closePath(); x.fill(); x.stroke(); x.restore(); } x.beginPath(); x.arc(0, 0, 60, 0, 7); x.fill(); x.stroke(); x.fillStyle = '#fff'; for (let j = 0; j < 9; j++) { x.beginPath(); x.moveTo(-40 + j * 10, 10); x.lineTo(-35 + j * 10, 30); x.lineTo(-30 + j * 10, 10); x.fill(); } }
+      else if (g.m === 'moon') { x.beginPath(); x.arc(0, -40, 80, 0, 7); x.fillStyle = g.a[2]; x.fill(); x.beginPath(); x.arc(30, -60, 70, 0, 7); x.fillStyle = g.a[0]; x.fill(); }
+      else if (g.m === 'grid') { for (let j = 0; j < 6; j++) { x.strokeStyle = g.a[2]; x.strokeRect(-60 + j * 8, -60 + j * 8, 120 - j * 16, 120 - j * 16); } x.fillStyle = g.a[2]; x.beginPath(); x.arc(0, 0, 14, 0, 7); x.fill(); }
+      else if (g.m === 'cards') { x.rotate((k - 1) * .25); x.fillStyle = '#e8d6a8'; x.fillRect(-45, -70, 90, 140); x.strokeRect(-45, -70, 90, 140); x.fillStyle = '#5b3a1a'; x.beginPath(); x.arc(0, -10, 22, 0, 7); x.fill(); }
+      else { x.beginPath(); x.moveTo(0, -110); x.lineTo(95, 60); x.lineTo(-95, 60); x.closePath(); x.strokeStyle = g.a[2]; x.lineWidth = 4; x.stroke(); x.fillStyle = g.a[2] + '33'; x.fill(); }
+      x.restore(); }
+    x.restore(); const v = x.createRadialGradient(W / 2, H / 2, H * .2, W / 2, H / 2, W * .7); v.addColorStop(0, '#0000'); v.addColorStop(1, '#000a'); x.fillStyle = v; x.fillRect(0, 0, W, H); };
+  let gi = 0, paused = false, timer = 0; const DUR = 6000;
+  const arts = GAMES.map((g, i) => { const cv = h('canvas'); paint(cv, g, i * 97 + 3); return h('div.dv-art', {}, cv); });
+  const gl = h('div.dv-gl'); const cp = h('div.dv-cp');
+  const hero = h('section.dv-hero', { onmouseenter: () => setPause(true), onmouseleave: () => setPause(false) }, ...arts, gl, cp);
+  const th = h('div.dv-th', { style: { '--dur': DUR + 'ms' } }); th.style.setProperty('--dur', DUR + 'ms');
+  const thumbs = GAMES.map((g, i) => { const cv = h('canvas', { style: { position: 'absolute', inset: 0, width: '100%', height: '100%' } }); paint(cv, g, i * 97 + 3, 160, 90); const b = h('button', { title: g.n, onclick: () => show(i) }, cv, h('span', { style: { color: g.lg[0] } }, g.n.split(' ')[0]), h('i')); return b; });
+  th.append(...thumbs);
+  const setPause = (v) => { paused = v; th.classList.toggle('pz', v); if (!v) arm(); else clearTimeout(timer); };
+  const arm = () => { clearTimeout(timer); if (!paused) timer = setTimeout(() => { if (root.isConnected) show((gi + 1) % GAMES.length); }, DUR); };
+  function show(i) { gi = i; const g = GAMES[i]; arts.forEach((a, k) => a.classList.toggle('on', k === i));
+    thumbs.forEach((b, k) => { b.classList.remove('on'); void b.offsetWidth; if (k === i) b.classList.add('on'); });
+    gl.style.opacity = 0; gl.style.transform = 'rotate(-12deg) scale(.8)'; cp.classList.add('sw');
+    setTimeout(() => { gl.innerHTML = ''; gl.append(...g.n.split(' ').map((w, k) => h('div', { style: { color: g.lg[k % 2], textShadow: `0 0 18px ${g.lg[k % 2]}88, 3px 3px 0 #000`, marginLeft: k * 18 + 'px', fontSize: w.length < 4 ? '30px' : '' } }, w)));
+      cp.replaceChildren(h('h2', {}, g.h), h('h3', {}, g.s), h('p', {}, g.p), h('div.bt', {}, g.b.map((t) => h('button', { onclick: () => toast(`${t} — ${g.n} (placeholder)`) }, t, h('span', {}, '→')))));
+      gl.style.opacity = 1; gl.style.transform = 'rotate(-4deg)'; cp.classList.remove('sw'); }, 260);
+    arm(); }
+  const nav = h('div.dv-nav', {}, h('div.dv-logo', {}, h('b', {}, 'DEVOLVER'), h('small', {}, 'DIGITAL')), h('div.lk', {}, ['Games', 'Propaganda', 'Merch', 'Influencers', 'Pitch Us'].map((t) => h('button', { onclick: () => toast(`${t} (placeholder)`) }, t))), h('span.sp'),
+    h('div.dv-ut', {}, h('div.dv-ub', {}, ['Podcast', 'Jobs', 'About', 'Investors', 'Subscribe'].map((t) => h('button', { onclick: () => t === 'Subscribe' ? stIn.focus() : toast(`${t} (placeholder)`) }, t))), h('div.dv-so', {}, ['𝕏', '◉', '▶', '◎', '♪', '✦', '◆', '☰'].map((t) => h('span', {}, t)))));
+  const card = (g, i, cls, big) => { const cv = h('canvas'); paint(cv, g, i * 31 + 11, big ? 700 : 600, big ? 800 : 340); return h(`div.c${cls}`, { onclick: () => toast(`${g.n} — game page (placeholder)`) }, cv, h('div.lb', {}, h('b', {}, g.n), h('div.pf', {}, ['PC', 'PS5', 'NSW', 'XB'].slice(0, 2 + (i % 3)).map((p) => h('span', {}, p))))); };
+  const nh = h('div.dv-nh', {}, card(GAMES[2], 2, '.big', true), card(GAMES[1], 1, ''), card(GAMES[5], 5, ''));
+  const stIn = h('input', { type: 'email', placeholder: 'your@email.here', required: true }); const stOk = h('div.ok');
+  const QUIPS = ['Congrats. You are now legally part of the family. No take-backs.', 'Subscribed. Our lawyers have been notified of your enthusiasm.', 'Welcome aboard. Please keep arms and legs inside the newsletter.'];
+  let qi = 0; const form = h('form', { onsubmit: (e) => { e.preventDefault(); if (!/^\S+@\S+\.\S+$/.test(stIn.value)) { stOk.textContent = 'That is not an email. That is a cry for help.'; return; } stOk.textContent = QUIPS[qi++ % QUIPS.length]; stIn.value = ''; } }, stIn, h('button', { type: 'submit' }, 'Sign Up')); form.noValidate = true;
+  const st = h('section.dv-st', {}, h('h2', {}, 'Stay', h('br'), 'Tuned'), form, stOk, h('small', {}, 'By entering your email you agree to receive news, special offers, and the occasional unhinged press release from Devolver Digital. You can unsubscribe at any time, but we will be sad, and sadness is legally binding in at least four countries. Look-alike demo copy.'));
+  const TABS = { "The Future's Future": GAMES.slice(3).map((g, i) => [g, `Coming ${2027 + (i % 2)}`]), 'Hand-Picked Demos': GAMES.slice(0, 4).map((g) => [g, 'Free demo']), 'Latest Propaganda': GAMES.slice(1, 5).map((g, i) => [g, `Press release · Oct ${10 - i}`]) };
+  let tab = "The Future's Future"; const gr = h('div.dv-gr'); const tabBs = Object.keys(TABS).map((k) => h('button', { onclick: () => setTab(k) }, k));
+  const setTab = (k) => { tab = k; tabBs.forEach((b) => b.classList.toggle('on', b.textContent === k)); gr.replaceChildren(...TABS[k].map(([g, l], i) => { const cv = h('canvas'); paint(cv, g, i * 13 + k.length, 300, 400); const c = h('div.c', { style: { animationDelay: i * 60 + 'ms' }, onclick: () => toast(`${g.n} (placeholder)`) }, cv, h('div.lb', {}, h('b', {}, g.n), h('em', {}, l))); return c; })); };
+  const el = h('div.dv', {}, h('div.dv-top'), nav, hero, th, h('div.dv-h', {}, 'New Hotness'), nh, st, h('div.dv-tabs', {}, tabBs), gr, h('footer.dv-ft', {}, 'Look-alike study of devolverdigital.com for UX practice — not affiliated with Devolver Digital. Key art is procedurally drawn.'));
+  root.append(el); show(0); setTab(tab);
+  window.__demoProof = async () => {
+    const o = []; o.push(`hero=${GAMES[gi].n} thumbs=${thumbs.length}`);
+    thumbs[3].click(); await sleep(320); o.push(`thumb→${GAMES[gi].n} framed=${thumbs[3].classList.contains('on')} headline=${cp.querySelector('h2').textContent}`);
+    clearTimeout(timer); show(6); timer = 0; const before = gi; clearTimeout(timer); timer = setTimeout(() => show((gi + 1) % GAMES.length), 50); await sleep(400); o.push(`auto-advance ${GAMES[before].n}→${GAMES[gi].n}`);
+    setPause(true); o.push(`hover pause=${th.classList.contains('pz')}`); setPause(false);
+    stIn.value = 'nope'; form.requestSubmit(); o.push(`bad email→"${stOk.textContent}"`); stIn.value = 'me@test.dev'; form.requestSubmit(); o.push(`signup→"${stOk.textContent.slice(0, 30)}…"`); stOk.textContent = ''; qi = 0;
+    tabBs[2].click(); o.push(`tab→${tab} cards=${gr.children.length}`); setTab("The Future's Future");
+    show(0); root.scrollTop = 0; o.push(`restored hero=${GAMES[gi].n}`); return o.join('; ');
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

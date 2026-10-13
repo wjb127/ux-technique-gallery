@@ -1,4 +1,34 @@
 {
+ "fishwife-illustrated-tin-bundle-builder-size-pills-discount-badges-slot-progress-track": {
+  "bg": "#fffcf3",
+  "fg": "#e0272c",
+  "panel": "#e0d6c3",
+  "dark": false,
+  "ac": "#e0272c",
+  "ac2": "#522f1b",
+  "ac3": "#eea652",
+  "coverage": 0.17
+ },
+ "cashapp-neon-green-phone-mockup-hero-balance-cards-section-story-stats-row": {
+  "bg": "#00e013",
+  "fg": "#141414",
+  "panel": "#00df0b",
+  "dark": false,
+  "ac": "#00e013",
+  "ac2": "#00df0b",
+  "ac3": "#00a90e",
+  "coverage": 0.63
+ },
+ "devolver-dark-game-hub-auto-rotating-hero-thumbnail-strip-new-hotness-grid-snarky-newsletter-band": {
+  "bg": "#131313",
+  "fg": "#bed4b3",
+  "panel": "#0f391c",
+  "dark": true,
+  "ac": "#0f391c",
+  "ac2": "#0b2712",
+  "ac3": "#2f5b47",
+  "coverage": 0.22
+ },
  "oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal": {
   "bg": "#f6f6f6",
   "fg": "#5f5f5c",

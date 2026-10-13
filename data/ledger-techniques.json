@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-fishwife-illustrated-tin-bundle-builder-size-pills-discount-badges-slot-progress-track",
+  "slug": "fishwife-illustrated-tin-bundle-builder-size-pills-discount-badges-slot-progress-track",
+  "name": "Illustrated Tin Bundle Builder with Size Pills, Discount Badges, Slot Grid and 0→N Progress Track (Fishwife)",
+  "date": "2026-10-13",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://eatfishwife.com/products/build-your-own-bundle",
+  "domain": "eatfishwife.com",
+  "product": "Fishwife — tinned seafood DTC shop",
+  "checkpoints": [
+   "Cream announcement bar with arrows + pause; pill-outline nav with yellow highlighted Try the Starter Pack pill and hand-script logo",
+   "Full-bleed illustrated tin collage hero with translucent green rounded title card",
+   "Product card grid: tin art, star rating, serif name, Product Info link, Sold Out greyed overlay",
+   "Sticky right panel step 1: 9 / 12 / 15 Tins pills, selected yellow, 10% / 15% Off green badges",
+   "Step 2: numbered progress track 0→N with yellow end knob filling as tins are added; dashed empty slot grid fills with tin thumbnails",
+   "Curated bundles rail below with Tell me when it's back states"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-cashapp-neon-green-phone-mockup-hero-balance-cards-section-story-stats-row",
+  "slug": "cashapp-neon-green-phone-mockup-hero-balance-cards-section-story-stats-row",
+  "name": "Neon-Green Fintech Landing with Live Phone Mockup Hero, Balance/Status/Savings Cards and Section Story (Cash App)",
+  "date": "2026-10-13",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://cash.app/",
+  "domain": "cash.app",
+  "product": "Cash App — consumer money app (Block)",
+  "checkpoints": [
+   "Full-viewport #00D632-style green, black $ app tile logo, small nav, white Sign up pill + black Log in pill",
+   "Split hero: big tight grotesk headline left, short copy + Get started pill right, phone mockup centered",
+   "Phone UI: dark camo header Money + search + avatar, Cash balance $789.13, Add money / Withdraw buttons, Green status progress card, Savings $980.00 with ring",
+   "Sections: Cash App Green, Card, Borrow, Tags, Send money, Security, each swapping phone/card visuals",
+   "Trust row: 59 million+ accounts with 5★ / 9.9m+ / 4.5★ stats",
+   "Bottom Sign up now CTA band"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-devolver-dark-game-hub-auto-rotating-hero-thumbnail-strip-new-hotness-grid-snarky-newsletter-band",
+  "slug": "devolver-dark-game-hub-auto-rotating-hero-thumbnail-strip-new-hotness-grid-snarky-newsletter-band",
+  "name": "Dark Game Publisher Hub with Auto-Rotating Key-Art Hero, Thumbnail Strip, New Hotness Grid and Snarky Newsletter Band (Devolver Digital)",
+  "date": "2026-10-13",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.devolverdigital.com/",
+  "domain": "devolverdigital.com",
+  "product": "Devolver Digital — independent video game publisher",
+  "checkpoints": [
+   "Near-black page; red Devolver logo; heavy caps nav GAMES / PROPAGANDA / MERCH / INFLUENCERS / PITCH US; coral utility bar top-right",
+   "Hero: full key art + game logo, caps headline, mono subline + body, two outline arrow buttons",
+   "7 game thumbnails under hero; active one framed white; auto-advance swaps art/logo/copy",
+   "NEW HOTNESS asymmetric grid (one large right, two below) with game name + platform icons",
+   "Coral STAY TUNED newsletter band with dark input + tongue-in-cheek legal copy",
+   "THE FUTURE'S FUTURE / Hand-Picked Demos / Latest Propaganda grids with Coming 202X labels"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal",
   "slug": "oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal",
   "name": "Hatched Retro-Window Bento Brand Grid with Pixel-to-Sharp Image Reveal and Cheeky Cookie Modal (Oatly)",
