@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock",
+  "slug": "weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock",
+  "name": "Illustrated Tuscan Chapter Journey with Feathered Wipe Stage Transitions, Subtitles Toggle, and Gift Unlock (Weekend Max Mara × MONOGRID)",
+  "date": "2026-10-14",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://weekend-mm-2026-pasticcino-bag-master.monogrid.io/en/",
+  "domain": "weekend-mm-2026-pasticcino-bag-master.monogrid.io",
+  "product": "The Tuscan Journey Begins — Weekend Max Mara Pasticcino Bag Italian Roots interactive journey by MONOGRID (Awwwards SOTD Sep 13, 2026)",
+  "checkpoints": [
+   "Lottie preloader between top/bottom ribbons (Loading experience)",
+   "Stage routes Intro → Chapter 01 Archivio dei tessuti → Chapter 02 Cave di marmo → Chapter 03 Pelletteria di San Miniato → Outro → Gift",
+   "Feathered wipe transition between stages (feather 0.1, end 1.05, ~1000ms)",
+   "Subtitles on by default with toggle; sound with mute",
+   "Chapter dropdown menu unlocks after progressing; outro video progress bar",
+   "Gift stage: Pasticcino bag product cards (Small/Medium) + lead-form modal with country dial codes"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-boc-studio-coordinate-marquee-hero-filter-chip-work-grid-tumbling-404-letters",
+  "slug": "boc-studio-coordinate-marquee-hero-filter-chip-work-grid-tumbling-404-letters",
+  "name": "Coordinate Marquee Hero, Filter-Chip Work Grid, and Tumbling 4-0-4 Letter Page (Boc.Studio)",
+  "date": "2026-10-14",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://boc.studio/",
+  "domain": "boc.studio",
+  "product": "Boc.Studio — Barcelona creative brand studio portfolio on Framer (Awwwards SOTD Sep 19, 2026)",
+  "checkpoints": [
+   "Looping hero marquee: 'Creative brand studio · Create, refresh and boost · 41.4120° N, 2.1580° E Barcelona' + Watch our showreel",
+   "Work filter chips: All / Art direction / Brand identity / Campaign / Motion / Strategy / Creative direction / Artificial intelligence / Generative systems",
+   "Project cards with name + one-line pun tagline (Marmota — Audi Groundhog on board; Chocovic — Colour between flour) + View project",
+   "Filter switch animates cards out/in (layout shuffle)",
+   "/404: repeated marquee line + big 4 0 4 glyphs scattered/tumbling + Take me back home",
+   "Bold microinteractions on hover (exact motion unverified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader",
+  "slug": "pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader",
+  "name": "Speculative Spec-Sheet Diagram Modules with OPTION SET Headers, T1–T7 Scales, Status Rows, and Percent Loader (Pensatori Irrazionali Universe)",
+  "date": "2026-10-14",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://pensatori-irrazionali.com/universe",
+  "domain": "pensatori-irrazionali.com",
+  "product": "Pensatori Irrazionali — European creative house site, Universe page (Awwwards SOTD + Developer award Sep 20, 2026)",
+  "checkpoints": [
+   "Top press ticker: dated award/publication rows (Awwwards Sep. 20 ( 2026 ) … ( Award ))",
+   "OPTION SET 1–5 sections with tripled micro-labels (SYSTEM / STUDIO CORE · DESIGN / TECHNOLOGY / CULTURE)",
+   "Each module: T1 2 3 4 5 6 7 tick scale, recursive diagram with WIT/BWIT/FNOS/SNOS axis labels, Diagram By caption",
+   "Module card: IDENTITY / MODULE 01 · ID: STUDIO–ID–A01 + aphorism lines",
+   "Seven numbered STATUS / ACTIVE rows per module",
+   "Loading ( 0 %) counter + category cycler (Websites, Metaverse, Games, AR & VR) with Since 2018…2025"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-neutomni-retro-os-windows-faq-md-line-numbered-editor-tear-along-line-package-tickets",
   "slug": "neutomni-retro-os-windows-faq-md-line-numbered-editor-tear-along-line-package-tickets",
   "name": "Retro OS Windows, Line-Numbered FAQ.md Editor, and Tear-Along-Line Package Tickets (Neutomni)",

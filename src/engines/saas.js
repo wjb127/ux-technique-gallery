@@ -11200,4 +11200,505 @@ V['tiebreak-threejs-tennis-tiebreak-game-random-nickname-flags-first-to-seven-lo
     startScreen(); await sleep(600); return o.join('; ');
   };
 };
+V['weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock'] = (root, T) => {
+  theme(root, T, { bg: '#f3ede3', fg: '#2a2420', ac: '#c4683f', dark: false }); scroll(root);
+  import('@fontsource/playfair-display/400.css'); import('@fontsource/playfair-display/400-italic.css'); import('@fontsource-variable/inter');
+  const CREAM = '#f3ede3', INK = '#2a2420', TERRA = '#c4683f', OLIVE = '#6b6b3a', MARBLE = '#e8e0d2', CH = { intro: '#8a6a4a', ch1: '#764B41', ch2: '#594D40', ch3: '#2F2E25', outro: '#3a352c', gift: '#23280B' };
+  const SER = "'Playfair Display',Georgia,serif", SAN = "'Inter Variable',Helvetica,Arial,sans-serif";
+  css(`.tj{background:${CREAM};color:${INK};font:400 14px/1.45 ${SAN};min-height:100%;position:relative;overflow:hidden}
+.tj *{box-sizing:border-box}.tj button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.tj-load{position:absolute;inset:0;z-index:40;background:${CREAM};display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+.tj-load.off{opacity:0;visibility:hidden;pointer-events:none}
+.tj-ribbon{position:absolute;left:0;right:0;height:28px;background:${TERRA};color:${CREAM};overflow:hidden;font:500 11px/28px ${MONO};letter-spacing:.14em;text-transform:uppercase}
+.tj-ribbon.top{top:0}.tj-ribbon.bot{bottom:0}
+.tj-ribbon div{display:inline-block;white-space:nowrap;animation:tjR 18s linear infinite}@keyframes tjR{to{transform:translateX(-50%)}}
+.tj-bag{width:72px;height:88px;margin:0 auto 14px}
+.tj-pct{font:500 12px ${MONO};letter-spacing:.12em;color:${TERRA}}
+.tj-stage{position:absolute;inset:0;display:grid;place-items:center;padding:72px 24px 96px;opacity:0;pointer-events:none;transition:opacity .2s}
+.tj-stage.on{opacity:1;pointer-events:auto}
+.tj-ui{position:absolute;inset:0;z-index:20;pointer-events:none}.tj-ui>*{pointer-events:auto}
+.tj-lab{position:absolute;top:18px;left:18px;font:500 11px ${MONO};letter-spacing:.16em;text-transform:uppercase}
+.tj-ctrls{position:absolute;top:14px;right:14px;display:flex;gap:8px}
+.tj-ctrls button{border:1px solid ${INK}33;border-radius:99px;padding:6px 12px;font:500 11px ${MONO};background:${CREAM}cc;backdrop-filter:blur(6px)}
+.tj-ctrls button.on{background:${INK};color:${CREAM}}
+.tj-menu{position:absolute;top:52px;left:18px;min-width:220px;background:${CREAM}f2;border:1px solid ${INK}22;border-radius:10px;padding:8px;box-shadow:0 12px 30px #0002;display:none}
+.tj-menu.open{display:grid;gap:2px}
+.tj-menu button{text-align:left;padding:8px 10px;border-radius:7px;font-size:12px;opacity:.45}
+.tj-menu button.ok{opacity:1}.tj-menu button.ok:hover{background:${INK}0d}.tj-menu button.cur{background:${TERRA};color:${CREAM}}
+.tj-sub{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);max-width:min(560px,90vw);text-align:center;font:italic 400 16px/1.4 ${SER};padding:10px 18px;background:${INK}cc;color:${CREAM};border-radius:8px;transition:opacity .3s}
+.tj-sub.hide{opacity:0;visibility:hidden}
+.tj-wipe{position:absolute;inset:0;z-index:30;pointer-events:none;opacity:0}
+.tj-hero{text-align:center;max-width:720px}
+.tj-hero h1{margin:0 0 12px;font:400 clamp(36px,6vw,64px)/1.05 ${SER};letter-spacing:-.02em}
+.tj-hero p{margin:0 0 22px;opacity:.72;font-size:15px}
+.tj-cta{display:inline-flex;gap:10px;align-items:center;border:1px solid ${INK};padding:10px 18px;border-radius:99px;font:500 12px ${MONO};letter-spacing:.08em;text-transform:uppercase;transition:background .2s,color .2s}
+.tj-cta:hover{background:${INK};color:${CREAM}}
+.tj-illus{width:min(420px,86vw);height:260px;margin:0 auto 22px;border-radius:14px;position:relative;overflow:hidden;border:1px solid ${INK}18;background:linear-gradient(160deg,${MARBLE},${CREAM})}
+.tj-swatch{position:absolute;width:42%;height:58%;border-radius:8px;border:1px solid #0002;box-shadow:0 10px 24px #0002;transition:transform .35s ease;background-size:14px 14px}
+.tj-blocks{display:flex;gap:10px;height:100%;padding:18px;cursor:ew-resize;touch-action:none;user-select:none}
+.tj-blocks i{flex:1;border-radius:6px;background:linear-gradient(180deg,#d9d2c4,#9a9080);border:1px solid #0002;position:relative;overflow:hidden}
+.tj-blocks i:after{content:'';position:absolute;inset:12% 18%;border:1px dashed #ffffff55;border-radius:2px}
+.tj-stitch{width:min(280px,70vw);height:220px;margin:0 auto 18px;position:relative}
+.tj-stitch svg{width:100%;height:100%}
+.tj-hold{margin-top:8px;border:1px solid ${INK};border-radius:99px;padding:10px 20px;font:500 12px ${MONO};letter-spacing:.1em;text-transform:uppercase;position:relative;overflow:hidden}
+.tj-hold b{position:absolute;left:0;top:0;bottom:0;width:0;background:${TERRA}33;transition:width .05s linear}
+.tj-out{width:min(640px,92vw)}
+.tj-vid{aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,#3a352c,#23280B);display:grid;place-items:center;color:${CREAM};font:italic 400 22px ${SER};position:relative;overflow:hidden}
+.tj-vid .bar{position:absolute;left:12px;right:12px;bottom:12px;height:4px;background:#ffffff22;border-radius:99px;overflow:hidden}
+.tj-vid .bar i{display:block;height:100%;width:0;background:${CREAM};transition:width .2s linear}
+.tj-gift{width:min(860px,94vw)}
+.tj-gift h2{margin:0 0 6px;font:400 clamp(28px,4vw,44px)/1.1 ${SER};text-align:center}
+.tj-gift .lead{text-align:center;opacity:.65;margin:0 0 22px}
+.tj-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tj-card{background:#fff;border:1px solid ${INK}18;border-radius:14px;padding:16px;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.tj-card:hover{transform:translateY(-4px);box-shadow:0 16px 30px #0002}
+.tj-card .art{height:140px;border-radius:10px;margin-bottom:12px;background:linear-gradient(145deg,var(--c1),var(--c2));position:relative}
+.tj-card .art:before{content:'';position:absolute;left:50%;top:42%;width:46%;height:48%;transform:translate(-50%,-50%);border:2px solid #fff8;border-radius:40% 40% 30% 30%/45% 45% 35% 35%;box-shadow:inset 0 0 0 8px #0001}
+.tj-card b{display:block;font:400 18px ${SER}}.tj-card small{opacity:.6}
+.tj-get{display:block;margin:18px auto 0;border:0;background:${TERRA};color:${CREAM};border-radius:99px;padding:12px 22px;font:500 12px ${MONO};letter-spacing:.1em;text-transform:uppercase}
+.tj-modal{position:absolute;inset:0;z-index:35;background:#2a242088;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.tj-modal.on{opacity:1;pointer-events:auto}
+.tj-form{width:min(400px,92vw);background:${CREAM};border-radius:14px;padding:22px;display:grid;gap:10px;box-shadow:0 24px 50px #0004}
+.tj-form h3{margin:0;font:400 24px ${SER}}.tj-form label{display:grid;gap:4px;font:500 11px ${MONO};letter-spacing:.06em;text-transform:uppercase}
+.tj-form input,.tj-form select{padding:10px 12px;border:1px solid ${INK}28;border-radius:8px;font:400 14px ${SAN};background:#fff}
+.tj-form .row{display:grid;grid-template-columns:110px 1fr;gap:8px}
+.tj-form .chk{display:flex;gap:8px;align-items:flex-start;font:400 12px ${SAN};text-transform:none;letter-spacing:0;font-weight:400}
+.tj-form .go{background:${INK};color:${CREAM};border:0;border-radius:8px;padding:11px;font:500 12px ${MONO};letter-spacing:.08em;text-transform:uppercase}
+.tj-form .ok{text-align:center;padding:20px 0;font:italic 400 20px ${SER};color:${OLIVE}}
+@media (max-width:760px){.tj-cards{grid-template-columns:1fr}.tj-lab{font-size:10px}.tj-ctrls{top:10px;right:8px;gap:4px}.tj-ctrls button{padding:5px 8px;font-size:10px}.tj-sub{font-size:14px;bottom:18px}}
+`);
+  const STAGES = [
+    { id: 'preload', label: 'Loading', sub: '' },
+    { id: 'intro', label: 'Intro', sub: 'A journey through Tuscan craft begins with a ribbon and a bag.' },
+    { id: 'ch1', label: 'Chapter 01 · Archivio dei tessuti', sub: 'Layered fabrics sway as the archive remembers every weave.' },
+    { id: 'ch2', label: 'Chapter 02 · Cave di marmo', sub: 'Drag across the quarry to reveal stacked marble blocks.' },
+    { id: 'ch3', label: 'Chapter 03 · Pelletteria di San Miniato', sub: 'Hold to stitch the seam that shapes the Pasticcino.' },
+    { id: 'outro', label: 'Outro', sub: 'The atelier exhales — the film finds its final frame.' },
+    { id: 'gift', label: 'Gift', sub: 'Choose your Italian Roots bag and leave a note for the atelier.' },
+  ];
+  let stage = 0, subOn = true, muted = true, unlocked = 0, wiping = false, hold = 0, outProg = 0, formOk = false;
+  const load = h('div.tj-load', {}, h('div', { style: { textAlign: 'center' } },
+    h('div.tj-ribbon.top', {}, h('div', {}, ...'WEEKEND MAX MARA · PASTICCINO · TUSCAN JOURNEY · '.repeat(6))),
+    h('div.tj-ribbon.bot', {}, h('div', {}, ...'LOADING EXPERIENCE · MONOGRID · '.repeat(8))),
+    (() => { const svg = s('svg.tj-bag', { viewBox: '0 0 72 88' }, s('ellipse', { cx: 36, cy: 58, rx: 22, ry: 18, fill: 'none', stroke: TERRA, 'stroke-width': 1.6 }), s('path', { d: 'M18 52 Q36 18 54 52', fill: 'none', stroke: TERRA, 'stroke-width': 1.6 }), s('path', { d: 'M28 40 Q36 28 44 40', fill: 'none', stroke: TERRA, 'stroke-width': 1.2, 'stroke-dasharray': '3 3' }), s('circle', { cx: 36, cy: 34, r: 2.2, fill: TERRA })); return svg; })(),
+    h('div.tj-pct', {}, '0%')));
+  const pctEl = load.querySelector('.tj-pct');
+  const wipe = h('canvas.tj-wipe', { width: 1440, height: 900 });
+  const lab = h('div.tj-lab', {}, 'Intro');
+  const menuBtn = h('button', {}, 'Chapters ▾');
+  const ccBtn = h('button.on', {}, 'CC');
+  const sndBtn = h('button', {}, 'Sound · muted');
+  const nextBtn = h('button', {}, 'Continue →');
+  const menu = h('div.tj-menu');
+  const sub = h('div.tj-sub', {}, STAGES[1].sub);
+  const modal = h('div.tj-modal');
+  const ui = h('div.tj-ui', {}, lab, h('div.tj-ctrls', {}, menuBtn, ccBtn, sndBtn, nextBtn), menu, sub);
+
+  // stage bodies
+  const intro = h('div.tj-stage', {}, h('div.tj-hero', {}, h('div.tj-illus', { style: { background: `linear-gradient(160deg,${CH.intro},${CREAM})` } }, h('div', { style: { position: 'absolute', inset: '18%', border: `1.5px solid ${CREAM}aa`, borderRadius: '50% 50% 40% 40%', display: 'grid', placeItems: 'center', font: `italic 400 28px ${SER}`, color: CREAM } }, 'WM')), h('h1', {}, 'The Tuscan Journey Begins'), h('p', {}, 'Three ateliers. One Pasticcino. A feathered wipe between every chapter.'), h('button.tj-cta', { onclick: () => go(2) }, 'Enter Chapter 01')));
+
+  const swatches = Array.from({ length: 5 }, (_, i) => h('div.tj-swatch', { style: { left: `${12 + i * 12}%`, top: `${18 + (i % 3) * 12}%`, backgroundColor: ['#c4683f', '#a67c52', '#d4b896', '#8b5a3c', '#e8d5b7'][i], backgroundImage: 'repeating-linear-gradient(45deg,#0000 0 6px,#0001 6px 7px)', zIndex: String(i + 1) } }));
+  const ch1Ill = h('div.tj-illus', { style: { background: `linear-gradient(160deg,${CH.ch1}44,${CREAM})` } }, ...swatches);
+  ch1Ill.onpointermove = (e) => { const r = ch1Ill.getBoundingClientRect(); const nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5; swatches.forEach((el, i) => { el.style.transform = `translate(${nx * (10 + i * 6)}px,${ny * (8 + i * 4)}px) rotate(${(i - 2) * 4}deg)`; }); };
+  const ch1 = h('div.tj-stage', {}, h('div.tj-hero', {}, ch1Ill, h('h1', {}, 'Archivio dei tessuti'), h('p', {}, 'Move the pointer — fabric layers sway like pages in the textile archive.'), h('button.tj-cta', { onclick: () => go(3) }, 'To the quarry →')));
+
+  const blocks = h('div.tj-blocks', {}, ...Array.from({ length: 5 }, (_, i) => h('i', { style: { background: `linear-gradient(180deg,${['#ebe4d6', '#d4cdc0', '#c2b8a8', '#a89f90', '#8e8578'][i]},#6a6258)`, transform: `translateY(${(i - 2) * 6}px)` } })));
+  let dragX = 0;
+  blocks.onpointerdown = (e) => { dragX = e.clientX; try { blocks.setPointerCapture(e.pointerId); } catch {} };
+  blocks.onpointermove = (e) => { if (dragX == null) return; const dx = (e.clientX - dragX) / 40; [...blocks.children].forEach((el, i) => { el.style.transform = `translateY(${(i - 2) * 6 + Math.sin(dx + i) * 14}px) scaleY(${1 + Math.abs(Math.sin(dx + i * .7)) * .08})`; }); };
+  blocks.onpointerup = () => { dragX = null; };
+  const ch2 = h('div.tj-stage', {}, h('div.tj-hero', {}, h('div.tj-illus', { style: { padding: 0, background: CH.ch2 } }, blocks), h('h1', {}, 'Cave di marmo'), h('p', {}, 'Drag horizontally to shift the stacked marble blocks.'), h('button.tj-cta', { onclick: () => go(4) }, 'To the leather shop →')));
+
+  const pathLen = 420;
+  const seam = s('path', { d: 'M70 40 C 40 80, 40 140, 70 170 S 140 210, 140 140 S 160 40, 100 50 S 70 40, 70 40', fill: 'none', stroke: TERRA, 'stroke-width': 2.2, 'stroke-dasharray': '6 6', 'stroke-dashoffset': String(pathLen), 'stroke-linecap': 'round' });
+  const bagSvg = s('svg', { viewBox: '0 0 200 220' }, s('ellipse', { cx: 100, cy: 150, rx: 55, ry: 48, fill: '#8b5a3c', opacity: .85 }), s('path', { d: 'M55 140 Q100 55 145 140', fill: 'none', stroke: '#5c3a28', 'stroke-width': 3 }), seam);
+  const holdFill = h('b'); const holdBtn = h('button.tj-hold', {}, holdFill, h('span', {}, 'Hold to stitch'));
+  let holdIv = null;
+  const setHold = (v) => { hold = Math.max(0, Math.min(1, v)); holdFill.style.width = (hold * 100) + '%'; seam.setAttribute('stroke-dashoffset', String(pathLen * (1 - hold))); if (hold >= 1) { holdBtn.querySelector('span').textContent = 'Seam complete'; blip(660, .08, 'triangle', .05); } };
+  holdBtn.onpointerdown = () => { if (holdIv) clearInterval(holdIv); holdIv = setInterval(() => { setHold(hold + .04); if (hold >= 1) { clearInterval(holdIv); holdIv = null; } }, 40); };
+  holdBtn.onpointerup = holdBtn.onpointerleave = () => { if (holdIv) { clearInterval(holdIv); holdIv = null; } };
+  const ch3 = h('div.tj-stage', {}, h('div.tj-hero', {}, h('div.tj-stitch', {}, bagSvg), holdBtn, h('h1', {}, 'Pelletteria di San Miniato'), h('p', {}, 'Hold the button to draw the dashed seam around the bag.'), h('button.tj-cta', { onclick: () => go(5) }, 'Watch the outro →')));
+
+  const barFill = h('i'); const vid = h('div.tj-vid', {}, h('span', {}, 'Outro · atelier film'), h('div.bar', {}, barFill));
+  let outIv = null;
+  const startOut = () => { if (outIv) clearInterval(outIv); outProg = 0; outIv = setInterval(() => { outProg = Math.min(1, outProg + .02); barFill.style.width = (outProg * 100) + '%'; if (outProg >= 1) { clearInterval(outIv); outIv = null; } }, 80); };
+  const outro = h('div.tj-stage', {}, h('div.tj-hero.tj-out', {}, vid, h('h1', {}, 'Outro'), h('p', {}, 'A quiet credit roll over Capalbio light.'), h('button.tj-cta', { onclick: () => go(6) }, 'Claim your gift →')));
+
+  const CARDS = [['Small', 'Italian Roots', '#c4683f', '#8b5a3c'], ['Medium', 'Italian Roots', '#6b6b3a', '#3a352c']];
+  let pickCard = 0;
+  const cards = h('div.tj-cards', {}, ...CARDS.map(([sz, nm, c1, c2], i) => h('div.tj-card', { style: { outline: i === 0 ? `2px solid ${TERRA}` : '' }, onclick: () => { pickCard = i; [...cards.children].forEach((el, k) => { el.style.outline = k === i ? `2px solid ${TERRA}` : ''; }); } }, h('div.art', { style: { '--c1': c1, '--c2': c2 } }), h('b', {}, `Pasticcino Bag ${nm} ${sz}`), h('small', {}, 'Weekend Max Mara · look-alike study'))));
+  const openForm = () => {
+    formOk = false;
+    const name = h('input', { placeholder: 'Your name' }); const email = h('input', { type: 'email', placeholder: 'you@example.com' });
+    const dial = h('select', {}, ...[['+39', 'IT'], ['+33', 'FR'], ['+44', 'UK'], ['+1', 'US'], ['+82', 'KR']].map(([v, l]) => h('option', { value: v }, `${l} ${v}`)));
+    const phone = h('input', { placeholder: 'Phone' }); const consent = h('input', { type: 'checkbox' });
+    const body = h('div.tj-form', {}, h('h3', {}, 'Get your gift'), h('label', {}, 'Name', name), h('label', {}, 'Email', email), h('div.row', {}, dial, phone), h('label.chk', {}, consent, h('span', {}, 'I agree to be contacted about the Pasticcino gift (demo).')), h('button.go', { onclick: () => { if (!name.value.trim() || !email.value.trim() || !consent.checked) { toast('Name, email & consent required'); return; } formOk = true; body.replaceChildren(h('div.ok', {}, 'Grazie — your gift request is noted.'), h('button.go', { onclick: () => modal.classList.remove('on') }, 'Close')); blip(520, .08, 'sine', .05); } }, 'Submit'), h('button', { style: { opacity: .6, fontSize: 12 }, onclick: () => modal.classList.remove('on') }, 'Cancel'));
+    modal.replaceChildren(body); modal.classList.add('on');
+  };
+  const gift = h('div.tj-stage', {}, h('div.tj-gift', {}, h('h2', {}, 'Your Pasticcino gift'), h('p.lead', {}, 'Small or Medium — Italian Roots colorways.'), cards, h('button.tj-get', { onclick: openForm }, 'Get your gift')));
+
+  const stagesEls = [null, intro, ch1, ch2, ch3, outro, gift];
+  const el = h('div.tj', {}, load, ...stagesEls.slice(1), wipe, ui, modal);
+  root.append(el);
+
+  const drawMenu = () => {
+    menu.replaceChildren(...STAGES.slice(1).map((s, i) => {
+      const idx = i + 1; const ok = unlocked >= idx || idx === 1;
+      return h(`button${ok ? '.ok' : ''}${stage === idx ? '.cur' : ''}`, { onclick: () => { if (!ok) { toast('Locked — progress further'); return; } menu.classList.remove('open'); go(idx); } }, s.label);
+    }));
+  };
+  menuBtn.onclick = () => { if (unlocked < 4) { toast('Chapter menu unlocks at Chapter 03'); return; } menu.classList.toggle('open'); drawMenu(); };
+  ccBtn.onclick = () => { subOn = !subOn; ccBtn.classList.toggle('on', subOn); sub.classList.toggle('hide', !subOn); };
+  sndBtn.onclick = () => { muted = !muted; sndBtn.textContent = muted ? 'Sound · muted' : 'Sound · on'; if (!muted) blip(220, .15, 'sine', .03); };
+  nextBtn.onclick = () => go(Math.min(6, stage + 1));
+
+  const runWipe = async (fromCol, toCol) => {
+    wiping = true; wipe.style.opacity = '1';
+    const ctx = wipe.getContext('2d'); const W = wipe.width = el.clientWidth || 1440, H = wipe.height = el.clientHeight || 900;
+    const feather = 0.1, dur = 1000, t0 = performance.now();
+    await new Promise((res) => {
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur); const end = 1.05 * p;
+        const g = ctx.createLinearGradient(0, 0, 0, H);
+        const a = Math.max(0, end - feather), b = end;
+        g.addColorStop(0, toCol); g.addColorStop(Math.min(1, a), toCol);
+        g.addColorStop(Math.min(1, b), fromCol); g.addColorStop(1, fromCol);
+        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+        if (p < 1) requestAnimationFrame(tick); else res();
+      };
+      requestAnimationFrame(tick);
+    });
+    wipe.style.opacity = '0'; wiping = false;
+  };
+
+  const showStage = (i) => {
+    stagesEls.forEach((n, k) => { if (n) n.classList.toggle('on', k === i); });
+    stage = i; unlocked = Math.max(unlocked, i);
+    lab.textContent = STAGES[i].label;
+    sub.textContent = STAGES[i].sub || '';
+    sub.classList.toggle('hide', !subOn || !STAGES[i].sub);
+    menu.classList.remove('open'); drawMenu();
+    if (i === 5) startOut();
+    if (i === 4 && hold < 1) setHold(hold);
+  };
+
+  const go = async (i) => {
+    if (wiping || i === stage || i < 1 || i > 6) return;
+    if (i > unlocked + 1 && i > stage) { /* allow forward via continue */ }
+    const from = CH[STAGES[stage]?.id] || CREAM; const to = CH[STAGES[i].id] || CREAM;
+    const prev = stage;
+    await runWipe(from, to);
+    showStage(i);
+    el.style.background = i === 6 ? '#e8e2d4' : CREAM;
+  };
+
+  // preloader
+  let lp = 0; const liv = setInterval(() => {
+    lp = Math.min(100, lp + 4 + Math.random() * 6); pctEl.textContent = Math.floor(lp) + '%';
+    if (lp >= 100) { clearInterval(liv); load.classList.add('off'); showStage(1); unlocked = 1; }
+  }, 60);
+
+  window.__demoProof = async () => {
+    const o = [];
+    clearInterval(liv); lp = 100; load.classList.add('off'); wiping = false;
+    showStage(1); o.push(`intro label="${lab.textContent}"`);
+    showStage(2); ch1Ill.onpointermove({ clientX: 120, clientY: 80 }); o.push(`ch1 sway=${!!swatches[0].style.transform}`);
+    showStage(3); blocks.onpointermove({ clientX: 200 }); o.push(`ch2 blocks=${blocks.children.length}`);
+    showStage(4); setHold(1); o.push(`ch3 stitch=${seam.getAttribute('stroke-dashoffset')}`);
+    showStage(5); outProg = .6; barFill.style.width = '60%'; o.push(`outro bar=${barFill.style.width}`);
+    showStage(6); o.push(`gift unlockedMenu=${unlocked >= 4} cards=${cards.children.length}`);
+    openForm(); o.push(`modal=${modal.classList.contains('on')}`);
+    modal.classList.remove('on');
+    subOn = true; ccBtn.classList.add('on'); sub.classList.remove('hide');
+    muted = true; sndBtn.textContent = 'Sound · muted';
+    setHold(0); outProg = 0; barFill.style.width = '0';
+    showStage(1); el.style.background = CREAM; root.scrollTop = 0;
+    return o.join('; ');
+  };
+};
+
+V['boc-studio-coordinate-marquee-hero-filter-chip-work-grid-tumbling-404-letters'] = (root, T) => {
+  theme(root, T, { bg: '#f4f2ee', fg: '#0d0e0e', ac: '#ff3b1f', dark: false }); scroll(root);
+  import('@fontsource-variable/inter-tight'); import('@fontsource-variable/inter');
+  const BG = '#f4f2ee', INK = '#0d0e0e', RED = '#ff3b1f', SAN = "'Inter Tight Variable','Inter Variable',Helvetica,Arial,sans-serif";
+  css(`.bc{background:${BG};color:${INK};font:400 14px/1.4 ${SAN};min-height:100%;overflow-x:clip}
+.bc *{box-sizing:border-box}.bc button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.bc-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4%;font:600 13px ${SAN}}
+.bc-nav .links{display:flex;gap:18px;opacity:.75}.bc-nav .links button:hover{opacity:1;color:${RED}}
+.bc-logo{font-weight:700;letter-spacing:-.02em}.bc-logo span{color:${RED}}
+.bc-mq{overflow:hidden;border-top:1px solid ${INK}14;border-bottom:1px solid ${INK}14;padding:22px 0;background:#fff}
+.bc-mq .track{display:flex;width:max-content;animation:bcM 28s linear infinite;font:600 clamp(28px,4.6vw,56px)/1 ${SAN};letter-spacing:-.035em;gap:0}
+@keyframes bcM{to{transform:translateX(-50%)}}
+.bc-mq .track span{padding:0 18px;white-space:nowrap}.bc-mq .track .dot{opacity:.35}
+.bc-hero{padding:28px 4% 10px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.bc-hero p{margin:0;max-width:420px;font-size:15px;opacity:.7}
+.bc-pill{display:inline-flex;align-items:center;gap:8px;border:1.5px solid ${INK};border-radius:99px;padding:10px 16px;font:600 13px ${SAN};transition:background .2s,color .2s}
+.bc-pill:hover,.bc-pill.on{background:${RED};color:#fff;border-color:${RED}}
+.bc-work{padding:28px 4% 60px}
+.bc-work h2{margin:0 0 16px;font:600 clamp(28px,4vw,42px)/1 ${SAN};letter-spacing:-.03em}
+.bc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.bc-chips button{border:1px solid ${INK}22;border-radius:99px;padding:7px 12px;font:500 12px ${SAN};background:#fff;transition:background .15s,color .15s,border-color .15s}
+.bc-chips button.on{background:${INK};color:#fff;border-color:${INK}}.bc-chips button:hover:not(.on){border-color:${INK}}
+.bc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.bc-card{background:#fff;border:1px solid ${INK}12;border-radius:14px;overflow:hidden;display:grid;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s,filter .35s;cursor:pointer;position:relative}
+.bc-card.out{opacity:0;transform:scale(.9);filter:blur(2px);pointer-events:none;position:absolute;width:0;height:0;overflow:hidden;margin:0;border:0}
+.bc-card .ph{aspect-ratio:4/3;background:linear-gradient(135deg,var(--a),var(--b));position:relative;overflow:hidden}
+.bc-card .ph i{position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,#fff5,transparent 50%);transition:transform .4s}
+.bc-card:hover .ph i{transform:scale(1.08)}
+.bc-card .meta{padding:14px 14px 16px}.bc-card .meta b{display:block;font-size:16px;letter-spacing:-.02em}.bc-card .meta small{opacity:.55;display:block;margin:4px 0 10px}
+.bc-card .view{font:600 12px ${SAN};opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;color:${RED}}
+.bc-card:hover .view{opacity:1;transform:none}
+.bc-ft{padding:20px 4% 40px;display:flex;justify-content:space-between;font:500 11px ${MONO};opacity:.5;border-top:1px solid ${INK}12}
+.bc-reel{position:fixed;inset:0;z-index:40;background:#0d0e0eee;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s;color:#fff}
+.bc-reel.on{opacity:1;pointer-events:auto}
+.bc-reel .box{width:min(720px,92vw);aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a1a,${RED}55);border-radius:12px;display:grid;place-items:center;font:600 22px ${SAN};position:relative}
+.bc-reel .x{position:absolute;top:16px;right:16px;border:1px solid #fff6;border-radius:99px;padding:8px 14px;color:#fff}
+.bc-404{display:none;min-height:100%;padding:40px 4%;position:relative;overflow:hidden}
+.bc-404.on{display:block}
+.bc-404 .mq2{overflow:hidden;margin:20px 0 40px;border-top:1px solid ${INK}14;border-bottom:1px solid ${INK}14;padding:14px 0;background:#fff}
+.bc-404 .mq2 .track{display:flex;width:max-content;animation:bcM 22s linear infinite;font:600 18px ${SAN};gap:24px;white-space:nowrap}
+.bc-404 .letters{position:relative;height:min(52vh,420px);margin:0 auto 30px;max-width:900px}
+.bc-404 .letters span{position:absolute;font:800 clamp(80px,18vw,180px)/1 ${SAN};letter-spacing:-.06em;color:${INK};user-select:none;touch-action:none;cursor:grab;will-change:transform}
+.bc-404 .home{display:inline-flex;border:1.5px solid ${INK};border-radius:99px;padding:12px 18px;font:600 13px ${SAN}}
+.bc-404 .home:hover{background:${RED};color:#fff;border-color:${RED}}
+.bc-main.hide{display:none}
+@media (max-width:760px){.bc-grid{grid-template-columns:1fr}.bc-nav .links{display:none}.bc-hero{padding-top:16px}}
+`);
+  const WORK = [
+    ['CE Europa', 'Postcode football club', ['Brand identity', 'Campaign'], '#ffb39a', '#ff3b1f'],
+    ['Marmota', 'Audi Groundhog on board', ['Art direction', 'Motion'], '#a8d8ff', '#3b6cff'],
+    ['Chocovic', 'Colour between flour', ['Brand identity', 'Campaign'], '#f5d0a9', '#8b5a2b'],
+    ['Alien', 'Technology from another planet', ['Creative direction', 'Strategy'], '#d4ff3a', '#1a1a1a'],
+    ['Sport', 'Daily heritage, rewritten', ['Campaign', 'Motion'], '#c8e4d3', '#2a6b4a'],
+    ['Yaba', 'Mediterranean balance', ['Brand identity', 'Art direction'], '#ffd6e8', '#e91e63'],
+    ['The Seam', 'Fit to Care. Designed to Last.', ['Strategy', 'Creative direction'], '#e2e2e2', '#444'],
+    ['The Champions Burger', 'Crowned at Mestalla', ['Campaign', 'Motion'], '#ffe08a', '#c46800'],
+    ['Incite', 'Supplements made simple', ['Artificial intelligence', 'Generative systems'], '#d5c6ff', '#502BD8'],
+  ];
+  const CHIPS = ['All', 'Art direction', 'Brand identity', 'Campaign', 'Motion', 'Strategy', 'Creative direction', 'Artificial intelligence', 'Generative systems'];
+  let filter = 'All', view = 'home';
+  const grid = h('div.bc-grid');
+  const chipBtns = CHIPS.map((c) => h(`button${c === 'All' ? '.on' : ''}`, { onclick: () => setFilter(c) }, c));
+  const drawGrid = () => {
+    const items = WORK.filter(([, , tags]) => filter === 'All' || tags.includes(filter));
+    grid.replaceChildren(...items.map(([name, tag, tags, a, b]) => {
+      const card = h('div.bc-card', { style: { '--a': a, '--b': b }, onclick: () => toast(`${name} ↗`) },
+        h('div.ph', {}, h('i')), h('div.meta', {}, h('b', {}, name), h('small', {}, tag), h('span.view', {}, 'View project ↗')));
+      card.animate([{ opacity: 0, transform: 'scale(.92)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)' });
+      return card;
+    }));
+  };
+  const setFilter = (c) => { filter = c; chipBtns.forEach((b, i) => b.classList.toggle('on', CHIPS[i] === c)); drawGrid(); };
+
+  const mqLine = (extra = '') => h('span', {}, extra || 'Creative brand studio', h('span.dot', {}, ' · '), 'Create, refresh and boost', h('span.dot', {}, ' · '), '41.4120° N, 2.1580° E Barcelona', h('span.dot', {}, ' · '));
+  const reel = h('div.bc-reel', {}, h('button.x', { onclick: () => reel.classList.remove('on') }, 'Close'), h('div.box', {}, 'Showreel · placeholder'));
+  const showreelBtn = h('button.bc-pill', { onclick: () => reel.classList.add('on') }, '▶ Watch our showreel');
+
+  // 404 physics letters
+  const lettersBox = h('div.letters');
+  const glyphs = ['4', '0', '4'].map((ch, i) => {
+    const sp = h('span', {}, ch);
+    const st = { x: 80 + i * 220, y: 40 + i * 20, vx: (Math.random() - .5) * 2, vy: 0, rot: (Math.random() - .5) * 10, vr: (Math.random() - .5) * .4 };
+    sp._st = st; sp.style.left = '0'; sp.style.top = '0';
+    let dragging = false, ox = 0, oy = 0;
+    sp.onpointerdown = (e) => { dragging = true; ox = e.clientX - st.x; oy = e.clientY - st.y; st.vx = 0; st.vy = 0; try { sp.setPointerCapture(e.pointerId); } catch {} };
+    sp.onpointermove = (e) => { if (!dragging) return; st.x = e.clientX - ox; st.y = e.clientY - oy; apply(); };
+    sp.onpointerup = (e) => { if (!dragging) return; dragging = false; st.vx = (Math.random() - .5) * 8; st.vy = -Math.random() * 6; };
+    const apply = () => { sp.style.transform = `translate(${st.x}px,${st.y}px) rotate(${st.rot}deg)`; };
+    apply();
+    return { sp, st, apply, dragging: () => dragging };
+  });
+  lettersBox.append(...glyphs.map((g) => g.sp));
+  let physOn = false;
+  const physLoop = () => {
+    if (!root.isConnected || !physOn) return;
+    const W = lettersBox.clientWidth || 800, H = lettersBox.clientHeight || 400;
+    glyphs.forEach(({ st, apply, dragging }) => {
+      if (dragging()) { apply(); return; }
+      st.vy += 0.35; st.x += st.vx; st.y += st.vy; st.rot += st.vr;
+      if (st.y > H - 120) { st.y = H - 120; st.vy *= -0.62; st.vx *= 0.92; st.vr *= 0.9; }
+      if (st.x < 0) { st.x = 0; st.vx *= -0.8; }
+      if (st.x > W - 100) { st.x = W - 100; st.vx *= -0.8; }
+      apply();
+    });
+    requestAnimationFrame(physLoop);
+  };
+
+  const page404 = h('div.bc-404', {},
+    h('div.bc-nav', {}, h('div.bc-logo', {}, 'Boc', h('span', {}, '.'), 'Studio'), h('div.links', {}, h('button', { onclick: () => setView('home') }, 'Work'), h('button', {}, 'Studio'), h('button', {}, 'Contact'))),
+    h('div.mq2', {}, h('div.track', {}, ...Array.from({ length: 8 }, () => h('span', {}, 'Exploration is also part of our process, but you are lost. Take me back home.')))),
+    lettersBox,
+    h('button.home', { onclick: () => setView('home') }, 'Take me back home'));
+
+  const main = h('div.bc-main', {},
+    h('div.bc-nav', {}, h('div.bc-logo', {}, 'Boc', h('span', {}, '.'), 'Studio'), h('div.links', {}, h('button', {}, 'Work'), h('button', {}, 'Studio'), h('button', {}, 'Contact'), h('button', { onclick: () => setView('404') }, '404'))),
+    h('div.bc-mq', {}, h('div.track', {}, mqLine(), mqLine(), mqLine(), mqLine())),
+    h('div.bc-hero', {}, h('p', {}, 'Structure first. Delight throughout. A Barcelona creative brand studio.'), showreelBtn),
+    h('div.bc-work', {}, h('h2', {}, 'Selected work'), h('div.bc-chips', {}, ...chipBtns), grid),
+    h('div.bc-ft', {}, h('span', {}, 'Boc.Studio look-alike study · not affiliated'), h('span', {}, '41.4120° N, 2.1580° E')));
+
+  const setView = (v) => {
+    view = v;
+    main.classList.toggle('hide', v === '404');
+    page404.classList.toggle('on', v === '404');
+    physOn = v === '404';
+    if (physOn) requestAnimationFrame(physLoop);
+  };
+
+  drawGrid();
+  const el = h('div.bc', {}, main, page404, reel);
+  root.append(el);
+
+  window.__demoProof = async () => {
+    const o = [];
+    setFilter('Motion'); await sleep(80); o.push(`filter=Motion visible=${grid.children.length}`);
+    setFilter('All'); await sleep(40); o.push(`filter=All visible=${grid.children.length}`);
+    reel.classList.add('on'); o.push(`reel=${reel.classList.contains('on')}`); reel.classList.remove('on');
+    setView('404'); await sleep(100); o.push(`404 letters=${glyphs.length} phys=${physOn}`);
+    glyphs[0].st.vx = 5; glyphs[0].st.vy = -4;
+    setView('home'); o.push(`home view=${view}`);
+    return o.join('; ');
+  };
+};
+
+V['pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader'] = (root, T) => {
+  theme(root, T, { bg: '#050505', fg: '#f2f2f2', ac: '#d4ff3a', dark: true }); scroll(root);
+  import('@fontsource-variable/space-grotesk'); import('@fontsource-variable/jetbrains-mono');
+  const BG = '#050505', FG = '#f2f2f2', DIM = '#8a8a8a', ACID = '#d4ff3a', GROT = "'Space Grotesk Variable','Inter Variable',sans-serif", MON = MONO;
+  css(`.pi{background:${BG};color:${FG};font:400 14px/1.45 ${GROT};min-height:100%;overflow-x:clip;position:relative}
+.pi *{box-sizing:border-box}.pi button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+.pi-load{position:absolute;inset:0;z-index:30;background:${BG};display:grid;place-items:center;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.pi-load.off{transform:translateY(-100%);opacity:0;pointer-events:none}
+.pi-load .pct{font:500 clamp(28px,5vw,48px) ${MON};letter-spacing:.04em}
+.pi-load .cat{margin-top:10px;font:500 12px ${MON};color:${DIM};letter-spacing:.14em;text-transform:uppercase;min-height:18px}
+.pi-load .since{margin-top:6px;font:500 11px ${MON};color:${ACID};letter-spacing:.1em}
+.pi-wrap{padding:28px 4% 80px;max-width:1100px;margin:0 auto}
+.pi-press{margin-bottom:48px}
+.pi-press .row{display:grid;grid-template-columns:140px 1fr 80px;gap:12px;padding:12px 0;border-bottom:1px solid #ffffff14;font:400 12px/1.4 ${MON};color:${DIM}}
+.pi-press .row b{color:${FG};font-weight:500}.pi-press .row .aw{text-align:right;color:${ACID}}
+.pi-mod{margin-bottom:64px;padding-top:8px}
+.pi-micro{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font:500 10px ${MON};letter-spacing:.16em;text-transform:uppercase;color:${DIM};margin-bottom:18px}
+.pi-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.pi-head h2{margin:0;font:500 clamp(22px,3vw,32px)/1.1 ${GROT};letter-spacing:-.02em}
+.pi-head .opt{font:500 11px ${MON};letter-spacing:.14em;color:${ACID}}
+.pi-scale{display:flex;gap:0;margin-bottom:18px;border-top:1px solid #ffffff18;padding-top:8px}
+.pi-scale span{flex:1;text-align:center;font:500 10px ${MON};color:${DIM};position:relative;padding-top:10px}
+.pi-scale span:before{content:'';position:absolute;top:0;left:50%;width:1px;height:8px;background:#ffffff33}
+.pi-scale span.on{color:${ACID}}.pi-scale span.on:before{background:${ACID};box-shadow:0 0 8px ${ACID}}
+.pi-diag{display:grid;grid-template-columns:1fr 280px;gap:20px;align-items:start;margin-bottom:16px}
+.pi-svg{width:100%;aspect-ratio:1.2;background:#0a0a0a;border:1px solid #ffffff12;border-radius:4px}
+.pi-svg svg{width:100%;height:100%}
+.pi-cap{font:400 10px ${MON};color:${DIM};letter-spacing:.08em;margin-top:8px;text-transform:uppercase}
+.pi-card{border:1px solid #ffffff18;padding:16px;background:#0c0c0c}
+.pi-card .id{font:500 10px ${MON};letter-spacing:.12em;color:${ACID};margin-bottom:10px}
+.pi-card .aph{font:400 15px/1.45 ${GROT};margin:0 0 6px}.pi-card .aph2{font:400 13px/1.4 ${GROT};color:${DIM};margin:0}
+.pi-stat{margin-top:14px}
+.pi-stat .r{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #ffffff10;font:500 11px ${MON};letter-spacing:.08em}
+.pi-stat .r i{width:7px;height:7px;border-radius:50%;background:${ACID};display:inline-block;margin-right:8px;animation:piB 1.2s steps(1) infinite}
+@keyframes piB{50%{opacity:.2}}
+.pi-stat .r .lab{color:${DIM}}
+.pi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;font:500 11px ${MON};letter-spacing:.12em;text-transform:uppercase;color:${DIM}}
+.pi-top .nm{color:${FG}}
+@media (max-width:760px){.pi-diag{grid-template-columns:1fr}.pi-press .row{grid-template-columns:1fr;gap:4px}.pi-micro{grid-template-columns:1fr}.pi-scale span{font-size:9px}}
+`);
+  const CATS = ['Websites', 'Metaverse', 'Content', 'Games', 'Brands', 'Animations', '3D Models', 'AR & VR'];
+  const PRESS = [
+    ['Awwwards', 'Sep. 20 ( 2026 )', 'Pensatori Irrazionali received a Site of the Day…', 'Award'],
+    ['CSS Design Awards', 'Sep. 22 ( 2026 )', 'Universe — Site of the Day nomination', 'Honor'],
+    ['FWA', 'Sep. 18 ( 2026 )', 'Speculative studio system featured', 'Award'],
+    ["It's Nice That", "Sep. 12 ( 2026 )", "European creative house profile", "Press"],
+  ];
+  const MODS = [
+    { opt: 'OPTION SET 1', micro: ['SYSTEM', 'STUDIO CORE', 'DESIGN / TECHNOLOGY / CULTURE'], title: 'IDENTITY / MODULE 01', id: 'STUDIO–ID–A01', aph: 'Form is a protocol before it is a surface.', aph2: 'We measure taste in recursion depth.' },
+    { opt: 'OPTION SET 2', micro: ['FORM', 'IDENTITY', 'SIGNAL / NOISE / RITUAL'], title: 'INTERFACE / MODULE 02', id: 'STUDIO–IF–B02', aph: 'Every click is a hypothesis.', aph2: 'Latency is part of the typography.' },
+    { opt: 'OPTION SET 3', micro: ['INTERFACE', 'MEDIATION', 'INPUT / OUTPUT / ECHO'], title: 'ARCHIVE / MODULE 03', id: 'STUDIO–AR–C03', aph: 'Memory is a layout problem.', aph2: 'Indexes outlive moods.' },
+    { opt: 'OPTION SET 4', micro: ['ARCHIVE', 'MEMORY', 'PAST / PRESENT / LOOP'], title: 'CULTURE / MODULE 04', id: 'STUDIO–CU–D04', aph: 'Culture compiles overnight.', aph2: 'Ship the myth, version the craft.' },
+    { opt: 'OPTION SET 5', micro: ['RESEARCH', 'FIELD NOTES', 'PROBE / PROOF / PLAY'], title: 'RESEARCH / MODULE 05', id: 'STUDIO–RS–E05', aph: 'Irrational thinkers keep rational folders.', aph2: 'Diagrams before decks.' },
+  ];
+
+  const pctEl = h('div.pct', {}, 'Loading ( 0 % )');
+  const catEl = h('div.cat', {}, 'Websites');
+  const sinceEl = h('div.since', {}, 'Since 2018');
+  const loader = h('div.pi-load', {}, h('div', { style: { textAlign: 'center' } }, pctEl, catEl, sinceEl));
+
+  const mkDiagram = (seed) => {
+    const svg = s('svg', { viewBox: '0 0 320 260' });
+    const g = s('g', { fill: 'none', stroke: '#ffffff55', 'stroke-width': 1.2 });
+    const nest = (x, y, w, h, d) => {
+      if (d > 4 || w < 18) return;
+      const rect = s('rect', { x, y, width: w, height: h, 'stroke-dasharray': '400', 'stroke-dashoffset': '400', class: 'draw' });
+      g.append(rect);
+      if (d % 2 === 0) g.append(s('circle', { cx: x + w / 2, cy: y + h / 2, r: Math.min(w, h) / 5, 'stroke-dasharray': '120', 'stroke-dashoffset': '120', class: 'draw', stroke: d === 1 ? ACID : '#ffffff44' }));
+      nest(x + 12 + (seed % 5), y + 12, w * 0.55, h * 0.55, d + 1);
+      nest(x + w * 0.42, y + h * 0.38, w * 0.45, h * 0.48, d + 1);
+    };
+    nest(24, 28, 272, 200, 0);
+    const axes = [['WIT', 8, 20], ['BWIT', 280, 20], ['FNOS', 8, 250], ['SNOS', 268, 250]];
+    axes.forEach(([t, x, y]) => g.append(s('text', { x, y, fill: DIM, 'font-size': 9, 'font-family': 'monospace', 'letter-spacing': '0.12em' }, t)));
+    svg.append(g);
+    return svg;
+  };
+
+  const modEls = MODS.map((m, mi) => {
+    const ticks = Array.from({ length: 7 }, (_, i) => h('span', {}, `T${i + 1}`));
+    const svg = mkDiagram(mi + 3);
+    const card = h('div.pi-card', {}, h('div.id', {}, `${m.title} · ID: ${m.id}`), h('p.aph', {}, m.aph), h('p.aph2', {}, m.aph2));
+    const stats = h('div.pi-stat', {}, ...Array.from({ length: 7 }, (_, i) => h('div.r', {}, h('span', {}, h('i'), String(i + 1).padStart(2, '0'), '  STATUS / ACTIVE'), h('span.lab', {}, 'READY'))));
+    const diag = h('div', {}, h('div.pi-svg', {}, svg), h('div.pi-cap', {}, 'Diagram By Pensatori Irrazionali'));
+    const el = h('section.pi-mod', { 'data-i': mi },
+      h('div.pi-micro', {}, ...m.micro.map((t) => h('span', {}, t))),
+      h('div.pi-head', {}, h('h2', {}, m.title), h('span.opt', {}, m.opt)),
+      h('div.pi-scale', {}, ...ticks),
+      h('div.pi-diag', {}, diag, h('div', {}, card, stats)));
+    el._ticks = ticks; el._svg = svg;
+    return el;
+  });
+
+  const press = h('div.pi-press', {}, ...PRESS.map(([a, d, t, k]) => h('div.row', {}, h('b', {}, a), h('span', {}, `${d} — ${t}`), h('span.aw', {}, `( ${k} )`))));
+  const wrap = h('div.pi-wrap', {},
+    h('div.pi-top', {}, h('span.nm', {}, 'Pensatori Irrazionali · Universe'), h('span', {}, 'System Spec Sheet')),
+    press, ...modEls);
+  const el = h('div.pi', {}, loader, wrap);
+  root.append(el);
+
+  let loadP = 0, catI = 0, year = 2018, loadDone = false;
+  const liv = setInterval(() => {
+    loadP = Math.min(100, loadP + 3 + Math.random() * 5);
+    pctEl.textContent = `Loading ( ${Math.floor(loadP)} % )`;
+    if (Math.floor(loadP) % 12 < 4) { catI = (catI + 1) % CATS.length; catEl.textContent = CATS[catI]; year = 2018 + (catI % 8); sinceEl.textContent = `Since ${year}`; }
+    if (loadP >= 100) { clearInterval(liv); loadDone = true; setTimeout(() => loader.classList.add('off'), 200); }
+  }, 50);
+
+  const lightModule = (mod, n) => {
+    mod._ticks.forEach((t, i) => t.classList.toggle('on', i < n));
+    mod._svg.querySelectorAll('.draw').forEach((node, i) => {
+      node.style.transition = 'stroke-dashoffset .9s ease';
+      node.style.strokeDashoffset = i < n * 2 ? '0' : node.getAttribute('stroke-dasharray');
+    });
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const mod = e.target; const n = 7;
+      let k = 0; const iv = setInterval(() => { k++; lightModule(mod, k); if (k >= n) clearInterval(iv); }, 120);
+      io.unobserve(mod);
+    });
+  }, { root, threshold: 0.25 });
+  modEls.forEach((m) => io.observe(m));
+
+  window.__demoProof = async () => {
+    const o = [];
+    clearInterval(liv); loadP = 100; pctEl.textContent = 'Loading ( 100 % )'; loader.classList.add('off'); loadDone = true;
+    o.push(`loader off=${loader.classList.contains('off')} cat="${catEl.textContent}"`);
+    lightModule(modEls[0], 7); o.push(`mod0 ticksOn=${modEls[0]._ticks.filter((t) => t.classList.contains('on')).length}`);
+    lightModule(modEls[2], 4); o.push(`mod2 ticksOn=${modEls[2]._ticks.filter((t) => t.classList.contains('on')).length}`);
+    o.push(`press=${press.children.length} mods=${modEls.length} statusRows=${modEls[0].querySelectorAll('.pi-stat .r').length}`);
+    // restore default: modules dimmed except leave loader off and first module partially reset
+    modEls.forEach((m) => lightModule(m, 0));
+    lightModule(modEls[0], 0);
+    wrap.scrollTop = 0; root.scrollTop = 0;
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

@@ -3571,5 +3571,32 @@
   "proof": "intro0 \"Meet your rivalYou are 🇮🇹 Ace230. Toni\"; progress=100%; play ball=true score=\"🇮🇹 Ace2300FIRST TO 70Smash883 🇧🇷\"; reveal=true cap=\"Look 01Court jacket · NB 1906\"; paused=true; phase=result s=7-0 ui=\"NBmiu miuGame, set,mat\"",
   "demoNodes": 43,
   "errors": []
+ },
+ "pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader": {
+  "url": "http://127.0.0.1:4173/t/pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader/",
+  "ok": true,
+  "at": "2026-10-13T23:55:06.932Z",
+  "http": 200,
+  "proof": "loader off=true cat=\"Animations\"; mod0 ticksOn=7; mod2 ticksOn=4; press=4 mods=5 statusRows=7",
+  "demoNodes": 477,
+  "errors": []
+ },
+ "boc-studio-coordinate-marquee-hero-filter-chip-work-grid-tumbling-404-letters": {
+  "url": "http://127.0.0.1:4173/t/boc-studio-coordinate-marquee-hero-filter-chip-work-grid-tumbling-404-letters/",
+  "ok": true,
+  "at": "2026-10-13T23:55:06.934Z",
+  "http": 200,
+  "proof": "filter=Motion visible=3; filter=All visible=9; reel=true; 404 letters=3 phys=true; home view=home",
+  "demoNodes": 136,
+  "errors": []
+ },
+ "weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock": {
+  "url": "http://127.0.0.1:4173/t/weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock/",
+  "ok": true,
+  "at": "2026-10-13T23:55:06.923Z",
+  "http": 200,
+  "proof": "intro label=\"Intro\"; ch1 sway=true; ch2 blocks=5; ch3 stitch=0; outro bar=60%; gift unlockedMenu=true cards=2; modal=true",
+  "demoNodes": 115,
+  "errors": []
  }
 }
