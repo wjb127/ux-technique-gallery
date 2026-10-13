@@ -3546,29 +3546,29 @@
   "errors": []
  },
  "neutomni-retro-os-windows-faq-md-line-numbered-editor-tear-along-line-package-tickets": {
-  "url": "http://localhost:4173/t/neutomni-retro-os-windows-faq-md-line-numbered-editor-tear-along-line-package-tickets/",
+  "url": "https://ux-technique-gallery.vercel.app/t/neutomni-retro-os-windows-faq-md-line-numbered-editor-tear-along-line-package-tickets/",
   "ok": true,
-  "at": "2026-10-13T19:55:47.184Z",
+  "at": "2026-10-13T19:57:12.950Z",
   "http": 200,
-  "proof": "tear ticket2 torn=true cart=\"TORN: NEU/PKG.02-E2\"; faq open lines=14; faq closed lines=13; road step=4; clock=\"KRAKÓW 21:55:47\" cookie=true",
+  "proof": "tear ticket2 torn=true cart=\"TORN: NEU/PKG.02-E2\"; faq open lines=14; faq closed lines=13; road step=4; clock=\"KRAKÓW 21:57:14\" cookie=true",
   "demoNodes": 192,
   "errors": []
  },
  "butter-text-effect-block-library-dials-sliders-live-preview-remix-describe-code-tabs": {
-  "url": "http://localhost:4173/t/butter-text-effect-block-library-dials-sliders-live-preview-remix-describe-code-tabs/",
+  "url": "https://ux-technique-gallery.vercel.app/t/butter-text-effect-block-library-dials-sliders-live-preview-remix-describe-code-tabs/",
   "ok": true,
-  "at": "2026-10-13T19:55:47.193Z",
+  "at": "2026-10-13T19:57:12.960Z",
   "http": 200,
   "proof": "Inflate lit=6760; Glow lit=11250; Focus lit=4493; Halftone lit=1809; dial→95; Describe:Generate ↗; Code:import { block; Remix:ApparelApparel",
   "demoNodes": 192,
   "errors": []
  },
  "tiebreak-threejs-tennis-tiebreak-game-random-nickname-flags-first-to-seven-lookbook-reveal": {
-  "url": "http://localhost:4173/t/tiebreak-threejs-tennis-tiebreak-game-random-nickname-flags-first-to-seven-lookbook-reveal/",
+  "url": "https://ux-technique-gallery.vercel.app/t/tiebreak-threejs-tennis-tiebreak-game-random-nickname-flags-first-to-seven-lookbook-reveal/",
   "ok": true,
-  "at": "2026-10-13T19:55:47.193Z",
+  "at": "2026-10-13T19:57:12.962Z",
   "http": 200,
-  "proof": "intro0 \"Meet your rivalYou are 🇰🇷 Rally221. To\"; progress=100%; play ball=true score=\"🇰🇷 Rally2210FIRST TO 70Deuce96 🇪🇸\"; reveal=true cap=\"Look 01Court jacket · NB 1906\"; paused=true; phase=result s=7-0 ui=\"NBmiu miuGame, set,mat\"",
+  "proof": "intro0 \"Meet your rivalYou are 🇮🇹 Ace230. Toni\"; progress=100%; play ball=true score=\"🇮🇹 Ace2300FIRST TO 70Smash883 🇧🇷\"; reveal=true cap=\"Look 01Court jacket · NB 1906\"; paused=true; phase=result s=7-0 ui=\"NBmiu miuGame, set,mat\"",
   "demoNodes": 43,
   "errors": []
  }
