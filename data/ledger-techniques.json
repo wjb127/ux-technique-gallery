@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal",
+  "slug": "oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal",
+  "name": "Hatched Retro-Window Bento Brand Grid with Pixel-to-Sharp Image Reveal and Cheeky Cookie Modal (Oatly)",
+  "date": "2026-10-13",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.oatly.com/",
+  "domain": "oatly.com",
+  "product": "Oatly — oat drink brand home",
+  "checkpoints": [
+   "Diagonal-hatched background with thin black outlined frame like an old OS window",
+   "Top bar: home icon left, FAQ / BIZ / globe / X square buttons right; mono caps nav row (Products, Tastebuds, News, Sustainability, Health)",
+   "Manifesto block in pixel/mono caps + boxed READ MORE button",
+   "Asymmetric bento of outlined cards each with caption strip and NEWS/PRODUCTS/OTHER tag chip",
+   "Images load as chunky pixel mosaic then resolve sharp",
+   "Cheeky cookie modal (\"We know you didn't come here for cookies\") with Decline/Accept + 4 category toggles"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-analogue-3d-black-product-launch-scroll-story-numbered-feature-stepper-crt-mode-sections",
+  "slug": "analogue-3d-black-product-launch-scroll-story-numbered-feature-stepper-crt-mode-sections",
+  "name": "Pitch-Black Hardware Launch Page with Centered Giant Headline, Pill Buy CTA, Numbered Feature Stepper and CRT Display-Mode Story Sections (Analogue 3D)",
+  "date": "2026-10-13",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.analogue.co/3d",
+  "domain": "analogue.co",
+  "product": "Analogue 3D — FPGA N64 console product page",
+  "checkpoints": [
+   "Black gradient hero: tiny two-column nav, giant \"The Future is here\", white pill Buy now + \"Ships now\" caption",
+   "Centered \"Introducing Analogue 3D / Welcome to a new dimension\" with grey body + white emphasized phrase",
+   "Numbered 1-2-3-4 stepper/carousel with arrows over product imagery",
+   "\"One hundred percent compatibility\" section with large product image + centered prose",
+   "CRT \"Original Display Modes\" story: scanline / shadow-mask before-after treatment",
+   "Multiplayer \"Gold standard\" section and accessory callout (cartridge cleaners) with Buy now + User Guide"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case-card-rail",
+  "slug": "liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case-card-rail",
+  "name": "Dark Dev-Tool Landing with Multiplayer Name-Tag Selection on Headline, 3D Glass Logo Hero and \"Like X\" Use-Case Card Rail (Liveblocks)",
+  "date": "2026-10-13",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://liveblocks.io/",
+  "domain": "liveblocks.io",
+  "product": "Liveblocks — realtime sync/collaboration infrastructure",
+  "checkpoints": [
+   "Announcement pill \"New · Introducing Liveblocks Sync\" with arrow chip",
+   "Headline word wrapped in orange collaborator selection box with \"Steven\" name tag",
+   "Blurred dark scene behind a 3D glass/metal logo with pagination dots + presence icon",
+   "Grey trusted-by logo grid",
+   "\"Unlock the secret sauce… In just a few lines of code.\" two-tone headline",
+   "Horizontal card rail: Comments like Notion, 3D tools like Spline, Whiteboard like Miro, Spreadsheets like Google Sheets (light/dark card alternation with brand icon)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story",
   "slug": "santioni-comic-scroll-age-gate-hold-pour-notturno-collection-vortex-story",
   "name": "Comic-Book WebGL Brand Journey with Age Gate, Hold-to-Pour Cocktail, Notturno Collection and Vortex Story Transitions (Santioni Spirits)",

@@ -13,7 +13,8 @@ const engineOf = {}; for (const [e, list] of Object.entries(assign)) for (const 
 const ENGINE_LABEL = { gradient: '그라디언트', palette: '컬러', paint: '드로잉', seq: '사운드', audio: '사운드', nodes: '노드 그래프', type: '타이포',
   pixel: '그리드/타일', globe: '지도/지구', cssfx: 'CSS 생성기', svggen: 'SVG 생성기', imagefx: '이미지 스튜디오', puzzle: '퍼즐/게임', code: '라이브 코딩',
   three: '3D 스테이지', desk: '레트로 데스크톱', sim: '시뮬레이션', chart: '데이터/타임라인', gen: '제너레이티브 아트' };
-const LABEL_OVERRIDE = { 'webcam-class-train-studio': '인터랙션', 'mondrian-partition-canvas': '드로잉', 'social-meta-preview-studio': '인터랙션',
+const LABEL_OVERRIDE = { 'oatly-hatched-retro-window-chrome-bento-news-grid-pixel-to-sharp-image-reveal-cheeky-cookie-modal': '해치 레트로 윈도우 벤토 브랜드 그리드', 'analogue-3d-black-product-launch-scroll-story-numbered-feature-stepper-crt-mode-sections': '블랙 하드웨어 런치 스크롤 · 번호 스테퍼 · CRT', 'liveblocks-multiplayer-cursor-name-tag-headline-3d-glass-logo-like-x-use-case-card-rail': '멀티플레이어 네임태그 헤드라인 · 3D 글래스 로고',
+  'webcam-class-train-studio': '인터랙션', 'mondrian-partition-canvas': '드로잉', 'social-meta-preview-studio': '인터랙션',
   'cuberto-context-cursor-agency-home': '랜딩 페이지', 'rauno-craft-interaction-shelf': '인터랙션', 'lofi-cafe-station-tv-room': '사운드',
   'drifting-art-attic-canvas': '인터랙션', 'partiful-invite-theme-customizer': '인터랙션', 'zenpen-zen-writing-editor': '타이포',
   'mmm-page-sticker-site-builder': '인터랙션', 'lospec-pixel-palette-browser': '컬러', 'waveform-audio-editor': '사운드', 'ladybug-effects-studio': '이미지 스튜디오',
