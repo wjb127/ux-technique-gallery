@@ -1,52 +1,82 @@
 {
+ "oryzo-cad-dimension-intro-scroll-scrubbed-3d-cork-coaster-pinned-claim-reveal": {
+  "bg": "#4b5c3d",
+  "fg": "#f0f0f0",
+  "panel": "#83613f",
+  "dark": true,
+  "ac": "#83613f",
+  "ac2": "#746140",
+  "ac3": "#926e48",
+  "coverage": 0.42
+ },
+ "warp-bracket-hotkey-section-nav-live-factory-grid-annotated-yaml-layer-stack": {
+  "bg": "#ffffff",
+  "fg": "#6b677c",
+  "panel": "#fbf9fe",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.37
+ },
+ "obys-vertical-infinite-thumbnail-strip-bracket-focus-desaturated-index-view-toggle": {
+  "bg": "#ffffff",
+  "fg": "#3b3b3b",
+  "panel": "#e6e6e6",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.87
+ },
  "paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop": {
   "bg": "#f7f7f4",
   "fg": "#141414",
-  "panel": "#f2f2ef",
+  "panel": "#f2f2f2",
   "dark": false,
-  "ac": "#141414",
-  "ac2": "#4f7dff",
-  "ac3": "#e8e4d8",
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
   "coverage": 0.31
  },
  "theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo": {
   "bg": "#14181c",
-  "fg": "#e6e6e6",
-  "panel": "#1f2429",
+  "fg": "#d3d0ce",
+  "panel": "#3c4247",
   "dark": true,
-  "ac": "#4ade80",
-  "ac2": "#40aaa4",
-  "ac3": "#f0b44c",
+  "ac": "#17232a",
+  "ac2": "#13333e",
+  "ac3": "#ffc83d",
   "coverage": 0.42
  },
  "neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair": {
   "bg": "#ef4c46",
-  "fg": "#1a1a1a",
-  "panel": "#f0e6d6",
-  "dark": false,
-  "ac": "#1a1a1a",
-  "ac2": "#f0e6d6",
-  "ac3": "#ffffff",
+  "fg": "#f0f0f0",
+  "panel": "#ee4b45",
+  "dark": true,
+  "ac": "#ef4c46",
+  "ac2": "#ee4b45",
+  "ac3": "#ef4c45",
   "coverage": 0.13
  },
  "leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground": {
-  "bg": "#e8e0d4",
-  "fg": "#021f16",
-  "panel": "#ddd5c8",
+  "bg": "#f7f7f7",
+  "fg": "#141414",
+  "panel": "#f7f7f7",
   "dark": false,
-  "ac": "#021f16",
-  "ac2": "#f0c93a",
-  "ac3": "#8a9a7a",
-  "coverage": 0.0
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 1.0
  },
  "artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal": {
   "bg": "#0b0b0b",
   "fg": "#f0f0f0",
-  "panel": "#161616",
+  "panel": "#303030",
   "dark": true,
-  "ac": "#ffffff",
-  "ac2": "#888888",
-  "ac3": "#444444",
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
   "coverage": 0.83
  },
  "milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-labels": {
@@ -56,7 +86,7 @@
   "dark": false,
   "ac": "#4a2504",
   "ac2": "#7c6338",
-  "ac3": "#c7b6d9",
+  "ac3": "#398494",
   "coverage": 0.46
  },
  "weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock": {
