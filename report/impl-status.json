@@ -3598,5 +3598,32 @@
   "proof": "intro label=\"Intro\"; ch1 sway=true; ch2 blocks=5; ch3 stitch=0; outro bar=60%; gift unlockedMenu=true cards=2; modal=true",
   "demoNodes": 115,
   "errors": []
+ },
+ "milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-labels": {
+  "url": "http://127.0.0.1:4173/t/milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-labels/",
+  "ok": true,
+  "at": "2026-10-14T03:51:52.912Z",
+  "http": 200,
+  "proof": "introOff=true; reel=03  BUREAU NORD | BLUE COURT  2025; case roles=true client=true; info lilac=rgb(199, 182, 217) on=true",
+  "demoNodes": 56,
+  "errors": []
+ },
+ "leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground": {
+  "url": "http://127.0.0.1:4173/t/leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground/",
+  "ok": true,
+  "at": "2026-10-14T03:51:52.895Z",
+  "http": 200,
+  "proof": "home daisy=true atelier=true; about colorValley=true daisyCont=true; ledger rows=8 strip=8 stripTx=translateX(-40px); bee fed=1; lab on=true",
+  "demoNodes": 163,
+  "errors": []
+ },
+ "artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal": {
+  "url": "http://127.0.0.1:4173/t/artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal/",
+  "ok": true,
+  "at": "2026-10-14T03:51:52.911Z",
+  "http": 200,
+  "proof": "ascii chars=1438; carousel=01 / 05 title=Future Stars; advance=03 / 05; focus=1 dimmed=2; pixelReveal done=true; works=12",
+  "demoNodes": 636,
+  "errors": []
  }
 }

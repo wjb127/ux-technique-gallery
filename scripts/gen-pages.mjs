@@ -110,7 +110,10 @@ const LABEL_OVERRIDE = { 'heron-architectural-drawing-sheet-elevation-loader-tit
   'tiebreak-threejs-tennis-tiebreak-game-random-nickname-flags-first-to-seven-lookbook-reveal': '테니스 타이브레이크 미니게임 · 랜덤 닉네임/국기 · 룩북 리빌',
   'weekend-maxmara-tuscan-journey-illustrated-chapter-stages-feather-wipe-subtitles-gift-unlock': '토스카나 챕터 여정 · 페더 와이프 · 자막/기프트 언락',
   'boc-studio-coordinate-marquee-hero-filter-chip-work-grid-tumbling-404-letters': '좌표 마키 히어로 · 필터 칩 워크 그리드 · 텀블링 404',
-  'pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader': 'OPTION SET 스펙 다이어그램 · T1–T7 · % 로더' };
+  'pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader': 'OPTION SET 스펙 다이어그램 · T1–T7 · % 로더',
+  'leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground': '점토 아틀리에 월드 · 가로 작업 원장 · 벌 먹이 플레이그라운드',
+  'artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal': 'ASCII 파티클 마우스 · 3D 갤러리 포커스 · 픽셀 리빌',
+  'milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-labels': '스플릿 워드마크 릴 · 콘택트 시트 인트로 · ROLE 라벨' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],
