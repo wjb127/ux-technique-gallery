@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble",
+  "slug": "exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble",
+  "name": "ASCII-Scatter Work Universe with Bracket Chrome, Grid/Split Toggle, and Timezone Scramble (EXF.Studio)",
+  "date": "2026-10-15",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.exf.studio/work",
+  "domain": "exf.studio",
+  "product": "EXF.Studio — London film & photo production collective portfolio (Kit Studio rebrand)",
+  "checkpoints": [
+   "Work universe: black field with faint ASCII/glyph noise; four+ project media tiles scattered around giant centered THE WORK wordmark",
+   "Bracket chrome: top [EXIT] and [MENU →] monospaced; live city/time chip on a tile (e.g. LONDON [20:46])",
+   "Multi-directional roam: drag/scroll in any direction to explore tiles (mobile falls back to vertical overlapping scroll)",
+   "View toggle bottom-right: grid icon vs split/scatter icon; flipping to grid re-lays the same projects conventionally",
+   "Hover/open a tile → case study with client / deliverables / services meta",
+   "ASCII system elsewhere: scrambling timezones, code tracks, 3D ASCII icons (e.g. contact pigeon)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-godn-particle-mixed-type-hero-lab-four-instruments-8d-sound-nodes",
+  "slug": "godn-particle-mixed-type-hero-lab-four-instruments-8d-sound-nodes",
+  "name": "Particle Wordmark Mixed-Type Hero with Lab Four Instruments, Node Rail, and 8D Sound (GØDN.studio)",
+  "date": "2026-10-15",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://studio.godn.pt/",
+  "domain": "studio.godn.pt",
+  "product": "GØDN.studio — Lisbon solo studio site by Bruno Godinho (generative Lab + 8D spatial audio)",
+  "checkpoints": [
+   "Home: black field; faint particle/stipple GØDN behind hero; mixed type \"THE FUTURE ISN'T PREDICTED. IT'S designed.\" (sans + italic serif)",
+   "Chrome: GØDN•studio with red square dot; nav STUDIO / THE LAB / GØDN / BOOK / THE ARTIST; EN|PT pill; MOVE YOUR CURSOR + 8D SOUND",
+   "Lab: starfield canvas; 03 / CREATIVE TECHNOLOGY; instrument title (e.g. ESPE / 3 Espelho) with LIVE →",
+   "Bottom node rail: 01 INKLINE / 02 FLOWFIELD / 03 ESPELH* / 04 TOKENFORGE (names as on site); CLICK A NODE / MOVE TO DISTURB",
+   "Instruments: Espelho typographic mirror; Inkline noise-finished stroke; Flowfield steered particles; Tokenforge JSON→CSS/Tailwind/SCSS + WCAG contrast",
+   "8D sound toggle persists across pages; headphones hint"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-sanrita-dual-column-terraforming-hud-trail-map-pin-legend-layers",
+  "slug": "sanrita-dual-column-terraforming-hud-trail-map-pin-legend-layers",
+  "name": "Dual-Column Terraforming HUD into 3D Trail Map with Pin Legend Layers (Atelier San Rita)",
+  "date": "2026-10-15",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://sanrita.ca/en",
+  "domain": "sanrita.ca",
+  "product": "Atelier San Rita — Montreal creative studio portfolio as topographic 3D trail map",
+  "checkpoints": [
+   "Loader: light-grey HUD; left technical steps (DATA CALCULATION… VIEWPOINTS ACTIVATED); right poetic twins; center satellite polygon with radiating green veins; _% counter",
+   "After dive: title THE TRAILS OF SAN RITA; nav MAP / PROJECTS / ABOUT / PLAYGROUND / CONTACT",
+   "Legend layers: Road / Trail / Fishing spot / Viewpoint toggles",
+   "3D terrain canvas: camera navigates continuous world; project pins open case panels without remounting canvas",
+   "EN / FR language switch",
+   "Playground / projects as destinations on the map rather than a flat grid"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-oryzo-cad-dimension-intro-scroll-scrubbed-3d-cork-coaster-pinned-claim-reveal",
   "slug": "oryzo-cad-dimension-intro-scroll-scrubbed-3d-cork-coaster-pinned-claim-reveal",
   "name": "CAD Dimension-Line Intro into Scroll-Scrubbed 3D Cork Coaster with Pinned Claim Reveal (Oryzo by Lusion)",
