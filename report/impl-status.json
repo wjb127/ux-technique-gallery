@@ -3706,5 +3706,32 @@
   "proof": "pan moved tile=true; back=true; grid=true tileW=335; scatter=true splitOn=true; case=true client=Arc’teryx; tz=LONDON[21:23]NEW YORK[; chip=LONDON [21:23]",
   "demoNodes": 459,
   "errors": []
+ },
+ "awge-crt-cable-tv-guide-channel-grid-live-clock-vhs-player": {
+  "url": "https://ux-technique-gallery.vercel.app/t/awge-crt-cable-tv-guide-channel-grid-live-clock-vhs-player/",
+  "ok": true,
+  "at": "2026-10-14T23:51:14.820Z",
+  "http": 200,
+  "proof": "ticker=true; live=08:51 AM; switch=true ch=005; autoscroll=true; crt=true; channels=18",
+  "demoNodes": 267,
+  "errors": []
+ },
+ "flora-scattered-media-canvas-hero-draggable-node-graph-category-image-swap": {
+  "url": "https://ux-technique-gallery.vercel.app/t/flora-scattered-media-canvas-hero-draggable-node-graph-category-image-swap/",
+  "ok": true,
+  "at": "2026-10-14T23:51:18.105Z",
+  "http": 200,
+  "proof": "drag=true; kbd=true; home=true; cat=Fashion bgSet=true; cookieOff=true; heroCards=8 steps=3",
+  "demoNodes": 264,
+  "errors": []
+ },
+ "unicorn-studio-shader-aurora-hero-ai-effect-chat-editor-mock-inspector-timeline": {
+  "url": "https://ux-technique-gallery.vercel.app/t/unicorn-studio-shader-aurora-hero-ai-effect-chat-editor-mock-inspector-timeline/",
+  "ok": true,
+  "at": "2026-10-14T23:51:19.960Z",
+  "http": 200,
+  "proof": "slider=true; layer=ISO Voxels; playing=true t=0.7; aiTab=Edit; aurora=true chips=6 axis=Both",
+  "demoNodes": 126,
+  "errors": []
  }
 }
