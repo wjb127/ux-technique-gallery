@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop",
+  "slug": "paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop",
+  "name": "Connected HTML/CSS Design Canvas with Vinyl Playlist Demo and XYWH Inspector + Agent MCP Loop (Paper)",
+  "date": "2026-10-14",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://paper.design/",
+  "domain": "paper.design",
+  "product": "Paper — connected design canvas for teams shipping with agents (HTML/CSS native)",
+  "checkpoints": [
+   "Top chrome: pricing / roadmap / blog / changelog / docs + sign up + open Paper →",
+   "Hero: lowercase claim \"the connected canvas for teams shipping with agents\" + download Paper / open Paper in the browser",
+   "Embedded light playlist mock \"Vinyl Sundays\": track table (# Song Album Time), search, creator meta, 10 tracks · 46 min",
+   "Right inspector: Layout + X/Y/W/H numeric readouts + Flex / Radius / Blending / Fill / Outline panels",
+   "Feature band: design↔code loop, connect any agent via MCP, real content/data, anti-slop agent handoff",
+   "Footer: Paper vs Figma / Paper vs Pencil + community links; note Series A banner if present"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo",
+  "slug": "theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo",
+  "name": "Motion Design Toolbox Landing with Sequence Dope Sheet, Graph Editor, Easing Presets, and Butterfly Demo (Theatre.js)",
+  "date": "2026-10-14",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://theatrejs.com/",
+  "domain": "theatrejs.com",
+  "product": "Theatre.js — JavaScript animation library + in-browser professional motion design studio",
+  "checkpoints": [
+   "Nav: Docs / Blog / Github / Discord",
+   "Hero: \"Powerful motion design in the browser\" + Get started; butterfly THREE.js scene keyed in sequence editor video",
+   "Iterate section: Dope sheet / Graph editor / Easing presets chips or tabs beside sequence UI imagery",
+   "Code vs Art section: Outline + Property editor pairing (create in code, perfect in browser)",
+   "Extensions section: camera/lights/shaders workflow pitch; \"works with any stack\" claim",
+   "Social proof strip (GitHub stars + quotes) + Get started CTA repeat"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair",
+  "slug": "neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair",
+  "name": "Tomato-Red Montreal Travel-Guide Type Specimen with Pinned Pill TOC and Text vs Display Pair (PP Neue Montreal)",
+  "date": "2026-10-14",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://neuemontreal.com/",
+  "domain": "neuemontreal.com",
+  "product": "PP Neue Montreal — Pangram Pangram grotesque specimen as Official Travel Guide (Demande Spéciale)",
+  "checkpoints": [
+   "Home: tomato-red field + black type; enormous \"Neue Montreal\" display; small modernist tower photo accent",
+   "Pinned pill TOC: Story / Weights / Ligatures / Languages / Accents (and related guide stops)",
+   "Story block: neo-grotesk Montreal narrative; Text vs Display weight stacks (Thin→Bold vs Hairline→Black)",
+   "Typeface Evolution timeline 2018–2026 with release milestones (Mono, Squeeze/Off-Type, V03)",
+   "Landmark itinerary pairing Montreal places with type demos (e.g. Vieux-Montreal → Neue-Montreal)",
+   "Footer credit: Pangram Pangram left / Site by Demande Spéciale right; two-color system holds top to bottom"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground",
   "slug": "leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground",
   "name": "Clay Atelier World-Per-Page Portfolio with Horizontal Project Ledger and Feedable Bee Playground (Léo Parpeix)",

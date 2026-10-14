@@ -3625,5 +3625,32 @@
   "proof": "ascii chars=1438; carousel=01 / 05 title=Future Stars; advance=03 / 05; focus=1 dimmed=2; pixelReveal done=true; works=12",
   "demoNodes": 636,
   "errors": []
+ },
+ "neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair": {
+  "url": "http://localhost:4173/t/neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair/",
+  "ok": true,
+  "at": "2026-10-14T07:58:20.383Z",
+  "http": 200,
+  "proof": "toc→weights active=weights pinned top=0; Text Bold w=700 ls=0.01em; → Display Bold ls=-0.055em; year=2023; attraction=Vieux‑Montréal; dots round=50%; Black · 900",
+  "demoNodes": 422,
+  "errors": []
+ },
+ "theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo": {
+  "url": "http://localhost:4173/t/theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo/",
+  "ok": true,
+  "at": "2026-10-14T07:58:20.377Z",
+  "http": 200,
+  "proof": "scrub t=2.40 → fly=translate(514.7019551856304 208.65062769921875) rotate(15.919979700624403) scale(1.185795999479521); preset Back Out on seg1 x@1s -42.9→44.5; moved key → 2.2s, diamonds=18; graph curve=true handles=2; presets=10; played → t=2.70",
+  "demoNodes": 398,
+  "errors": []
+ },
+ "paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop": {
+  "url": "http://localhost:4173/t/paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop/",
+  "ok": true,
+  "at": "2026-10-14T07:58:20.368Z",
+  "http": 200,
+  "proof": "select TrackTable → X=120 W=860 box=438.4px; drag → X=160 Y=320; radius=40px; agent rows=10",
+  "demoNodes": 414,
+  "errors": []
  }
 }

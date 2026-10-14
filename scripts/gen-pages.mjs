@@ -113,7 +113,10 @@ const LABEL_OVERRIDE = { 'heron-architectural-drawing-sheet-elevation-loader-tit
   'pensatori-universe-option-set-spec-diagram-modules-t1-t7-scale-status-rows-percent-loader': 'OPTION SET 스펙 다이어그램 · T1–T7 · % 로더',
   'leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground': '점토 아틀리에 월드 · 가로 작업 원장 · 벌 먹이 플레이그라운드',
   'artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal': 'ASCII 파티클 마우스 · 3D 갤러리 포커스 · 픽셀 리빌',
-  'milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-labels': '스플릿 워드마크 릴 · 콘택트 시트 인트로 · ROLE 라벨' };
+  'milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-labels': '스플릿 워드마크 릴 · 콘택트 시트 인트로 · ROLE 라벨',
+  'paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop': 'HTML/CSS 커넥티드 캔버스 · Vinyl Sundays 플레이리스트 · XYWH 인스펙터 · MCP 에이전트 루프',
+  'theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo': '시퀀스 도프시트 · 그래프 에디터 · 이징 프리셋 · 나비 데모',
+  'neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair': '토마토 레드 트래블 가이드 스페시먼 · 고정 필 목차 · Text/Display 페어' };
 const RULES = [
   [/\b(pricing|checkout|billing|booking|wallet|cart)\b/i, 'SaaS 화면'],
   [/\b(explainer|scrollytelling|scroll-depth|smooth scroll)\b/i, '스크롤 인터랙션'],

@@ -1,4 +1,34 @@
 {
+ "paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop": {
+  "bg": "#f7f7f4",
+  "fg": "#141414",
+  "panel": "#f2f2ef",
+  "dark": false,
+  "ac": "#141414",
+  "ac2": "#4f7dff",
+  "ac3": "#e8e4d8",
+  "coverage": 0.31
+ },
+ "theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo": {
+  "bg": "#14181c",
+  "fg": "#e6e6e6",
+  "panel": "#1f2429",
+  "dark": true,
+  "ac": "#4ade80",
+  "ac2": "#40aaa4",
+  "ac3": "#f0b44c",
+  "coverage": 0.42
+ },
+ "neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair": {
+  "bg": "#ef4c46",
+  "fg": "#1a1a1a",
+  "panel": "#f0e6d6",
+  "dark": false,
+  "ac": "#1a1a1a",
+  "ac2": "#f0e6d6",
+  "ac3": "#ffffff",
+  "coverage": 0.13
+ },
  "leoparpeix-clay-atelier-world-per-page-horizontal-project-ledger-feedable-bee-playground": {
   "bg": "#e8e0d4",
   "fg": "#021f16",

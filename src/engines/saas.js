@@ -12236,4 +12236,512 @@ V['milledollars-split-wordmark-fullscreen-reel-contact-sheet-intro-case-role-lab
 };
 
 
+V['paper-connected-canvas-vinyl-playlist-demo-inspector-xywh-agent-mcp-loop'] = (root, T) => {
+  theme(root, T, { bg: '#f7f7f4', fg: '#141414', ac: '#141414', dark: false }); scroll(root);
+  import('@fontsource-variable/manrope');
+  const SAN = "'Manrope Variable','Inter Variable',system-ui,sans-serif", MON = "'JetBrains Mono Variable',ui-monospace,monospace", BLUE = '#3d7bff';
+  css(`.pp{background:#f7f7f4;color:#141414;font:400 14px/1.5 ${SAN};position:relative;overflow:hidden;min-height:100%}
+.pp *{box-sizing:border-box}.pp button,.pp input,.pp select{font:inherit;color:inherit}
+.pp-bgtri{position:absolute;right:0;top:0;width:52%;height:1100px;pointer-events:none;background:linear-gradient(135deg,transparent 50%,#ebe8db 50%);}
+.pp-bgtri:after{content:'';position:absolute;inset:0;background-image:linear-gradient(#d9d4c2 1px,transparent 1px),linear-gradient(90deg,#d9d4c2 1px,transparent 1px);background-size:120px 60px;-webkit-mask:linear-gradient(135deg,transparent 50%,#000 50%);mask:linear-gradient(135deg,transparent 50%,#000 50%);opacity:.7}
+.pp-nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;height:44px;max-width:1080px;margin:0 auto;padding:0 20px;gap:28px;font-size:14px;background:#f7f7f4e6;backdrop-filter:blur(6px)}
+.pp-nav .lg{display:flex;align-items:center;gap:7px;font-weight:600;font-size:16px}
+.pp-nav .lk{display:flex;gap:26px;margin:0 auto;color:#3a3a3a}.pp-nav .lk span{cursor:pointer}.pp-nav .lk span:hover{color:#000}
+.pp-nav .op{font-size:13px;border:1px solid #141414;border-radius:6px;padding:4px 10px;cursor:pointer;background:none}
+.pp-wrap{max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+.pp-h1{font:500 clamp(30px,4.4vw,46px)/1.08 ${SAN};letter-spacing:-.025em;margin:34px 0 18px}.pp-h1 .g{color:#8b8b85}
+.pp-sub{max-width:430px;color:#555;font-size:14px;line-height:1.65;margin:0 0 26px}
+.pp-cta{display:flex;gap:22px;align-items:center;margin-bottom:34px}.pp-cta .dl{background:#141414;color:#fff;border:0;border-radius:3px;padding:8px 12px;cursor:pointer}.pp-cta .ob{background:none;border:0;cursor:pointer}
+.pp-app{border:1px solid #d6d6d0;border-radius:10px;background:#fff;box-shadow:0 30px 60px -30px #0003;overflow:hidden;position:relative;font-size:11.5px;color:#333}
+.pp-tabs{display:flex;align-items:center;height:30px;background:#f3f3f1;border-bottom:1px solid #e3e3df;padding:0 10px;gap:2px;overflow:hidden;white-space:nowrap}
+.pp-tabs .dots{display:flex;gap:6px;margin-right:12px}.pp-tabs .dots i{width:10px;height:10px;border-radius:50%;background:#d4d4d0}
+.pp-tabs .tb{padding:0 12px;height:30px;display:flex;align-items:center;gap:6px;color:#777;cursor:pointer;border-right:1px solid #e7e7e3}.pp-tabs .tb.on{background:#fff;color:#222}
+.pp-body{display:grid;grid-template-columns:180px 30px 1fr 232px;height:520px}
+.pp-side{border-right:1px solid #ececea;overflow:auto;padding:8px 0}.pp-side .hd{display:flex;justify-content:space-between;padding:4px 10px;font-weight:600;color:#222}
+.pp-side .it{padding:3px 10px 3px 22px;display:flex;gap:6px;align-items:center;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pp-side .it:hover{background:#f4f4f2}.pp-side .it.sel{background:#e9f0ff;color:${BLUE}}
+.pp-tools{border-right:1px solid #ececea;display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:10px;color:#555}.pp-tools b{width:20px;height:20px;display:grid;place-items:center;border-radius:4px;cursor:pointer;font-weight:400}.pp-tools b.on{background:#e9f0ff;color:${BLUE}}
+.pp-canvas{background:#ececea;position:relative;overflow:hidden;touch-action:none}
+.pp-canvas .ttl{position:absolute;font-size:10px;color:#888;white-space:nowrap}
+.pp-ab{position:absolute;left:0;top:0;transform-origin:0 0;background:#fff;box-shadow:0 0 0 1px #d8d8d4}
+.pp-ly{position:absolute;cursor:move;overflow:hidden}.pp-ly:hover{outline:1px solid ${BLUE}88}
+.pp-sel{position:absolute;border:1.5px solid ${BLUE};pointer-events:none;z-index:9}
+.pp-sel i{position:absolute;width:8px;height:8px;background:#fff;border:1.5px solid ${BLUE};pointer-events:auto;cursor:nwse-resize}
+.pp-sel .tag{position:absolute;top:-19px;left:-1.5px;background:${BLUE};color:#fff;font-size:10px;padding:1px 5px;border-radius:2px;white-space:nowrap}
+.pp-sel .dim{position:absolute;bottom:-19px;left:50%;transform:translateX(-50%);background:${BLUE};color:#fff;font-size:10px;padding:1px 5px;border-radius:2px;white-space:nowrap}
+.pp-insp{border-left:1px solid #ececea;overflow:auto}.pp-insp .sec{border-bottom:1px solid #efefed;padding:9px 10px}
+.pp-insp .st{display:flex;justify-content:space-between;align-items:center;font-weight:600;color:#222;margin-bottom:7px}
+.pp-insp .g3{display:grid;grid-template-columns:1.15fr 1.15fr .8fr;gap:5px}.pp-insp .g2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.pp-num{display:flex;align-items:center;border:1px solid #e2e2de;border-radius:4px;height:24px;padding:0 6px;gap:5px;background:#fff}.pp-num span{color:#999;cursor:ew-resize;user-select:none}.pp-num input{border:0;width:100%;outline:0;background:none;font-variant-numeric:tabular-nums;min-width:0}
+.pp-num:focus-within{border-color:${BLUE}}
+.pp-seg{display:flex;background:#f2f2f0;border-radius:4px;padding:2px}.pp-seg button{flex:1;border:0;background:none;border-radius:3px;height:20px;cursor:pointer}.pp-seg button.on{background:#fff;box-shadow:0 1px 2px #0002}
+.pp-term{position:absolute;left:44px;bottom:12px;width:300px;background:#fbfbf8;border:1px solid #d9d9d4;border-radius:8px;box-shadow:0 16px 40px -10px #0004;font:11px/1.45 ${MON};color:#333;z-index:20;overflow:hidden}
+.pp-term .bar{display:flex;align-items:center;gap:6px;padding:6px 8px;border-bottom:1px solid #e9e9e4;background:#f2f2ee}.pp-term .bar i{width:9px;height:9px;border-radius:50%;background:#d0d0cb}
+.pp-term .log{height:178px;overflow:auto;padding:6px 10px}.pp-term .log .t{color:#e2711d}.pp-term .log .d{color:#888;padding-left:12px}
+.pp-term form{display:flex;border-top:1px solid #e9e9e4}.pp-term input{flex:1;border:0;padding:6px 10px;font:inherit;outline:0;background:none;min-width:0}.pp-term form button{border:0;background:#141414;color:#fff;padding:0 10px;cursor:pointer}
+.pp-play .row{display:grid;grid-template-columns:30px 1.6fr 1.2fr 50px;align-items:center;padding:0 14px;height:23px;font-size:12px;border-bottom:1px solid #f1f1ef;cursor:pointer}.pp-play .row:hover{background:#f7f7f5}.pp-play .row.on{background:#f1efe7}
+.pp-play .row.in{animation:ppIn .4s ease}@keyframes ppIn{from{opacity:0;transform:translateX(-8px)}}
+.pp-feat{margin-top:90px}.pp-feat .kick{font-size:13px;color:#666;margin-bottom:10px}.pp-feat h2{font:500 clamp(24px,3.2vw,34px)/1.15 ${SAN};letter-spacing:-.02em;margin:0 0 14px}.pp-feat p{color:#555;max-width:520px}
+.pp-cards{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #dcdcd6;border-left:1px solid #dcdcd6;margin-top:26px}.pp-cards>div{border-right:1px solid #dcdcd6;border-bottom:1px solid #dcdcd6;padding:24px;background:#f9f9f6}.pp-cards b{display:block;font-weight:600;margin-bottom:8px}.pp-cards span{color:#666;font-size:13px}
+.pp-arc{margin:100px auto 0;max-width:820px;aspect-ratio:2/1;border-radius:820px 820px 0 0;border:1px solid #dcdcd6;border-bottom:0;background:#fbfbf8;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:0 20px 40px}
+.pp-news{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #dcdcd6;margin-top:80px}.pp-news>div{padding:22px;border-right:1px solid #dcdcd6;background:#f9f9f6}.pp-news>div:last-child{border-right:0}.pp-news b{display:block;margin-bottom:8px}.pp-news span{color:#666;font-size:13px}.pp-news a{display:block;margin-top:16px;font-size:13px;color:#141414;cursor:pointer}
+.pp-foot{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;padding:60px 0 50px;font-size:12.5px;color:#555}.pp-foot b{display:block;font-size:11px;letter-spacing:.08em;color:#999;margin-bottom:8px;font-weight:600}.pp-foot div div{padding:2px 0}
+@media (max-width:860px){.pp-body{grid-template-columns:0 0 1fr;grid-template-rows:330px auto;height:auto}.pp-side,.pp-tools{display:none}.pp-insp{grid-column:1/-1;border-left:0;border-top:1px solid #ececea;display:grid;grid-template-columns:1fr 1fr}.pp-canvas{grid-column:1/-1}
+.pp-term{position:relative;left:auto;bottom:auto;width:auto;margin:10px;box-shadow:none}.pp-term .log{height:130px}.pp-nav .lk{display:none}.pp-nav{justify-content:space-between}.pp-cards,.pp-news{grid-template-columns:1fr}.pp-news>div{border-right:0;border-bottom:1px solid #dcdcd6}.pp-foot{grid-template-columns:1fr 1fr}.pp-bgtri{width:100%;opacity:.5}.pp-tabs .tb:nth-child(n+4){display:none}}
+`);
+  const TRACKS = [['Dust on the Needle', 'The Worn Grooves', 'Sunday Spins', '4:12'], ['Crackle & Hum', 'Analog Hearts', 'Pressed Memories', '3:48'], ['Breakfast in Mono', 'Oliver Felt', 'Kitchen Window Light', '5:01'], ['Turntable Daydream', 'Spinning Room', 'Wax Poetic', '4:33'], ['Paper Sleeves', 'The Collectors', 'Secondhand Gold', '3:56'], ['Worn Edges', 'Margot & The Spindles', 'Thrift Store Finds', '4:22'], ['Static Lullaby', 'Hiss & Warmth', 'Analog Sundays', '6:14'], ['45 RPM Heart', 'Vinyl Jones', 'Slow Rotation', '3:41'], ['Faded Label', 'The Dusty Crates', 'Basement Sessions', '4:58'], ['Last Track Home', 'Needle Drop', 'Side B Forever', '5:27']];
+  const AB = { x: 500, y: 471, w: 1075, h: 649 };
+  const D0 = { 'Top Bar': [0, 0, 1075, 58, '#ffffff', 0], 'Playlist Cover': [40, 86, 190, 190, '#2b2622', 6], 'Playlist Header': [256, 96, 640, 170, '#ffffff', 0], 'Track Table': [40, 300, 995, 300, '#ffffff', 8], 'Now Playing': [40, 610, 995, 30, '#f4f2ea', 6] };
+  const L = {}; const reset = () => { for (const [k, [x, y, w, hh, fill, r]] of Object.entries(D0)) L[k] = { x, y, w, h: hh, fill, r, blend: 'normal', op: 100, outline: false, rot: 0, dir: 'row', clip: true }; };
+  reset();
+  let sel = 'Artboard', playing = 0, shown = 10, sc = 0.5, agentBusy = false;
+  // ---- layer contents
+  const vinyl = () => s('svg', { viewBox: '0 0 100 100', width: '100%', height: '100%' }, s('rect', { width: 100, height: 100, fill: '#2b2622' }), s('circle', { cx: 50, cy: 50, r: 44, fill: '#121010' }), ...[38, 32, 26, 20].map((r) => s('circle', { cx: 50, cy: 50, r, fill: 'none', stroke: '#2e2a27', 'stroke-width': .8 })), s('circle', { cx: 50, cy: 50, r: 12, fill: '#d9a35b' }), s('circle', { cx: 50, cy: 50, r: 1.6, fill: '#111' }));
+  const el = {};
+  el['Top Bar'] = h('div', { style: { display: 'flex', alignItems: 'center', gap: '18px', padding: '0 24px', height: '100%', borderBottom: '1px solid #eee', fontSize: '15px' } }, h('b', { style: { fontSize: '17px' } }, '◐ Overflow'), h('div', { style: { flex: 1, maxWidth: '420px', margin: '0 auto', background: '#f3f3f1', borderRadius: '8px', padding: '9px 14px', color: '#999' } }, 'Search tracks, artists, albums…'), h('span', { style: { width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg,#e3b98a,#7a5235)' } }), h('span', {}, 'Agu Seguí'));
+  el['Playlist Cover'] = h('div', { style: { width: '100%', height: '100%' } }, vinyl());
+  const hdStats = h('span', {}, '10 tracks · 46 min');
+  el['Playlist Header'] = h('div', { style: { display: 'flex', flexDirection: 'column', gap: '10px', height: '100%', justifyContent: 'center' } }, h('div', { style: { fontSize: '12px', letterSpacing: '.12em', color: '#999' } }, 'PLAYLIST'), h('div', { style: { fontSize: '52px', fontWeight: 700, letterSpacing: '-.03em', lineHeight: 1 } }, 'Vinyl Sundays'), h('div', { style: { color: '#777', fontSize: '15px' } }, 'Warm, nostalgic, lo-fi, analog warmth, lazy weekend mornings. Special for sundays.'), h('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px' } }, h('span', { style: { width: '22px', height: '22px', borderRadius: '50%', background: 'linear-gradient(135deg,#e3b98a,#7a5235)' } }), h('b', {}, 'Agu Seguí'), h('span', { style: { color: '#999' } }, '·'), hdStats));
+  const rowsBox = h('div.pp-play');
+  const tbl = h('div', { style: { height: '100%', fontSize: '13px' } }, h('div', { style: { display: 'grid', gridTemplateColumns: '30px 1.6fr 1.2fr 50px', padding: '8px 14px', color: '#aaa', fontSize: '11px', letterSpacing: '.1em', borderBottom: '1px solid #eee' } }, h('span', {}, '#'), h('span', {}, 'SONG'), h('span', {}, 'ALBUM'), h('span', {}, 'TIME')), rowsBox);
+  el['Track Table'] = tbl;
+  const npT = h('b', {}, TRACKS[0][0]), npA = h('span', { style: { color: '#888' } }, TRACKS[0][1]);
+  el['Now Playing'] = h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px', padding: '0 14px', height: '100%', fontSize: '13px' } }, h('span', {}, '▶'), npT, npA, h('span', { style: { flex: 1, height: '3px', background: '#ddd', borderRadius: '3px', marginLeft: '12px', position: 'relative' } }, h('i', { style: { position: 'absolute', left: 0, top: 0, bottom: 0, width: '34%', background: '#141414', borderRadius: '3px' } })));
+  const drawRows = (anim = -1) => { rowsBox.replaceChildren(...TRACKS.slice(0, shown).map((t, i) => h(`div.row${i === playing ? '.on' : ''}${i === anim ? '.in' : ''}`, { onclick: (e) => { e.stopPropagation(); playing = i; npT.textContent = t[0]; npA.textContent = t[1]; drawRows(); } }, h('span', { style: { color: '#aaa' } }, i + 1), h('span', {}, h('b', { style: { fontWeight: 600 } }, t[0]), h('span', { style: { color: '#999', marginLeft: '8px' } }, t[1])), h('span', { style: { color: '#777' } }, t[2]), h('span', { style: { color: '#777' } }, t[3])))); const mins = TRACKS.slice(0, shown).reduce((a, t) => a + (+t[3].split(':')[0]) * 60 + +t[3].split(':')[1], 0); hdStats.textContent = `${shown} tracks · ${Math.round(mins / 60)} min`; };
+  drawRows();
+  // ---- artboard + layers
+  const ab = h('div.pp-ab', { style: { width: AB.w + 'px', height: AB.h + 'px' } });
+  const lyEl = {}; for (const k of Object.keys(D0)) { lyEl[k] = h('div.pp-ly', { 'data-ly': k }, el[k]); ab.append(lyEl[k]); }
+  const abTitle = h('div.ttl', {}, 'Desktop / Playlist — Light');
+  const selBox = h('div.pp-sel', {}, h('div.tag'), h('div.dim'), h('i', { style: { right: '-5px', bottom: '-5px' } }), h('i', { style: { left: '-5px', top: '-5px', cursor: 'nwse-resize' } }));
+  const canvas = h('div.pp-canvas', {}, abTitle, ab, selBox);
+  const origin = () => ({ ox: 24, oy: 34 });
+  const fit = () => { const w = canvas.clientWidth || 600; const hh = canvas.clientHeight || 400; sc = Math.min((w - 48) / AB.w, (hh - 60) / AB.h); sc = Math.max(.18, Math.min(sc, 1)); paint(); };
+  const view = (x, y) => { const { ox, oy } = origin(); return [ox + (x - 500) * sc, oy + (y - 471) * sc]; };
+  const paint = () => {
+    const [vx, vy] = view(AB.x, AB.y);
+    ab.style.transform = `translate(${vx}px,${vy}px) scale(${sc})`; abTitle.style.left = vx + 'px'; abTitle.style.top = vy - 16 + 'px';
+    for (const [k, o] of Object.entries(L)) Object.assign(lyEl[k].style, { left: o.x + 'px', top: o.y + 'px', width: o.w + 'px', height: o.h + 'px', background: o.fill, borderRadius: o.r + 'px', mixBlendMode: o.blend, opacity: o.op / 100, outline: o.outline ? '2px solid #141414' : '', transform: `rotate(${o.rot}deg)`, overflow: o.clip ? 'hidden' : 'visible' });
+    const hd = el['Playlist Header']; hd.style.flexDirection = L['Playlist Header'].dir === 'row' ? 'column' : 'column-reverse';
+    const o = sel === 'Artboard' ? { x: AB.x, y: AB.y, w: AB.w, h: AB.h, abs: true } : L[sel];
+    const [sx, sy] = o.abs ? view(o.x, o.y) : view(AB.x + o.x, AB.y + o.y);
+    Object.assign(selBox.style, { left: sx + 'px', top: sy + 'px', width: o.w * sc + 'px', height: o.h * sc + 'px' });
+    selBox.querySelector('.tag').textContent = sel === 'Artboard' ? 'Desktop / Playlist — Light' : sel;
+    selBox.querySelector('.dim').textContent = `${Math.round(o.w)} × ${Math.round(o.h)}`;
+    syncInsp();
+  };
+  // ---- inspector
+  const num = (lbl, key, step = 1) => { const inp = h('input', { value: 0, onchange: () => setVal(key, +inp.value || 0), onkeydown: (e) => { if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); setVal(key, getVal(key) + (e.key === 'ArrowUp' ? 1 : -1) * (e.shiftKey ? 10 : step)); } } }); const lab = h('span', {}, lbl); let sx0 = 0, v0 = 0; drag(lab, { start: (e) => { sx0 = e.clientX; v0 = getVal(key); }, move: (e) => setVal(key, v0 + Math.round(e.clientX - sx0)) }); const w = h('label.pp-num', {}, lab, inp); w.inp = inp; w.key = key; return w; };
+  const cur = () => (sel === 'Artboard' ? AB : L[sel]);
+  const getVal = (k) => (k === 'rot' && sel === 'Artboard' ? 0 : cur()[k] ?? 0);
+  const setVal = (k, v) => { const o = cur(); if (k === 'w' || k === 'h') v = Math.max(8, v); if (k === 'r') v = clamp(v, 0, 200); if (k === 'op') v = clamp(v, 0, 100); if (sel === 'Artboard' && !['x', 'y', 'w', 'h'].includes(k)) return; o[k] = Math.round(v); if (sel === 'Artboard' && (k === 'w' || k === 'h')) { ab.style.width = AB.w + 'px'; ab.style.height = AB.h + 'px'; } paint(); };
+  const nX = num('X', 'x'), nY = num('Y', 'y'), nR = num('∠', 'rot'), nW = num('W', 'w'), nH = num('H', 'h');
+  const radR = h('input', { type: 'range', min: 0, max: 60, value: 0, style: { flex: 1, accentColor: '#141414' }, oninput: () => setVal('r', +radR.value) }); const nRad = num('', 'r');
+  const dirSeg = h('div.pp-seg', {}, h('button.on', { onclick: () => { if (sel === 'Artboard') return; cur().dir = 'row'; paint(); } }, '→'), h('button', { onclick: () => { if (sel === 'Artboard') return; cur().dir = 'col'; paint(); } }, '↓'));
+  const clip = h('input', { type: 'checkbox', checked: true, onchange: () => { if (sel !== 'Artboard') { cur().clip = clip.checked; paint(); } } });
+  const blend = h('select', { style: { border: '1px solid #e2e2de', borderRadius: '4px', height: '24px', background: '#fff' }, onchange: () => { if (sel !== 'Artboard') { cur().blend = blend.value; paint(); } } }, ...['normal', 'multiply', 'screen', 'overlay', 'difference', 'luminosity'].map((b) => h('option', { value: b }, b[0].toUpperCase() + b.slice(1))));
+  const nOp = num('%', 'op');
+  const fill = h('input', { type: 'color', value: '#ffffff', style: { width: '24px', height: '22px', border: 0, padding: 0, background: 'none' }, oninput: () => { if (sel !== 'Artboard') { cur().fill = fill.value; fillHex.textContent = fill.value.toUpperCase(); paint(); } } });
+  const fillHex = h('span', { style: { fontVariantNumeric: 'tabular-nums' } }, '#FFFFFF');
+  const outl = h('input', { type: 'checkbox', onchange: () => { if (sel !== 'Artboard') { cur().outline = outl.checked; paint(); } } });
+  const syncInsp = () => { for (const n of [nX, nY, nR, nW, nH, nRad, nOp]) if (document.activeElement !== n.inp) n.inp.value = n.key === 'rot' ? getVal('rot') + '°' : getVal(n.key); const o = cur(); radR.value = o.r ?? 0; dirSeg.children[0].classList.toggle('on', (o.dir || 'row') === 'row'); dirSeg.children[1].classList.toggle('on', o.dir === 'col'); clip.checked = o.clip ?? true; blend.value = o.blend || 'normal'; if (o.fill) { fill.value = o.fill; fillHex.textContent = o.fill.toUpperCase(); } else { fill.value = '#ffffff'; fillHex.textContent = '#FFFFFF · artboard'; } outl.checked = !!o.outline; for (const it of layerItems) it.classList.toggle('sel', it.dataset.k === sel); };
+  const sec = (title, icon, ...kids) => h('div.sec', {}, h('div.st', {}, title, h('span', { style: { color: '#999', fontWeight: 400 } }, icon)), ...kids);
+  const insp = h('div.pp-insp', {},
+    h('div.sec', {}, h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' } }, h('div', { style: { display: 'flex' } }, ...['#e3b98a', '#c7a07a', '#a07f6a'].map((c, i) => h('span', { style: { width: '20px', height: '20px', borderRadius: '50%', background: `radial-gradient(circle at 50% 35%,${c} 45%,#5a4033 46%)`, border: '2px solid #fff', marginLeft: i ? '-6px' : '' } })), h('span', { style: { width: '20px', height: '20px', borderRadius: '50%', background: BLUE, color: '#fff', display: 'grid', placeItems: 'center', fontSize: '10px', marginLeft: '-6px', border: '2px solid #fff' } }, '⚙')), h('span', { class: 'zoomv' }, '71%')), h('button', { style: { width: '100%', border: '1px solid #e2e2de', borderRadius: '5px', background: '#fff', height: '26px', cursor: 'pointer' }, onclick: () => toast('Link copied (demo)') }, 'Copy link  ⌘ L')),
+    sec('Layout ⌄', '⤢', h('div.g3', {}, nX, nY, nR), h('div.g3', { style: { marginTop: '5px' } }, nW, nH, h('div.pp-seg', {}, h('button', {}, '⊡'), h('button', {}, '⫼'), h('button', {}, '≡')))),
+    sec('Flex', '—', h('div.g2', {}, dirSeg, h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', color: '#bbb', fontSize: '9px', textAlign: 'center' } }, ...'·········'.split('').map((d) => h('span', {}, d)))), h('label', { style: { display: 'flex', gap: '6px', alignItems: 'center', marginTop: '7px' } }, clip, 'Clip content', h('span', { style: { color: '#aaa' } }, '⌥ C'))),
+    sec('Radius', '⛶', h('div', { style: { display: 'flex', gap: '6px', alignItems: 'center' } }, radR, h('div', { style: { width: '58px' } }, nRad))),
+    sec('Blending', '◉', h('div.g2', {}, blend, nOp)),
+    sec('Fill', '+', h('div', { style: { display: 'flex', gap: '8px', alignItems: 'center' } }, fill, fillHex)),
+    sec('Outline', '+', h('label', { style: { display: 'flex', gap: '6px', alignItems: 'center' } }, outl, '2px solid · inside')));
+  // ---- sidebar
+  const layerItems = [];
+  const lyItem = (k, depth, lbl = k) => { const it = h('div.it', { 'data-k': k, style: { paddingLeft: 14 + depth * 12 + 'px' }, onclick: () => select(k) }, h('span', { style: { color: '#aaa' } }, k === 'Artboard' ? '▦' : /Header|Table/.test(k) ? '▤' : '▢'), lbl); layerItems.push(it); return it; };
+  const side = h('div.pp-side', {}, h('div.hd', {}, h('span', {}, '▣  UI V2'), h('span', { style: { color: '#999' } }, '⊟')), h('div.hd', { style: { marginTop: '6px' } }, h('span', {}, '⌄ Pages'), h('span', {}, '+')), ...['UI', 'Desktop', 'Mobile', 'Benchmark'].map((p) => h('div.it', {}, '🗋 ', p, p === 'Desktop' ? h('span', { style: { marginLeft: 'auto' } }, '✓') : '')), h('div.hd', { style: { marginTop: '8px' } }, h('span', {}, '⌄ Desktop')), lyItem('Artboard', 0, 'Desktop / Playlist — Light'), ...Object.keys(D0).map((k) => lyItem(k, 1)), h('div', { style: { padding: '14px 10px 0', color: '#aaa' } }, "What's new  •  Feedback"));
+  const tools = h('div.pp-tools', {}, h('b.on', {}, '➤'), h('b', {}, '✋'), h('b', {}, '⛶'), h('b', {}, '▢'), h('b', {}, 'T'), h('b', {}, '✎'));
+  // ---- agent terminal (MCP loop)
+  const log = h('div.log'); const pin = h('input', { value: 'build my playlist screen with real data', 'aria-label': 'agent prompt' });
+  const term = h('div.pp-term', {}, h('div.bar', {}, h('i'), h('i'), h('i'), h('span', { style: { marginLeft: '6px' } }, '../Github/overflow-app')), log, h('form', { onsubmit: (e) => { e.preventDefault(); runAgent(pin.value); } }, h('span', { style: { padding: '6px 0 6px 10px', color: '#e2711d' } }, '›'), pin, h('button', { type: 'submit' }, 'run')));
+  const line = (cls, t) => { const d = h(`div${cls ? '.' + cls : ''}`, {}, t); log.append(d); log.scrollTop = 1e6; return d; };
+  const runAgent = async (prompt, fast = false) => {
+    if (agentBusy) return 'busy'; agentBusy = true; const w = (ms) => sleep(fast ? 5 : ms); log.replaceChildren();
+    line('', '› ' + prompt); await w(350);
+    line('t', '■ paper – get_selection (MCP)'); line('d', `└ Selected: ${sel === 'Artboard' ? 'Desktop / Playlist — Light' : sel} (${Math.round(cur().w)}×${Math.round(cur().h)})`); await w(450);
+    line('t', '■ paper – read_file (MCP)'); line('d', '└ components/playlist-page.tsx'); await w(450);
+    line('', 'fetch("https://api.spotify.com/v1/playlists/37i9dQ…")'); line('d', '└ 200 OK · 10 tracks · "Vinyl Sundays"'); await w(450);
+    line('t', '■ paper – create_artboard (MCP)'); line('d', `└ name: "Playlist / Desktop"  ${AB.w}×${AB.h}`); await w(300);
+    shown = 0; drawRows();
+    for (let i = 0; i < TRACKS.length; i++) { shown = i + 1; drawRows(i); line('t', '■ paper – write_html (MCP)'); line('d', `└ + Row ${i + 1}: ${TRACKS[i][0]} — ${TRACKS[i][1]}`); await w(160); }
+    line('', '✓ Playlist screen written from real data. ready for review.'); agentBusy = false; return `rows=${shown}`;
+  };
+  // ---- selection + drag on canvas
+  const select = (k) => { sel = k; paint(); };
+  let dragS = null;
+  canvas.addEventListener('pointerdown', (e) => {
+    const ly = e.target.closest('.pp-ly'); const handle = e.target.closest('.pp-sel i');
+    if (handle) { const o = cur(); dragS = { mode: 'resize', x: e.clientX, y: e.clientY, w: o.w, h: o.h, tl: handle.style.left === '-5px', ox: o.x, oy: o.y }; }
+    else if (ly) { select(ly.dataset.ly); const o = cur(); dragS = { mode: 'move', x: e.clientX, y: e.clientY, ox: o.x, oy: o.y }; }
+    else if (e.target.closest('.pp-ab') || e.target === abTitle) { select('Artboard'); dragS = { mode: 'move', x: e.clientX, y: e.clientY, ox: AB.x, oy: AB.y }; }
+    else { select('Artboard'); return; }
+    try { canvas.setPointerCapture(e.pointerId); } catch {} e.preventDefault();
+  });
+  canvas.addEventListener('pointermove', (e) => { if (!dragS) return; const dx = (e.clientX - dragS.x) / sc, dy = (e.clientY - dragS.y) / sc; const o = cur(); if (dragS.mode === 'move') { o.x = Math.round(dragS.ox + dx); o.y = Math.round(dragS.oy + dy); } else if (dragS.tl) { o.x = Math.round(dragS.ox + dx); o.y = Math.round(dragS.oy + dy); o.w = Math.max(8, Math.round(dragS.w - dx)); o.h = Math.max(8, Math.round(dragS.h - dy)); } else { o.w = Math.max(8, Math.round(dragS.w + dx)); o.h = Math.max(8, Math.round(dragS.h + dy)); } if (sel === 'Artboard') { ab.style.width = AB.w + 'px'; ab.style.height = AB.h + 'px'; } paint(); });
+  canvas.addEventListener('pointerup', () => { dragS = null; });
+  const app = h('div.pp-app', {}, h('div.pp-tabs', {}, h('div.dots', {}, h('i'), h('i'), h('i')), ...['Dashboard', 'Log in page', 'UI V2', 'Brand', 'Marketing'].map((t) => h(`div.tb${t === 'UI V2' ? '.on' : ''}`, {}, t === 'Dashboard' ? '⊞ ' : '🗋 ', t, t === 'UI V2' ? ' ×' : ''))), h('div.pp-body', {}, side, tools, canvas, insp), term);
+  const logo = h('span.lg', {}, s('svg', { width: 16, height: 16, viewBox: '0 0 16 16' }, s('rect', { x: 0, y: 4, width: 12, height: 12, fill: '#141414' }), s('rect', { x: 4, y: 0, width: 12, height: 12, fill: '#4f7dff', opacity: .9 })), 'Paper');
+  const feat = (kick, title, p, cards) => h('div.pp-feat', {}, h('div.kick', {}, kick), h('h2', {}, ...title.split('\n').flatMap((t, i) => (i ? [h('br'), t] : [t]))), h('p', {}, p), cards ? h('div.pp-cards', {}, ...cards.map(([b, t]) => h('div', {}, h('b', {}, b), h('span', {}, t)))) : null);
+  const fcol = (t, items) => h('div', {}, h('b', {}, t), ...items.map((x) => h('div', {}, x)));
+  const page = h('div.pp', {}, h('div.pp-bgtri'),
+    h('div.pp-nav', {}, logo, h('div.lk', {}, ...['pricing', 'roadmap', 'blog', 'changelog', 'docs'].map((x) => h('span', {}, x))), h('span', {}, 'sign up'), h('button.op', { onclick: () => app.scrollIntoView({ behavior: 'smooth', block: 'center' }) }, 'open Paper →')),
+    h('div.pp-wrap', {},
+      h('h1.pp-h1', {}, 'design incredible', h('br'), h('span.g', {}, 'the connected canvas for'), h('br'), h('span.g', {}, 'teams shipping with agents')),
+      h('p.pp-sub', {}, 'Paper connects your teams, agents, code, and data on a single design space built on web standards, so nothing gets lost in translation'),
+      h('div.pp-cta', {}, h('button.dl', { onclick: () => toast('download Paper (demo)') }, 'download Paper'), h('button.ob', { onclick: () => app.scrollIntoView({ behavior: 'smooth', block: 'center' }) }, 'open Paper in the browser →')),
+      app,
+      h('div', { style: { textAlign: 'center', color: '#888', fontSize: '12px', margin: '30px 0 0' } }, 'used in production by designers at  ', h('b', { style: { color: '#555', letterSpacing: '.05em' } }, 'LINEAR · VERCEL · RAYCAST · ARC · CURSOR')),
+      feat('Introducing Paper Desktop', 'a fully connected canvas,\na whole new workflow', 'Paper desktop unlocks a new design workflow that easily connects your visual work with all your apps, agents, and repos, via MCP'),
+      feat('design to code and back', 'finally a continuous loop,\nfrom Paper to code and back', 'your agents can sync design tokens, styles, and components between your codebase and your canvas—one source of truth, always current', [['connect any agent to your canvas', 'Connect any IDE or CLI agent and start working in a shared layer that goes from code to design and back'], ['design and code, one language', "Paper's HTML/CSS canvas means your design exports as code. nothing gets lost in translation"]]),
+      feat('good bye lorem ipsum', 'connected to real content,\nreal data, from anywhere', 'bring content, databases, and context from any app on your computer or in the cloud—design with the real thing', [['prompt to get data from anywhere', 'Bring any agent to pull data from any tool or API. Paper connects your files, CMS, or database to your layers'], ['update content from your canvas', 'Write and edit your copy on the canvas, iterate together, then ask your agent to send the copy back into your codebase']]),
+      feat('anti-slop', 'hand off boilerplate work,\nfocus on the human touch', 'leverage agents to handle responsive layouts, style variations, and other repetitive tasks—so you can focus on the decisions only you can make', [['agents that see your canvas', 'Paper canvas lets agents read and write on the right foundations, helping you enhance your workflows in real time'], ['stay in control', 'Focus on the creative call while agents deal with the tedious work like responsive variants, consistency checks, and more']]),
+      h('div.pp-arc', {}, h('div', { style: { fontSize: '13px', color: '#666' } }, 'close the gap'), h('h2', { style: { font: `500 clamp(22px,3vw,32px)/1.15 ${SAN}`, letterSpacing: '-.02em', margin: '10px 0' } }, 'the full-circle, anti-slop workflow', h('br'), 'for humans and agents'), h('p', { style: { color: '#555', maxWidth: '380px', fontSize: '13px' } }, 'a new way to design, from canvas to code and back—connected, fluid, built on the foundations of the web'), h('button', { style: { background: '#141414', color: '#fff', border: 0, borderRadius: '3px', padding: '7px 12px', marginTop: '10px' } }, '⇩ download for Linux')),
+      h('div.pp-news', {}, h('div', {}, h('b', {}, 'Paper Roadmap'), h('span', {}, "Take a peek at what's coming and join us in designing the future. We're genuinely excited to hear your ideas."), h('a', {}, 'view the roadmap →')), h('div', {}, h('b', {}, "what's new in Paper"), h('span', {}, 'september, 2026: quality and performance improvements, in-app agent setup, shader of the month'), h('a', {}, 'build log →')), h('div', {}, h('div', { style: { font: `500 40px/1 ${SAN}`, letterSpacing: '-.03em', marginBottom: '12px' } }, '$34M'), h('b', {}, 'Paper raises $34M Series A'), h('span', {}, 'we’ve raised $34M from Accel and ICONIQ to build the next great design platform'), h('a', {}, 'read the announcement →'))),
+      h('div.pp-foot', {}, h('div', {}, h('div', { style: { fontWeight: 600, color: '#141414' } }, '© 2026'), h('div', {}, 'team@paper.design')), fcol('TOOLS', ['Paper Web', 'Paper Desktop', 'Paper MCP', 'Paper Snapshot', 'Paper Shaders']), fcol('COMMUNITY', ['twitter', 'discord', 'slack', 'youtube']), fcol('RESOURCES', ['docs', 'blog', 'roadmap']), fcol('COMPARE', ['Paper vs Figma', 'Paper vs Pencil']), fcol('LEGAL', ['privacy', 'terms', 'dpa']))));
+  root.append(page);
+  new ResizeObserver(fit).observe(canvas); requestAnimationFrame(fit);
+  window.__demoProof = async () => {
+    const o = []; while (agentBusy) await sleep(50);
+    select('Track Table'); setVal('x', 120); setVal('w', 860); o.push(`select TrackTable → X=${nX.inp.value} W=${nW.inp.value} box=${selBox.style.width}`);
+    const r0 = lyEl['Track Table'].getBoundingClientRect(); lyEl['Track Table'].dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, clientX: r0.left + 30, clientY: r0.top + 30, pointerId: 1 })); canvas.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, clientX: r0.left + 30 + 40 * sc, clientY: r0.top + 30 + 20 * sc, pointerId: 1 })); canvas.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 1 }));
+    o.push(`drag → X=${L['Track Table'].x} Y=${L['Track Table'].y}`);
+    select('Playlist Cover'); setVal('r', 40); o.push(`radius=${lyEl['Playlist Cover'].style.borderRadius}`);
+    o.push('agent ' + (await runAgent('build my playlist screen with real data', true)));
+    reset(); playing = 0; npT.textContent = TRACKS[0][0]; npA.textContent = TRACKS[0][1]; shown = 10; drawRows(); select('Artboard'); root.scrollTop = 0;
+    return o.join('; ');
+  };
+  runAgent('build my playlist screen with real data').catch(() => {});
+};
+
+V['theatrejs-sequence-dope-sheet-graph-editor-easing-presets-butterfly-demo'] = (root, T) => {
+  theme(root, T, { bg: '#14181c', fg: '#e6e6e6', ac: '#4ade80', dark: true }); scroll(root);
+  import('@fontsource/barlow-condensed');
+  const SAN = "'Inter Variable',system-ui,sans-serif", MON = "'JetBrains Mono Variable',monospace", COND = "'Barlow Condensed','Oswald',sans-serif", GRN = '#4ade80', TEAL = '#40c5b5', ORG = '#f0a43c';
+  css(`.tj{background:#14181c;color:#ffffffcc;font:400 15px/1.6 ${SAN};min-height:100%;overflow-x:clip}
+.tj *{box-sizing:border-box}.tj button,.tj input{font:inherit;color:inherit}
+.tj-nav{position:sticky;top:0;z-index:30;height:46px;display:flex;align-items:center;padding:0 22px;gap:28px;background:#14181cee;backdrop-filter:blur(8px);border-bottom:1px solid #ffffff0d;font-size:13px}
+.tj-nav .lg{font:500 22px/1 ${COND};letter-spacing:.02em;color:#fff;margin-right:auto;transform:scaleY(1.15)}
+.tj-nav .sep{width:1px;height:22px;background:#ffffff1f}
+.tj-hero{text-align:center;padding:56px 20px 0;position:relative}
+.tj-hero:before{content:'';position:absolute;left:50%;top:40px;width:560px;height:360px;transform:translateX(-50%);background:radial-gradient(closest-side,#1e6a7a66,transparent);pointer-events:none}
+.tj-h1{position:relative;font:800 clamp(32px,5.2vw,56px)/1.12 ${SAN};letter-spacing:-.03em;color:#fff;margin:0}.tj-h1 em{font-style:normal;color:${GRN}}
+.tj-lead{position:relative;max-width:640px;margin:18px auto 30px;color:#ffffff99;font-size:15px}
+.tj-vp{position:relative;max-width:860px;margin:0 auto;border-radius:6px;overflow:hidden;border-top:2px solid #000;box-shadow:0 30px 80px #0008;aspect-ratio:16/9;background:#0e1013}
+.tj-vp svg{display:block;width:100%;height:100%}
+.tj-vp .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border:0;background:none;cursor:pointer;opacity:.92}
+.tj .tj-cta{display:inline-block;margin:44px 0 0;background:#fff;color:#111;border:0;border-radius:6px;padding:10px 22px;font-weight:600;font-size:13px;box-shadow:0 0 0 1px #fff,0 0 28px #fbbf2470;cursor:pointer}
+.tj-sec{max-width:1000px;margin:0 auto;padding:90px 20px 0;text-align:center}.tj-sec h2{font:800 clamp(24px,3.4vw,34px)/1.2 ${SAN};color:#fff;margin:0 0 12px;letter-spacing:-.02em}.tj-sec h2 em{font-style:normal;color:${GRN}}.tj-sec>p{max-width:600px;margin:0 auto 30px;color:#ffffff99}
+.tj-ed{text-align:left;background:#1c1f24;border:1px solid #2a2f36;border-radius:6px;overflow:hidden;font:11px/1 ${SAN};color:#ffffffb0;user-select:none}
+.tj-ed .top{display:flex;align-items:center;gap:10px;height:30px;padding:0 10px;border-bottom:1px solid #2a2f36;background:#181b20}
+.tj-ed .top button{background:#2a2f36;border:0;border-radius:3px;height:20px;padding:0 8px;cursor:pointer}.tj-ed .top button.on{background:${TEAL}33;color:${TEAL}}
+.tj-ed .top .tc{font:11px ${MON};color:#fff;font-variant-numeric:tabular-nums}
+.tj-ed .main{display:grid;grid-template-columns:240px 1fr;min-height:258px}
+.tj-ed .lft{border-right:1px solid #2a2f36;display:flex;flex-direction:column}
+.tj-ed .mini{height:120px;border-bottom:1px solid #2a2f36;background:#0e1013}.tj-ed .mini svg{width:100%;height:100%;display:block}
+.tj-ed .prop{height:24px;display:flex;align-items:center;padding:0 10px;gap:6px;cursor:pointer;white-space:nowrap}.tj-ed .prop.on{background:#ffffff0d;color:#fff}.tj-ed .prop .v{margin-left:auto;font:10.5px ${MON};color:${TEAL}}
+.tj-ed .tl{position:relative;overflow:hidden;touch-action:none}.tj-ed .tl svg{display:block;width:100%}
+.tj-ed .tip{position:absolute;pointer-events:none;background:#000c;border:1px solid #ffffff22;border-radius:4px;padding:4px 7px;font:10.5px ${MON};color:#fff;white-space:nowrap;display:none}
+.tj-pre{position:absolute;right:10px;top:30px;width:min(330px,calc(100% - 20px));background:#22262ccc;backdrop-filter:blur(8px);border:1px solid #ffffff1c;border-radius:6px;padding:8px;display:none;grid-template-columns:repeat(5,1fr);gap:5px;z-index:4}
+.tj-pre.on{display:grid}.tj-pre input{grid-column:1/-1;background:#14181c;border:1px solid #ffffff1c;border-radius:3px;padding:4px 6px;font:10.5px ${MON};color:#fff}
+.tj-pre button{aspect-ratio:1;background:#14181c;border:1px solid #ffffff14;border-radius:4px;cursor:pointer;padding:3px}.tj-pre button:hover,.tj-pre button.on{border-color:${TEAL}}
+.tj-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.tj-card{position:relative;height:116px;border-radius:6px;overflow:hidden;background:#1c1f24;border:1px solid #2a2f36;cursor:pointer;text-align:left;padding:0}.tj-card.on{border-color:${TEAL};box-shadow:0 0 0 1px ${TEAL}55}
+.tj-card b{position:absolute;left:10px;top:9px;font-size:12px;color:#fff;font-weight:600;z-index:1}.tj-card svg{position:absolute;inset:0;width:100%;height:100%}
+.tj-cva{display:grid;grid-template-columns:1.25fr .75fr;gap:10px;text-align:left}.tj-cva>*{min-width:0}
+.tj-code{background:#1e2a2c;border:1px solid #2a3a3c;border-radius:6px;font:12px/1.7 ${MON};padding:12px 14px;color:#d6e2df;white-space:pre;overflow:auto;min-height:250px}.tj-code .k{color:#c792ea}.tj-code .s{color:#c3e88d}.tj-code .n{color:${ORG}}
+.tj-pc{background:#1c1f24;border:1px solid #2a2f36;border-radius:6px;padding:10px;font-size:12px}.tj-pc b{display:block;color:#fff;margin-bottom:6px;font-size:12px}
+.tj-pc .ol div{padding:4px 6px;border-radius:3px}.tj-pc .ol .on{background:${TEAL}26;color:#fff}
+.tj-pc label{display:flex;align-items:center;gap:8px;height:26px}.tj-pc label span{width:64px;color:#ffffff88}.tj-pc input{flex:1;min-width:0;background:#14181c;border:1px solid #ffffff1a;border-radius:3px;padding:3px 6px;font:11px ${MON};color:#fff}
+.tj-pc input:focus{border-color:${TEAL};outline:0}
+.tj-ext{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}.tj-ext div{height:110px;border-radius:6px;border:1px solid #2a2f36;background:radial-gradient(circle at 70% 70%,#1e4a3a,#1c1f24 60%);text-align:left;padding:10px;color:#fff;font-size:12px;font-weight:600}
+.tj-stack{max-width:620px;margin:60px auto 0;color:#ffffff99}.tj-stack b{display:block;color:#fff;font-size:18px;margin-bottom:6px}
+.tj-gh{display:flex;align-items:center;gap:18px;background:#0e1013;border:1px solid #2a2f36;border-radius:8px;padding:18px 22px;text-align:left;margin:50px auto 0;max-width:620px}
+.tj-q{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;text-align:left}.tj-q div{border:1px solid #2a2f36;border-radius:8px;padding:14px;font-size:13px;color:#ffffffaa;background:#171b1f}.tj-q b{color:#fff;display:block;font-size:13px}.tj-q i{font-style:normal;color:#ffffff66;font-size:12px;display:block;margin-bottom:8px}
+.tj-foot{background:#000;margin-top:90px;padding:44px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:20px;font-size:12px;color:#ffffff88}.tj-foot b{display:block;color:#fff;font-size:11px;letter-spacing:.08em;margin-bottom:8px}.tj-foot div div{padding:2px 0}
+@media (max-width:760px){.tj-ed .main{grid-template-columns:118px 1fr}.tj-ed .mini{height:70px}.tj-ed .prop .v{display:none}.tj-cards,.tj-ext,.tj-q{grid-template-columns:1fr}.tj-card{height:84px}.tj-cva{grid-template-columns:1fr}.tj-code{min-height:0;font-size:11px}.tj-foot{grid-template-columns:1fr 1fr;padding:30px 20px}.tj-nav .tx{display:none}.tj-ed .top .hint{display:none}.tj-ed .top>button:not(:first-child){display:none}}
+`);
+  const DUR = 5;
+  const PRE = [['Linear', [0, 0, 1, 1]], ['In Out', [0.42, 0, 0.58, 1]], ['Quad Out', [0.25, 0.46, 0.45, 0.94]], ['Cubic In', [0.55, 0.055, 0.675, 0.19]], ['Cubic Out', [0.215, 0.61, 0.355, 1]], ['Quart In Out', [0.77, 0, 0.175, 1]], ['Expo Out', [0.19, 1, 0.22, 1]], ['Circ In', [0.6, 0.04, 0.98, 0.335]], ['Back Out', [0.175, 0.885, 0.32, 1.275]], ['Back In Out', [0.68, -0.55, 0.265, 1.55]]];
+  const E = (n) => PRE.find((p) => p[0] === n)[1].slice();
+  const INIT = { 'position.x': [[0, -150, 'In Out'], [1.8, 30, 'Cubic Out'], [3.4, 140, 'In Out'], [5, -150, 'Linear']], 'position.y': [[0, 50, 'Quad Out'], [1.4, -70, 'In Out'], [3, 20, 'Cubic Out'], [5, 50, 'Linear']], rotation: [[0, -10, 'In Out'], [2.5, 16, 'In Out'], [5, -10, 'Linear']], scale: [[0, 0.8, 'Back Out'], [2, 1.2, 'In Out'], [5, 0.8, 'Linear']], flap: [[0, 0.35, 'Quad Out'], [1.2, 1, 'Linear'], [4, 1, 'In Out'], [5, 0.35, 'Linear']] };
+  const TR = Object.keys(INIT);
+  let K; const resetK = () => { K = {}; for (const k of TR) K[k] = INIT[k].map(([t, v, e]) => ({ t, v, e: E(e) })); };
+  resetK();
+  let time = 0, playing = false, mode = 'dope', selTrack = 'position.x', selSeg = 1, selKey = null, last = 0;
+  const bez = ([x1, y1, x2, y2], x) => { if (x <= 0) return 0; if (x >= 1) return 1; const cx = (t) => 3 * x1 * t * (1 - t) ** 2 + 3 * x2 * t * t * (1 - t) + t ** 3; let lo = 0, hi = 1, t = x; for (let i = 0; i < 30; i++) { t = (lo + hi) / 2; if (cx(t) < x) lo = t; else hi = t; } return 3 * y1 * t * (1 - t) ** 2 + 3 * y2 * t * t * (1 - t) + t ** 3; };
+  const val = (k, t) => { const ks = K[k]; if (t <= ks[0].t) return ks[0].v; for (let i = 0; i < ks.length - 1; i++) { const a = ks[i], b = ks[i + 1]; if (t <= b.t) { const p = (t - a.t) / (b.t - a.t || 1); return a.v + (b.v - a.v) * bez(a.e, p); } } return ks[ks.length - 1].v; };
+  const fmt = (v) => (Math.abs(v) < 10 ? v.toFixed(2) : v.toFixed(1));
+  // ---- butterfly scene (shared by hero viewport + editor mini)
+  const scene = (big) => {
+    const id = big ? 'a' : 'b';
+    const wingL = s('g', {}, s('path', { d: 'M0 0 C -30 -70, -110 -90, -120 -40 C -126 -6, -70 10, 0 4 Z', fill: `url(#tjw1${id})`, stroke: '#3a1d08', 'stroke-width': 1.5 }), s('path', { d: 'M0 6 C -40 14, -86 40, -70 76 C -54 102, -16 66, 0 14 Z', fill: `url(#tjw2${id})`, stroke: '#3a1d08', 'stroke-width': 1.5 }), s('path', { d: 'M-20 -14 C -50 -40, -86 -50, -100 -34 M-14 -4 C -50 -10, -80 -8, -104 -20 M-10 20 C -30 34, -50 52, -60 70', stroke: '#2a1405', 'stroke-width': 1.2, fill: 'none', opacity: .7 }), s('circle', { cx: -96, cy: -40, r: 6, fill: '#fff6' }), s('circle', { cx: -62, cy: 60, r: 4, fill: '#fff5' }));
+    const wingR = s('g', {}, wingL.cloneNode(true)); wingR.firstChild.setAttribute('transform', 'scale(-1,1)');
+    const wl = s('g', {}, wingL), wr = s('g', {}, wingR);
+    const fly = s('g', {}, wl, wr, s('ellipse', { cx: 0, cy: 8, rx: 5, ry: 34, fill: '#1c120b' }), s('path', { d: 'M-2 -24 C -10 -44, -18 -52, -24 -56 M2 -24 C 10 -44, 18 -52, 24 -56', stroke: '#1c120b', 'stroke-width': 1.5, fill: 'none' }));
+    const gizmo = s('g', { opacity: big ? .9 : 0 }, s('line', { x1: 0, y1: 0, x2: 56, y2: 0, stroke: '#ef4444', 'stroke-width': 2 }), s('line', { x1: 0, y1: 0, x2: 0, y2: -56, stroke: '#3b82f6', 'stroke-width': 2 }), s('circle', { r: 6, fill: 'none', stroke: GRN, 'stroke-width': 1.5 }));
+    const svg = s('svg', { viewBox: '0 0 800 450', preserveAspectRatio: 'xMidYMid slice' },
+      s('defs', {}, s('radialGradient', { id: `tjbg${id}`, cx: '50%', cy: '30%', r: '80%' }, s('stop', { offset: 0, 'stop-color': '#9aa0a6' }), s('stop', { offset: .45, 'stop-color': '#4a4f55' }), s('stop', { offset: 1, 'stop-color': '#121417' })),
+        s('linearGradient', { id: `tjw1${id}`, x1: 0, y1: 0, x2: 1, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#f4c27a' }), s('stop', { offset: .5, 'stop-color': '#c46a22' }), s('stop', { offset: 1, 'stop-color': '#5a2a0a' })),
+        s('linearGradient', { id: `tjw2${id}`, x1: 0, y1: 0, x2: 0, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#d98a3a' }), s('stop', { offset: 1, 'stop-color': '#3a1a06' }))),
+      s('rect', { width: 800, height: 450, fill: `url(#tjbg${id})` }),
+      ...[[90, 60, 300, 20, 210, 120], [520, 40, 720, 110, 600, 190], [140, 320, 330, 260, 260, 400]].map(([a, b, c, d, e, f]) => s('path', { d: `M${a} ${b} L${c} ${d} L${e} ${f} Z`, fill: '#ffffff10', stroke: '#ffffff30', 'stroke-width': .8 })),
+      s('text', { x: 400, y: 330, 'text-anchor': 'middle', 'font-family': COND, 'font-weight': 600, 'font-size': 210, fill: '#16181b', stroke: '#2a2d31', 'stroke-width': 1, 'letter-spacing': 6, transform: 'scale(1,1.12) translate(0,-30)' }, 'THEATRE.JS'),
+      s('g', { class: 'fly' }, fly, gizmo));
+    return { svg, fly: svg.querySelector('.fly'), wl, wr };
+  };
+  const S1 = scene(true), S2 = scene(false);
+  const renderScene = () => { const x = val('position.x', time), y = val('position.y', time), r = val('rotation', time), sc = val('scale', time), fl = val('flap', time); const ph = Math.sin(time * Math.PI * 2 * 2.2); const w = 0.18 + 0.82 * (1 - fl * (ph * 0.5 + 0.5)); for (const S of [S1, S2]) { S.fly.setAttribute('transform', `translate(${400 + x} ${215 + y}) rotate(${r}) scale(${sc})`); S.wl.setAttribute('transform', `scale(${w.toFixed(3)} 1)`); S.wr.setAttribute('transform', `scale(${w.toFixed(3)} 1)`); } for (const k of TR) propV[k].textContent = fmt(val(k, time)); tc.textContent = `00:${time.toFixed(2).padStart(5, '0')}`; syncPE(); };
+  // ---- editor
+  const tc = h('span.tc', {}, '00:00.00');
+  const playB = h('button', { onclick: () => setPlay(!playing) }, '▶ Play');
+  const modeB = { dope: h('button.on', { onclick: () => setMode('dope') }, 'Dope sheet'), graph: h('button', { onclick: () => setMode('graph') }, 'Graph editor'), presets: h('button', { onclick: () => setMode('presets') }, 'Easing presets') };
+  const propV = {}; const propEls = {};
+  const lft = h('div.lft', {}, h('div.mini', {}, S2.svg), h('div.prop', { style: { color: '#fff', fontWeight: 600 } }, '▾ Scene / Butterfly'), ...TR.map((k) => (propEls[k] = h('div.prop', { onclick: () => { selTrack = k; selSeg = Math.min(selSeg, K[k].length - 2); drawTL(); } }, h('span', { style: { paddingLeft: '10px' } }, k), (propV[k] = h('span.v', {}, '0'))))));
+  const tl = h('div.tl'); const tip = h('div.tip'); const pre = h('div.tj-pre');
+  const ed = h('div.tj-ed', {}, h('div.top', {}, playB, tc, h('span', { class: 'hint', style: { color: '#ffffff55' } }, 'drag keyframes · click a segment · scrub the ruler'), h('span', { style: { flex: 1 } }), ...Object.values(modeB)), h('div.main', {}, lft, tl), tip);
+  tl.append(pre);
+  const RH = 24, RUL = 24; let W = 600;
+  const tx = (t) => 12 + (t / DUR) * (W - 24), xt = (x) => clamp(((x - 12) / (W - 24)) * DUR, 0, DUR);
+  const svgTL = s('svg', {}); tl.prepend(svgTL);
+  const ph = s('line', { stroke: TEAL, 'stroke-width': 1.5 }); const phHead = s('path', { fill: TEAL });
+  const range = (k) => { const vs = K[k].map((q) => q.v); for (let i = 0; i <= 40; i++) vs.push(val(k, (i / 40) * DUR)); let a = Math.min(...vs), b = Math.max(...vs); if (b - a < 1e-6) { a -= 1; b += 1; } const p = (b - a) * 0.12; return [a - p, b + p]; };
+  let GH = 0; const gy = (v, [a, b]) => RUL + 8 + (1 - (v - a) / (b - a)) * (GH - 16), yv = (y, [a, b]) => a + (1 - (y - RUL - 8) / (GH - 16)) * (b - a);
+  const drawTL = () => {
+    W = tl.clientWidth || 600; const rows = TR.length + 1; const Hh = Math.max(RUL + rows * RH + 10, 234); GH = Hh - RUL; svgTL.setAttribute('viewBox', `0 0 ${W} ${Hh}`); svgTL.setAttribute('height', Hh);
+    const g = [];
+    g.push(s('rect', { x: 0, y: 0, width: W, height: RUL, fill: '#181b20', class: 'rul' }));
+    for (let t = 0; t <= DUR + 1e-6; t += 0.5) { const x = tx(t); g.push(s('line', { x1: x, y1: t % 1 ? 16 : 10, x2: x, y2: RUL, stroke: '#ffffff40' }), s('line', { x1: x, y1: RUL, x2: x, y2: Hh, stroke: '#ffffff08' })); if (!(t % 1)) g.push(s('text', { x: x + 3, y: 11, fill: '#ffffff70', 'font-size': 9, 'font-family': MON }, `${t}s`)); }
+    for (const k of TR) propEls[k].classList.toggle('on', k === selTrack);
+    if (mode !== 'graph') {
+      // aggregate row
+      const all = [...new Set(TR.flatMap((k) => K[k].map((q) => q.t.toFixed(2))))];
+      g.push(s('rect', { x: 0, y: RUL, width: W, height: RH, fill: '#ffffff05' }), ...all.map((t) => s('rect', { x: tx(+t) - 4, y: RUL + RH / 2 - 4, width: 8, height: 8, fill: '#ffffff60', transform: `rotate(45 ${tx(+t)} ${RUL + RH / 2})` })));
+      TR.forEach((k, ri) => { const y = RUL + (ri + 1) * RH + RH / 2; const on = k === selTrack; if (on) g.push(s('rect', { x: 0, y: y - RH / 2, width: W, height: RH, fill: '#ffffff07' }));
+        K[k].forEach((q, i) => { if (i < K[k].length - 1) { const sOn = on && i === selSeg; g.push(s('line', { x1: tx(q.t), y1: y, x2: tx(K[k][i + 1].t), y2: y, stroke: sOn ? TEAL : '#ffffff30', 'stroke-width': sOn ? 3 : 2, 'data-seg': `${k}|${i}`, style: 'cursor:pointer' })); } });
+        K[k].forEach((q, i) => { const kOn = selKey && selKey[0] === k && selKey[1] === i; g.push(s('rect', { x: tx(q.t) - 5, y: y - 5, width: 10, height: 10, fill: kOn ? '#fff' : on ? TEAL : '#c9d1d9', stroke: '#14181c', 'stroke-width': 1.5, transform: `rotate(45 ${tx(q.t)} ${y})`, 'data-key': `${k}|${i}`, style: 'cursor:ew-resize' })); }); });
+    } else {
+      // graph editor: all tracks faint, selected bright with handles
+      TR.forEach((k) => { const rg = range(k); let d = ''; for (let i = 0; i <= 160; i++) { const t = (i / 160) * DUR; d += `${i ? 'L' : 'M'}${tx(t).toFixed(1)} ${gy(val(k, t), rg).toFixed(1)}`; } g.push(s('path', { d, fill: 'none', stroke: k === selTrack ? ORG : '#ffffff22', 'stroke-width': k === selTrack ? 2 : 1, class: k === selTrack ? 'gcurve' : '' })); });
+      const k = selTrack, rg = range(k), ks = K[k];
+      const a = ks[selSeg], b = ks[selSeg + 1];
+      if (a && b) { const dt = b.t - a.t, dv = b.v - a.v; const h1 = [tx(a.t + a.e[0] * dt), gy(a.v + a.e[1] * dv, rg)], h2 = [tx(a.t + a.e[2] * dt), gy(a.v + a.e[3] * dv, rg)];
+        g.push(s('line', { x1: tx(a.t), y1: gy(a.v, rg), x2: h1[0], y2: h1[1], stroke: TEAL }), s('line', { x1: tx(b.t), y1: gy(b.v, rg), x2: h2[0], y2: h2[1], stroke: TEAL }), s('circle', { cx: h1[0], cy: h1[1], r: 5, fill: '#14181c', stroke: TEAL, 'stroke-width': 2, 'data-h': '0', style: 'cursor:move' }), s('circle', { cx: h2[0], cy: h2[1], r: 5, fill: '#14181c', stroke: TEAL, 'stroke-width': 2, 'data-h': '1', style: 'cursor:move' })); }
+      ks.forEach((q, i) => g.push(s('rect', { x: tx(q.t) - 5, y: gy(q.v, rg) - 5, width: 10, height: 10, fill: '#fff', transform: `rotate(45 ${tx(q.t)} ${gy(q.v, rg)})`, 'data-gk': `${i}`, style: 'cursor:move' })));
+      for (let i = 0; i < ks.length - 1; i++) { const x1 = tx(ks[i].t), x2 = tx(ks[i + 1].t); g.push(s('rect', { x: x1, y: Hh - 10, width: x2 - x1, height: 8, fill: i === selSeg ? TEAL + '88' : '#ffffff10', 'data-seg': `${k}|${i}`, style: 'cursor:pointer' })); }
+    }
+    g.push(ph, phHead); svgTL.replaceChildren(...g); placePH(); drawPresets();
+  };
+  const placePH = () => { const x = tx(time); const Hh = +svgTL.getAttribute('height'); ph.setAttribute('x1', x); ph.setAttribute('x2', x); ph.setAttribute('y1', 0); ph.setAttribute('y2', Hh); phHead.setAttribute('d', `M${x - 5} 0 h10 v8 l-5 5 l-5 -5 Z`); };
+  const setTime = (t) => { time = clamp(t, 0, DUR); placePH(); renderScene(); };
+  const curve = ([x1, y1, x2, y2], on) => s('svg', { viewBox: '-0.15 -0.45 1.3 1.9' }, s('path', { d: `M0 1 C ${x1} ${1 - y1}, ${x2} ${1 - y2}, 1 0`, fill: 'none', stroke: on ? TEAL : '#ffffffaa', 'stroke-width': .07 }));
+  const presetInput = h('input', { readonly: true });
+  const segEase = () => K[selTrack][selSeg]?.e || [0, 0, 1, 1];
+  const drawPresets = () => { const e = segEase(); const name = (PRE.find((p) => p[1].every((v, i) => Math.abs(v - e[i]) < 1e-3)) || ['Custom'])[0]; presetInput.value = `${selTrack} · seg ${selSeg + 1} · ${name}  ${e.map((v) => v.toFixed(3)).join(', ')}`; pre.replaceChildren(presetInput, ...PRE.map(([n, c]) => { const on = n === name; const b = h(`button${on ? '.on' : ''}`, { title: n, onclick: () => applyPreset(n), onmouseenter: (ev) => showTip(ev, `${n}  ${c.join(', ')}`), onmouseleave: () => (tip.style.display = 'none') }, curve(c, on)); return b; })); pre.classList.toggle('on', mode === 'presets'); };
+  const applyPreset = (n) => { const seg = K[selTrack][selSeg]; if (!seg) return; seg.e = E(n); drawTL(); renderScene(); };
+  const showTip = (ev, t) => { const r = ed.getBoundingClientRect(); tip.textContent = t; tip.style.display = 'block'; tip.style.left = Math.min(ev.clientX - r.left + 10, r.width - 220) + 'px'; tip.style.top = ev.clientY - r.top - 30 + 'px'; };
+  const setMode = (m) => { mode = m; for (const [k, b] of Object.entries(modeB)) b.classList.toggle('on', k === m); for (const [k, c] of Object.entries(cardEls)) c.classList.toggle('on', k === m); drawTL(); };
+  const setPlay = (p) => { playing = p; playB.textContent = p ? '❚❚ Pause' : '▶ Play'; heroPlay.style.display = p ? 'none' : ''; if (p) { last = performance.now(); requestAnimationFrame(tick); } };
+  const tick = (now) => { if (!playing) return; if (!root.isConnected) return; const dt = (now - last) / 1000; last = now; time = (time + dt) % DUR; placePH(); renderScene(); requestAnimationFrame(tick); };
+  // pointer interactions on timeline
+  let dr = null;
+  const lp = (e) => { const r = svgTL.getBoundingClientRect(); return [(e.clientX - r.left) * (W / r.width), (e.clientY - r.top) * (+svgTL.getAttribute('height') / r.height)]; };
+  tl.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('.tj-pre')) return; const [x, y] = lp(e); const tg = e.target;
+    if (tg.dataset?.key) { const [k, i] = tg.dataset.key.split('|'); selTrack = k; selKey = [k, +i]; selSeg = Math.min(+i, K[k].length - 2); dr = { type: 'key', k, i: +i }; drawTL(); }
+    else if (tg.dataset?.seg) { const [k, i] = tg.dataset.seg.split('|'); selTrack = k; selSeg = +i; selKey = null; drawTL(); return; }
+    else if (tg.dataset?.h) dr = { type: 'h', h: +tg.dataset.h };
+    else if (tg.dataset?.gk) { selKey = [selTrack, +tg.dataset.gk]; dr = { type: 'gk', i: +tg.dataset.gk }; }
+    else if (y < RUL || mode === 'graph' || true) { dr = { type: 'ph' }; setTime(xt(x)); }
+    try { tl.setPointerCapture(e.pointerId); } catch {} e.preventDefault();
+  });
+  tl.addEventListener('pointermove', (e) => { if (!dr) return; const [x, y] = lp(e); if (dr.type === 'ph') return setTime(xt(x));
+    if (dr.type === 'key' || dr.type === 'gk') { const k = dr.type === 'key' ? dr.k : selTrack, ks = K[k], i = dr.i; const lo = i ? ks[i - 1].t + 0.05 : 0, hi = i < ks.length - 1 ? ks[i + 1].t - 0.05 : DUR; if (i > 0 && i < ks.length - 1) ks[i].t = +clamp(xt(x), lo, hi).toFixed(2); if (dr.type === 'gk') { if (!dr.rg) dr.rg = range(k); ks[i].v = +yv(y, dr.rg).toFixed(2); } showTip(e, `${k}  t=${ks[i].t.toFixed(2)}s  v=${fmt(ks[i].v)}`); drawTL(); renderScene(); }
+    if (dr.type === 'h') { if (!dr.rg) dr.rg = range(selTrack); const a = K[selTrack][selSeg], b = K[selTrack][selSeg + 1]; const dt = b.t - a.t, dv = b.v - a.v; const px = clamp((xt(x) - a.t) / dt, 0, 1); const py = Math.abs(dv) < 1e-6 ? a.e[dr.h * 2 + 1] : +(((yv(y, dr.rg) - a.v) / dv)).toFixed(3); a.e[dr.h * 2] = +px.toFixed(3); a.e[dr.h * 2 + 1] = clamp(py, -1, 2); showTip(e, a.e.map((v) => v.toFixed(3)).join(', ')); drawTL(); renderScene(); } });
+  tl.addEventListener('pointerup', () => { dr = null; tip.style.display = 'none'; });
+  // ---- cards under editor
+  const cardArt = { dope: () => s('svg', { viewBox: '0 0 300 116', preserveAspectRatio: 'none' }, ...[40, 64, 88].map((y, r) => [s('line', { x1: 20, y1: y, x2: 280, y2: y, stroke: '#ffffff20', 'stroke-width': 2 }), ...[30 + r * 20, 120, 200 - r * 10, 270].map((x) => s('rect', { x: x - 4, y: y - 4, width: 8, height: 8, fill: TEAL, transform: `rotate(45 ${x} ${y})` }))]).flat(), s('line', { x1: 150, y1: 26, x2: 150, y2: 110, stroke: TEAL })),
+    graph: () => s('svg', { viewBox: '0 0 300 116', preserveAspectRatio: 'none' }, s('path', { d: 'M10 96 C 90 96, 110 30, 160 40 S 240 100, 290 30', fill: 'none', stroke: '#c084fc', 'stroke-width': 2 }), s('path', { d: 'M10 70 C 80 20, 160 110, 290 60', fill: 'none', stroke: ORG, 'stroke-width': 2, opacity: .7 }), s('circle', { cx: 160, cy: 40, r: 4, fill: '#fff' })),
+    presets: () => s('svg', { viewBox: '0 0 300 116' }, ...PRE.slice(0, 5).map(([, c], i) => { const g = s('g', { transform: `translate(${20 + i * 56} 40) scale(40)` }); g.append(s('path', { d: `M0 1 C ${c[0]} ${1 - c[1]}, ${c[2]} ${1 - c[3]}, 1 0`, fill: 'none', stroke: i === 3 ? TEAL : '#fff9', 'stroke-width': .06 })); return g; })) };
+  const cardEls = {}; const cards = h('div.tj-cards', {}, ...[['dope', 'Dope sheet'], ['graph', 'Graph editor'], ['presets', 'Easing presets']].map(([k, t]) => (cardEls[k] = h(`button.tj-card${k === 'dope' ? '.on' : ''}`, { onclick: () => setMode(k) }, h('b', {}, t), cardArt[k]()))));
+  // ---- Code vs Art: outline + property editor bound to current playhead
+  const codeEl = h('div.tj-code');
+  const pe = {}; const peBox = h('div', {}, ...TR.map((k) => h('label', {}, h('span', {}, k), (pe[k] = h('input', { onchange: () => setAtPlayhead(k, +pe[k].value) })))));
+  const setAtPlayhead = (k, v) => { if (!isFinite(v)) return; const ks = K[k]; let q = ks.find((z) => Math.abs(z.t - time) < 0.06); if (!q) { const i = ks.findIndex((z) => z.t > time); q = { t: +time.toFixed(2), v, e: E('In Out') }; ks.splice(i < 0 ? ks.length : i, 0, q); } q.v = v; drawTL(); renderScene(); };
+  const syncPE = () => { for (const k of TR) if (document.activeElement !== pe[k]) pe[k].value = fmt(val(k, time)); codeEl.innerHTML = `<span class="k">import</span> { getProject } <span class="k">from</span> <span class="s">'@theatre/core'</span>\n<span class="k">import</span> studio <span class="k">from</span> <span class="s">'@theatre/studio'</span>\nstudio.initialize()\n\n<span class="k">const</span> sheet = getProject(<span class="s">'Butterfly'</span>).sheet(<span class="s">'Scene'</span>)\n<span class="k">const</span> obj = sheet.object(<span class="s">'Butterfly'</span>, {\n${TR.map((k) => `  <span class="s">'${k}'</span>: <span class="n">${fmt(val(k, time))}</span>,`).join('\n')}\n})\n\nobj.onValuesChange((v) =&gt; butterfly.set(v))\nsheet.sequence.play({ iterationCount: <span class="n">Infinity</span> })`; };
+  const heroPlay = h('button.pl', { onclick: () => setPlay(true), 'aria-label': 'play' }, s('svg', { viewBox: '0 0 64 64' }, s('path', { d: 'M22 16 L50 32 L22 48 Z', fill: '#fff' })));
+  const gh = s('svg', { width: 16, height: 16, viewBox: '0 0 16 16' }, s('path', { fill: '#ffffffb0', d: 'M8 0C3.6 0 0 3.6 0 8c0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.6 3.9.3.3.5.8.5 1.5v2.2c0 .2.1.5.6.4C13.7 14.5 16 11.5 16 8c0-4.4-3.6-8-8-8z' }));
+  const Q = [['Karan Ganesan', '@karanganesan', '@theatre_js is the best thing happened to the world of animation on the web since the days of Flash games in the web.'], ['Diego F. Goberna', '@feiss', 'These are the kind of things that the web misses from the end of Flash. So happy to see something like this happening..'], ['Susanna Wong', '@studioswong', 'This looks amazing - reminds me of the good (very) old days into my first foray into 3D with flash — all ran on the browser 🤯'], ['David Hoang', '@davidhoang', 'Incredible work by the @theatre_js team—one of the best implementations of visual manipulation directly in code.'], ['grant', '@GrantCuster', 'The approach to bridging code and direct manipulation here is really interesting.'], ['Vince', '@1stfloor', 'I can’t remember being so excited for a ‘tool” to be released. This looks amazing.']];
+  const fcol = (t, xs) => h('div', {}, h('b', {}, t), ...xs.map((x) => h('div', {}, x)));
+  const page = h('div.tj', {},
+    h('div.tj-nav', {}, h('span.lg', {}, 'THEATRE.JS'), h('span.tx', {}, 'Docs'), h('span.tx', {}, 'Blog'), h('span.sep'), gh, h('span', { style: { opacity: .7 } }, '◕')),
+    h('div.tj-hero', {}, h('h1.tj-h1', {}, 'Powerful ', h('em', {}, 'motion design'), h('br'), 'in the browser'), h('p.tj-lead', {}, 'Theatre.js is a javascript animation library with a professional motion design toolset. It helps you create any animation, from cinematic scenes in THREE.js, to delightful UI interactions.'), h('div.tj-vp', { onclick: (e) => { if (e.target.closest('.pl')) return; setPlay(!playing); } }, S1.svg, heroPlay), h('button.tj-cta', { onclick: () => ed.scrollIntoView({ behavior: 'smooth', block: 'center' }) }, 'Get started with Theatre.js')),
+    h('div.tj-sec', {}, h('h2', {}, 'Iterate with ', h('em', {}, 'ease')), h('p', {}, 'Block out your sequence in seconds with our cutting-edge sequence editor. Use presets to add quick flare. When you are ready, dive into the graph editor and fine-tune every frame.'), ed, cards),
+    h('div.tj-sec', {}, h('h2', {}, 'Code vs', h('br'), h('em', {}, '+'), ' Art'), h('p', {}, 'It is not either/or. Create in code, perfect in the browser — best of both worlds.'), h('div.tj-cva', {}, codeEl, h('div', { style: { display: 'grid', gap: '10px' } }, h('div.tj-pc', {}, h('b', {}, 'Outline'), h('div.ol', {}, h('div', {}, '▾ Scene: default'), h('div.on', {}, '   ◆ Butterfly'), h('div', {}, '   ◇ Light 1'), h('div', {}, '   ◇ Camera'))), h('div.tj-pc', {}, h('b', {}, 'Property editor · at playhead'), peBox)))),
+    h('div.tj-sec', {}, h('h2', {}, 'Create your own workflow with ', h('em', {}, 'extensions')), h('p', {}, 'Theatre.js is extensible. Move the camera around for the perfect shot. Adjust lights. Tweak shaders. With official extensions, or tools of your own.'), h('div.tj-ext', {}, h('div', {}, 'Custom UI'), h('div', {}, 'Custom tools'), h('div', {}, 'Custom workflows')),
+      h('div.tj-stack', {}, h('b', {}, 'Theatre.js works with any stack!'), 'Have a custom THREE.js setup? Wrote your own WebGPU library? Theatre.js works with all of that. All it does is change JS variables. It is up to you what you do with them.'),
+      h('button.tj-cta', {}, 'Get started with Theatre.js'),
+      h('div.tj-gh', {}, s('svg', { width: 40, height: 40, viewBox: '0 0 16 16' }, s('path', { fill: '#fff', d: gh.firstChild.getAttribute('d') })), h('div', {}, h('b', { style: { color: '#fff', fontSize: '16px' } }, '12760 GitHub Stars'), h('div', { style: { fontSize: '13px' } }, 'We are building in the open. Join us in creating the animation tools of the future! →'))),
+      h('div.tj-q', {}, ...Q.map(([n, u, t]) => h('div', {}, h('b', {}, n), h('i', {}, u), t))), h('button.tj-cta', {}, 'Get started with Theatre.js')),
+    h('div.tj-foot', {}, h('div', {}, h('div', { style: { font: `500 22px ${COND}`, color: '#fff', marginBottom: '8px' } }, 'THEATRE.JS'), 'Theatre.js is a design tool in the making. We aim to blur the line between designer/developer, author/consumer, and artist/scientist.'), fcol('GET STARTED WITH', ['React Three Fiber', 'THREE.js', 'HTML/CSS/SVG']), fcol('DOCS', ['Overview', 'Concepts', 'Getting started', 'API']), fcol('COMMUNITY', ['Twitter', 'Discord', 'GitHub']), fcol('COMPANY', ['Jobs', 'Blog', 'Contact', '© 2026 Theatre.js Oy – Helsinki.'])));
+  root.append(page);
+  new ResizeObserver(() => drawTL()).observe(tl);
+  drawTL(); setTime(1.2);
+  window.__demoProof = async () => {
+    const o = []; setPlay(false);
+    setTime(2.4); o.push(`scrub t=2.40 → fly=${S1.fly.getAttribute('transform')}`);
+    const before = val('position.x', 1); selTrack = 'position.x'; selSeg = 0; applyPreset('Back Out'); const after = val('position.x', 1); o.push(`preset Back Out on seg1 x@1s ${fmt(before)}→${fmt(after)}`);
+    K['position.x'][1].t = 2.2; drawTL(); o.push(`moved key → ${K['position.x'][1].t}s, diamonds=${svgTL.querySelectorAll('[data-key]').length}`);
+    setMode('graph'); o.push(`graph curve=${!!svgTL.querySelector('.gcurve')} handles=${svgTL.querySelectorAll('[data-h]').length}`);
+    setMode('presets'); o.push(`presets=${pre.querySelectorAll('button').length}`);
+    setPlay(true); await sleep(300); setPlay(false); o.push(`played → t=${time.toFixed(2)}`);
+    resetK(); selTrack = 'position.x'; selSeg = 1; selKey = null; setMode('dope'); setTime(1.2); root.scrollTop = 0;
+    return o.join('; ');
+  };
+};
+
+V['neuemontreal-tomato-red-travel-guide-specimen-pinned-pill-toc-text-display-pair'] = (root, T) => {
+  theme(root, T, { bg: '#ef4c46', fg: '#1a1a1a', ac: '#1a1a1a', dark: false }); scroll(root);
+  import('@fontsource-variable/inter-tight');
+  const RED = '#ef4c46', INK = '#1a1a1a', CREAM = '#f1e7d6', NM = "'Inter Tight Variable','Inter Variable',Helvetica,Arial,sans-serif";
+  css(`.nm{background:${RED};color:${INK};font:400 15px/1.35 ${NM};position:relative;min-height:100%;overflow-x:clip}
+.nm *{box-sizing:border-box}.nm button,.nm input{font:inherit;color:inherit}
+.nm:before{content:'';position:fixed;inset:var(--tg-h,38px) 0 0 0;pointer-events:none;z-index:50;opacity:.16;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.nm-top{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;gap:10px;pointer-events:none}
+.nm-top>*{pointer-events:auto}
+.nm-logo{background:#f3f0ea;border-radius:99px;height:30px;padding:0 12px;display:grid;place-items:center;font:600 17px/1 ${NM};letter-spacing:-.06em;cursor:pointer;border:0}
+.nm-toc{display:flex;gap:2px;background:#f3f0ea;border-radius:99px;padding:3px;overflow-x:auto;scrollbar-width:none;max-width:calc(100vw - 260px)}.nm-toc::-webkit-scrollbar{display:none}
+.nm-toc button{border:0;background:none;border-radius:99px;padding:5px 10px;font-size:13px;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}.nm-toc button:hover{background:#0000000d}.nm-toc button.on{background:${INK};color:#f3f0ea}
+.nm .nm-get{background:${INK};color:#f3f0ea;border:1px solid #f3f0ea55;border-radius:99px;height:30px;padding:0 13px;font-size:12px;cursor:pointer;white-space:nowrap}
+.nm-pad{padding:0 18px}.nm-rule{border:0;border-top:1px solid ${INK};margin:0}
+.nm-h1{font:600 clamp(40px,6.4vw,92px)/.92 ${NM};letter-spacing:-.045em;color:#fff;margin:6px 0 0}
+.nm-ring{position:absolute;right:18px;top:62px;width:150px;height:150px;animation:nmSpin 18s linear infinite}@keyframes nmSpin{to{transform:rotate(360deg)}}
+.nm-sub{font-size:clamp(15px,1.4vw,19px);line-height:1.15;margin:12px 0 90px;max-width:440px}
+.nm-giant{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:10px 18px 0}
+.nm-giant h2{font:600 clamp(70px,15.2vw,220px)/.8 ${NM};letter-spacing:-.06em;margin:0 0 6px}
+.nm-photo{width:min(29vw,420px);aspect-ratio:4/3;flex:none;margin-bottom:12px;overflow:hidden;border-radius:2px}
+.nm-black{background:#151515;color:#f3f0ea;padding:110px 18px;text-align:center}.nm-black h2{font:600 clamp(40px,7vw,100px)/.9 ${NM};letter-spacing:-.05em;margin:0}
+.nm-sec{padding:70px 18px;border-top:1px solid ${INK};scroll-margin-top:0}
+.nm-lab{font-size:13px;margin-bottom:28px;display:flex;justify-content:space-between}
+.nm-story{display:grid;grid-template-columns:1fr 1fr;gap:24px}.nm-story p{font-size:clamp(18px,1.8vw,24px);line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+.nm-stacks{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:24px;margin-top:60px;align-items:start}
+.nm-stack h4{font-size:13px;font-weight:400;margin:0 0 12px;display:flex;justify-content:space-between;border-bottom:1px solid ${INK};padding-bottom:6px}
+.nm-stack button{display:block;width:100%;text-align:left;border:0;background:none;padding:1px 0;font-size:clamp(20px,2.2vw,30px);line-height:1.08;letter-spacing:-.02em;cursor:pointer;color:${INK};opacity:.92}
+.nm-stack button:hover,.nm-stack button.on{opacity:1;color:#fff}
+.nm-stack .it{font-size:14px;margin-top:10px;opacity:.8}
+.nm-prev{position:sticky;top:70px;background:${CREAM};border-radius:4px;padding:18px;min-height:340px;display:flex;flex-direction:column}
+.nm-prev .row{display:flex;justify-content:space-between;font-size:12px;gap:8px}
+.nm-prev .gl{font-size:clamp(90px,13vw,190px);line-height:.9;margin:auto 0;letter-spacing:-.04em;transition:font-weight .25s,letter-spacing .25s,font-size .25s}
+.nm-pair{display:inline-flex;border:1px solid ${INK};border-radius:99px;padding:2px}.nm-pair button{border:0;background:none;border-radius:99px;padding:4px 12px;cursor:pointer;font-size:12px}.nm-pair button.on{background:${INK};color:${CREAM}}
+.nm-tl{display:grid;grid-template-columns:repeat(9,1fr);border-top:1px solid ${INK};margin-top:20px}
+.nm-tl button{border:0;border-right:1px solid ${INK};background:none;text-align:left;padding:10px 8px 40px;cursor:pointer;min-height:150px;display:flex;flex-direction:column;gap:6px;transition:background .2s}.nm-tl button:last-child{border-right:0}
+.nm-tl button b{font-size:clamp(18px,2vw,28px);font-weight:500;letter-spacing:-.03em}.nm-tl button span{font-size:12px}.nm-tl button.on{background:${INK};color:${RED}}
+.nm-uni{background:${CREAM};padding:80px 18px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end}
+.nm-uni h2{font:100 clamp(60px,10vw,150px)/.85 ${NM};letter-spacing:-.05em;margin:0;transition:font-weight .1s}
+.nm-uni input[type=range]{width:100%;accent-color:${INK}}
+.nm-vieux{position:relative;min-height:440px;overflow:hidden;display:grid;place-items:center;text-align:center;color:#fff;padding:60px 18px}
+.nm-vieux svg{position:absolute;inset:0;width:100%;height:100%}
+.nm-vieux h2{position:relative;font:900 clamp(36px,6vw,86px)/.95 ${NM};letter-spacing:-.04em;margin:0}.nm-vieux p{position:relative;max-width:640px;margin:20px auto 0;font-size:14px;line-height:1.4}
+.nm-att{display:grid;grid-template-columns:1fr 2.2fr;gap:0;border-top:1px solid ${INK}}
+.nm-att .intro{padding:20px 18px;font-size:16px;line-height:1.2}.nm-att .intro h3{font:600 clamp(32px,4vw,56px)/.9 ${NM};letter-spacing:-.04em;margin:0 0 18px}
+.nm-acc{display:flex;height:420px;overflow:hidden}
+.nm-acc button{border:0;flex:0 0 46px;position:relative;cursor:pointer;text-align:left;padding:0;overflow:hidden;transition:flex-basis .5s cubic-bezier(.7,0,.2,1)}
+.nm-acc button.on{flex:1 1 auto}
+.nm-acc button .n{position:absolute;left:6px;bottom:8px;font:600 44px/1 ${NM};letter-spacing:-.05em;writing-mode:vertical-rl;transform:rotate(180deg)}
+.nm-acc button .tx{position:absolute;left:58px;top:16px;right:16px;opacity:0;transition:opacity .3s .2s;font-size:14px;line-height:1.3;max-width:420px}.nm-acc button.on .tx{opacity:1}
+.nm-acc button .tx b{display:block;font-size:26px;letter-spacing:-.03em;font-weight:600;margin-bottom:10px}
+.nm-lig{background:#151515;color:#f3f0ea;padding:70px 18px}.nm-lig .big{font:600 clamp(40px,7vw,104px)/.95 ${NM};letter-spacing:-.04em;outline:0}.nm-lig .big em{font-style:normal;color:#2bff5a}
+.nm-dots{display:flex;gap:clamp(8px,2vw,26px);margin:30px 0;flex-wrap:wrap}.nm-dots i{width:clamp(14px,2vw,26px);height:clamp(14px,2vw,26px);background:#f3f0ea;transition:border-radius .4s}
+.nm-lang{display:grid;grid-template-columns:.9fr 1.1fr}.nm-lang>*{min-width:0}.nm-tester textarea{width:100%}.nm-lang .pn{background:#ff4b14;padding:18px;font-size:16px;line-height:1.2}.nm-lang .pn h3{font-size:16px;font-weight:500;margin:0 0 6px;border-bottom:1px solid ${INK};padding-bottom:6px}
+.nm-tester{background:${CREAM};padding:18px;display:flex;flex-direction:column}.nm-tester textarea{flex:1;min-height:220px;background:none;border:0;resize:none;font:500 clamp(30px,4vw,56px)/1 ${NM};letter-spacing:-.03em;color:${INK};outline:0}
+.nm-acs{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));border-top:1px solid ${INK};border-left:1px solid ${INK}}
+.nm-acs button{aspect-ratio:1;border:0;border-right:1px solid ${INK};border-bottom:1px solid ${INK};background:none;font-size:30px;cursor:pointer;transition:font-size .2s,background .2s}.nm-acs button:hover{background:${INK};color:${RED};font-size:42px}
+.nm-var{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.nm-var div{background:${CREAM};border-radius:3px;padding:18px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}.nm-var b{font-size:40px;letter-spacing:-.04em;line-height:.9}
+.nm-foot{display:flex;justify-content:space-between;padding:28px 18px 36px;border-top:1px solid ${INK};font-size:14px;gap:10px}
+@media (max-width:760px){.nm-toc{max-width:calc(100vw - 112px)}.nm-get{display:none}.nm-ring{width:72px;height:72px;top:4px;right:12px}.nm-sub{margin-bottom:40px}.nm-giant{flex-direction:column;align-items:stretch}.nm-photo{width:100%}.nm-story,.nm-uni,.nm-att,.nm-lang{grid-template-columns:1fr}.nm-stacks{grid-template-columns:1fr 1fr}.nm-prev{grid-column:1/-1;position:relative;top:0;min-height:260px}.nm-tl{grid-template-columns:repeat(3,1fr)}.nm-tl button{border-bottom:1px solid ${INK};min-height:96px;padding-bottom:12px}.nm-acc{height:460px}.nm-acc button{flex-basis:28px}.nm-acc button .n{font-size:24px;left:3px}.nm-acc button .tx{left:36px;font-size:13px}.nm-var{grid-template-columns:1fr}}
+`);
+  const TEXTW = [['Thin', 200], ['Light', 300], ['Book', 350], ['Regular', 400], ['Medium', 500], ['Semibold', 600], ['Bold', 700]];
+  const DISPW = [['Hairline', 100], ['Extralight', 150], ['Thin', 200], ['Light', 300], ['Book', 350], ['Regular', 400], ['Medium', 500], ['Semibold', 600], ['Bold', 700], ['Extrabold', 800], ['Black', 900]];
+  const st = { cut: 'Display', w: 600, italic: false, name: 'Semibold', glyph: 'Aa3' };
+  // --- photo accent (Expo-67 style plaza illustration) & ring
+  const photo = () => s('svg', { viewBox: '0 0 400 300', preserveAspectRatio: 'xMidYMid slice', width: '100%', height: '100%' }, s('rect', { width: 400, height: 300, fill: '#7fa7c9' }), ...Array.from({ length: 9 }, (_, i) => s('path', { d: `M${i * 46 - 10} 120 L${i * 46 + 13} 40 L${i * 46 + 36} 120 Z`, fill: i % 2 ? '#e8b53c' : '#d65b3a', stroke: '#fff', 'stroke-width': 2 })), ...Array.from({ length: 9 }, (_, i) => s('path', { d: `M${i * 46 + 13} 40 L${i * 46 + 36} 120 L${i * 46 + 59} 40 Z`, fill: '#f4ede0', stroke: '#fff', 'stroke-width': 2 })), s('rect', { y: 118, width: 400, height: 40, fill: '#8a6b4a' }), ...Array.from({ length: 14 }, (_, i) => s('circle', { cx: 20 + i * 28, cy: 150 + (i % 3) * 8, r: 18 + (i % 4) * 4, fill: ['#3f7a3a', '#5a9a44', '#2f6030'][i % 3] })), s('rect', { y: 200, width: 400, height: 100, fill: '#3d6f86' }), ...[[40, 230], [170, 250], [290, 225]].map(([x, y]) => s('g', {}, s('rect', { x, y, width: 90, height: 18, rx: 6, fill: '#f5f5f5' }), s('rect', { x: x + 10, y: y - 10, width: 60, height: 12, fill: '#2a5a9a' }))), ...Array.from({ length: 50 }, (_, i) => s('circle', { cx: (i * 37) % 400, cy: 170 + ((i * 13) % 30), r: 2.4, fill: ['#c33', '#fff', '#333', '#e8b53c'][i % 4] })));
+  const ring = s('svg', { class: 'nm-ring', viewBox: '0 0 150 150' }, ...Array.from({ length: 12 }, (_, i) => s('text', { x: 75, y: 18, 'text-anchor': 'middle', 'font-family': NM, 'font-size': 26, 'font-weight': 600, fill: INK, 'letter-spacing': '-2', transform: `rotate(${i * 30} 75 75)` }, 'NM')));
+  // --- pinned pill TOC
+  const SECS = [['story', 'Story'], ['inuse', 'In use'], ['weights', 'Weights'], ['ligatures', 'Ligatures'], ['languages', 'Languages'], ['accents', 'Accents'], ['variants', 'Variants']];
+  const pills = {}; const toc = h('nav.nm-toc', {}, ...SECS.map(([id, t]) => (pills[id] = h('button', { onclick: () => go(id) }, t))));
+  const secEl = {};
+  const go = (id, instant) => { const el = secEl[id]; if (!el) return; const top = el.getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop - 50; root.scrollTo({ top, behavior: instant ? 'auto' : 'smooth' }); setActive(id); };
+  let active = null; const setActive = (id) => { active = id; for (const [k, b] of Object.entries(pills)) b.classList.toggle('on', k === id); if (id) { const b = pills[id]; toc.scrollTo({ left: b.offsetLeft - (toc.clientWidth - b.offsetWidth) / 2, behavior: 'smooth' }); } else toc.scrollTo({ left: 0 }); };
+  const spy = () => { const y0 = root.getBoundingClientRect().top + 120; let cur = null; for (const [id] of SECS) { const r = secEl[id].getBoundingClientRect(); if (r.top <= y0) cur = id; } if (cur !== active) setActive(cur); };
+  root.addEventListener('scroll', () => requestAnimationFrame(spy), { passive: true });
+  // --- Text vs Display specimen
+  const gl = h('div.gl', {}, st.glyph); const pvName = h('span', {}, ''); const pvMeta = h('span', {}, '');
+  const pair = h('div.nm-pair', {}, h('button', { onclick: () => setCut('Text') }, 'Text'), h('button.on', { onclick: () => setCut('Display') }, 'Display'));
+  const itB = h('button', { style: { border: `1px solid ${INK}`, borderRadius: '99px', padding: '4px 12px', background: 'none', cursor: 'pointer', fontSize: '12px' }, onclick: () => { st.italic = !st.italic; paintPv(); } }, '+Italics');
+  const paintPv = () => { gl.style.fontWeight = st.w; gl.style.fontStyle = st.italic ? 'italic' : 'normal'; gl.style.letterSpacing = st.cut === 'Text' ? '0.01em' : '-0.055em'; gl.style.fontSize = st.cut === 'Text' ? 'clamp(70px,9vw,140px)' : ''; pvName.textContent = `${st.cut} ${st.name}${st.italic ? ' Italic' : ''}`; pvMeta.textContent = `wght ${st.w} · ${st.cut === 'Text' ? 'open spacing, sturdier joins' : 'tight spacing, sharper apertures'}`; pair.children[0].classList.toggle('on', st.cut === 'Text'); pair.children[1].classList.toggle('on', st.cut === 'Display'); itB.style.background = st.italic ? INK : 'none'; itB.style.color = st.italic ? CREAM : INK; for (const b of stackBtns) b.classList.toggle('on', b.dataset.cut === st.cut && b.dataset.n === st.name); };
+  const setCut = (c) => { st.cut = c; const list = c === 'Text' ? TEXTW : DISPW; const m = list.find(([n]) => n === st.name) || list[Math.min(list.length - 1, 5)]; st.name = m[0]; st.w = m[1]; paintPv(); };
+  const stackBtns = [];
+  const stack = (cut, list) => h('div.nm-stack', {}, h('h4', {}, h('span', {}, cut), h('span', {}, `${list.length} weights`)), ...list.map(([n, w]) => { const b = h('button', { 'data-cut': cut, 'data-n': n, style: { fontWeight: w, letterSpacing: cut === 'Text' ? '0' : '-.035em' }, onmouseenter: () => pick(cut, n, w), onclick: () => pick(cut, n, w) }, n); stackBtns.push(b); return b; }), h('div.it', {}, '+Italics'));
+  const pick = (cut, n, w) => { st.cut = cut; st.name = n; st.w = w; paintPv(); };
+  const glyphIn = h('input', { value: st.glyph, maxlength: 6, style: { width: '80px', border: 0, borderBottom: `1px solid ${INK}`, background: 'none', fontSize: '12px', outline: 0 }, oninput: () => { st.glyph = glyphIn.value || 'Aa'; gl.textContent = st.glyph; } });
+  const prev = h('div.nm-prev', {}, h('div.row', {}, pvName, pair), gl, h('div.row', {}, pvMeta, h('span', { style: { display: 'flex', gap: '8px', alignItems: 'center' } }, glyphIn, itB)));
+  // --- timeline
+  const TL = [['2018', 'First Release'], ['2019', 'Minor Updates'], ['2020', 'Minor Updates'], ['2021', 'Square Punctuations'], ['2022', 'V02 Release'], ['2023', 'Mono Version'], ['2024', 'Squeezed Collection (Off-Type)'], ['2025', 'Minor Updates'], ['2026', 'V03 Release']];
+  let yr = 8; const tlBtns = TL.map(([y, m], i) => h('button', { onclick: () => setYear(i) }, h('b', {}, y), h('span', {}, m)));
+  const yrNote = h('div', { style: { fontSize: 'clamp(20px,2.4vw,32px)', letterSpacing: '-.02em', marginTop: '24px', maxWidth: '760px' } });
+  const NOTES = ['Born from the bold visual language of Expo 67 — a grotesk shaped by the streets and soul of Montreal.', 'Spacing and kerning tightened across the family.', 'Extended Latin coverage and refined diacritics.', 'Square punctuation: from one point to another, square to round dots.', 'V02 — redrawn curves, a wider weight axis from Hairline to Black.', 'PP Neue Montreal Mono joins the family.', 'Squeezed collection drawn for Off-Type — condensed widths for tight headlines.', 'Hinting and variable-font performance updates.', 'V03 — Refined, Reworked, Reintroduced: Text and Display cuts, 506 languages.'];
+  const setYear = (i) => { yr = i; tlBtns.forEach((b, j) => b.classList.toggle('on', j === i)); yrNote.textContent = `${TL[i][0]} — ${NOTES[i]}`; };
+  // --- universal font slider
+  const uniH = h('h2', {}, 'The', h('br'), 'Universal', h('br'), 'Font.'); const uniLab = h('div', { style: { fontSize: '13px', marginBottom: '8px' } }, 'Hairline · 100');
+  const uniR = h('input', { type: 'range', min: 100, max: 900, value: 100, oninput: () => { uniH.style.fontWeight = uniR.value; const n = DISPW.reduce((a, b) => (Math.abs(b[1] - uniR.value) < Math.abs(a[1] - uniR.value) ? b : a)); uniLab.textContent = `${n[0]} · ${uniR.value}`; } });
+  // --- attractions accordion
+  const ATT = [['Mont‑Royal', 'Rising at the heart of the city, Mont-Royal is Montréal’s defining landmark. Designed by Frederick Law Olmsted, the park spans over 200 hectares of forested trails, meadows, and lookouts.', '#d63a8a'], ['Plateau Mont‑Royal', 'The Plateau is Montréal’s most intensely alive neighbourhood. Lined with colourful triplexes, wrought-iron staircases, and corner dépanneurs.', '#f0613a'], ['Musée des Beaux‑Arts', 'One of Canada’s foremost art institutions, holding a collection spanning five millennia and over 44,000 works.', '#ffd23f'], ['Quartier des Spectacles', 'Montréal’s cultural nerve centre, a 1 km² district purpose-built for gathering, celebration, and live performance.', '#2fbf4a'], ['Vieux‑Montréal', 'Where the city was born. Cobblestone streets wind past 17th-century stone buildings, the old port, and Place Jacques-Cartier.', '#3b6cf0'], ['Marché Jean‑Talon', 'The great cathedral of Montréal food culture — one of the largest open-air markets in North America.', '#5a4fc9'], ['Habitat 67', 'Moshe Safdie’s stacked concrete village, built for Expo 67, still the city’s most photographed silhouette.', '#a35ad8'], ['Biosphère', 'Buckminster Fuller’s geodesic dome on Île Sainte-Hélène, now a museum of the environment.', '#e05aa0'], ['Stade olympique', 'The leaning tower of the 1976 Olympic Stadium — brutalist, bold, unmistakable.', '#c9824a'], ['Mile End', 'Bagels, bookshops and studios — the creative quarter where the typeface was first sketched.', '#9a9a9a'], ['Lachine Canal', 'Fourteen kilometres of towpath, locks and red-brick factories turned lofts.', '#b8b0a0']];
+  let att = 0; const accBtns = ATT.map(([n, t, c], i) => h('button', { style: { background: c, color: i === 2 || i === 3 ? INK : i > 8 ? INK : INK }, onclick: () => setAtt(i), 'aria-label': n }, h('span.n', {}, i + 1), h('div.tx', {}, h('b', {}, n), t)));
+  const setAtt = (i) => { att = i; accBtns.forEach((b, j) => b.classList.toggle('on', j === i)); };
+  // --- ligature / dots
+  const dots = h('div.nm-dots', {}, ...Array.from({ length: 12 }, () => h('i')));
+  let round = false; const roundB = h('button', { style: { border: '1px solid #f3f0ea', borderRadius: '99px', padding: '6px 14px', background: 'none', color: '#f3f0ea', cursor: 'pointer' }, onclick: () => setRound(!round) }, 'Square → Round dots');
+  const setRound = (r) => { round = r; for (const d of dots.children) d.style.borderRadius = r ? '50%' : '0'; roundB.textContent = r ? 'Round → Square dots' : 'Square → Round dots'; };
+  let ligs = true; const big = h('div.big', { contenteditable: 'true', spellcheck: 'false' }, 'From one point', h('br'), 'to another', h('em', {}, '!'), ' -> fi fl ff');
+  const ligB = h('button', { style: { border: '1px solid #f3f0ea', borderRadius: '99px', padding: '6px 14px', background: '#f3f0ea', color: '#151515', cursor: 'pointer', marginLeft: '8px' }, onclick: () => { ligs = !ligs; big.style.fontFeatureSettings = ligs ? '"liga" 1, "calt" 1' : '"liga" 0, "calt" 0'; ligB.textContent = ligs ? 'Ligatures on' : 'Ligatures off'; } }, 'Ligatures on');
+  const tester = h('textarea', { spellcheck: false }, 'Bonjour, Montréal ! Ça va ? Größe · Łódź · Ærøskøbing · Пример · Ελλάδα');
+  const sec = (id, ...kids) => (secEl[id] = h('section.nm-sec', { id: `nm-${id}` }, ...kids));
+  const page = h('div.nm', {},
+    h('div.nm-top', {}, h('button.nm-logo', { onclick: () => root.scrollTo({ top: 0, behavior: 'smooth' }) }, 'NM'), toc, h('button.nm-get', { onclick: () => toast('Pangram Pangram store (demo)') }, 'Get PP Neue Montreal')),
+    h('div.nm-pad', { style: { position: 'relative', marginTop: '-4px' } }, h('h1.nm-h1', {}, 'Official', h('br'), 'Travel Guide'), ring, h('hr.nm-rule', { style: { marginTop: '50px' } }), h('p.nm-sub', {}, 'Everything you need to know to experience PP Neue Montreal to its fullest.'), h('hr.nm-rule')),
+    h('div.nm-giant', {}, h('h2', {}, 'Neue', h('br'), 'Montreal'), h('div.nm-photo', {}, photo())),
+    h('div.nm-black', {}, h('h2', {}, 'Refined,', h('br'), 'Reworked,', h('br'), 'Reintroduced.')),
+    sec('story', h('div.nm-lab', {}, h('span', {}, 'Story'), h('span', {}, '01')), h('div.nm-story', {}, h('p', {}, 'PP Neue Montreal is a neo-grotesk sans-serif typeface that reflects the design sensibilities of Montreal, Canada. Its clean lines and geometric forms are reminiscent of the city’s modernist architecture and the International Typographic Style that influenced it.'), h('p', {}, 'The font’s subtle character and nuanced details evoke the city’s history and cultural identity. With its balanced and versatile design, it is well-suited for a variety of applications, from digital media to print materials.')),
+      h('div.nm-lab', { style: { marginTop: '60px', marginBottom: 0 } }, h('span', {}, 'See the difference between display and text'), h('span', {}, 'Text  /  Display')),
+      h('div.nm-stacks', {}, stack('Text', TEXTW), stack('Display', DISPW), prev)),
+    sec('inuse', h('div.nm-lab', {}, h('span', {}, 'In use · Typeface Evolution'), h('span', {}, '02')), h('div', { style: { font: `600 clamp(34px,5vw,72px)/.9 ${NM}`, letterSpacing: '-.04em' } }, 'Typeface Evolution'), h('div.nm-tl', {}, ...tlBtns), yrNote),
+    sec('weights', h('div.nm-lab', {}, h('span', {}, 'Weights'), h('span', {}, '03')), h('div.nm-uni', { style: { margin: '0 -18px' } }, uniH, h('div', {}, uniLab, uniR, h('p', { style: { fontSize: '14px', maxWidth: '360px' } }, 'From Hairline to Black — one family for signage, editorial and interface. Drag to travel the weight axis.')))),
+    h('div.nm-vieux', {}, s('svg', { viewBox: '0 0 1200 440', preserveAspectRatio: 'xMidYMid slice' }, s('rect', { width: 1200, height: 440, fill: '#6b7f8a' }), s('rect', { y: 260, width: 1200, height: 180, fill: '#4a5d66' }), s('path', { d: 'M0 300 L1200 240 L1200 270 L0 340 Z', fill: '#8a8f8a' }), ...Array.from({ length: 8 }, (_, i) => s('rect', { x: 700 + i * 50, y: 120 - (i % 3) * 30, width: 40, height: 150 + (i % 3) * 30, fill: ['#9aa', '#788', '#aab'][i % 3] })), s('rect', { width: 1200, height: 440, fill: '#0004' })), h('div', {}, h('div', { style: { fontSize: '12px', marginBottom: '10px', position: 'relative' } }, 'Black'), h('h2', {}, 'From Vieux-Montreal', h('br'), 'to Neue-Montreal'), h('p', {}, 'Montreal is a vibrant city where North American energy meets European charm. Located on an island in the Saint Lawrence River, it is known for its rich history, diverse culture, and creative spirit.'))),
+    h('div.nm-att', {}, h('div.intro', {}, h('div', { style: { fontSize: '12px', marginBottom: '8px' } }, 'Text Bold'), h('h3', {}, 'Must-see', h('br'), 'Attractions'), 'Montréal is a city of contrasts, where centuries-old cobblestone meets bold brutalist architecture. PP Neue Montréal was drawn from this same spirit.'), h('div.nm-acc', {}, ...accBtns)),
+    sec('ligatures', h('div.nm-lab', {}, h('span', {}, 'Ligatures'), h('span', {}, '04')), h('div.nm-lig', { style: { margin: '0 -18px -70px' } }, big, dots, h('div', {}, roundB, ligB), h('div', { style: { fontSize: '13px', marginTop: '18px', opacity: .7 } }, '(Square to round dots) · type into the specimen above'))),
+    sec('languages', h('div.nm-lab', {}, h('span', {}, 'Languages'), h('span', {}, '05')), h('div.nm-lang', {}, h('div.pn', {}, h('h3', {}, 'Languages'), 'Continuously developed since its initial release, the typeface has seen its range steadily expand. It now features a full weight axis, from Hairline to Black, and supports Latin, Cyrillic, Greek, and Arabic scripts, covering 506 languages and 3.4 billion speakers.', h('h3', { style: { marginTop: '18px' } }, 'Language Support (506)'), 'Belarusian, Bosnian, Bulgarian, Chechen, Greek, Macedonian, Russian, Serbian, Ukrainian, Vietnamese, Afrikaans, Basque, Breton, Catalan, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French … (and more)'), h('div.nm-tester', {}, h('div', { style: { fontSize: '12px', marginBottom: '8px' } }, 'Type tester — edit me'), tester))),
+    sec('accents', h('div.nm-lab', {}, h('span', {}, 'Accents'), h('span', {}, '06')), h('div.nm-acs', {}, ...'ÀÁÂÃÄÅĀĂĄÇĆČĎÈÉÊËĒĖĘĚĞÎÏĪĮŁŃŇÑÔÖŐØŒŔŘŚŠŞŤÙÚÛÜŮŰŸŹŻŽàéîõüçßæø'.split('').map((c) => h('button', {}, c)))),
+    sec('variants', h('div.nm-lab', {}, h('span', {}, 'Variants'), h('span', {}, '07')), h('div.nm-var', {}, h('div', {}, h('span', {}, 'PP Neue Montreal'), h('b', {}, 'Text & Display')), h('div', { style: { fontFamily: "'JetBrains Mono Variable',monospace" } }, h('span', {}, 'PP Neue Montreal'), h('b', { style: { fontSize: '30px' } }, 'Mono')), h('div', {}, h('span', {}, 'Off-Type'), h('b', { style: { transform: 'scaleX(.62)', transformOrigin: 'left', fontWeight: 700 } }, 'Squeezed')))),
+    h('div', { style: { background: '#ffe14a', width: 'min(260px,70vw)', margin: '60px auto', padding: '18px', font: `300 clamp(34px,4vw,46px)/.95 ${NM}`, letterSpacing: '-.03em' } }, 'Before', h('br'), 'Neue', h('br'), 'Montreal'),
+    h('div.nm-foot', {}, h('span', {}, 'Pangram Pangram'), h('span', {}, '© 2026 · Official Travel Guide'), h('span', {}, 'Site by Demande Spéciale')));
+  root.append(page);
+  setCut('Display'); pick('Display', 'Semibold', 600); setYear(8); setAtt(0); setRound(false);
+  window.__demoProof = async () => {
+    const o = [];
+    go('weights', true); await sleep(80); spy(); o.push(`toc→weights active=${active} pinned top=${Math.round(page.querySelector('.nm-top').getBoundingClientRect().top - root.getBoundingClientRect().top)}`);
+    pick('Text', 'Bold', 700); o.push(`Text Bold w=${gl.style.fontWeight} ls=${gl.style.letterSpacing}`); setCut('Display'); o.push(`→ ${pvName.textContent} ls=${gl.style.letterSpacing}`);
+    setYear(5); o.push(`year=${TL[5][0]}`); setAtt(4); o.push(`attraction=${ATT[4][0]}`); setRound(true); o.push(`dots round=${dots.children[0].style.borderRadius}`);
+    uniR.value = 900; uniR.dispatchEvent(new Event('input')); o.push(uniLab.textContent);
+    // restore
+    uniR.value = 100; uniR.dispatchEvent(new Event('input')); setRound(false); setAtt(0); setYear(8); st.italic = false; pick('Display', 'Semibold', 600); root.scrollTop = 0; await sleep(30); spy();
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
