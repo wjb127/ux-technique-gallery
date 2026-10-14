@@ -13505,7 +13505,7 @@ V['exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble'
 .ex-tile .cap{position:absolute;left:0;top:calc(100% + 6px);font-size:11px;letter-spacing:.04em;white-space:nowrap;opacity:0;transition:opacity .25s;text-transform:uppercase}
 .ex-tile:hover .cap,.ex.grid .ex-tile .cap{opacity:1}
 .ex-tile:hover .art{outline:1px solid #fff}
-.ex-chip{position:absolute;left:22px;top:38px;font-size:12px;letter-spacing:.04em;text-shadow:0 0 6px #000}
+.ex-chip{position:absolute;left:22px;top:62px;font-size:12px;letter-spacing:.04em;text-shadow:0 0 4px #000,0 0 10px #000}
 .ex-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:700 clamp(54px,8.6vw,128px)/.9 ${SAN};letter-spacing:-.045em;white-space:nowrap;pointer-events:none;z-index:6;transition:all .7s cubic-bezier(.7,0,.2,1)}
 .ex.grid .ex-title{top:62px;transform:translate(-50%,0);font-size:clamp(40px,6vw,80px)}
 .ex-top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:12px 8px 0 4px;font-size:12px;letter-spacing:.02em;z-index:10;pointer-events:none}

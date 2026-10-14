@@ -3679,5 +3679,32 @@
   "proof": "factory cells=224 working=24 counters=413 TASKS · 24 ACTIVE · 1,423 PRS SHIPPED; yaml line4 on=true note=true; secrets note=LINE 11Secrets give agents protected cre; layer3 bg=rgb(42, 85, 184); faq active=false; sound=on",
   "demoNodes": 474,
   "errors": []
+ },
+ "godn-particle-mixed-type-hero-lab-four-instruments-8d-sound-nodes": {
+  "url": "https://ux-technique-gallery.vercel.app/t/godn-particle-mixed-type-hero-lab-four-instruments-8d-sound-nodes/",
+  "ok": true,
+  "at": "2026-10-14T20:21:38.233Z",
+  "http": 200,
+  "proof": "home particles=11633 h1=\"THE FUTUREISN'T PREDICTED.IT'S\"; PT=true; lab=true 8dPersists=true; INKLINE:on; FLOWFIELD:on; ESPELHO:on; TOKENFORGE:on; tw=true wcag=17.10:1 · AAAred; live=true; page=GØDN method.",
+  "demoNodes": 82,
+  "errors": []
+ },
+ "sanrita-dual-column-terraforming-hud-trail-map-pin-legend-layers": {
+  "url": "https://ux-technique-gallery.vercel.app/t/sanrita-dual-column-terraforming-hud-trail-map-pin-legend-layers/",
+  "ok": true,
+  "at": "2026-10-14T20:20:43.687Z",
+  "http": 200,
+  "proof": "hud pct=_100% stepsOn=9/9; dived=true; Road:hidden; Trail:hidden; Fishing spot:hidden; Viewpoint:hidden; panel=true title=Maison Boréale; playground=Playground; canvasSame=true; FR=Les sentiers de San Rita",
+  "demoNodes": 849,
+  "errors": []
+ },
+ "exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble": {
+  "url": "https://ux-technique-gallery.vercel.app/t/exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble/",
+  "ok": true,
+  "at": "2026-10-14T20:20:43.669Z",
+  "http": 200,
+  "proof": "pan moved tile=true; back=true; grid=true tileW=335; scatter=true splitOn=true; case=true client=Arc’teryx; tz=LONDON[21:20]NEW YORK[; chip=LONDON [21:20]",
+  "demoNodes": 459,
+  "errors": []
  }
 }
