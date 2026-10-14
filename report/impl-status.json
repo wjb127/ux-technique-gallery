@@ -3701,9 +3701,9 @@
  "exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble": {
   "url": "https://ux-technique-gallery.vercel.app/t/exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble/",
   "ok": true,
-  "at": "2026-10-14T20:20:43.669Z",
+  "at": "2026-10-14T20:22:59.961Z",
   "http": 200,
-  "proof": "pan moved tile=true; back=true; grid=true tileW=335; scatter=true splitOn=true; case=true client=Arc’teryx; tz=LONDON[21:20]NEW YORK[; chip=LONDON [21:20]",
+  "proof": "pan moved tile=true; back=true; grid=true tileW=335; scatter=true splitOn=true; case=true client=Arc’teryx; tz=LONDON[21:23]NEW YORK[; chip=LONDON [21:23]",
   "demoNodes": 459,
   "errors": []
  }
