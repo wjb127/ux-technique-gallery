@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-awge-crt-cable-tv-guide-channel-grid-live-clock-vhs-player",
+  "slug": "awge-crt-cable-tv-guide-channel-grid-live-clock-vhs-player",
+  "name": "CRT Cable TV Guide with Live-Clock Channel Grid, VHS Player, and Scrolling Ticker (AWGE TV)",
+  "date": "2026-10-15",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.awge.com/",
+  "domain": "awge.com",
+  "product": "AWGE TV — A$AP Rocky creative collective site styled as a 90s cable TV channel guide",
+  "checkpoints": [
+   "Top marquee ticker: \"you are now watching AWGE TV - www.awge.com\" yellow/white scrolling loop",
+   "Upper split: left chrome-globe promo bumper (FRIDAY the 6/27 on AWGE TV) + right VHS/CRT video player with scanlines and chroma bleed",
+   "Guide header row: live current time cell (e.g. 08:21 AM) then next two hour slots auto-computed",
+   "Channel rows: 3-digit number + channel name + program cells of varying widths spanning time columns, blue bevel cells with yellow caps text",
+   "Guide auto-scrolls/loops vertically through 18+ channels; hover/click a channel row to switch the player",
+   "CRT effects: scanlines, slight RGB offset, VHS noise on the player"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-flora-scattered-media-canvas-hero-draggable-node-graph-category-image-swap",
+  "slug": "flora-scattered-media-canvas-hero-draggable-node-graph-category-image-swap",
+  "name": "Scattered Media Canvas Hero, Draggable Node Graph, and Category List with Background Image Swap (FLORA)",
+  "date": "2026-10-15",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://flora.ai/",
+  "domain": "flora.ai",
+  "product": "FLORA — generative AI infinite canvas for creative teams (marketing site)",
+  "checkpoints": [
+   "Hero: dotted-grid black canvas, fashion/product image cards floating at varied sizes around mixed-type headline \"Your creative workspace\" (italic serif on creative)",
+   "Three-step cards 01 Ideate / 02 Iterate / 03 Scale with mini UI demos: Add Block command menu, multiplayer named cursors, node workflow",
+   "Draggable node demo: nodes are draggable, keyboard-focusable with arrow keys, Home resets position; connector curves follow",
+   "Use-case section: giant stacked category words (Visual Effects / Fashion / Advertising / Photography...) where the active one is bright and others dim",
+   "Active category swaps the blurred full-bleed background photo and the node-graph showcase (one input node branching to three outputs)",
+   "Cookie preference bottom sheet styling (Accept all / Reject non-essential / Customize)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-unicorn-studio-shader-aurora-hero-ai-effect-chat-editor-mock-inspector-timeline",
+  "slug": "unicorn-studio-shader-aurora-hero-ai-effect-chat-editor-mock-inspector-timeline",
+  "name": "Shader Aurora Hero, AI Effect Create/Edit Chat, and Editor Mock with Layer List, Inspector, Timeline (Unicorn Studio)",
+  "date": "2026-10-15",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.unicorn.studio/",
+  "domain": "unicorn.studio",
+  "product": "Unicorn Studio — no-code WebGL shader/interactive graphics tool (marketing site)",
+  "checkpoints": [
+   "Hero: rounded inset panel with violet aurora/light-ray shader and sparkles; headline \"Craft Interactive Graphics that Ship\" with Ship in a serif accent",
+   "Editor mock: left layer/scene list with active purple row, center canvas (e.g. voxel mountain), right inspector sliders (grid scale, reflection, speed) and Interactivity (track mouse, momentum, spring, X/Y/Both)",
+   "Bottom timeline scrubber with play controls and time readout",
+   "Bento feature cards: 75+ effects stack, time/interaction events (appear, scroll, hover, mousemove) with live orb",
+   "AI shader agent card with Create / Edit tabs: prompt, assistant reply, then \"Describe a change to this Data Convergence effect\" input",
+   "Spec chips: 49kb library, ship to Framer/Webflow/Figma, video export WebM/MP4"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble",
   "slug": "exf-ascii-scatter-work-universe-grid-toggle-bracket-chrome-timezone-scramble",
   "name": "ASCII-Scatter Work Universe with Bracket Chrome, Grid/Split Toggle, and Timezone Scramble (EXF.Studio)",
