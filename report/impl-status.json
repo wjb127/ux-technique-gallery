@@ -3652,5 +3652,32 @@
   "proof": "select TrackTable → X=120 W=860 box=438.4px; drag → X=160 Y=320; radius=40px; agent rows=10",
   "demoNodes": 414,
   "errors": []
+ },
+ "obys-vertical-infinite-thumbnail-strip-bracket-focus-desaturated-index-view-toggle": {
+  "url": "https://ux-technique-gallery.vercel.app/t/obys-vertical-infinite-thumbnail-strip-bracket-focus-desaturated-index-view-toggle/",
+  "ok": true,
+  "at": "2026-10-14T11:52:34.986Z",
+  "http": 200,
+  "proof": "focus=Eminente num=10 colorThumb=3; after scrub focus=Source Unknown; view=horizontal stageCls=ob-stage horizontal; grid thumbs=57; case=true title=Porsche Taycan",
+  "demoNodes": 557,
+  "errors": []
+ },
+ "oryzo-cad-dimension-intro-scroll-scrubbed-3d-cork-coaster-pinned-claim-reveal": {
+  "url": "https://ux-technique-gallery.vercel.app/t/oryzo-cad-dimension-intro-scroll-scrubbed-3d-cork-coaster-pinned-claim-reveal/",
+  "ok": true,
+  "at": "2026-10-14T11:52:34.973Z",
+  "http": 200,
+  "proof": "intro done=true cad opacity=1; scrub p~0.45 transform=rotateX(63.1285deg) rotateY(231.199deg) rotateZ(-6.23463deg); words on=4/4; nav sticky=true active=product; jump features scroll=3649; footer roll links=8",
+  "demoNodes": 230,
+  "errors": []
+ },
+ "warp-bracket-hotkey-section-nav-live-factory-grid-annotated-yaml-layer-stack": {
+  "url": "https://ux-technique-gallery.vercel.app/t/warp-bracket-hotkey-section-nav-live-factory-grid-annotated-yaml-layer-stack/",
+  "ok": true,
+  "at": "2026-10-14T11:52:34.982Z",
+  "http": 200,
+  "proof": "factory cells=224 working=24 counters=413 TASKS · 24 ACTIVE · 1,423 PRS SHIPPED; yaml line4 on=true note=true; secrets note=LINE 11Secrets give agents protected cre; layer3 bg=rgb(42, 85, 184); faq active=false; sound=on",
+  "demoNodes": 474,
+  "errors": []
  }
 }
