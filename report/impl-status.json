@@ -3814,5 +3814,32 @@
   "proof": "expand open=true bodyH=295; Night swatch → faceOpacity=[0.310696,0.689304,0] summary=\"WI-FI (32GB) / Night / Home fitting\" dot=rgb(42, 43, 47); LTE + Already fitted → \"Pay when ships: $1,199 · Pay today to reserve: $0\"; qty=2 reserve=\"Reserve 2 · $0.00\"; bag=2; single view: right opacity=0.0305762 left w=641 hint=true; drag rotate → 60°; pair view: right opacity=1; app grid menu=true; restored \"WI-FI (32GB) / Dusk / Home fitting\" open=false",
   "demoNodes": 192,
   "errors": []
+ },
+ "elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups": {
+  "url": "https://ux-technique-gallery.vercel.app/t/elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups/",
+  "ok": true,
+  "at": "2026-10-15T19:58:47.419Z",
+  "http": 200,
+  "proof": "tab=agents; tab=api; orb=conversational; playing=true; restored Creative + Narration · stand-ins: canvas textured orbs (not Three.js), invented dashboard metrics, CSS mock windows",
+  "demoNodes": 100,
+  "errors": []
+ },
+ "futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards": {
+  "url": "https://ux-technique-gallery.vercel.app/t/futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards/",
+  "ok": true,
+  "at": "2026-10-15T19:58:47.412Z",
+  "http": 200,
+  "proof": "paused=true; offset=106; grid=true cards=8; restored auto-scroll · stand-ins: CSS/canvas specimens (not live foundry fonts), invented card art",
+  "demoNodes": 128,
+  "errors": []
+ },
+ "snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur": {
+  "url": "https://ux-technique-gallery.vercel.app/t/snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur/",
+  "ok": true,
+  "at": "2026-10-15T19:58:47.403Z",
+  "http": 200,
+  "proof": "highlights=opacity→blur→gray-out→diff; restored opacity · stand-ins: pastel CSS shapes, invented social icons, grayscale wordmarks",
+  "demoNodes": 175,
+  "errors": []
  }
 }
