@@ -4648,5 +4648,35 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.32
+ },
+ "snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur": {
+  "bg": "#ffffff",
+  "fg": "#313a3f",
+  "panel": "#f4faff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.3
+ },
+ "futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards": {
+  "bg": "#ededea",
+  "fg": "#3d3b34",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.35
+ },
+ "elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups": {
+  "bg": "#fdfcfc",
+  "fg": "#bd6a60",
+  "panel": "#f5f3f1",
+  "dark": false,
+  "ac": "#bd6a60",
+  "ac2": "#79392b",
+  "ac3": "#ffc83d",
+  "coverage": 0.41
  }
 }

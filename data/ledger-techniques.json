@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur",
+  "slug": "snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur",
+  "name": "Snappify Code-Window Hero with Pastel Shapes + Multi-Window Drag Annotate Highlight/Blur Flow",
+  "date": "2026-10-16",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://snappify.com/",
+  "domain": "snappify.com",
+  "product": "snappify — code presentation / video editor for developers",
+  "checkpoints": [
+   "White top nav: snappify wordmark + angle-brackets icon, Pricing/Use Cases/Product/Resources, Dashboard/Editor + avatar",
+   "Hero: New Experimental Video Export badge, blue-accent headline 'stunning presentations', dual CTA Get started / View Templates, 40k+ avatar stack",
+   "Right: dark macOS-chrome code window (helloWorld) floating over pink circle / green pentagon / orange triangle pastel shapes",
+   "Trusted-by grayscale logo rail (vendure, jina, Textualize, chakra, supabase)",
+   "Scroll sections: Elevate Technical Content pink tilted card with button.tsx + social brand icons; multi-window compare + text/arrow annotate",
+   "Highlight modes: opacity / blur / gray-out / added-removed line marks on code"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards",
+  "slug": "futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards",
+  "name": "Future Fonts TYPE IN PROGRESS Hero with Auto-Scrolling Specimens + Browse Grid Version Cards",
+  "date": "2026-10-16",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.futurefonts.com/",
+  "domain": "futurefonts.com",
+  "product": "Future Fonts — marketplace for type-in-progress fonts",
+  "checkpoints": [
+   "Thin white header: Fonts / Foundries / Activity left, red blocky Future Fonts wordmark center, search + Sign In / Sign Up right",
+   "Full-bleed off-white hero of oversized black experimental specimens auto-scrolling vertically",
+   "Centered frosted white card: spaced TYPE IN PROGRESS + electric-blue BROWSE FONTS pill",
+   "Bottom-right up/down/pause controls for specimen carousel",
+   "Yellow LEARN MORE band then 4-col font card grid: square specimen art + designer icon/name + version (v0.1/v0.2/v1.0)",
+   "Journal / Fresh Fonts / Early Discounts / Curated Designers value strip"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups",
+  "slug": "elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups",
+  "name": "ElevenLabs Creative/Agents/API Platform Tabs + 3D Voice-Orb Carousel Play + Overlapping App Mockups",
+  "date": "2026-10-16",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://elevenlabs.io/",
+  "domain": "elevenlabs.io",
+  "product": "ElevenLabs — AI voice generator & voice agents platform",
+  "checkpoints": [
+   "Beige v4 announce bar + white nav wordmark IIElevenLabs, Products…Pricing, Log in / black Sign up pill",
+   "Hero split: Bringing technology to life + Sign up / Contact sales pills + enterprise blurb",
+   "Light-grey rounded stage with segmented ElevenCreative / ElevenAgents / ElevenAPI tabs (color dots)",
+   "Horizontal 3D textured orb carousel (Characters / Narration / Conversational…) with central Play and side arrows",
+   "Two platforms section: overlapping Creative editor mock (sidebar + create chips + templates) and Agents dashboard mock (metrics + calls chart)",
+   "Floating Voice chat FAB with iridescent sphere"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-overworld-audio-3d-island-map-drag-pan-zoom-project-markers-sound-gate",
   "slug": "overworld-audio-3d-island-map-drag-pan-zoom-project-markers-sound-gate",
   "name": "3D Sonic Island Map with Drag/Pan/Zoom, Glowing Project Markers, and Enter-With-Sound Gate (Overworld Audio)",
