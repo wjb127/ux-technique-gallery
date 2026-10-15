@@ -115,5 +115,44 @@
    "About: framed hydrangea still layered on right over waiting-room pan; navy + off-white palette; GSAP film page transitions"
   ],
   "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-14 00:00)"
+ },
+ "clone-overworld-audio-3d-island-map-drag-pan-zoom-project-markers-sound-gate": {
+  "name": "3D Sonic Island Map with Drag/Pan/Zoom, Glowing Project Markers, and Enter-With-Sound Gate (Overworld Audio)",
+  "product": "Overworld Audio — sonic branding / game audio studio",
+  "checkpoints": [
+   "Splash gate: grainy dark ground + faint geometric logo behind OVERWORLD / AUDIO; centered ghost button ENTER WITH SOUND, faint ENTER WITHOUT SOUND bottom-right",
+   "After entering: fixed chrome — circular mark + OVERWORLD AUDIO | PROJECTS STUDIO CONTACT | SOUND OFF/ON",
+   "Upper-left serif hero: “Building unforgettable sonic experiences.”",
+   "Lower-left outline button “|| EXPLORE OUR WORK”",
+   "Lower-right hint: “Drag or scroll to navigate / Click markers to explore”",
+   "Island of concentric jagged ridges in dark misty water with purple/cyan/orange/green glowing markers — drag pans the camera, wheel zooms; marker opens a project card"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 00:00)"
+ },
+ "clone-huyml-red-serif-name-loader-hold-drag-works-hcmc-clock-audio-toggle": {
+  "name": "Red-Serif Name Loader + Letterhead Chrome + Tilted WORK Panels + HCMC Live Clock + Audio Toggle (HUYML Vol.2)",
+  "product": "HUYML Vol.2 — Huy Phan, independent creative developer/designer portfolio",
+  "checkpoints": [
+   "Loader: flared red serif HUY / PHAN stacked on pale ground",
+   "Persistent chrome: vertical HUYML© + copyright + “+84 hcmc, vn”; WORK / ABOUT / PLAYGROUND / CONTACT with → on active; “Audio Off —”; “Working globally / HCMC, HH:MM”; hello@huyml.co top-right",
+   "WORK: tilted project panels + left Role/Launch/Recognition specs + right project-name rail (active dark) + tiny palette swatches + bottom Scroll / ’25 showreel",
+   "ABOUT: pale giant 19 and 96 around a line portrait with red AND; red caps confession list above; 4 columns Awards / Publications / Capabilities / Trusted by",
+   "PLAYGROUND: giant pale 83 on the left + mosaic grid of experiments, posters and red SOTD cards",
+   "Palette: #f2f2f2 ground, near-black ink, single accent red #FF4949 reserved for display serif"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 00:00)"
+ },
+ "clone-jesper-landberg-curved-panel-webgl-room-horizontal-scroll-project-overlay": {
+  "name": "Curved-Panel WebGL Room with Infinite Horizontal Carousel, White Project Sheet Overlay, and FEATURED/FULL Index (Jesper Landberg)",
+  "product": "Jesper Landberg — design engineer portfolio",
+  "checkpoints": [
+   "Black room with a white 1px floor grid running to the horizon",
+   "Corner chrome only: JESPER LANDBERG top-left / PROFILE top-right / FEATURED / FULL bottom-left / NEWSLETTER bottom-right",
+   "FEATURED: ~3 panels visible — center faces camera, flanks curve and yaw away (Casa Di Solare / The Lookback)",
+   "Wheel / drag scrolls the panel ring horizontally and infinitely",
+   "Panel click → white rounded sheet: title, one sentence, chips (client/year/trophy), arrow; scrolling stills right; room still visible at sides; X closes",
+   "FULL: 3D off, centered middot-separated list of project names only"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 00:00)"
  }
 }
