@@ -15674,4 +15674,620 @@ V['dogstudio-editorial-serif-hero-3d-wolf-giant-thin-project-index'] = (root, T)
   };
 };
 
+V['toss-fullbleed-photo-shrink-to-rounded-card-sticky-phone-feature-accordion-tick-rail'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#191f28', ac: '#3182f6', dark: false });
+  const KO = "'Toss Product Sans','Pretendard Variable','Pretendard','Apple SD Gothic Neo','Noto Sans KR','Noto Sans CJK KR','Malgun Gothic',system-ui,sans-serif";
+  const BL = '#3182f6', G9 = '#191f28', G7 = '#4e5968', G5 = '#8b95a1', G2 = '#e5e8eb', G1 = '#f2f4f6';
+  css(`.ts{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background:#fff;color:${G9};font:400 15px/1.6 ${KO};-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+.ts *{box-sizing:border-box}:where(.ts) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.ts-nav{position:sticky;top:0;z-index:30;height:60px;background:#ffffffee;backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 7.5%;transition:background .3s,box-shadow .3s}
+.ts-nav .lg{display:flex;align-items:center;gap:5px;font:800 19px/1 ${KO};letter-spacing:-.04em;color:#202632}
+.ts-nav .ln{flex:1;display:flex;justify-content:center;gap:4px}
+.ts-nav .ln button{padding:8px 11px;border-radius:8px;font:500 14.5px/1 ${KO};color:#333d4b;transition:background .15s}.ts-nav .ln button:hover{background:${G1}}
+.ts-nav .kor{font:500 13.5px/1 ${KO};color:#333d4b;display:flex;align-items:center;gap:6px;margin-right:12px;position:relative}
+.ts-nav .kor i{font-style:normal;font-size:9px}
+.ts-nav .dl{background:${G1};padding:9px 12px;border-radius:8px;font:600 14px/1 ${KO};color:#333d4b;transition:background .15s}.ts-nav .dl:hover{background:${G2}}
+.ts-lang{position:absolute;top:30px;right:-6px;background:#fff;border-radius:12px;box-shadow:0 8px 30px #0002;padding:6px;display:none;min-width:110px;z-index:40}
+.ts-lang.on{display:block}.ts-lang button{display:block;width:100%;text-align:left;padding:8px 10px;border-radius:8px;font-size:13.5px}.ts-lang button:hover{background:${G1}}.ts-lang button.on{color:${BL};font-weight:700}
+.ts-story{position:relative}
+.ts-stage{position:sticky;top:0;height:var(--vh);overflow:hidden;margin-top:-60px}
+.ts-card{position:absolute;overflow:hidden;background:#cfd9e1;will-change:inset,border-radius}
+.ts-scene{position:absolute;left:0;top:0}
+.ts-h1{position:absolute;left:0;right:0;bottom:5.5%;display:flex;justify-content:center;gap:4.6vw;color:#fff;font:700 clamp(30px,5.05vw,74px)/1.1 ${KO};letter-spacing:-.035em;text-shadow:0 2px 30px #0003;white-space:nowrap}
+.ts-h1 span{display:inline-block;will-change:transform,opacity}
+.ts-copy{position:absolute;left:24.8%;top:39%;color:#fff;width:360px}
+.ts-copy h2{margin:0;font:700 clamp(22px,2.15vw,31px)/1.45 ${KO};letter-spacing:-.03em}
+.ts-copy p{margin:18px 0 0;font:400 13.5px/1.75 ${KO};color:#ffffffe0}
+.ts-phone{position:absolute;width:var(--pw);aspect-ratio:9/18.6;border-radius:calc(var(--pw)*.16);background:linear-gradient(140deg,#c9d1de,#6f7a8e 40%,#aab4c4 60%,#59637a);padding:calc(var(--pw)*.035);box-shadow:0 40px 70px -30px #0a1a3a88,inset 0 0 0 1px #ffffff55;transform-origin:50% 50%}
+.ts-phone .scr{position:absolute;inset:calc(var(--pw)*.035);border-radius:calc(var(--pw)*.13);background:#fbfbfd;overflow:hidden;box-shadow:inset 0 0 0 calc(var(--pw)*.018) #0d0f14}
+.ts-send{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:30%;text-align:center;font:600 calc(var(--pw)*.058)/1.45 ${KO};color:#333d4b}
+.ts-send .ck{width:24%;aspect-ratio:1;border-radius:50%;background:#5aa0f5;display:grid;place-items:center;margin-bottom:12%;transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.ts-send.go .ck{transform:scale(1)}
+.ts-send .bt{position:absolute;left:5%;right:5%;bottom:4.5%;display:flex;gap:4%}.ts-send .bt b{flex:1;padding:6% 0;border-radius:calc(var(--pw)*.04);font-size:calc(var(--pw)*.046);font-weight:600}
+.ts-hand{position:absolute;pointer-events:none}
+.ts-shadow{position:absolute;left:30%;right:22%;height:70px;border-radius:50%;background:radial-gradient(closest-side,#4b5d8a33,transparent);filter:blur(8px)}
+.ts-rail{position:absolute;left:22px;top:50%;transform:translateY(-50%);z-index:25;display:flex;flex-direction:column;gap:7px}
+.ts-rail button{display:block;border:0;cursor:pointer;width:12px;background-color:#b0b8c1;opacity:.8;transition:width .25s,background-color .25s,opacity .25s;padding:3px 0;background-clip:content-box;height:7.5px}
+.ts-rail button.on{background-color:${G9};opacity:1}
+.ts-rail.lt button{background-color:#ffffff88}.ts-rail.lt button.on{background-color:#fff}
+.ts-acc{position:relative}
+.ts-acc .stk{position:sticky;top:60px;height:calc(var(--vh) - 60px);display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:5%;align-items:center;padding:0 10% 0 23%;overflow:hidden}
+.ts-acc h2{margin:0 0 34px;font:700 clamp(28px,2.6vw,37px)/1.42 ${KO};letter-spacing:-.035em;color:#333d4b}
+.ts-it{border-top:1px solid ${G2};padding:18px 0;overflow:hidden}.ts-it:last-child{border-bottom:1px solid ${G2}}
+.ts-it>button{display:block;width:100%;text-align:left;font:600 16.5px/1.4 ${KO};color:#c5cbd2;transition:color .3s}
+.ts-it.on>button{color:#333d4b;font-weight:700}
+.ts-it .bd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1),opacity .35s;opacity:0}.ts-it.on .bd{grid-template-rows:1fr;opacity:1}
+.ts-it .bd>div{overflow:hidden}.ts-it .bd p{margin:8px 0 18px;font:400 14px/1.7 ${KO};color:${G7}}
+.ts-more{display:inline-flex;align-items:center;gap:10px;background:${G1};border-radius:99px;padding:7px 7px 7px 15px;font:600 13.5px/1 ${KO};color:#333d4b;transition:background .15s}.ts-more:hover{background:${G2}}
+.ts-more i{width:22px;height:22px;border-radius:50%;background:#202632;display:grid;place-items:center;color:#fff;font-style:normal;font-size:12px}
+.ts-dev{position:relative;height:min(78%,560px);aspect-ratio:9/18.6;justify-self:center;perspective:1400px}
+.ts-dev .ph{position:absolute;inset:0;transform:rotateY(-18deg) rotateX(8deg) rotateZ(6deg);transform-style:preserve-3d;border-radius:46px;background:linear-gradient(150deg,#dfe5ee,#8b97ab 35%,#cfd6e1 55%,#7d899d);padding:9px;box-shadow:30px 40px 70px -30px #1d2b4d66}
+.ts-dev .ph .scr{position:absolute;inset:9px;border-radius:38px;background:#f4f5f7;overflow:hidden;box-shadow:inset 0 0 0 5px #10131a;padding:44px 16px 0}
+.ts-dev .top{display:flex;justify-content:space-between;font:700 11px/1 ${KO};color:#4e5968;margin-bottom:12px}
+.ts-row{background:#fff;border-radius:14px;padding:12px 13px;margin-bottom:9px;display:flex;align-items:center;gap:9px;font:700 11.5px/1.3 ${KO};color:#333d4b;opacity:.38;filter:blur(.3px)}
+.ts-row small{display:block;font-weight:400;font-size:9px;color:${G5}}.ts-row .d{width:20px;height:20px;border-radius:50%;flex:none}.ts-row .s{margin-left:auto;font-size:9px;background:${G1};padding:4px 7px;border-radius:6px;color:${G7}}
+.ts-pop{position:absolute;left:-34px;right:22px;top:var(--pt,72px);background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 22px 50px -10px #1b2d5a40,0 2px 6px #0001;transform:translateZ(40px);transition:opacity .35s,transform .5s cubic-bezier(.2,.9,.3,1.2)}
+.ts-pop.out{opacity:0;transform:translateZ(40px) translateY(14px) scale(.96)}
+.ts-pop .ts-row{opacity:1;filter:none;margin:0;padding:8px 2px;background:none}
+.ts-floor{position:absolute;left:12%;right:-6%;bottom:-6%;height:60px;border-radius:50%;background:radial-gradient(closest-side,#5466a033,transparent);filter:blur(6px)}
+.ts-end{padding:120px 23% 140px;text-align:left}.ts-end h2{margin:0 0 18px;font:700 clamp(28px,2.6vw,37px)/1.42 ${KO};letter-spacing:-.035em;color:#333d4b}.ts-end p{color:${G7};margin:0 0 26px;max-width:460px}
+.ts-end .row{display:flex;gap:10px;flex-wrap:wrap}.ts-end .row button{background:${BL};color:#fff;font-weight:600;padding:12px 18px;border-radius:12px}.ts-end .row button+button{background:${G1};color:#333d4b}
+.ts-foot{border-top:1px solid ${G2};padding:34px 7.5% 60px;color:${G5};font-size:12.5px;display:flex;gap:26px;flex-wrap:wrap}
+@media (max-width:760px){.ts-nav{padding:0 18px}.ts-nav .ln,.ts-nav .kor{display:none}.ts-nav .lg{flex:1}.ts-h1{flex-direction:column;align-items:flex-start;gap:0;left:24px;bottom:7%;font-size:36px}.ts-copy{left:26px;top:auto;bottom:10%;width:auto;right:26px}.ts-copy h2{font-size:24px}.ts-rail{left:8px}
+.ts-acc .stk{grid-template-columns:1fr;padding:22px 24px 0 30px;align-content:start;gap:12px}.ts-acc h2{font-size:24px;margin-bottom:14px}.ts-it{padding:12px 0}.ts-it .bd p{margin:6px 0 10px;font-size:13px}.ts-dev{height:300px;justify-self:end;margin-right:10px}.ts-dev .ph{border-radius:30px}.ts-dev .ph .scr{border-radius:24px;padding:28px 10px 0}.ts-pop{left:-60px;right:6px;padding:8px 10px}.ts-row{padding:8px;font-size:9.5px}.ts-end{padding:80px 26px}}
+`);
+  const el = h('div.ts');
+  // ---- nav ----
+  const logo = h('div.lg', {}, s('svg', { viewBox: '0 0 30 26', width: 22, height: 19 }, s('defs', {}, s('linearGradient', { id: 'tsl', x1: 0, y1: 0, x2: 1, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#4ea6ff' }), s('stop', { offset: 1, 'stop-color': '#0c63e4' }))), s('path', { d: 'M3 5 Q13 -2 26 4 Q30 6 28 11 L24 22 Q22 26 17 24 Q7 21 2 14 Q-1 9 3 5Z', fill: 'url(#tsl)' }), s('path', { d: 'M8 9 Q15 6 22 9', stroke: '#ffffff66', 'stroke-width': 2, fill: 'none', 'stroke-linecap': 'round' })), 'toss');
+  let lang = 'KOR'; const langM = h('div.ts-lang', {}, ...['KOR', 'ENG'].map((l) => h('button' + (l === 'KOR' ? '.on' : ''), { onclick: (e) => { e.stopPropagation(); lang = l; korB.firstChild.textContent = l; [...langM.children].forEach((b) => b.classList.toggle('on', b.textContent === l)); langM.classList.remove('on'); toast(l === 'KOR' ? '한국어' : 'English (demo)'); } }, l)));
+  const korB = h('button.kor', { onclick: () => langM.classList.toggle('on') }, h('span', {}, 'KOR'), h('i', {}, '▼'), langM);
+  const navEl = h('div.ts-nav', {}, logo, h('div.ln', {}, ...['서비스', '비즈니스', '회사소개', '뉴스룸', '채용'].map((t) => h('button', { onclick: () => toast(`${t} (데모)`) }, t))), korB, h('button.dl', { onclick: () => toast('앱 다운로드 (데모)') }, '앱 다운로드'));
+  // ---- stand-in imagery ----
+  // hero: train window over the Han river, person looking at phone (SVG stand-in for the photo)
+  const heroSvg = s('svg', { viewBox: '0 0 1440 820', preserveAspectRatio: 'xMidYMid slice', style: 'position:absolute;inset:0;width:100%;height:100%' },
+    s('defs', {}, s('linearGradient', { id: 'tsk', x1: 0, y1: 0, x2: 0, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#dfe6ec' }), s('stop', { offset: .45, 'stop-color': '#cfd9e0' }), s('stop', { offset: .62, 'stop-color': '#bccad4' }), s('stop', { offset: 1, 'stop-color': '#e6ecef' })),
+      s('linearGradient', { id: 'tsw', x1: 0, y1: 0, x2: 1, y2: 0 }, s('stop', { offset: 0, 'stop-color': '#c9d3db' }), s('stop', { offset: 1, 'stop-color': '#eef1f3' })),
+      s('radialGradient', { id: 'tsf', cx: .45, cy: .4, r: .6 }, s('stop', { offset: 0, 'stop-color': '#f1d2bf' }), s('stop', { offset: 1, 'stop-color': '#d9a98f' })),
+      s('linearGradient', { id: 'tss', x1: 0, y1: 0, x2: 0, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#f5f1ea' }), s('stop', { offset: 1, 'stop-color': '#e2dbd0' })),
+      s('filter', { id: 'tsb' }, s('feGaussianBlur', { stdDeviation: 6 })), s('filter', { id: 'tsb2' }, s('feGaussianBlur', { stdDeviation: 2.4 }))),
+    s('rect', { width: 1440, height: 820, fill: 'url(#tsw)' }),
+    s('rect', { x: 0, y: 0, width: 1120, height: 650, rx: 70, fill: 'url(#tsk)' }),
+    s('g', { filter: 'url(#tsb)', opacity: .55 }, ...[[150, 150, 60, 90], [230, 130, 40, 110], [300, 160, 70, 80], [420, 140, 50, 100], [520, 170, 90, 70], [660, 120, 40, 120], [740, 150, 80, 90], [880, 165, 60, 75], [980, 140, 50, 100]].map(([x, y, w, hh]) => s('rect', { x, y, width: w, height: hh, fill: '#a9b6c0' })), s('rect', { x: 0, y: 248, width: 1120, height: 22, fill: '#9fb0bb' })),
+    s('rect', { x: 0, y: 270, width: 1120, height: 380, fill: '#e9eef1', opacity: .55, filter: 'url(#tsb)' }),
+    s('path', { d: 'M1120 0 H1440 V820 H0 V650 Q520 640 980 600 Q1090 590 1110 520 L1120 70 Q1118 0 1120 0Z', fill: '#e9ecef' }),
+    s('path', { d: 'M1092 40 Q1135 40 1135 90 L1120 590 Q1110 640 1040 640 L0 660', stroke: '#2a2f38', 'stroke-width': 26, fill: 'none', opacity: .85 }),
+    s('rect', { x: 1150, y: 0, width: 290, height: 820, fill: '#dde2e6' }), s('rect', { x: 1180, y: 560, width: 260, height: 260, rx: 30, fill: '#7d8794', opacity: .5 }),
+    s('rect', { x: 0, y: 690, width: 640, height: 130, fill: '#8d96a1', opacity: .55, filter: 'url(#tsb)' }),
+    // person (soft-focus stand-in for the lifestyle photo)
+    s('g', { filter: 'url(#tsb2)' },
+      s('path', { d: 'M640 820 Q650 600 720 540 Q790 500 850 500 Q930 500 990 540 Q1060 600 1080 820Z', fill: 'url(#tss)' }),
+      s('path', { d: 'M700 600 Q720 560 760 548 M960 548 Q1000 560 1020 600', stroke: '#d6cec2', 'stroke-width': 10, fill: 'none', opacity: .6 }),
+      s('path', { d: 'M818 400 L814 488 Q850 506 888 488 L884 400Z', fill: '#e2b39b' }),
+      s('path', { d: 'M760 250 Q758 150 852 146 Q952 150 950 262 Q958 400 990 560 Q950 580 918 540 Q912 470 916 380 L790 380 Q792 470 786 540 Q752 580 712 560 Q752 400 760 250Z', fill: '#191617' }),
+      s('ellipse', { cx: 852, cy: 318, rx: 70, ry: 90, fill: 'url(#tsf)' }),
+      s('path', { d: 'M780 270 Q800 190 880 196 Q930 204 936 268 Q900 226 840 236 Q800 244 780 300Z', fill: '#191617' }),
+      s('path', { d: 'M814 330 Q826 336 838 330 M868 330 Q880 336 892 330', stroke: '#4a302a', 'stroke-width': 3, fill: 'none', 'stroke-linecap': 'round', opacity: .55 }),
+      s('path', { d: 'M836 372 Q852 380 870 372', stroke: '#b56a62', 'stroke-width': 4, fill: 'none', 'stroke-linecap': 'round', opacity: .7 }),
+      s('g', { transform: 'rotate(16 1090 640)' }, s('rect', { x: 1040, y: 560, width: 100, height: 190, rx: 20, fill: '#eef0f3', stroke: '#b9c0ca', 'stroke-width': 4 }), s('circle', { cx: 1062, cy: 584, r: 8, fill: '#2a2f38' }), s('circle', { cx: 1062, cy: 608, r: 8, fill: '#2a2f38' })),
+      s('path', { d: 'M960 820 Q990 700 1060 700 Q1110 700 1104 760 Q1100 800 1080 820Z', fill: '#e3b49b' }),
+      s('path', { d: 'M700 820 Q760 740 860 760 Q940 780 960 820Z', fill: '#e8b9a1', opacity: .9 })));
+  // phone close-up scene: blurred cold seaside backdrop + hands (photo stand-in)
+  const handsSvg = s('svg', { class: 'ts-hand', viewBox: '0 0 1440 900', preserveAspectRatio: 'xMidYMid slice', style: 'inset:0;width:100%;height:100%' },
+    s('defs', {}, s('linearGradient', { id: 'tsbg', x1: 0, y1: 0, x2: 0, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#c8d1db' }), s('stop', { offset: .42, 'stop-color': '#dbe2e9' }), s('stop', { offset: .55, 'stop-color': '#9ea8b3' }), s('stop', { offset: .75, 'stop-color': '#b9c1c9' }), s('stop', { offset: 1, 'stop-color': '#c9ced3' })),
+      s('linearGradient', { id: 'tshd', x1: 0, y1: 0, x2: 1, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#f2d3c3' }), s('stop', { offset: 1, 'stop-color': '#d9a790' })),
+      s('filter', { id: 'tsbl' }, s('feGaussianBlur', { stdDeviation: 26 }))),
+    s('rect', { width: 1440, height: 900, fill: 'url(#tsbg)' }),
+    s('ellipse', { cx: 90, cy: 420, rx: 260, ry: 520, fill: '#1b1d22', filter: 'url(#tsbl)', opacity: .92 }),
+    s('ellipse', { cx: 220, cy: 860, rx: 380, ry: 160, fill: '#efe9e0', filter: 'url(#tsbl)' }),
+    s('path', { d: 'M560 900 Q560 760 640 690 Q700 640 790 600 L820 680 Q760 760 760 900Z', fill: 'url(#tshd)' }),
+    s('path', { d: 'M520 900 Q500 820 540 790 L620 760 L640 900Z', fill: '#f1ece4' }),
+    s('path', { d: 'M1040 900 Q1100 760 1120 640 Q1130 560 1180 520 Q1215 540 1205 610 L1190 760 Q1180 860 1160 900Z', fill: 'url(#tshd)' }),
+    s('path', { d: 'M1110 900 Q1160 840 1210 900Z', fill: '#f1ece4' }));
+  const thumbs = s('svg', { class: 'ts-hand', viewBox: '0 0 1440 900', preserveAspectRatio: 'xMidYMid slice', style: 'inset:0;width:100%;height:100%;z-index:3' }, s('defs', {}, s('linearGradient', { id: 'tsh2', x1: 0, y1: 0, x2: 1, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#f4dacb' }), s('stop', { offset: 1, 'stop-color': '#d6a28b' }))),
+    s('path', { d: 'M700 640 Q760 560 860 470 Q905 440 925 470 Q930 500 880 560 L790 690 Q740 720 700 680Z', fill: 'url(#tsh2)' }), s('path', { d: 'M890 470 Q912 456 922 476 Q918 490 900 488Z', fill: '#f8e5da' }),
+    s('path', { d: 'M1150 520 Q1190 470 1215 520 L1205 640 Q1180 660 1160 630Z', fill: 'url(#tsh2)' }));
+  // ---- stage ----
+  const vh = () => el.clientHeight || 700;
+  const h1 = h('div.ts-h1', {}, h('span', {}, '금융부터 일상까지'), h('span', {}, '마침내'), h('span', {}, '토스 하나로'));
+  const scHero = h('div.ts-scene', {}, heroSvg, h1);
+  const copyP = h('p', {}, '계좌번호를 물어보고 입력하는 번거로운 과정 없이,', h('br'), '이젠 연락처에서 친구를 찾아 금액만 입력하면 끝나요.');
+  const copy = h('div.ts-copy', {}, h('h2', {}, '몇 번만 누르면', h('br'), '끝나는 송금'), copyP);
+  const scPhone = h('div.ts-scene', { style: { opacity: 0 } }, handsSvg, copy);
+  const card = h('div.ts-card', {}, scHero, scPhone);
+  const ckSvg = s('svg', { viewBox: '0 0 24 24', width: '52%' }, s('path', { d: 'M6 12.5 L10.5 17 L18 8', stroke: '#fff', 'stroke-width': 3, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
+  const send = h('div.ts-send', {}, h('div.ck', {}, ckSvg), h('div', {}, '김지훈님에게'), h('div', {}, '20,000원을 보냈어요'), h('div.bt', {}, h('b', { style: { background: '#e8ebef', color: '#6b7684' } }, '공유하기'), h('b', { style: { background: BL, color: '#fff' } }, '확인')));
+  const phone = h('div.ts-phone', { style: { opacity: 0 } }, h('div.scr', {}, send));
+  const shadow = h('div.ts-shadow', { style: { opacity: 0 } });
+  const stage = h('div.ts-stage', {}, shadow, card, phone, thumbs);
+  const story = h('section.ts-story', {}, stage);
+  // ---- accordion with sticky phone ----
+  const ACC = [
+    ['내 자산 모아보기', '입출금계좌와 예적금은 물론 주식 투자금까지.\n여러 금융사에 흩어진 모든 자산을 모아서 보여드려요.', '내 자산', 70],
+    ['내 자산 관리하기', '이번 달 얼마를 썼는지, 어디에 썼는지.\n소비와 고정지출을 한눈에 정리해 드려요.', '소비 내역', 150],
+    ['매일 이자 받기', '이자 받는 날까지 기다릴 필요 없어요.\n토스뱅크는 이자를 언제 받을지 내가 선택할 수 있어요.', '토스뱅크', 210],
+    ['외화 환전하기', '수수료 걱정 없이 필요할 때 바로.\n42개 통화를 실시간 환율로 바꿀 수 있어요.', '환전', 300],
+  ];
+  const BANK = [['#3182f6', '4,820,000원', '토스뱅크 통장'], ['#18a47a', '32,048,000원', '비상금 계좌'], ['#f5b400', '12,950,000원', 'KB입출금 통장'], ['#2c57c9', '9,480,000원', '청년우대 통장'], ['#18a0d8', '1,350,000원', '우리입출금 통장']];
+  const row = (c, a, b, sx = '송금') => h('div.ts-row', {}, h('i.d', { style: { background: c } }), h('div', {}, a, h('small', {}, b)), sx ? h('span.s', {}, sx) : '');
+  const POPS = [
+    () => BANK.map((b) => row(...b)),
+    () => [h('div', { style: { font: `700 11px ${KO}`, color: G5, padding: '4px 2px' } }, '10월 소비'), h('div', { style: { font: `800 19px ${KO}`, padding: '0 2px 8px' } }, '1,284,500원'), h('div', { style: { display: 'flex', alignItems: 'flex-end', gap: '6px', height: '62px', padding: '0 2px' } }, ...[38, 54, 30, 70, 46, 88, 60].map((v, i) => h('i', { style: { flex: 1, height: v + '%', borderRadius: '4px', background: i === 5 ? BL : '#d4e5fd' } }))), row('#ff8a3d', '식비 412,000원', '전월 대비 -8%', ''), row('#7b61ff', '교통 86,400원', '전월 대비 +2%', '')],
+    () => [h('div', { style: { font: `600 10px ${KO}`, color: G5, padding: '4px 2px 0' } }, '토스뱅크 통장'), h('div', { style: { font: `800 18px ${KO}`, padding: '2px 2px 10px' } }, '5,173,000원'), h('div.ts-row', {}, h('i.d', { style: { background: '#e8f3ff', display: 'grid', placeItems: 'center', color: BL, fontStyle: 'normal', fontSize: '11px' } }, '₩'), h('div', {}, '2,400원', h('small', {}, '오늘까지 쌓인 이자')), h('span.s', { style: { background: '#e8f3ff', color: BL } }, '지금 이자 받기'))],
+    () => [row('#e94b4b', '15.00 USD', '환전했어요', ''), row('#3182f6', '1 USD = 1,382.40원', '실시간 환율', ''), h('div', { style: { display: 'flex', gap: '6px', padding: '6px 2px 2px' } }, ...['USD', 'JPY', 'EUR', 'CNY'].map((c, i) => h('span', { style: { font: `700 9.5px ${KO}`, padding: '5px 8px', borderRadius: '7px', background: i ? G1 : BL, color: i ? G7 : '#fff' } }, c)))],
+  ];
+  const pop = h('div.ts-pop');
+  const devScr = h('div.scr', {}, h('div.top', {}, h('span', {}, '◆ 토스뱅크 ›'), h('span', {}, 'PAY  🔔')), ...BANK.map((b) => row(...b)), row('#c8d2dc', '2,190,000원', '예금 이자 계좌'), row('#f04452', '카드값 출금 3일 전', '계좌 잔액 부족', ''), row('#9aa4b2', '5,173,000원', '토스뱅크 통장'), row('#8b95a1', '15.00 USD', '환전했어요', ''));
+  const dev = h('div.ts-dev', {}, h('div.ts-floor'), h('div.ph', {}, devScr, pop));
+  let acc = -1;
+  const items = ACC.map(([t, d, more], i) => h('div.ts-it', {}, h('button', { onclick: () => goAcc(i) }, t), h('div.bd', {}, h('div', {}, h('p', {}, ...d.split('\n').flatMap((x, k) => (k ? [h('br'), x] : [x]))), h('button.ts-more', { onclick: () => toast(`${more} 더 알아보기 (데모)`) }, more, h('i', {}, '→'))))));
+  const setAcc = (i) => { if (i === acc) return; acc = i; items.forEach((it, k) => it.classList.toggle('on', k === i)); pop.classList.add('out'); clearTimeout(pop._t); pop._t = setTimeout(() => { pop.replaceChildren(...POPS[i]()); pop.style.setProperty('--pt', ACC[i][3] * (dev.clientHeight / 560) + 'px'); pop.classList.remove('out'); }, 180); };
+  const stk = h('div.stk', {}, h('div', {}, h('h2', {}, '자산을 관리하는 일은', h('br'), '한껏 단순하게'), items), dev);
+  const accSec = h('section.ts-acc', {}, stk);
+  const goAcc = (i) => { const span = accSec.offsetHeight - (vh() - 60); el.scrollTo({ top: accSec.offsetTop - 60 + span * ((i + 0.5) / ACC.length), behavior: 'smooth' }); setAcc(i); };
+  const end = h('section.ts-end', {}, h('h2', {}, '금융부터 일상까지', h('br'), '토스 하나로'), h('p', {}, '송금, 결제, 자산관리, 보험, 대출까지. 2,800만 명이 쓰는 토스에서 일상의 모든 금융을 만나보세요.'), h('div.row', {}, h('button', { onclick: () => toast('App Store (데모)') }, 'App Store'), h('button', { onclick: () => toast('Google Play (데모)') }, 'Google Play')));
+  const foot = h('div.ts-foot', {}, h('b', { style: { color: G7 } }, '㈜비바리퍼블리카'), h('span', {}, '고객센터 1599-4905'), h('span', {}, '개인정보 처리방침'), h('span', {}, '이용약관'), h('span', {}, '룩얼라이크 연습 빌드 — 실제 토스 사이트가 아닙니다'));
+  // ---- tick rail ----
+  const NT = 12; const ticks = Array.from({ length: NT }, (_, i) => h('button', { title: `${i + 1}`, onclick: () => { const max = el.scrollHeight - el.clientHeight; el.scrollTo({ top: max * (i / (NT - 1)), behavior: 'smooth' }); } }));
+  const rail = h('div.ts-rail', {}, ticks);
+  el.append(navEl, story, accSec, end, foot); root.append(el, rail);
+  // ---- scroll driver ----
+  const sm = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+  const L = (a, b, t) => a + (b - a) * t;
+  let P = 0, tick = -1, sent = false;
+  const layout = () => { const H = vh(); el.style.setProperty('--vh', H + 'px'); story.style.height = H * 4.2 + 'px'; accSec.style.height = (H - 60) * 3.4 + 'px'; };
+  const apply = () => {
+    const H = vh(), W = el.clientWidth, mob = W < 760; const st = el.scrollTop;
+    P = clamp((st - story.offsetTop) / Math.max(1, story.offsetHeight - H), 0, 1);
+    const g = sm(0, 0.17, P), x = sm(0.22, 0.4, P), k = sm(0.5, 0.74, P), d = sm(0.72, 0.86, P);
+    // card inset: hero rounded → full-bleed → rounded card
+    const t0 = 60 + 0.5, sx0 = mob ? 10 : W * 0.0105, b0 = mob ? 14 : H * 0.03;
+    const tk = mob ? H * 0.16 : H * 0.155, sk = mob ? 14 : W * 0.111, bk = mob ? H * 0.2 : H * 0.18;
+    let top = L(t0, 0, g), side = L(sx0, 0, g), bot = L(b0, 0, g), rad = L(mob ? 18 : 26, 0, g);
+    top = L(top, tk, k); side = L(side, sk, k); bot = L(bot, bk, k); rad = L(rad, mob ? 28 : 46, k);
+    Object.assign(card.style, { top: top + 'px', left: side + 'px', right: side + 'px', bottom: bot + 'px', borderRadius: rad + 'px' });
+    for (const sc of [scHero, scPhone]) Object.assign(sc.style, { left: -side + 'px', top: -top + 'px', width: W + 'px', height: H + 'px' });
+    // headline lines drift + fade on crossfade
+    [...h1.children].forEach((sp, i) => { sp.style.transform = `translateY(${(1 - g) * (14 + i * 10) - x * 30}px)`; sp.style.opacity = 1 - x; });
+    scHero.style.opacity = 1 - x; scPhone.style.opacity = x; thumbs.style.opacity = x;
+    heroSvg.style.transform = `scale(${1.08 - g * 0.08 + x * 0.06})`;
+    // phone sits above the card (not clipped) so it pokes out once the card shrinks
+    const pw = mob ? W * 0.5 : Math.min(W * 0.205, H * 0.39); phone.style.setProperty('--pw', pw + 'px');
+    const px = mob ? W * 0.44 : W * 0.555, py = mob ? H * 0.12 : H * 0.15; phone.style.left = px + 'px'; phone.style.top = py + 'px';
+    phone.style.transform = `rotate(${L(9, 8, k)}deg) scale(${L(1.04, 1, k)})`; phone.style.opacity = x;
+    thumbs.style.clipPath = `inset(${top}px ${side}px ${bot}px ${side}px round ${rad}px)`;
+    shadow.style.opacity = k; shadow.style.top = H - bk + 18 + 'px';
+    copyP.style.opacity = d; copyP.style.transform = `translateY(${(1 - d) * 12}px)`;
+    if (x > 0.6 && !sent) { sent = true; send.classList.add('go'); } else if (x < 0.3 && sent) { sent = false; send.classList.remove('go'); }
+    // accordion progress
+    const as = clamp((st - (accSec.offsetTop - 60)) / Math.max(1, accSec.offsetHeight - (H - 60)), 0, 0.9999);
+    setAcc(Math.floor(as * ACC.length));
+    // rail
+    const tp = clamp(st / Math.max(1, el.scrollHeight - H), 0, 1); const ti = Math.round(tp * (NT - 1));
+    if (ti !== tick) { tick = ti; ticks.forEach((b, i) => { b.classList.toggle('on', i === ti); b.style.width = (i === ti ? 14 : 10) + 'px'; }); }
+    rail.classList.toggle('lt', P > 0.2 && P < 0.62);
+    navEl.style.background = st < 10 ? '#ffffff' : '#ffffffee';
+  };
+  layout(); apply(); el.addEventListener('scroll', apply); new ResizeObserver(() => { layout(); apply(); }).observe(el);
+  document.addEventListener('click', (e) => { if (!korB.contains(e.target)) langM.classList.remove('on'); });
+  window.__demoProof = async () => {
+    const o = []; const H = vh(); const span = story.offsetHeight - H; const at = async (p) => { el.scrollTop = story.offsetTop + span * p; apply(); await sleep(40); };
+    await at(0); const r0 = card.style.borderRadius, t0 = card.style.top;
+    await at(0.19); o.push(`grow: radius ${r0}→${card.style.borderRadius} top ${t0}→${card.style.top}`);
+    await at(0.42); o.push(`crossfade hero=${(+scHero.style.opacity).toFixed(2)} phoneScene=${(+scPhone.style.opacity).toFixed(2)} sent=${sent}`);
+    await at(0.8); o.push(`shrink: radius=${card.style.borderRadius} side=${card.style.left} desc=${(+copyP.style.opacity).toFixed(2)} railLight=${rail.classList.contains('lt')}`);
+    el.scrollTop = accSec.offsetTop - 60 + 2; apply(); await sleep(300); o.push(`acc[0] on=${items[0].classList.contains('on')}`);
+    const ac0 = pop.textContent.slice(0, 12); setAcc(2); await sleep(320); o.push(`click 매일 이자 받기 → on=${items[2].classList.contains('on')} others=${items.filter((x) => x.classList.contains('on')).length} screen "${ac0}"→"${pop.textContent.slice(0, 14)}"`);
+    const tk0 = tick; el.scrollTop = el.scrollHeight; apply(); o.push(`rail tick ${tk0}→${tick}`);
+    korB.click(); const lo = langM.classList.contains('on'); korB.click(); o.push(`lang menu ${lo}`);
+    el.scrollTop = 0; apply(); setAcc(0); await sleep(250); o.push(`restored P=${P.toFixed(2)} tick=${tick} radius=${card.style.borderRadius}`);
+    return o.join('; ');
+  };
+};
+
+V['kontinentalist-illustrated-data-story-clickable-name-tree-step-name-explorer'] = (root, T) => {
+  theme(root, T, { bg: '#fbf8f4', fg: '#1d1d1f', ac: '#ef6a4c', dark: false });
+  import('@fontsource-variable/outfit'); import('@fontsource/gochi-hand'); import('@fontsource/courier-prime');
+  const SAN = "'Outfit Variable','Questrial',Helvetica,Arial,sans-serif", HND = "'Gochi Hand','Coming Soon','Comic Sans MS',cursive", MON = "'Courier Prime','Courier New',monospace";
+  const CO = '#ef6a4c', CR = '#fbf8f4', HD = '#f8ede1', PW = '#5f6399', PB = '#8f9ae6', GR = '#2d5e4c', NOTE = '#ede3d3';
+  css(`.kn{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background:${CR};color:#1d1d1f;font:400 15.5px/1.62 ${SAN};-webkit-font-smoothing:antialiased}
+.kn *{box-sizing:border-box}:where(.kn) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.kn-hd{position:sticky;top:0;z-index:20;height:54px;background:${HD};border-bottom:1px solid #ecd5c4;display:flex;align-items:center;padding:0 22px;color:${CO};font:500 12.5px/1 ${SAN};letter-spacing:.03em;text-transform:uppercase}
+.kn-hd nav{display:flex;gap:34px;flex:1;align-items:center}.kn-hd nav.r{justify-content:flex-end}
+.kn-hd nav button{padding:14px 0;transition:opacity .2s}.kn-hd nav button:hover{opacity:.65}
+.kn-hd .st{border:1px solid ${CO};border-radius:50%;padding:14px 11px!important}
+.kn-logo{display:flex;flex-direction:column;align-items:center;text-transform:none;letter-spacing:-.01em;font:400 21px/1 ${SAN};color:${CO};margin-top:-2px}
+.kn-hero{position:relative;height:calc(var(--vh) - 54px);min-height:520px;background:${PW};overflow:hidden;color:#fff}
+.kn-ill{position:absolute;inset:-2% -1%}
+.kn-por{position:absolute;transition:transform .4s cubic-bezier(.3,1.5,.5,1)}
+.kn-por svg{width:100%;display:block;overflow:visible}
+.kn-por:hover{transform:rotate(-3deg) scale(1.06)}
+.kn-nm{position:absolute;white-space:nowrap;font:400 17px/1 ${HND};color:#20213d;letter-spacing:.01em;pointer-events:auto;cursor:default}
+.kn-nm u{text-decoration:none;box-shadow:inset 0 -.2em 0 #1d1f3c;padding:0 1px;transition:box-shadow .25s,color .25s}.kn-nm:hover u{box-shadow:inset 0 -1.1em 0 ${PB};}
+.kn-sub{position:absolute;font:400 11.5px/1 ${HND};color:#22243f;white-space:nowrap;opacity:.9}
+.kn-tt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(820px,92%);text-align:center;z-index:2}
+.kn-tt h1{margin:0;font:700 clamp(36px,4.1vw,58px)/1.08 ${SAN};letter-spacing:-.01em;text-shadow:0 0 30px ${PW},0 0 12px ${PW}}
+.kn-tt .sub{font:300 clamp(18px,1.75vw,25px)/1.3 ${SAN};margin:10px auto 18px;max-width:720px;text-shadow:0 0 18px ${PW},0 0 8px ${PW}}
+.kn-tt .by{font:600 13.5px/1.4 ${SAN}}.kn-tt .dt{font:300 13.5px/1.4 ${SAN};margin-bottom:28px}
+.kn-share{display:flex;justify-content:center;align-items:center;gap:36px;margin-bottom:24px}.kn-share i{display:block;width:68px;height:1px;background:#fff}.kn-share button{font:700 13px/1 ${SAN};opacity:.95}
+.kn-tt .ld{font:500 clamp(15px,1.3vw,18.5px)/1.4 ${SAN};max-width:800px;margin:0 auto 22px;text-shadow:0 0 14px ${PW}}
+.kn-read{border:1px solid #fff;padding:11px 12px;font:400 13.5px/1 ${SAN};display:inline-flex;gap:10px;background:${PW}cc;transition:background .2s,color .2s}.kn-read:hover{background:#fff;color:${PW}}
+.kn-body{max-width:540px;margin:0 auto;padding:60px 0 40px}
+.kn-body p{margin:0 0 20px}
+.kn-h2{display:flex;align-items:center;gap:8px;margin:60px 0 22px;font:600 17.5px/1.2 ${SAN};color:${GR}}.kn-h2::before{content:'';width:26px;height:1px;background:${CO}}
+.kn-clerk{display:flex;align-items:flex-start;gap:8px;margin:14px 0}.kn-clerk .bub{background:#f2ebe4;padding:6px 8px;font:400 11px/1.75 ${MON};color:#8a8f9c;flex:1;transition:color .3s,background .3s}
+.kn-clerk .bub.bad{color:#c24936;background:#fbe6df}.kn-clerk .bub.ok{color:#3e7a5c;background:#e6f1e9}
+.kn-form{width:262px;border:1.5px solid #c9cdf2;border-bottom:0;background:#fbf8f4;margin:18px 0 10px}
+.kn-form .t{font:400 8.5px/1 ${MON};color:#9ba1dc;letter-spacing:.05em;padding:10px 12px;border-bottom:1px solid #c9cdf2}
+.kn-form label{display:flex;align-items:center;gap:10px;padding:12px 12px 6px;font:400 14px/1 ${HND};color:#9ba1dc}.kn-form label span{width:66px}
+.kn-form input{flex:1;min-width:0;height:32px;border:1px solid #c9cdf2;background:#fff;padding:0 8px;font:400 13px ${MON};color:#333;outline:none;transition:border-color .2s,box-shadow .2s}
+.kn-form input.bad{border-color:#e0533c;box-shadow:0 0 0 3px #e0533c22}.kn-form .er{min-height:22px;padding:2px 12px 8px 88px;font:400 9.5px/1.35 ${MON};color:#d0442e}
+.kn-pill{display:inline-block;border:1px solid #d9cbb8;background:#f6eee4;border-radius:99px;padding:5px 10px;font:400 12px/1 ${HND};color:#a2927d;transition:background .2s}.kn-pill:hover{background:#efe2d1}
+.kn-tag{display:inline-block;background:#f0ebe6;border-radius:6px;padding:5px 8px;font:400 11px/1 ${SAN};color:#333}
+.kn-wide{max-width:900px;margin:0 auto;padding:0 20px}
+.kn-tree{display:grid;grid-template-columns:1fr 260px;gap:30px;align-items:start;margin:12px 0 30px}
+.kn-tree svg{width:100%;display:block;overflow:visible}
+.kn-tree .lb{font:400 14.5px ${HND};fill:#cdbfa8;cursor:pointer;transition:fill .25s}.kn-tree .lb:hover{fill:#7e6f5a}
+.kn-tree .lb.on{fill:#1d1d1f}.kn-tree .hl{opacity:0;transition:opacity .25s}.kn-tree .hl.on{opacity:1}
+.kn-tree .br{fill:none;stroke:#dfd3c0;stroke-width:1.7;stroke-linecap:round;transition:stroke .3s,stroke-width .3s}.kn-tree .br.on{stroke:#1f1c1a;stroke-width:2.4}
+.kn-note{background:${NOTE};border-radius:12px;padding:16px 14px 20px;box-shadow:0 6px 14px #6b553a1f;font:400 12.5px/1.6 ${SAN};min-height:290px;margin-top:20px;transition:transform .3s}
+.kn-note.pop{animation:knpop .45s cubic-bezier(.3,1.5,.5,1)}@keyframes knpop{40%{transform:rotate(-1deg) scale(1.02)}}
+.kn-note h4{margin:0 0 8px;font:400 18px/1 ${HND};color:#4a3f33}.kn-note p{margin:0 0 12px}
+.kn-note small{display:block;font-size:9px;margin:14px 0 6px}.kn-note .lm{border-left:2px solid #1d1d1f;padding-left:6px;display:grid;gap:5px;justify-items:start}
+.kn-note .lm button{background:#d8d1c3;padding:3px 7px;font:400 14px/1.2 ${HND};box-shadow:1px 1px 0 #c5bba9;transition:background .2s}.kn-note .lm button:hover,.kn-note .lm button.on{background:${PB};color:#1d1d1f}
+.kn-ord{display:flex;flex-direction:column;align-items:center;margin:30px 0 14px}
+.kn-ord .nm{display:flex;gap:7px;font:400 24px/1 ${HND}}.kn-ord .nm span{background:${PB};padding:4px 6px 2px;border-radius:2px;animation:knin .45s both cubic-bezier(.3,1.5,.5,1)}
+.kn-ord svg{width:380px;max-width:100%;height:40px}.kn-ord .lab{display:flex;gap:20px;font:400 13.5px/1 ${HND};color:#1d1d1f;justify-content:center;flex-wrap:wrap}
+@keyframes knin{from{transform:translateY(8px);opacity:0}}
+.kn-dots{display:flex;gap:8px;justify-content:center;margin-top:14px}.kn-dots button{width:8px;height:8px;border-radius:50%;background:#e2d6c5}.kn-dots button.on{background:${CO}}
+.kn-ex{display:flex;flex-direction:column;align-items:center;text-align:center;margin:30px 0 60px}
+.kn-ex .ttl{font:400 21px/1 ${HND};color:#1d1d1f;margin-bottom:8px}
+.kn-step{display:flex;flex-direction:column;align-items:center;margin-top:20px;width:100%;transition:opacity .35s}.kn-step.off{opacity:.32;pointer-events:none}
+.kn-bub{width:22px;height:22px;border-radius:50%;background:#c3c8ee;display:grid;place-items:center;font:400 14px/1 ${HND};color:#2c2f66;margin-bottom:10px}.kn-step.off .kn-bub{background:#e7e7f2}
+.kn-q{font:400 16.5px/1 ${HND};margin-bottom:10px}.kn-in{width:min(356px,100%);height:32px;border:1px solid #a9b0e8;border-radius:3px;background:#fff;padding:0 6px;font:400 15px ${HND};color:#2c2f66;outline:none}.kn-in::placeholder{color:#b8bde9}
+.kn-cnt{width:min(356px,100%);text-align:left;font:400 10.5px/1.6 ${SAN};color:#4652b8;letter-spacing:.02em}.kn-cnt.lo{color:${CO}}
+.kn-ent{margin-top:12px;border:1px solid #d4c8b7;border-radius:99px;padding:6px 10px;font:400 13px/1 ${HND};color:#a89a86;background:#f6efe6;transition:background .2s,color .2s}.kn-ent:not(:disabled):hover{background:${PB};color:#1d1d1f;border-color:${PB}}.kn-ent:disabled{opacity:.6;cursor:default}
+.kn-cat{font:400 11.5px/1 ${SAN};color:#666;margin-bottom:10px}
+.kn-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.kn-chips button{padding:5px 14px 4px;font:400 14px/1.2 ${HND};color:#8c8270;background:#ece6dc;clip-path:polygon(2% 8%,30% 0,62% 6%,98% 0,100% 50%,97% 100%,64% 94%,34% 100%,0 96%,3% 50%);transition:background .2s,color .2s,transform .2s}
+.kn-chips button:hover{transform:translateY(-1px)}.kn-chips button.on{background:${PB};color:#1d1d1f}
+.kn-res{margin-top:22px;background:#fff;border:1px solid #ece2d4;border-radius:12px;padding:20px 18px 16px;width:min(470px,100%);box-shadow:0 10px 24px #6b553a14;animation:knin .5s both cubic-bezier(.3,1.4,.5,1)}
+.kn-res .nm{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;font:400 26px/1 ${HND}}.kn-res .nm span{padding:4px 6px 2px;border-radius:2px}
+.kn-res .lab{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px;font:400 12.5px/1.1 ${HND};color:#555}
+.kn-res p{font:400 12.5px/1.6 ${SAN};color:#555;margin:14px 0 12px}
+.kn-res .act{display:flex;gap:8px;justify-content:center}
+.kn-side{position:absolute;top:50%;z-index:15;background:none;border:0;padding:0;cursor:pointer;font:700 13.5px/1 ${SAN};color:#1d1d1f;letter-spacing:.01em;transition:color .2s}.kn-side:hover{color:${CO}}
+.kn-side.l{left:6px;transform:translateY(-50%) rotate(-90deg);transform-origin:center}.kn-side.r{right:4px;transform:translateY(-50%) rotate(90deg)}
+.kn-ck{position:absolute;left:0;right:0;bottom:0;z-index:18;background:#2a2a2a;color:#fff;display:flex;align-items:center;justify-content:center;gap:40px;padding:12px 20px;font:400 13px/1.4 ${SAN};transition:transform .4s}
+.kn-ck.off{transform:translateY(110%)}.kn-ck u{font-weight:600}.kn-ck button{background:none;border:1px solid #fff;padding:9px 12px;color:#fff;font:400 13px/1 inherit;cursor:pointer}
+.kn-foot{background:${HD};color:${CO};padding:40px 22px 90px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font:500 12px/1.6 ${SAN};letter-spacing:.03em;text-transform:uppercase}
+@media (max-width:760px){.kn-hd nav{display:none}.kn-hd{justify-content:center}.kn-tt h1{font-size:32px}.kn-tt .sub{font-size:16px}.kn-tt .ld{font-size:14px}.kn-share{gap:22px}.kn-share i{width:30px}.kn-body{padding:40px 26px}.kn-tree{grid-template-columns:1fr}.kn-note{min-height:0;margin-top:0}.kn-side{display:none}.kn-ck{gap:12px;font-size:11.5px;flex-direction:column}.kn-nm{font-size:13px}.kn-sub{display:none}}
+`);
+  const el = h('div.kn');
+  const rough = 'knr' + Math.random().toString(36).slice(2, 6);
+  // ---- header ----
+  const roof = s('svg', { viewBox: '0 0 110 22', width: 92, height: 18 }, s('path', { d: 'M8 21 L52 3 L98 21 M30 12 L52 21 L74 10 M52 3 L52 21 M18 17 L80 14', stroke: CO, 'stroke-width': 1.1, fill: 'none', 'stroke-linejoin': 'round' }));
+  const nb = (t, cls = '') => h('button' + cls, { onclick: () => (t === 'Stories' ? el.scrollTo({ top: 0, behavior: 'smooth' }) : toast(`${t} (demo)`)) }, t);
+  const hd = h('div.kn-hd', {}, h('nav', {}, ...['Studio', 'Workshop', 'About', 'Lapis'].map((t) => nb(t))), h('div.kn-logo', {}, roof, 'kontinentalist'), h('nav.r', {}, nb('Stories', '.st'), nb('Subscribe'), nb('Kawan'), h('button', { onclick: () => toast('Search (demo)') }, '⌕ Search')));
+  // ---- line-art portraits (SVG stand-ins for the hand-drawn hero illustration) ----
+  const R = rng(11);
+  const portrait = (kind, seed) => {
+    const r = rng(seed); const sk = '#1c1d33', fl = '#cfccd1', sh = '#2f339a';
+    const w = 2 + r() * 3, tilt = (r() - 0.5) * 10;
+    const hair = { short: 'M24 40 Q22 14 50 12 Q78 14 76 40 Q70 26 50 24 Q32 26 24 40Z', long: 'M22 44 Q18 12 50 10 Q82 12 78 44 L82 86 Q72 92 68 70 L68 36 Q50 24 32 36 L32 70 Q28 92 18 86Z', hijab: 'M16 96 Q12 30 50 12 Q88 30 84 96 Q74 102 70 86 Q74 40 50 30 Q26 40 30 86 Q26 102 16 96Z', turban: 'M22 34 Q20 6 50 6 Q80 6 78 34 Q66 22 50 26 Q34 22 22 34Z M34 20 Q50 10 66 20', cap: 'M22 34 Q24 12 50 12 Q76 12 78 34 L92 36 Q80 40 50 34 Q30 34 22 34Z', bun: 'M24 40 Q22 16 50 14 Q78 16 76 40 Q70 26 50 26 Q32 26 24 40Z M42 14 Q50 2 58 14' }[kind];
+    return s('svg', { viewBox: '0 0 100 112' }, s('g', { filter: `url(#${rough})`, transform: `rotate(${tilt} 50 60)` },
+      s('path', { d: 'M8 112 Q12 86 34 80 L66 80 Q88 86 92 112Z', fill: sh, transform: 'translate(3 3)' }), s('path', { d: 'M30 30 Q30 80 50 84 Q70 80 70 30Z', fill: sh, transform: 'translate(3 3)' }),
+      s('path', { d: 'M8 112 Q12 86 34 80 L66 80 Q88 86 92 112Z', fill: fl, stroke: sk, 'stroke-width': 1.4 }),
+      s('path', { d: 'M42 72 L42 82 Q50 88 58 82 L58 72', fill: fl, stroke: sk, 'stroke-width': 1.3 }),
+      s('path', { d: 'M28 40 Q28 78 50 80 Q72 78 72 40 Q70 22 50 22 Q30 22 28 40Z', fill: fl, stroke: sk, 'stroke-width': 1.4 }),
+      s('path', { d: hair, fill: kind === 'hijab' ? fl : '#3a3b52', stroke: sk, 'stroke-width': 1.3, opacity: kind === 'hijab' ? 1 : 0.85 }),
+      s('path', { d: `M37 ${46 + r()} Q40 44 44 46 M56 46 Q60 ${44 - r()} 63 46`, stroke: sk, 'stroke-width': 1.3, fill: 'none', 'stroke-linecap': 'round' }),
+      s('circle', { cx: 40.5, cy: 49, r: 1.3, fill: sk }), s('circle', { cx: 59.5, cy: 49, r: 1.3, fill: sk }),
+      s('path', { d: 'M50 50 Q48 60 46 62 Q50 64 53 62', stroke: sk, 'stroke-width': 1.1, fill: 'none' }),
+      s('path', { d: `M43 ${69} Q50 ${72 + w * .4} 57 69`, stroke: sk, 'stroke-width': 1.2, fill: 'none', 'stroke-linecap': 'round' }),
+      kind === 'cap' || r() < 0.3 ? s('path', { d: 'M34 50 Q40 55 46 50 M54 50 Q60 55 66 50', stroke: sk, 'stroke-width': 1, fill: 'none', opacity: kind === 'cap' ? 0 : .7 }) : null));
+  };
+  const PEOPLE = [
+    [4, 4, 'bun', [['Ni ', 'Made', ' Ayu']], 'Order of birth', 18, 2], [30, -1, 'cap', [['Uliw ', 'Qaljupayare', '']], '', 28, 18], [44, 5, 'turban', [['Gusti Kanjeng Ratu ', '', 'Hayu']], 'Nobility name', 44, 24], [82, 3, 'hijab', [['Siti Nurhaliza Binti ', 'Tarudin', '']], "Father's name", 76, 37],
+    [-1, 27, 'hijab', [['Mahalakshmi ', 'Muthusamy', '']], 'Matronym', 1, 34], [14, 41, 'hijab', [['', 'Sharifah', ' Aini binti Syed Jaafar']], 'Honorific name', 13, 59], [62, 31, 'bun', [['', 'Hajjah', ' Maimunah']], 'Religious honorific name', 58, 41], [79, 40, 'short', [['', 'Si aman', ' Rapongan']], 'Teknonym', 78, 54],
+    [33, 41, 'short', [['Milson K', '', '']], 'Matrilineal name', 36, 57], [-1, 63, 'long', [['', 'Elizabeth', ' Dani Putri A. Riyanto']], 'Baptismal name', 9, 75], [52, 56, 'short', [['', 'B.K.S', ' Iyengar']], 'Birthplace name', 55, 74], [86, 59, 'short', [['Eddie Kwan ', 'Lai-Kit', '']], 'Chinese given name', 80, 72],
+    [-2, 80, 'turban', [['Harinder Singh ', 'Attari', '']], 'Clan name', 8, 96], [27, 75, 'short', [['', 'Tao', ' Luna']], "Ancestor's Occupational name", 18, 88], [44, 82, 'long', [['', 'Thakazhi', ' Sivasankara Thamothiran Pillai']], 'Village name', 36, 92], [72, 76, 'short', [['A.P.J ', 'Abdul Kalam', '']], "Father's name", 75, 92],
+  ];
+  const ill = h('div.kn-ill', {}, s('svg', { width: 0, height: 0, style: 'position:absolute' }, s('filter', { id: rough }, s('feTurbulence', { type: 'fractalNoise', baseFrequency: 0.9, numOctaves: 1, seed: 3 }), s('feDisplacementMap', { in: 'SourceGraphic', scale: 1.6 }))));
+  const names = [];
+  PEOPLE.forEach(([x, y, kind, [[a, u, b]], sub, nx, ny], i) => {
+    ill.append(h('div.kn-por', { style: { left: x + 8 + '%', top: y + '%', width: 'calc(' + (6.2 + R() * 1.6) + 'vw + 20px)' } }, portrait(kind, i * 7 + 3)));
+    const n = h('div.kn-nm', { style: { left: nx + '%', top: ny + 9 + '%' } }, a, u ? h('u', {}, u) : '', b); names.push(n); ill.append(n);
+    if (sub) ill.append(h('div.kn-sub', { style: { left: nx + 4 + '%', top: ny + 13.4 + '%' } }, '↖ ' + sub));
+  });
+  const readB = h('button.kn-read', { onclick: () => el.scrollTo({ top: body.offsetTop - 40, behavior: 'smooth' }) }, 'Read story', h('span', {}, '↓'));
+  const share = h('div.kn-share', {}, h('i'), ...[['f', 'Facebook'], ['🦋', 'Bluesky'], ['in', 'LinkedIn'], ['🔗', 'Copy link']].map(([g, n]) => h('button', { title: n, onclick: () => (n === 'Copy link' ? copy(location.href, 'Link copied') : toast(`Share on ${n} (demo)`)) }, g)));
+  const hero = h('section.kn-hero', {}, ill, h('div.kn-tt', {}, h('h1', {}, "What's in an Asian name?"), h('div.sub', {}, 'Taking a look at the diversity and richness of Asian naming conventions'), h('div.by', {}, 'by Jerald Lim'), h('div.dt', {}, '7 September 2026'), share, h('div.ld', {}, 'Explore where Asian names come from, where they are discriminated against, and how they persist through erasure.'), readB));
+  // ---- story: admin form that rejects names ----
+  const SAMPLES = [['Nguyễn', 'Thị Minh Khai'], ['Pillai', 'Thakazhi Sivasankara Thamothiran'], ['binti Tarudin', 'Siti Nurhaliza'], ['Lai-Kit', 'Eddie Kwan'], ['Rapongan', 'Si aman'], ['Tan', 'Wei Ling']];
+  let sIx = 0;
+  const bub2 = h('div.bub', {}, 'Thank you for filling in all your details accurately.');
+  const inS = h('input', { 'aria-label': 'Surname', oninput: () => validate() }), inF = h('input', { 'aria-label': 'First name', oninput: () => validate() });
+  const erS = h('div.er'), erF = h('div.er');
+  const rule = (v) => { if (!v.trim()) return 'Required field.'; const bad = [...new Set(v.match(/[^A-Za-z ]/g) || [])]; if (bad.length) return `Invalid character${bad.length > 1 ? 's' : ''}: ${bad.join(' ')} — letters A–Z only.`; if (v.length > 14) return `Too long (${v.length}/14). Please abbreviate.`; return ''; };
+  const validate = () => { const a = rule(inS.value), b = rule(inF.value); erS.textContent = a; erF.textContent = b; inS.classList.toggle('bad', !!a); inF.classList.toggle('bad', !!b); const ok = !a && !b; bub2.className = 'bub ' + (ok ? 'ok' : 'bad'); bub2.textContent = ok ? 'Thank you for filling in all your details accurately.' : 'Error: your name could not be processed. Please change it to fit the form.'; return ok; };
+  const fill = (i) => { sIx = i; [inS.value, inF.value] = SAMPLES[i]; validate(); };
+  const clerk = () => s('svg', { viewBox: '0 0 44 34', width: 44, height: 34 }, s('circle', { cx: 16, cy: 9, r: 6, fill: 'none', stroke: '#a7a0b0', 'stroke-width': 1.2 }), s('path', { d: 'M5 30 Q6 17 16 17 Q26 17 27 30Z M22 14 H42 V28 H22Z M28 30 H36', fill: 'none', stroke: '#a7a0b0', 'stroke-width': 1.2 }));
+  const formSec = h('div', {}, h('div.kn-clerk', {}, clerk(), h('div.bub', {}, 'Welcome! Please fill in the admin form below according to your details before we can proceed. Type out your name into the appropriate fields.')),
+    h('div', { style: { textAlign: 'center' } }, h('button.kn-pill', { onclick: () => fill((sIx + 1) % SAMPLES.length) }, 'Choose a different name')),
+    h('div.kn-form', {}, h('div.t', {}, 'ADMINISTRATIVE FORM'), h('label', {}, h('span', {}, 'Surname:'), inS), erS, h('label', {}, h('span', {}, 'First name:'), inF), erF),
+    h('div.kn-clerk', {}, clerk(), bub2), h('div', { style: { textAlign: 'center', font: `400 10px ${MON}`, color: '#c6c9ea' } }, 'Try typing your own name'));
+  // ---- name category tree ----
+  const TREE = [
+    ['Location', 330, 318, 232, 322, 'Location-based names can reflect a person\'s birthplace, ancestral home, village, or region of origin.\n\nIn Kerala, a family "house name" often precedes the given name, tying a person to an ancestral home.', [['Birthplace name', 70, 272, 'The "B" in B.K.S. Iyengar stands for Bellur, the village where the yoga teacher was born.'], ['House name', 92, 312, 'House names in South India identify the ancestral home (tharavad) a family belongs to.'], ['Village name', 98, 350, 'Thakazhi Sivasankara Pillai was known by his home village, Thakazhi, which leads his name.']]],
+    ['Social hierarchy', 330, 278, 246, 268, 'Some names carry signs of rank, caste or nobility, inherited or bestowed.', [['Nobility name', 92, 196, 'Titles such as "Raden" in Java or "Tengku" in Malaysia signal noble descent.'], ['Caste name', 70, 228, 'Surnames such as "Iyengar" or "Pillai" have historically signalled caste or community.']]],
+    ['Gender', 330, 238, 266, 232, 'Many naming systems mark gender explicitly within the name itself.', [['Gender-marker', 118, 158, '"Ni" in Ni Made Ayu marks a Balinese woman; men take "I". Vietnamese middle names "Thị" and "Văn" do similar work.']]],
+    ['Marital', 330, 200, 270, 194, 'Marriage can change a name: some women adopt their spouse\'s family name, others append it, and many keep their own.', [['Marriage name', 140, 120, 'In parts of Asia a woman may be addressed by her husband\'s name with a prefix, rather than her own.']]],
+    ['Sequential', 330, 214, 372, 208, 'Names can record when a child arrived in the family.', [['Order of birth', 228, 80, 'Balinese birth-order names Wayan, Made, Nyoman and Ketut cycle for the first four children; "Made" means second-born.']]],
+    ['Faith', 330, 250, 372, 248, 'Religious names and honorifics mark devotion, pilgrimage or rites of passage.', [['Religious honorific', 360, 80, '"Hajjah" — as in Hajjah Maimunah — honours a woman who has completed the Hajj.'], ['Baptismal name', 420, 122, 'Christian communities across Asia often give a baptismal name, like "Elizabeth" in Elizabeth Dani Putri A. Riyanto.']]],
+    ['Lineage', 330, 292, 370, 290, 'Lineage names connect a person to their ancestors — through the father, the mother, a clan, a trade, or even their own child.', [['Matrilineal', 486, 158, 'Among the Minangkabau of West Sumatra, clan identity and property pass through the mother.'], ['Patrilineal', 506, 198, 'Chinese and Korean family names are traditionally inherited from the father.'], ['Teknonym', 516, 238, 'Among the Tao of Orchid Island, parents are renamed after their first child — "Si aman Rapongan" means father of Rapongan.'], ['Clan name', 514, 278, 'Batak marga such as "Simatupang" identify everyone descended from a shared ancestor.'], ['Occupational', 496, 318, 'Some family names preserve an ancestor\'s trade, passed down long after the work itself.'], ['Honorific', 410, 356, 'Prefixes such as "Haji", "Datuk" or "Tun" can become inseparable from how a person is known.']]],
+  ];
+  const tsvg = s('svg', { viewBox: '30 40 560 380' }); let sel = null; const nodes = [];
+  const g0 = s('g', { filter: `url(#${rough})` });
+  // trunk + roots
+  const trunkEls = [s('path', { class: 'br', d: 'M330 400 Q332 330 330 190 Q329 160 334 140', style: 'stroke-width:4' }), ...[-60, -30, 0, 28, 58].map((dx) => s('path', { class: 'br', d: `M330 392 Q${330 + dx * .4} 404 ${330 + dx} 412`, style: 'stroke-width:3' }))]; g0.append(...trunkEls);
+  const lbW = (t, fs = 14.5) => t.length * fs * 0.43 + 10;
+  const label = (t, x, y, main) => { const w = lbW(t); const hl = s('rect', { class: 'hl', x: x - 5, y: y - 15, width: w, height: 21, rx: 2, fill: main ? PB : '#d8d1c3' }); const tx = s('text', { class: 'lb', x, y, 'font-family': HND }, t); const gg = s('g', {}, hl, tx); return { gg, hl, tx }; };
+  TREE.forEach(([name, ax, ay, lx, ly, note, subs], mi) => {
+    const right = lx > 330; const mx = right ? lx - 8 : lx + lbW(name) - 4;
+    const mBr = s('path', { class: 'br', d: `M${ax} ${ay} Q${(ax + mx) / 2} ${ay + 6} ${mx} ${ly - 4}` }); g0.prepend(mBr);
+    const ml = label(name, lx, ly, true); const mainN = { kind: 'main', mi, name, note, brs: [mBr], ...ml }; nodes.push(mainN); tsvg.append(ml.gg);
+    subs.forEach(([sn, sx, sy, sNote]) => { const sRight = sx > 330; const ex = sRight ? sx - 6 : sx + lbW(sn) - 2; const sx0 = right ? lx + lbW(name) - 4 : lx - 6; const br = s('path', { class: 'br', d: `M${right ? sx0 : lx - 6} ${ly - 4} C${(sx0 + ex) / 2} ${ly - 4} ${(sx0 + ex) / 2} ${sy - 4} ${ex} ${sy - 4}` }); g0.prepend(br); mainN.brs.push(br); const sl = label(sn, sx, sy, false); nodes.push({ kind: 'sub', mi, name: sn, note: sNote, brs: [mBr, br], ...sl }); tsvg.append(sl.gg); });
+  });
+  tsvg.prepend(g0);
+  const note = h('div.kn-note');
+  const select = (n) => { sel = n; nodes.forEach((m) => { const on = m.mi === n.mi && (n.kind === 'main' || m === n || m.kind === 'main'); m.hl.classList.toggle('on', on); m.tx.classList.toggle('on', on); }); g0.querySelectorAll('.br').forEach((b) => b.classList.remove('on')); trunkEls.forEach((b) => b.classList.add('on')); (n.kind === 'main' ? nodes.find((m) => m.kind === 'main' && m.mi === n.mi).brs : n.brs).forEach((b) => b.classList.add('on'));
+    const main = nodes.find((m) => m.kind === 'main' && m.mi === n.mi); const subsN = nodes.filter((m) => m.kind === 'sub' && m.mi === n.mi);
+    note.replaceChildren(h('h4', {}, n.name), ...n.note.split('\n\n').map((p) => h('p', {}, p)), h('small', {}, 'Learn more:'), h('div.lm', {}, ...(n.kind === 'main' ? subsN : [main, ...subsN.filter((x) => x !== n)]).map((m) => h('button', { onclick: () => select(m) }, m.name))));
+    note.classList.remove('pop'); void note.offsetWidth; note.classList.add('pop'); };
+  nodes.forEach((n) => n.gg.addEventListener('click', () => select(n)));
+  const legend = h('div', { style: { textAlign: 'center', fontSize: '11px', marginTop: '10px' } }, 'How to read the tree:', h('div', { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', font: `400 12.5px ${HND}`, margin: '4px 0 10px' } }, 'Sub-category —', h('span', {}, 'Main category'), s('svg', { viewBox: '0 0 40 40', width: 32, height: 32 }, s('path', { d: 'M20 38 V6 M20 34 Q12 36 6 39 M20 34 Q28 36 34 39 M20 20 Q12 18 6 10', stroke: '#1d1d1f', fill: 'none', 'stroke-width': 1.4 }))), h('span.kn-tag', {}, 'Click on any of the names on the tree to learn more'));
+  // ---- name order diagram ----
+  const ORD = [[['Eddie', 'Kwan', 'Lai-Kit'], ['Given name', 'Family name', 'Transliterated Chinese name']], [['Siti Nurhaliza', 'binti', 'Tarudin'], ['Given name', 'daughter of', "Father's name"]], [['Ni', 'Made', 'Ayu'], ['Gender marker', 'Order of birth', 'Given name']]];
+  let oi = 0; const ordBox = h('div.kn-ord'); const dots = ORD.map((_, i) => h('button' + (i ? '' : '.on'), { title: `Example ${i + 1}`, onclick: () => drawOrd(i) }));
+  const drawOrd = (i) => { oi = i; dots.forEach((d, k) => d.classList.toggle('on', k === i)); const [n, l] = ORD[i]; ordBox.replaceChildren(h('div.nm', {}, ...n.map((x, k) => h('span', { style: { animationDelay: k * 80 + 'ms' } }, x))), s('svg', { viewBox: '0 0 380 40' }, ...[[90, 150], [190, 190], [290, 230]].map(([x2, x1]) => s('path', { d: `M${x1} 2 Q${(x1 + x2) / 2} 34 ${x2} 30`, stroke: '#1d1d1f', fill: 'none', 'stroke-width': 1.2 }))), h('div.lab', {}, ...l.map((x) => h('span', {}, x)))); };
+  drawOrd(0);
+  // ---- speculative name explorer ----
+  const MAX = 20; const st = { given: '', cat: null, extra: '' };
+  const giv = h('input.kn-in', { placeholder: 'Aisyah', maxLength: MAX, oninput: () => { cnt.textContent = `${MAX - giv.value.length}/${MAX} characters left`; cnt.classList.toggle('lo', MAX - giv.value.length < 5); entB.disabled = !giv.value.trim(); } });
+  const cnt = h('div.kn-cnt', {}, `${MAX}/${MAX} characters left`);
+  const entB = h('button.kn-ent', { disabled: true, onclick: () => commitGiven() }, 'Enter');
+  giv.addEventListener('keydown', (e) => { if (e.key === 'Enter' && giv.value.trim()) commitGiven(); });
+  const CATS = {
+    'Order of birth': { q: 'Which child were you in your family?', opts: ['1st', '2nd', '3rd', '4th', '5th+'] },
+    Matrilineal: { q: "What is your mother's given name?", ph: 'Ratna' },
+    'Day of birth': { q: 'Which day of the week were you born?', opts: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
+    Birthplace: { q: 'Where were you born?', ph: 'Seoul' },
+    Patronymic: { q: "What is your father's given name?", ph: 'Rahman' },
+  };
+  const chips = Object.keys(CATS).map((c) => h('button', { onclick: () => pickCat(c) }, c));
+  const step1 = h('div.kn-step', {}, h('div.kn-bub', {}, '1'), h('div.kn-q', {}, 'What is your given name?'), giv, cnt, entB);
+  const step2 = h('div.kn-step.off', {}, h('div.kn-bub', {}, '2'), h('div.kn-cat', {}, 'Select a category'), h('div.kn-chips', {}, chips));
+  const step3 = h('div.kn-step.off'); const resBox = h('div', { style: { width: '100%', display: 'flex', justifyContent: 'center' } });
+  const commitGiven = () => { st.given = giv.value.trim().replace(/\s+/g, ' '); if (!st.given) return; step2.classList.remove('off'); if (st.cat) pickCat(st.cat); };
+  const cap = (t) => t.trim().replace(/\s+/g, ' ').replace(/(^|\s)\S/g, (m) => m.toUpperCase());
+  let extraIn = null;
+  const pickCat = (c) => { st.cat = c; st.extra = ''; chips.forEach((b) => b.classList.toggle('on', b.textContent === c)); const C = CATS[c]; resBox.replaceChildren();
+    const body3 = C.opts ? h('div.kn-chips', {}, ...C.opts.map((o) => h('button', { onclick: (e) => { [...e.currentTarget.parentNode.children].forEach((b) => b.classList.toggle('on', b === e.currentTarget)); st.extra = o; compose(); } }, o))) : (extraIn = h('input.kn-in', { placeholder: C.ph, maxLength: MAX, onkeydown: (e) => { if (e.key === 'Enter') { st.extra = extraIn.value; compose(); } } }));
+    step3.replaceChildren(h('div.kn-bub', {}, '3'), h('div.kn-q', {}, C.q), body3, C.opts ? '' : h('button.kn-ent', { onclick: () => { st.extra = extraIn.value; compose(); } }, 'Create my name')); step3.classList.remove('off'); };
+  const BIRTH = ['Wayan', 'Made', 'Nyoman', 'Ketut', 'Wayan Balik'], DAY = { Sun: 'Aung', Mon: 'Kyaw', Tue: 'Soe', Wed: 'Lwin', Thu: 'Myat', Fri: 'Htet', Sat: 'Thant' };
+  let last = null;
+  const compose = () => { const g = cap(st.given), x = cap(st.extra || ''); if (!g || !st.extra?.trim()) { toast('Fill in the field first'); return null; } let parts, labs, why;
+    switch (st.cat) {
+      case 'Order of birth': { const k = ['1st', '2nd', '3rd', '4th', '5th+'].indexOf(st.extra); parts = [BIRTH[k], g]; labs = ['Order of birth', 'Given name']; why = `Inspired by Balinese birth-order names, where "${BIRTH[k]}" marks the ${st.extra} child.`; break; }
+      case 'Matrilineal': parts = [g, x]; labs = ['Given name', "Mother's name"]; why = `Your mother's name carries your lineage, echoing matrilineal societies such as the Minangkabau.`; break;
+      case 'Day of birth': parts = [DAY[st.extra], g]; labs = ['Day-of-birth name', 'Given name']; why = `In Burmese naming, the weekday of birth guides the sound a name begins with — "${DAY[st.extra]}" for ${st.extra}.`; break;
+      case 'Birthplace': parts = [x[0] + '.', g]; labs = ['Birthplace initial', 'Given name']; why = `Like the "B." (Bellur) in B.K.S. Iyengar, your birthplace ${x} becomes an initial before your name.`; break;
+      default: parts = [g, 'anak', x]; labs = ['Given name', 'child of', "Father's name"]; why = `A patronymic in the style of Iban names, where "anak" means child of.`;
+    }
+    last = parts.join(' ');
+    resBox.replaceChildren(h('div.kn-res', {}, h('div', { style: { font: `400 11px ${SAN}`, color: '#888', marginBottom: '10px' } }, 'Your speculative name'), h('div.nm', {}, ...parts.map((p, i) => h('span', { style: { background: i % 2 ? '#d8d1c3' : PB } }, p))), h('div.lab', {}, ...labs.map((l) => h('span', {}, '↑ ' + l))), h('p', {}, why), h('div.act', {}, h('button.kn-pill', { onclick: () => { chips.forEach((b) => b.classList.remove('on')); st.cat = null; step3.classList.add('off'); step3.replaceChildren(); resBox.replaceChildren(); } }, 'Try another category'), h('button.kn-pill', { onclick: () => resetEx() }, 'Start over'))));
+    return last; };
+  const resetEx = () => { giv.value = ''; giv.dispatchEvent(new Event('input')); st.given = ''; st.cat = null; st.extra = ''; chips.forEach((b) => b.classList.remove('on')); step2.classList.add('off'); step3.classList.add('off'); step3.replaceChildren(); resBox.replaceChildren(); last = null; };
+  const explorer = h('div.kn-ex', {}, h('div.ttl', {}, 'Naming origins explorer'), h('span.kn-tag', {}, 'Fill in the fields below to explore your speculative names'), step1, step2, step3, resBox);
+  // ---- body ----
+  const P = (...t) => h('p', {}, ...t);
+  const body = h('div.kn-body', {}, P('When Siti Nurhaliza Binti Tarudin fills in a form abroad, which part is her surname? For many Asians, names do not fit the boxes they are asked to squeeze into.'), formSec,
+    P('Forms like these often follow the Western naming convention of first name followed by a last name. Many forms also do not support elements like punctuation and diacritics (letters with accents, like ‘é’). This erases the diversity of sounds and tones found within many languages. For convenience, some people end up having to force-fit their names, at times nonsensically so.'),
+    P('Beyond being an inconvenience, these rigid systems reduce the richness of meaning and beauty behind names drawn from long-standing historical, cultural, and religious traditions.'),
+    h('div.kn-h2', {}, 'Where names come from'), P('Names across Asia draw on many sources at once. The tree below groups some of them into main categories and sub-categories.'));
+  const treeWrap = h('div.kn-wide', {}, legend, h('div.kn-tree', {}, tsvg, note));
+  const body2 = h('div.kn-body', { style: { paddingTop: '10px' } }, h('div.kn-h2', {}, 'Name order'), P('A full name is often a sequence of parts with very different jobs. Tap the dots to compare.'), ordBox, h('div.kn-dots', {}, dots),
+    P(h('br'), 'Some full names contain additional connecting elements like the nasab (an Arabic indicator of patronymic relations in Malay or Muslim names, like “binti” here). Others may only consist of a single name, also known as a mononym.'),
+    h('div.kn-h2', {}, 'Speculative name explorer'), P('What might your name look like if it stemmed from the wealth of origins and order in Asian naming conventions?'),
+    h('ul', { style: { margin: '0 0 18px', paddingLeft: '18px' } }, h('li', {}, 'Which of these speculative names resonate best with you and why?'), h('li', {}, 'What other aspects of your life would you want to be reflected in your name?'), h('li', {}, 'What does your name reveal about you and your lineage?')),
+    h('p', { style: { fontStyle: 'italic' } }, 'Feel free to answer however you like. Your answers only live in your web browser and are not collected by us.'), explorer);
+  const foot = h('div.kn-foot', {}, h('span', {}, 'kontinentalist — look-alike practice build'), h('span', {}, 'Studio · Workshop · About · Lapis'));
+  // ---- chrome ----
+  const prev = h('button.kn-side.l', { onclick: () => toast('Previous story (demo)') }, 'Previous'), next = h('button.kn-side.r', { onclick: () => toast('Next story (demo)') }, 'Next');
+  const ck = h('div.kn-ck', {}, h('span', {}, 'We have updated our privacy policy. By continuing to browse this website, you consent to the terms of our ', h('u', {}, 'privacy policy'), '.'), h('button', { onclick: () => ck.classList.add('off') }, 'Ok, I understand'));
+  el.append(hd, hero, body, treeWrap, body2, foot); root.append(el, prev, next, ck);
+  const layout = () => el.style.setProperty('--vh', (el.clientHeight || 700) + 'px'); layout(); new ResizeObserver(layout).observe(el);
+  fill(0); select(nodes[0]);
+  window.__demoProof = async () => {
+    const o = [];
+    const fs0 = bub2.className; fill(5); o.push(`form "${SAMPLES[0].join(', ')}" → ${fs0}; "Tan, Wei Ling" → ${bub2.className}`); fill(0);
+    const lin = nodes.find((n) => n.name === 'Lineage'); lin.tx.dispatchEvent(new MouseEvent('click', { bubbles: true })); o.push(`tree Lineage → note "${note.querySelector('h4').textContent}" learnMore=${note.querySelectorAll('.lm button').length}`);
+    note.querySelector('.lm button:nth-child(3)').click(); o.push(`→ "${note.querySelector('h4').textContent}" highlighted=${nodes.filter((n) => n.hl.classList.contains('on')).length} darkBranches=${g0.querySelectorAll('.br.on').length}`);
+    dots[1].click(); o.push(`name order → ${ordBox.querySelector('.nm').textContent.replace(/\s+/g, ' ')}`); dots[0].click();
+    giv.value = 'Aisyah'; giv.dispatchEvent(new Event('input')); o.push(`counter "${cnt.textContent}" enterDisabled=${entB.disabled}`); entB.click(); o.push(`step2 open=${!step2.classList.contains('off')}`);
+    const res = []; for (const [c, v] of [['Patronymic', 'rahman'], ['Birthplace', 'Seoul'], ['Order of birth', '2nd']]) { chips.find((b) => b.textContent === c).click(); if (CATS[c].opts) [...step3.querySelectorAll('.kn-chips button')].find((b) => b.textContent === v).click(); else { extraIn.value = v; step3.querySelector('.kn-ent').click(); } res.push(`${c}="${last}"`); }
+    o.push(res.join(' | ')); o.push(`result card=${!!resBox.querySelector('.kn-res')}`);
+    resetEx(); select(nodes[0]); el.scrollTop = 0; o.push(`restored step2Off=${step2.classList.contains('off')} note="${note.querySelector('h4').textContent}"`);
+    return o.join('; ');
+  };
+};
+
+V['iyo-glass-configurator-sheet-color-swatch-render-swap-pair-single-view-toggle'] = (root, T) => {
+  theme(root, T, { bg: '#dcdde2', fg: '#ffffff', ac: '#0d0d0f', dark: false });
+  import('@fontsource-variable/inter-tight'); import('@fontsource-variable/geist-mono'); import('@fontsource-variable/archivo/wdth.css');
+  const SAN = "'Inter Tight Variable','Inter Variable',Helvetica,Arial,sans-serif", MON = "'Geist Mono Variable','JetBrains Mono Variable',ui-monospace,monospace", LOGO = "'Archivo Variable','Inter Tight Variable',sans-serif";
+  const FIN = [
+    { n: 'Dusk', face: 'linear-gradient(128deg,#f3c4b4 0%,#ecc2c9 38%,#e2c4df 64%,#d3c8ef 100%)', rim: ['#f4f5f7', '#a3a5ab', '#e9eaed', '#7c7e84', '#d6d7db'], sw: 'radial-gradient(circle at 35% 30%,#fff,#e6ddf6 40%,#c7c3ee 75%,#b9b6e6)', dot: '#d9c6ea' },
+    { n: 'Night', face: 'radial-gradient(circle at 32% 28%,#4b4c51 0%,#2c2d31 45%,#1c1d20 100%)', rim: ['#7b7c81', '#2b2c30', '#5e5f64', '#1d1e21', '#4a4b50'], sw: 'radial-gradient(circle at 35% 30%,#5a5b60,#26272b 60%,#141416)', dot: '#2a2b2f' },
+    { n: 'Dawn', face: 'linear-gradient(130deg,#efe9df 0%,#d9d2c6 45%,#bdb6aa 100%)', rim: ['#f3eee6', '#a8a195', '#e4ded2', '#8d877c', '#cfc8bb'], sw: 'radial-gradient(circle at 35% 30%,#f6f2ea,#cfc8bc 55%,#a9a397)', dot: '#cbc3b5' },
+  ];
+  const CONN = [['Wi-Fi (32GB)', 999], ['Wi-Fi + LTE (32GB)', 1199]], FIT = [['Home fitting', 199, '+$199'], ['Visit a specialist', 99, '+$99'], ['Already fitted', 0, 'Free']];
+  css(`.iy{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#e3e4e8,#d6d7dc);color:#fff;font:400 13px/1.4 ${SAN};-webkit-font-smoothing:antialiased;user-select:none}
+.iy *{box-sizing:border-box}:where(.iy) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.iy-stage{position:absolute;inset:0;perspective:1600px;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.iy-bud{position:absolute;transform-style:preserve-3d;transition:left .9s cubic-bezier(.65,0,.25,1),top .9s cubic-bezier(.65,0,.25,1),width .9s cubic-bezier(.65,0,.25,1),height .9s cubic-bezier(.65,0,.25,1),opacity .6s,transform .9s cubic-bezier(.65,0,.25,1)}
+.iy-bud>i{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 210deg,var(--r0),var(--r1),var(--r2),var(--r3),var(--r4),var(--r0));transition:background .6s}
+.iy-bud>i.bk{filter:brightness(.78)}
+.iy-face{position:absolute;inset:3.4%;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 1px #0002,inset 0 6px 18px #fff6,inset 0 -10px 30px #0002}
+.iy-face>b{position:absolute;inset:0;transition:opacity .7s}
+.iy-face>u{position:absolute;inset:0;background-image:var(--grain);background-size:180px;mix-blend-mode:overlay;opacity:.55}
+.iy-face>em{position:absolute;inset:0;background:linear-gradient(115deg,#ffffff38 0%,transparent 30%,transparent 70%,#00000014 100%)}
+.iy-seam{position:absolute;left:47%;top:-.5%;width:9%;height:3.6%;background:var(--r2);border-radius:2px;transform:translateZ(1px);box-shadow:0 1px 0 #0002}
+.iy-tip{position:absolute;left:80%;top:14%;width:52%;height:66%;transform-style:preserve-3d}
+.iy-tip svg{width:100%;height:100%;overflow:visible}
+.iy-nav{position:absolute;left:50%;top:22px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:10px;height:44px;width:268px;padding:0 7px 0 18px;border-radius:99px;background:#6c6d72b8;backdrop-filter:blur(18px) saturate(1.3);box-shadow:inset 0 0 0 1px #ffffff1a}
+.iy-logo{font:800 italic 21px/1 ${LOGO};font-stretch:112%;letter-spacing:-.06em;flex:1}
+.iy-nb{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#3b3c40;transition:background .2s,transform .2s}.iy-nb:hover{background:#2a2b2e;transform:scale(1.05)}
+.iy-nb.bag{background:#8a8b90;position:relative}.iy-nb.bag:hover{background:#9a9ba0}
+.iy-cnt{position:absolute;right:-1px;bottom:-1px;min-width:12px;height:12px;border-radius:6px;background:#111;font:600 7.5px/12px ${MON};text-align:center;padding:0 2px}
+.iy-cnt.bump{animation:iybump .5s cubic-bezier(.3,1.8,.5,1)}@keyframes iybump{40%{transform:scale(1.7)}}
+.iy-div{width:1px;height:22px;background:#ffffff40}
+.iy-menu{position:absolute;left:50%;top:74px;transform:translate(-50%,-8px);z-index:19;width:268px;padding:8px;border-radius:20px;background:#6c6d72c4;backdrop-filter:blur(18px);display:grid;grid-template-columns:1fr 1fr;gap:6px;opacity:0;pointer-events:none;transition:opacity .25s,transform .3s}
+.iy-menu.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}.iy-menu button{background:#ffffff14;border-radius:12px;padding:12px 10px;text-align:left;font:500 12px/1.3 ${SAN}}.iy-menu button:hover{background:#ffffff26}.iy-menu small{display:block;font:400 9px/1.4 ${MON};opacity:.65;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.iy-sheet{position:absolute;right:34px;bottom:24px;z-index:15;width:296px;border-radius:20px;background:#6a6b70b0;backdrop-filter:blur(26px) saturate(1.4);box-shadow:inset 0 0 0 1px #ffffff22,0 20px 50px #0002;overflow:hidden;display:flex;flex-direction:column;max-height:calc(100% - 110px)}
+.iy-sh{display:flex;padding:14px 14px 10px 14px;gap:10px;align-items:flex-start}
+.iy-sh h3{margin:0;font:400 23px/1.1 ${SAN};letter-spacing:-.02em}.iy-sh .dp{font:400 12px/1 ${SAN};margin-top:8px;display:flex;gap:8px}.iy-sh .dp span{opacity:.55}
+.iy-th{width:56px;height:56px;position:relative;margin-left:auto}
+.iy-qty{display:flex;align-items:center;gap:10px;font:400 14px/1 ${SAN};margin-top:28px}.iy-qty button{width:15px;height:15px;border-radius:50%;background:#2b2c30;display:grid;place-items:center;font:500 12px/1 ${SAN}}.iy-qty button:hover{background:#111}
+.iy-sum{border-top:1px solid #ffffff1f;padding:11px 14px 12px;display:flex;align-items:center;gap:10px}
+.iy-lbl{font:400 8.5px/1 ${MON};letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+.iy-sum .tx{flex:1}.iy-sum .ln{font:400 11.5px/1 ${SAN};margin-top:8px;letter-spacing:.02em}
+.iy-chev{width:24px;height:24px;border-radius:50%;background:#0d0d0f;display:grid;place-items:center;transition:transform .4s}.iy.open .iy-chev{transform:rotate(180deg)}
+.iy-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1);min-height:0}.iy.open .iy-body{grid-template-rows:1fr}
+.iy-body>div{overflow:auto;min-height:0;scrollbar-width:none;padding:0 11px}
+.iy-grp{margin:2px 0 12px}.iy-grp .iy-lbl{margin:6px 3px 9px;display:block}
+.iy-cards{display:grid;gap:6px}.iy-c{border-radius:8px;box-shadow:inset 0 0 0 1px #ffffff2a;padding:8px;text-align:left;position:relative;transition:background .25s,box-shadow .25s;font:400 11px/1.3 ${SAN}}
+.iy-c:hover{background:#ffffff0f}.iy-c.on{background:#3c3d41;box-shadow:inset 0 0 0 1px #ffffff55}
+.iy-c small{display:block;opacity:.5;font-size:8.5px;margin-top:2px}.iy-c .pr{position:absolute;right:8px;bottom:7px;font-size:10px}
+.iy-sw{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px 8px}.iy-sw i{width:44px;height:44px;border-radius:50%;box-shadow:0 2px 6px #0003,inset 0 0 0 1px #fff3;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}.iy-sw.on i{transform:scale(1.06)}
+.iy-c .bd{position:absolute;right:6px;top:6px;font:400 8.5px/1 ${SAN};padding:2px 5px;border-radius:5px;box-shadow:inset 0 0 0 1px #ffffffaa}
+.iy-foot{padding:10px 11px 11px;border-top:1px solid #ffffff14;background:#00000008}
+.iy-pay{text-align:center;font:400 9.5px/1 ${SAN};opacity:.8;margin-bottom:10px}
+.iy-res{width:100%;height:40px;border-radius:99px;background:#0d0d0f!important;display:flex;align-items:center;justify-content:center;gap:8px;font:400 13px/1 ${SAN};transition:transform .2s,background .2s}.iy-res:hover{background:#000!important;transform:scale(1.01)}.iy-res:active{transform:scale(.98)}
+.iy-res i{width:9px;height:9px;border-radius:50%;transition:background .5s;box-shadow:0 0 0 1px #fff4}
+.iy-tog{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:14;display:flex;gap:2px;padding:3px;border-radius:99px;background:#77787db0;backdrop-filter:blur(12px)}
+.iy-tog button{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;opacity:.75;transition:background .3s,opacity .3s}.iy-tog button.on{background:#2b2c30;opacity:1}
+.iy-op{position:absolute;left:28px;bottom:26px;z-index:14;display:flex;align-items:center;gap:22px;color:#2b2c30;font:400 8.5px/1 ${MON};letter-spacing:.1em}
+.iy-op .tl{width:46px;height:52px;border-radius:10px;background:linear-gradient(160deg,#6a6b70,#3c3d41);display:grid;place-items:center;box-shadow:0 6px 14px #0002;transition:transform .25s}.iy-op:hover .tl{transform:translateY(-2px)}
+.iy-opl{position:absolute;left:28px;bottom:88px;z-index:16;width:220px;border-radius:16px;background:#6a6b70c8;backdrop-filter:blur(18px);padding:8px;display:grid;gap:4px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .25s,transform .3s}.iy-opl.on{opacity:1;transform:none;pointer-events:auto}
+.iy-opl button{display:flex;justify-content:space-between;padding:10px;border-radius:10px;font:400 12px ${SAN}}.iy-opl button:hover{background:#ffffff1a}.iy-opl span{opacity:.6;font:400 10px ${MON}}
+.iy-hint{position:absolute;z-index:3;pointer-events:none;transition:opacity .5s;opacity:0}
+.iy-hint.on{opacity:1}
+@media (max-width:760px){.iy-sheet{left:10px;right:10px;width:auto;bottom:10px;max-height:calc(100% - 90px)}.iy-tog{bottom:auto;top:76px}.iy-op{display:none}.iy-nav{width:220px;top:14px}.iy-menu{top:64px;width:240px}}
+`);
+  const el = h('div.iy');
+  // grain texture (stand-in for the product's micro-texture)
+  const gc = document.createElement('canvas'); gc.width = gc.height = 180; const gx = gc.getContext('2d'); const id = gx.createImageData(180, 180); const GR = rng(5); for (let i = 0; i < id.data.length; i += 4) { const v = 90 + GR() * 120; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 255; } gx.putImageData(id, 0, 0); el.style.setProperty('--grain', `url(${gc.toDataURL()})`);
+  const S = { conn: 0, color: 0, fit: 0, qty: 1, open: false, view: 'pair', bag: 0 };
+  const tipSvg = () => s('svg', { viewBox: '0 0 120 150' }, s('defs', {}, s('linearGradient', { id: 'iyt', x1: 0, y1: 0, x2: 1, y2: 1 }, s('stop', { offset: 0, 'stop-color': '#ffffff', 'stop-opacity': .95 }), s('stop', { offset: .55, 'stop-color': '#e9ebef', 'stop-opacity': .75 }), s('stop', { offset: 1, 'stop-color': '#c7cbd3', 'stop-opacity': .6 }))),
+    s('path', { d: 'M8 30 Q30 2 70 6 Q112 12 116 52 Q118 84 92 92 Q78 96 76 116 Q74 146 50 146 Q30 144 30 120 L30 96 Q6 84 8 30Z', fill: 'url(#iyt)', stroke: '#ffffff', 'stroke-opacity': .7, 'stroke-width': 1.2 }),
+    s('path', { d: 'M40 108 Q46 96 60 100 Q66 104 64 118', fill: 'none', stroke: '#b0b5bf', 'stroke-width': 2, opacity: .7 }), s('ellipse', { cx: 50, cy: 138, rx: 10, ry: 5, fill: '#9aa0aa', opacity: .5 }),
+    s('rect', { x: 10, y: 88, width: 20, height: 26, rx: 4, fill: '#c9c4bb', stroke: '#8f8a82', 'stroke-width': 1, transform: 'rotate(-12 20 100)' }));
+  const buds = [];
+  const mkBud = (withTip) => { const layers = Array.from({ length: 12 }, () => h('i.bk')); const faces = FIN.map((f, i) => h('b', { style: { background: f.face, opacity: i === S.color ? 1 : 0 } }));
+    const tip = withTip ? h('div.iy-tip', {}, tipSvg()) : null; const front = h('i'); const face = h('div.iy-face', {}, ...faces, h('u'), h('em'));
+    const b = h('div.iy-bud', {}, tip, ...layers, front, face, h('div.iy-seam')); b._layers = layers; b._faces = faces; b._face = face; b._front = front; b._tip = tip; buds.push(b); return b; };
+  const budL = mkBud(true), budR = mkBud(true);
+  const stage = h('div.iy-stage', {}, budL, budR);
+  const hint = h('div.iy-hint', {}, s('svg', { viewBox: '0 0 40 40', width: 34, height: 34 }, s('path', { d: 'M12 2 H28 L38 12 V28 L28 38 H12 L2 28 V12Z', fill: 'none', stroke: '#ffffffcc', 'stroke-width': 1.3 })), h('div', { style: { font: `400 8px ${MON}`, letterSpacing: '.1em', color: '#55565b', marginTop: '6px', whiteSpace: 'nowrap' } }, 'DRAG TO ROTATE'));
+  stage.append(hint);
+  const setRim = (b, f) => FIN[f].rim.forEach((c, i) => b.style.setProperty('--r' + i, c));
+  // ---- nav ----
+  const dots9 = s('svg', { viewBox: '0 0 12 12', width: 11, height: 11 }, ...[0, 1, 2].flatMap((r) => [0, 1, 2].map((c) => s('circle', { cx: 2 + c * 4, cy: 2 + r * 4, r: 1.1, fill: '#fff' }))));
+  const bagI = s('svg', { viewBox: '0 0 16 16', width: 13, height: 13 }, s('path', { d: 'M3 5 H13 L12.3 14 H3.7Z M5.5 5 V4 Q5.5 1.6 8 1.6 Q10.5 1.6 10.5 4 V5', fill: 'none', stroke: '#fff', 'stroke-width': 1.3 }));
+  const cnt = h('span.iy-cnt', {}, '0');
+  const menu = h('div.iy-menu', {}, ...[['iyO One', 'Audio computer'], ['iyO Pro', 'Coming soon'], ['Apps', 'Agent store'], ['Support', 'Fitting & care']].map(([a, b]) => h('button', { onclick: () => { menu.classList.remove('on'); toast(`${a} (demo)`); } }, a, h('small', {}, b))));
+  const gridB = h('button.iy-nb', { title: 'Menu', onclick: (e) => { e.stopPropagation(); menu.classList.toggle('on'); } }, dots9);
+  const bagB = h('button.iy-nb.bag', { title: 'Bag', onclick: () => toast(S.bag ? `Bag: ${S.bag} × iyO One (demo)` : 'Your bag is empty') }, bagI, cnt);
+  const navEl = h('div.iy-nav', {}, h('div.iy-logo', {}, 'iyO'), gridB, h('i.iy-div'), bagB);
+  // ---- sheet ----
+  const thumb = h('div.iy-th', {}, h('div', { style: { position: 'absolute', right: '-2px', top: '14px', width: '34px', height: '40px' } }, tipSvg()), h('div', { style: { position: 'absolute', left: '0', top: '2px', width: '44px', height: '44px', borderRadius: '50%', padding: '2px' } }, h('div', { style: { width: '100%', height: '100%', borderRadius: '50%', transition: 'background .5s' } })));
+  const thumbRim = thumb.children[1], thumbFace = thumbRim.firstChild;
+  const qtyN = h('span', {}, '1');
+  const sumLn = h('div.ln'); const payL = h('div.iy-pay'); const resDot = h('i'); const resB = h('button.iy-res', { onclick: () => reserve() }, resDot, h('span', {}, 'Reserve · $0.00'));
+  const chev = h('button.iy-chev', { title: 'Configure', onclick: () => setOpen(!S.open) }, s('svg', { viewBox: '0 0 12 12', width: 10, height: 10 }, s('path', { d: 'M2.5 7.5 L6 4 L9.5 7.5', stroke: '#fff', 'stroke-width': 1.5, fill: 'none', 'stroke-linecap': 'round' })));
+  const connC = CONN.map(([n, p], i) => h('button.iy-c', { onclick: () => setS('conn', i) }, n, h('small', {}, 'Ships TBD'), h('span.pr', {}, `$${p}`)));
+  const swC = FIN.map((f, i) => h('button.iy-c.iy-sw', { onclick: () => setS('color', i) }, h('i', { style: { background: f.sw } }), f.n));
+  const fitC = FIT.map(([n, , b], i) => h('button.iy-c', { style: { minHeight: '54px', paddingTop: '22px' } }, h('span.bd', {}, b), n));
+  fitC.forEach((c, i) => c.addEventListener('click', () => setS('fit', i)));
+  const sheet = h('div.iy-sheet', {},
+    h('div.iy-sh', {}, h('div', {}, h('h3', {}, 'iyO One'), h('div.dp', {}, h('span', {}, 'Deposit'), '$0.00')), thumb, h('div.iy-qty', {}, h('button', { title: 'Less', onclick: () => setS('qty', Math.max(1, S.qty - 1)) }, '−'), qtyN, h('button', { title: 'More', onclick: () => setS('qty', Math.min(9, S.qty + 1)) }, '+'))),
+    h('div.iy-sum', {}, h('div.tx', {}, h('div.iy-lbl', {}, 'Your configuration'), sumLn), chev),
+    h('div.iy-body', {}, h('div', {}, h('div.iy-grp', {}, h('span.iy-lbl', {}, 'Connectivity'), h('div.iy-cards', { style: { gridTemplateColumns: '1fr 1fr' } }, connC)), h('div.iy-grp', {}, h('span.iy-lbl', {}, 'Pick up a color'), h('div.iy-cards', { style: { gridTemplateColumns: '1fr 1fr 1fr' } }, swC)), h('div.iy-grp', {}, h('span.iy-lbl', {}, 'Choose custom fit'), h('div.iy-cards', { style: { gridTemplateColumns: '1fr 1fr 1fr' } }, fitC)))),
+    h('div.iy-foot', {}, payL, resB));
+  // ---- view toggle + other products ----
+  const pairI = s('svg', { viewBox: '0 0 22 14', width: 18, height: 12 }, s('rect', { x: 1, y: 2, width: 5, height: 10, rx: 2.5, fill: 'none', stroke: '#fff', 'stroke-width': 1.2 }), s('rect', { x: 8.5, y: 1, width: 5, height: 12, rx: 2.5, fill: '#fff' }), s('rect', { x: 16, y: 2, width: 5, height: 10, rx: 2.5, fill: 'none', stroke: '#fff', 'stroke-width': 1.2 }));
+  const oneI = s('svg', { viewBox: '0 0 16 16', width: 14, height: 14 }, s('circle', { cx: 8, cy: 8, r: 6.5, fill: 'none', stroke: '#fff', 'stroke-width': 1.2 }), s('path', { d: 'M1.5 8 H14.5 M8 1.5 Q4 8 8 14.5', fill: 'none', stroke: '#fff', 'stroke-width': 1.1 }));
+  const tPair = h('button.on', { title: 'Pair view', onclick: () => setView('pair') }, pairI), tOne = h('button', { title: 'Single view', onclick: () => setView('single') }, oneI);
+  const tog = h('div.iy-tog', {}, tPair, tOne);
+  const opl = h('div.iy-opl', {}, ...[['Charging case', '$129'], ['Ear tip kit', '$29'], ['iyO Pro', 'Soon']].map(([a, b]) => h('button', { onclick: () => { opl.classList.remove('on'); toast(`${a} (demo)`); } }, a, h('span', {}, b))));
+  const opB = h('button.iy-op', { onclick: (e) => { e.stopPropagation(); opl.classList.toggle('on'); } }, h('span.tl', {}, h('span', { style: { width: '26px', height: '30px', display: 'block' } }, tipSvg())), 'OTHER PRODUCTS');
+  el.append(stage, navEl, menu, sheet, tog, opB, opl); root.append(el);
+  // ---- state → DOM ----
+  const money = (n) => '$' + n.toLocaleString('en-US');
+  const sync = () => {
+    connC.forEach((c, i) => c.classList.toggle('on', i === S.conn)); swC.forEach((c, i) => c.classList.toggle('on', i === S.color)); fitC.forEach((c, i) => c.classList.toggle('on', i === S.fit));
+    sumLn.textContent = `${CONN[S.conn][0].toUpperCase().replace('(32GB)', '(32GB)')}  /  ${FIN[S.color].n}  /  ${FIT[S.fit][0]}`;
+    qtyN.textContent = S.qty; payL.textContent = `Pay when ships: ${money((CONN[S.conn][1] + FIT[S.fit][1]) * S.qty)} · Pay today to reserve: $0`;
+    resB.lastChild.textContent = `Reserve${S.qty > 1 ? ' ' + S.qty : ''} · $0.00`; resDot.style.background = FIN[S.color].dot;
+    buds.forEach((b) => { b._faces.forEach((f, i) => (f.style.opacity = i === S.color ? 1 : 0)); setRim(b, S.color); });
+    const r = FIN[S.color].rim; thumbRim.style.background = `conic-gradient(from 210deg,${r.join(',')},${r[0]})`; thumbFace.style.background = FIN[S.color].face;
+    el.classList.toggle('open', S.open);
+  };
+  const setS = (k, v) => { S[k] = v; sync(); if (k === 'color') buds.forEach((b) => b._face.animate([{ filter: 'brightness(1.25)' }, { filter: 'none' }], { duration: 600, easing: 'ease-out' })); };
+  const setOpen = (o) => { S.open = o; sync(); place(); };
+  const reserve = () => { S.bag += S.qty; cnt.textContent = S.bag; cnt.classList.remove('bump'); void cnt.offsetWidth; cnt.classList.add('bump'); toast(`Reserved ${S.qty} × iyO One — ${FIN[S.color].n}, ${CONN[S.conn][0]} (demo, no payment)`); };
+  // ---- layout of renders ----
+  let rot = 0, rx = 0, mx = 0, my = 0;
+  const thick = (b, d, n) => b._layers.forEach((l, i) => { l.style.transform = `translateZ(${-(i + 1) * d * n / 12}px)`; });
+  const place = () => {
+    const W = el.clientWidth || 1200, H = el.clientHeight || 760, mob = W < 760, sh = S.open && !mob ? -W * 0.06 : 0;
+    if (S.view === 'pair') {
+      const d = mob ? Math.min(W * 0.72, H * 0.42) : Math.min(W * 0.48, H * 0.86);
+      const dR = d * 1.04;
+      Object.assign(budL.style, { width: d + 'px', height: d + 'px', left: (mob ? W * 0.02 - d * 0.35 : W * 0.23 - d / 2) + sh + 'px', top: (mob ? H * 0.2 : H * 0.5 - d / 2) + 'px', opacity: 1, transform: `rotateY(${-6 + mx * 6}deg) rotateX(${my * -4}deg)` });
+      Object.assign(budR.style, { width: dR + 'px', height: dR + 'px', left: (mob ? W * 0.48 : W * 0.55) + sh + 'px', top: (mob ? H * 0.19 : H * 0.5 - dR / 2) + 'px', opacity: 1, transform: `rotateY(${42 + mx * 6}deg) rotateX(${my * -4}deg)` });
+      thick(budL, d, 0.11); thick(budR, dR, 0.11); budL._tip.style.opacity = 0; budR._tip.style.opacity = 1; hint.classList.remove('on');
+    } else {
+      const d = mob ? Math.min(W * 0.78, H * 0.45) : Math.min(W * 0.45, H * 0.72);
+      Object.assign(budL.style, { width: d + 'px', height: d + 'px', left: W / 2 - d / 2 + sh * 0.5 + 'px', top: (mob ? H * 0.2 : H * 0.5 - d / 2 - 18) + 'px', opacity: 1, transform: `rotateY(${rot}deg) rotateX(${rx}deg)` });
+      Object.assign(budR.style, { left: W * 1.15 + 'px', opacity: 0 });
+      thick(budL, d, 0.13); budL._tip.style.opacity = 1; Object.assign(hint.style, { left: W / 2 + d * 0.38 + 'px', top: (mob ? H * 0.2 : H * 0.5 - 18) + d * 0.48 + 'px' }); hint.classList.add('on');
+    }
+    budL._tip.style.transform = `translateZ(${-budL.clientWidth * 0.13}px) rotateY(-20deg)`; budR._tip.style.transform = `translateZ(${-budR.clientWidth * 0.13}px) rotateY(-20deg)`;
+  };
+  const setView = (v) => { S.view = v; tPair.classList.toggle('on', v === 'pair'); tOne.classList.toggle('on', v === 'single'); if (v === 'single') { rot = 0; rx = 0; } place(); };
+  // drag to rotate in single view (and gentle parallax in pair view)
+  let dragging = false;
+  drag(stage, { start: (e) => { if (S.view !== 'single') return false; dragging = true; budL.style.transition = 'none'; stage._x = e.clientX; stage._y = e.clientY; stage._r = rot; stage._rx = rx; }, move: (e) => { rot = stage._r + (e.clientX - stage._x) * 0.5; rx = clamp(stage._rx - (e.clientY - stage._y) * 0.3, -35, 35); budL.style.transform = `rotateY(${rot}deg) rotateX(${rx}deg)`; }, end: () => { dragging = false; budL.style.transition = ''; } });
+  el.addEventListener('pointermove', (e) => { if (S.view !== 'pair') return; const r = el.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - 0.5; my = (e.clientY - r.top) / r.height - 0.5; budL.style.transition = budR.style.transition = 'transform .6s cubic-bezier(.2,.8,.2,1)'; place(); });
+  el.addEventListener('pointerleave', () => { budL.style.transition = budR.style.transition = ''; });
+  document.addEventListener('click', (e) => { if (!gridB.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('on'); if (!opB.contains(e.target) && !opl.contains(e.target)) opl.classList.remove('on'); });
+  sync(); place(); new ResizeObserver(place).observe(el);
+  window.__demoProof = async () => {
+    const o = [];
+    chev.click(); await sleep(650); o.push(`expand open=${S.open} bodyH=${Math.round(sheet.querySelector('.iy-body').getBoundingClientRect().height)}`);
+    swC[1].click(); await sleep(750); o.push(`Night swatch → faceOpacity=[${budL._faces.map((f) => getComputedStyle(f).opacity).join(',')}] summary="${sumLn.textContent.replace(/\s+/g, ' ')}" dot=${resDot.style.background}`);
+    connC[1].click(); fitC[2].click(); o.push(`LTE + Already fitted → "${payL.textContent}"`);
+    sheet.querySelector('.iy-qty button:last-child').click(); o.push(`qty=${qtyN.textContent} reserve="${resB.textContent}"`); resB.click(); o.push(`bag=${cnt.textContent}`);
+    tOne.click(); await sleep(950); o.push(`single view: right opacity=${getComputedStyle(budR).opacity} left w=${Math.round(budL.getBoundingClientRect().width)} hint=${hint.classList.contains('on')}`);
+    const sr = stage.getBoundingClientRect(); const pe = (n, x) => stage.dispatchEvent(new PointerEvent(n, { bubbles: true, clientX: x, clientY: sr.top + 200, pointerId: 7, button: 0 }));
+    pe('pointerdown', sr.left + 400); pe('pointermove', sr.left + 520); pe('pointerup', sr.left + 520); o.push(`drag rotate → ${Math.round(rot)}°`);
+    tPair.click(); await sleep(950); o.push(`pair view: right opacity=${getComputedStyle(budR).opacity}`);
+    gridB.click(); o.push(`app grid menu=${menu.classList.contains('on')}`); menu.classList.remove('on');
+    Object.assign(S, { conn: 0, color: 0, fit: 0, qty: 1, bag: 0 }); cnt.textContent = '0'; setOpen(false); await sleep(600); o.push(`restored "${sumLn.textContent.replace(/\s+/g, ' ')}" open=${S.open}`);
+    return o.join('; ');
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

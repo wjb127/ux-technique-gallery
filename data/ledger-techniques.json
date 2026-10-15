@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-toss-fullbleed-photo-shrink-to-rounded-card-sticky-phone-feature-accordion-tick-rail",
+  "slug": "toss-fullbleed-photo-shrink-to-rounded-card-sticky-phone-feature-accordion-tick-rail",
+  "name": "Full-Bleed Lifestyle Photo that Shrinks into a Rounded Card + Sticky Phone Mock with Feature Accordion + Left Tick Progress Rail (Toss)",
+  "date": "2026-10-15",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://toss.im/",
+  "domain": "toss.im",
+  "product": "Toss — Korean super-app (finance to everyday life) brand homepage",
+  "checkpoints": [
+   "Slim white nav (logo, 서비스/비즈니스/회사소개/뉴스룸/채용, KOR, 앱 다운로드 pill)",
+   "Hero photo in a rounded card with giant 3-part Korean headline 금융부터 일상까지 / 마침내 / 토스 하나로",
+   "Scroll: card grows to full-bleed then crossfades to a close-up hand-holding-phone scene",
+   "Phone scene shrinks back into a rounded card with left copy block (몇 번만 누르면 끝나는 송금)",
+   "Sticky phone mock + left accordion feature list; active item expands with desc + 더 알아보기 pill and swaps the phone screen",
+   "Left vertical tick rail showing section progress"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-kontinentalist-illustrated-data-story-clickable-name-tree-step-name-explorer",
+  "slug": "kontinentalist-illustrated-data-story-clickable-name-tree-step-name-explorer",
+  "name": "Illustrated Data-Story Explainer: Line-Art Portrait Hero, Clickable Name Category Tree with Side Note, Stepwise Speculative Name Explorer (Kontinentalist)",
+  "date": "2026-10-15",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://kontinentalist.com/stories/how-asian-names-work",
+  "domain": "kontinentalist.com",
+  "product": "Kontinentalist — Singapore data-storytelling studio; story \"What's in an Asian name?\"",
+  "checkpoints": [
+   "Cream paper ground, coral wordmark + outlined nav pills, Previous/Next vertical side rails",
+   "Periwinkle hero with hand-drawn line-art portraits and handwritten name labels, centered title + Read story button",
+   "Mock Western form panel showing a failing name field (diacritics/length)",
+   "Hand-drawn branch tree of name categories; click a node to highlight it and fill a side note card",
+   "Naming origins explorer: numbered step bubbles, given-name input with 20-char counter, Enter button, category chips (Order of birth, Matrilineal, Day of birth, Birthplace, Patronymic)",
+   "Compose and show a speculative name result locally (no data sent)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-iyo-glass-configurator-sheet-color-swatch-render-swap-pair-single-view-toggle",
+  "slug": "iyo-glass-configurator-sheet-color-swatch-render-swap-pair-single-view-toggle",
+  "name": "Glass Configurator Sheet over Giant Product Render: Expandable Your-Configuration Panel, Color Swatches that Swap the Render, Pair/Single View Toggle (iyO)",
+  "date": "2026-10-15",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.iyo.ai/products/iyo-one",
+  "domain": "iyo.ai",
+  "product": "iyO One — ear-worn screenless agentic computer, pre-order configurator",
+  "checkpoints": [
+   "Floating dark pill nav (iyO logo, app-grid button, bag with count)",
+   "Oversized product renders bleeding off the light-grey stage (pair view)",
+   "Frosted glass sheet bottom-right: name, deposit, qty stepper, YOUR CONFIGURATION summary line, chevron",
+   "Expand: Connectivity cards with price, Pick a color swatches Dusk/Night/Dawn, Custom fit cards with +$ badges",
+   "Swatch click swaps the render finish and updates summary + Reserve button",
+   "Bottom-center segmented toggle pair vs single earbud view; OTHER PRODUCTS thumbnail bottom-left"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-floor796-isometric-pixel-world-drag-pan-wheel-zoom-wandering-toggle",
   "slug": "floor796-isometric-pixel-world-drag-pan-wheel-zoom-wandering-toggle",
   "name": "Isometric Pixel-Art Living World: Drag-Pan + Wheel-Zoom Canvas, Wandering Auto-Camera, Slim Chrome Bar (Floor796)",
