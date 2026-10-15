@@ -3733,5 +3733,32 @@
   "proof": "slider=true; layer=ISO Voxels; playing=true t=0.7; aiTab=Edit; aurora=true chips=6 axis=Both",
   "demoNodes": 126,
   "errors": []
+ },
+ "haoqi-instrument-panel-live-clock-cursor-xy-theme-sound-toggles-inflated-3d-hello": {
+  "url": "https://ux-technique-gallery.vercel.app/t/haoqi-instrument-panel-live-clock-cursor-xy-theme-sound-toggles-inflated-3d-hello/",
+  "ok": true,
+  "at": "2026-10-15T04:08:28.049Z",
+  "http": 200,
+  "proof": "xy 0720 X 0450 Y→0300 X 0200 Y (true); clock=GMT+8 CN 12:08 23°C; THEME A→B bg #bfddf0→#0b0b0c; →C; →A; sound=true label=SOUND[|]; sound=false; work screen bg=#0b0b0c rows=5; hover→Autolayout Lint; contact=true; sticker drag dx=73; restored theme=A screen=home sound=false",
+  "demoNodes": 299,
+  "errors": []
+ },
+ "edolus-scroll-scale-descent-webgl-showreel-satellite-to-chip-chapter-brakes": {
+  "url": "https://ux-technique-gallery.vercel.app/t/edolus-scroll-scale-descent-webgl-showreel-satellite-to-chip-chapter-brakes/",
+  "ok": true,
+  "at": "2026-10-15T04:08:28.061Z",
+  "http": 200,
+  "proof": "initiate mode=run ch=ORBITAL INTELLIGENCE; descent chapters=PRIMARY NODE → URBAN SYSTEMS → COMPUTE CORE → SILICON MIND → EMERGENCE; wheel 2→2.29 settle→2; brake band Δ=0.112 vs normal 0.294; capability ribbon opacity=1.00 cards=4; HUD scrambles=8 spec=\"AGENTS 1.2 M\"; ending reveal=true; restored mode=gate gate=true",
+  "demoNodes": 85,
+  "errors": []
+ },
+ "dennis-snellenberg-oversized-name-hero-location-pill-magnetic-nav-work-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dennis-snellenberg-oversized-name-hero-location-pill-magnetic-nav-work-rail/",
+  "ok": true,
+  "at": "2026-10-15T04:08:28.058Z",
+  "http": 200,
+  "proof": "magnetic Work → translate(5.12px, 3.2px); smooth scroll cur=740/862 marquee moved=true burger=true; work rail hover overlay=true card=The Damai; transition→ page=work rows=7; filter dev rows=5; grid cards=5; restored page=home scroll=0",
+  "demoNodes": 162,
+  "errors": []
  }
 }
