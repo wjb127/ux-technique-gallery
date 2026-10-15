@@ -3760,5 +3760,32 @@
   "proof": "magnetic Work → translate(5.12px, 3.2px); smooth scroll cur=740/862 marquee moved=true burger=true; work rail hover overlay=true card=The Damai; transition→ page=work rows=7; filter dev rows=5; grid cards=5; restored page=home scroll=0",
   "demoNodes": 162,
   "errors": []
+ },
+ "floor796-isometric-pixel-world-drag-pan-wheel-zoom-wandering-toggle": {
+  "url": "https://ux-technique-gallery.vercel.app/t/floor796-isometric-pixel-world-drag-pan-wheel-zoom-wandering-toggle/",
+  "ok": true,
+  "at": "2026-10-15T08:08:19.195Z",
+  "http": 200,
+  "proof": "drag pan dx=237 dy=119; wheel zoom 1.00→1.54 anchor drift=0.00px; wandering=true moved=227px; hotspot click → Washroom; rooms=142 people=531 anims=223; restored z=1.00 wander=false",
+  "demoNodes": 26,
+  "errors": []
+ },
+ "dogstudio-editorial-serif-hero-3d-wolf-giant-thin-project-index": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dogstudio-editorial-serif-hero-3d-wolf-giant-thin-project-index/",
+  "ok": true,
+  "at": "2026-10-15T08:08:19.204Z",
+  "http": 200,
+  "proof": "scroll p=0.95 wolf 1→0.582629; hover \"Navy Pier\" on=true dimOthers=true tint=0.832386 preview=true; leave → preview=false; menu open=true; closed=true; sound=true; sound=false; reel=true; restored p=0.00",
+  "demoNodes": 224,
+  "errors": []
+ },
+ "motion-dev-yellow-black-bento-live-animation-tiles-example-gallery": {
+  "url": "https://ux-technique-gallery.vercel.app/t/motion-dev-yellow-black-bento-live-animation-tiles-example-gallery/",
+  "ok": true,
+  "at": "2026-10-15T08:08:19.206Z",
+  "http": 200,
+  "proof": "hero drag x=100 → spring back x=0; nav stuck=true; tile hover bg=rgb(251, 213, 9); gesture drag x=80→0; layout 201→120; tw=\"Hello world!\" exitRows=2 scrollFill=87.9397%; heart on=true; filter REACT → 3/6 cards; folder toggle false→true; restored scrollTop=0 stuck=false",
+  "demoNodes": 341,
+  "errors": []
  }
 }
