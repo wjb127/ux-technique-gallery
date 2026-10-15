@@ -14922,13 +14922,13 @@ V['edolus-scroll-scale-descent-webgl-showreel-satellite-to-chip-chapter-brakes']
     const ay = H * .875, by = H * .094, cx = W * 1.25; const cy = (cx * cx + ay * ay - (cx - W) * (cx - W) - by * by) / (2 * (ay - by)); const R = Math.hypot(cx, cy - ay);
     ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
     const g = ctx.createRadialGradient(cx, cy, R * .82, cx, cy, R); g.addColorStop(0, '#06101f'); g.addColorStop(.6, '#132a4a'); g.addColorStop(.93, '#3d5f8e'); g.addColorStop(1, '#7da2d0'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    ctx.globalAlpha = .28; ctx.drawImage(land, (t * 3) % 40 - 40, -40, W + 80, H + 80); ctx.globalAlpha = .95; ctx.drawImage(clouds, (t * 6) % 60 - 60, -30, W * 1.1 + 60, H * 1.1);
+    if (land) { ctx.globalAlpha = .28; ctx.drawImage(land, (t * 3) % 40 - 40, -40, W + 80, H + 80); ctx.globalAlpha = .95; ctx.drawImage(clouds, (t * 6) % 60 - 60, -30, W * 1.1 + 60, H * 1.1); }
     const sh = ctx.createLinearGradient(W * .2, H * .2, W * .95, H); sh.addColorStop(0, '#0000'); sh.addColorStop(.55, '#00000040'); sh.addColorStop(1, '#000000d8'); ctx.globalAlpha = 1; ctx.fillStyle = sh; ctx.fillRect(0, 0, W, H); ctx.restore();
     ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R + 2, 0, Math.PI * 2); ctx.strokeStyle = '#8fb8ff'; ctx.lineWidth = 3; ctx.shadowColor = '#5d9bff'; ctx.shadowBlur = 40; ctx.globalAlpha = .8; ctx.stroke(); ctx.lineWidth = 14; ctx.globalAlpha = .18; ctx.stroke(); ctx.restore();
     const sx = W * (.22 + .02 * Math.sin(t * .2)), sy = H * (.24 + .01 * Math.cos(t * .2)); ctx.save(); ctx.translate(sx, sy); ctx.rotate(-.35); ctx.fillStyle = '#c9ccd3'; ctx.fillRect(-7, -5, 14, 10); ctx.fillStyle = '#1f3e7a'; ctx.fillRect(-40, -4, 30, 8); ctx.fillRect(10, -4, 30, 8); ctx.strokeStyle = '#8aa6d8'; ctx.lineWidth = .6; for (let i = -38; i < 40; i += 6) if (Math.abs(i) > 9) { ctx.beginPath(); ctx.moveTo(i, -4); ctx.lineTo(i, 4); ctx.stroke(); } ctx.fillStyle = '#ff5a3c'; ctx.globalAlpha = .5 + .5 * Math.sin(t * 5); ctx.fillRect(-1, -8, 2, 2); ctx.restore(); ctx.globalAlpha = 1;
   };
   sc[1] = (t) => { // primary node: night side, landmass + city lights, hub with uplink arcs
-    ctx.fillStyle = '#020611'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = .9; ctx.drawImage(land, -W * .1, -H * .1, W * 1.2, H * 1.2); ctx.globalAlpha = 1;
+    ctx.fillStyle = '#020611'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = .9; if (land) ctx.drawImage(land, -W * .1, -H * .1, W * 1.2, H * 1.2); ctx.globalAlpha = 1;
     const vg = ctx.createRadialGradient(W / 2, H / 2, H * .1, W / 2, H / 2, H * .9); vg.addColorStop(0, '#2a6dff18'); vg.addColorStop(1, '#000000d0'); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
     const [hx, hy] = [W / 2, H / 2];
     nodes1.forEach(([x, y], i) => { const px = x * W, py = y * H; ctx.strokeStyle = '#e8b04a'; ctx.globalAlpha = .55; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(px, py); ctx.quadraticCurveTo((px + hx) / 2, Math.min(py, hy) - 80, hx, hy); ctx.stroke();
@@ -15026,7 +15026,7 @@ V['edolus-scroll-scale-descent-webgl-showreel-satellite-to-chip-chapter-brakes']
       const rk = P - 5; rib.style.opacity = clamp(1 - Math.abs(rk) * 2.4, 0, 1); const tw = trk.scrollWidth; trk.style.transform = `translateX(${W / 2 - tw / 2 - rk * tw * .7}px)`; if (rib.style.opacity > 0) drawCap(t);
       end.classList.toggle('on', P > N - .25); }
     raf = requestAnimationFrame(loop); };
-  el.append(cv, wm, gate, hud, rib, end, load); root.append(el); fit(); mkTex(); new ResizeObserver(fit).observe(el);
+  el.append(cv, wm, gate, hud, rib, end, load); root.append(el); fit(); setTimeout(mkTex, 30); new ResizeObserver(fit).observe(el);
   // loader: percent ticks, O ring fills, then the start gate
   let lp = 0; const lIv = setInterval(() => { lp = Math.min(100, lp + 7 + Math.random() * 9 | 0); pc.textContent = lp + '%'; lw._r.firstChild.setAttribute('stroke-dasharray', `${4 + 54 * lp / 100} 70`); if (lp >= 100) { clearInterval(lIv); load.classList.add('off'); if (mode === 'load') mode = 'gate'; } }, 70);
   loop();
