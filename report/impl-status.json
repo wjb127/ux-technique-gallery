@@ -3841,5 +3841,32 @@
   "proof": "highlights=opacity→blur→gray-out→diff; restored opacity · stand-ins: pastel CSS shapes, invented social icons, grayscale wordmarks",
   "demoNodes": 175,
   "errors": []
+ },
+ "mute-jetson-3d-pod-configurator-drag-rotate-step-rail-feature-swatches": {
+  "url": "http://localhost:4173/t/mute-jetson-3d-pod-configurator-drag-rotate-step-rail-feature-swatches/",
+  "ok": true,
+  "at": "2026-10-15T23:54:48.905Z",
+  "http": 200,
+  "proof": "view=Interior; rotY=0.95; step=Construction & walls; restored Standard equipment · stand-ins: CSS/canvas pod (not Three.js glTF), invented feature thumbs",
+  "demoNodes": 92,
+  "errors": []
+ },
+ "bun-pink-fast-hero-benchmark-bar-race-replay-terminal-install": {
+  "url": "http://localhost:4173/t/bun-pink-fast-hero-benchmark-bar-race-replay-terminal-install/",
+  "ok": true,
+  "at": "2026-10-15T23:54:48.899Z",
+  "http": 200,
+  "proof": "os=win; tab=express; tab=install; bar-race replayed · stand-ins: CSS/SVG dumpling mascot, invented used-by wordmarks, animated bar race replay",
+  "demoNodes": 88,
+  "errors": []
+ },
+ "active-theory-webgl-metallic-emblem-scroll-gate-work-contact-audio": {
+  "url": "http://localhost:4173/t/active-theory-webgl-metallic-emblem-scroll-gate-work-contact-audio/",
+  "ok": true,
+  "at": "2026-10-15T23:54:48.889Z",
+  "http": 200,
+  "proof": "audio=true; song=Iridescent Wire; view=work; view=contact; restored gate · stand-ins: canvas metallic emblem + grain/particles (not WebGL/Three), invented song titles",
+  "demoNodes": 24,
+  "errors": []
  }
 }
