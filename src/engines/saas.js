@@ -16310,11 +16310,11 @@ V['overworld-audio-3d-island-map-drag-pan-zoom-project-markers-sound-gate'] = (r
 .ow-grain{position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");background-size:180px}
 .ow-gate{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#10121a}
 .ow-gate.hide{opacity:0;pointer-events:none;transition:opacity .7s}
-.ow-logo{width:min(42vw,320px);height:min(42vw,320px);opacity:.28;margin-bottom:-40px}
-.ow-title{position:relative;z-index:1;text-align:center;margin-top:-180px}
+.ow-logo{position:absolute;left:50%;top:42%;transform:translate(-50%,-55%);width:min(48vw,360px);height:min(48vw,360px);opacity:.38;pointer-events:none}
+.ow-title{position:relative;z-index:1;text-align:center;margin-top:0}
 .ow-title b{display:block;font:600 42px/1 ${SAN};letter-spacing:.42em;color:#f4f6f7;padding-left:.42em}
 .ow-title span{display:block;margin-top:10px;font:500 12px/1 ${SAN};letter-spacing:.5em;color:#9aa3ab;padding-left:.5em}
-.ow-enter{margin-top:70px;padding:14px 28px;border:1px dashed #cfd6db88;background:transparent;color:#cfd6db;font:500 12px/1 ${SAN};letter-spacing:.28em;cursor:pointer;transition:border-color .2s,color .2s}
+.ow-enter{margin-top:56px;padding:14px 28px;border:1px dashed #cfd6db88;background:transparent;color:#cfd6db;font:500 12px/1 ${SAN};letter-spacing:.28em;cursor:pointer;transition:border-color .2s,color .2s}
 .ow-enter:hover{border-color:#fff;color:#fff}
 .ow-mute{position:absolute;right:28px;bottom:24px;font:500 10px/1 ${SAN};letter-spacing:.22em;color:#8b949c;text-decoration:underline;text-underline-offset:4px;cursor:pointer;background:none;border:0;padding:0}
 .ow-chrome{position:absolute;left:0;right:0;top:0;z-index:20;height:56px;display:flex;align-items:center;padding:0 28px;gap:18px;pointer-events:none}
@@ -16344,7 +16344,7 @@ V['overworld-audio-3d-island-map-drag-pan-zoom-project-markers-sound-gate'] = (r
   const grain = h('div.ow-grain');
   const gate = h('div.ow-gate');
   const logo = h('svg.ow-logo', { viewBox: '0 0 200 200', fill: 'none', stroke: '#c8d0d6', 'stroke-width': '1.2' });
-  logo.innerHTML = `<circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="54"/><path d="M100 22 L178 160 H22 Z"/><path d="M42 118 Q100 70 158 118" />`;
+  logo.innerHTML = `<circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="54"/><circle cx="100" cy="100" r="30"/><path d="M100 18 L182 168 H18 Z"/><path d="M40 120 Q100 68 160 120"/><path d="M55 95 A48 48 0 0 1 145 95"/>`;
   const gTitle = h('div.ow-title', {}, h('b', {}, 'OVERWORLD'), h('span', {}, 'AUDIO'));
   const enterWith = h('button.ow-enter', {}, 'ENTER WITH SOUND');
   const enterMute = h('button.ow-mute', {}, 'ENTER WITHOUT SOUND');
