@@ -3787,5 +3787,32 @@
   "proof": "hero drag x=100 → spring back x=0; nav stuck=true; tile hover bg=rgb(251, 213, 9); gesture drag x=80→0; layout 201→120; tw=\"Hello world!\" exitRows=2 scrollFill=87.9397%; heart on=true; filter REACT → 3/6 cards; folder toggle false→true; restored scrollTop=0 stuck=false",
   "demoNodes": 341,
   "errors": []
+ },
+ "kontinentalist-illustrated-data-story-clickable-name-tree-step-name-explorer": {
+  "url": "https://ux-technique-gallery.vercel.app/t/kontinentalist-illustrated-data-story-clickable-name-tree-step-name-explorer/",
+  "ok": true,
+  "at": "2026-10-15T12:10:38.264Z",
+  "http": 200,
+  "proof": "form \"Nguyễn, Thị Minh Khai\" → bub bad; \"Tan, Wei Ling\" → bub ok; tree Lineage → note \"Lineage\" learnMore=6; → \"Teknonym\" highlighted=2 darkBranches=8; name order → Siti NurhalizabintiTarudin; counter \"14/20 characters left\" enterDisabled=false; step2 open=true; Patronymic=\"Aisyah anak Rahman\" | Birthplace=\"S. Aisyah\" | Order of birth=\"Made Aisyah\"; result card=true; restored step2Off=true note=\"Location\"",
+  "demoNodes": 514,
+  "errors": []
+ },
+ "toss-fullbleed-photo-shrink-to-rounded-card-sticky-phone-feature-accordion-tick-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/toss-fullbleed-photo-shrink-to-rounded-card-sticky-phone-feature-accordion-tick-rail/",
+  "ok": true,
+  "at": "2026-10-15T12:10:38.255Z",
+  "http": 200,
+  "proof": "grow: radius 26px→0px top 60.5px→0px; crossfade hero=0.00 phoneScene=1.00 sent=true; shrink: radius=46px side=159.84px desc=0.60 railLight=false; acc[0] on=true; click 매일 이자 받기 → on=true others=1 screen \"4,820,000원토스\"→\"토스뱅크 통장5,173,0\"; rail tick 6→11; lang menu true; restored P=0.00 tick=0 radius=26px",
+  "demoNodes": 270,
+  "errors": []
+ },
+ "iyo-glass-configurator-sheet-color-swatch-render-swap-pair-single-view-toggle": {
+  "url": "https://ux-technique-gallery.vercel.app/t/iyo-glass-configurator-sheet-color-swatch-render-swap-pair-single-view-toggle/",
+  "ok": true,
+  "at": "2026-10-15T12:10:38.266Z",
+  "http": 200,
+  "proof": "expand open=true bodyH=295; Night swatch → faceOpacity=[0.310696,0.689304,0] summary=\"WI-FI (32GB) / Night / Home fitting\" dot=rgb(42, 43, 47); LTE + Already fitted → \"Pay when ships: $1,199 · Pay today to reserve: $0\"; qty=2 reserve=\"Reserve 2 · $0.00\"; bag=2; single view: right opacity=0.0305762 left w=641 hint=true; drag rotate → 60°; pair view: right opacity=1; app grid menu=true; restored \"WI-FI (32GB) / Dusk / Home fitting\" open=false",
+  "demoNodes": 192,
+  "errors": []
  }
 }
