@@ -3868,5 +3868,32 @@
   "proof": "audio=true; song=Iridescent Wire; view=work; view=contact; restored gate · stand-ins: canvas metallic emblem + grain/particles (not WebGL/Three), invented song titles",
   "demoNodes": 24,
   "errors": []
+ },
+ "framer-dark-ai-design-agent-glow-prompt-haus-layout-explorations-panel": {
+  "url": "https://ux-technique-gallery.vercel.app/t/framer-dark-ai-design-agent-glow-prompt-haus-layout-explorations-panel/",
+  "ok": true,
+  "at": "2026-10-16T03:56:44.903Z",
+  "http": 200,
+  "proof": "no-proof-hook",
+  "demoNodes": 62,
+  "errors": []
+ },
+ "paodao-clay-explorer-loading-gate-arrow-mouse-playable-webgl-world": {
+  "url": "https://ux-technique-gallery.vercel.app/t/paodao-clay-explorer-loading-gate-arrow-mouse-playable-webgl-world/",
+  "ok": true,
+  "at": "2026-10-16T03:56:44.892Z",
+  "http": 200,
+  "proof": "loading→ready; mode=world; pos=0.04,0.10; found=2; restored loading · stand-ins: canvas clay figure + CSS/canvas world (not WebGL/Three), invented findables",
+  "demoNodes": 20,
+  "errors": []
+ },
+ "suno-warm-grain-gradient-chat-create-music-hero-tilted-track-cards": {
+  "url": "https://ux-technique-gallery.vercel.app/t/suno-warm-grain-gradient-chat-create-music-hero-tilted-track-cards/",
+  "ok": true,
+  "at": "2026-10-16T03:56:44.902Z",
+  "http": 200,
+  "proof": "prompt=lofi rain jazz for late ; advanced=true; playing=0; playing=1; restored · stand-ins: invented track art/titles, CSS grain mesh (not real film grain shader)",
+  "demoNodes": 42,
+  "errors": []
  }
 }
