@@ -19792,4 +19792,493 @@ V['layers-explore-icon-rail-hot-tag-pills-masonry-cards-jobs-sidebar'] = (root, 
 
 
 
+V['halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone'] = (root, T) => {
+  theme(root, T, { bg: '#0a0a0a', fg: '#f2f2f2', ac: '#f5d547', dark: true });
+  import('@fontsource-variable/inter');
+  const I = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const LOOKS = [
+    { id: 'Zephyr', grad: 'linear-gradient(135deg,#4aa3ff,#ffe66d 55%,#1a3a5c)' },
+    { id: 'Valencia', grad: 'linear-gradient(135deg,#ff9a4a,#ff5e7a 50%,#5c1a2a)' },
+    { id: 'Rembrandt', grad: 'linear-gradient(135deg,#6b5a3a,#2a2418 60%,#c4a574)' },
+    { id: 'Nova', grad: 'linear-gradient(135deg,#ff7a18,#9b2dff 55%,#1a0a2e)' },
+  ];
+  const FEAT_MORE = [
+    ['Technical Readout', '⚙'],
+    ['DCI-P3 Color', '◎'],
+    ['Metadata View', '☰'],
+    ['Custom White Balance', '☀'],
+  ];
+  css(`
+.hl{position:absolute;inset:0;overflow:auto;background:#0a0a0a;color:#f2f2f2;font:400 15px/1.5 ${I};-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+.hl *{box-sizing:border-box}.hl button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.hl-hero{position:relative;min-height:100%;padding:48px 24px 80px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.hl-gear{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hl-gear i{position:absolute;border-radius:12px;background:linear-gradient(145deg,#2a2a2c,#121214);box-shadow:inset 0 1px 0 #ffffff10,0 20px 40px #000a;filter:blur(var(--b,8px));opacity:.55}
+.hl-logo{width:44px;height:44px;border-radius:50%;border:2px solid #fff;position:relative;margin-bottom:14px;z-index:2}
+.hl-logo:before{content:'';position:absolute;inset:7px;border-radius:50%;border:2px solid #fff8}
+.hl-logo:after{content:'';position:absolute;inset:14px;border-radius:50%;background:#fff}
+.hl-wm{font:600 13px/1 ${I};letter-spacing:.22em;z-index:2;margin-bottom:28px}
+.hl-wm .y{color:#f5d547}
+.hl-stack{position:relative;width:min(520px,88vw);height:min(420px,58vh);margin:10px 0 36px;z-index:2}
+.hl-pad,.hl-phone{position:absolute;background:#111;border:2px solid #2a2a2c;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px #000c,0 0 0 1px #ffffff08}
+.hl-pad{left:4%;top:6%;width:68%;height:88%;transform:rotate(-6deg);border-radius:18px}
+.hl-phone{right:2%;top:0;width:38%;height:78%;transform:rotate(8deg);z-index:3;border-radius:26px}
+.hl-screen{position:absolute;inset:10px 8px 12px;border-radius:12px;overflow:hidden;background:#1a1a1c;display:flex;flex-direction:column}
+.hl-phone .hl-screen{inset:12px 8px 14px;border-radius:16px}
+.hl-photo{flex:1;position:relative;background:linear-gradient(160deg,#3a2a28,#1a1218 40%,#4a2030)}
+.hl-photo.street{background:linear-gradient(180deg,#1a2238,#0a0c14 50%,#2a1830)}
+.hl-photo:after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,#ffffff18,#0000 50%)}
+.hl-ui{padding:8px 10px 10px;background:#0d0d0f;display:flex;flex-direction:column;gap:6px}
+.hl-filmrow{display:flex;gap:6px;align-items:center}
+.hl-filmrow span{flex:1;height:28px;border-radius:4px;background:linear-gradient(90deg,#2a2a2e,#1a1a1c);font-size:8px;display:grid;place-items:center;color:#aaa;letter-spacing:.06em}
+.hl-dials{display:flex;gap:8px;height:36px}
+.hl-dials i{flex:1;border-radius:4px;background:repeating-linear-gradient(90deg,#333 0 1px,#0000 1px 6px),#161618;position:relative}
+.hl-dials i:after{content:'';position:absolute;left:50%;top:4px;bottom:4px;width:2px;background:#f5d547;transform:translateX(-50%)}
+.hl-chk{width:28px;height:28px;border-radius:50%;background:#f5d547;color:#111;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+.hl-h1{font:600 clamp(22px,3.6vw,36px)/1.15 ${I};letter-spacing:.18em;text-align:center;z-index:2;margin:0 0 10px}
+.hl-sub{font:500 15px/1.4 ${I};opacity:.9;z-index:2;margin:0 0 18px}
+.hl-body{max-width:520px;text-align:center;font-size:14px;line-height:1.65;color:#b8b8bc;z-index:2;margin:0}
+.hl-sec{padding:72px 24px;max-width:920px;margin:0 auto}
+.hl-sec p{color:#a8a8ac;font-size:15.5px;line-height:1.7;max-width:640px;margin:0 auto 28px;text-align:center}
+.hl-ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px;margin:0 auto 18px}
+.hl-ba .panel{aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative;cursor:pointer;border:1px solid #ffffff14}
+.hl-ba .panel .pic{position:absolute;inset:0;transition:filter .35s,opacity .35s}
+.hl-ba .panel .tag{position:absolute;left:10px;bottom:10px;font-size:11px;letter-spacing:.14em;background:#000a;padding:4px 8px;border-radius:4px}
+.hl-ba .panel.on{outline:2px solid #f5d547;outline-offset:2px}
+.hl-tog{display:flex;justify-content:center;gap:8px;margin-top:8px}
+.hl-tog button{padding:8px 16px;border-radius:99px;border:1px solid #ffffff22 !important;font-size:12px;letter-spacing:.1em;opacity:.7}
+.hl-tog button.on{background:#f5d547;color:#111;border-color:#f5d547 !important;opacity:1;font-weight:700}
+.hl-peg{position:relative;min-height:640px;margin:40px auto;max-width:720px;border-radius:8px;overflow:hidden;background:#0c0c0e;
+  background-image:radial-gradient(circle,#2a2a2e 1.2px,#0000 1.4px);background-size:28px 28px}
+.hl-peg .spot{position:absolute;left:50%;top:42%;width:70%;height:70%;transform:translate(-50%,-50%);background:radial-gradient(ellipse at 50% 45%,#ff6b9d55,#0000 65%);pointer-events:none}
+.hl-peg .cam{position:absolute;width:56px;height:42px;border-radius:6px;background:linear-gradient(160deg,#2e2e32,#141416);opacity:.45;box-shadow:inset 0 1px 0 #ffffff10}
+.hl-peg .cam:before{content:'';position:absolute;right:-18px;top:8px;width:22px;height:26px;border-radius:4px;background:#1a1a1c;border:1px solid #333}
+.hl-qphone{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);width:min(280px,72%);aspect-ratio:9/19.2;background:#0a0a0c;border:3px solid #1e1e22;border-radius:36px;box-shadow:0 0 0 1px #ffffff10,0 40px 100px #000d,0 0 80px #ff6b9d33;overflow:hidden;z-index:2}
+.hl-qphone .notch{position:absolute;left:50%;top:10px;transform:translateX(-50%);width:38%;height:18px;background:#000;border-radius:12px;z-index:3}
+.hl-qscr{position:absolute;inset:0;display:flex;flex-direction:column;padding-top:28px}
+.hl-qphoto{flex:1;background:linear-gradient(160deg,#ff8ab8,#c45a7a 40%,#5a8a4a 70%,#2a4a2a);position:relative}
+.hl-qphoto:after{content:'';position:absolute;inset:18% 12% 30%;border-radius:60% 40% 50% 50%;background:radial-gradient(circle at 40% 40%,#ffd0e0,#ff6b9daa 40%,#0000 70%);filter:blur(2px)}
+.hl-qbar{display:flex;justify-content:center;gap:18px;padding:8px 0;background:#0d0d0f;font-size:9px;letter-spacing:.14em;color:#666}
+.hl-qbar span.on{color:#fff;font-weight:600}
+.hl-qedit{padding:10px 12px 16px;background:#0d0d0f;display:flex;flex-direction:column;gap:10px}
+.hl-looks{display:flex;gap:8px;justify-content:center}
+.hl-looks button{width:52px;height:52px;border-radius:8px;position:relative;overflow:hidden;border:2px solid transparent !important;transition:border-color .2s,transform .15s}
+.hl-looks button.on{border-color:#f5d547 !important;transform:scale(1.04)}
+.hl-looks button span{position:absolute;left:0;right:0;bottom:2px;text-align:center;font-size:7px;letter-spacing:.04em;color:#fff;text-shadow:0 1px 2px #000}
+.hl-ev{display:flex;flex-direction:column;align-items:center;gap:4px;user-select:none;touch-action:none}
+.hl-ev .val{font:600 14px ${I};letter-spacing:.06em}
+.hl-ev .track{width:100%;height:28px;position:relative;cursor:ew-resize}
+.hl-ev .ticks{position:absolute;left:0;right:0;top:50%;height:1px;background:#333}
+.hl-ev .ticks i{position:absolute;top:-5px;width:1px;height:11px;background:#555}
+.hl-ev .ticks i.m{height:16px;top:-7px;background:#888}
+.hl-ev .thumb{position:absolute;top:50%;width:2px;height:18px;background:#f5d547;transform:translate(-50%,-50%);pointer-events:none}
+.hl-qbot{display:flex;align-items:center;justify-content:space-between;padding:0 4px}
+.hl-qbot .x{width:28px;height:28px;border-radius:50%;border:1px solid #444 !important;display:grid;place-items:center;font-size:12px;color:#aaa}
+.hl-qbot .mid{display:flex;gap:14px;color:#666;font-size:14px}
+.hl-feats{display:grid;grid-template-columns:1fr 1fr;gap:40px 48px;max-width:820px;margin:0 auto 56px}
+.hl-feat{display:flex;flex-direction:column;gap:12px}
+.hl-feat .ic{width:72px;height:72px;border-radius:18px;display:grid;place-items:center;font-size:28px;box-shadow:0 12px 28px #0008,inset 0 1px 0 #ffffff30;background:linear-gradient(160deg,#3a3a3e,#1a1a1c)}
+.hl-feat .ic.y{background:linear-gradient(160deg,#ffe066,#f5d547 40%,#c9a820)}
+.hl-feat h3{margin:0;font:600 20px/1.2 ${I}}
+.hl-feat p{margin:0;color:#9a9a9e;font-size:14px;line-height:1.6}
+.hl-more{text-align:center}
+.hl-more h4{margin:0 0 28px;font:500 18px ${I}}
+.hl-more .row{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+.hl-more .item{display:flex;flex-direction:column;align-items:center;gap:10px;width:100px}
+.hl-more .item .ic{width:48px;height:48px;border-radius:12px;border:1.5px solid #ffffff40;display:grid;place-items:center;font-size:18px;color:#ddd;background:#161618}
+.hl-more .item span{font-size:10px;letter-spacing:.08em;color:#888;text-transform:uppercase;text-align:center;line-height:1.3}
+.hl-foot{border-top:1px solid #222;padding:40px 24px 60px;text-align:center}
+.hl-foot .kino{opacity:.5;font-size:12px;letter-spacing:.2em;margin-bottom:16px}
+.hl-foot nav{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:13px;color:#888}
+.hl-foot nav a{color:#888;text-decoration:none}.hl-foot nav a.on{color:#fff}
+@media (max-width:760px){
+  .hl-ba{grid-template-columns:1fr}.hl-feats{grid-template-columns:1fr;gap:28px}
+  .hl-stack{height:340px}.hl-h1{letter-spacing:.1em;font-size:20px}
+  .hl-peg{min-height:560px}
+}
+`);
+  const el = h('div.hl');
+  // floating gear CSS stand-ins
+  const gear = h('div.hl-gear');
+  const GEARS = [
+    [8, 12, 90, 70, 14, -18], [78, 8, 70, 90, 18, 22], [4, 55, 100, 60, 12, 8],
+    [82, 48, 80, 55, 16, -12], [18, 78, 60, 50, 20, 30], [70, 72, 95, 65, 10, -25],
+    [40, 5, 50, 40, 22, 5], [55, 85, 70, 45, 15, -8],
+  ];
+  GEARS.forEach(([l, t, w, ht, b, r]) => gear.append(h('i', { style: { left: l + '%', top: t + '%', width: w + 'px', height: ht + 'px', '--b': b + 'px', transform: `rotate(${r}deg)` } })));
+  // device stack screens
+  const padScr = h('div.hl-screen', {},
+    h('div.hl-photo', {}, h('div', { style: { position: 'absolute', left: '22%', top: '18%', width: '56%', height: '55%', borderRadius: '48% 48% 40% 40%', background: 'linear-gradient(180deg,#3a2820,#1a1010)', boxShadow: '0 20px 40px #0008' } },
+      h('div', { style: { position: 'absolute', left: '18%', top: '8%', right: '18%', height: '42%', borderRadius: '50%', background: 'linear-gradient(160deg,#5a4030,#2a1810)' } }),
+      h('div', { style: { position: 'absolute', left: '10%', top: '48%', right: '10%', bottom: '0', background: 'linear-gradient(180deg,#c41e3a,#8a1020)', borderRadius: '8px 8px 0 0' } }))),
+    h('div.hl-ui', {},
+      h('div.hl-filmrow', {}, h('span', {}, 'FILM'), h('span', { style: { background: 'linear-gradient(135deg,#ff9a4a,#ff5e7a)' } }, 'Valencia'), h('span', {}, 'Nova'), h('span.hl-chk', {}, '✓')),
+      h('div.hl-dials', {}, h('i'), h('i'), h('i'))));
+  const phoneScr = h('div.hl-screen', {},
+    h('div.hl-photo.street', {},
+      h('div', { style: { position: 'absolute', left: '10%', bottom: '20%', width: '30%', height: '45%', background: '#0a0e18', boxShadow: '0 0 20px #4af2' } }),
+      h('div', { style: { position: 'absolute', right: '15%', bottom: '15%', width: '22%', height: '55%', background: '#121820' } }),
+      h('div', { style: { position: 'absolute', left: '40%', top: '30%', width: '8px', height: '8px', borderRadius: '50%', background: '#ffcc44', boxShadow: '0 0 12px #fc4' } })),
+    h('div.hl-ui', {},
+      h('div.hl-filmrow', {}, h('span', { style: { background: LOOKS[1].grad } }, 'Valencia'), h('span', {}, '…'), h('span.hl-chk', {}, '✓'))));
+  const stack = h('div.hl-stack', {},
+    h('div.hl-pad', {}, padScr),
+    h('div.hl-phone', {}, phoneScr));
+  const hero = h('section.hl-hero', {}, gear,
+    h('div.hl-logo', { 'aria-label': 'Halide aperture' }),
+    h('div.hl-wm', {}, 'HALIDE ', h('span.y', {}, 'MARK III')),
+    stack,
+    h('h1.hl-h1', {}, 'UNLOCK YOUR IPHONE CAMERA'),
+    h('p.hl-sub', {}, 'The #1 App for Natural Photos.'),
+    h('p.hl-body', {}, 'Halide turns your iPhone into a traditional camera. Choose between the default iPhone look or beautiful, film-like shots powered by Process Zero.'));
+  // Process Zero before/after
+  let ba = 1; // 0 before, 1 after
+  const baPanels = [
+    h('div.panel', { onclick: () => setBa(0) }, h('div.pic', { style: { background: 'linear-gradient(160deg,#c8b8a8,#8a7a6a 40%,#4a3a30)', filter: 'saturate(.55) contrast(.9)' } }), h('span.tag', {}, 'BEFORE')),
+    h('div.panel', { onclick: () => setBa(1) }, h('div.pic', { style: { background: 'linear-gradient(160deg,#e8d0b8,#a87858 35%,#3a2818)', filter: 'saturate(1.15) contrast(1.1)' } }), h('span.tag', {}, 'PROCESS ZERO')),
+  ];
+  const baTogs = [
+    h('button', { onclick: () => setBa(0) }, 'BEFORE'),
+    h('button.on', { onclick: () => setBa(1) }, 'AFTER'),
+  ];
+  const setBa = (v) => {
+    ba = v;
+    baPanels.forEach((p, i) => {
+      p.classList.toggle('on', i === v);
+      const pic = p.querySelector('.pic');
+      pic.style.opacity = i === v ? '1' : '.55';
+      pic.style.filter = i === 0 ? (v === 0 ? 'saturate(.7) contrast(.95)' : 'saturate(.4) contrast(.85) brightness(.85)') : (v === 1 ? 'saturate(1.2) contrast(1.15)' : 'saturate(.8)');
+    });
+    baTogs.forEach((b, i) => b.classList.toggle('on', i === v));
+  };
+  const processSec = h('section.hl-sec', {},
+    h('p', {}, 'When you\'re ready to get creative, Halide includes alternative processes called "Looks." Powered by Process Zero, and developed with the help of a professional Hollywood colorist, Looks include physically accurate simulations that let your iPhone rival a standalone camera.'),
+    h('p', {}, 'If you\'re going for an analog feel, enable film simulation such as grain, halation, and MTF.'),
+    h('div.hl-ba', {}, ...baPanels),
+    h('div.hl-tog', {}, ...baTogs));
+  setBa(1);
+  // Pegboard Quick Edit
+  let look = 3, ev = 1.5;
+  const lookBtns = LOOKS.map((L, i) => h('button' + (i === 3 ? '.on' : ''), {
+    style: { background: L.grad },
+    title: L.id,
+    onclick: () => setLook(i),
+  }, h('span', {}, L.id)));
+  const evVal = h('div.val', {}, '+1.5');
+  const evThumb = h('div.thumb', { style: { left: '75%' } });
+  const ticks = h('div.ticks');
+  for (let i = 0; i <= 20; i++) ticks.append(h('i' + (i % 5 === 0 ? '.m' : ''), { style: { left: (i / 20 * 100) + '%' } }));
+  ticks.append(evThumb);
+  const evTrack = h('div.track', {}, ticks);
+  const setEv = (v) => {
+    ev = Math.round(clamp(v, -2, 2) * 10) / 10;
+    const pct = ((ev + 2) / 4) * 100;
+    evThumb.style.left = pct + '%';
+    evVal.textContent = (ev >= 0 ? '+' : '') + ev.toFixed(1);
+    qPhoto.style.filter = `brightness(${1 + ev * 0.12}) saturate(${1 + (look === 3 ? 0.15 : 0) + Math.abs(ev) * 0.05}) hue-rotate(${look * 8}deg)`;
+  };
+  const setLook = (i) => {
+    look = i;
+    lookBtns.forEach((b, j) => b.classList.toggle('on', j === i));
+    qPhoto.style.background = [
+      'linear-gradient(160deg,#6ab0ff,#c8e0ff 40%,#3a6a4a)',
+      'linear-gradient(160deg,#ff9a5a,#ff6a7a 40%,#5a3a2a)',
+      'linear-gradient(160deg,#8a7a5a,#3a3020 50%,#c4a574)',
+      'linear-gradient(160deg,#ff8ab8,#c45a7a 40%,#5a8a4a 70%,#2a4a2a)',
+    ][i];
+    setEv(ev);
+  };
+  const dragEv = (e) => {
+    const r = evTrack.getBoundingClientRect();
+    const x = ('touches' in e ? e.touches[0].clientX : e.clientX) - r.left;
+    setEv((clamp(x / r.width, 0, 1) * 4) - 2);
+  };
+  evTrack.addEventListener('pointerdown', (e) => {
+    evTrack.setPointerCapture(e.pointerId);
+    dragEv(e);
+    const move = (ev2) => dragEv(ev2);
+    const up = () => { evTrack.removeEventListener('pointermove', move); evTrack.removeEventListener('pointerup', up); };
+    evTrack.addEventListener('pointermove', move);
+    evTrack.addEventListener('pointerup', up);
+  });
+  const qPhoto = h('div.hl-qphoto');
+  const qPhone = h('div.hl-qphone', {},
+    h('div.notch'),
+    h('div.hl-qscr', {},
+      qPhoto,
+      h('div.hl-qbar', {}, h('span', {}, 'FRAME'), h('span.on', {}, 'QUICK EDIT'), h('span', {}, 'EXPOSURE')),
+      h('div.hl-qedit', {},
+        h('div.hl-looks', {}, ...lookBtns),
+        h('div.hl-ev', {}, evVal, evTrack),
+        h('div.hl-qbot', {},
+          h('button.x', { onclick: () => toast('Discard edit (demo)') }, '✕'),
+          h('div.mid', {}, h('span', {}, '···'), h('span', {}, '▦'), h('span', {}, '⊞')),
+          h('span.hl-chk', { style: { width: '32px', height: '32px' }, onclick: () => toast(`Saved ${LOOKS[look].id} · EV ${evVal.textContent} (demo)`) }, '✓')))));
+  const pegCams = [[8, 18], [22, 12], [75, 16], [88, 22], [6, 48], [90, 50], [14, 72], [80, 70]].map(([l, t]) => h('div.cam', { style: { left: l + '%', top: t + '%' } }));
+  const peg = h('section.hl-sec', { style: { paddingTop: '24px' } },
+    h('div.hl-peg', {}, h('div.spot'), ...pegCams, qPhone));
+  setLook(3); setEv(1.5);
+  // Features
+  const feats = h('section.hl-sec', {},
+    h('div.hl-feats', {},
+      h('div.hl-feat', {},
+        h('div.ic', {}, '✉'),
+        h('h3', {}, 'Learn As You Go'),
+        h('p', {}, 'An easy way to become a better photographer with Halide. Sign up for a 10-day set of lessons, right in the app.')),
+      h('div.hl-feat', {},
+        h('div.ic.y', {}, '👁‍🗨'),
+        h('h3', {}, 'Private By Design'),
+        h('p', {}, 'Most photography apps send your information to third parties. Halide\'s camera has no tracking, does not collect or share any of your information or photos.'))),
+    h('div.hl-more', {},
+      h('h4', {}, 'And lots more'),
+      h('div.row', {}, ...FEAT_MORE.map(([n, ic]) => h('div.item', {}, h('div.ic', {}, ic), h('span', {}, n))))));
+  const foot = h('footer.hl-foot', {},
+    h('div.kino', {}, 'LUX'),
+    h('nav', {}, h('a.on', { href: '#' }, 'Halide'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast('Kino (demo)'); } }, 'Kino'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast('Spectre (demo)'); } }, 'Spectre'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); } }, 'Support'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); } }, 'Blog'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); } }, 'About')));
+  el.append(hero, processSec, peg, feats, foot);
+  root.append(el);
+
+  window.__demoProof = async () => {
+    const o = [];
+    o.push(`hero=${!!el.querySelector('.hl-wm .y')}`);
+    setBa(0); await sleep(40); o.push(`ba=${ba}`);
+    setBa(1); await sleep(30); o.push(`ba=${ba}`);
+    el.scrollTo({ top: peg.offsetTop - 20, behavior: 'auto' });
+    setLook(0); await sleep(30); o.push(`look=${LOOKS[look].id}`);
+    setLook(1); await sleep(20);
+    setLook(2); await sleep(20);
+    setLook(3); await sleep(20); o.push(`look=${LOOKS[look].id}`);
+    setEv(-0.5); await sleep(20); o.push(`ev=${ev}`);
+    setEv(1.5); await sleep(20); o.push(`ev=${ev}`);
+    el.scrollTo({ top: feats.offsetTop, behavior: 'auto' }); await sleep(20);
+    o.push(`feats=${el.querySelectorAll('.hl-feat').length}`);
+    // restore
+    setBa(1); setLook(3); setEv(1.5); el.scrollTo({ top: 0, behavior: 'auto' });
+    o.push('restored');
+    return o.join('; ') + ' · stand-ins: CSS floating camera gear (not 3D renders), CSS device-screen portraits/street (not product photos), CSS pegboard cameras + blossom preview';
+  };
+};
+
+V['chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-timeline'] = (root, T) => {
+  theme(root, T, { bg: '#f8f1de', fg: '#1a1a1a', ac: '#c41e3a', dark: false });
+  import('@fontsource/eb-garamond');
+  import('@fontsource/instrument-serif');
+  import('@fontsource/cormorant-upright');
+  const S = "'EB Garamond','Instrument Serif',Georgia,'Times New Roman',serif";
+  const SCRIPT = "'Cormorant Upright','Instrument Serif',Georgia,serif";
+  const PARCELS = [
+    'Les Barres', 'Les Orizeaux', 'Les Beaux Sens', 'Le Chemin', 'Les Grands', 'Les Bermonts',
+    'Les Fontaines', 'Les Ricordanes', 'Les Brets', 'Le Closet', 'Le Mont Agé', 'Les Alliées',
+    'Les Couarres', 'Les Heurtes Bises',
+  ];
+  const TITLE_LINES = ['PARCELLES', 'DE', 'CHARTOGNE', 'TAILLET'];
+  css(`
+.ct{position:absolute;inset:0;overflow:auto;background:#f8f1de;color:#1a1a1a;font:400 16px/1.5 ${S};-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+.ct *{box-sizing:border-box}.ct button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.ct-tex{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:
+    radial-gradient(ellipse 2px 1px at 20% 30%,#8a807088,#0000),
+    radial-gradient(ellipse 1.5px 2px at 70% 55%,#6a605088,#0000),
+    radial-gradient(circle 1px at 40% 80%,#5a504088,#0000),
+    repeating-linear-gradient(0deg,#0000 0 47px,#8a807012 47px 48px),
+    repeating-linear-gradient(90deg,#0000 0 83px,#6a60500a 83px 84px);
+  background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%;
+  animation:ctdrift 40s linear infinite}
+@keyframes ctdrift{to{background-position:20px 30px,-15px 20px,10px -25px,0 0,0 0}}
+.ct-speck{position:fixed;width:3px;height:2px;background:#6a605044;border-radius:40%;pointer-events:none;z-index:0;animation:ctfloat 12s ease-in-out infinite alternate}
+@keyframes ctfloat{to{transform:translate(8px,-14px) rotate(20deg);opacity:.15}}
+.ct-gate,.ct-main{position:relative;z-index:1;min-height:100%;display:flex;flex-direction:column}
+.ct-gate{align-items:center;justify-content:center;padding:48px 24px 120px;text-align:center}
+.ct-mast{margin-bottom:56px}
+.ct-mast .ch{font:400 11px/1 ${S};letter-spacing:.42em;color:#6a655c;margin:0 0 8px}
+.ct-mast .nm{font:500 clamp(22px,3.5vw,34px)/1 ${S};letter-spacing:.08em;margin:0;position:relative;display:inline-block}
+.ct-mast .sig{font:italic 400 28px/1 ${SCRIPT};color:#c41e3a;position:absolute;left:50%;bottom:-18px;transform:translateX(-42%) rotate(-4deg);white-space:nowrap}
+.ct-mast .flank{display:flex;justify-content:center;gap:120px;margin-top:6px;font-size:9px;letter-spacing:.12em;color:#8a8578}
+.ct-cert{max-width:520px;font:400 13px/1.85 ${S};letter-spacing:.18em;text-transform:uppercase;margin:48px auto 36px;color:#1a1a1a}
+.ct-enter{display:flex;flex-direction:column;align-items:center;gap:10px;color:#c41e3a;font:400 15px/1 ${S};letter-spacing:.06em;transition:opacity .2s}
+.ct-enter:hover{opacity:.75}
+.ct-enter .cue{width:1px;height:28px;background:#c41e3a;animation:ctcue 1.4s ease-in-out infinite}
+@keyframes ctcue{50%{opacity:.35;transform:translateY(4px)}}
+.ct-lang{position:absolute;left:24px;bottom:88px;display:flex;gap:14px;align-items:center;font-size:12px;letter-spacing:.08em;z-index:5}
+.ct-lang button{opacity:.45}.ct-lang button.on{opacity:1;font-weight:600}
+.ct-lang .leg{margin-left:18px;opacity:.7;font-size:11px;letter-spacing:.06em}
+.ct-lang .leg:hover{opacity:1}
+.ct-cookie{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:24px;background:#fdf8e9;border:1px solid #c8c0a8;padding:12px 18px;max-width:min(640px,92vw);font-size:12.5px;line-height:1.45;color:#3a3a3a;box-shadow:0 8px 24px #00000014}
+.ct-cookie .acc{font-weight:600;letter-spacing:.04em;flex:none;cursor:pointer}.ct-cookie .acc:hover{color:#c41e3a}
+.ct-cookie.hide{display:none}
+.ct-main{display:none;padding:48px 24px 140px;min-height:100%}
+.ct-main.on{display:flex;flex-direction:column}
+.ct-topbar{height:36px;max-width:280px;margin:0 auto 40px;background:#ffffffaa;border-radius:2px;width:40%}
+.ct-title{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:stretch;max-width:1100px;width:100%;margin:0 auto;padding:40px 0 80px;min-height:52vh}
+.ct-title .line{display:flex;justify-content:space-between;width:100%;font:500 clamp(28px,7.2vw,92px)/.95 ${S};letter-spacing:.08em;text-transform:uppercase;margin:0 0 .08em}
+.ct-title .line.sm{justify-content:center;letter-spacing:.4em;font-size:clamp(22px,4vw,48px)}
+.ct-title .ch{display:inline-block;position:relative;opacity:0;transform:translateY(12px) rotate(var(--r,0deg));filter:blur(2px);transition:opacity .7s var(--d,0s) ease,transform .9s var(--d,0s) cubic-bezier(.2,.8,.2,1),filter .8s var(--d,0s)}
+.ct-title.ink .ch{opacity:1;transform:none;filter:none}
+.ct-title .ch.frag:before{content:'';position:absolute;inset:10% -2% auto;height:35%;background:currentColor;opacity:.15;clip-path:polygon(0 40%,30% 0,70% 20%,100% 0,100% 100%,0 100%);transform:translate(var(--fx,0),var(--fy,0)) rotate(var(--fr,0deg));transition:transform 1s var(--d,0s) ease,opacity .6s}
+.ct-title.ink .ch.frag:before{transform:none;opacity:0}
+.ct-tl{position:sticky;bottom:0;padding:16px 8px 72px;background:linear-gradient(180deg,#f8f1de00,#f8f1def2 28%);z-index:4}
+.ct-tl .nums{display:flex;justify-content:space-between;max-width:1100px;margin:0 auto;font-size:11px;letter-spacing:.06em;color:#5a5548;padding:0 4px}
+.ct-tl .nums span{cursor:pointer;padding:4px 2px;transition:color .2s}.ct-tl .nums span.on,.ct-tl .nums span:hover{color:#1a1a1a;font-weight:600}
+.ct-tl .bar{position:relative;height:2px;background:#c8c0a8;max-width:1100px;margin:8px auto 10px}
+.ct-tl .fill{position:absolute;left:0;top:0;bottom:0;background:#1a1a1a;width:0%;transition:width .15s linear}
+.ct-tl .names{display:flex;justify-content:space-between;max-width:1100px;margin:0 auto;font-size:clamp(7px,1.05vw,11px);letter-spacing:.02em;color:#4a4538;font-style:italic;padding:0 2px;overflow:hidden}
+.ct-tl .names span{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.55;cursor:pointer;transition:opacity .2s}
+.ct-tl .names span.on{opacity:1;font-weight:600;font-style:normal}
+.ct-tl .names .av{flex:none;padding-left:8px;opacity:.8;font-style:normal;letter-spacing:.04em}
+.ct-parcel{max-width:680px;margin:0 auto 40px;text-align:center;opacity:0;transform:translateY(8px);transition:.4s}
+.ct-parcel.on{opacity:1;transform:none}
+.ct-parcel h2{font:500 28px/1.2 ${S};letter-spacing:.06em;margin:0 0 8px}
+.ct-parcel p{margin:0;color:#5a5548;font-size:14px;line-height:1.7}
+@media (max-width:760px){
+  .ct-lang{left:12px;bottom:100px;flex-wrap:wrap}
+  .ct-tl .names{display:none}
+  .ct-title .line{letter-spacing:.04em}
+  .ct-mast .flank{gap:48px}
+  .ct-cookie{flex-direction:column;gap:10px;text-align:center}
+}
+`);
+  const el = h('div.ct');
+  // drifting texture specks
+  const tex = h('div.ct-tex');
+  for (let i = 0; i < 18; i++) {
+    el.append(h('i.ct-speck', { style: { left: (Math.random() * 100) + '%', top: (Math.random() * 100) + '%', animationDelay: (-Math.random() * 12) + 's', width: (1 + Math.random() * 3) + 'px', height: (1 + Math.random() * 2) + 'px' } }));
+  }
+  let lang = 'EN', entered = false, cookieOn = true, active = 0, inkDone = false;
+  const CERT = {
+    EN: 'I HEREBY CERTIFY THAT I AM OVER THE LEGAL AGE FOR THE CONSUMPTION OF ALCOHOL IN MY COUNTRY.',
+    FR: 'JE CERTIFIE PAR LA PRÉSENTE ÊTRE EN ÂGE LÉGAL DE CONSOMMER DE L\'ALCOOL DANS MON PAYS.',
+    JP: '私は自国の法律で定められた飲酒年齢に達していることをここに証明します。',
+  };
+  const COOKIE = {
+    EN: 'This website use cookies to ensure that you get the best experience. For more info check our Privacy Policy.',
+    FR: 'Ce site utilise des cookies afin de vous offrir la meilleure expérience. Plus d\'infos dans notre Politique de confidentialité.',
+    JP: '本サイトでは最適な体験のためクッキーを使用します。詳細はプライバシーポリシーをご覧ください。',
+  };
+  const ENTER = { EN: 'Enter', FR: 'Entrer', JP: '入る' };
+  const LEGAL = { EN: 'LEGAL INFORMATION', FR: 'MENTIONS LÉGALES', JP: '法的情報' };
+  const certEl = h('p.ct-cert', {}, CERT.EN);
+  const enterLbl = h('span', {}, 'Enter');
+  const cookieTxt = h('span', {}, COOKIE.EN);
+  const legalBtn = h('button.leg', { onclick: () => toast('Legal information (demo)') }, LEGAL.EN);
+  const langBtns = ['FR', 'EN', 'JP'].map((L) => h('button' + (L === 'EN' ? '.on' : ''), { onclick: () => setLang(L) }, L));
+  const setLang = (L) => {
+    lang = L;
+    langBtns.forEach((b, i) => b.classList.toggle('on', ['FR', 'EN', 'JP'][i] === L));
+    certEl.textContent = CERT[L];
+    enterLbl.textContent = ENTER[L];
+    cookieTxt.textContent = COOKIE[L];
+    legalBtn.textContent = LEGAL[L];
+  };
+  const mast = h('div.ct-mast', {},
+    h('p.ch', {}, 'CHAMPAGNE'),
+    h('h1.nm', {}, 'CHARTOGNE-TAILLET', h('span.sig', {}, 'Merfy')),
+    h('div.flank', {}, h('span', {}, 'Vigneron à'), h('span', {}, 'depuis 1683')));
+  const enterBtn = h('button.ct-enter', { onclick: () => enter() }, enterLbl, h('span.cue'));
+  const gate = h('section.ct-gate', {}, mast, certEl, enterBtn);
+  const langBar = h('div.ct-lang', {}, ...langBtns, legalBtn);
+  const cookie = h('div.ct-cookie', {}, cookieTxt, h('button.acc', { onclick: () => { cookieOn = false; cookie.classList.add('hide'); } }, 'Accept'));
+  // Main / ink title
+  const titleEl = h('div.ct-title');
+  const lineEls = TITLE_LINES.map((word, li) => {
+    const chars = [...word].map((ch, ci) => {
+      const isFrag = (li + ci) % 3 !== 1;
+      return h('span.ch' + (isFrag ? '.frag' : ''), {
+        style: {
+          '--d': (0.04 * (li * 8 + ci)) + 's',
+          '--r': ((ci % 5) - 2) * 4 + 'deg',
+          '--fx': ((ci % 3) - 1) * 14 + 'px',
+          '--fy': ((li % 2) ? -10 : 12) + 'px',
+          '--fr': ((ci % 7) - 3) * 8 + 'deg',
+        },
+      }, ch);
+    });
+    return h('div.line' + (word === 'DE' ? '.sm' : ''), {}, ...chars);
+  });
+  titleEl.append(...lineEls);
+  const parcelCard = h('div.ct-parcel', {}, h('h2', {}), h('p', {}));
+  const fill = h('div.fill');
+  const numEls = PARCELS.map((_, i) => h('span', { onclick: () => goParcel(i) }, String(i + 1)));
+  const nameEls = PARCELS.map((n, i) => h('span', { onclick: () => goParcel(i), title: n }, n));
+  const avize = h('span.av', { onclick: () => toast('Avize → (demo)') }, 'Avize →');
+  const tl = h('div.ct-tl', {},
+    h('div.nums', {}, ...numEls),
+    h('div.bar', {}, fill),
+    h('div.names', {}, ...nameEls, avize));
+  const main = h('section.ct-main', {}, h('div.ct-topbar'), titleEl, parcelCard, tl);
+  const DESC = [
+    'Old vines on sandy soils — a precise, saline Blanc de Noirs.',
+    'East-facing chalk slope; tension and white flowers.',
+    'Deep clay. Broad fruit, quiet power.',
+    'Pathside plot between Merfy and the woods.',
+    'The grands of Merfy — structured and long.',
+    'Cool berms above the village; green apple and chalk.',
+    'Spring-fed parcels; crystalline finish.',
+    'Ricordanes — pinched, mineral, patient.',
+    'Les Brets: early-ripening, generous mid-palate.',
+    'The Closet — enclosed, still, almost monastic.',
+    'Le Mont Agé looks west; dusk light in the glass.',
+    'Alliées — twin rows of Pinot and Meunier.',
+    'Couarres: wind-swept, high and bright.',
+    'Heurtes Bises — the last ridge before Avize.',
+  ];
+  const syncParcel = (i) => {
+    active = clamp(i, 0, 13);
+    numEls.forEach((n, j) => n.classList.toggle('on', j === active));
+    nameEls.forEach((n, j) => n.classList.toggle('on', j === active));
+    fill.style.width = ((active + 1) / 14 * 100) + '%';
+    parcelCard.querySelector('h2').textContent = PARCELS[active];
+    parcelCard.querySelector('p').textContent = DESC[active];
+    parcelCard.classList.add('on');
+  };
+  const goParcel = (i) => {
+    syncParcel(i);
+    if (!entered) return;
+    const target = 80 + i * 36;
+    el.scrollTo({ top: target, behavior: 'smooth' });
+  };
+  const enter = async (fast) => {
+    if (entered) return;
+    entered = true;
+    gate.style.display = 'none';
+    main.classList.add('on');
+    langBar.style.bottom = 'auto';
+    langBar.style.top = '16px';
+    await sleep(fast ? 40 : 80);
+    titleEl.classList.add('ink');
+    inkDone = true;
+    syncParcel(0);
+    await sleep(fast ? 100 : 900);
+  };
+  el.addEventListener('scroll', () => {
+    if (!entered) return;
+    const max = Math.max(1, el.scrollHeight - el.clientHeight);
+    const p = el.scrollTop / max;
+    const i = Math.min(13, Math.floor(p * 14));
+    if (i !== active) syncParcel(i);
+    else fill.style.width = (Math.min(1, p) * 100) + '%';
+  }, { passive: true });
+  // Extra scroll height for timeline scrubbing
+  const spacer = h('div', { style: { height: '520px' } });
+  main.append(spacer);
+  el.append(tex, gate, main, langBar, cookie);
+  root.append(el);
+
+  window.__demoProof = async () => {
+    const o = [];
+    o.push(`gate=${gate.style.display !== 'none'}`);
+    setLang('FR'); await sleep(20); o.push(`lang=${lang}`);
+    setLang('JP'); await sleep(20);
+    setLang('EN'); await sleep(20); o.push(`lang=${lang}`);
+    await enter(true); await sleep(120); o.push(`entered=${entered};ink=${inkDone};title=${titleEl.classList.contains('ink')}`);
+    goParcel(6); await sleep(40); o.push(`parcel=${active + 1}:${PARCELS[active]}`);
+    goParcel(13); await sleep(40); o.push(`parcel=${active + 1}:${PARCELS[active]};fill=${fill.style.width}`);
+    cookie.querySelector('.acc').click(); await sleep(20); o.push(`cookie=${!cookieOn}`);
+    // restore to entered mid-state (keep entered; reset parcel + cookie visible for visual)
+    syncParcel(0); cookieOn = true; cookie.classList.remove('hide');
+    el.scrollTo({ top: 0, behavior: 'auto' });
+    o.push('restored');
+    return o.join('; ') + ' · stand-ins: CSS engraved paper texture/specks (not lithograph scan), CSS ink-fragment pseudo-elements (not real letterpress plates), parcel tasting notes invented';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

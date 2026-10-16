@@ -397,7 +397,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1.0
+  "coverage": 1
  },
  "artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal": {
   "bg": "#0b0b0b",
@@ -2137,7 +2137,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1.0
+  "coverage": 1
  },
  "georgeandjonathan-album-experience": {
   "bg": "#170d2f",
@@ -2417,7 +2417,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1.0
+  "coverage": 1
  },
  "bitsy-pixel-game-maker-desk": {
   "bg": "#ccccff",
@@ -2527,7 +2527,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1.0
+  "coverage": 1
  },
  "hydra-live-visual-synth": {
   "bg": "#000000",
@@ -4407,7 +4407,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1.0
+  "coverage": 1
  },
  "code-snippet-image-studio": {
   "bg": "#0d0d0d",
@@ -4798,5 +4798,25 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.32
+ },
+ "halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone": {
+  "bg": "#0a0a0a",
+  "fg": "#f5f5f5",
+  "panel": "#141414",
+  "dark": true,
+  "ac": "#f5d547",
+  "ac2": "#ff6b9d",
+  "ac3": "#8a8a8a",
+  "coverage": 0.7
+ },
+ "chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-timeline": {
+  "bg": "#f8f1de",
+  "fg": "#1a1a1a",
+  "panel": "#fdf8e9",
+  "dark": false,
+  "ac": "#c41e3a",
+  "ac2": "#1a1a1a",
+  "ac3": "#8a8070",
+  "coverage": 0.65
  }
 }
