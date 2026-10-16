@@ -3949,5 +3949,32 @@
   "proof": "paused=true&frozen=true; modal=true; scene=docking; imperial=true; spec=Habitable volume; feature=Domed window; lit=19/30; panel=true;Research & science · 3 crew · 10 days on Haven-1 · target 2027; restored · stand-ins: canvas interior/docking \"video\" (not real footage), CSS feature + story art (not renders), Archivo for Vast’s custom grotesk, spec values approximate",
   "demoNodes": 224,
   "errors": []
+ },
+ "jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero": {
+  "url": "https://ux-technique-gallery.vercel.app/t/jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero/",
+  "ok": true,
+  "at": "2026-10-16T20:12:38.891Z",
+  "http": 200,
+  "proof": "nav=4links collapsed=false; scroll420→collapsed=true pill=true+menuBtn=true; menu=true; menu=false; autoRail moved=true; hover openPill=true; opened=The Track: Promo Reel; posters=8 animated=ptl; statement lit=22/31; inspector=Animate; restored collapsed=false menu=false · stand-ins: CSS-animated posters (only The Track: Poster / Image Stretch / Promo Reel are modeled on the ref; the other 5 posters are invented from their titles), text-styled customer logos (not real logo files), CSS editor mock; Inter Tight for Jitter’s display face; auto-scroll speed/direction of the real rail unverified",
+  "demoNodes": 477,
+  "errors": []
+ },
+ "monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel": {
+  "url": "https://ux-technique-gallery.vercel.app/t/monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel/",
+  "ok": true,
+  "at": "2026-10-16T20:12:38.850Z",
+  "http": 200,
+  "proof": "tabs=4 active=MONUMENTVALLEY III wm=MONUMENTVALLEY+3bars; tab→MV II bars=2 sky=#bfe8d6; rail trailer:TRAILER,share:AWARDS,carousel:IMAGES,press:PRESS; player=true t=0:01/1:02; seek=0:31/1:02; closed=true; carousel per=3 next→1,2 dot0+prev→5 dotsOn=1; restored rail=hidden slide=0 · stand-ins: SVG isometric tower/Penrose-frame/carousel scenes (not ustwo game art), canvas trailer (not the real video), Julius Sans One for the custom MV wordmark, Oswald text for the Netflix Games mark, Lobster for the ustwo logo; tab click swaps hero palette in-page (real tabs navigate to each game site); rail→section mapping (esp. AWARDS) is unverified",
+  "demoNodes": 551,
+  "errors": []
+ },
+ "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap": {
+  "url": "https://ux-technique-gallery.vercel.app/t/rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap/",
+  "ok": true,
+  "at": "2026-10-16T20:12:38.831Z",
+  "http": 200,
+  "proof": "chrome=6rail/trueqr phone=sticky-left; scroll→Home:home,Crypto:crypto,Predictions:predictions,Perps:perps,Live Data:live,Rewards:rewards; phonePinned=true; keypad=50.25→0.000770WBTC sell=2%; earlyRelease=cancelled; hold1100ms=Swapped ✓; predTab=Spreads; perps=XYZ 100 25x short; live tf=1M; restored active=Home amt=120.33 · stand-ins: CSS/SVG phone UI (not real app screenshots), SVG rainbow-arc icon, pixel avatar (generic “rainbow.eth” instead of the ref’s ENS), CSS team crests/coins, generated sparklines/candles, fake QR; balances/odds/prices copied from the ref mock screens (sample data); hero word cycling Nvidia/Bitcoin/Gold/Oil is unverified (ref shot shows Nvidia only); Nunito Variable for Rainbow’s rounded font",
+  "demoNodes": 729,
+  "errors": []
  }
 }
