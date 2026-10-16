@@ -20230,11 +20230,12 @@ V['chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-time
     parcelCard.querySelector('p').textContent = DESC[active];
     parcelCard.classList.add('on');
   };
-  const goParcel = (i) => {
+  const goParcel = (i, fast) => {
     syncParcel(i);
     if (!entered) return;
-    const target = 80 + i * 36;
-    el.scrollTo({ top: target, behavior: 'smooth' });
+    const max = Math.max(1, el.scrollHeight - el.clientHeight);
+    const target = Math.round(((i + 0.5) / 14) * max);
+    el.scrollTo({ top: target, behavior: fast ? 'auto' : 'smooth' });
   };
   const enter = async (fast) => {
     if (entered) return;
@@ -20270,8 +20271,8 @@ V['chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-time
     setLang('JP'); await sleep(20);
     setLang('EN'); await sleep(20); o.push(`lang=${lang}`);
     await enter(true); await sleep(120); o.push(`entered=${entered};ink=${inkDone};title=${titleEl.classList.contains('ink')}`);
-    goParcel(6); await sleep(40); o.push(`parcel=${active + 1}:${PARCELS[active]}`);
-    goParcel(13); await sleep(40); o.push(`parcel=${active + 1}:${PARCELS[active]};fill=${fill.style.width}`);
+    goParcel(6, true); await sleep(40); o.push(`parcel=${active + 1}:${PARCELS[active]}`);
+    goParcel(13, true); await sleep(40); o.push(`parcel=${active + 1}:${PARCELS[active]};fill=${fill.style.width}`);
     cookie.querySelector('.acc').click(); await sleep(20); o.push(`cookie=${!cookieOn}`);
     // restore to entered mid-state (keep entered; reset parcel + cookie visible for visual)
     syncParcel(0); cookieOn = true; cookie.classList.remove('hide');
