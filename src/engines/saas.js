@@ -19272,7 +19272,7 @@ V['dich-fashion-cyber-hud-discover-orb-terminal-columns-collection-rail'] = (roo
 
   window.__demoProof = async () => {
     const o = [];
-    await scramble(sideL, L_TXT, 60); o.push(`hud=${sideL.textContent.includes('ACCESS GRANTED')}/${sideR.textContent.includes('FILE DECRYPTED')}`);
+    await Promise.all([scramble(sideL, L_TXT, 60), scramble(sideR, R_TXT, 60), scramble(stat, 'SIGNAL ▮▮▮▯ · 2045 PROTOCOL', 60)]); o.push(`hud=${sideL.textContent.includes('ACCESS GRANTED')}/${sideR.textContent.includes('FILE DECRYPTED')}`);
     await discover(true); o.push(`view=${view}`);
     listBtns[1].click(); await sleep(60); o.push(`collection=${COLS[ci].name}`);
     lookBtns[2].click(); await sleep(60); o.push(`look=${li + 1}/4 ${COLS[ci].looks[li]}`);
