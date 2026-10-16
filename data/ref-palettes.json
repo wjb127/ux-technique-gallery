@@ -4818,5 +4818,35 @@
   "ac2": "#1a1a1a",
   "ac3": "#8a8070",
   "coverage": 0.65
+ },
+ "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap": {
+  "bg": "#121212",
+  "fg": "#ffffff",
+  "panel": "#1d1d1f",
+  "dark": true,
+  "ac": "#ff9a1f",
+  "ac2": "#1f6bff",
+  "ac3": "#2fd36e",
+  "coverage": 0.7
+ },
+ "monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel": {
+  "bg": "#0d0c2a",
+  "fg": "#ffffff",
+  "panel": "#4a3f8e",
+  "dark": true,
+  "ac": "#7f86f0",
+  "ac2": "#e48fc0",
+  "ac3": "#f4c467",
+  "coverage": 0.65
+ },
+ "jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero": {
+  "bg": "#ffffff",
+  "fg": "#18181b",
+  "panel": "#f1f1f3",
+  "dark": false,
+  "ac": "#b69cf8",
+  "ac2": "#18181b",
+  "ac3": "#ff4b1f",
+  "coverage": 0.7
  }
 }

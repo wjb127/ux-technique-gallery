@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap",
+  "slug": "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap",
+  "name": "Rainbow dark sticky-phone scroll story: screens swap per section + right section rail + Hold to Swap keypad",
+  "date": "2026-10-17",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://rainbow.me/",
+  "domain": "rainbow.me",
+  "product": "Rainbow — mobile app for trading crypto, stocks, predictions and perps",
+  "checkpoints": [
+   "Near-black stage: centered rainbow app-icon wordmark, hamburger left, ghost Download pill + For iPhone, Android and desktop caption right, QR tile bottom-right",
+   "Left sticky iPhone frame stays pinned while right column copy scrolls (hero: The easiest way to trade [inline logo chip + green Nvidia] from your phone)",
+   "Right vertical section rail Home / Crypto / Predictions / Perps / Live Data / Rewards: active item brightens as each section enters",
+   "Phone screen crossfades per section: wallet balance + Buy/Swap/Send/Copy round buttons, Swap keypad (USDC to WBTC) with orange Hold to Swap, NBA prediction 51%/48% split bar, Perps",
+   "Each section: glowing coin/brand icon with soft colored halo + big white title + large muted grey body",
+   "Hold to Swap button fills on press-and-hold (progress) and the amount field types from the keypad"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel",
+  "slug": "monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel",
+  "name": "Monument Valley franchise tab header + impossible-architecture title hero + hexagon scroll rail + pastel art carousel bands",
+  "date": "2026-10-17",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.monumentvalleygame.com/",
+  "domain": "monumentvalleygame.com",
+  "product": "Monument Valley III (ustwo games / Netflix Games) — official game site",
+  "checkpoints": [
+   "White top bar with 4 letterspaced two-line game tabs (MONUMENT VALLEY III active bold, II / I / PANORAMIC muted)",
+   "Full-bleed indigo isometric tower hero with thin geometric MONUMENT VALLEY III wordmark + NETFLIX GAMES mark + chevron scroll cue",
+   "Left vertical line with hexagon nodes (DOWNLOAD / TRAILER / AWARDS / PRESS / IMAGES): label appears beside the active node as you scroll",
+   "Dusky mauve trailer band with circular PLAY TRAILER button over isometric scene (opens video player 0:00/1:02)",
+   "Three-up pastel isometric screenshot carousel with dot pager + Previous/Next",
+   "Stacked flat color bands: mint social circles, pink DELVE DEEPER INTO THE IMPOSSIBLE + white Join the Community, mustard GO TO PRESS KIT, indigo ustwo footer"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero",
+  "slug": "jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero",
+  "name": "Jitter Design in motion hero + animated template poster carousel + nav collapsing to floating Sign up/menu pill",
+  "date": "2026-10-17",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://jitter.video/",
+  "domain": "jitter.video",
+  "product": "Jitter — browser motion-design tool",
+  "checkpoints": [
+   "Clean white shell: Jitter wordmark + Product/Customers/Templates/Pricing + Log in + black Sign up pill",
+   "Grey announcement chip (Superagents: AI agents, built right into Jitter / Learn more) + tight heavy Design in motion. Now with AI. headline + lavender Try Jitter for free pill",
+   "Logo strip between hairlines (Over 20,000 creative teams use Jitter)",
+   "Horizontal rail of large rounded grey template cards, each with a looping animated poster (The Track: Poster, Image Stretch Transition, Promo Reel...) + avatar + title; hover shows Open template",
+   "On scroll the full nav collapses into a floating black Sign up pill + round hamburger at top-right",
+   "Animation, accelerated chip + From idea to motion in seconds section and opacity-split statement paragraph"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone",
   "slug": "halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone",
   "name": "Halide Mark III dark camera-gear hero + iPad/iPhone device stack + pegboard Quick Edit phone reveal",
