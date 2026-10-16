@@ -3895,5 +3895,32 @@
   "proof": "prompt=lofi rain jazz for late ; advanced=true; playing=0; playing=1; restored · stand-ins: invented track art/titles, CSS grain mesh (not real film grain shader)",
   "demoNodes": 42,
   "errors": []
+ },
+ "hirotos-tokyo-street-signal-3d-pole-nav-meta-strip-glyph-preloader": {
+  "url": "https://ux-technique-gallery.vercel.app/t/hirotos-tokyo-street-signal-3d-pole-nav-meta-strip-glyph-preloader/",
+  "ok": true,
+  "at": "2026-10-16T08:11:51.401Z",
+  "http": 200,
+  "proof": "preloader done; showreel=true; view=projects;cards=6; view=home; restored · stand-ins: CSS pole/mirror/signal (not photoreal WebGL), invented project filmstrip thumbs",
+  "demoNodes": 49,
+  "errors": []
+ },
+ "enkava-cream-orange-paint-vector-animate-hero-window-mock": {
+  "url": "https://ux-technique-gallery.vercel.app/t/enkava-cream-orange-paint-vector-animate-hero-window-mock/",
+  "ok": true,
+  "at": "2026-10-16T08:11:51.401Z",
+  "http": 200,
+  "proof": "start toast; signin toast; frame=5; frame=6; caps=3;marquee=true; restored · stand-ins: CSS brush/vector strokes (not real enk canvas), CSS palette marquee",
+  "demoNodes": 205,
+  "errors": []
+ },
+ "wci-playroom-cobalt-tool-card-rail-filter-pills-expand-cards": {
+  "url": "https://ux-technique-gallery.vercel.app/t/wci-playroom-cobalt-tool-card-rail-filter-pills-expand-cards/",
+  "ok": true,
+  "at": "2026-10-16T08:11:51.391Z",
+  "http": 200,
+  "proof": "filter=Color;cards=2; filter=Motion;cards=3; expanded=true; restored · stand-ins: CSS tool thumbs (not live Chroma/Glypth canvases), invented Trama/Veil art",
+  "demoNodes": 81,
+  "errors": []
  }
 }
