@@ -232,5 +232,44 @@
    "Red ellipsis FAB bottom-right of config panel"
   ],
   "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 08:00)"
+ },
+ "clone-paodao-clay-explorer-loading-gate-arrow-mouse-playable-webgl-world": {
+  "name": "Paodao clay explorer loading gate + arrow/mouse playable WebGL world",
+  "product": "Where Worlds Take Shape — Jérôme Reynet playable WebGL portfolio",
+  "checkpoints": [
+   "Charcoal full-bleed stage with centered monochrome clay explorer on circular base",
+   "White LOADING label under character + rotating idle pose while assets load",
+   "French tip line + keyboard/mouse icon cue (arrow keys + mouse to play)",
+   "Enter playable 3D world: walk/look with keyboard, mouse, touch, or gamepad",
+   "Procedural grass / environmental detail corners that hide project discoveries",
+   "Project findables + mini-game moments instead of a static case-study grid"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 12:00)"
+ },
+ "clone-suno-warm-grain-gradient-chat-create-music-hero-tilted-track-cards": {
+  "name": "Suno warm grain-gradient chat-to-create music hero + tilted track cards",
+  "product": "Suno — AI music generator",
+  "checkpoints": [
+   "Dark warm grain mesh gradient (orange→magenta) full-bleed hero",
+   "Centered headline Make any song you can imagine + short subcopy",
+   "Frosted chat pill: + / Advanced left, dice + gradient Create note button right",
+   "Placeholder Chat to make music as primary product entry",
+   "Two tilted floating album cards with play overlay + track title/artist",
+   "Bottom press logo row (Forbes / Rolling Stone / Variety / WIRED / Billboard)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 12:00)"
+ },
+ "clone-framer-dark-ai-design-agent-glow-prompt-haus-layout-explorations-panel": {
+  "name": "Framer dark AI design-agent glow prompt + HAUS layout explorations side panel",
+  "product": "Framer — AI design agent / site builder",
+  "checkpoints": [
+   "Pure black marketing shell + white Sign up pill + Platform/Solutions nav",
+   "Hero claim: design agent for every step from idea to launch",
+   "Centered dark app frame with New Chat + glowing blue glass prompt box",
+   "Typed prompt with blinking caret + model dropdown (Opus/GPT) + send controls",
+   "Scroll section: Agents that work alongside you + Start with agents",
+   "Split workspace: HAUS layout exploration cards left + Thinking… agent panel right"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-16 12:00)"
  }
 }

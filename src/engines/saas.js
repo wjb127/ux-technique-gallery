@@ -18019,4 +18019,582 @@ V['mute-jetson-3d-pod-configurator-drag-rotate-step-rail-feature-swatches'] = (r
 };
 
 
+
+V['paodao-clay-explorer-loading-gate-arrow-mouse-playable-webgl-world'] = (root, T) => {
+  theme(root, T, { bg: '#1a1a1a', fg: '#f5f5f5', ac: '#c4a574', dark: true });
+  import('@fontsource-variable/inter');
+  const SAN = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const CLAY = '#c9a57a';
+  const FINDABLES = [
+    { id: 'atelier', label: 'Atelier Reynet', x: 0.18, z: 0.22 },
+    { id: 'cache', label: 'Hidden Cache', x: -0.28, z: 0.34 },
+    { id: 'mini', label: 'Mini-game Ring', x: 0.32, z: -0.18 },
+  ];
+  css(`
+.pd{position:absolute;inset:0;overflow:hidden;background:#1a1a1a;color:#f5f5f5;font:400 13px/1.45 ${SAN};-webkit-font-smoothing:antialiased;user-select:none}
+.pd *{box-sizing:border-box}.pd button{font:inherit;cursor:pointer;color:inherit;background:none;border:0}
+.pd canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pd-tip{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:8;width:min(720px,88vw);text-align:center;font-size:12px;line-height:1.55;color:#ffffffcc;pointer-events:none}
+.pd-cue{position:absolute;left:50%;bottom:78px;transform:translateX(-50%);z-index:9;display:flex;align-items:center;gap:14px;opacity:.85;font-size:11px;letter-spacing:.08em;color:#fff}
+.pd-keys{display:inline-flex;gap:4px}
+.pd-keys span{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border:1px solid #ffffff44;border-radius:4px;font-size:10px;font-weight:700;background:#ffffff10}
+.pd-mouse{width:18px;height:26px;border:1px solid #ffffff55;border-radius:9px;position:relative}
+.pd-mouse:before{content:'';position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:#fff}
+.pd-hud{position:absolute;top:18px;left:18px;z-index:12;display:none;gap:8px;align-items:center;font-size:11px;letter-spacing:.06em;color:#e8e0d4}
+.pd-hud.on{display:flex}
+.pd-hud b{font-weight:700;color:#fff}
+.pd-found{position:absolute;right:18px;top:18px;z-index:12;display:none;flex-direction:column;gap:6px;align-items:flex-end}
+.pd-found.on{display:flex}
+.pd-chip{padding:6px 10px;border-radius:999px;background:#00000088;border:1px solid #ffffff22;font-size:11px;backdrop-filter:blur(8px)}
+.pd-chip.on{border-color:#c9a57a88;color:#f0d9b0}
+.pd-enter{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);z-index:10;display:none;padding:10px 18px;border-radius:999px;background:#ffffff14;border:1px solid #ffffff33;backdrop-filter:blur(10px);font-weight:700;letter-spacing:.04em}
+.pd-enter.on{display:inline-flex}
+.pd-enter:hover{background:#ffffff22}
+`);
+  const el = h('div.pd');
+  const cnv = h('canvas');
+  const tip = h('div.pd-tip', {}, "Certains passages sont bien cachés : n'hésitez pas à fouiller partout, observer les recoins et suivre les détails que le monde laisse derrière lui.");
+  const cue = h('div.pd-cue', {},
+    h('div.pd-keys', {}, h('span', {}, '↑'), h('span', {}, '←'), h('span', {}, '↓'), h('span', {}, '→')),
+    h('span', {}, '+'),
+    h('div.pd-mouse'),
+    h('span', {}, 'to play')
+  );
+  const enterBtn = h('button.pd-enter', {}, 'Enter world');
+  const hud = h('div.pd-hud', {}, h('b', {}, 'Paodao'), h('span', {}, '· walk / look · find projects'));
+  const foundBox = h('div.pd-found');
+  el.append(cnv, tip, cue, enterBtn, hud, foundBox);
+  root.append(el);
+
+  let mode = 'loading', loadT = 0, rot = 0, yaw = 0.4, pitch = 0.12, px = 0, pz = 0;
+  const keys = new Set();
+  const found = new Set();
+  const g = cnv.getContext('2d');
+  const resize = () => {
+    const r = el.getBoundingClientRect();
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    cnv.width = Math.max(1, r.width * dpr); cnv.height = Math.max(1, r.height * dpr);
+    cnv.style.width = r.width + 'px'; cnv.style.height = r.height + 'px';
+    g.setTransform(dpr, 0, 0, dpr, 0, 0); cnv.W = r.width; cnv.H = r.height;
+  };
+  new ResizeObserver(resize).observe(el); resize();
+
+  const syncFound = () => {
+    foundBox.replaceChildren(...FINDABLES.map((f) =>
+      h('div.pd-chip' + (found.has(f.id) ? '.on' : ''), {}, found.has(f.id) ? '✓ ' + f.label : '… ' + f.label)
+    ));
+  };
+  syncFound();
+
+  const drawExplorer = (cx, cy, sc, angle) => {
+    g.save();
+    g.translate(cx, cy);
+    g.rotate(angle);
+    // base disc
+    g.beginPath(); g.ellipse(0, sc * 0.62, sc * 0.55, sc * 0.12, 0, 0, Math.PI * 2);
+    g.fillStyle = '#b89262'; g.fill();
+    g.fillStyle = '#00000033';
+    g.beginPath(); g.ellipse(-sc * 0.08, sc * 0.62, sc * 0.28, sc * 0.07, 0, 0, Math.PI * 2); g.fill();
+    // boots
+    g.fillStyle = CLAY;
+    g.beginPath(); g.ellipse(-sc * 0.16, sc * 0.48, sc * 0.12, sc * 0.08, -0.2, 0, Math.PI * 2); g.fill();
+    g.beginPath(); g.ellipse(sc * 0.18, sc * 0.5, sc * 0.13, sc * 0.08, 0.25, 0, Math.PI * 2); g.fill();
+    // legs / torso
+    g.fillStyle = '#bf946c';
+    g.beginPath(); g.moveTo(-sc * 0.22, sc * 0.42); g.lineTo(-sc * 0.18, -sc * 0.05); g.lineTo(sc * 0.2, -sc * 0.02); g.lineTo(sc * 0.24, sc * 0.44); g.closePath(); g.fill();
+    // jacket
+    g.fillStyle = CLAY;
+    g.beginPath(); g.moveTo(-sc * 0.28, -sc * 0.08); g.quadraticCurveTo(0, -sc * 0.22, sc * 0.3, -sc * 0.05);
+    g.lineTo(sc * 0.26, sc * 0.22); g.quadraticCurveTo(0, sc * 0.28, -sc * 0.24, sc * 0.2); g.closePath(); g.fill();
+    // belt
+    g.fillStyle = '#a67b4f'; g.fillRect(-sc * 0.22, sc * 0.12, sc * 0.44, sc * 0.06);
+    g.fillStyle = '#8d6640'; g.beginPath(); g.arc(0, sc * 0.15, sc * 0.045, 0, Math.PI * 2); g.fill();
+    // head
+    g.fillStyle = '#d0ad84';
+    g.beginPath(); g.ellipse(0, -sc * 0.28, sc * 0.16, sc * 0.18, 0, 0, Math.PI * 2); g.fill();
+    // hat
+    g.fillStyle = CLAY;
+    g.beginPath(); g.ellipse(0, -sc * 0.38, sc * 0.38, sc * 0.08, 0, 0, Math.PI * 2); g.fill();
+    g.beginPath(); g.ellipse(0, -sc * 0.48, sc * 0.18, sc * 0.12, 0, 0, Math.PI * 2); g.fill();
+    // highlight
+    g.fillStyle = '#ffffff22';
+    g.beginPath(); g.ellipse(sc * 0.08, -sc * 0.42, sc * 0.08, sc * 0.04, 0.4, 0, Math.PI * 2); g.fill();
+    g.restore();
+  };
+
+  const drawLoading = (W, H) => {
+    g.clearRect(0, 0, W, H);
+    g.fillStyle = '#1a1a1a'; g.fillRect(0, 0, W, H);
+    const sc = Math.min(W, H) * 0.22;
+    drawExplorer(W / 2, H * 0.46, sc, Math.sin(rot) * 0.12);
+    g.fillStyle = '#fff';
+    g.font = `600 ${Math.max(12, Math.round(sc * 0.14))}px ${SAN}`;
+    g.textAlign = 'center'; g.textBaseline = 'top';
+    g.fillText('LOADING', W / 2, H * 0.46 + sc * 0.78);
+  };
+
+  const project = (x, y, z, W, H) => {
+    const cos = Math.cos(yaw), sin = Math.sin(yaw);
+    let x1 = x * cos - z * sin;
+    let z1 = x * sin + z * cos;
+    let y1 = y * Math.cos(pitch) - z1 * Math.sin(pitch);
+    let z2 = y * Math.sin(pitch) + z1 * Math.cos(pitch);
+    const f = 1.8 / (2.2 + z2);
+    const sc = Math.min(W, H) * 0.55;
+    return [W * 0.5 + x1 * sc * f, H * 0.55 + y1 * sc * f, z2, f];
+  };
+
+  const drawWorld = (W, H) => {
+    g.clearRect(0, 0, W, H);
+    const sky = g.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, '#2a3230'); sky.addColorStop(0.55, '#1c221f'); sky.addColorStop(1, '#141816');
+    g.fillStyle = sky; g.fillRect(0, 0, W, H);
+    // grass field
+    for (let i = 0; i < 90; i++) {
+      const gx = ((i * 37) % 100) / 100 * 2.4 - 1.2 - px * 0.15;
+      const gz = ((i * 53) % 100) / 100 * 2.2 - 0.6 - pz * 0.15;
+      const [sx, sy, , f] = project(gx, 0.02, gz, W, H);
+      if (f < 0.2) continue;
+      g.strokeStyle = i % 3 ? '#3d5a3a' : '#4a6b45';
+      g.lineWidth = Math.max(1, 2 * f);
+      g.beginPath(); g.moveTo(sx, sy); g.lineTo(sx + Math.sin(i) * 3 * f, sy - 10 * f); g.stroke();
+    }
+    // corner hides
+    for (const [hx, hz, c] of [[-0.85, 0.7, '#2e3a2c'], [0.9, 0.55, '#354033'], [-0.7, -0.5, '#2a3428'], [0.75, -0.4, '#313c2f']]) {
+      const [sx, sy, , f] = project(hx - px * 0.2, 0.05, hz - pz * 0.2, W, H);
+      g.fillStyle = c;
+      g.beginPath(); g.ellipse(sx, sy, 40 * f, 14 * f, 0, 0, Math.PI * 2); g.fill();
+      g.fillStyle = '#1a2218';
+      g.beginPath(); g.ellipse(sx, sy - 18 * f, 22 * f, 28 * f, 0, 0, Math.PI * 2); g.fill();
+    }
+    // findables
+    for (const fnd of FINDABLES) {
+      const [sx, sy, , f] = project(fnd.x - px * 0.25, 0.12, fnd.z - pz * 0.25, W, H);
+      const got = found.has(fnd.id);
+      g.beginPath(); g.arc(sx, sy - 20 * f, 10 * f, 0, Math.PI * 2);
+      g.fillStyle = got ? '#e8c48a' : '#ffffff33'; g.fill();
+      g.strokeStyle = got ? '#c9a57a' : '#ffffff66'; g.lineWidth = 1.5; g.stroke();
+      g.fillStyle = '#fff'; g.font = `600 ${Math.round(11 * f)}px ${SAN}`; g.textAlign = 'center';
+      g.fillText(got ? '★' : '?', sx, sy - 16 * f);
+    }
+    // player avatar (small clay)
+    drawExplorer(W / 2, H * 0.62, Math.min(W, H) * 0.08, Math.sin(performance.now() / 400) * 0.05 + yaw * 0.05);
+    g.fillStyle = '#ffffffaa'; g.font = `500 11px ${SAN}`; g.textAlign = 'center';
+    g.fillText('WASD / arrows · drag to look · click markers', W / 2, H - 24);
+  };
+
+  let raf = 0;
+  const tick = () => {
+    const W = cnv.W || 1, H = cnv.H || 1;
+    if (mode === 'loading') {
+      loadT += 0.016; rot += 0.02;
+      drawLoading(W, H);
+      if (loadT > 1.6) {
+        mode = 'ready';
+        enterBtn.classList.add('on');
+        cue.style.opacity = '1';
+      }
+    } else if (mode === 'ready') {
+      rot += 0.015; drawLoading(W, H);
+    } else {
+      const sp = 0.018;
+      if (keys.has('ArrowUp') || keys.has('w') || keys.has('W')) { px += Math.sin(yaw) * sp; pz += Math.cos(yaw) * sp; }
+      if (keys.has('ArrowDown') || keys.has('s') || keys.has('S')) { px -= Math.sin(yaw) * sp; pz -= Math.cos(yaw) * sp; }
+      if (keys.has('ArrowLeft') || keys.has('a') || keys.has('A')) { px -= Math.cos(yaw) * sp; pz += Math.sin(yaw) * sp; }
+      if (keys.has('ArrowRight') || keys.has('d') || keys.has('D')) { px += Math.cos(yaw) * sp; pz -= Math.sin(yaw) * sp; }
+      px = clamp(px, -1.2, 1.2); pz = clamp(pz, -1.0, 1.0);
+      // proximity finds
+      for (const fnd of FINDABLES) {
+        const dx = fnd.x - px * 0.25 - px * 0; // relative in draw uses px*0.25
+        const dist = Math.hypot(fnd.x - px * 0.9, fnd.z - pz * 0.9);
+        if (dist < 0.35 && !found.has(fnd.id)) {
+          found.add(fnd.id); syncFound(); toast(fnd.label + ' found');
+        }
+      }
+      drawWorld(W, H);
+    }
+    raf = requestAnimationFrame(tick);
+  };
+  tick();
+
+  const enterWorld = () => {
+    mode = 'world';
+    enterBtn.classList.remove('on');
+    cue.style.display = 'none';
+    tip.style.display = 'none';
+    hud.classList.add('on');
+    foundBox.classList.add('on');
+    toast('World unlocked — explore corners');
+  };
+  enterBtn.onclick = enterWorld;
+
+  addEventListener('keydown', (e) => {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd', 'W', 'A', 'S', 'D'].includes(e.key)) {
+      keys.add(e.key); if (mode === 'ready') enterWorld();
+    }
+  });
+  addEventListener('keyup', (e) => keys.delete(e.key));
+
+  drag(cnv, {
+    start: (e) => { cnv._x = e.clientX; cnv._y = e.clientY; cnv._yaw = yaw; cnv._pitch = pitch; if (mode === 'ready') enterWorld(); },
+    move: (e) => {
+      if (mode !== 'world') return;
+      yaw = cnv._yaw + (e.clientX - cnv._x) * 0.008;
+      pitch = clamp(cnv._pitch + (e.clientY - cnv._y) * 0.005, -0.4, 0.45);
+    },
+  });
+  cnv.addEventListener('click', (e) => {
+    if (mode !== 'world') return;
+    const r = cnv.getBoundingClientRect();
+    const mx = e.clientX - r.left, my = e.clientY - r.top;
+    for (const fnd of FINDABLES) {
+      const [sx, sy] = project(fnd.x - px * 0.25, 0.12, fnd.z - pz * 0.25, cnv.W, cnv.H);
+      if (Math.hypot(mx - sx, my - (sy - 20)) < 28 && !found.has(fnd.id)) {
+        found.add(fnd.id); syncFound(); toast(fnd.label + ' discovered');
+      }
+    }
+  });
+
+  window.__demoProof = async () => {
+    const o = [];
+    mode = 'ready'; loadT = 2; enterBtn.classList.add('on'); await sleep(40); o.push('loading→ready');
+    enterWorld(); await sleep(50); o.push(`mode=${mode}`);
+    keys.add('ArrowUp'); await sleep(80); keys.delete('ArrowUp'); o.push(`pos=${px.toFixed(2)},${pz.toFixed(2)}`);
+    found.add('atelier'); found.add('cache'); syncFound(); await sleep(40);
+    o.push(`found=${found.size}`);
+    // restore
+    mode = 'loading'; loadT = 0; rot = 0; yaw = 0.4; pitch = 0.12; px = 0; pz = 0; found.clear(); syncFound();
+    enterBtn.classList.remove('on'); cue.style.display = ''; tip.style.display = '';
+    hud.classList.remove('on'); foundBox.classList.remove('on'); keys.clear();
+    o.push('restored loading');
+    return o.join('; ') + ' · stand-ins: canvas clay figure + CSS/canvas world (not WebGL/Three), invented findables';
+  };
+};
+
+V['suno-warm-grain-gradient-chat-create-music-hero-tilted-track-cards'] = (root, T) => {
+  theme(root, T, { bg: '#1a0a08', fg: '#ffffff', ac: '#ff6b4a', dark: true });
+  import('@fontsource-variable/inter');
+  const SAN = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const TRACKS = [
+    { title: 'A new world', artist: 'EpicGarage', hue: 'linear-gradient(160deg,#1a1520,#3a2a18 40%,#0c1018)', tilt: -11 },
+    { title: 'Porch Light On', artist: 'leafx', hue: 'linear-gradient(160deg,#0e1a28,#1a2840 45%,#0a1018)', tilt: 10 },
+  ];
+  const PRESS = ['Forbes', 'Rolling Stone', 'Variety', 'WIRED', 'Billboard'];
+  css(`
+.su{position:absolute;inset:0;overflow:auto;color:#fff;font:400 14px/1.45 ${SAN};-webkit-font-smoothing:antialiased;background:#120806}
+.su *{box-sizing:border-box}.su button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.su-bg{position:sticky;top:0;height:100vh;min-height:640px;display:flex;flex-direction:column;isolation:isolate}
+.su-mesh{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(ellipse 70% 55% at 50% 45%,#ff5a2f88 0%,transparent 55%),
+  radial-gradient(ellipse 50% 40% at 30% 60%,#c2185b66 0%,transparent 50%),
+  radial-gradient(ellipse 45% 35% at 72% 35%,#ff8a3a55 0%,transparent 45%),
+  linear-gradient(180deg,#1a0806 0%,#2a0c10 40%,#120806 100%)}
+.su-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.45;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");background-size:180px}
+.su-nav{position:relative;z-index:5;height:64px;display:flex;align-items:center;padding:0 28px;gap:22px}
+.su-logo{font-weight:800;font-size:20px;letter-spacing:.04em}
+.su-links{display:flex;gap:22px;font-size:13px;opacity:.85;margin-left:12px}
+.su-nav-r{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:13px}
+.su-join{padding:9px 16px;border-radius:999px;background:#fff;color:#111;font-weight:700}
+.su-hero{position:relative;z-index:4;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px 80px;text-align:center}
+.su-hero h1{margin:0;font:700 clamp(28px,4.8vw,52px)/1.1 ${SAN};letter-spacing:-.03em;max-width:720px}
+.su-hero p{margin:14px 0 28px;max-width:480px;opacity:.78;font-size:15px;line-height:1.5}
+.su-stage{position:relative;width:min(920px,96vw);display:flex;align-items:center;justify-content:center;min-height:220px}
+.su-chat{position:relative;z-index:6;width:min(560px,92%);padding:14px 14px 12px;border-radius:28px;background:#1a1210cc;border:1px solid #ffffff22;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 20px 60px #0008;text-align:left}
+.su-chat .lab{font-size:12px;opacity:.45;padding:0 8px 8px}
+.su-chat .row{display:flex;align-items:center;gap:8px}
+.su-chat .plus,.su-chat .dice{width:34px;height:34px;border-radius:50%;border:1px solid #ffffff22;display:grid;place-items:center;background:#ffffff0a;font-size:16px}
+.su-adv{padding:7px 12px;border-radius:999px;border:1px solid #ffffff22;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:6px;background:#ffffff08}
+.su-ph{flex:1;opacity:.4;font-size:14px;padding:0 4px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.su-create{padding:9px 16px;border-radius:999px;font-weight:700;font-size:13px;color:#fff;background:linear-gradient(90deg,#ff4d8d,#ff7a3a);display:inline-flex;align-items:center;gap:6px;box-shadow:0 6px 20px #ff4d6a44}
+.su-card{position:absolute;width:160px;height:220px;border-radius:18px;overflow:hidden;border:1px solid #ffffff18;box-shadow:0 24px 50px #0009;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;cursor:pointer;z-index:3}
+.su-card.left{left:4%;transform:rotate(-11deg) translateY(10px)}
+.su-card.right{right:4%;transform:rotate(10deg) translateY(6px)}
+.su-card .play{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#ffffffdd;color:#111;display:grid;place-items:center;font-size:16px;font-weight:700}
+.su-card b{font-size:13px;position:relative;z-index:1}.su-card span{font-size:11px;opacity:.7;display:flex;align-items:center;gap:6px;margin-top:4px;position:relative;z-index:1}
+.su-card .av{width:16px;height:16px;border-radius:50%;background:#fff3}
+.su-press{position:relative;z-index:5;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;padding:0 20px 36px;opacity:.4;font:700 13px/1 ${SAN};letter-spacing:.02em;filter:grayscale(1)}
+.su-press .wired{border:1.5px solid #fff;padding:2px 6px;font-size:11px;letter-spacing:.08em}
+@media (max-width:760px){
+  .su-links{display:none}.su-card{width:110px;height:150px;font-size:11px}
+  .su-card.left{left:0}.su-card.right{right:0}
+  .su-hero h1{font-size:28px}
+}
+`);
+  const el = h('div.su');
+  let prompt = '', advanced = false, playing = -1;
+  const ph = h('div.su-ph', {}, 'Chat to make music');
+  const createBtn = h('button.su-create', {}, '♪ Create');
+  const diceBtn = h('button.dice', { title: 'Random' }, '⚀');
+  const plusBtn = h('button.plus', {}, '+');
+  const advBtn = h('button.su-adv', {}, '⚙ Advanced');
+  const chat = h('div.su-chat', {},
+    h('div.lab', {}, 'Chat to make music'),
+    h('div.row', {}, plusBtn, advBtn, ph, diceBtn, createBtn)
+  );
+  const cardEls = TRACKS.map((t, i) => {
+    const card = h('div.su-card' + (i ? '.right' : '.left'), {
+      style: { background: t.hue },
+      onclick: () => { playing = playing === i ? -1 : i; toast((playing === i ? 'Playing · ' : 'Paused · ') + t.title); syncCards(); },
+    },
+      h('div.play', {}, '▶'),
+      h('b', {}, t.title),
+      h('span', {}, h('span.av'), t.artist)
+    );
+    return card;
+  });
+  const syncCards = () => {
+    cardEls.forEach((c, i) => {
+      const p = c.querySelector('.play');
+      if (p) p.textContent = playing === i ? '❚❚' : '▶';
+    });
+  };
+  const stage = h('div.su-stage', {}, ...cardEls, chat);
+  const hero = h('div.su-hero', {},
+    h('h1', {}, 'Make any song you can imagine'),
+    h('p', {}, 'Start with a simple prompt or dive into our pro editing tools, your next track is just a step away.'),
+    stage
+  );
+  const press = h('div.su-press', {}, ...PRESS.map((n) => n === 'WIRED' ? h('span.wired', {}, 'WIRED') : h('span', {}, n)));
+  const bg = h('div.su-bg', {},
+    h('div.su-mesh'), h('div.su-grain'),
+    h('div.su-nav', {},
+      h('div.su-logo', {}, 'SUNO'),
+      h('div.su-links', {}, ...['Products', 'Resources', 'Pricing', 'Careers'].map((l) => h('span', {}, l))),
+      h('div.su-nav-r', {},
+        h('button', { onclick: () => toast('Log in (demo)') }, 'Log in'),
+        h('button.su-join', { onclick: () => toast('Join Suno (demo)') }, 'Join Suno for free')
+      )
+    ),
+    hero, press
+  );
+  el.append(bg);
+  root.append(el);
+  scroll(root);
+
+  const PROMPTS = [
+    'lofi rain jazz for late coding',
+    'epic garage rock anthem, stadium drums',
+    'warm porch folk with soft harmonica',
+  ];
+  plusBtn.onclick = () => toast('Attach reference (demo)');
+  advBtn.onclick = () => { advanced = !advanced; advBtn.style.borderColor = advanced ? '#ff7a3a' : ''; toast(advanced ? 'Advanced on' : 'Advanced off'); };
+  diceBtn.onclick = () => {
+    prompt = PROMPTS[Math.floor(Math.random() * PROMPTS.length)];
+    ph.textContent = prompt; ph.style.opacity = '1';
+  };
+  createBtn.onclick = () => {
+    const t = prompt || 'untitled vibe';
+    toast('Creating · ' + t);
+    playing = 0; syncCards();
+  };
+  ph.onclick = () => {
+    const v = prompt || '';
+    const next = (prompt ? prompt + ' ' : '') || 'dreamy synthwave chorus';
+    prompt = prompt ? prompt : 'dreamy synthwave chorus';
+    ph.textContent = prompt; ph.style.opacity = '1';
+  };
+
+  window.__demoProof = async () => {
+    const o = [];
+    diceBtn.click(); await sleep(40); o.push(`prompt=${ph.textContent.slice(0, 24)}`);
+    advBtn.click(); await sleep(30); o.push(`advanced=${advanced}`);
+    createBtn.click(); await sleep(40); o.push(`playing=${playing}`);
+    cardEls[1].click(); await sleep(40); o.push(`playing=${playing}`);
+    // restore
+    prompt = ''; ph.textContent = 'Chat to make music'; ph.style.opacity = '.4';
+    advanced = false; advBtn.style.borderColor = ''; playing = -1; syncCards();
+    o.push('restored');
+    return o.join('; ') + ' · stand-ins: invented track art/titles, CSS grain mesh (not real film grain shader)';
+  };
+};
+
+V['framer-dark-ai-design-agent-glow-prompt-haus-layout-explorations-panel'] = (root, T) => {
+  theme(root, T, { bg: '#000000', fg: '#ffffff', ac: '#3b82f6', dark: true });
+  import('@fontsource-variable/inter');
+  const SAN = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const BLUE = '#3b82f6';
+  const PROMPT_FULL = 'Create a sleek black homepage for an AI well-being research lab called Bloom.';
+  const HAUS = [
+    { t: 'Exploration', layout: 'hero-photo' },
+    { t: 'Exploration — Big Intro', layout: 'big-type' },
+    { t: 'Exploration — Side Nav', layout: 'side-nav' },
+  ];
+  css(`
+.fr{position:absolute;inset:0;overflow:auto;background:#000;color:#fff;font:400 14px/1.45 ${SAN};-webkit-font-smoothing:antialiased}
+.fr *{box-sizing:border-box}.fr button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.fr-nav{height:60px;display:flex;align-items:center;padding:0 28px;gap:18px;position:sticky;top:0;z-index:30;background:#000e;backdrop-filter:blur(12px)}
+.fr-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+.fr-mark{width:18px;height:18px;background:#fff;clip-path:polygon(0 0,100% 0,100% 38%,62% 38%,62% 100%,0 100%)}
+.fr-links{display:flex;gap:18px;font-size:13px;color:#b0b0b0;margin-left:8px}
+.fr-links span{display:inline-flex;align-items:center;gap:4px}
+.fr-nav-r{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:13px}
+.fr-signup{padding:8px 16px;border-radius:999px;background:#fff;color:#000;font-weight:700}
+.fr-hero{padding:48px 28px 20px;max-width:1080px;margin:0 auto}
+.fr-hero h1{margin:0;font:700 clamp(26px,3.8vw,42px)/1.15 ${SAN};letter-spacing:-.03em;max-width:640px}
+.fr-ctas{display:flex;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.fr-cta{padding:10px 18px;border-radius:999px;font-weight:700;font-size:13px}
+.fr-cta.primary{background:#fff;color:#000}
+.fr-cta.ghost{background:#ffffff12;border:1px solid #ffffff22;color:#fff}
+.fr-new{margin-left:auto;font-size:12px;color:#888}
+.fr-app{margin:28px auto 40px;width:min(980px,94vw);border-radius:20px;background:#0a0a0c;border:1px solid #ffffff14;overflow:hidden;box-shadow:0 0 80px #3b82f633,0 30px 80px #000a;position:relative}
+.fr-app:before{content:'';position:absolute;inset:-20%;background:radial-gradient(circle at 50% 40%,#3b82f644 0%,transparent 55%);pointer-events:none;z-index:0}
+.fr-chatbar{position:relative;z-index:2;display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #ffffff10}
+.fr-chatbar .pill{padding:8px 12px;border-radius:10px;background:#ffffff10;font-size:12px;font-weight:600}
+.fr-chatbar .plus{width:32px;height:32px;border-radius:8px;background:#ffffff10;display:grid;place-items:center;margin-left:auto}
+.fr-prompt-wrap{position:relative;z-index:2;padding:28px 24px 36px;display:flex;justify-content:center}
+.fr-prompt{width:min(560px,100%);padding:18px 18px 14px;border-radius:18px;background:#14161acc;border:2px solid ${BLUE};box-shadow:0 0 0 1px #3b82f655,0 0 40px #3b82f655;backdrop-filter:blur(12px)}
+.fr-prompt .txt{min-height:52px;font-size:14px;line-height:1.5;color:#f2f4f8;white-space:pre-wrap}
+.fr-prompt .caret{display:inline-block;width:2px;height:1.1em;background:#fff;margin-left:1px;vertical-align:-2px;animation:frblink 1s steps(1) infinite}
+@keyframes frblink{50%{opacity:0}}
+.fr-prompt .bar{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12px;color:#9aa3af}
+.fr-prompt .model{padding:5px 10px;border-radius:8px;background:#ffffff10;font-weight:600;color:#dbe4f0}
+.fr-prompt .acts{margin-left:auto;display:flex;gap:8px}
+.fr-prompt .acts button{width:30px;height:30px;border-radius:8px;background:#3b82f633;color:#9ec1ff;display:grid;place-items:center}
+.fr-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 32px;padding:10px 24px 48px;opacity:.35;filter:grayscale(1);font:700 12px/1 ${SAN};letter-spacing:.04em}
+.fr-agents{max-width:1080px;margin:0 auto;padding:20px 28px 80px}
+.fr-agents-hd{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.fr-agents-hd h2{margin:0;font:700 clamp(22px,3vw,34px)/1.2 ${SAN};letter-spacing:-.02em;flex:1}
+.fr-agents-hd .start{padding:8px 14px;border-radius:10px;background:#ffffff12;border:1px solid #ffffff18;font-size:12px;font-weight:600}
+.fr-split{display:grid;grid-template-columns:1.35fr .85fr;gap:14px;min-height:320px}
+.fr-haus{border-radius:16px;border:1px solid #ffffff14;background:#0c0c0e;padding:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fr-exp{border-radius:12px;border:1px solid #ffffff12;background:#111214;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.fr-exp:hover,.fr-exp.on{border-color:#3b82f688}
+.fr-exp .lab{padding:8px 10px;font-size:10px;opacity:.55;letter-spacing:.02em}
+.fr-exp .mock{height:120px;background:linear-gradient(180deg,#1a2a1a,#0e1410);position:relative}
+.fr-exp .mock.big{background:linear-gradient(180deg,#152018,#0c100e)}
+.fr-exp .mock.side{background:linear-gradient(90deg,#121816 28%,#1a2820 28%)}
+.fr-exp .mock:after{content:'HAUS';position:absolute;left:10px;bottom:10px;font:800 16px/1 ${SAN};letter-spacing:.08em}
+.fr-agent{border-radius:16px;border:1px solid #ffffff14;background:#0c0c0e;padding:14px;display:flex;flex-direction:column;gap:10px}
+.fr-agent .bubble{padding:12px;border-radius:12px;background:#16181c;border:1px solid #ffffff12;font-size:12px;line-height:1.45;color:#d7dce3}
+.fr-agent .tag{display:inline-block;padding:2px 7px;border-radius:6px;background:#3b82f633;color:#93c5fd;font-size:10px;font-weight:700;margin-bottom:6px}
+.fr-agent .think{font-size:12px;color:#888;display:flex;align-items:center;gap:8px}
+.fr-agent .think i{width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:frpulse 1.2s ease-in-out infinite;font-style:normal}
+@keyframes frpulse{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+@media (max-width:820px){
+  .fr-links{display:none}.fr-split{grid-template-columns:1fr}.fr-haus{grid-template-columns:1fr}
+  .fr-new{margin-left:0;width:100%}
+}
+`);
+  const el = h('div.fr');
+  let model = 'Opus 4.8', typed = '', typing = true, selHaus = 0, thinking = true;
+  const caret = h('span.caret');
+  const txt = h('div.txt');
+  const modelBtn = h('button.model', {}, model + ' ▾');
+  const sendBtn = h('button', { title: 'Send' }, '✈');
+  const promptBox = h('div.fr-prompt', {},
+    txt,
+    h('div.bar', {}, modelBtn, h('div.acts', {}, h('button', {}, '+'), sendBtn, h('button', {}, '↑'))
+  ));
+  const syncTxt = () => {
+    txt.replaceChildren(document.createTextNode(typed), typing ? caret : '');
+  };
+  const typeStep = () => {
+    if (!typing) return;
+    if (typed.length < PROMPT_FULL.length) {
+      typed = PROMPT_FULL.slice(0, typed.length + 1);
+      syncTxt();
+      setTimeout(typeStep, 28 + Math.random() * 30);
+    } else {
+      typing = false; syncTxt();
+    }
+  };
+  modelBtn.onclick = () => {
+    model = model.startsWith('Opus') ? 'GPT 5.5' : 'Opus 4.8';
+    modelBtn.textContent = model + ' ▾';
+    toast('Model · ' + model);
+  };
+  sendBtn.onclick = () => {
+    thinking = true; syncAgent(); toast('Agent building…');
+  };
+
+  const expCards = HAUS.map((x, i) => {
+    const mockCls = x.layout === 'big-type' ? 'big' : x.layout === 'side-nav' ? 'side' : '';
+    const card = h('div.fr-exp' + (i === 0 ? '.on' : ''), {
+      onclick: () => { selHaus = i; expCards.forEach((c, j) => c.classList.toggle('on', j === i)); toast(x.t); },
+    }, h('div.lab', {}, x.t), h('div.mock' + (mockCls ? '.' + mockCls : '')));
+    return card;
+  });
+  const thinkEl = h('div.think');
+  const bubble = h('div.bubble');
+  const syncAgent = () => {
+    bubble.replaceChildren(
+      h('span.tag', {}, 'Desktop'),
+      document.createTextNode('Desktop: Create a few layout variations of my site. Keep the content but try some different compositions.')
+    );
+    thinkEl.replaceChildren(
+      thinking ? h('i') : '',
+      thinking ? 'Thinking…' : 'Created 3 explorations · 6s'
+    );
+  };
+  syncAgent();
+  const agentPane = h('div.fr-agent', {}, bubble, thinkEl);
+
+  const app = h('div.fr-app', {},
+    h('div.fr-chatbar', {},
+      h('div.pill', {}, 'New Chat ▾'),
+      h('button.plus', { onclick: () => { typed = ''; typing = true; syncTxt(); typeStep(); toast('New chat'); } }, '+')
+    ),
+    h('div.fr-prompt-wrap', {}, promptBox)
+  );
+
+  el.append(
+    h('div.fr-nav', {},
+      h('div.fr-logo', {}, h('span.fr-mark'), 'Framer'),
+      h('div.fr-links', {},
+        h('span', {}, 'Platform', ' ▾'),
+        h('span', {}, 'Solutions', ' ▾'),
+        h('span', {}, 'Resources'),
+        h('span', {}, 'Enterprise'),
+        h('span', {}, 'Pricing')
+      ),
+      h('div.fr-nav-r', {},
+        h('button', { onclick: () => toast('Log in (demo)') }, 'Log in'),
+        h('button.fr-signup', { onclick: () => toast('Sign up (demo)') }, 'Sign up')
+      )
+    ),
+    h('div.fr-hero', {},
+      h('h1', {}, 'Framer is the design agent for every step from idea to launch'),
+      h('div.fr-ctas', {},
+        h('button.fr-cta.primary', { onclick: () => toast('Get started (demo)') }, 'Get started for free'),
+        h('button.fr-cta.ghost', { onclick: () => toast('Download app (demo)') }, 'Download app ↓'),
+        h('span.fr-new', {}, 'New: Skills →')
+      )
+    ),
+    app,
+    h('div.fr-logos', {}, ...['Dribbble', 'LEGORA', 'Zapier', 'perplexity', 'Cal.com', 'mixpanel', 'Miro', 'DOORDASH'].map((n) => h('span', {}, n))),
+    h('div.fr-agents', {},
+      h('div.fr-agents-hd', {},
+        h('h2', {}, 'Agents that work alongside you, not instead of you'),
+        h('button.start', { onclick: () => { thinking = true; syncAgent(); root.querySelector('.fr-agents').scrollIntoView({ behavior: 'smooth' }); toast('Start with agents'); } }, 'Start with agents')
+      ),
+      h('div.fr-split', {},
+        h('div.fr-haus', {}, ...expCards),
+        agentPane
+      )
+    )
+  );
+  root.append(el);
+  scroll(root);
+  syncTxt();
+  setTimeout(typeStep, 400);
+
+  window.__demoProof = async () => {
+    const o = [];
+    typed = PROMPT_FULL; typing = false; syncTxt(); o.push('prompt filled');
+    modelBtn.click(); await sleep(40); o.push(`model=${model}`);
+    modelBtn.click(); await sleep(30);
+    sendBtn.click(); await sleep(40); o.push(`thinking=${thinking}`);
+    expCards[1].click(); await sleep(40); o.push(`haus=${HAUS[selHaus].t}`);
+    expCards[2].click(); await sleep(40);
+    // restore
+    model = 'Opus 4.8'; modelBtn.textContent = model + ' ▾';
+    typed = ''; typing = true; selHaus = 0; thinking = true;
+    expCards.forEach((c, j) => c.classList.toggle('on', j === 0));
+    syncTxt(); syncAgent(); typeStep();
+    o.push('restored');
+    return o.join('; ') + ' · stand-ins: CSS glow prompt + HAUS mock layouts (not live Framer agent), invented partner wordmarks';
+  };
+};
+
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

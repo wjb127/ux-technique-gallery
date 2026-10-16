@@ -1,4 +1,94 @@
 {
+ "paodao-clay-explorer-loading-gate-arrow-mouse-playable-webgl-world": {
+  "bg": "#161616",
+  "fg": "#aa8968",
+  "panel": "#413d3a",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.94
+ },
+ "suno-warm-grain-gradient-chat-create-music-hero-tilted-track-cards": {
+  "bg": "#36240d",
+  "fg": "#f0f0f0",
+  "panel": "#291b10",
+  "dark": true,
+  "ac": "#36240d",
+  "ac2": "#291b10",
+  "ac3": "#4a250e",
+  "coverage": 0.08
+ },
+ "framer-dark-ai-design-agent-glow-prompt-haus-layout-explorations-panel": {
+  "bg": "#000000",
+  "fg": "#cecfd2",
+  "panel": "#01000e",
+  "dark": true,
+  "ac": "#041247",
+  "ac2": "#2a3957",
+  "ac3": "#000f2b",
+  "coverage": 0.48
+ },
+ "active-theory-webgl-metallic-emblem-scroll-gate-work-contact-audio": {
+  "bg": "#0a1011",
+  "fg": "#f0f0f0",
+  "panel": "#0a0f11",
+  "dark": true,
+  "ac": "#23383c",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.24
+ },
+ "bun-pink-fast-hero-benchmark-bar-race-replay-terminal-install": {
+  "bg": "#ffffff",
+  "fg": "#222222",
+  "panel": "#fefefe",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.64
+ },
+ "mute-jetson-3d-pod-configurator-drag-rotate-step-rail-feature-swatches": {
+  "bg": "#f9f8f5",
+  "fg": "#2f2d29",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.37
+ },
+ "snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur": {
+  "bg": "#ffffff",
+  "fg": "#313a3f",
+  "panel": "#f4faff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.3
+ },
+ "futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards": {
+  "bg": "#ededea",
+  "fg": "#3d3b34",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.35
+ },
+ "elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups": {
+  "bg": "#fdfcfc",
+  "fg": "#bd6a60",
+  "panel": "#f5f3f1",
+  "dark": false,
+  "ac": "#bd6a60",
+  "ac2": "#79392b",
+  "ac3": "#ffc83d",
+  "coverage": 0.41
+ },
  "overworld-audio-3d-island-map-drag-pan-zoom-project-markers-sound-gate": {
   "bg": "#1c3d5e",
   "fg": "#f0f0f0",
@@ -4648,35 +4738,5 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.32
- },
- "snappify-code-window-hero-pastel-shapes-multi-window-annotate-highlight-blur": {
-  "bg": "#ffffff",
-  "fg": "#313a3f",
-  "panel": "#f4faff",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.3
- },
- "futurefonts-type-in-progress-hero-scroll-specimen-browse-grid-version-cards": {
-  "bg": "#ededea",
-  "fg": "#3d3b34",
-  "panel": "#ffffff",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.35
- },
- "elevenlabs-platform-tab-3d-voice-orb-carousel-play-creative-agents-mockups": {
-  "bg": "#fdfcfc",
-  "fg": "#bd6a60",
-  "panel": "#f5f3f1",
-  "dark": false,
-  "ac": "#bd6a60",
-  "ac2": "#79392b",
-  "ac3": "#ffc83d",
-  "coverage": 0.41
  }
 }
