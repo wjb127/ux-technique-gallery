@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-dich-fashion-cyber-hud-discover-orb-terminal-columns-collection-rail",
+  "slug": "dich-fashion-cyber-hud-discover-orb-terminal-columns-collection-rail",
+  "name": "DICH Fashion cyber HUD Discover orb + terminal side columns + collection rail",
+  "date": "2026-10-16",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://dich-fashion.webflow.io/",
+  "domain": "dich-fashion.webflow.io",
+  "product": "DICH™ Fashion — futuristic fashion lookbook (Awwwards SOTD / Webby UI)",
+  "checkpoints": [
+   "Black grid-framed HUD stage with left C://SYSTEM_FILES / PROTOCOL_BL/S / ACCESS GRANTED column and right D://DATA_CORE / FILE DECRYPTED column",
+   "Center concentric Discover orb: purple→peach gradient ring, shutter/moiré core, <<< DISCOVER >>> monospaced CTA",
+   "Glyph-scramble / terminal-status microcopy aesthetic (2045 protocol)",
+   "Collection chapters (Oraniths / Anturax / Sirius) with numbered 01–04 rails and DISCOVER deep-links",
+   "Mission blocks (.001 Sustainab / .002 Sirius / .003 ETERNITY) + drop archive coordinates",
+   "Menu CLOSE / SITE BY BL/S® footer credit strip"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-vastspace-haven1-greige-hero-mission-cta-interior-video-spec-rail",
+  "slug": "vastspace-haven1-greige-hero-mission-cta-interior-video-spec-rail",
+  "name": "Vast Haven-1 greige hero + mission CTA + interior video + spec rail",
+  "date": "2026-10-16",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.vastspace.com/haven-1",
+  "domain": "vastspace.com",
+  "product": "Vast — Haven-1 commercial space station product page",
+  "checkpoints": [
+   "Warm greige (#~b4aaa4) shell + VAST wordmark + Stations/Satellites/Updates/About nav + Shop + white Create your mission CTA",
+   "Hero: oversized Haven-1 left + world's first commercial space station blurb + > Create your mission text link over cinematic helmet/human still",
+   "Full-bleed docking/interior media with Pause + > Watch full video overlay controls",
+   "Opacity-split body copy (bold Haven-1, targeted… then muted rest) with thin + margin ticks",
+   "HAVEN-1 Launching 2027 spec rail (crew/diameter/height/habitable volume/mass/power/orbit)",
+   "Features chips (two-week missions, 45 m³, personal quarters, domed window, communal table) + hardware progress story cards"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-layers-explore-icon-rail-hot-tag-pills-masonry-cards-jobs-sidebar",
+  "slug": "layers-explore-icon-rail-hot-tag-pills-masonry-cards-jobs-sidebar",
+  "name": "Layers Explore icon rail + Hot/tag pills + masonry design cards + jobs sidebar",
+  "date": "2026-10-16",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://layers.to/explore",
+  "domain": "layers.to",
+  "product": "Layers — design inspiration explore feed",
+  "checkpoints": [
+   "Slim dark left icon rail (logo / search / jobs / profile)",
+   "Top horizontal tag pills: Hot (flame) / All (filled black active) / UI / Figma / Product Design / Web Design …",
+   "3-column masonry design cards: preview art + avatar + author + title",
+   "Right sidebar: Search Layers… + promo card + Recent Jobs list (logo/title/company/date)",
+   "Hot vs All vs tag filter swaps card set without full page reload feel",
+   "Card hover/open into design detail (clone as modal or route)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-wci-playroom-cobalt-tool-card-rail-filter-pills-expand-cards",
   "slug": "wci-playroom-cobalt-tool-card-rail-filter-pills-expand-cards",
   "name": "WCI Playroom cobalt tool-card rail + category filter pills + Expand cards",
