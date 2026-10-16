@@ -3922,5 +3922,32 @@
   "proof": "filter=Color;cards=2; filter=Motion;cards=3; expanded=true; restored · stand-ins: CSS tool thumbs (not live Chroma/Glypth canvases), invented Trama/Veil art",
   "demoNodes": 81,
   "errors": []
+ },
+ "layers-explore-icon-rail-hot-tag-pills-masonry-cards-jobs-sidebar": {
+  "url": "https://ux-technique-gallery.vercel.app/t/layers-explore-icon-rail-hot-tag-pills-masonry-cards-jobs-sidebar/",
+  "ok": true,
+  "at": "2026-10-16T12:00:03.058Z",
+  "http": 200,
+  "proof": "cols=3;cards=12; tag=Figma;cards=3; sortMenu=true; sort=New;first=Enigma — AI Agent Dashboard; search=icon;cards=2; modal=true:Enigma — AI Agent Dashboard; liked=true; next=Aora — Voice Agent Homepage; restored · stand-ins: CSS-drawn design-shot previews (not real Layers uploads), invented authors/titles/promo, sample jobs list",
+  "demoNodes": 419,
+  "errors": []
+ },
+ "dich-fashion-cyber-hud-discover-orb-terminal-columns-collection-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dich-fashion-cyber-hud-discover-orb-terminal-columns-collection-rail/",
+  "ok": true,
+  "at": "2026-10-16T12:00:03.049Z",
+  "http": 200,
+  "proof": "hud=true/true; view=collection; collection=ANTURAX; look=3/4 SOLAR WRAP; menu=true; menu=false; mission=ETERNITY; restored · stand-ins: CSS gradient/moiré Discover orb (not WebGL canvases), CSS garment silhouettes (not lookbook photos), invented look names/coordinates",
+  "demoNodes": 136,
+  "errors": []
+ },
+ "vastspace-haven1-greige-hero-mission-cta-interior-video-spec-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/vastspace-haven1-greige-hero-mission-cta-interior-video-spec-rail/",
+  "ok": true,
+  "at": "2026-10-16T12:00:03.056Z",
+  "http": 200,
+  "proof": "paused=true&frozen=true; modal=true; scene=docking; imperial=true; spec=Habitable volume; feature=Domed window; lit=19/30; panel=true;Research & science · 3 crew · 10 days on Haven-1 · target 2027; restored · stand-ins: canvas interior/docking \"video\" (not real footage), CSS feature + story art (not renders), Archivo for Vast’s custom grotesk, spec values approximate",
+  "demoNodes": 224,
+  "errors": []
  }
 }
