@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list",
+  "slug": "superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list",
+  "name": "Superlist dark violet-gradient hero with white + red-orange two-tone headline, big rounded app-window mock, hover dropdown nav, color-tile feature grid and fading capability word list",
+  "date": "2026-10-18",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.superlist.com/",
+  "domain": "superlist.com",
+  "product": "Superlist — tasks, notes and AI meeting notes app (from the Wunderlist creators)",
+  "checkpoints": [
+   "Dark nav: red square logo + Superlist left, Features / Use Cases dropdowns + Updates / Pricing / Blog / Download centered, Sign in + red-orange Sign up pill right",
+   "Hover dropdown panels: small dark rounded menu with icon rows (Meeting Notes NEW badge, Voice AI, Lists, MCP)",
+   "Centered hero on deep navy-to-violet radial glow: bold white \"Tasks, notes, and plans.\" then red-orange \"Finally in one app.\", grey sub + red pill CTA",
+   "Large rounded dark app-window mock under the hero (sidebar Inbox/Today/Updates, Production planning page, photo panel) that bleeds off the fold",
+   "Two-tone statement paragraphs (white + muted grey), logo strip, then saturated blue / red / violet rounded tiles each holding a phone or panel UI",
+   "Centered stacked capability list (Real-time collaboration, Repeatable tasks ...) fading from white to dim, laurel Product Hunt badges, closing headline"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid",
+  "slug": "leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid",
+  "name": "Leica airy white editorial: big light-weight headline over full-bleed photo hero, product-line tabs, dark pill CTAs with red dot, warm-beige Art of Leica editorial tiles and photo category grid",
+  "date": "2026-10-18",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://leica-camera.com/en-int",
+  "domain": "leica-camera.com",
+  "product": "Leica Camera — cameras, lenses and sport optics",
+  "checkpoints": [
+   "White header: Products / Experience Leica / Company / Service left, red Leica roundel centered, search / account / cart right; slim region notice bar above",
+   "Huge light-weight \"Leica Camera\" headline left-aligned above a full-bleed lifestyle photo hero with the product name overlaid",
+   "Hero product-line tab row (LUX Grip / M-System / SL-System / Metal Gray) with active underline swapping the slide, plus white and outlined pill CTAs",
+   "Warm beige \"The Art of Leica\" band: centered heading + paragraph, inset photo, dark pill CTA with a small red dot",
+   "Asymmetric editorial tiles (photo + white caption card with small caps eyebrow) then a 4-up photo category grid (Explore Cameras / Sport Optics / Home Cinema / Watches)",
+   "Latest products 3-up carousel on light grey cards with dot pager, consult-booking form beside a red roundel"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs",
+  "slug": "lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs",
+  "name": "Lamborghini dark hypercar site: huge condensed-caps hero over video slider with line pager + pause, full-screen MENU overlay, white Models carousel with outlined hex arrows, configure band with model tabs",
+  "date": "2026-10-18",
+  "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.lamborghini.com/en-en",
+  "domain": "lamborghini.com",
+  "product": "Automobili Lamborghini — supercars",
+  "checkpoints": [
+   "Black transparent header: hamburger + MENU left, gold bull crest centered, search right",
+   "Full-bleed dark video hero slider: small caps eyebrow \"THE QUANTUM OF DRIVING\", giant condensed caps model name, white DISCOVER MORE button with arrow, three thin line pager segments + hexagon pause button bottom-right",
+   "MENU opens a full-screen black overlay with a 3-column grid of caps links each with a chevron and hairline divider, small secondary links, languages + text size controls at the bottom",
+   "White MODELS section: caps heading + DISCOVER ALL MODELS link, model logo + huge grey condensed caps tagline, side-view car cutout, neighbouring car peeking at the edge, outlined hexagon prev/next arrows",
+   "Gold EXPLORE THE MODEL button + START CONFIGURATION / ENQUIRE text buttons with icons; DEALER LOCATOR full-bleed photo band with white caps heading",
+   "Dark CONFIGURE YOUR [MODEL] band with yellow START CONFIGURATION button and a bottom model tab row (REVUELTO SV / URUS SE PERFORMANTE / TEMERARIO ...) with active underline"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-pentagram-we-design-sentence-filter-pill-hero-slider-dot-pager-frosted-discipline-chip-panel-poster-rail",
   "slug": "pentagram-we-design-sentence-filter-pill-hero-slider-dot-pager-frosted-discipline-chip-panel-poster-rail",
   "name": "Pentagram \"We design [X] for [Y]\" sentence-filter pill over full-bleed project slider + frosted discipline-chip panel + sticky bottom filter pill + dark curated-card bands and year poster rail",

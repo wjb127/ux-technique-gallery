@@ -4998,5 +4998,35 @@
   "ac2": "#112430",
   "ac3": "#3e616c",
   "coverage": 0.07
+ },
+ "superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list": {
+  "bg": "#232235",
+  "fg": "#7cc1e3",
+  "panel": "#181825",
+  "dark": true,
+  "ac": "#232235",
+  "ac2": "#28243e",
+  "ac3": "#3b2445",
+  "coverage": 0.13
+ },
+ "leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid": {
+  "bg": "#ffffff",
+  "fg": "#6f624f",
+  "panel": "#e8e8e7",
+  "dark": false,
+  "ac": "#4c3c2f",
+  "ac2": "#886525",
+  "ac3": "#6d4124",
+  "coverage": 0.23
+ },
+ "lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs": {
+  "bg": "#16282f",
+  "fg": "#f0f0f0",
+  "panel": "#2e3d42",
+  "dark": true,
+  "ac": "#16282f",
+  "ac2": "#2a1516",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
  }
 }
