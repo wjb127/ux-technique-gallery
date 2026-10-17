@@ -4878,5 +4878,35 @@
   "ac2": "#eac6cd",
   "ac3": "#efc471",
   "coverage": 0.7
+ },
+ "oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan": {
+  "bg": "#f4ede4",
+  "fg": "#1c1c1c",
+  "panel": "#eae0d3",
+  "dark": false,
+  "ac": "#2c62f4",
+  "ac2": "#9c5d3e",
+  "ac3": "#151515",
+  "coverage": 0.7
+ },
+ "teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles": {
+  "bg": "#0e0f0e",
+  "fg": "#ffffff",
+  "panel": "#000000",
+  "dark": true,
+  "ac": "#812b40",
+  "ac2": "#5e3d69",
+  "ac3": "#9a9a9a",
+  "coverage": 0.7
+ },
+ "sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#f4f1ec",
+  "dark": false,
+  "ac": "#000000",
+  "ac2": "#815a38",
+  "ac3": "#4b2d1e",
+  "coverage": 0.7
  }
 }

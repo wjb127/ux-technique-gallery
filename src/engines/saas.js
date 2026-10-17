@@ -21860,4 +21860,765 @@ V['tana-meetings-call-mock-live-capture-cards-gradient-feature-panels'] = (root,
   };
 };
 
+// ---------- Oura: Wear your best life warm hand-ring hero + health-pillar card carousel + fanned dark app-screen stack (2026-10-17 12:00 KST)
+V['oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan'] = (root, T) => {
+  theme(root, T, { bg: '#f4ece3', fg: '#3f3a34', ac: '#2c6ff0', dark: false });
+  import('@fontsource/instrument-serif/400.css'); import('@fontsource/instrument-serif/400-italic.css'); import('@fontsource-variable/inter');
+  const SF = "'Instrument Serif','Times New Roman',Georgia,serif", SA = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const NAVS = [['Shop', ['Oura Ring 4', 'Oura Ring 4 Ceramic', 'Charging Case', 'Accessories', 'Membership', 'Gift Cards']], ['Your Health', ['Sleep and Rest', 'Wellness and Longevity', 'Activity and Fitness', 'Heart Health', 'Stress', "Women's Health"]], ['Why Oura', ['How It Works', 'Science & Research', 'Oura App', 'Reviews', 'Compare Rings']]];
+  const CARDS = [
+    ['Sleep and Rest', 'moon', 'Get the best sleep of your life', 'sleep', 'Sleep stages, timing and readiness scores help you understand what a good night really looks like for you.'],
+    ['Wellness and Longevity', 'lotus', "Don't just live longer, live healthier", 'hands', 'Cardiovascular age, resilience and long-term trends show how your daily habits add up.'],
+    ['Activity and Fitness', 'flame', 'Bring your fitness goals into focus', 'focus', 'Automatic activity detection and heart-rate zones turn every workout into useful data.'],
+    ['Heart Health', 'heart', 'Listen to what your heart is telling you', 'heart', 'Daytime and nighttime heart rate, HRV and cardio capacity in one place.'],
+    ['Stress', 'wave', 'Find your balance, day and night', 'calm', 'Daytime stress and recovery windows help you plan rest before you need it.'],
+    ["Women's Health", 'cycle', 'Support for every phase of life', 'phase', 'Cycle insights and temperature trends that adapt to your body.'],
+  ];
+  const QUOTES = [['Heart Health', "My cardiologist told me, 'If you hadn't caught this, you might have gone to sleep and never woken up.' Oura didn't just track my health \u2014 it saved my life.\u201d", 'Tim S.', '#8a6f5a'],
+    ['Symptom Radar', "[The Symptom Radar notifications] are my sign to back off and give myself a day of rest. It's good to say that to yourself sometimes.\u201d", 'Tabitha P.', '#6b4a3c'],
+    ["Women's Health", "The information from Oura made all the difference for us. We're finally starting our family and couldn't be more excited.\u201d", 'Ashley W.', '#7d8a6a']];
+  css(`
+.ou{position:absolute;inset:0;overflow:hidden;background:#f7f1e9;color:#3f3a34;font:400 16px/1.4 ${SA};-webkit-font-smoothing:antialiased}
+.ou *{box-sizing:border-box}:where(.ou) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.ou-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.ou-hd{position:absolute;left:0;right:0;top:0;height:96px;display:flex;align-items:center;padding:0 64px;z-index:20;transition:background .3s,box-shadow .3s,height .3s}
+.ou.sol .ou-hd{background:#f4ece3f2;box-shadow:0 1px 0 #00000012;height:76px;backdrop-filter:blur(8px)}
+.ou-logo{font:300 27px/1 ${SA};letter-spacing:.06em;color:#2b2824;position:relative;white-space:nowrap}
+.ou-logo i{position:absolute;left:3px;top:-6px;width:15px;height:1.6px;background:#2b2824}
+.ou-nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:50px;font:400 15.5px ${SA};color:#2b2824}
+.ou-nav>div{position:relative}
+.ou-nav button{display:flex;align-items:center;gap:10px;height:40px}
+.ou-nav button svg{width:11px;height:11px;transition:transform .25s}
+.ou-nav .open>button svg{transform:rotate(180deg)}
+.ou-dd{position:absolute;left:-24px;top:46px;min-width:240px;background:#fbf7f1;border-radius:18px;padding:16px 10px;box-shadow:0 18px 40px #3a2a1a1f;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s}
+.ou-nav .open .ou-dd{opacity:1;transform:none;pointer-events:auto}
+.ou-dd a{display:block;padding:9px 14px;border-radius:10px;font:400 15px ${SA};color:#2b2824;cursor:pointer;white-space:nowrap}.ou-dd a:hover{background:#efe6da}
+.ou-cart{margin-left:auto;width:48px;height:48px;border-radius:50%;border:1px solid #2b282433 !important;display:grid;place-items:center;position:relative}
+.ou-cart svg{width:20px;height:20px}
+.ou-cart b{position:absolute;right:-2px;top:-2px;min-width:18px;height:18px;border-radius:9px;background:#2c6ff0;color:#fff;font:600 10px/18px ${SA};display:none}
+.ou-cart.has b{display:block}
+.ou-burger{display:none}
+.ou-hero{position:relative;height:max(760px,100vh);background:linear-gradient(180deg,#f2e5da 0%,#f4e8de 60%,#f1e4d8 100%);overflow:hidden}
+.ou-hero .tx{position:absolute;left:64px;top:calc(50% - 150px);max-width:520px;z-index:2}
+.ou-hero h1{margin:0;font:400 104px/.86 ${SF};letter-spacing:-.025em;color:#4a443d}
+.ou-hero p{margin:28px 0 40px;font:400 21px/1.2 ${SA};color:#4a443d;max-width:470px}
+.ou-blue{height:48px;padding:0 24px;border-radius:99px;background:#2c6ff0 !important;color:#fff !important;font:600 16px ${SA} !important;transition:background .2s,transform .2s}.ou-blue:hover{background:#1f5ed6 !important;transform:translateY(-1px)}
+.ou-hand{position:absolute;right:120px;top:0;height:100%;width:640px}
+.ou-hand svg{width:100%;height:100%;display:block}
+.ou-hand .ring{transition:filter .3s}
+.ou-sec{padding:120px 64px 0;text-align:center}
+.ou-sec h2{margin:0;font:400 72px/1 ${SF};letter-spacing:-.02em;color:#4a443d}
+.ou-sec p{margin:26px auto 0;max-width:760px;font:400 22px/1.3 ${SA};color:#4a443d}
+.ou-dk{height:46px;padding:0 24px;border-radius:99px;background:#4a4540 !important;color:#f4ece3 !important;font:500 15px ${SA} !important;transition:background .2s}.ou-dk:hover{background:#2f2b27 !important}
+.ou-pills{display:flex;gap:16px;justify-content:center;margin-top:44px}
+.ou-rail{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;padding:0 64px;scroll-padding:0 64px;margin-top:130px;cursor:grab;scroll-snap-type:x proximity}.ou-rail::-webkit-scrollbar{display:none}
+.ou-rail.drag{cursor:grabbing;scroll-snap-type:none}
+.ou-card{flex:none;width:493px;height:640px;border-radius:18px;position:relative;overflow:hidden;scroll-snap-align:start;color:#fff;text-align:left}
+.ou-card .ph{position:absolute;inset:0}.ou-card .ph svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.ou-card:hover .ph svg{transform:scale(1.035)}
+.ou-card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0000 55%,#0000004d)}
+.ou-chip{position:absolute;left:24px;top:24px;height:52px;padding:0 24px 0 20px;border-radius:99px;background:#5a514acc;backdrop-filter:blur(10px);display:flex;align-items:center;gap:14px;font:500 13px ${SA};z-index:2}
+.ou-chip svg{width:20px;height:20px}
+.ou-plus{position:absolute;right:24px;top:24px;width:52px;height:52px;border-radius:50%;background:#f7f1e9 !important;color:#2b2824 !important;display:grid;place-items:center;z-index:3;font:300 26px/1 ${SA} !important;transition:transform .35s}
+.ou-card.info .ou-plus{transform:rotate(45deg)}
+.ou-card h3{position:absolute;left:24px;right:60px;bottom:28px;margin:0;font:300 40px/1.02 ${SA};letter-spacing:-.005em;z-index:2;transition:opacity .3s}
+.ou-info{position:absolute;inset:0;background:#2b2520d9;backdrop-filter:blur(6px);z-index:2;padding:110px 30px 30px;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .35s}
+.ou-card.info .ou-info{opacity:1;pointer-events:auto}.ou-card.info h3{opacity:0}
+.ou-info b{font:400 40px/1 ${SF}}.ou-info p{margin:16px 0 22px;font:400 17px/1.4 ${SA};color:#f1e8dc}
+.ou-info button{align-self:flex-start;height:42px;padding:0 20px;border-radius:99px;background:#f7f1e9 !important;color:#2b2824 !important;font:500 14px ${SA} !important}
+.ou-prog{display:flex;align-items:center;gap:18px;margin:34px 64px 0;}
+.ou-track{flex:1;height:2px;background:#d9d0c4;position:relative}
+.ou-track i{position:absolute;left:0;top:0;height:2px;background:#6f675f;transition:left .15s,width .15s}
+.ou-arrows{display:flex;gap:16px;margin:24px 64px 0;justify-content:flex-end}
+.ou-arrows button{width:44px;height:44px;border-radius:50%;background:#3f3a35 !important;color:#f4ece3 !important;display:grid;place-items:center;transition:opacity .2s}
+.ou-arrows button:disabled{opacity:.35;cursor:default}
+.ou-arrows svg{width:18px;height:18px}
+.ou-fanw{position:relative;margin:110px auto 0;height:620px;max-width:1240px}
+.ou-fan{position:absolute;left:50%;bottom:0;width:1240px;height:620px;margin-left:-620px}
+.ou-ph{position:absolute;bottom:0;width:295px;height:530px;border-radius:30px;background:#141416;overflow:hidden;box-shadow:0 30px 60px #2a1d1229;transition:left .6s cubic-bezier(.2,.75,.2,1),height .6s cubic-bezier(.2,.75,.2,1),width .6s,bottom .6s,transform .6s;cursor:pointer;text-align:left;color:#e9e6e1}
+.ou .ou-ph{font:400 11px/1.35 ${SA}}
+.ou-ph.c{width:298px;height:620px;bottom:0;cursor:default;z-index:5}
+.ou-ph.n1{z-index:4}.ou-ph.n2{z-index:3}
+.ou-ph:not(.c):hover{transform:translateY(-10px)}
+.ou-ph .scr{position:absolute;inset:0;padding:22px 16px}
+.ou-ph h6{margin:0;text-align:center;font:500 12px ${SA};color:#e9e6e1}
+.ou-ph .big{font:400 25px/1.1 ${SF};color:#f3efe9;margin:18px 0 10px}
+.ou-ph .row{display:flex;justify-content:space-between;align-items:center;padding:12px 10px;margin-top:8px;border-radius:10px;background:#ffffff0d}
+.ou-ph .tag{font:500 9px ${SA};background:#ffffff1f;border-radius:5px;padding:3px 7px;color:#ddd}
+.ou-ph .nav{position:absolute;left:14px;right:14px;bottom:14px;height:34px;border-radius:17px;background:#2a2a2ccc;display:flex;justify-content:space-around;align-items:center;font-size:12px;color:#aaa}
+.ou-ph .rings{display:flex;justify-content:space-between;margin-top:18px}
+.ou-ph .rings div{text-align:center;font:500 9px ${SA};color:#d6d4d0}
+.ou-ph .rings b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:2px solid #ffffff3a;font:500 17px ${SA};color:#fff;margin-bottom:5px;background:#00000026}
+.ou-q{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:150px 64px 0;text-align:left}
+.ou-qc{background:#ede4d8;border-radius:10px;padding:40px 40px 40px;min-height:425px;display:flex;flex-direction:column}
+.ou-qc .t{align-self:flex-start;background:#3f3a35;color:#f4ece3;font:600 11px ${SA};letter-spacing:.02em;text-transform:uppercase;padding:9px 12px;border-radius:4px}
+.ou-qc .mk{font:400 24px ${SF};margin-top:40px;line-height:.5}
+.ou-qc p{margin:16px 0 0;font:400 25px/1.2 ${SF};color:#4a443d;flex:1}
+.ou-qc .who{display:flex;align-items:center;gap:16px;margin-top:30px;font:600 19px ${SA};color:#2b2824}
+.ou-qc .who i{width:60px;height:60px;border-radius:50%;display:block;flex:none}
+.ou-hr{display:grid;grid-template-columns:540px 1fr;align-items:center;padding:160px 0 0 64px;text-align:left}
+.ou-hr small{font:600 15px ${SA};letter-spacing:.12em;color:#3f3a35}
+.ou-hr h2{margin:28px 0 0;font:400 64px/1 ${SF};color:#4a443d;letter-spacing:-.015em}
+.ou-hr p{margin:18px 0 44px;font:400 19px/1.5 ${SA};color:#4a443d;max-width:480px}
+.ou-hrp{height:540px;border-radius:24px 0 0 24px;background:#1d1b19;position:relative;overflow:hidden}
+.ou-hrp .ph3{position:absolute;bottom:0;width:240px;height:470px;border-radius:34px;background:#0e0e0f;border:5px solid #3a3a3c;overflow:hidden;color:#fff;text-align:center;padding:30px 16px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ou-hrp .ph3 h5{margin:56px 0 0;font:400 30px/1.05 ${SF}}.ou-hrp .ph3 p{margin:12px 0 0;font:400 12px/1.4 ${SA};color:#ddd;max-width:none}
+.ou-hrp .ph3 .lm{display:inline-block;margin-top:16px;padding:8px 14px;border-radius:99px;background:#ffffff26;font:500 11px ${SA}}
+.ou-news{background:#1d1b19;color:#f4ece3;margin-top:80px;padding:76px 64px 110px;text-align:left}
+.ou-news small{font:600 15px ${SA};letter-spacing:.12em}
+.ou-nw{display:grid;grid-template-columns:1.62fr 1fr;gap:60px;margin-top:56px}
+.ou-nw .f{height:420px;border-radius:8px;overflow:hidden;position:relative}.ou-nw .f svg{width:100%;height:100%;display:block}
+.ou-nw .f span{position:absolute;left:32px;top:32px;background:#fff;color:#222;font:600 11px ${SA};text-transform:uppercase;padding:9px 12px;border-radius:5px}
+.ou-nw .g{background:#f7f1e9;color:#2b2824;border-radius:8px;padding:28px 26px;font:400 26px/1.25 ${SA};display:flex;flex-direction:column;justify-content:space-between}
+.ou-nw .g button{align-self:flex-start;font:500 15px ${SA};border-bottom:1px solid #2b2824 !important}
+.ou-foot{background:#1d1b19;color:#bfb6aa;padding:0 64px 90px;display:flex;gap:28px;flex-wrap:wrap;font:400 14px ${SA}}
+.ou-ck{position:absolute;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid #ddd;padding:18px 64px 18px;display:flex;align-items:center;gap:40px;transition:transform .4s}
+.ou-ck.off{transform:translateY(110%)}
+.ou-ck div{flex:1}.ou-ck b{font:600 16px ${SA};color:#222}.ou-ck p{margin:4px 0 0;font:400 12px/1.45 ${SA};color:#444;max-width:820px}
+.ou-ck u{color:#2c6ff0;cursor:pointer}
+.ou-ck .bt{display:flex;gap:12px}.ou-ck .bt button{height:36px;padding:0 20px;border-radius:99px;font:600 12.5px ${SA}}
+.ou-ck .a{background:#2c6ff0 !important;color:#fff !important}.ou-ck .g2{border:1px solid #222 !important;color:#222 !important}
+.ou-mm{position:absolute;inset:0;z-index:40;background:#f4ece3;padding:96px 24px 30px;display:none;overflow:auto}
+.ou-mm.on{display:block;animation:oumm .3s ease}@keyframes oumm{from{opacity:0;transform:translateY(-10px)}}
+.ou-mm details{border-bottom:1px solid #2b28241f;padding:18px 0}.ou-mm summary{list-style:none;font:400 30px ${SF};cursor:pointer;display:flex;justify-content:space-between}
+.ou-mm details a{display:block;padding:8px 0;font:400 16px ${SA}}
+.ou.m .ou-hd{padding:0 24px;height:96px}
+.ou.m .ou-nav{display:none}
+.ou.m .ou-cart{width:40px;height:40px}
+.ou.m .ou-burger{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid #2b282433 !important;margin-left:8px;z-index:45;position:relative}
+.ou.m .ou-burger i{display:block;width:16px;height:1.5px;background:#2b2824;box-shadow:0 -5px 0 #2b2824,0 5px 0 #2b2824}
+.ou.m.mm .ou-burger i{box-shadow:none;background:transparent;position:relative}
+.ou.m.mm .ou-burger i:before,.ou.m.mm .ou-burger i:after{content:'';position:absolute;left:0;right:0;top:0;height:1.5px;background:#2b2824;transform:rotate(45deg)}.ou.m.mm .ou-burger i:after{transform:rotate(-45deg)}
+.ou.m .ou-hero{height:auto;padding-bottom:60px}
+.ou.m .ou-hand{position:relative;right:auto;width:100%;height:470px}
+.ou.m .ou-hero .tx{position:relative;left:auto;top:auto;padding:30px 24px 0}
+.ou.m .ou-hero h1{font-size:64px}.ou.m .ou-hero p{font-size:17px;margin:18px 0 26px}
+.ou.m .ou-sec{padding:80px 24px 0}.ou.m .ou-sec h2{font-size:42px}.ou.m .ou-sec p{font-size:17px}
+.ou.m .ou-rail{padding:0 24px;scroll-padding:0 24px;margin-top:60px;gap:14px}.ou.m .ou-card{width:300px;height:430px}.ou.m .ou-card h3{font-size:28px}
+.ou.m .ou-chip{height:40px;font-size:11px;left:16px;top:16px;padding:0 14px}.ou.m .ou-plus{width:40px;height:40px;right:16px;top:16px}
+.ou.m .ou-prog,.ou.m .ou-arrows{margin-left:24px;margin-right:24px}
+.ou.m .ou-fanw{height:300px;margin:50px -24px 0;overflow:hidden}.ou.m .ou-fan{transform:scale(.46);transform-origin:50% 100%}
+.ou.m .ou-q{grid-template-columns:1fr;padding:80px 24px 0;gap:16px}.ou.m .ou-qc{min-height:0;padding:28px}
+.ou.m .ou-hr{grid-template-columns:1fr;padding:90px 0 0 24px}.ou.m .ou-hr h2{font-size:44px}.ou.m .ou-hrp{height:420px;margin-top:10px}
+.ou.m .ou-news{padding:56px 24px 80px}.ou.m .ou-nw{grid-template-columns:1fr;gap:20px}.ou.m .ou-nw .f{height:260px}
+.ou.m .ou-ck{flex-direction:column;align-items:stretch;gap:14px;padding:18px 20px}.ou.m .ou-ck .bt{flex-direction:column}.ou.m .ou-ck .bt button{height:40px}
+`);
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = (vb, inner, par = 'xMidYMid slice') => { const e = document.createElementNS(NS, 'svg'); e.setAttribute('viewBox', vb); e.setAttribute('preserveAspectRatio', par); e.innerHTML = inner; return e; };
+  const ic = (d, w = 1.6) => svg('0 0 24 24', `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`, 'xMidYMid meet');
+  const CHEV = 'M6 9l6 6 6-6', CART = 'M3 4h2l2.4 11h10.2L20 7H6.3M9 20a1 1 0 1 0 0-.1M17 20a1 1 0 1 0 0-.1M11 8.5v4M14.5 8.5v4';
+  const ICONS = { moon: 'M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z', lotus: 'M12 20c-4 0-8-2-9-6 3 0 6 1 9 4 3-3 6-4 9-4-1 4-5 6-9 6zM12 18c-2-3-2-8 0-12 2 4 2 9 0 12z', flame: 'M12 21c-4 0-6-3-6-6 0-4 4-6 4-11 3 2 6 6 6 9 1-1 1-2 1-3 2 2 1 11-5 11z', heart: 'M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z', wave: 'M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0', cycle: 'M12 3a9 9 0 1 0 9 9M12 7a5 5 0 1 0 5 5' };
+  // ---- code-drawn stand-ins (no photos): hand + ring hero, card scenes
+  const skin = '#d9a585', skinD = '#b97c5c', nail = '#3a3624';
+  const tweed = () => { const r = rng(7); let o = ''; for (let i = 0; i < 300; i++) { const x = 130 + r() * 320, y = r() * 300, c = ['#8a8580', '#c9c3b5', '#6d6a63', '#d8d17a', '#b7a6c8', '#e6e1d6', '#7b8a6a'][i % 7]; o += `<rect x="${x.toFixed(0)}" y="${y.toFixed(0)}" width="${(6 + r() * 40).toFixed(0)}" height="${(1.5 + r() * 3).toFixed(1)}" fill="${c}" opacity=".75" transform="rotate(${((r() - .5) * 30).toFixed(0)} ${x.toFixed(0)} ${y.toFixed(0)})"/>`; } return o; };
+  const handSvg = () => svg('0 0 640 900', `<defs><linearGradient id="ourg" x1="0" x2="1"><stop offset="0" stop-color="#7d8186"/><stop offset=".3" stop-color="#f4f5f6"/><stop offset=".55" stop-color="#c3c7cb"/><stop offset="1" stop-color="#6a6e73"/></linearGradient>
+    <linearGradient id="ousk" gradientUnits="userSpaceOnUse" x1="200" y1="0" x2="470" y2="0"><stop offset="0" stop-color="#b47656"/><stop offset=".4" stop-color="#dba788"/><stop offset=".75" stop-color="#d09676"/><stop offset="1" stop-color="#a86a4c"/></linearGradient>
+    <radialGradient id="oush" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#7a5a40" stop-opacity=".32"/><stop offset="1" stop-color="#7a5a40" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ousf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2e5da" stop-opacity="1"/><stop offset=".22" stop-color="#f2e5da" stop-opacity="0"/></linearGradient>
+    <clipPath id="ousl"><path d="M150 0H440L428 262Q300 300 176 266Z"/></clipPath><filter id="ousb"><feGaussianBlur stdDeviation="1.2"/></filter></defs>
+    <ellipse cx="350" cy="842" rx="230" ry="20" fill="url(#oush)"/>
+    <g fill="none" stroke="url(#ousk)" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M418 400Q470 430 476 500Q478 540 462 560" stroke-width="36"/>
+      <path d="M392 440Q448 480 452 560Q452 610 432 640" stroke-width="40"/></g>
+    <ellipse cx="462" cy="566" rx="13" ry="18" fill="${nail}" transform="rotate(-20 462 566)"/><ellipse cx="431" cy="648" rx="15" ry="21" fill="${nail}" transform="rotate(-14 431 648)"/>
+    <path d="M196 250Q300 286 424 252Q446 330 436 398Q424 452 382 492L262 500Q216 452 206 380Q200 316 196 250Z" fill="url(#ousk)"/>
+    <g fill="none" stroke="url(#ousk)" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M342 470Q378 560 400 640Q414 700 404 760" stroke-width="44"/>
+      <path d="M290 470Q300 600 286 700Q278 768 268 812" stroke-width="46"/></g>
+    <ellipse cx="404" cy="768" rx="15" ry="22" fill="${nail}" transform="rotate(-6 404 768)"/><ellipse cx="268" cy="820" rx="16" ry="23" fill="${nail}" transform="rotate(8 268 820)"/>
+    <g fill="none" stroke="#9c6446" stroke-width="2" opacity=".45" stroke-linecap="round"><path d="M276 600q14 4 26 0M282 700q10 3 20 0M378 600q12 3 22-2M396 690q10 2 18-2"/><path d="M250 330q40 30 60 120M330 320q20 40 24 130M380 330q10 40 0 110"/></g>
+    <path d="M150 0H440L428 262Q300 300 176 266Z" fill="#9a948b"/><g clip-path="url(#ousl)" filter="url(#ousb)">${tweed()}</g>
+    <path d="M176 266Q300 300 428 262L424 236Q300 274 180 240Z" fill="#7e786f" opacity=".85"/>
+    <rect width="640" height="900" fill="url(#ousf)"/>
+    <g class="ring" transform="rotate(4 296 640)"><rect x="268" y="628" width="58" height="24" rx="7" fill="url(#ourg)"/><path d="M270 632h54" stroke="#ffffffc0" stroke-width="2"/><path d="M270 648h54" stroke="#55595e" stroke-width="1.5"/></g>`, 'xMidYMid meet');
+  const SC = {
+    sleep: `<rect width="493" height="640" fill="#4a3a2c"/><rect x="0" y="0" width="493" height="300" fill="#8a6a48"/><path d="M0 120h493v40H0z" fill="#a8885e" opacity=".5"/><path d="M60 330c60-80 220-110 330-40l60 70v280H0V420z" fill="#2b1f18"/><path d="M110 300c40-50 130-60 180-20 30 30 20 90-20 110-60 30-160 10-170-40z" fill="#5a3a28"/><path d="M180 360c30 10 60 4 80-10" stroke="#2a1a12" stroke-width="3" fill="none"/><path d="M40 470c80-30 200-20 300 30v140H40z" fill="#e7dccb" opacity=".85"/><path d="M60 520c40-20 90-14 120 4l-10 60H50z" fill="#3a281e"/>`,
+    hands: `<rect width="493" height="640" fill="#2a1712"/><path d="M0 380c120-40 260 10 493-40v300H0z" fill="#7a3a2c"/><path d="M60 120c80-30 200-20 320 40l40 120c-80 40-220 40-330 0z" fill="#e5b597"/><path d="M90 300c90-20 220 0 300 50l-20 110c-90 20-200 10-290-30z" fill="#d9a585"/><rect x="250" y="160" width="26" height="54" rx="10" fill="#b9bcc0"/><rect x="300" y="380" width="24" height="52" rx="9" fill="#2a2a2c"/><path d="M60 180c50 10 110 8 160-6M100 360c60 12 140 10 200-8" stroke="#b07a5c" stroke-width="3" fill="none" opacity=".5"/>`,
+    focus: `<rect width="493" height="640" fill="#5f7a8a"/><rect y="380" width="493" height="260" fill="#4a6a3a"/><ellipse cx="246" cy="430" rx="150" ry="220" fill="#b0643a"/><path d="M110 330c40-60 230-60 270 0v60c-60-20-210-20-270 0z" fill="#e1b597"/><path d="M100 340c40-30 110-40 150-10 40-30 110-20 150 10" stroke="#c48a6a" stroke-width="18" fill="none" stroke-linecap="round"/><rect x="220" y="318" width="20" height="36" rx="8" fill="#9aa59a"/><path d="M150 560c30-40 160-40 190 0v80H150z" fill="#2a2420"/>`,
+    heart: `<rect width="493" height="640" fill="#d8c7a8"/><path d="M300 0h193v640H260z" fill="#9a8a6a" opacity=".5"/><path d="M40 260c90-40 230-30 330 40l-30 120c-100 20-220 0-300-40z" fill="#e2b090"/><path d="M200 420c80-20 160 0 230 40v180H160z" fill="#c9a06a"/><path d="M0 460c80 0 150 30 200 70v110H0z" fill="#efe7dc"/><rect x="150" y="280" width="22" height="46" rx="8" fill="#c9ccd0"/><path d="M330 120c40-20 100-10 140 30v120H330z" fill="#e7b04a"/>`,
+    calm: `<rect width="493" height="640" fill="#a8b4b0"/><circle cx="360" cy="140" r="80" fill="#e8e2d2" opacity=".7"/><path d="M0 420c120-60 300-40 493 10v210H0z" fill="#6f7f6a"/><path d="M150 250c40-40 140-40 170 10l10 170H140z" fill="#3a3a38"/><circle cx="235" cy="220" r="44" fill="#d9a585"/><path d="M195 200c20-30 70-30 84 0" stroke="#4a3022" stroke-width="22" fill="none"/>`,
+    phase: `<rect width="493" height="640" fill="#c9a28a"/><path d="M0 0h493v260C340 300 160 220 0 280z" fill="#e8d2c0"/><circle cx="250" cy="300" r="70" fill="#d9a585"/><path d="M140 640c0-150 40-250 110-250s110 100 110 250z" fill="#7a4a3a"/><path d="M180 270c20-50 120-50 140 0" stroke="#3a2418" stroke-width="30" fill="none"/>`,
+  };
+  const newsSvg = () => svg('0 0 800 420', `<rect width="800" height="420" fill="#a9a6a4"/><path d="M0 300c200-40 500-30 800 10v110H0z" fill="#8e8b89"/><path d="M80 170c120-20 360-20 520 40 50 20 60 70 20 90-160 40-420 30-560-20z" fill="#dcae92"/><path d="M560 120c50 0 110 40 140 90l-60 30c-30-30-60-50-90-60z" fill="#e6bba0"/><rect x="335" y="150" width="34" height="120" rx="14" fill="url(#ournw)"/><defs><linearGradient id="ournw" x1="0" x2="1"><stop offset="0" stop-color="#777b80"/><stop offset=".4" stop-color="#f2f3f4"/><stop offset="1" stop-color="#8a8e93"/></linearGradient></defs><ellipse cx="600" cy="225" rx="28" ry="18" fill="#efd7c8"/>`);
+  // ---- DOM
+  const el = h('div.ou');
+  let cartN = 0;
+  const cartBtn = h('button.ou-cart', { 'aria-label': 'Cart', onclick: () => toast(cartN ? `Cart: ${cartN} item(s) (demo)` : 'Your cart is empty (demo)') }, ic(CART), h('b', {}, '0'));
+  let openDd = -1;
+  const ddWrap = NAVS.map(([t, items], i) => h('div', {}, h('button', { onclick: (e) => { e.stopPropagation(); setDd(openDd === i ? -1 : i); }, onmouseenter: () => setDd(i) }, t, ic(CHEV, 2)), h('div.ou-dd', {}, ...items.map((x) => h('a', { onclick: () => { setDd(-1); toast(`${x} (demo)`); } }, x)))));
+  const setDd = (i) => { openDd = i; ddWrap.forEach((d, j) => d.classList.toggle('open', j === i)); };
+  const navEl = h('nav.ou-nav', { onmouseleave: () => setDd(-1) }, ...ddWrap, h('div', {}, h('button', { onclick: () => toast('For Organizations (demo)') }, 'For Organizations')));
+  const burger = h('button.ou-burger', { 'aria-label': 'Menu', onclick: () => setMM(!el.classList.contains('mm')) }, h('i'));
+  const hd = h('header.ou-hd', {}, h('div.ou-logo', {}, h('i'), 'OURA'), navEl, cartBtn, burger);
+  const shop = h('button.ou-blue', { onclick: () => { cartN++; cartBtn.classList.add('has'); cartBtn.querySelector('b').textContent = cartN; toast('Oura Ring 4 added to cart (demo)'); } }, 'Shop Now');
+  const hand = h('div.ou-hand', {}, handSvg());
+  const hero = h('section.ou-hero', {}, hand, h('div.tx', {}, h('h1', {}, 'Wear your', h('br'), 'best life'), h('p', {}, 'Get a clearer picture of your health with the world\u2019s smallest smart ring.'), shop));
+  const intro = h('section.ou-sec', {}, h('h2', {}, 'Understand your body. Own your health.'), h('p', {}, 'Oura gives you insights unique to your body, so every day adds up to a longer, healthier life.'),
+    h('div.ou-pills', {}, h('button.ou-dk', { onclick: () => toast('Why Oura (demo)') }, 'Why Oura'), h('button.ou-dk', { onclick: () => toast('How It Works (demo)') }, 'How It Works')));
+  const cards = CARDS.map(([cat, icon, title, scene, info]) => {
+    const ph = h('div.ph'); ph.append(svg('0 0 493 640', SC[scene]));
+    const c = h('div.ou-card', {}, ph, h('div.ou-chip', {}, ic(ICONS[icon], 1.4), cat), h('h3', {}, title),
+      h('div.ou-info', {}, h('b', {}, cat), h('p', {}, info), h('button', { onclick: () => toast(`Learn more: ${cat} (demo)`) }, 'Learn more')));
+    const plus = h('button.ou-plus', { 'aria-label': 'More', onclick: () => { if (railMoved > 6) return; c.classList.toggle('info'); } }, '+'); c.append(plus); c._plus = plus; return c;
+  });
+  const rail = h('div.ou-rail', {}, ...cards);
+  const thumb = h('i'); const track = h('div.ou-track', {}, thumb);
+  const prev = h('button', { 'aria-label': 'Previous', onclick: () => step(-1) }, ic('M19 12H5M11 6l-6 6 6 6', 1.8));
+  const next = h('button', { 'aria-label': 'Next', onclick: () => step(1) }, ic('M5 12h14M13 6l6 6-6 6', 1.8));
+  const step = (d) => { const w = cards[0].offsetWidth + 24; rail.scrollTo({ left: Math.round(rail.scrollLeft / w + d) * w, behavior: 'smooth' }); };
+  // app-screen fan
+  const scr = {
+    stress: () => h('div.scr', { style: { background: 'linear-gradient(180deg,#3d2a55 0%,#1b1720 34%,#141416 60%)' } }, h('h6', {}, '\u2039   Daytime Stress   \u24d8'), h('div', { style: { textAlign: 'center', marginTop: '10px', color: '#bbb' } }, 'Today'),
+      (() => { const r = rng(4); let d = 'M10 150'; for (let i = 1; i <= 26; i++) d += ` L${10 + i * 9} ${(150 - Math.sin(i / 3) * 30 - r() * 40 - (i > 16 && i < 21 ? 50 : 0)).toFixed(0)}`; return svg('0 0 260 200', `<path d="${d}" fill="none" stroke="#fff" stroke-width="1.5"/>${[50, 90, 130, 170].map((y) => `<line x1="0" x2="260" y1="${y}" y2="${y}" stroke="#ffffff14"/>`).join('')}`, 'none'); })(),
+      h('div.row', {}, 'Daily movement', h('span.tag', {}, 'on')), h('div.row', {}, 'Tags and activities', h('span.tag', {}, 'off')), h('div.row', {}, h('span', {}, 'STRESSED', h('br'), h('b', {}, '45m')), h('span', {}, 'RESTORED', h('br'), h('b', {}, '1h 15m'))), h('div.nav', {}, '\u2600 \u263e \u2661 \u2756')),
+    radar: () => h('div.scr', { style: { background: 'linear-gradient(180deg,#5a3c30 0%,#22191a 30%,#151416 55%)' } }, h('h6', {}, '\u2039   Symptom Radar   \u24d8'), h('div.big', {}, 'Major signs of strain'), h('div', { style: { color: '#cfc9c2' } }, 'Your biometrics show major signs of something straining your body. Take extra care and rest if you\u2019re feeling low on energy.'),
+      h('div', { style: { display: 'flex', justifyContent: 'space-around', margin: '20px 0 8px' } }, ...[['#4d6a86', 'No signs'], ['#6d7a54', 'Minor signs'], ['#d28a6a', 'Major signs']].map(([c, t], i) => h('div', { style: { textAlign: 'center', fontSize: '9px' } }, h('i', { style: { display: 'block', width: '14px', height: '14px', borderRadius: '50%', background: c, margin: '0 auto 6px', boxShadow: i === 2 ? '0 0 0 4px #d28a6a55' : '' } }), t))),
+      h('div', { style: { border: '1px solid #ffffff55', borderRadius: '20px', textAlign: 'center', padding: '9px', margin: '12px 0' } }, 'Turn on Rest Mode'), h('div', { style: { fontSize: '13px', margin: '16px 0 4px' } }, 'Biometrics under strain'),
+      h('div.row', {}, h('span', {}, 'BODY TEMPERATURE', h('br'), h('b', { style: { fontSize: '16px' } }, '+1.3\u00b0')), h('span.tag', {}, 'Elevated')), h('div.row', {}, h('span', {}, 'RESTING HEART RATE', h('br'), h('b', { style: { fontSize: '16px' } }, '58 bpm')), h('span.tag', {}, 'Elevated'))),
+    today: () => h('div.scr', { style: { background: 'linear-gradient(180deg,#4f6b8f 0%,#6a7f86 30%,#55663f 48%,#2c3a22 70%,#1a1f16 100%)' } }, h('h6', { style: { fontSize: '15px', letterSpacing: '.08em', fontWeight: 300 } }, 'OURA'),
+      h('div.rings', {}, ...[['88', 'Readiness'], ['84', 'Sleep'], ['91', 'Activity'], ['6', 'Cycle day']].map(([n, t]) => h('div', {}, h('b', {}, n), t))),
+      h('div', { style: { margin: '18px 4px 0', background: '#1d1f1ccc', borderRadius: '14px', padding: '12px' } }, h('div', { style: { fontSize: '13px' } }, '\u25b2 Running'), h('div', { style: { color: '#bbb', marginTop: '4px' } }, '7:10 AM \u00b7 34m \u00b7 268 Cal \u00b7 115 bpm'), h('div', { style: { display: 'flex', gap: '8px', marginTop: '10px' } }, h('span', { style: { flex: 1, textAlign: 'center', padding: '6px', borderRadius: '12px', background: '#ffffff1a' } }, '\u2713 Confirm'), h('span', { style: { flex: 1, textAlign: 'center', padding: '6px' } }, '\u270e Edit'))),
+      svg('0 0 260 90', '<path d="M30 80a110 110 0 0 1 200 0" fill="none" stroke="#ffffff40" stroke-width="3"/><path d="M30 80a110 110 0 0 1 130-62" fill="none" stroke="#fff" stroke-width="3"/>', 'xMidYMid meet'),
+      h('div', { style: { textAlign: 'center' } }, h('div', { style: { fontSize: '9px', letterSpacing: '.1em' } }, 'STEPS'), h('div', { style: { font: `300 34px ${SA}` } }, '5,203'), h('div', { style: { font: `400 27px ${SF}`, marginTop: '4px' } }, 'Making progress'), h('div', { style: { color: '#ccc', marginTop: '6px' } }, 'Today\u2019s activity goal is at baseline as your readiness is good.')),
+      h('div.nav', {}, 'Today \u00b7 Vitals \u00b7 My Health')),
+    cardio: () => h('div.scr', { style: { background: 'linear-gradient(180deg,#1f3b3f 0%,#151a1b 34%,#141416 60%)' } }, h('h6', {}, '\u2039   Heart Health   \u24d8'), h('div', { style: { color: '#5fc7c0', font: `600 9px ${SA}`, letterSpacing: '.1em', marginTop: '20px' } }, 'THRIVING'), h('div.big', { style: { marginTop: '6px', fontSize: '21px' } }, 'Your cardiovascular age is below your actual age.'), h('div', { style: { color: '#cfc9c2' } }, 'Your high activity levels are a big boost to your cardiovascular health. You are doing all the right things!'),
+      svg('0 0 260 150', '<line x1="0" x2="260" y1="40" y2="40" stroke="#ffffff1a"/><line x1="0" x2="260" y1="90" y2="90" stroke="#ffffff1a"/><path d="M0 70 C60 70 90 78 130 100 S200 118 260 118" fill="none" stroke="#5fc7c0" stroke-width="2"/><line x1="200" x2="200" y1="10" y2="140" stroke="#fff"/><rect x="160" y="2" width="80" height="16" rx="4" fill="#fff"/><text x="200" y="13" font-size="8" text-anchor="middle" fill="#111">8 years younger</text>', 'none'),
+      h('div', { style: { fontSize: '13px', marginTop: '10px' } }, 'Key metric'), h('div.row', {}, h('span', {}, 'CARDIOVASCULAR AGE', h('br'), h('b', { style: { fontSize: '15px' } }, 'Below ', h('span', { style: { color: '#5fc7c0', fontSize: '9px' } }, '8 YEARS YOUNGER'))))),
+    sleep: () => h('div.scr', { style: { background: 'linear-gradient(180deg,#22304a 0%,#16191f 34%,#141416 60%)' } }, h('h6', {}, 'Sleep'), h('div', { style: { fontSize: '13px', marginTop: '22px' } }, 'Details'), h('div', { style: { display: 'flex', gap: '10px', marginTop: '6px', color: '#aaa', fontSize: '9px' } }, '10:30 PM\u20136:46 AM', h('span', {}, '2:25\u20132:50 PM')),
+      h('div', { style: { marginTop: '16px', fontSize: '9px', color: '#aaa' } }, 'TIME ASLEEP'), h('div', { style: { font: `400 22px ${SA}` } }, '7h 16m'),
+      (() => { const r = rng(11); let o = ''; for (let i = 0; i < 34; i++) { const lv = Math.floor(r() * 4); o += `<rect x="${i * 7.6}" y="${20 + lv * 22}" width="6.6" height="${86 - lv * 22}" fill="${['#e9e6e1', '#7ec3f0', '#3d8fd6', '#2b5fa8'][lv]}" opacity="${lv ? 1 : .9}"/>`; } return svg('0 0 260 110', o, 'none'); })(),
+      ...[['Awake', '1h 0m'], ['REM', '1h 56m \u00b7 25%'], ['Light', '4h 1m \u00b7 53%'], ['Deep', '1h 25m \u00b7 20%']].map(([a, b]) => h('div', { style: { display: 'flex', justifyContent: 'space-between', marginTop: '7px', color: '#ccc' } }, a, h('span', {}, b)))),
+  };
+  const ORDER = ['stress', 'radar', 'today', 'cardio', 'sleep'];
+  const phones = ORDER.map((k) => { const p = h('button.ou-ph', { 'aria-label': `${k} screen`, onclick: () => { if (fan.slots.indexOf(k) !== 2) focusPhone(k); } }, scr[k]()); p.dataset.k = k; return p; });
+  const fanBox = h('div.ou-fan', {}, ...phones);
+  const fan = { slots: [...ORDER] };
+  const SLOT = [[0, 'n2', 455], [218, 'n1', 530], [470, 'c', 620], [722, 'n1', 530], [945, 'n2', 455]];
+  const layoutFan = () => { const off = 0; fan.slots.forEach((k, i) => { const p = phones[ORDER.indexOf(k)]; const [x, cl, hh] = SLOT[i]; p.className = 'ou-ph ' + cl; p.style.left = (off + x) + 'px'; p.style.height = hh + 'px'; }); };
+  const focusPhone = (k) => { const i = fan.slots.indexOf(k); const c = fan.slots[2]; fan.slots[2] = k; fan.slots[i] = c; layoutFan(); };
+  const stats = h('section.ou-sec', {}, h('h2', {}, '86% of Oura Members', h('br'), 'see their health improve'), h('p', {}, 'Track over 50 health metrics and get personalized insights into your sleep, activity, stress, and more\u2014all in the Oura App.'), h('div', { style: { font: `400 14px ${SA}`, marginTop: '18px', color: '#4a443d' } }, 'Available on iOS and Android.'),
+    h('div.ou-pills', { style: { marginTop: '32px' } }, h('button.ou-dk', { onclick: () => toast('Explore Membership (demo)') }, 'Explore Membership')), h('div.ou-fanw', {}, fanBox));
+  const quotes = h('section.ou-q', {}, ...QUOTES.map(([t, q, n, c]) => h('div.ou-qc', {}, h('span.t', {}, t), h('div.mk', {}, '\u201c'), h('p', {}, q), h('div.who', {}, h('i', { style: { background: `radial-gradient(circle at 50% 40%,#e9c7a8 0 24%,transparent 25%),radial-gradient(ellipse at 50% 108%,#2f2a26 0 44%,transparent 45%),radial-gradient(circle at 50% 30%,#3a2a20 0 34%,transparent 35%),${c}` } }), n))));
+  const ph3 = [['Higher number of breathing disturbances', 'linear-gradient(180deg,#3a2a24,#1c1a1a 40%,#3d3b3a 70%,#151414)', 'rotate(-7deg)', '40px'], ['Signs of a blood pressure shift', 'linear-gradient(180deg,#5a6a7e,#3b4a5c 40%,#1e2a38 75%,#141a22)', 'none', '50%'], ['Major signs of strain', 'linear-gradient(180deg,#a8502a,#7a3a1e 45%,#3a1c10 80%,#1a0e08)', 'rotate(7deg)', 'calc(100% - 280px)']];
+  const radar = h('div.ou-hrp', {}, ...ph3.map(([t, bg, tr, left], i) => h('div.ph3', { style: { background: bg, transform: tr, left: i === 1 ? 'calc(50% - 130px)' : left, width: i === 1 ? '260px' : '240px', height: i === 1 ? '510px' : '460px', bottom: i === 1 ? '-10px' : '-40px', zIndex: i === 1 ? 2 : 1 } }, h('div', { style: { font: `300 13px ${SA}`, letterSpacing: '.08em' } }, 'OURA'), h('div', { style: { font: `600 9px ${SA}`, letterSpacing: '.1em', marginTop: '60px' } }, 'HEALTH RADAR'), h('h5', { style: { marginTop: '10px' } }, t), h('p', {}, 'Something in your patterns may be worth exploring.'), h('span.lm', {}, 'Learn more'))));
+  const hr = h('section.ou-hr', {}, h('div', {}, h('small', {}, 'NEW FEATURES'), h('h2', {}, 'Meet Health Radar'), h('p', {}, 'A suite of features designed to continuously monitor your biometrics for patterns worth noting, so you can stay proactive about your health.*'), h('button.ou-dk', { onclick: () => toast('Explore Health Radar (demo)') }, 'Explore')), radar);
+  const nf = h('div.f'); nf.append(newsSvg(), h('span', {}, 'Featured Article'));
+  const news = h('section.ou-news', {}, h('small', {}, 'IN THE NEWS'), h('div.ou-nw', {}, nf, h('div.g', {}, h('div', {}, 'The Guardian: Oura Ring 5 review: a stunning generational leap for smart rings'), h('button', { onclick: () => toast('Read article (demo)') }, 'Read more'))));
+  const foot = h('footer.ou-foot', {}, ...['Shop', 'Your Health', 'Why Oura', 'For Organizations', 'Support', 'Privacy Policy'].map((t) => h('span', {}, t)));
+  const sc = h('div.ou-sc', {}, hero, intro, rail, h('div.ou-prog', {}, track), h('div.ou-arrows', {}, prev, next), stats, quotes, hr, news, foot);
+  let consent = '';
+  const ck = h('div.ou-ck', {}, h('div', {}, h('b', {}, 'Your Privacy Is Important'), h('p', {}, 'We use cookies on our site to analyze and enhance your experience, provide and improve our site, and to deliver content and ads that are relevant to you. You can choose Accept All Cookies, Necessary Cookies Only, or manage them individually by clicking Manage. ', h('u', {}, 'Oura Cookie Policy'))),
+    h('div.bt', {}, h('button.a', { onclick: () => setCk('all') }, 'Accept All Cookies'), h('button.a', { onclick: () => setCk('necessary') }, 'Accept Necessary'), h('button.g2', { onclick: () => { toast('Manage cookie preferences (demo)'); } }, 'Manage')));
+  const setCk = (v) => { consent = v; ck.classList.toggle('off', !!v); };
+  const mm = h('div.ou-mm', {}, ...NAVS.map(([t, items]) => h('details', {}, h('summary', {}, t, h('span', {}, '+')), ...items.map((x) => h('a', { onclick: () => toast(`${x} (demo)`) }, x)))), h('div', { style: { marginTop: '28px' } }, h('button.ou-blue', { onclick: () => toast('Shop Oura Ring 4 (demo)') }, 'Shop Now')));
+  const setMM = (on) => { el.classList.toggle('mm', on); mm.classList.toggle('on', on); };
+  el.append(sc, hd, mm, ck);
+  root.append(el);
+  el.addEventListener('click', (e) => { if (!navEl.contains(e.target)) setDd(-1); });
+  // rail drag + progress
+  let railMoved = 0, rdrag = false, rsx = 0, rsl = 0;
+  rail.addEventListener('pointerdown', (e) => { if (e.target.closest('button')) return; rdrag = true; railMoved = 0; rsx = e.clientX; rsl = rail.scrollLeft; rail.classList.add('drag'); });
+  window.addEventListener('pointermove', (e) => { if (!rdrag) return; railMoved = Math.abs(e.clientX - rsx); rail.scrollLeft = rsl - (e.clientX - rsx); });
+  window.addEventListener('pointerup', () => { if (rdrag) { rdrag = false; rail.classList.remove('drag'); } });
+  let pct = 0;
+  const syncRail = () => { const max = rail.scrollWidth - rail.clientWidth; const vis = rail.clientWidth / rail.scrollWidth; pct = max > 0 ? rail.scrollLeft / max : 0; thumb.style.width = (vis * 100).toFixed(1) + '%'; thumb.style.left = (pct * (1 - vis) * 100).toFixed(1) + '%'; prev.disabled = rail.scrollLeft < 4; next.disabled = rail.scrollLeft > max - 4; };
+  rail.addEventListener('scroll', syncRail, { passive: true });
+  let solid = false;
+  const sync = () => { solid = sc.scrollTop > 40; el.classList.toggle('sol', solid); };
+  sc.addEventListener('scroll', sync, { passive: true });
+  new ResizeObserver(() => { el.classList.toggle('m', el.clientWidth <= 760); if (el.clientWidth > 760) setMM(false); layoutFan(); syncRail(); }).observe(el);
+  layoutFan(); syncRail(); sync();
+  window.__demoProof = async () => {
+    const o = [];
+    o.push(`hero="${hero.querySelector('h1').textContent}" shopBg=${getComputedStyle(shop).backgroundColor} ring=${!!hand.querySelector('.ring')} cookie=${!ck.classList.contains('off')}`);
+    if (!el.classList.contains('m')) { ddWrap[1].querySelector('button').click(); await sleep(30); o.push(`dropdown "Your Health" open=${ddWrap[1].classList.contains('open')} items=${ddWrap[1].querySelectorAll('a').length}`); setDd(-1); }
+    else { burger.click(); await sleep(30); o.push(`mobile menu=${mm.classList.contains('on')} sections=${mm.querySelectorAll('details').length}`); setMM(false); }
+    shop.click(); o.push(`Shop Now → cart=${cartN}`);
+    rail.scrollIntoView({ block: 'center', behavior: 'auto' }); await sleep(40); sync();
+    o.push(`headerSolid=${solid}`);
+    const w = cards[0].offsetWidth + 24; rail.scrollLeft = w; await sleep(60); syncRail(); o.push(`rail → card2 progress=${(pct * 100).toFixed(0)}% thumbLeft=${thumb.style.left} prevEnabled=${!prev.disabled}`);
+    rail.scrollLeft = rail.scrollWidth; await sleep(60); syncRail(); o.push(`rail end nextDisabled=${next.disabled}`); rail.scrollLeft = 0; await sleep(40); syncRail();
+    cards[1]._plus.click(); await sleep(40); o.push(`card "+" → info=${cards[1].classList.contains('info')} "${cards[1].querySelector('.ou-info b').textContent}"`); cards[1]._plus.click();
+    fanBox.scrollIntoView({ block: 'center', behavior: 'auto' }); await sleep(30);
+    phones[4].click(); await sleep(650); o.push(`fan click Sleep → center=${fan.slots[2]} raisedH=${phones[4].offsetHeight} todayH=${phones[2].offsetHeight}`);
+    setCk('necessary'); o.push(`cookie Accept Necessary → consent=${consent} hidden=${ck.classList.contains('off')}`);
+    // restore
+    fan.slots = [...ORDER]; layoutFan(); cards.forEach((c) => c.classList.remove('info')); setCk(''); cartN = 0; cartBtn.classList.remove('has'); cartBtn.querySelector('b').textContent = '0'; setDd(-1); setMM(false);
+    rail.scrollLeft = 0; sc.scrollTo({ top: 0, behavior: 'auto' }); await sleep(40); sync(); syncRail();
+    document.querySelectorAll('.tg-toast').forEach((t) => t.classList.remove('on')); o.push(`restored center=${fan.slots[2]} cart=${cartN} cookie=${!ck.classList.contains('off')} scrollTop=${sc.scrollTop}`);
+    return o.join('; ') + ' · stand-ins: SVG-drawn hand + silver ring (no photo), SVG card scenes instead of lifestyle photos (cards 5\u20136 Stress/Women\u2019s Health are illustrative \u2014 ref rail showed 4), CSS-built app screens modeled on the ref fan, CSS Health Radar phones, SVG news image, gradient avatars; Instrument Serif + Inter substitute Oura\u2019s serif/sans; dropdown contents, card “+” info overlay, click-to-raise fan and cart counter are demo behaviour (unverified on the real site)';
+  };
+};
+
+// ---------- teamLab: near-black index, immersive artwork hero + ON VIEW exhibition grid + WORKS hover-title mosaic (2026-10-17 12:00 KST)
+V['teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles'] = (root, T) => {
+  theme(root, T, { bg: '#111111', fg: '#ffffff', ac: '#ffffff', dark: true });
+  const HV = "Helvetica Neue,Helvetica,Arial,'Liberation Sans',sans-serif";
+  const NAV1 = ['FEATURED', 'ART', 'OTHER / LAB', 'ALL'], NAV2 = ['EXHIBITIONS', 'CONCEPTS', 'BOOKS', 'FUTURE PARK', 'ARCHITECT'];
+  const EXH = [
+    ['teamLab Phenomena Abu Dhabi', 'Apr 18, 2025 - Permanent', 'Saadiyat Cultural District, Abu Dhabi', 'teamLab Museum', 'eclipse'],
+    ['teamLab Borderless: MORI Building DIGITAL ART MUSEUM', 'Feb 09, 2024 - Permanent', 'Azabudai Hills, Tokyo', 'teamLab Museum', 'lightgrid'],
+    ['teamLab Planets TOKYO', 'Jul 07, 2018 - End of 2027', 'Toyosu, Tokyo', 'teamLab Museum', 'flowers'],
+    ['teamLab Borderless Jeddah', 'Jun 10, 2024 - Permanent', 'Culture Square, Jeddah Historic District', 'teamLab Museum', 'crystals'],
+    ['teamLab SuperNature Macao', 'Jun 15, 2020 - Permanent', 'The Venetian Macao, Macao', 'Permanent Solo Exhibition', 'rainbow'],
+    ['teamLab Botanical Garden Osaka', 'Jul 29, 2022 - Permanent', 'Nagai Botanical Garden, Osaka', 'teamLab Open Air Museum', 'forest'],
+  ];
+  const EXH_MORE = [['teamLab Garden Night Walk', 'Demo entry', 'Illustrative', 'teamLab Open Air Museum', 'lamps'], ['teamLab Light Sculpture Hall', 'Demo entry', 'Illustrative', 'Exhibition', 'laser'], ['teamLab Universe of Water', 'Demo entry', 'Illustrative', 'Exhibition', 'lines']];
+  const WORKS = [['Light Vortex', 'laser'], ['Liquid Gold Continuum', 'gold'], ['Crystal Pillars', 'crystals'], ['Order in Chaos', 'feathers'], ['Biovortex', 'bubbles'], ['Flowers and People', 'branches'],
+    ['Floating in the Clouds', 'clouds'], ['Infinite Light', 'lines'], ['Forest of Resonating Lamps', 'lamps'], ['Drawing on the Water Surface', 'rainbow'], ['Floating Flower Garden', 'flowers'], ['Resonating Forest', 'forest']];
+  const WORKS_MORE = [['Universe of Water Particles', 'gold2'], ['Sketch Ocean', 'lines2'], ['Moss Garden of Resonating Microcosms', 'moss']];
+  css(`
+.tl{position:absolute;inset:0;overflow:hidden;background:#111;color:#fff;font:400 13px/1.45 ${HV};-webkit-font-smoothing:antialiased}
+.tl *{box-sizing:border-box}:where(.tl) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.tl-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding-top:95px}
+.tl-hd{position:absolute;left:0;right:0;top:0;height:95px;background:#111;z-index:20}
+.tl-top{position:absolute;right:40px;top:20px;display:flex;gap:28px;font:400 12px ${HV};letter-spacing:.02em}
+.tl-row{position:absolute;left:40px;right:40px;top:50px;height:34px;display:flex;align-items:center}
+.tl-logo{font:700 24px/1 ${HV};letter-spacing:-.02em;display:flex;align-items:center;gap:1px;margin-right:22px;white-space:nowrap}
+.tl-logo svg{width:22px;height:22px;margin-top:-3px}
+.tl-nav{display:flex;align-items:center;gap:0;font:400 12.5px ${HV};letter-spacing:.02em}
+.tl-nav button{padding:0 16px;height:34px;position:relative;color:#eee;transition:color .2s}
+.tl-nav button:after{content:'';position:absolute;left:16px;right:16px;bottom:4px;height:1px;background:#fff;transform:scaleX(0);transition:transform .25s}
+.tl-nav button:hover{color:#fff}.tl-nav button:hover:after{transform:none}
+.tl-nav .sep{width:1px;height:12px;background:#666;margin:0 18px}
+.tl-icons{margin-left:auto;display:flex;align-items:center;gap:30px}
+.tl-icons button{display:flex;align-items:center;gap:4px;height:30px}.tl-icons svg{width:15px;height:15px}
+.tl-lang{position:absolute;right:40px;top:88px;background:#1b1b1b;border:1px solid #333;padding:8px 0;min-width:150px;display:none;z-index:25}
+.tl-lang.on{display:block}.tl-lang button{display:block;width:100%;text-align:left;padding:7px 16px;font:400 12.5px ${HV}}.tl-lang button:hover{background:#262626}.tl-lang button.sel:before{content:'\\2713  '}
+.tl-sbar{position:absolute;left:0;right:0;top:95px;height:0;overflow:hidden;background:#161616;z-index:19;transition:height .3s;display:flex;align-items:center;padding:0 40px;gap:14px}
+.tl.srch .tl-sbar{height:64px;border-bottom:1px solid #2a2a2a}
+.tl-sbar input{flex:1;background:none;border:0;border-bottom:1px solid #555;outline:0;color:#fff;font:400 18px ${HV};padding:8px 0}
+.tl-sbar span{color:#999;font-size:12px;white-space:nowrap}
+.tl-hero{position:relative;height:662px;overflow:hidden;background:#05050a}
+.tl-hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tl-hi{position:relative;padding:0 40px 0;height:90px}
+.tl-chip{display:inline-block;background:#fff;color:#111;font:700 11px/1 ${HV};letter-spacing:.02em;padding:15px 25px}
+.tl-hi .tl-chip{position:absolute;left:80px;top:-21px;color:#111;margin:0}
+.tl-hi .ln{position:absolute;left:43px;top:42px;display:flex;align-items:baseline;gap:30px;white-space:nowrap}
+.tl-hi b{font:400 16px ${HV}}.tl-hi span{font:400 12.5px ${HV};color:#ddd}.tl-hi span+span{margin-left:-14px}.tl-hi em{font-style:normal;color:#8a8a8a;font-size:12.5px;margin-left:-14px}
+.tl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:46px 30px;padding:20px 43px 0}
+.tl-card{text-align:left;cursor:pointer;transition:opacity .25s}
+.tl-card .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+.tl-card .im canvas{width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.tl-card:hover .im canvas{transform:scale(1.05)}
+.tl-card .tl-chip{position:absolute;left:14px;bottom:14px;padding:8px 12px;font-size:9px}
+.tl-card b{display:block;margin-top:14px;font:400 14.5px/1.3 ${HV}}
+.tl-card .mt{margin-top:7px;color:#9a9a9a;font:400 12px/1.8 ${HV}}.tl-card .mt span{margin-right:12px}.tl-card .mt span:first-child{color:#bdbdbd}
+.tl .tl-more{display:block;margin:64px auto 0;width:200px;height:52px;border:1px solid #777 !important;font:400 14px ${HV};color:#eee;transition:background .2s,color .2s}.tl-more:hover{background:#fff;color:#111}
+.tl-more:disabled{opacity:.3;cursor:default}.tl-more:disabled:hover{background:none;color:#eee}
+.tl-wh{margin:110px 0 36px;text-align:center;font:700 22px ${HV};letter-spacing:.01em}
+.tl-works{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:0 9px}
+.tl-w{position:relative;aspect-ratio:1.5;overflow:hidden;background:#000;cursor:pointer}
+.tl-w canvas{width:100%;height:100%;display:block;transition:filter .35s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.tl-w span{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 20px;font:400 17px ${HV};color:#fff;opacity:0;transition:opacity .35s ease;pointer-events:none}
+.tl-w:hover canvas,.tl-w.hov canvas{filter:brightness(.42) saturate(.85)}.tl-w:hover span,.tl-w.hov span{opacity:1}
+.tl.q .tl-w:not(.hit),.tl.q .tl-card:not(.hit){opacity:.14}
+.tl-foot{display:flex;align-items:center;padding:120px 40px 40px;gap:30px;font:400 12px ${HV}}
+.tl-foot .tl-logo{font-size:17px;margin-right:12px}.tl-foot .tl-logo svg{width:16px;height:16px}
+.tl-foot .mid{flex:1;text-align:center;color:#8a8a8a;font-size:10.5px;display:flex;justify-content:center;gap:20px}
+.tl-foot .soc{display:flex;gap:38px}.tl-foot .soc svg{width:18px;height:18px}
+.tl-lb{position:absolute;inset:0;z-index:40;background:#000000f0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+.tl-lb.on{display:flex;animation:tllb .3s ease}@keyframes tllb{from{opacity:0}}
+.tl-lb canvas{width:min(78%,1100px);aspect-ratio:1.5;height:auto;display:block;max-height:72%;object-fit:contain}
+.tl-lb b{font:400 20px ${HV}}.tl-lb small{color:#999;font-size:12px}
+.tl-lb .x{position:absolute;right:30px;top:24px;width:36px;height:36px;font:300 30px/1 ${HV}}
+.tl-mm{position:absolute;inset:60px 0 0;z-index:30;background:#111;display:none;overflow:auto;padding:20px 24px 40px}
+.tl-mm.on{display:block;animation:tllb .25s ease}
+.tl-mm button{display:block;width:100%;text-align:left;font:400 22px/1 ${HV};padding:15px 0;border-bottom:1px solid #2a2a2a}
+.tl-mm small{display:block;margin:24px 0 6px;color:#888;font-size:11px;letter-spacing:.08em}
+.tl-burger{display:none}
+.tl.m .tl-sc{padding-top:60px}
+.tl.m .tl-hd{height:60px}.tl.m .tl-top,.tl.m .tl-nav,.tl.m .tl-icons .s{display:none}
+.tl.m .tl-row{left:20px;right:20px;top:13px}
+.tl.m .tl-burger{display:flex;flex-direction:column;justify-content:center;gap:7px;width:26px;height:34px}.tl.m .tl-burger i{display:block;height:2px;background:#fff;transition:transform .25s,opacity .25s}
+.tl.m.mm .tl-burger i:nth-child(1){transform:translateY(9px) rotate(45deg)}.tl.m.mm .tl-burger i:nth-child(2){opacity:0}.tl.m.mm .tl-burger i:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+.tl.m .tl-logo{position:absolute;left:50%;transform:translateX(-50%);margin:0;font-size:19px}.tl.m .tl-logo svg{width:18px;height:18px}
+.tl.m .tl-lang{top:56px;right:16px}
+.tl.m .tl-sbar{top:60px;padding:0 20px}
+.tl.m .tl-hero{height:664px}
+.tl.m .tl-hi{position:absolute;left:0;right:0;top:calc(60px + 664px - 146px);height:auto;padding:0 20px;z-index:2;pointer-events:none}
+.tl.m .tl-hi .tl-chip{position:static;padding:11px 12px;font-size:11px}
+.tl.m .tl-hi .ln{position:static;flex-direction:column;align-items:flex-start;gap:4px;margin-top:20px;white-space:normal}
+.tl.m .tl-hi b{font-weight:700;font-size:14px}.tl.m .tl-hi span,.tl.m .tl-hi em{margin-left:0;font-size:12px;color:#fff}
+.tl.m .tl-grid{grid-template-columns:1fr;padding:0;gap:36px}.tl.m .tl-card b,.tl.m .tl-card .mt{padding:0 20px}
+.tl.m .tl-works{grid-template-columns:1fr;padding:0}
+.tl.m .tl-foot{flex-wrap:wrap;padding:80px 20px 40px;gap:18px}.tl.m .tl-foot .mid{order:3;flex-basis:100%;justify-content:flex-start}
+`);
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = (vb, inner) => { const e = document.createElementNS(NS, 'svg'); e.setAttribute('viewBox', vb); e.innerHTML = inner; return e; };
+  const star = () => svg('0 0 24 24', '<path d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.6l-6.6 3.9 1.7-7.4-5.6-5 7.4-.7z" fill="#fff"/>');
+  const logo = () => h('div.tl-logo', {}, 'teamLab', star());
+  // ---- procedural art stand-ins (no photos / video)
+  const sprite = (() => { const cache = {}; return (hue, light) => { const k = hue + ':' + light; if (cache[k]) return cache[k]; const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const gr = g.createRadialGradient(24, 22, 2, 32, 32, 32); const g2 = g.createRadialGradient(32, 32, 0, 32, 32, 32); g2.addColorStop(0, `hsla(${hue},80%,${light * .55}%,.55)`); g2.addColorStop(.62, `hsla(${hue},95%,${light}%,.7)`); g2.addColorStop(.88, `hsla(${hue},100%,${Math.min(92, light + 28)}%,.95)`); g2.addColorStop(1, `hsla(${hue},100%,${light}%,0)`); g.fillStyle = g2; g.beginPath(); g.arc(32, 32, 32, 0, 7); g.fill(); gr.addColorStop(0, `hsla(${hue},100%,${Math.min(97, light + 40)}%,.9)`); gr.addColorStop(.4, `hsla(${hue},100%,${light}%,0)`); gr.addColorStop(1, `hsla(${hue},100%,${light}%,0)`); g.fillStyle = gr; g.beginPath(); g.arc(32, 32, 32, 0, 7); g.fill(); g.fillStyle = 'rgba(255,255,255,.7)'; g.beginPath(); g.ellipse(23, 19, 6, 4, -.6, 0, 7); g.fill(); return (cache[k] = c); }; })();
+  const bubbleHue = (x) => (x < .35 ? 22 + x * 60 : x < .7 ? 300 + (x - .35) * 60 : 230 - (x - .7) * 40);
+  const ART = {
+    bubbles: (g, W, H, r) => { g.fillStyle = '#07060c'; g.fillRect(0, 0, W, H); const gl = g.createRadialGradient(W * .45, H * .45, 10, W * .45, H * .45, W * .55); gl.addColorStop(0, '#5a2a6a'); gl.addColorStop(1, '#07060c00'); g.fillStyle = gl; g.fillRect(0, 0, W, H); for (let i = 0; i < 1400; i++) { const x = r() < .62 ? Math.min(.99, Math.max(.01, .46 + (r() + r() + r() - 1.5) * .34)) : r(), y = r(), d = Math.abs(x - .45); const s = (2 + Math.pow(r(), 2.2) * 20 + (r() < .03 ? 22 : 0)) * W / 640 * (1 - d * .6); g.globalAlpha = .5 + r() * .5 - d * .4; g.drawImage(sprite(Math.round(bubbleHue(x + (r() - .5) * .2) / 10) * 10, 45 + Math.round(r() * 2) * 8), x * W - s, y * H - s, s * 2, s * 2); } g.globalAlpha = 1; },
+    eclipse: (g, W, H, r) => { const gr = g.createLinearGradient(0, 0, W, H); gr.addColorStop(0, '#ff1a14'); gr.addColorStop(1, '#c00008'); g.fillStyle = gr; g.fillRect(0, 0, W, H); g.strokeStyle = '#00000066'; g.lineWidth = 2; for (let i = 0; i < 9; i++) { g.beginPath(); g.arc(W / 2, H * 1.4, H * (.6 + i * .12), Math.PI, 2 * Math.PI); g.stroke(); } g.fillStyle = '#000'; g.beginPath(); g.arc(W * .5, H * .44, H * .36, 0, 7); g.fill(); g.fillRect(W * .62, H * .78, 3, 18); },
+    lightgrid: (g, W, H, r) => { g.fillStyle = '#04121e'; g.fillRect(0, 0, W, H); for (let i = 0; i < 900; i++) { const x = r() * W, y = r() * H * .8; g.fillStyle = `hsla(${190 + r() * 40},100%,${55 + r() * 30}%,${.3 + r() * .7})`; g.fillRect(x, y, 1 + r() * 2, 2 + r() * 14); } const f = g.createLinearGradient(0, H * .72, 0, H); f.addColorStop(0, '#0a4a7a'); f.addColorStop(1, '#22a0d8'); g.fillStyle = f; g.fillRect(0, H * .72, W, H * .28); g.fillStyle = '#05080c'; g.fillRect(W * .55, H * .45, W * .025, H * .3); g.beginPath(); g.arc(W * .562, H * .43, W * .016, 0, 7); g.fill(); },
+    flowers: (g, W, H, r) => { g.fillStyle = '#e8eef0'; g.fillRect(0, 0, W, H); for (let i = 0; i < 900; i++) { const x = r() * W, y = r() * H; g.fillStyle = r() < .4 ? `hsl(${90 + r() * 40},${40 + r() * 30}%,${30 + r() * 25}%)` : `hsl(${[300, 330, 280, 50, 0][Math.floor(r() * 5)]},${60 + r() * 30}%,${55 + r() * 25}%)`; g.beginPath(); g.ellipse(x, y, 2 + r() * 7, 1 + r() * 4, r() * 3, 0, 7); g.fill(); } g.fillStyle = '#fbfbf8'; g.fillRect(W * .47, H * .45, W * .03, H * .3); g.fillRect(W * .62, H * .52, W * .03, H * .24); },
+    crystals: (g, W, H, r) => { g.fillStyle = '#040610'; g.fillRect(0, 0, W, H); for (let i = 0; i < 26; i++) { const x = r() * W, y = H * (.1 + r() * .6), w = 20 + r() * 50, hh = 90 + r() * 180, a = (r() - .5) * 1.4; g.save(); g.translate(x, y); g.rotate(a); const gr = g.createLinearGradient(-w / 2, 0, w / 2, 0); const hue = r() < .6 ? 210 : 350; gr.addColorStop(0, `hsla(${hue},100%,60%,.85)`); gr.addColorStop(.5, `hsla(${hue + 20},100%,85%,.95)`); gr.addColorStop(1, `hsla(${hue},100%,40%,.6)`); g.shadowColor = `hsl(${hue},100%,60%)`; g.shadowBlur = 24; g.fillStyle = gr; g.fillRect(-w / 2, -hh / 2, w, hh); g.shadowBlur = 0; g.fillStyle = '#ffffff55'; for (let k = 0; k < 14; k++) g.fillRect((r() - .5) * w, (r() - .5) * hh, 2, 2); g.restore(); } g.fillStyle = '#0a0f0a'; g.fillRect(0, H * .82, W, H * .18); },
+    rainbow: (g, W, H, r) => { g.fillStyle = '#05040a'; g.fillRect(0, 0, W, H); g.save(); g.translate(W / 2, H * .62); g.scale(1, .32); for (let i = 0; i < 260; i++) { const a = r() * 6.28, d = 30 + r() * W * .55; g.strokeStyle = `hsla(${(a * 57 + d) % 360},100%,60%,${.25 + r() * .5})`; g.lineWidth = 2 + r() * 8; g.beginPath(); g.arc(0, 0, d, a, a + .3 + r() * .8); g.stroke(); } g.restore(); g.fillStyle = '#000'; g.fillRect(W * .46, H * .5, 6, 22); g.fillRect(W * .52, H * .51, 6, 20); },
+    forest: (g, W, H, r) => { g.fillStyle = '#05080a'; g.fillRect(0, 0, W, H); for (let i = 0; i < 1200; i++) { const x = r() * W, y = r() * H * .85; const left = x < W * .55; g.fillStyle = left ? `hsla(${110 + r() * 40},90%,${30 + r() * 30}%,.8)` : `hsla(${350 + r() * 25},90%,${35 + r() * 25}%,.8)`; g.beginPath(); g.arc(x, y, 1 + r() * 4, 0, 7); g.fill(); } g.strokeStyle = '#1a1208'; g.lineWidth = 6; for (let i = 0; i < 6; i++) { const x = r() * W; g.beginPath(); g.moveTo(x, H); g.lineTo(x + (r() - .5) * 40, H * .3); g.stroke(); } },
+    laser: (g, W, H, r) => { g.fillStyle = '#3a0000'; g.fillRect(0, 0, W, H); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < 160; i++) { const a = r() * 6.28; g.strokeStyle = `rgba(255,${20 + r() * 40},${10 + r() * 20},${.15 + r() * .35})`; g.lineWidth = 1 + r() * 2; g.beginPath(); g.moveTo(W / 2 + Math.cos(a) * 20, H * .45 + Math.sin(a) * 20); g.lineTo(W / 2 + Math.cos(a + .5) * W, H * .45 + Math.sin(a + .5) * W); g.stroke(); } g.globalCompositeOperation = 'source-over'; g.fillStyle = '#100000'; g.beginPath(); g.ellipse(W * .62, H * .74, 7, 22, 0, 0, 7); g.fill(); },
+    gold: (g, W, H, r) => { g.filter = 'blur(1.2px)'; const gr = g.createLinearGradient(0, 0, W, H); gr.addColorStop(0, '#5a2c00'); gr.addColorStop(.5, '#d58a10'); gr.addColorStop(1, '#6a3400'); g.fillStyle = gr; g.fillRect(0, 0, W, H); for (let i = 0; i < 140; i++) { const x = r() * W, y = r() * H; g.strokeStyle = `hsla(${38 + r() * 12},100%,${50 + r() * 35}%,${.3 + r() * .5})`; g.lineWidth = 2 + r() * 7; g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + 40 * (r() - .5) * 4, y + 30 * (r() - .5) * 4, x + 60 * (r() - .5) * 4, y + 30 * (r() - .5) * 4, x + 80 * (r() - .5), y + 80 * (r() - .5)); g.stroke(); } g.filter = 'none'; },
+    feathers: (g, W, H, r) => { g.fillStyle = '#3a4a60'; g.fillRect(0, 0, W, H); for (let i = 0; i < 4200; i++) { const x = r() * W, y = r() * H, a = Math.sin(x / 60) + Math.cos(y / 50) + (y > H * .7 ? (x - W / 2) / W * 3 : 0); g.strokeStyle = `hsla(${[60, 30, 200, 330, 120][i % 5]},${70 + r() * 30}%,${55 + r() * 30}%,.6)`; g.lineWidth = 1.2; g.beginPath(); g.moveTo(x, y); g.lineTo(x + Math.cos(a) * 18, y + Math.sin(a) * 18); g.stroke(); } for (let i = 0; i < 7; i++) { g.fillStyle = '#ffffff0d'; g.fillRect(i * W / 7 + 10, 0, W / 14, H * .8); } },
+    branches: (g, W, H, r) => { g.fillStyle = '#10060c'; g.fillRect(0, 0, W, H); g.strokeStyle = '#d9a040'; for (let i = 0; i < 40; i++) { g.lineWidth = 1 + r() * 4; g.beginPath(); const x = r() * W, y = r() * H; g.moveTo(x, y); g.quadraticCurveTo(x + (r() - .5) * 300, y + (r() - .5) * 200, x + (r() - .5) * 400, y + (r() - .5) * 300); g.stroke(); } for (let i = 0; i < 900; i++) { g.fillStyle = `hsla(${320 + r() * 40},90%,${60 + r() * 25}%,${.5 + r() * .5})`; g.beginPath(); g.arc(r() * W, r() * H, 1.5 + r() * 4, 0, 7); g.fill(); } },
+    clouds: (g, W, H, r) => { const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#2a5ac8'); gr.addColorStop(1, '#5a8ae0'); g.fillStyle = gr; g.fillRect(0, 0, W, H); for (let i = 0; i < 60; i++) { g.fillStyle = `rgba(255,255,255,${.25 + r() * .5})`; g.beginPath(); g.arc(r() * W, H * .2 + r() * H * .6, 20 + r() * 60, 0, 7); g.fill(); } g.fillStyle = '#0a1a3a'; g.fillRect(W * .55, H * .55, 8, 40); },
+    lines: (g, W, H, r) => { g.fillStyle = '#0a6ad0'; g.fillRect(0, 0, W, H); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < 260; i++) { const a = r() * 6.28; g.strokeStyle = `rgba(160,230,255,${.1 + r() * .4})`; g.beginPath(); g.moveTo(W / 2, H / 2); g.lineTo(W / 2 + Math.cos(a) * W, H / 2 + Math.sin(a) * W); g.stroke(); } g.globalCompositeOperation = 'source-over'; g.fillStyle = '#04101c'; g.fillRect(W * .48, H * .3, 10, 50); g.globalAlpha = .4; g.fillRect(W * .48, H * .6, 10, 50); g.globalAlpha = 1; },
+    lamps: (g, W, H, r) => { g.fillStyle = '#120804'; g.fillRect(0, 0, W, H); for (let i = 0; i < 160; i++) { const y = r() * H, s = 3 + (y / H) * 14, x = r() * W; const gl = g.createRadialGradient(x, y, 0, x, y, s * 2.4); gl.addColorStop(0, '#fff2c8'); gl.addColorStop(.4, '#f0a040cc'); gl.addColorStop(1, '#f0a04000'); g.fillStyle = gl; g.fillRect(x - s * 2.4, y - s * 2.4, s * 4.8, s * 4.8); } },
+    gold2: (g, W, H, r) => { ART.gold(g, W, H, r); g.fillStyle = '#ffffff22'; for (let i = 0; i < 400; i++) g.fillRect(r() * W, r() * H, 1, 6 + r() * 20); },
+    lines2: (g, W, H, r) => { ART.lines(g, W, H, r); g.fillStyle = '#ffb04040'; for (let i = 0; i < 30; i++) { g.beginPath(); g.ellipse(r() * W, r() * H, 20, 8, r(), 0, 7); g.fill(); } },
+    moss: (g, W, H, r) => { g.fillStyle = '#0a120a'; g.fillRect(0, 0, W, H); for (let i = 0; i < 70; i++) { const x = r() * W, y = r() * H, s = 10 + r() * 30; const gl = g.createRadialGradient(x, y, 0, x, y, s); gl.addColorStop(0, `hsla(${[60, 180, 300][i % 3]},100%,80%,.9)`); gl.addColorStop(1, '#0000'); g.fillStyle = gl; g.fillRect(x - s, y - s, s * 2, s * 2); } },
+  };
+  const artCanvas = (kind, seed, W = 640, H = 400) => { const c = document.createElement('canvas'); c.width = W; c.height = H; ART[kind](c.getContext('2d'), W, H, rng(seed)); c.dataset.kind = kind; return c; };
+  // ---- header
+  const el = h('div.tl');
+  let lang = 'English';
+  const LANGS = ['English', '日本語', '简体中文', '繁體中文', '한국어'];
+  const langBox = h('div.tl-lang', {}, ...LANGS.map((l) => h('button', { onclick: () => { lang = l; langBox.querySelectorAll('button').forEach((b) => b.classList.toggle('sel', b.textContent === l)); langBox.classList.remove('on'); toast(`Language: ${l} (demo)`); } }, l)));
+  langBox.firstChild.classList.add('sel');
+  const navBtn = (t) => h('button', { onclick: () => toast(`${t} (demo)`) }, t);
+  const burger = h('button.tl-burger', { 'aria-label': 'Menu', onclick: () => setMM(!el.classList.contains('mm')) }, h('i'), h('i'), h('i'));
+  const searchBtn = h('button.s', { 'aria-label': 'Search', onclick: () => setSearch(!el.classList.contains('srch')) }, svg('0 0 24 24', '<circle cx="10" cy="10" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M15 15l6 6" stroke="#fff" stroke-width="3" stroke-linecap="round"/>'));
+  const globeBtn = h('button', { 'aria-label': 'Language', onclick: (e) => { e.stopPropagation(); langBox.classList.toggle('on'); } }, svg('0 0 24 24', '<circle cx="12" cy="12" r="9" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="#fff" stroke-width="1.4"/>'), h('span', { style: { fontSize: '9px' } }, '\u2304'));
+  const hd = h('header.tl-hd', {}, h('div.tl-top', {}, navBtn('BIOGRAPHY'), navBtn('CONTACT')),
+    h('div.tl-row', {}, burger, logo(), h('nav.tl-nav', {}, ...NAV1.map(navBtn), h('i.sep'), ...NAV2.map(navBtn)), h('div.tl-icons', {}, searchBtn, globeBtn)));
+  const sIn = h('input', { placeholder: 'Search works and exhibitions', oninput: () => filter() });
+  const sCount = h('span', {}, '');
+  const sbar = h('div.tl-sbar', {}, sIn, sCount, h('button', { style: { fontSize: '22px', color: '#aaa' }, onclick: () => setSearch(false) }, '\u00d7'));
+  // ---- hero (animated bubble vortex)
+  const hc = document.createElement('canvas');
+  const hero = h('section.tl-hero', {}, hc);
+  const hi = h('div.tl-hi', {}, h('span.tl-chip', {}, 'ON VIEW'), h('div.ln', {}, h('b', {}, 'teamLab Biovortex Kyoto'), h('span', {}, 'Oct 07, 2025 - Permanent'), h('span', {}, 'Kyoto'), h('em', {}, 'teamLab Museum')));
+  // ---- exhibitions
+  const card = ([t, d, p, ty, k], i) => h('div.tl-card', { onclick: () => openLB(k, t, `${d} · ${p}`, 300 + i) }, h('div.im', {}, artCanvas(k, 100 + i), h('span.tl-chip', {}, 'ON VIEW')), h('b', {}, t), h('div.mt', {}, h('span', {}, d), h('span', {}, p), h('br'), h('span', {}, ty)));
+  const exCards = EXH.map(card);
+  const grid = h('div.tl-grid', {}, ...exCards);
+  let exMore = false;
+  const exMoreBtn = h('button.tl-more', { onclick: () => { if (exMore) return; exMore = true; EXH_MORE.forEach((e, i) => { const c = card(e, 6 + i); exCards.push(c); grid.append(c); }); exMoreBtn.disabled = true; filter(); } }, 'View More');
+  // ---- works
+  const tile = ([t, k], i) => { const w = h('div.tl-w', { onclick: () => { if (el.classList.contains('m') && !w.classList.contains('hov')) { tiles.forEach((x) => x.classList.toggle('hov', x === w)); return; } openLB(k, t, 'teamLab, Digital Work', 500 + i); } }, artCanvas(k, 200 + i), h('span', {}, t)); w._t = t; return w; };
+  const tiles = WORKS.map(tile);
+  const works = h('div.tl-works', {}, ...tiles);
+  let wMore = false;
+  const wMoreBtn = h('button.tl-more', { onclick: () => { if (wMore) return; wMore = true; WORKS_MORE.forEach((x, i) => { const w = tile(x, 12 + i); tiles.push(w); works.append(w); }); wMoreBtn.disabled = true; filter(); } }, 'View More');
+  const icon = (d) => svg('0 0 24 24', d);
+  const foot = h('footer.tl-foot', {}, logo(), h('span', {}, 'NEWS'), h('span', {}, 'CAREERS'), h('div.mid', {}, h('span', {}, '\u00a9 teamLab'), h('span', {}, 'Privacy Policy')),
+    h('div.soc', {}, icon('<path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.4V11H7v4h3v9h4v-9h3l1-4h-4V8.6c0-.4.2-.6.6-.6z" fill="#fff"/>'), icon('<path d="M4 3h4.5l4.2 6 5-6H20l-6.2 7.3L21 21h-4.5l-4.6-6.5L6.4 21H4.2l6.6-7.7z" fill="#fff"/>'), icon('<rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17" cy="7" r="1.2" fill="#fff"/>'), icon('<rect x="2.5" y="6" width="19" height="13" rx="4" fill="#fff"/><path d="M10 9.5v6l5-3z" fill="#111"/>')));
+  const sc = h('div.tl-sc', {}, hero, hi, grid, exMoreBtn, h('h2.tl-wh', {}, 'WORKS'), works, wMoreBtn, foot);
+  // ---- lightbox + mobile menu
+  const lbT = h('b'), lbS = h('small'); let lbOpen = '';
+  const lbC = document.createElement('canvas'); lbC.width = 1200; lbC.height = 800;
+  const lb = h('div.tl-lb', { onclick: (e) => { if (e.target === lb) closeLB(); } }, h('button.x', { 'aria-label': 'Close', onclick: () => closeLB() }, '\u00d7'), lbC, lbT, lbS);
+  const openLB = (k, t, sub, seed) => { lbOpen = t; ART[k](lbC.getContext('2d'), 1200, 800, rng(seed)); lbT.textContent = t; lbS.textContent = sub; lb.classList.add('on'); };
+  const closeLB = () => { lbOpen = ''; lb.classList.remove('on'); };
+  const mm = h('div.tl-mm', {}, h('small', {}, 'ART'), ...NAV1.map((t) => h('button', { onclick: () => { setMM(false); toast(`${t} (demo)`); } }, t)), h('small', {}, 'teamLab'), ...NAV2.map((t) => h('button', { onclick: () => { setMM(false); toast(`${t} (demo)`); } }, t)), h('small', {}, 'INFO'), ...['BIOGRAPHY', 'CONTACT', 'NEWS', 'CAREERS'].map((t) => h('button', { onclick: () => setMM(false) }, t)));
+  const setMM = (on) => { el.classList.toggle('mm', on); mm.classList.toggle('on', on); };
+  const setSearch = (on) => { el.classList.toggle('srch', on); if (on) setTimeout(() => sIn.focus(), 50); else { sIn.value = ''; filter(); } };
+  const filter = () => { const v = sIn.value.trim().toLowerCase(); el.classList.toggle('q', !!v); let n = 0; tiles.forEach((w) => { const hit = !!v && w._t.toLowerCase().includes(v); w.classList.toggle('hit', hit); n += hit; }); exCards.forEach((c) => { const hit = !!v && c.querySelector('b').textContent.toLowerCase().includes(v); c.classList.toggle('hit', hit); n += hit; }); sCount.textContent = v ? `${n} result${n === 1 ? '' : 's'}` : ''; return n; };
+  el.append(sc, sbar, hd, langBox, mm, lb);
+  root.append(el);
+  el.addEventListener('click', (e) => { if (!langBox.contains(e.target)) langBox.classList.remove('on'); });
+  el.tabIndex = -1; el.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeLB(); setSearch(false); setMM(false); } });
+  // hero animation: sprite bubbles drifting upward with slow swirl
+  const hg = hc.getContext('2d'); const hr = rng(42);
+  const B = Array.from({ length: 1500 }, () => { const x = hr() < .62 ? Math.min(.99, Math.max(.01, .46 + (hr() + hr() + hr() - 1.5) * .34)) : hr(); return { x, y: hr(), s: 2 + Math.pow(hr(), 2.2) * 20 + (hr() < .025 ? 22 : 0), v: .00012 + hr() * .00035, ph: hr() * 6.28, hue: Math.round(bubbleHue(x + (hr() - .5) * .2) / 10) * 10, l: 45 + Math.round(hr() * 2) * 8, a: .55 + hr() * .45 }; });
+  let running = true, lastT = 0, frames = 0;
+  const drawHero = (t) => { const W = hc.width, H = hc.height; if (!W) return; hg.fillStyle = '#06050b'; hg.fillRect(0, 0, W, H); const gl = hg.createRadialGradient(W * .45, H * .5, 10, W * .45, H * .5, W * .5); gl.addColorStop(0, '#4a2060'); gl.addColorStop(1, '#06050b00'); hg.fillStyle = gl; hg.fillRect(0, 0, W, H);
+    const k = Math.min(W / 1440, 1.2) + .25; for (const b of B) { const d = Math.abs(b.x - .45); const x = (b.x + Math.sin(t / 4000 + b.ph) * .006) * W, y = ((b.y - t * b.v / 10 % 1 + 1) % 1) * H * 1.1 - H * .05; const s = b.s * k * (1 - d * .5); hg.globalAlpha = Math.max(.15, b.a - d * .35); hg.drawImage(sprite(b.hue, b.l), x - s, y - s, s * 2, s * 2); } hg.globalAlpha = 1; };
+  const tick = (t) => { if (!document.body.contains(el)) return; if (running) { drawHero(t); frames++; } lastT = t; requestAnimationFrame(tick); };
+  new ResizeObserver(() => { el.classList.toggle('m', el.clientWidth <= 760); if (el.clientWidth > 760) setMM(false); hc.width = hero.clientWidth; hc.height = hero.clientHeight; drawHero(lastT); }).observe(el);
+  requestAnimationFrame(tick);
+  window.__demoProof = async () => {
+    const o = [];
+    const f0 = frames; await sleep(400);
+    o.push(`hero animating=${frames > f0} chip="${hi.querySelector('.tl-chip').textContent}" title="${hi.querySelector('b').textContent}" exCards=${exCards.length} tiles=${tiles.length}`);
+    if (el.classList.contains('m')) { burger.click(); await sleep(30); o.push(`mobile menu=${mm.classList.contains('on')} items=${mm.querySelectorAll('button').length}`); setMM(false); }
+    else { globeBtn.click(); await sleep(20); o.push(`lang menu=${langBox.classList.contains('on')}`); langBox.querySelectorAll('button')[4].click(); o.push(`lang=${lang}`); }
+    exMoreBtn.scrollIntoView({ block: 'center', behavior: 'auto' }); exMoreBtn.click(); await sleep(30); o.push(`exhibitions View More → ${exCards.length} cards disabled=${exMoreBtn.disabled}`);
+    works.scrollIntoView({ block: 'start', behavior: 'auto' }); await sleep(30);
+    const w4 = tiles[3]; w4.classList.add('hov'); await sleep(420); const cv = w4.querySelector('canvas'), sp = w4.querySelector('span');
+    o.push(`hover "${w4._t}" → filter=${getComputedStyle(cv).filter} titleOpacity=${getComputedStyle(sp).opacity} (others ${getComputedStyle(tiles[0].querySelector('span')).opacity})`); w4.classList.remove('hov');
+    wMoreBtn.click(); o.push(`works View More → ${tiles.length} tiles`);
+    openLB('feathers', w4._t, 'teamLab, Digital Work', 503); await sleep(30); o.push(`lightbox open=${lb.classList.contains('on')} "${lbOpen}"`);
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); o.push(`esc → lightbox=${lb.classList.contains('on')}`);
+    setSearch(true); sIn.value = 'forest'; const n = filter(); o.push(`search "forest" → ${n} hits (${tiles.filter((t) => t.classList.contains('hit')).map((t) => t._t).join(' / ')})`); setSearch(false);
+    // restore
+    tiles.splice(12).forEach((w) => w.remove()); exCards.splice(6).forEach((c) => c.remove()); wMore = exMore = false; wMoreBtn.disabled = exMoreBtn.disabled = false;
+    tiles.forEach((w) => w.classList.remove('hov')); lang = 'English'; langBox.querySelectorAll('button').forEach((b, i) => b.classList.toggle('sel', i === 0)); langBox.classList.remove('on'); closeLB(); setMM(false); filter();
+    sc.scrollTo({ top: 0, behavior: 'auto' }); await sleep(30);
+    document.querySelectorAll('.tg-toast').forEach((t) => t.classList.remove('on')); o.push(`restored exCards=${exCards.length} tiles=${tiles.length} search=${el.classList.contains('srch')} scrollTop=${sc.scrollTop}`);
+    return o.join('; ') + ' · stand-ins: canvas-generated artwork (animated sprite-bubble Biovortex hero, procedural red eclipse / light-grid / flower / crystal / rainbow-floor / forest / laser / gold / feather / lamp images) instead of teamLab photos and video; Helvetica/Arial for teamLab\u2019s sans; exhibition names/dates from the ref, View-More extra exhibitions/works and all work titles except Order in Chaos are illustrative pairings; lightbox, search filter and language menu behaviour are demo (unverified on the real site)';
+  };
+};
+
+// ---------- Sonos: Love the sound hero + scroll-driven exploded speaker + Play your way carousel + floating black speaker system (2026-10-17 12:00 KST)
+V['sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#000000', ac: '#000000', dark: false });
+  import('@fontsource-variable/dm-sans');
+  const SA = "'DM Sans Variable','Helvetica Neue',Arial,sans-serif";
+  const NAV = ['Shop', 'New Arrivals', 'Sonos 27', 'Learn', 'Support', 'Professional'];
+  const PLAY = [['Complete the room with Beam Ultra', 'tv'], ['Get lost in the music with Sonos Ace Ultra', 'ace'], ['Hit the road with Roam 2', 'roam'], ['Fill the room with Era 300', 'era'], ['Feel the bass with Sub 4', 'sub'], ['Take the sound outside with Move 2', 'move']];
+  css(`
+.sn{position:absolute;inset:0;overflow:hidden;background:#fff;color:#000;font:400 16px/1.45 ${SA};-webkit-font-smoothing:antialiased}
+.sn *{box-sizing:border-box}:where(.sn) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.sn-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.sn-strip{height:52px;background:#2b2b2b;color:#fff;display:flex;align-items:center;justify-content:center;position:relative;font:400 15px ${SA};transition:height .3s,opacity .3s;overflow:hidden}
+.sn-strip.off{height:0;opacity:0}
+.sn-strip .x{position:absolute;left:52px;top:13px;width:26px;height:26px;font:300 26px/1 ${SA}}
+.sn-strip u{position:absolute;right:52px;cursor:pointer;text-underline-offset:3px}
+.sn-nav{position:sticky;top:0;z-index:20;height:98px;background:#fff;display:flex;align-items:center;padding:0 54px;transition:box-shadow .3s}
+.sn.sol .sn-nav{box-shadow:0 1px 0 #0000001a}
+.sn-logo{font:700 19px/1 ${SA};letter-spacing:.2em;white-space:nowrap}
+.sn-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:40px;font:400 17.5px ${SA}}
+.sn-links button{position:relative;height:40px}.sn-links button:after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1.5px;background:#000;transform:scaleX(0);transition:transform .25s}.sn-links button:hover:after{transform:none}
+.sn-ic{margin-left:auto;display:flex;gap:20px;align-items:center}.sn-ic button{width:26px;height:26px;display:grid;place-items:center;position:relative}.sn-ic svg{width:22px;height:22px}
+.sn-ic b{position:absolute;right:-6px;top:-4px;min-width:16px;height:16px;border-radius:8px;background:#000;color:#fff;font:600 10px/16px ${SA};display:none}.sn-ic .has b{display:block}
+.sn-burger{display:none !important}
+.sn-hero{position:relative;height:760px;overflow:hidden;background:#3a2a20}
+.sn-hero svg.sc{position:absolute;inset:0;width:100%;height:100%;display:block;transform-origin:55% 55%;animation:snkb 14s ease-in-out infinite alternate}
+.sn.paused .sn-hero svg.sc{animation-play-state:paused}
+@keyframes snkb{from{transform:scale(1)}to{transform:scale(1.07) translate(-1%,-1%)}}
+.sn-hero h1{position:absolute;left:0;right:0;top:215px;margin:0;text-align:center;font:500 101px/1.15 ${SA};letter-spacing:-.01em;color:#fff;text-shadow:0 2px 30px #0003}
+.sn-pill{height:58px;padding:0 48px;border-radius:99px;font:500 18px ${SA} !important;border:1.5px solid #000 !important;background:#fff !important;color:#000 !important;transition:background .2s,color .2s}.sn-pill:hover{background:#000 !important;color:#fff !important}
+.sn-hero .sn-pill{position:absolute;left:50%;top:500px;transform:translateX(-50%)}
+.sn .sn-pause{position:absolute;right:38px;bottom:118px;width:30px;height:30px;border-radius:50%;border:1.5px solid #fff !important;color:#fff !important;display:grid;place-items:center;font:600 11px/1 ${SA}}
+.sn-promo{position:relative;z-index:2;margin:-70px 108px 0;height:330px;border-radius:28px;background:#2a2a2a;color:#fff;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.sn-promo .tx{padding:96px 0 0 56px}.sn-promo h3{margin:0;font:400 38px/1.1 ${SA}}.sn-promo p{margin:14px 0 30px;font:400 15px ${SA};color:#ddd}
+.sn-ol{height:46px;padding:0 30px;border-radius:99px;border:1.5px solid currentColor !important;font:500 15px ${SA} !important;transition:background .2s,color .2s}
+.sn-promo .sn-ol:hover{background:#fff;color:#000 !important}
+.sn-promo svg{width:100%;height:100%;display:block}
+.sn-ex{position:relative;height:calc(var(--vh) * 2.6);margin-top:60px}
+.sn-stick{position:sticky;top:0;height:var(--vh);overflow:hidden}
+.sn-stick h2{position:absolute;left:0;right:0;top:min(150px,12%);margin:0;text-align:center;font:400 82px/1.08 ${SA};letter-spacing:-.015em;color:#1f1f1f;transition:opacity .3s}
+.sn-exl{position:absolute;left:108px;bottom:70px;width:470px}
+.sn-exl h3{margin:0;font:400 64px/1.1 ${SA};letter-spacing:-.01em}
+.sn-exl p{margin:22px 0 22px;font:400 19px/1.45 ${SA};color:#333}
+.sn-stat{display:inline-flex;align-items:baseline;gap:10px;border:1px solid #ddd;border-radius:10px;padding:16px 18px}.sn-stat b{font:400 38px ${SA}}.sn-stat span{font:400 14px ${SA};color:#555}
+.sn-spk{position:absolute;left:calc(50% + 90px);bottom:40px;width:300px;height:560px}
+.sn-part{position:absolute;left:0;bottom:0;width:300px;height:560px;will-change:transform}
+.sn-part svg{width:100%;height:100%;display:block;overflow:visible}
+.sn-row{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center;padding:140px 108px 0}
+.sn-row h3{margin:0;font:400 64px/1.08 ${SA};letter-spacing:-.01em}
+.sn-row p{margin:22px 0 28px;font:400 19px/1.5 ${SA};color:#333;max-width:470px}
+.sn-row .ph{height:620px;border-radius:4px;overflow:hidden}.sn-row .ph svg{width:100%;height:100%;display:block}
+.sn-quote{border:1px solid #ddd;border-radius:12px;padding:22px 24px;max-width:380px;font:400 17px/1.4 ${SA}}.sn-quote small{display:block;margin-top:10px;color:#666;font-size:13px}
+.sn-room{position:relative;height:520px;background:#f2f2f0;border-radius:4px;overflow:hidden}.sn-room svg{width:100%;height:100%;display:block}
+.sn-room .i{position:absolute;right:22px;top:110px;width:32px;height:32px;border-radius:50%;border:1.5px solid #fff !important;color:#fff !important;font:italic 600 15px/1 Georgia,serif;background:#0003 !important}
+.sn-room .tp{opacity:0;transition:opacity .4s}.sn-room.on .tp{opacity:1}
+.sn-room .tp ellipse{animation:sntp 2.4s ease-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes sntp{from{transform:scale(.3);opacity:.9}to{transform:scale(1.6);opacity:0}}
+.sn-room .lab{position:absolute;left:20px;bottom:18px;background:#fff;border-radius:99px;padding:6px 14px;font:500 13px ${SA};opacity:0;transition:opacity .3s}.sn-room.on .lab{opacity:1}
+.sn-pw{text-align:center;margin:150px 0 0;font:400 52px ${SA};letter-spacing:-.01em}
+.sn-rnav{display:flex;justify-content:flex-end;gap:10px;padding:0 108px;margin-top:20px}.sn-rnav button{width:36px;height:36px;border-radius:50%;border:1px solid #ccc !important;display:grid;place-items:center}.sn-rnav button:disabled{opacity:.35;cursor:default}.sn-rnav svg{width:16px;height:16px}
+.sn-rail{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;padding:16px 108px 0;scroll-snap-type:x mandatory;scroll-padding:0 108px;cursor:grab}.sn-rail::-webkit-scrollbar{display:none}
+.sn-rail.drag{cursor:grabbing;scroll-snap-type:none}
+.sn-pc{flex:none;width:452px;scroll-snap-align:start;text-align:left}
+.sn-pc .im{height:304px;border-radius:16px;overflow:hidden}.sn-pc .im svg{width:100%;height:100%;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1)}.sn-pc:hover .im svg{transform:scale(1.04)}
+.sn-pc b{display:block;margin-top:18px;font:400 21px/1.3 ${SA}}.sn-pc button{margin-top:10px;font:400 17px ${SA};display:inline-flex;gap:8px;align-items:center}.sn-pc button:hover{text-decoration:underline;text-underline-offset:4px}
+.sn-dots{display:flex;justify-content:center;gap:9px;margin-top:40px}.sn-dots button{width:8px;height:8px;border-radius:50%;background:#cfcfcf;transition:background .2s,width .2s}.sn-dots button.on{background:#000;width:24px;border-radius:4px}
+.sn-sys{position:relative;display:grid;grid-template-columns:480px 1fr;padding:170px 0 0 108px;min-height:720px}
+.sn-sys h3{margin:0;font:400 72px/1.06 ${SA};letter-spacing:-.015em}
+.sn-sys .sn-ol{margin-top:36px;color:#000}.sn-sys .sn-ol:hover{background:#000;color:#fff !important}
+.sn-float{position:relative;height:620px}
+.sn-fl{position:absolute;animation:snfl 6s ease-in-out infinite alternate}.sn-fl svg{display:block;overflow:visible;filter:drop-shadow(0 30px 24px #0000002e)}
+@keyframes snfl{from{translate:0 -10px}to{translate:0 12px}}
+.sn-mix{display:grid;grid-template-columns:1fr 1fr;padding:30px 108px 0;align-items:start}.sn-mix h3{margin:0;font:400 52px ${SA}}.sn-mix p{margin:6px 0 0;font:400 19px/1.5 ${SA};color:#333;max-width:440px}
+.sn-mc{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:90px 108px 0}.sn-mc div{text-align:left}.sn-mc .im{height:260px;border-radius:12px;overflow:hidden}.sn-mc .im svg{width:100%;height:100%;display:block}.sn-mc p{margin:16px 0 0;font:400 16px/1.4 ${SA};color:#333}
+.sn-foot{background:#000;color:#bbb;margin-top:140px;padding:70px 108px 90px;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;font:400 14px/2 ${SA}}.sn-foot b{color:#fff;font:700 18px ${SA};letter-spacing:.2em}.sn-foot h6{margin:0 0 6px;color:#fff;font:500 14px ${SA}}
+.sn-veil{position:absolute;inset:0;background:#00000099;z-index:40;display:none}
+.sn-nl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:590px;background:#2b2b2b;color:#fff;z-index:41;padding:52px 30px 34px;display:none;text-align:left}
+.sn.nl .sn-veil,.sn.nl .sn-nl{display:block}.sn.nl .sn-nl{animation:snnl .35s ease}@keyframes snnl{from{opacity:0;transform:translate(-50%,-46%)}}
+.sn-nl .x{position:absolute;right:20px;top:16px;width:30px;height:30px;font:300 30px/1 ${SA}}
+.sn-nl h4{margin:0;font:500 46px/1.04 ${SA};letter-spacing:-.01em}.sn-nl .s{margin:16px 0 0;font:400 17px/1.4 ${SA};color:#eee}
+.sn-nl input{width:100%;margin-top:26px;background:none;border:0;border-bottom:1.5px solid #ddd;outline:0;color:#fff;font:italic 400 15px ${SA};padding:10px 12px}
+.sn-nl input::placeholder{color:#aaa}
+.sn-nl .lg{margin:38px 0 0;font:400 13px/1.6 ${SA};color:#eee}.sn-nl .lg u{cursor:pointer}
+.sn-nl .bt{display:flex;gap:10px;margin-top:28px}.sn-nl .bt button{flex:1;height:54px;border-radius:99px;font:500 15px ${SA}}
+.sn-nl .a{background:#fff !important;color:#000 !important}.sn-nl .d{border:1.5px solid #fff !important;font-weight:700 !important}
+.sn-nl .msg{margin-top:10px;font:500 13px ${SA};min-height:18px}.sn-nl .msg.err{color:#ff8a7a}.sn-nl .msg.ok{color:#9be29b}
+.sn-mm{position:absolute;inset:0;z-index:30;background:#fff;display:none;padding:110px 24px 30px;overflow:auto}.sn-mm.on{display:block;animation:snnl2 .25s}@keyframes snnl2{from{opacity:0}}
+.sn-mm button{display:block;width:100%;text-align:left;font:400 26px ${SA};padding:14px 0;border-bottom:1px solid #eee}
+.sn.m .sn-strip{font-size:12px}.sn.m .sn-strip .x{left:14px}.sn.m .sn-strip u{right:14px;font-size:12px}
+.sn.m .sn-nav{height:64px;padding:0 18px}.sn.m .sn-links{display:none}.sn.m .sn-logo{font-size:15px}.sn.m .sn-ic{gap:14px}.sn.m .sn-ic .acc{display:none}
+.sn.m .sn-burger{display:grid !important;z-index:35}
+.sn.m .sn-hero{height:620px}.sn.m .sn-hero h1{top:190px;font-size:44px;padding:0 20px}.sn.m .sn-hero .sn-pill{top:330px;height:50px;padding:0 30px;font-size:16px !important;white-space:nowrap}.sn.m .sn-pause{right:18px;bottom:90px}
+.sn.m .sn-promo{margin:-50px 16px 0;height:auto;grid-template-columns:1fr}.sn.m .sn-promo .tx{padding:34px 26px 10px}.sn.m .sn-promo h3{font-size:28px}.sn.m .sn-promo svg{height:200px}
+.sn.m .sn-stick h2{font-size:36px;top:40px;padding:0 20px}.sn.m .sn-exl{left:20px;right:20px;width:auto;bottom:24px}.sn.m .sn-exl h3{font-size:32px}.sn.m .sn-exl p{font-size:15px;margin:10px 0 12px}.sn.m .sn-stat b{font-size:28px}
+.sn.m .sn-spk{left:50%;bottom:auto;top:140px;margin-left:-150px;transform:scale(.62);transform-origin:50% 0}
+.sn.m .sn-row{grid-template-columns:1fr;gap:30px;padding:80px 20px 0}.sn.m .sn-row h3{font-size:38px}.sn.m .sn-row .ph{height:360px}.sn.m .sn-row .rv{order:-1}.sn.m .sn-room{height:300px}
+.sn.m .sn-pw{font-size:34px;margin-top:90px}.sn.m .sn-rnav{padding:0 20px}.sn.m .sn-rail{padding:12px 20px 0;scroll-padding:0 20px;gap:14px}.sn.m .sn-pc{width:290px}.sn.m .sn-pc .im{height:200px}.sn.m .sn-pc b{font-size:17px}
+.sn.m .sn-sys{grid-template-columns:1fr;padding:90px 20px 0;min-height:0}.sn.m .sn-sys h3{font-size:40px}.sn.m .sn-float{height:360px;transform:scale(.5);transform-origin:0 0;width:200%;margin-bottom:-180px}
+.sn.m .sn-mix{grid-template-columns:1fr;padding:40px 20px 0;gap:10px}.sn.m .sn-mix h3{font-size:34px}.sn.m .sn-mc{grid-template-columns:1fr;padding:40px 20px 0;gap:24px}
+.sn.m .sn-foot{grid-template-columns:1fr 1fr;padding:50px 20px 70px}
+.sn.m .sn-nl{width:calc(100% - 24px);padding:44px 20px 24px}.sn.m .sn-nl h4{font-size:32px}.sn.m .sn-nl .bt{flex-direction:column}.sn.m .sn-nl .bt button{flex:none;height:48px}
+`);
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = (vb, inner, par = 'xMidYMid slice', cls) => { const e = document.createElementNS(NS, 'svg'); e.setAttribute('viewBox', vb); e.setAttribute('preserveAspectRatio', par); if (cls) e.setAttribute('class', cls); e.innerHTML = inner; return e; };
+  const ic = (d, w = 1.7) => svg('0 0 24 24', `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`, 'xMidYMid meet');
+  const checker = (id, a, b, s = 18) => `<pattern id="${id}" width="${s * 2}" height="${s * 2}" patternUnits="userSpaceOnUse"><rect width="${s * 2}" height="${s * 2}" fill="${b}"/><rect width="${s}" height="${s}" fill="${a}"/><rect x="${s}" y="${s}" width="${s}" height="${s}" fill="${a}"/></pattern>`;
+  // ---- code-drawn stand-ins (no photos / product renders)
+  const heroSvg = () => svg('0 0 1440 760', `<defs><filter id="snb" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="7"/></filter><filter id="snb2"><feGaussianBlur stdDeviation="2.5"/></filter>
+    <linearGradient id="snw" x1="0" x2="1"><stop offset="0" stop-color="#6b5440"/><stop offset=".35" stop-color="#3a281c"/><stop offset="1" stop-color="#2a1c14"/></linearGradient>
+    <linearGradient id="snspk" x1="0" x2="1"><stop offset="0" stop-color="#cfcdc6"/><stop offset=".35" stop-color="#efede7"/><stop offset=".75" stop-color="#e2e0da"/><stop offset="1" stop-color="#b9b7b0"/></linearGradient>
+    <linearGradient id="snm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfcac0"/><stop offset="1" stop-color="#e9e6df"/></linearGradient>
+    ${checker('snck1', '#d8473f', '#f3e3dc', 16)}${checker('snck2', '#e8782e', '#f1c49a', 14)}</defs>
+    <rect width="1440" height="760" fill="url(#snw)"/>
+    <g filter="url(#snb)"><rect x="40" y="0" width="300" height="300" fill="#c9b8a0" opacity=".55"/><rect x="60" y="20" width="250" height="260" fill="#8a7458" opacity=".5"/>
+      <path d="M150 300c-30-60-90-90-120-160 50 10 90 50 110 100-10-70 20-120 70-160 0 60-30 110-40 170 30-50 80-70 130-70-40 40-80 80-110 120z" fill="#4e7a3a"/><rect x="90" y="300" width="140" height="120" fill="#b0563a"/>
+      <rect x="1000" y="80" width="420" height="400" fill="#4a3424" opacity=".7"/></g>
+    <path d="M0 470l1440-30v320H0z" fill="url(#snm)"/>
+    <g stroke="#3a3a3a" stroke-width="3" fill="none" opacity=".45" filter="url(#snb2)"><path d="M0 640c120-30 200 10 330-20s200 40 320 0"/><path d="M700 720c140-60 260-20 380-60s220 20 360-30"/><path d="M80 760c60-50 160-60 240-30"/></g>
+    <g filter="url(#snb2)"><ellipse cx="60" cy="560" rx="160" ry="34" fill="#2f6b6a"/><ellipse cx="60" cy="540" rx="160" ry="34" fill="#3f8584"/><ellipse cx="60" cy="522" rx="150" ry="30" fill="#2f6b6a"/>
+      <rect x="225" y="420" width="105" height="120" rx="14" fill="#2c6fb3"/><path d="M330 450c40 0 40 60 0 60" stroke="#2c6fb3" stroke-width="16" fill="none"/><ellipse cx="277" cy="422" rx="52" ry="10" fill="#1d4f86"/></g>
+    <path d="M140 560l270-40 120 140-290 60z" fill="url(#snck1)" opacity=".95"/>
+    <path d="M940 600l330-40 170 120v80H1010z" fill="url(#snck2)" opacity=".95"/>
+    <ellipse cx="715" cy="575" rx="300" ry="54" fill="#ffffff22" stroke="#ffffff55" stroke-width="2"/>
+    <g><rect x="610" y="215" width="205" height="360" rx="34" fill="url(#snspk)"/><ellipse cx="712" cy="222" rx="102" ry="16" fill="#f6f5f1"/><ellipse cx="712" cy="222" rx="96" ry="12" fill="#e4e2dc"/>
+      <text x="0" y="0" transform="translate(690 248) rotate(90)" font-family="${SA}" font-size="24" letter-spacing="7" font-weight="700" fill="#a9a7a0">SONOS</text></g>
+    <g filter="url(#snb2)"><rect x="1050" y="250" width="200" height="300" rx="8" fill="none" stroke="#7a7a4a" stroke-width="6"/><path d="M1050 330h200M1050 420h200" stroke="#7a7a4a" stroke-width="4"/>
+      ${Array.from({ length: 12 }, (_, i) => `<path d="M${1070 + i * 15} 270l${(i % 3 - 1) * 8} -${120 + (i % 4) * 20}" stroke="#c8ccd0" stroke-width="7" stroke-linecap="round"/>`).join('')}
+      <circle cx="1170" cy="155" r="30" fill="none" stroke="#9a9a9a" stroke-width="6"/><path d="M1300 520l40-380" stroke="#d0d0d0" stroke-width="16" stroke-linecap="round"/></g>`);
+  const soundbar = (w = 520) => svg(`0 0 ${w} 330`, `<defs><linearGradient id="snsb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4a4a"/><stop offset=".25" stop-color="#1a1a1a"/><stop offset="1" stop-color="#0c0c0c"/></linearGradient><radialGradient id="snsg" cx=".4" cy=".2" r=".8"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#151515"/></radialGradient></defs>
+    <rect width="${w}" height="330" fill="url(#snsg)"/><rect x="${w * .08}" y="110" width="${w * 1.1}" height="130" rx="64" fill="url(#snsb)"/><path d="M${w * .12} 130c${w * .3}-20 ${w * .7}-20 ${w}-6" stroke="#ffffff55" stroke-width="3" fill="none"/>`);
+  // exploded speaker parts (left→right in exploded state)
+  const hexes = () => { let o = ''; for (let r = 0; r < 11; r++) for (let c = 0; c < 4; c++) { const x = 60 + c * 48 + (r % 2) * 24, y = 70 + r * 40; o += `<path d="M${x} ${y - 16}l14 8v16l-14 8-14-8v-16z" fill="#f4f4f4"/>`; } return o; };
+  const perf = () => { let o = ''; for (let r = 0; r < 70; r++) for (let c = 0; c < 26; c++) o += `<circle cx="${52 + c * 8 + (r % 2) * 4}" cy="${42 + r * 7}" r="1.5" fill="#2e2e2e"/>`; return o; };
+  const PARTS = [
+    ['back', `<rect x="70" y="60" width="150" height="470" rx="40" fill="#222"/><rect x="88" y="80" width="114" height="430" rx="30" fill="#2c2c2c"/><rect x="120" y="140" width="50" height="40" rx="6" fill="#3a3a3a"/><rect x="120" y="420" width="50" height="36" rx="6" fill="#3a3a3a"/><circle cx="145" cy="300" r="10" fill="#111"/>`],
+    ['board', `<rect x="90" y="120" width="120" height="300" rx="8" fill="#1d1f1d"/>${Array.from({ length: 40 }, (_, i) => `<circle cx="${105 + (i % 6) * 18}" cy="${160 + Math.floor(i / 6) * 22}" r="2.6" fill="#d9d9d9"/>`).join('')}<rect x="104" y="330" width="60" height="40" fill="#2f322f"/><path d="M150 120c0-60 60-80 80-40" stroke="#151515" stroke-width="6" fill="none"/>`],
+    ['drivers', `<rect x="95" y="90" width="110" height="160" rx="20" fill="#1a1a1a"/><ellipse cx="150" cy="90" rx="55" ry="14" fill="#2e2e2e"/><rect x="95" y="300" width="110" height="200" rx="20" fill="#1c1c1c"/><ellipse cx="150" cy="300" rx="55" ry="14" fill="#323232"/><rect x="140" y="250" width="20" height="50" fill="#111"/>`],
+    ['woofer', `<rect x="60" y="50" width="180" height="480" rx="44" fill="#1b1b1b"/><circle cx="150" cy="170" r="52" fill="#0d0d0d"/><circle cx="150" cy="170" r="36" fill="#262626"/><circle cx="150" cy="170" r="12" fill="#3a3a3a"/><circle cx="150" cy="380" r="76" fill="#0d0d0d"/><circle cx="150" cy="380" r="56" fill="#272727"/><circle cx="150" cy="380" r="20" fill="#3c3c3c"/>`],
+    ['hex', `<rect x="34" y="34" width="232" height="510" rx="56" fill="#202020"/>${hexes()}`],
+    ['grille', `<rect x="30" y="30" width="240" height="520" rx="60" fill="#141414"/><rect x="40" y="36" width="220" height="508" rx="54" fill="#1a1a1a"/>${perf()}<text transform="translate(236 80) rotate(90)" font-family="${SA}" font-size="20" letter-spacing="6" font-weight="700" fill="#555">SONOS</text>`],
+  ];
+  const EXPLODE = [[-330, -20], [-215, 14], [-110, -12], [0, 0], [118, 10], [232, -6]];
+  // photo-like stand-ins
+  const SCN = {
+    studio: `<rect width="530" height="620" fill="#140f0c"/><rect x="0" y="0" width="530" height="260" fill="#2a1e16"/><path d="M60 0h60v260H60z" fill="#3a2a1e" opacity=".6"/><path d="M0 430l530-60v250H0z" fill="#2b2420"/>${Array.from({ length: 24 }, (_, i) => `<rect x="${40 + i * 19}" y="${450 - i * 2}" width="6" height="40" fill="#8a7a62" opacity=".6"/>`).join('')}<path d="M170 420c0-150 40-230 120-230s120 80 120 230z" fill="#1d1916"/><ellipse cx="290" cy="170" rx="60" ry="72" fill="#c49a7a"/><path d="M228 140c10-60 110-70 124 0-20-20-90-24-124 0z" fill="#b48a5a"/><path d="M230 470c40-30 120-30 160 0l20 40H210z" fill="#c49a7a"/>`,
+    tv: `<rect width="452" height="304" fill="#8a6a4a"/><rect width="452" height="200" fill="#c7b9a5"/><rect x="80" y="20" width="290" height="150" fill="#1a1a1a"/><rect x="88" y="28" width="274" height="134" fill="#3a4a5a"/><rect x="0" y="200" width="452" height="104" fill="#7a5032"/><rect x="110" y="178" width="230" height="26" rx="12" fill="#e9e7e2"/><path d="M0 250h452" stroke="#5a3a22" stroke-width="3"/>`,
+    ace: `<rect width="452" height="304" fill="#2a3a22"/><circle cx="380" cy="60" r="90" fill="#5a7a3a" opacity=".6"/><circle cx="60" cy="250" r="110" fill="#1a2a14"/><ellipse cx="240" cy="190" rx="70" ry="90" fill="#c9987a"/><path d="M170 180c0-80 140-80 140 0" stroke="#2a2a2a" stroke-width="16" fill="none"/><rect x="155" y="160" width="34" height="60" rx="14" fill="#2f2f2f"/><rect x="292" y="160" width="34" height="60" rx="14" fill="#2f2f2f"/><path d="M180 120c20-50 100-50 120 0" fill="#6a3a22"/><path d="M160 304c10-50 50-70 80-70s70 20 80 70z" fill="#3a4a5a"/>`,
+    roam: `<rect width="452" height="304" fill="#d8c8a8"/><rect y="190" width="452" height="114" fill="#b89a6a"/><rect x="170" y="110" width="110" height="150" rx="26" fill="#1c1c1c" transform="rotate(-8 225 185)"/><circle cx="360" cy="70" r="40" fill="#f2e4c0"/>`,
+    era: `<rect width="452" height="304" fill="#e9e2d6"/><rect y="200" width="452" height="104" fill="#c9b49a"/><path d="M180 200l20-110h70l20 110z" fill="#f4f3ef"/><rect x="60" y="80" width="80" height="110" fill="#9aa88a"/><rect x="320" y="60" width="90" height="130" fill="#d5b78a"/>`,
+    sub: `<rect width="452" height="304" fill="#3a3330"/><rect y="210" width="452" height="94" fill="#5a4a40"/><rect x="160" y="100" width="140" height="140" rx="18" fill="#111"/><ellipse cx="230" cy="170" rx="42" ry="42" fill="#3a3330"/><rect x="40" y="40" width="100" height="160" fill="#6a5a4a"/>`,
+    move: `<rect width="452" height="304" fill="#7ab0d8"/><rect y="180" width="452" height="124" fill="#6a8a4a"/><path d="M0 180c120-30 300-20 452 0" fill="#8aa85a"/><rect x="190" y="90" width="80" height="140" rx="30" fill="#f2f0ea"/><circle cx="80" cy="60" r="30" fill="#fff4c0"/>`,
+    pair: `<rect width="420" height="260" fill="#d9cfc0"/><rect y="180" width="420" height="80" fill="#a88a68"/><rect x="60" y="100" width="44" height="80" rx="12" fill="#1c1c1c"/><rect x="316" y="100" width="44" height="80" rx="12" fill="#1c1c1c"/><rect x="140" y="40" width="140" height="100" fill="#efe9de"/>`,
+    surround: `<rect width="420" height="260" fill="#e7e3dc"/><rect y="170" width="420" height="90" fill="#c4b6a2"/><rect x="110" y="40" width="200" height="110" fill="#1a1a1a"/><rect x="130" y="152" width="160" height="16" rx="8" fill="#e9e7e2"/><rect x="30" y="110" width="36" height="60" rx="10" fill="#f2f0ea"/><rect x="354" y="110" width="36" height="60" rx="10" fill="#f2f0ea"/>`,
+    home: `<rect width="420" height="260" fill="#9fc2dc"/><rect y="170" width="420" height="90" fill="#7a9a5a"/><path d="M180 260c0-80 20-140 50-140s50 60 50 140z" fill="#c9a07a"/><circle cx="230" cy="100" r="22" fill="#d9b08a"/><rect x="250" y="150" width="30" height="50" rx="10" fill="#1c1c1c"/>`,
+  };
+  const roomSvg = () => svg('0 0 620 520', `<rect width="620" height="520" fill="#f1f1ef"/><path d="M80 300l230-130 230 130-230 130z" fill="#e2ddd4"/><path d="M80 300V120l230-120v170z" fill="#f7f6f3"/><path d="M310 170V0l230 120v180z" fill="#ebe9e4"/>
+    <path d="M190 300l120-68 120 68-120 68z" fill="#4a7ab0"/><path d="M220 300l90-52 90 52-90 52z" fill="#5a8ac0" opacity=".6"/>
+    <path d="M140 170l100-58v70l-100 58z" fill="#1d1d1d"/><path d="M150 248l90-52 30 17-90 52z" fill="#b08a5a"/><path d="M150 248v16l90-52v-16" fill="#8a6a42"/><path d="M168 238l60-34 10 6-60 34z" fill="#1a1a1a"/>
+    <path d="M400 230l70 40-40 24-70-40z" fill="#c98a5a"/><path d="M400 230v-40l70 40v40z" fill="#a86a3a"/>
+    <path d="M330 360l110-62 60 34-110 62z" fill="#e8dcc0"/><path d="M330 360v30l110-62v-30z" fill="#d4c6a4"/>
+    <circle cx="470" cy="150" r="24" fill="#5a8a4a"/><rect x="465" y="170" width="10" height="40" fill="#7a5a3a"/>
+    <g class="tp">${[0, .8, 1.6].map((d) => `<ellipse cx="200" cy="230" rx="120" ry="60" fill="none" stroke="#fff" stroke-width="3" style="animation-delay:${d}s"/>`).join('')}</g>`);
+  const floatSpk = [
+    ['bar', 520, 110, 120, 350, -16, `<rect width="520" height="110" rx="54" fill="#141414"/><path d="M30 24c150-14 320-14 460 0" stroke="#ffffff30" stroke-width="3" fill="none"/>`, 0],
+    ['sub', 220, 220, 330, 120, 10, `<rect width="220" height="220" rx="30" fill="#1a1a1a"/><ellipse cx="110" cy="110" rx="56" ry="56" fill="#0e0e0e"/><path d="M20 20h180" stroke="#ffffff22" stroke-width="3"/>`, 1.2],
+    ['era1', 120, 200, 40, 160, -8, `<rect width="120" height="200" rx="36" fill="#161616"/><ellipse cx="60" cy="12" rx="56" ry="11" fill="#2c2c2c"/>`, .6],
+    ['era2', 120, 200, 640, 300, 12, `<rect width="120" height="200" rx="36" fill="#161616"/><ellipse cx="60" cy="12" rx="56" ry="11" fill="#2c2c2c"/>`, 2],
+    ['ace', 160, 170, 600, 40, -14, `<path d="M20 100c0-110 120-110 120 0" stroke="#2a2a2a" stroke-width="16" fill="none"/><rect x="0" y="80" width="46" height="84" rx="20" fill="#1c1c1c"/><rect x="114" y="80" width="46" height="84" rx="20" fill="#1c1c1c"/>`, 1.6],
+    ['roam', 80, 190, 820, 140, 18, `<rect width="80" height="190" rx="26" fill="#1a1a1a"/>`, .3],
+  ];
+  // ---- DOM
+  const el = h('div.sn');
+  let cartN = 0;
+  const strip = h('div.sn-strip', {}, h('button.x', { 'aria-label': 'Close', onclick: () => strip.classList.add('off') }, '\u00d7'), h('span', {}, 'Sonos Beam Ultra is here.'), h('u', { onclick: () => toast('Shop Beam Ultra (demo)') }, 'Shop now'));
+  const cartBtn = h('button', { 'aria-label': 'Cart', onclick: () => toast(cartN ? `Cart: ${cartN} item(s) (demo)` : 'Your cart is empty (demo)') }, ic('M3 4h2.2l2.3 11h10.3L20 7.5H6.4M9 20a1 1 0 1 0 0-.1M17 20a1 1 0 1 0 0-.1'), h('b', {}, '0'));
+  const burger = h('button.sn-burger', { 'aria-label': 'Menu', onclick: () => setMM(!mm.classList.contains('on')) }, ic('M4 7h16M4 12h16M4 17h16'));
+  const nav = h('header.sn-nav', {}, h('div.sn-logo', {}, 'SONOS'), h('nav.sn-links', {}, ...NAV.map((t) => h('button', { onclick: () => toast(`${t} (demo)`) }, t))),
+    h('div.sn-ic', {}, h('button.acc', { 'aria-label': 'Account', onclick: () => toast('Account (demo)') }, ic('M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20c1.2-3.6 4-5 7.5-5s6.3 1.4 7.5 5')), h('button', { 'aria-label': 'Search', onclick: () => toast('Search (demo)') }, ic('M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4')), cartBtn, burger));
+  const heroArt = heroSvg(); heroArt.setAttribute('class', 'sc');
+  let paused = false;
+  const pauseBtn = h('button.sn-pause', { 'aria-label': 'Pause', onclick: () => { paused = !paused; el.classList.toggle('paused', paused); pauseBtn.textContent = paused ? '\u25b6' : '\u2759\u2759'; } }, '\u2759\u2759');
+  const shopNew = h('button.sn-pill', { onclick: () => toast('Shop new arrivals (demo)') }, 'Shop new arrivals');
+  const hero = h('section.sn-hero', {}, heroArt, h('h1', {}, 'Love the sound.', h('br'), 'Feel the system.'), shopNew, pauseBtn);
+  const promo = h('section.sn-promo', {}, h('div.tx', {}, h('h3', {}, 'New: Beam Ultra'), h('p', {}, 'Fill the room with more detail, more music, more story.'), h('button.sn-ol', { onclick: () => { cartN++; cartBtn.classList.add('has'); cartBtn.querySelector('b').textContent = cartN; toast('Beam Ultra added to cart (demo)'); } }, 'Shop now')), soundbar());
+  // exploded speaker
+  const parts = PARTS.map(([k, inner]) => { const p = h('div.sn-part'); p.append(svg('0 0 300 560', inner, 'xMidYMid meet')); p.dataset.k = k; return p; });
+  const spk = h('div.sn-spk', {}, ...parts);
+  const statN = h('b', {}, '0+');
+  const exH = h('h2', {}, 'Hear how sound', h('br'), 'should sound');
+  const stick = h('div.sn-stick', {}, exH, spk, h('div.sn-exl', {}, h('h3', {}, 'Astonishingly', h('br'), 'clear'), h('p', {}, 'Each speaker is thoughtfully designed from the inside out with best-in-class acoustics and state-of-the-art software.'), h('div.sn-stat', {}, statN, h('span', {}, 'patented innovations'))));
+  const ex = h('section.sn-ex', {}, stick);
+  const studio = h('div.ph'); studio.append(svg('0 0 530 620', SCN.studio));
+  const tuned = h('section.sn-row', {}, studio, h('div', {}, h('h3', {}, 'Expertly tuned'), h('p', {}, 'Oscar and Grammy-winning producers, mixers and artists fine-tune the sound experience. So you don\u2019t just hear the music, you feel the emotion.'), h('div.sn-quote', {}, '\u201cIt\u2019s an artistic approach to sound.\u201d', h('small', {}, 'Sound Experience Lead, Sonos'))));
+  let trueplay = false;
+  const room = h('div.sn-room', {}, roomSvg(), h('button.i', { 'aria-label': 'Info', onclick: () => { trueplay = !trueplay; room.classList.toggle('on', trueplay); } }, 'i'), h('span.lab', {}, 'Trueplay tuning: on'));
+  const balanced = h('section.sn-row', {}, h('div', {}, h('h3', {}, 'Beautifully', h('br'), 'balanced'), h('p', {}, 'Our proprietary Trueplay\u2122 tuning technology adapts the sound to your unique surroundings for a listening experience that\u2019s nothing short of luxurious.'), h('button.sn-ol', { onclick: () => toast('Explore products (demo)') }, 'Explore products')), h('div.rv', {}, room));
+  // play your way rail
+  const pcs = PLAY.map(([t, k]) => { const im = h('div.im'); im.append(svg('0 0 452 304', SCN[k])); return h('div.sn-pc', {}, im, h('b', {}, t), h('button', { onclick: () => { if (railMoved > 6) return; toast(`Shop: ${t} (demo)`); } }, 'Shop now', ic('M5 12h14M13 6l6 6-6 6'))); });
+  const rail = h('div.sn-rail', {}, ...pcs);
+  let active = 0;
+  const dots = PLAY.map((_, i) => h('button', { 'aria-label': `Slide ${i + 1}`, onclick: () => goTo(i) }));
+  const prev = h('button', { 'aria-label': 'Previous', onclick: () => goTo(Math.max(0, active - 1)) }, ic('M15 6l-6 6 6 6', 2));
+  const next = h('button', { 'aria-label': 'Next', onclick: () => goTo(Math.min(PLAY.length - 1, active + 1)) }, ic('M9 6l6 6-6 6', 2));
+  const goTo = (i, smooth = true) => { rail.scrollTo({ left: pcs[i].offsetLeft - pcs[0].offsetLeft, behavior: smooth ? 'smooth' : 'auto' }); };
+  const syncRail = () => { const x = rail.scrollLeft, w = pcs[0].offsetWidth + (el.classList.contains('m') ? 14 : 24); const max = rail.scrollWidth - rail.clientWidth; active = x >= max - 4 ? PLAY.length - 1 : Math.round(x / w); dots.forEach((d, j) => d.classList.toggle('on', j === active)); prev.disabled = x < 4; next.disabled = x >= max - 4; };
+  // floating system
+  const fls = floatSpk.map(([k, w, hh, x, y, rot, inner, delay]) => { const d = h('div.sn-fl', { style: { left: x + 'px', top: y + 'px', transform: `rotate(${rot}deg)`, animationDelay: `-${delay}s` } }); d.append(svg(`0 0 ${w} ${hh}`, inner, 'xMidYMid meet')); d.firstChild.setAttribute('width', w); d.firstChild.setAttribute('height', hh); d.dataset.k = k; return d; });
+  const floatBox = h('div.sn-float', {}, ...fls);
+  const sys = h('section.sn-sys', {}, h('div', {}, h('h3', {}, 'Create your perfect sound system'), h('button.sn-ol', { onclick: () => toast('Shop sets (demo)') }, 'Shop sets')), floatBox);
+  const mc = [['pair', 'Pair two speakers for stunningly detailed stereo sound.'], ['surround', 'Build a surround sound system for cinematic home theater.'], ['home', 'Easily move the music all around your home.']].map(([k, t]) => { const im = h('div.im'); im.append(svg('0 0 420 260', SCN[k])); return h('div', {}, im, h('p', {}, t)); });
+  const foot = h('footer.sn-foot', {}, h('div', {}, h('b', {}, 'SONOS'), h('div', { style: { marginTop: '16px' } }, 'Sound for every room.')), ...[['Shop', 'Speakers', 'Headphones', 'Home Theater', 'Sets'], ['Support', 'Help Center', 'Order Status', 'Returns'], ['Company', 'About', 'Careers', 'Newsroom']].map(([hh, ...l]) => h('div', {}, h('h6', {}, hh), ...l.map((x) => h('div', {}, x)))));
+  const sc = h('div.sn-sc', {}, strip, nav, hero, promo, ex, tuned, balanced, h('h2.sn-pw', {}, 'Play your way'), h('div.sn-rnav', {}, prev, next), rail, h('div.sn-dots', {}, ...dots), sys,
+    h('section.sn-mix', {}, h('h3', {}, 'Mix and match'), h('p', {}, 'Sonos products work seamlessly together over WiFi. Start with one room and simply add more when you\u2019re ready.')), h('section.sn-mc', {}, ...mc), foot);
+  // newsletter modal
+  let nlShown = false, nlState = '';
+  const nlIn = h('input', { type: 'email', placeholder: 'Enter email address', onkeydown: (e) => { if (e.key === 'Enter') subscribe(); } });
+  const nlMsg = h('div.msg');
+  const nl = h('div.sn-nl', { role: 'dialog' }, h('button.x', { 'aria-label': 'Close', onclick: () => closeNL('closed') }, '\u00d7'), h('h4', {}, 'Never miss a beat or an offer'), h('p.s', {}, 'Subscribe to get the latest updates on new products and exclusive offers.'), nlIn,
+    h('p.lg', {}, 'You are agreeing to receive updates, promotional offers, and other messages from Sonos. You may unsubscribe at any time. For more information, review our ', h('u', {}, 'Privacy Statement'), '.'), nlMsg,
+    h('div.bt', {}, h('button.a', { onclick: () => subscribe() }, 'Subscribe'), h('button.d', { onclick: () => closeNL('declined') }, 'Do not subscribe')));
+  const veil = h('div.sn-veil', { onclick: () => closeNL('closed') });
+  const openNL = () => { nlShown = true; el.classList.add('nl'); };
+  const closeNL = (st) => { nlState = st; el.classList.remove('nl'); };
+  const subscribe = () => { const v = nlIn.value.trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { nlMsg.className = 'msg err'; nlMsg.textContent = 'Please enter a valid email address.'; return false; } nlMsg.className = 'msg ok'; nlMsg.textContent = 'Thanks \u2014 you\u2019re on the list (demo).'; nlState = 'subscribed'; setTimeout(() => el.classList.remove('nl'), 900); return true; };
+  const mm = h('div.sn-mm', {}, ...NAV.map((t) => h('button', { onclick: () => { setMM(false); toast(`${t} (demo)`); } }, t)));
+  const setMM = (on) => mm.classList.toggle('on', on);
+  el.append(sc, mm, veil, nl);
+  root.append(el);
+  // rail drag
+  let railMoved = 0, rdrag = false, rsx = 0, rsl = 0;
+  rail.addEventListener('pointerdown', (e) => { if (e.target.closest('button')) return; rdrag = true; railMoved = 0; rsx = e.clientX; rsl = rail.scrollLeft; rail.classList.add('drag'); });
+  window.addEventListener('pointermove', (e) => { if (!rdrag) return; railMoved = Math.abs(e.clientX - rsx); rail.scrollLeft = rsl - (e.clientX - rsx); });
+  window.addEventListener('pointerup', () => { if (rdrag) { rdrag = false; rail.classList.remove('drag'); } });
+  rail.addEventListener('scroll', syncRail, { passive: true });
+  // scroll-driven explode + float parallax + newsletter trigger
+  let prog = 0, solid = false, counted = 0;
+  const setExplode = (p) => { prog = p; const e = Math.min(1, Math.max(0, (p - .08) / .72)); const ease = e < .5 ? 2 * e * e : 1 - Math.pow(-2 * e + 2, 2) / 2; parts.forEach((pt, i) => { const [dx, dy] = EXPLODE[i]; pt.style.transform = `translate(${(dx * ease).toFixed(1)}px,${(dy * ease).toFixed(1)}px)`; }); exH.style.opacity = (1 - Math.min(1, Math.max(0, (p - .55) / .3)) * .85).toFixed(2); const n = Math.round(4000 * Math.min(1, Math.max(0, (p - .15) / .5))); counted = n; statN.textContent = n.toLocaleString('en-US').replace(',', '') + '+'; };
+  const sync = () => { const y = sc.scrollTop; solid = y > 52; el.classList.toggle('sol', solid);
+    const r = ex.getBoundingClientRect(), r0 = sc.getBoundingClientRect(); const span = ex.offsetHeight - sc.clientHeight; setExplode(span > 0 ? Math.min(1, Math.max(0, (r0.top - r.top) / span)) : 0);
+    const fr = floatBox.getBoundingClientRect(); const fp = (fr.top - r0.top) / sc.clientHeight; fls.forEach((f, i) => { f.style.marginTop = (fp * (i % 2 ? 40 : -30)).toFixed(1) + 'px'; });
+    if (!nlShown && y > hero.offsetTop + hero.offsetHeight + 200) openNL(); };
+  sc.addEventListener('scroll', sync, { passive: true });
+  new ResizeObserver(() => { el.classList.toggle('m', el.clientWidth <= 760); el.style.setProperty('--vh', sc.clientHeight + 'px'); if (el.clientWidth > 760) setMM(false); sync(); syncRail(); }).observe(el);
+  el.style.setProperty('--vh', sc.clientHeight + 'px'); sync(); syncRail();
+  const gx = (pt) => Math.round(new DOMMatrix(getComputedStyle(pt).transform).m41);
+  window.__demoProof = async () => {
+    const o = [];
+    o.push(`hero="${hero.querySelector('h1').textContent}" kenBurns=${getComputedStyle(heroArt).animationName} newsletter=${el.classList.contains('nl')}`);
+    pauseBtn.click(); o.push(`pause → ${getComputedStyle(heroArt).animationPlayState}`); pauseBtn.click();
+    strip.querySelector('.x').click(); o.push(`strip closed=${strip.classList.contains('off')}`); strip.classList.remove('off');
+    const top0 = ex.offsetTop, span = ex.offsetHeight - sc.clientHeight;
+    sc.scrollTo({ top: top0, behavior: 'auto' }); await sleep(40); sync(); const a0 = parts.map(gx);
+    sc.scrollTo({ top: top0 + span * .5, behavior: 'auto' }); await sleep(40); sync(); const a5 = parts.map(gx);
+    sc.scrollTo({ top: top0 + span, behavior: 'auto' }); await sleep(40); sync(); const a1 = parts.map(gx);
+    o.push(`explode p0 back/grille x=${a0[0]}/${a0[5]} → p.5 ${a5[0]}/${a5[5]} → p1 ${a1[0]}/${a1[5]} (prog=${prog.toFixed(2)}) stat=${statN.textContent} sticky=${getComputedStyle(stick).position}`);
+    o.push(`newsletter auto-open=${el.classList.contains('nl')}`);
+    nlIn.value = 'nope'; const bad = subscribe(); o.push(`bad email → ${bad ? 'ok' : 'err'} "${nlMsg.textContent}"`);
+    nlIn.value = 'demo@example.com'; subscribe(); o.push(`good email → ${nlState}`); await sleep(950); o.push(`modal closed=${!el.classList.contains('nl')}`);
+    room.querySelector('.i').click(); o.push(`Trueplay info → ${trueplay}`);
+    rail.scrollIntoView({ block: 'center', behavior: 'auto' }); goTo(2, false); await sleep(80); syncRail(); o.push(`rail goTo(3) → active=${active} dot=${dots[2].classList.contains('on')} prev=${!prev.disabled}`);
+    goTo(PLAY.length - 1, false); await sleep(80); syncRail(); o.push(`rail end → active=${active} nextDisabled=${next.disabled}`);
+    // restore
+    goTo(0, false); trueplay = false; room.classList.remove('on'); nlShown = false; nlState = ''; nlIn.value = ''; nlMsg.textContent = ''; nlMsg.className = 'msg'; el.classList.remove('nl');
+    cartN = 0; cartBtn.classList.remove('has'); paused = false; el.classList.remove('paused'); setMM(false);
+    sc.scrollTo({ top: 0, behavior: 'auto' }); await sleep(60); sync(); syncRail(); nlShown = false;
+    document.querySelectorAll('.tg-toast').forEach((t) => t.classList.remove('on')); o.push(`restored prog=${prog.toFixed(2)} active=${active} newsletter=${el.classList.contains('nl')} scrollTop=${sc.scrollTop}`);
+    return o.join('; ') + ' · stand-ins: SVG-drawn lifestyle hero (white cylinder speaker on marble table) with CSS Ken-Burns instead of the video, SVG soundbar, 6-layer SVG exploded speaker (back/board/drivers/woofer/hex frame/grille) instead of the 3D render, SVG studio/isometric room/rail/room-card scenes, SVG floating black speakers; DM Sans substitutes the Sonos typeface; Play-your-way cards 3\u20136 titles, quote attribution and mix-card captions are illustrative; Trueplay rings, newsletter scroll trigger + validation and cart counter are demo behaviour (newsletter timing on the real site unverified)';
+  };
+};
+
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
