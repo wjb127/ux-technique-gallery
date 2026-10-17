@@ -4908,5 +4908,35 @@
   "ac2": "#815a38",
   "ac3": "#4b2d1e",
   "coverage": 0.7
+ },
+ "vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards": {
+  "bg": "#0b0b0c",
+  "fg": "#ffffff",
+  "panel": "#efefef",
+  "dark": true,
+  "ac": "#f2fd5d",
+  "ac2": "#ff2b24",
+  "ac3": "#2e2e2e",
+  "coverage": 0.7
+ },
+ "nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip": {
+  "bg": "#ffffff",
+  "fg": "#1d1d1d",
+  "panel": "#f1f1f1",
+  "dark": false,
+  "ac": "#8fe6dc",
+  "ac2": "#2f64c8",
+  "ac3": "#3a3a3e",
+  "coverage": 0.7
+ },
+ "lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar": {
+  "bg": "#ffffff",
+  "fg": "#0a0a0a",
+  "panel": "#f4f4f5",
+  "dark": false,
+  "ac": "#000000",
+  "ac2": "#b3202a",
+  "ac3": "#1f5fae",
+  "coverage": 0.7
  }
 }

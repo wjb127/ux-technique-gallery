@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards",
+  "slug": "vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards",
+  "name": "VanMoof S6 dark macro hero with red tail-light + floating frosted pill nav + handlebar ride-display section + rounded inset photo cards",
+  "date": "2026-10-17",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.vanmoof.com/en-NL",
+  "domain": "vanmoof.com",
+  "product": "VanMoof S6 — Dutch smart e-bike",
+  "checkpoints": [
+   "Thin top bars: white country-confirm strip + neon-yellow monospace promo ticker with close X",
+   "Floating centered dark frosted pill nav (hamburger | VANMOOF outlined wordmark | bag) that stays pinned over every section",
+   "Full-bleed black macro bike-frame hero: giant white S6 numerals + glowing red tail light + small right copy and Explore square-arrow button + iF award badge",
+   "Rounded inset night-scene card (Worry less. Ride more.) with square arrow Learn more",
+   "Light-grey VanMoof App section: 4 icon features row, then handlebar close-up with live ride display (22 km/h, 2:03 / 0.3 km / 9:41 / 87%)",
+   "Press quote carousel (Stuff logo + quote + prev/next squares) and dark 2x2 photo tile grid (Test rides / Partner Network / Support Center) with arrow squares"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip",
+  "slug": "nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip",
+  "name": "NOMOS Glashütte airy editorial watch homepage: light-sans headline over full-bleed dial macro + Watches mega-menu (family list + watch grid) + model-family rail + manufactory photo strip",
+  "date": "2026-10-17",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://nomos-glashuette.com/en",
+  "domain": "nomos-glashuette.com",
+  "product": "NOMOS Glashütte — independent German mechanical watches",
+  "checkpoints": [
+   "White header: small Watches / Watchmaking / Topics left, centered letterspaced NOMOS GLASHÜTTE mark, Shop / Find retailer / account / search right",
+   "Large light-weight grey headline (World time in dark mode…) + tiny Discover now › link above a full-bleed luminous Worldtimer dial macro",
+   "Two-up split: wrist photo + pair of watches on grey, each with light caption and Discover now link",
+   "Watches click opens white mega-panel: Model families / New Releases / All models tabs, left family text list, right watch thumbnails with name + count",
+   "Model-family horizontal rail (TANGENTE 37 watches, AHOI 11…) with dot pager + outlined Watchfinder button",
+   "Manufactory film band + 4-up photo strip (Watchmaking tradition / R&D / calibers) + big light »quote« pull statement"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar",
+  "slug": "lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar",
+  "name": "Lummi giant lowercase “no more boring design” headline + color-curated photo masonry with hover author chip/actions + sticky tools toolbar",
+  "date": "2026-10-17",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.lummi.ai/",
+  "domain": "lummi.ai",
+  "product": "Lummi — AI + human stock image library",
+  "checkpoints": [
+   "Slim top bar: script Lummi logo, Photos / Illustrations / 3D tabs, wide search with ⌘K hint, black Try Pro for free pill + Log in",
+   "Edge-to-edge ultra-bold tight-tracked lowercase headline + small one-line subtitle",
+   "Toolbar row: Tools dropdown, Reframe / Restyle / Background removal icon chips, Daily picks sort on the right; it sticks under the header on scroll",
+   "4-column masonry of mixed-ratio photos curated by color (reds, then blues) with rounded corners",
+   "Hover on a card: avatar + author chip bottom-left, bookmark/download square buttons top-right, Pro badge on some",
+   "What's new modal: image carousel with dots, title, timestamp, arrows + View all + black Try now"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan",
   "slug": "oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan",
   "name": "Oura Wear your best life warm hand-ring hero + health-pillar photo card carousel + fanned dark app-screen stack",
