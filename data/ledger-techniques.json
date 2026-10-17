@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu",
+  "slug": "kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu",
+  "name": "Kinfolk issue-cover hero + full-bleed story with Latest Stories two-column hover list + sage full-screen menu",
+  "date": "2026-10-17",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.kinfolk.com/",
+  "domain": "kinfolk.com",
+  "product": "Kinfolk — independent lifestyle/culture magazine",
+  "checkpoints": [
+   "White stage: KINFOLK letterspaced serif wordmark left + two-line hamburger right",
+   "Centered ISSUE 61 / THE PLAY ISSUE serif caps + single cover image + Buy | Read text links",
+   "Full-bleed fashion photo story with bottom-left serif title + dek (THE FLOW STATE / Mind. Body. Clothes…)",
+   "Bottom-right LATEST STORIES two-column list (category | title) with active dot; hovered row brightens to white",
+   "Inside Issue Sixty-One rule-topped header + View All + horizontal card rail",
+   "Hamburger opens sage full-screen menu: utility links column + large serif category list + underline search field + subscribe card; black sticky subscribe bar"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal",
+  "slug": "balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal",
+  "name": "BALMUDA dark serif-accent toaster hero + region modal + our products grid + scroll-reveal lifestyle sections",
+  "date": "2026-10-17",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.balmuda.com/jp/",
+  "domain": "balmuda.com",
+  "product": "BALMUDA — Japanese design home appliances",
+  "checkpoints": [
+   "Charcoal top nav: BALMUDA wordmark + Products/Journal/Recipe/About/Stores/サポート + cart icon",
+   "Dark gradient hero: copper serif The New Taste + white sans BALMUDA The Toaster + white/black toasters glowing on stone plinth",
+   "Centered white region modal (Go to us.balmuda.com / Stay on balmuda.com) + close X, then dark cookie card bottom-right",
+   "our products serif header + 3x2 cut-out product grid (name + Japanese subtitle) + pill すべての製品をみる",
+   "Scroll-triggered fade-in lifestyle blocks (kettle/table photo, 詳しく見る link) and recipe/journal photo strip",
+   "Serif Sign up for our Newsmail popup with email + arrow submit"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-tana-meetings-call-mock-live-capture-cards-gradient-feature-panels",
+  "slug": "tana-meetings-call-mock-live-capture-cards-gradient-feature-panels",
+  "name": "Tana Meetings that ship: video-call mock + live Listening capture-card stack + pastel gradient feature panels",
+  "date": "2026-10-17",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://tana.inc/",
+  "domain": "tana.inc",
+  "product": "Tana — AI meeting capture that files issues, drafts email and updates CRM",
+  "checkpoints": [
+   "Off-white header: tana logo + The cost of meetings/Pricing + tana outliner + outlined Download",
+   "Hero split: serif Meetings that ship + short paragraph left, black Download button + 30-day trial note right",
+   "Peach-lavender gradient band: macOS window with 2-up video call + control bar (mute/cam/hand/end red)",
+   "Overlapping Tana panel (Listening): Linear Issue Sent / Gmail Draft Send / Tana question Yes x cards + Ask or capture… input",
+   "Grayscale integration logo marquee + centered serif For AI-native teams… statement",
+   "Alternating gradient feature panels: decision/client-call feed with ask input, Linear issue detail with screenshot, Done before you hang up copy"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
   "id": "clone-rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap",
   "slug": "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap",
   "name": "Rainbow dark sticky-phone scroll story: screens swap per section + right section rail + Hold to Swap keypad",

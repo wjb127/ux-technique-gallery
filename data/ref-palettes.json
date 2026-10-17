@@ -4848,5 +4848,35 @@
   "ac2": "#18181b",
   "ac3": "#ff4b1f",
   "coverage": 0.7
+ },
+ "kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu": {
+  "bg": "#ffffff",
+  "fg": "#111111",
+  "panel": "#dbded5",
+  "dark": false,
+  "ac": "#c64620",
+  "ac2": "#dbded5",
+  "ac3": "#bcbdb9",
+  "coverage": 0.7
+ },
+ "balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal": {
+  "bg": "#202020",
+  "fg": "#ffffff",
+  "panel": "#2e2f2f",
+  "dark": true,
+  "ac": "#eb6100",
+  "ac2": "#ffffff",
+  "ac3": "#3c3e3d",
+  "coverage": 0.7
+ },
+ "tana-meetings-call-mock-live-capture-cards-gradient-feature-panels": {
+  "bg": "#fbfbfb",
+  "fg": "#111111",
+  "panel": "#f4f2f3",
+  "dark": false,
+  "ac": "#4563d7",
+  "ac2": "#eac6cd",
+  "ac3": "#efc471",
+  "coverage": 0.7
  }
 }
