@@ -4003,5 +4003,32 @@
   "proof": "cards=3 listening=tnw caption=\"Cancel anytime\" mobileChips=false; Gmail Send → Sent ↗ sent=true; Tana Yes → answered=true; capture → cards=4 last=\"Follow up with Acme on SSO\"; mic=false cam=false hand=true tileOff=true; end → ended=true; rejoin → ended=false; scroll → solidHeader=true dlBg=rgb(17, 17, 17); feed ask → hits=2; restored cards=3 send=Send solid=false · stand-ins: SVG-drawn call participants (no video), generic glyphs instead of integration logos, CSS screenshot mock in the Linear issue; Newsreader substitutes Tana’s serif; Download label follows navigator.platform (Linux); capture-card copy as seen in the ref; Yes/answer text, captured-card flow, end-call overlay and feed-highlight answer are demo behaviour; speaker-ring and caption rotation timing unverified",
   "demoNodes": 384,
   "errors": []
+ },
+ "sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system": {
+  "url": "https://ux-technique-gallery.vercel.app/t/sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system/",
+  "ok": true,
+  "at": "2026-10-17T04:07:28.261Z",
+  "http": 200,
+  "proof": "hero=\"Love the sound.Feel the system.\" kenBurns=snkb newsletter=false; pause → paused; strip closed=true; explode p0 back/grille x=0/0 → p.5 -216/152 → p1 -330/232 (prog=1.00) stat=4000+ sticky=sticky; newsletter auto-open=true; bad email → err \"Please enter a valid email address.\"; good email → subscribed; modal closed=true; Trueplay info → true; rail goTo(3) → active=2 dot=true prev=true; rail end → active=5 nextDisabled=true; restored prog=0.00 active=0 newsletter=false scrollTop=0 · stand-ins: SVG-drawn lifestyle hero (white cylinder speaker on marble table) with CSS Ken-Burns instead of the video, SVG soundbar, 6-layer SVG exploded speaker (back/board/drivers/woofer/hex frame/grille) instead of the 3D render, SVG studio/isometric room/rail/room-card scenes, SVG floating black speakers; DM Sans substitutes the Sonos typeface; Play-your-way cards 3–6 titles, quote attribution and mix-card captions are illustrative; Trueplay rings, newsletter scroll trigger + validation and cart counter are demo behaviour (newsletter timing on the real site unverified)",
+  "demoNodes": 2338,
+  "errors": []
+ },
+ "oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan": {
+  "url": "https://ux-technique-gallery.vercel.app/t/oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan/",
+  "ok": true,
+  "at": "2026-10-17T04:07:28.251Z",
+  "http": 200,
+  "proof": "hero=\"Wear yourbest life\" shopBg=rgb(44, 111, 240) ring=true cookie=true; dropdown \"Your Health\" open=true items=6; Shop Now → cart=1; headerSolid=true; rail → card2 progress=29% thumbLeft=16.1% prevEnabled=true; rail end nextDisabled=true; card \"+\" → info=true \"Wellness and Longevity\"; fan click Sleep → center=sleep raisedH=620 todayH=455; cookie Accept Necessary → consent=necessary hidden=true; restored center=today cart=0 cookie=true scrollTop=0 · stand-ins: SVG-drawn hand + silver ring (no photo), SVG card scenes instead of lifestyle photos (cards 5–6 Stress/Women’s Health are illustrative — ref rail showed 4), CSS-built app screens modeled on the ref fan, CSS Health Radar phones, SVG news image, gradient avatars; Instrument Serif + Inter substitute Oura’s serif/sans; dropdown contents, card “+” info overlay, click-to-raise fan and cart counter are demo behaviour (unverified on the real site)",
+  "demoNodes": 788,
+  "errors": []
+ },
+ "teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles": {
+  "url": "https://ux-technique-gallery.vercel.app/t/teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles/",
+  "ok": true,
+  "at": "2026-10-17T04:07:28.261Z",
+  "http": 200,
+  "proof": "hero animating=true chip=\"ON VIEW\" title=\"teamLab Biovortex Kyoto\" exCards=6 tiles=12; lang menu=true; lang=한국어; exhibitions View More → 9 cards disabled=true; hover \"Order in Chaos\" → filter=brightness(0.42) saturate(0.85) titleOpacity=1 (others 0); works View More → 15 tiles; lightbox open=true \"Order in Chaos\"; esc → lightbox=false; search \"forest\" → 2 hits (Forest of Resonating Lamps / Resonating Forest); restored exCards=6 tiles=12 search=false scrollTop=0 · stand-ins: canvas-generated artwork (animated sprite-bubble Biovortex hero, procedural red eclipse / light-grid / flower / crystal / rainbow-floor / forest / laser / gold / feather / lamp images) instead of teamLab photos and video; Helvetica/Arial for teamLab’s sans; exhibition names/dates from the ref, View-More extra exhibitions/works and all work titles except Order in Chaos are illustrative pairings; lightbox, search filter and language menu behaviour are demo (unverified on the real site)",
+  "demoNodes": 198,
+  "errors": []
  }
 }
