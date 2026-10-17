@@ -4030,5 +4030,32 @@
   "proof": "hero animating=true chip=\"ON VIEW\" title=\"teamLab Biovortex Kyoto\" exCards=6 tiles=12; lang menu=true; lang=한국어; exhibitions View More → 9 cards disabled=true; hover \"Order in Chaos\" → filter=brightness(0.42) saturate(0.85) titleOpacity=1 (others 0); works View More → 15 tiles; lightbox open=true \"Order in Chaos\"; esc → lightbox=false; search \"forest\" → 2 hits (Forest of Resonating Lamps / Resonating Forest); restored exCards=6 tiles=12 search=false scrollTop=0 · stand-ins: canvas-generated artwork (animated sprite-bubble Biovortex hero, procedural red eclipse / light-grid / flower / crystal / rainbow-floor / forest / laser / gold / feather / lamp images) instead of teamLab photos and video; Helvetica/Arial for teamLab’s sans; exhibition names/dates from the ref, View-More extra exhibitions/works and all work titles except Order in Chaos are illustrative pairings; lightbox, search filter and language menu behaviour are demo (unverified on the real site)",
   "demoNodes": 198,
   "errors": []
+ },
+ "lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar": {
+  "url": "https://ux-technique-gallery.vercel.app/t/lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar/",
+  "ok": true,
+  "at": "2026-10-17T08:15:59.013Z",
+  "http": 200,
+  "proof": "whatsNew open=true \"Introducing Video Generations\" dots=5; next → \"Restyle any image\" dot2=true prev=true; last nextDisabled=true; close → true; headline \"no more boring design\" 139px weight=800 width=1396/1440; masonry cols=4 cards=20 firstGroup=red lastGroup=blue; hover card → author=\"Mariana Pedroza\" chipOpacity=1 buttons=2+download; heart → saved=1; Pro/extra chips=7; sort Most popular → first=\"Aiko Tanaka\" (520); tab Illustrations → cards=20 tab=Illustrations; search \"portrait\" → 3 hits; search \"zzz\" → empty=true; Reframe chip active=true; scroll 900 → toolbar top=64px (header 64px) sticky=true shadow=true; Ctrl+K → search focused=true; restored tab=Photos sort=daily q=\"\" whatsNew=false (dismissed, as after first visit) scrollTop=0 · stand-ins: 20 SVG-drawn photo stand-ins (cocktails on red tiles, red curtain portrait, beet macro, bottle, red-light server streaks, neon motorbike, cherries, SUMMER IS OVER poster, red/blue house, freckled face with blue eyeshadow, spiral stairs, night forest, sky/ocean, portrait, chrome/pool/ink abstracts) instead of Lummi images; flat-vector and glossy-sphere generators for the Illustrations/3D tabs; code-drawn What’s new slide art; Pinyon Script approximates the Lummi script logo; Inter is the ref font; authors other than Mariana Pedroza / Pablo Stanley, likes, tags, What’s new slides 2–5 and tool/sort/search behaviour are illustrative demo behaviour",
+  "demoNodes": 920,
+  "errors": []
+ },
+ "nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip": {
+  "url": "https://ux-technique-gallery.vercel.app/t/nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip/",
+  "ok": true,
+  "at": "2026-10-17T08:15:59.015Z",
+  "http": 200,
+  "proof": "hero=\"World time in dark mode: Club Sp…\" home=ATH hour=-52° ring=0° cities=24; pusher → home=MOW hourΔ=30° ring=-15°; tap TYO → home=TYO 24h=259°; Watches click → mega=true panelX=0 families=13 grid=13; hover Ahoi → grid=4 first=\"Ahoi\"; New Releases → 4 \"Club Sport neomatik Worldtimer dark\"; Watchmaking tab → list=5; Esc → mega=false; rail next → page=1 dot=true prev=true; rail end nextDisabled=true; Watchfinder sporty → 3 matches (Ahoi/Club/Autobahn); film play=true anim=nmbal; chat open=true; sticky header top=0; restored home=ATH mega=false rail=0 watchfinder=false scrollTop=0 · stand-ins: SVG-drawn luminous Worldtimer dial (live hands on real UTC + city offsets, no DST), SVG wrist/pair watch shots, SVG manufactory macro (balance bridge + rubies on gold plate) instead of the film, SVG strip photos; all watch thumbnails are one parametric SVG watch drawing; Montserrat substitutes the NOMOS sans; family counts beyond Tangente/Ahoi/Metro/Ludwig/Orion, per-family variant names, Watchmaking/Topics lists, Watchfinder filter, chat panel and quote attribution are illustrative demo behaviour",
+  "demoNodes": 2180,
+  "errors": []
+ },
+ "vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards": {
+  "url": "https://ux-technique-gallery.vercel.app/t/vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards/",
+  "ok": true,
+  "at": "2026-10-17T08:15:59.004Z",
+  "http": 200,
+  "proof": "hero S6=\"S6\" navTop=112px tone=dark glass=true cookie=true; menu open=true items=6 navH=320; bag → \"Your bag is empty.Shop\"; shop → bag=1; tail light brake=true; country → Germany; ticker rotate → \"Free test rides in 200+ \" changed=true; scroll night → navTop=64px pinned=true tone=dark; Learn more → armed=true; app section tone=light lightGlass=true; ride display 24 km/h · duration 2:05 → 2:06 · trip 0.3km · battery 87%; Configure → assist=3 bars=3; Touch unlock → \"Unlocked — ride on\"; press next → t3 prevEnabled=true; end nextDisabled=true; cookie Reject All → consent=rejected hidden=true; ticker closed → navTop=64px; restored navTop=112px tone=dark bag=0 cookie=true feat=ride scrollTop=0 · stand-ins: SVG-drawn macro bike frame + glowing red tail light (no photo), SVG night-security scene, SVG Berlin-style street with rider, SVG handlebar + CSS ride display (live-ticking speed/duration/trip/battery + moving map dot), SVG test-ride/support tiles and community thumbs; Inter Tight + Geist Mono substitute VanMoof’s sans/mono; T3/WIRED press quotes, second ticker message, menu entries, assist/share/unlock panes, bag and alarm behaviour are illustrative demo behaviour (hamburger menu contents unverified — the ref hamburger click timed out headless)",
+  "demoNodes": 839,
+  "errors": []
  }
 }
