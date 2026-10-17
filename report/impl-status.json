@@ -3976,5 +3976,32 @@
   "proof": "chrome=6rail/trueqr phone=sticky-left; scroll→Home:home,Crypto:crypto,Predictions:predictions,Perps:perps,Live Data:live,Rewards:rewards; phonePinned=true; keypad=50.25→0.000770WBTC sell=2%; earlyRelease=cancelled; hold1100ms=Swapped ✓; predTab=Spreads; perps=XYZ 100 25x short; live tf=1M; restored active=Home amt=120.33 · stand-ins: CSS/SVG phone UI (not real app screenshots), SVG rainbow-arc icon, pixel avatar (generic “rainbow.eth” instead of the ref’s ENS), CSS team crests/coins, generated sparklines/candles, fake QR; balances/odds/prices copied from the ref mock screens (sample data); hero word cycling Nvidia/Bitcoin/Gold/Oil is unverified (ref shot shows Nvidia only); Nunito Variable for Rainbow’s rounded font",
   "demoNodes": 729,
   "errors": []
+ },
+ "kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu": {
+  "url": "https://ux-technique-gallery.vercel.app/t/kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu/",
+  "ok": true,
+  "at": "2026-10-17T00:05:51.674Z",
+  "http": 200,
+  "proof": "issue=\"Issue 61The Play Issue\" cover=true bar=false; story scrolled → subscribeBar=true burgerWhite=true; hover row3 → rgb(255, 255, 255) (others rgba(255, 255, 255, 0.55)) paused=true; click row6 → active=5 caption=\"Press Here\" dot=true; open=Press Here; rail scrollLeft=200; menu=true bg=rgb(219, 222, 213) cats=9; search \"fa\" → hits=Fashion; searched=fa; esc → menu=false query=\"\"; restored active=0 bar=false scrollTop=0 · stand-ins: SVG-drawn issue cover, story scenes (Flow State studio modeled on the ref photo; the other 7 story scenes are abstract), Inside-Issue card art and Notes perfume band (no photos); Newsreader substitutes for Kinfolk’s serif; click-to-feature + 7s auto-advance of the Latest Stories ring are demo behaviour (unverified on the real site); Inside-Issue card categories are illustrative",
+  "demoNodes": 310,
+  "errors": []
+ },
+ "balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal": {
+  "url": "https://ux-technique-gallery.vercel.app/t/balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal/",
+  "ok": true,
+  "at": "2026-10-17T00:05:51.684Z",
+  "http": 200,
+  "proof": "modal=true cookie=true title=\"The New Taste\" color=rgb(235, 97, 0); Stay on → modal=false region=stay; cookie=accept; grid reveal 0→6/6 opacity=1; hover \"BALMUDA The Pot\" lift=true; lifestyle revealed=1 newsmail=true; bad email → msg err; good email → msg ok subscribed=demo@example.com; newsmail closed=true; restored modal=true cookie=true scrollTop=0 · stand-ins: SVG-drawn toasters/plinth, product cut-outs, Pot/Clock lifestyle scenes and Journal strip (no photos); Libre Baskerville + Montserrat substitute BALMUDA’s fonts; Pot block copy and the joined wording of the about paragraph are placeholders (ref lazy blocks were blank / occluded); newsmail trigger point and success message are demo behaviour",
+  "demoNodes": 296,
+  "errors": []
+ },
+ "tana-meetings-call-mock-live-capture-cards-gradient-feature-panels": {
+  "url": "https://ux-technique-gallery.vercel.app/t/tana-meetings-call-mock-live-capture-cards-gradient-feature-panels/",
+  "ok": true,
+  "at": "2026-10-17T00:05:51.685Z",
+  "http": 200,
+  "proof": "cards=3 listening=tnw caption=\"Cancel anytime\" mobileChips=false; Gmail Send → Sent ↗ sent=true; Tana Yes → answered=true; capture → cards=4 last=\"Follow up with Acme on SSO\"; mic=false cam=false hand=true tileOff=true; end → ended=true; rejoin → ended=false; scroll → solidHeader=true dlBg=rgb(17, 17, 17); feed ask → hits=2; restored cards=3 send=Send solid=false · stand-ins: SVG-drawn call participants (no video), generic glyphs instead of integration logos, CSS screenshot mock in the Linear issue; Newsreader substitutes Tana’s serif; Download label follows navigator.platform (Linux); capture-card copy as seen in the ref; Yes/answer text, captured-card flow, end-call overlay and feed-highlight answer are demo behaviour; speaker-ring and caption rotation timing unverified",
+  "demoNodes": 384,
+  "errors": []
  }
 }
