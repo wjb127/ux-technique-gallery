@@ -4057,5 +4057,32 @@
   "proof": "hero S6=\"S6\" navTop=112px tone=dark glass=true cookie=true; menu open=true items=6 navH=320; bag → \"Your bag is empty.Shop\"; shop → bag=1; tail light brake=true; country → Germany; ticker rotate → \"Free test rides in 200+ \" changed=true; scroll night → navTop=64px pinned=true tone=dark; Learn more → armed=true; app section tone=light lightGlass=true; ride display 24 km/h · duration 2:05 → 2:06 · trip 0.3km · battery 87%; Configure → assist=3 bars=3; Touch unlock → \"Unlocked — ride on\"; press next → t3 prevEnabled=true; end nextDisabled=true; cookie Reject All → consent=rejected hidden=true; ticker closed → navTop=64px; restored navTop=112px tone=dark bag=0 cookie=true feat=ride scrollTop=0 · stand-ins: SVG-drawn macro bike frame + glowing red tail light (no photo), SVG night-security scene, SVG Berlin-style street with rider, SVG handlebar + CSS ride display (live-ticking speed/duration/trip/battery + moving map dot), SVG test-ride/support tiles and community thumbs; Inter Tight + Geist Mono substitute VanMoof’s sans/mono; T3/WIRED press quotes, second ticker message, menu entries, assist/share/unlock panes, bag and alarm behaviour are illustrative demo behaviour (hamburger menu contents unverified — the ref hamburger click timed out headless)",
   "demoNodes": 839,
   "errors": []
+ },
+ "aman-cream-serif-hotel-editorial-split-feature-cards-seasonal-rail-progress-split-drawer-menu": {
+  "url": "https://ux-technique-gallery.vercel.app/t/aman-cream-serif-hotel-editorial-split-feature-cards-seasonal-rail-progress-split-drawer-menu/",
+  "ok": true,
+  "at": "2026-10-17T12:23:22.547Z",
+  "http": 200,
+  "proof": "header h=88 wordmark=svg Reserve lang=\"English\" bg=rgb(243, 238, 232); hero pause → playing=false time held 01:04→01:04; seek 50% → 01:31 fill=50%; feature pair ratio 2.08:1 (913/439px); card hover zoom=true; seasonal rail cards=5 dimmed(cut-off)=3 → scrolled end: thumb 0px→227.822px dimmed=3; rail reset thumb=0px sticky heading=sticky; scroll → header compact=true h=57; menu open=true drawer x=0 left items=10 right=\"Discover Aman in...\" buttons=3; Experiences → panel=experiences items=6; region Asia → 6 destinations, first=\"Aman Tokyo, Japan\"; close → open=false; lang → 日本語; restored scrollTop=0 menu=false playing=true · stand-ins: code-drawn SVG scenes instead of Aman photography/video (lantern-lit desert courtyard “video” with Ken Burns + flickering lanterns, desert-view suite, Amanvari palms + pool reflection, ski peak above clouds, gilded city facade, wellness portrait, Kyoto counter, yacht, Dubai terrace, Maldives aerial, elevator crowd, golden-hills gift card, ship on blue); stroke-drawn ĀMAN wordmark; Newsreader (serif) + Lato (sans) substitute fonts; destination lists, languages and Reserve/Sign Up are illustrative demo behaviour",
+  "demoNodes": 1046,
+  "errors": []
+ },
+ "gentlemonster-cinematic-campaign-hero-segmented-progress-hover-dropdown-model-pair-thumbnail-swap": {
+  "url": "https://ux-technique-gallery.vercel.app/t/gentlemonster-cinematic-campaign-hero-segmented-progress-hover-dropdown-model-pair-thumbnail-swap/",
+  "ok": true,
+  "at": "2026-10-17T12:23:15.568Z",
+  "http": 200,
+  "proof": "hero slides=6 segments=6 active=1 header color=rgb(255, 255, 255) wordmark=\"GENTLE MONSTER\"; segment 1 fill=50%; click seg 3 → active=3 lockup=\"BOLD COLLECTION\" seg1=100% seg3=0%; auto-advance → active=4; hover 선글라스 → dropdown items=10 opacity=1 first=\"전체보기\" panel bg=rgba(0, 0, 0, 0); scroll → light header=true color=rgb(173, 173, 173); pair \"토피 02 ₩380,000\" / \"베르 02 ₩370,000\" thumbs=7; thumb 2 hover → \"제스트 01\" / \"모리 02\" active=true; wishlist → \"위시리스트에서 삭제하기\"; 아이템 뷰 → itemView=true pairSvg=112 92 376 170; TOP20 rail cards=10 hover angle swap=true; rail scroll=400; notice closed=true; restored scrollTop=0 slide=1 pair=1 light=false · stand-ins: code-drawn SVG cinematic close-up portraits with tinted eyewear, film grain and vignette instead of Gentle Monster campaign films/photos; parametric SVG cut-out models (hair/garment/eyewear variants) for the new-arrivals pairs and thumbnails; SVG front/3-quarter eyewear renders for TOP 20 and 아이템 뷰; EB Garamond + Libre Baskerville approximate the GENTLE MONSTER / PRADA wordmarks; system Korean sans; product names beyond 토피 02 / 베르 02 / 제스트 01 / 모리 02 / 제인 01(G) / 제스트 BR2 / 우나씨 W 01(BR) / 오딘 BRC23, all collab/slide titles 2–6, prices and footer legal text are illustrative demo content",
+  "demoNodes": 1343,
+  "errors": []
+ },
+ "liquiddeath-heavy-condensed-caps-hero-slider-center-raised-can-trio-punk-merch-crest-cards": {
+  "url": "https://ux-technique-gallery.vercel.app/t/liquiddeath-heavy-condensed-caps-hero-slider-center-raised-can-trio-punk-merch-crest-cards/",
+  "ok": true,
+  "at": "2026-10-17T12:23:27.443Z",
+  "http": 200,
+  "proof": "country modal open=true title=\"PLEASE SELECT YOUR COUNTRY\" options=6; HELL YES (US) → ann=\"Free shipping to the United States on all orders above $49.00\" merch1=$46.38 cookieBar=true; hero slides=8 pager=8 headline=\"EASY-DRINKING ENERGYFOR PEOPLE-DRINKING VAMPIRES\" font=Oswald 600; next → slide 2 pager2=true x=translateX(-100%); pager 8 → \"BLOOD ZEROLIMITED EDITION\"; trio center=\"BLOOD ZERO\" raised=true centerCanH=387 vs side=300; click right can → center=\"SCARY STRAWBERRY\"; hover BEVERAGES → mega items=4 visible=visible; ADD TO CART x2 → bag=2 drawer=true subtotal=$112.97; crest hover=true label=\"JOIN THE CLUB\" / \"SELL LIQUID DEATH\"; Continue to Site → cookieBar=false; restored currency=KR slide=1 center=\"BLOOD ZERO\" modal=false (dismissed, as after first visit) · stand-ins: code-drawn SVG hero scenes (gym wall + exercise balls, alps, crushed-bottle pile, desert, stage lights, graveyard, synthwave arcade, pink studio) with SVG cans instead of Liquid Death campaign photography; parametric SVG cans with blackletter wordmark + gold skull/flame line art per flavour; SVG merch cut-outs (Slaughter bottle, beach chair, sweatshirt, coffin Flasket) and gold line-art crests (Country Club skull + scythes, Death Peddlers United badge); Oswald + Barlow Condensed approximate the condensed caps, UnifrakturCook the blackletter logo; headlines on slides 2–8, flavour line-up beyond Subliminal Lime / Blood Zero / Scary Strawberry, currency rates, cart and terms copy are illustrative demo behaviour",
+  "demoNodes": 3040,
+  "errors": []
  }
 }
