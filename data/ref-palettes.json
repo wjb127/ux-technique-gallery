@@ -4938,5 +4938,35 @@
   "ac2": "#b3202a",
   "ac3": "#1f5fae",
   "coverage": 0.7
+ },
+ "aman-cream-serif-hotel-editorial-split-feature-cards-seasonal-rail-progress-split-drawer-menu": {
+  "bg": "#494745",
+  "fg": "#fdf9f5",
+  "panel": "#484644",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.61
+ },
+ "gentlemonster-cinematic-campaign-hero-segmented-progress-hover-dropdown-model-pair-thumbnail-swap": {
+  "bg": "#747473",
+  "fg": "#141414",
+  "panel": "#4f4c4a",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.15
+ },
+ "liquiddeath-heavy-condensed-caps-hero-slider-center-raised-can-trio-punk-merch-crest-cards": {
+  "bg": "#ffffff",
+  "fg": "#0f1314",
+  "panel": "#dfdfde",
+  "dark": false,
+  "ac": "#1e3037",
+  "ac2": "#6a4f44",
+  "ac3": "#996a5a",
+  "coverage": 0.1
  }
 }

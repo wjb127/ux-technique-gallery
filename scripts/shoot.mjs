@@ -14,7 +14,7 @@ const status = fs.existsSync(statusFile) ? JSON.parse(fs.readFileSync(statusFile
 let jobs = list.filter((t) => (!only || only.includes(t.slug)) && (mode !== 'ref' || t.url));
 if (missing) jobs = jobs.filter((t) => !fs.existsSync(`${outDir}/${t.slug}.png`));
 const browser = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required'] });
-const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: 'ko-KR', timezoneId: 'Asia/Seoul' });
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: 'ko-KR', timezoneId: 'Asia/Seoul', ...(mode === 'ref' && process.env.REF_UA ? { userAgent: process.env.REF_UA } : {}) }); // REF_UA: desktop-browser UA for refs whose CDN 403s the default headless UA
 async function one(t) {
   const page = await ctx.newPage();
   const errors = [];
