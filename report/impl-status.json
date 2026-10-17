@@ -4111,5 +4111,32 @@
   "proof": "header nav=6 (Media|Community|Support|News|Events|Giving Back) store=\"STORE\" lang=\"ENGLISH\" logo=svg brush; platform icons=5 hover Steam → bg=rgb(64, 167, 224) tip=\"Steam\"; download band blur=blur(6px) \"Download Now\" + \"PLAY NOW\"; mist dividers=6; Explore reveal false→true (opacity 1) bg=rgb(251, 231, 230); play → video modal open=true; Sky News cards=6 bg=rgb(201, 214, 223); MORE NEWS → 9; night palette=true awards=15 bg=rgb(22, 25, 31); award hover lift=true; media carousel next → page 2/2 transform=translateX(-100%) dot2=true; prev → page 1; media thumb → lightbox=\"Rain forest umbrellas · \"; feed cards=6; lang 한국어 → nav=\"미디어\" dl=\"지금 다운로드\"; restored scrollTop=0 night=false lang=English page=1 · stand-ins: code-drawn SVG painted scenes (cloud kingdom hero with mountain temple light beams, rolling hills and flower meadow; pink pastel sky with flying caped children; misty forest pillars; night forest) instead of thatgamecompany key art/video; brush-stroke Sky logo, platform glyphs, laurel award badges, news/media/feed art are all code-drawn approximations; feTurbulence-displaced mist bands for the section dissolves; Lato (site font) via @fontsource; video modal plays an animated stand-in scene",
   "demoNodes": 2080,
   "errors": []
+ },
+ "leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid": {
+  "url": "https://ux-technique-gallery.vercel.app/t/leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid/",
+  "ok": true,
+  "at": "2026-10-17T20:04:20.514Z",
+  "http": 200,
+  "proof": "headline \"Leica Camera\" weight=300 font=\"Outfit Variable\"; roundel=#e20612; region bar=true; hero slide \"Leica LUX Grip Silver\" active tab=LUX Grip; tab M-System → \"Leica M11-P Safari\" on=true visible=true; tab Metal Gray → \"Leica Q3 43 Metal Gray\"; red-dot pill: rgb(226, 6, 18) on rgb(255, 255, 255); Products mega-menu open=true opacity=0.983522 items=6; Art of Leica band bg=rgb(241, 239, 234) dark pill=rgb(30, 30, 30) tiles=3; tile hover zoom=true; category grid=Cameras/Sport Optics/Home Cinema/Watches/Mobile/Brand Collection/Leica Eyecare; latest products next → page 2/4 first visible=\"Summicron-M 50 f/2\" transform=translateX(-443px); consult form empty → \"Please complete 5 required fields.\" filled → \"Thank you, Junbok — a Leica expert will contact you about M-System (demo).\"; region bar close → height=0; scroll → sticky frosted header=true pos=sticky; restored slide=LUX Grip scrollTop=0 · stand-ins: code-drawn SVG photography (Rotterdam cube-house LUX Grip portrait, M11-P / SL3-S / Q3 43 product scenes, red heart balloon street scene, dock / Paris / street editorial tiles, category photos, product cutouts) instead of Leica imagery; Outfit 300 for Leica’s light sans and Lobster for the roundel script (substitutes); slide names for tabs 2–4 and product copy are illustrative",
+  "demoNodes": 1896,
+  "errors": []
+ },
+ "superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list": {
+  "url": "https://ux-technique-gallery.vercel.app/t/superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list/",
+  "ok": true,
+  "at": "2026-10-17T20:04:20.508Z",
+  "http": 200,
+  "proof": "two-tone h1 white=rgb(255, 255, 255) red=rgb(255, 74, 42) font=\"Inter Tight Variable\" weight=700; bg glow=true; hover Features → open=true opacity=0.983446 rows=Meeting NotesNEW/Voice AI/Lists/MCP NEW=true; hover Use Cases → open=true features closed=true rows=5; mouseleave → closed=true; sidebar Today → doc \"Today\" tasks=5; task check → done=true; back → \"Production planning - June\"; feature list \"Stay on top of work\" → phone \"Work\" active bar=rgba(139, 124, 246, 0.85); nested subtasks expand=true height=true; voice record → waveform animating=splw; repeat → Monthly; tiles: b:gradient,r:gradient,v:gradient,k:solid; capability list focus \"Real-time collaboration\" (op 0.97) → \"Fast AF\" first now op=0.16; sticky header=sticky scrolled=true; cookie Okay → hidden=true; restored scrollTop=0 page=\"Production planning - June\" · stand-ins: code-drawn SVG concert-stage photo (camera operator silhouette in blue light) in the app window, HTML/CSS app UI + phone screens instead of product screenshots, text wordmarks for customer logos, drawn fox mascot for Product Hunt; Inter Tight for Superlist’s grotesk (substitute)",
+  "demoNodes": 487,
+  "errors": []
+ },
+ "lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs": {
+  "url": "https://ux-technique-gallery.vercel.app/t/lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs/",
+  "ok": true,
+  "at": "2026-10-17T20:04:20.516Z",
+  "http": 200,
+  "proof": "hero \"REVUELTO SV\" stretch=62% weight=700 caps; eyebrow=\"THE QUANTUM OF DRIVING\"; lines=3; line pager 2 → \"TEMERARIO\" visible=true done=true; hex pause → paused=true label=Play held=true; video stand-in animating=lbgdr; MENU → overlay open=true opacity=1 main=MODELS/OWNERSHIP/DEALERSHIPS/BEYOND/COMPANY/MOTORSPORT/MUSEUM/STORE secondary=7; MODELS drill-down=true cars=4; text size + → 19px→21.85px; language → ITALIANO; allow animations off=true; close → true; search panel open=true; models next → TEMERARIO \"FUORICLASSE\" transform=translateX(-792px) prev enabled=true; next → URUS SE; back → REVUELTO prev disabled=true; gold Explore bg=rgb(145, 117, 18); hex arrows=2; configure tab → \"URUS SE PERFORMANTE\" active=true underline=rgb(184, 150, 46); → \"TEMERARIO\"; yellow START CONFIGURATION bg=rgb(255, 192, 0); dealer band=\"DEALER LOCATOR\"; scroll past hero → solid header=true; restored slide=REVUELTO SV model=REVUELTO cfg=REVUELTO SV · stand-ins: animated code-drawn SVG scenes (Revuelto SV rear wing + red Y tail-light with light sweep, Temerario hex headlights with tunnel streaks, Urus SE night road) instead of the hero video; code-drawn side-view and front 3/4 car illustrations and showroom band instead of photos/renders; outline bull-shield SVG for the crest; Archivo Variable at 62% width for Lamborghini’s condensed caps and 125% for the wide MODELS heading (substitutes); taglines and specs for Temerario / Urus SE / Fenomeno are illustrative",
+  "demoNodes": 742,
+  "errors": []
  }
 }
