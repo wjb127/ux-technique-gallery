@@ -26,6 +26,7 @@ async function one(t) {
     rec.http = r ? r.status() : null;
     await page.waitForTimeout(mode === 'ref' ? +(process.env.REF_WAIT || 4000) : 900);
     if (mode === 'impl') {
+      await page.waitForFunction(() => typeof window.__demoProof === 'function', null, { timeout: 15000 }).catch(() => {}); // engine chunk can still be downloading on a cold cache
       rec.proof = await page.evaluate(async () => (window.__demoProof ? await window.__demoProof() : 'no-proof-hook')).catch((e) => 'proof-error: ' + e.message);
       await page.waitForTimeout(500);
       rec.demoNodes = await page.evaluate(() => document.querySelector('#demo')?.querySelectorAll('*').length || 0);
