@@ -5028,5 +5028,35 @@
   "ac2": "#2a1516",
   "ac3": "#ffc83d",
   "coverage": 0.07
+ },
+ "ssense-stark-caps-grotesk-shop-a-world-of-vertical-brand-roller-tone-shift-banner-giant-split-shop-links-editorial-story-grid": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#fbfbfb",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.28
+ },
+ "mubi-cinematic-film-still-hero-rotation-caps-headline-inline-email-cta-device-line-art-band-notebook-magazine-split": {
+  "bg": "#212223",
+  "fg": "#e3e4e6",
+  "panel": "#292a2a",
+  "dark": true,
+  "ac": "#161a2e",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "bluebottle-airy-caps-tracked-nav-bw-hero-numbered-01-02-03-pager-image-mega-menu-product-rail-split-story-panels": {
+  "bg": "#ffffff",
+  "fg": "#27201e",
+  "panel": "#f6f6f3",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.33
  }
 }

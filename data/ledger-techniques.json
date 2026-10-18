@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-ssense-stark-caps-grotesk-shop-a-world-of-vertical-brand-roller-tone-shift-banner-giant-split-shop-links-editorial-story-grid",
+  "slug": "ssense-stark-caps-grotesk-shop-a-world-of-vertical-brand-roller-tone-shift-banner-giant-split-shop-links-editorial-story-grid",
+  "name": "SSENSE stark editorial fashion: \"SHOP A WORLD OF [brand]\" vertical word-roller banner whose background tone shifts black → grey → white, giant split SHOP MENSWEAR / SHOP WOMENSWEAR links, mixed caps-grotesk + serif story grid",
+  "date": "2026-10-18",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.ssense.com/en-us",
+  "domain": "ssense.com",
+  "product": "SSENSE — luxury and independent-designer fashion retailer and magazine",
+  "checkpoints": [
+   "Thin white header: tiny caps links MENSWEAR / WOMENSWEAR / EVERYTHING ELSE / SALE / SEARCH left, SSENSE wordmark centered, ENGLISH / LOGIN / WISHLIST / BAG (0) right",
+   "Inset banner with fixed line \"SHOP A WORLD OF\" and a second line that rolls vertically through designer names (MARINE SERRE, WALES BONNER, EMERGING DESIGNERS ...) with the next word peeking under a mask",
+   "The banner background crossfades black → mid grey → near-white as the words roll, with the text color inverting to stay readable",
+   "Giant light-weight grotesk SHOP MENSWEAR | SHOP WOMENSWEAR split links (stack to two lines each on 390px)",
+   "Story grid: 2-up then 3-up photo cards with tiny caps category + caps title + serif dek, black-box SHOP button under product stories",
+   "Mixed-density editorial band (big left story, small thumbnail list right), a giant caps essay headline with serif subhead + VIEW EDITORIAL outline button"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an SSENSE-style fashion editorial homepage in one Next.js page with Tailwind. White page, tiny uppercase nav links left, centered \"SSENSE\" wordmark, utility links right. Inset banner (rounded-none, full width minus margins, 160px tall): fixed line \"SHOP A WORLD OF\" and a second line inside an overflow-hidden mask that rolls upward through [\"MARINE SERRE\",\"WALES BONNER\",\"THISTLES\",\"EMERGING DESIGNERS\"] every 1.8s with a 500ms ease-in-out translateY; on each step the banner background crossfades through #111 → #777 → #bbb → #f4f4f4 and text color flips white/black for contrast. Below: two giant light-weight grotesk links \"SHOP MENSWEAR\" \"SHOP WOMENSWEAR\" (clamp(40px,6vw,88px), tight tracking). Then a story grid: 2-up then 3-up photo cards with tiny caps category, caps title, serif 2-line dek, and a black \"SHOP\" box button on product stories. End with a huge centered caps essay headline, a serif subheading and an outline \"VIEW EDITORIAL\" button. Use placeholder gradient photos. Must work at 390px with the links stacking. Respect prefers-reduced-motion (pause the roller)."
+ },
+ {
+  "id": "clone-mubi-cinematic-film-still-hero-rotation-caps-headline-inline-email-cta-device-line-art-band-notebook-magazine-split",
+  "slug": "mubi-cinematic-film-still-hero-rotation-caps-headline-inline-email-cta-device-line-art-band-notebook-magazine-split",
+  "name": "MUBI cinematic sign-up landing: full-bleed rotating film-still hero with caps headline and inline email + navy GET STARTED, line-art device band, centered wordmark manifesto, Notebook magazine split, community still band",
+  "date": "2026-10-18",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://mubi.com/en",
+  "domain": "mubi.com",
+  "product": "MUBI — curated film streaming service",
+  "checkpoints": [
+   "Transparent header over the film still: MUBI wordmark with dot-grid mark left, LOG IN + hamburger right; the hamburger opens a small white dropdown list",
+   "Full-bleed hero cycling film stills every few seconds (crossfade) under a fixed bold caps headline \"CINEMA LIKE NOWHERE ELSE\"; mobile shows a vertical 2-dot pager on the right edge",
+   "TRY 7 DAYS FREE caps label, white square email input joined to a deep navy GET STARTED button, small terms line",
+   "Film-still band with stacked caps \"ANY FILM. ANY SCREEN. ANY TIME. ANY WHERE.\" beside thin white line-art TV / laptop / tablet / phone outlines",
+   "White manifesto band: big MUBI wordmark left, centered caps paragraph right; grey NOTEBOOK split with a tilted magazine stack mock and SEE THE NEW ISSUE link",
+   "Final full-bleed still with caps community line, repeat sign-up block, light grey footer with link columns and QR app tile"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a MUBI-style film streaming sign-up landing page (Next.js + Tailwind). Transparent header over the hero: \"MUBI\" wordmark with a 3x2 dot-grid mark left, \"LOG IN\" and a hamburger right; the hamburger toggles a small white dropdown list of links. Hero: 100vh full-bleed background that crossfades between 4 film-still images every 4s (stack absolutely, opacity transition 1.2s, slight dark overlay), fixed bold uppercase headline \"CINEMA LIKE NOWHERE ELSE\" (white, ~56px), then \"TRY 7 DAYS FREE\" label, a joined form: white square email input + deep navy (#001489) \"GET STARTED\" button, and a tiny terms line with underlined links. On <640px show a vertical 2-dot pager on the right edge synced to the active slide. Next band: still photo with stacked caps \"ANY FILM. / ANY SCREEN. / ANY TIME. / ANY WHERE.\" beside inline SVG thin white line-art of a TV, laptop, tablet and phone. White manifesto band (big wordmark left, centered caps paragraph right), grey NOTEBOOK split with a CSS-3D tilted magazine stack, a final full-bleed still with a caps community line, the sign-up form again, and a light grey footer with link columns and a QR tile. Use gradient placeholders for photos."
+ },
+ {
+  "id": "clone-bluebottle-airy-caps-tracked-nav-bw-hero-numbered-01-02-03-pager-image-mega-menu-product-rail-split-story-panels",
+  "slug": "bluebottle-airy-caps-tracked-nav-bw-hero-numbered-01-02-03-pager-image-mega-menu-product-rail-split-story-panels",
+  "name": "Blue Bottle airy specialty-coffee commerce: tracked caps nav around the blue bottle logo, black-and-white hero with numbered 01 / 02 / 03 pager, five-column mega menu with image tiles, product rail and alternating photo story panels",
+  "date": "2026-10-18",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://bluebottlecoffee.com/",
+  "domain": "bluebottlecoffee.com",
+  "product": "Blue Bottle Coffee — specialty coffee roaster and cafés",
+  "checkpoints": [
+   "Slim promo bar + country selector, then a cream header with widely tracked caps SHOP / BEST SELLERS / SUBSCRIPTIONS / VISIT US & LEARN left, small blue bottle logo centered, search / account / bag icons right",
+   "Hovering SHOP opens a cream mega menu: five caps column heads (COFFEE & TEA / NEW ARRIVALS / DRINKWARE / BREW TOOLS / GIFTS & SETS) with plain link lists plus four small square image tiles with caps captions",
+   "Black-and-white photo hero (vinyl turntable with a blue label accent) with thin caps title, below it a caps headline + one-line body + charcoal block CTA, and a 01 02 03 numbered text pager right that swaps slides",
+   "NEW AND TRENDING rail of product packshots on light tiles with caps name + subline and a centered outline Shop button",
+   "Alternating split panels: large still-life photo beside a caps eyebrow, short paragraph and outline CTA (Miso Caramel, Fall Ritual Matcha, At-Home Subscriptions, Membership)",
+   "Mobile: hamburger header plus a horizontally scrolling row of rounded outline category pills (Best Sellers / New Arrivals / Shop Coffee / Subscriptions)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Blue Bottle Coffee-style specialty coffee shop homepage (Next.js + Tailwind). Cream (#f6f5f0) header with a slim promo bar on top; widely tracked uppercase links (letter-spacing 0.12em) SHOP / BEST SELLERS / SUBSCRIPTIONS / VISIT US & LEARN left, a small blue (#2a8fd6) bottle SVG logo centered, search/account/bag icons right. Hovering SHOP opens a full-width cream mega menu (200ms fade + 8px slide) with five caps column heads (COFFEE & TEA, NEW ARRIVALS, DRINKWARE, BREW TOOLS, GIFTS & SETS) and plain link lists, plus four square image tiles with caps captions on the right; close on mouse leave or Esc, keyboard accessible. Hero: grayscale photo slider with one blue accent, below it a caps headline, one-line body, charcoal block CTA, and a \"01 02 03\" numbered text pager on the right (active = bold black, others grey) that swaps slides with a crossfade. Then a NEW AND TRENDING product rail (light tiles, caps name, subline, centered outline \"Shop All\" button) and alternating left/right split story panels (large still-life photo + caps eyebrow + short paragraph + outline CTA). On mobile, a hamburger header and a horizontally scrolling row of rounded outline category pills. Use placeholder images."
+ },
+ {
   "id": "clone-superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list",
   "slug": "superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list",
   "name": "Superlist dark violet-gradient hero with white + red-orange two-tone headline, big rounded app-window mock, hover dropdown nav, color-tile feature grid and fading capability word list",
