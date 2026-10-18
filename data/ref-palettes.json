@@ -5058,5 +5058,35 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.33
+ },
+ "joby-rounded-hero-card-expands-full-bleed-scroll-scrubbed-aircraft-sequence-blue-statement-cream-sticky-partner-list-fullscreen-blue-menu": {
+  "bg": "#030303",
+  "fg": "#f3cda3",
+  "panel": "#302012",
+  "dark": true,
+  "ac": "#007ae5",
+  "ac2": "#302012",
+  "ac3": "#007ce9",
+  "coverage": 0.21
+ },
+ "big-architecture-index-center-column-glyph-icon-project-list-logo-to-hamburger-category-filter-subfilter-row": {
+  "bg": "#ffffff",
+  "fg": "#252f2d",
+  "panel": "#dde1e6",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.7
+ },
+ "1x-neo-warm-grey-robot-product-story-sticky-section-subnav-rounded-video-cards-chore-pill-carousel-center-zoom-feature-carousel": {
+  "bg": "#737f96",
+  "fg": "#141414",
+  "panel": "#8a99b0",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
  }
 }
