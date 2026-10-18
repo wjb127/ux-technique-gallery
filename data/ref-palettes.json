@@ -5148,5 +5148,35 @@
   "ac2": "#6330e9",
   "ac3": "#525ee9",
   "coverage": 0.11
+ },
+ "annapurna-game-publisher-dark-light-toggle-pill-nav-fullbleed-key-art-hero-carousel-arrows-dots-cover-art-grid-hover-details-pill-platform-filter-dropdown": {
+  "bg": "#1b2128",
+  "fg": "#dbdcdc",
+  "panel": "#0f1317",
+  "dark": true,
+  "ac": "#324251",
+  "ac2": "#1f2832",
+  "ac3": "#43586a",
+  "coverage": 0.08
+ },
+ "cowboy-ebike-scroll-showcase-cursor-follow-explore-pill-model-segmented-toggle-angle-slider-arrows-scroll-fill-headline-mega-menu-bike-lineup": {
+  "bg": "#3e3d32",
+  "fg": "#d2cfc9",
+  "panel": "#666046",
+  "dark": true,
+  "ac": "#5e553a",
+  "ac2": "#62583d",
+  "ac3": "#6f6348",
+  "coverage": 0.06
+ },
+ "phaidon-art-book-publisher-yellow-scattered-cover-hero-color-block-category-panels-book-rows-image-mega-menu-live-search-panel": {
+  "bg": "#f8cb00",
+  "fg": "#a33727",
+  "panel": "#ffc800",
+  "dark": false,
+  "ac": "#f8cb00",
+  "ac2": "#ffc800",
+  "ac3": "#a33727",
+  "coverage": 0.2
  }
 }

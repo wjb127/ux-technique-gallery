@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-annapurna-game-publisher-dark-light-toggle-pill-nav-fullbleed-key-art-hero-carousel-arrows-dots-cover-art-grid-hover-details-pill-platform-filter-dropdown",
+  "slug": "annapurna-game-publisher-dark-light-toggle-pill-nav-fullbleed-key-art-hero-carousel-arrows-dots-cover-art-grid-hover-details-pill-platform-filter-dropdown",
+  "name": "Annapurna Interactive game publisher home: full-bleed key-art hero carousel with giant caps title, white Explore pill, side arrows and dots; dark/light toggle; 3-column tall cover-art grid with platform icons, hover Details pill and a Platform filter dropdown",
+  "date": "2026-10-19",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://annapurnainteractive.com/",
+  "domain": "annapurnainteractive.com",
+  "product": "Annapurna Interactive — indie video game publisher",
+  "checkpoints": [
+   "Floating header: ANNAPURNA INTERACTIVE wordmark left, outlined pill links GAMES/SHOP/NEWS/ABOUT (active filled white), cart and a round sun/moon dark-mode toggle",
+   "Hero 100vh: full-bleed key art, centered huge white caps title (SILENT HILL: TOWNFALL), white EXPLORE pill, thin chevrons left/right, 3 dots; arrows cycle 3 games",
+   "Below: SORT: FEATURED GAMES left, FILTER: PLATFORM right; filter opens a dark panel of platform checkboxes (Steam, PlayStation, Xbox, Nintendo Switch ...)",
+   "3-column grid of tall rounded cover-art cards with platform glyph row under each",
+   "Hover a card: white DETAILS pill appears on the art",
+   "Toggle swaps the page from black to white; mobile menu blurs the hero and stacks pill links on the right"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an Annapurna Interactive-style game publisher homepage in one Next.js page with Tailwind and Framer Motion. Font: Helvetica Neue / \"Inter\" 700 for titles, 500 for UI, all caps. Theme via a `dark` class on <html> (default dark: bg #000, text #fff; light: bg #fff, text #000) with a 300ms color transition. Floating header (absolute, 24px inset): two-line \"ANNAPURNA / INTERACTIVE\" wordmark with a small A glyph left; right a row of 28px-tall outlined pill links [GAMES, SHOP, NEWS, ABOUT] (11px caps, 1px currentColor border; active = filled), a cart icon with a count badge and a round 32px sun/moon toggle that flips the theme and persists to localStorage. Hero 100vh carousel of 3 slides (full-bleed key-art placeholder images with a bottom black gradient): centered giant caps title (clamp(48px,6vw,96px)), white \"EXPLORE\" pill under it, thin chevron buttons at left/right center, 3 dots bottom-center; slides crossfade+scale 1.04→1 in 700ms, autoplay 6s, pause on hover. Below: a bar with \"SORT: FEATURED GAMES\" left and \"FILTER: PLATFORM\" right; the filter opens a dark rounded panel listing [Steam, PlayStation, Xbox, Nintendo Switch, Nintendo Switch 2, Epic Games Store, iOS App Store, Mac, Google Play, GOG.com] with square checkboxes, and checking items filters the grid with a layout animation. Grid: 3 columns, 24px gap, tall 3:4 cover cards with 16px radius and bold placeholder art + game title type, a row of small platform glyphs under each. On card hover the art scales 1.03 and a white \"DETAILS\" pill fades up at the bottom of the art. At 390px: one column, and the menu button opens a full-screen backdrop-blur overlay with the pill links stacked right-aligned. Respect prefers-reduced-motion."
+ },
+ {
+  "id": "clone-cowboy-ebike-scroll-showcase-cursor-follow-explore-pill-model-segmented-toggle-angle-slider-arrows-scroll-fill-headline-mega-menu-bike-lineup",
+  "slug": "cowboy-ebike-scroll-showcase-cursor-follow-explore-pill-model-segmented-toggle-angle-slider-arrows-scroll-fill-headline-mega-menu-bike-lineup",
+  "name": "Cowboy e-bike home: lifestyle video hero, full-screen studio bike sections with a cursor-following dark Explore pill, Cruiser/Cruiser ST segmented toggle that recolors the bike, arrow slider through angles, press-quote strip, scroll-filled grey-to-black headline and a bike-lineup mega menu",
+  "date": "2026-10-19",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://cowboy.com/",
+  "domain": "cowboy.com",
+  "product": "Cowboy — Belgian connected e-bikes",
+  "checkpoints": [
+   "Thin black announcement bar, white header over video: COWBOY. wordmark, E-bikes/AdaptivePower/Connect/Leasing/Stores, account + cart, black Book a test ride pill",
+   "Hero: big white \"Riding reinvented\" over lifestyle footage, Discover Cruiser pill, three award captions along the bottom",
+   "E-bikes opens a white mega menu with 4 bike cut-outs (Cruiser, Cruiser ST, Cross, Cross ST) and two text links",
+   "Bike section: \"The easy-rider\" + small + feature chips top-left, segmented Cruiser | Cruiser ST top-right, huge studio bike; a dark Explore pill follows the cursor",
+   "← → buttons bottom-left step through bike angles, then into the ST variant and the toggle state follows; Cross section repeats in black",
+   "Press strip of 5 white quote cards, then \"Power so natural, you're always in flow.\" whose letters fill grey to black with scroll; mobile menu is a big-type list"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Cowboy e-bike-style homepage in one Next.js page with Tailwind and Framer Motion. Font: \"Inter\" (or \"Neue Haas\"-like) 500, tight -0.03em tracking on headings. Top 32px black announcement bar \"Which Cowboy is right for you? Take the quiz\" with an × close. Header transparent over the hero: \"COWBOY.\" wordmark left, links [E-bikes ⌄, AdaptivePower™, Connect, Leasing, Stores] center, account + cart icons and a black pill \"Book a test ride\" right. Clicking E-bikes drops a white panel (250ms) with 4 bike cut-out images in a row captioned [Cruiser, Cruiser ST, Cross, Cross ST] with small prices, plus \"Explore all bikes →\" and \"Meet your match →\". Hero 100vh: muted looping lifestyle video placeholder, \"Riding reinvented\" 88px white bottom-left, subline, white \"Discover Cruiser\" pill, three tiny award captions across the bottom. Then two 100vh model sections on an off-white #f7f5f0 radial gradient (second one in a cool grey): title \"The easy-rider\" 48px top-left with a wrap of tiny grey \"+ Step-over frame\" chips; top-right a segmented control [Cruiser | Cruiser ST] (grey track, white active thumb sliding with layoutId); a huge bike image cropped by the viewport; slides = [front 3/4, rear 3/4, side] per model, ←/→ square white buttons bottom-left step through them and stepping past the last slide switches the model and the segmented control (and vice versa). Inside the section a 40px dark pill \"Explore\" follows the cursor with a spring (stiffness 300, damping 30) and hides when the cursor leaves. After that a row of 5 white press cards with logo + one-line quote, then a centered 56px sentence \"Power so natural, you're always in flow.\" whose characters go from #c8c8c8 to #111 based on scroll progress (useScroll + per-character opacity). At 390px the menu opens a white full-screen list with small grey group labels and 28px links. Respect prefers-reduced-motion."
+ },
+ {
+  "id": "clone-phaidon-art-book-publisher-yellow-scattered-cover-hero-color-block-category-panels-book-rows-image-mega-menu-live-search-panel",
+  "slug": "phaidon-art-book-publisher-yellow-scattered-cover-hero-color-block-category-panels-book-rows-image-mega-menu-live-search-panel",
+  "name": "Phaidon art-book store: serif wordmark with phi mark, yellow hero with scattered tilted book covers, rows that pair a solid color category panel (cyan, orange, lavender, lime) with grey-tile book cards and yellow add buttons, image mega menu and a live search panel",
+  "date": "2026-10-19",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.phaidon.com/en-us",
+  "domain": "phaidon.com",
+  "product": "Phaidon — art, design, food and photography book publisher",
+  "checkpoints": [
+   "Header: thin serif PHAIDON + vertical rule + phi glyph, icon row right; second row of six evenly spaced bold links",
+   "Hero: saturated yellow full-width band, bold \"First Look: Fall Books\" + white pill left, ~9 book covers scattered with drop shadows right",
+   "Category rows: one tall solid color panel (cyan Fashion/Photography, orange Food & Drink, lavender Children's, lime Home & Garden) beside 3 light-grey tiles with a book, heart icon, title, price, View Product pill and yellow round + button",
+   "Books hover opens a mega menu: category list left, three color-backed promo cards with book art",
+   "Search icon opens a panel: input, Stories list left, Trending Products cards right; typing (Warhol) live-swaps to Collections/Stories/Products results",
+   "Product page: thumbnail column, big cover, yellow Signed Edition / Standard Edition switch and a yellow Add to cart bar"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Phaidon-style art-book store homepage in one Next.js page with Tailwind and Framer Motion. Fonts: a thin high-contrast serif for the wordmark (\"Cormorant\" 400, caps, letter-spacing 0.04em) and a neutral grotesk (\"Inter\" 600) for everything else. Header row 1 (72px, white, 1px #000 bottom border): \"PHAIDON\" wordmark left, a 1px vertical rule, then a centered \"Φ\" glyph; right icons [search, globe, heart, user, bag]. Row 2: six bold 13px links evenly spaced [New Arrivals, Books, Children's Books, Limited Editions, Stories, Brands]. Hovering \"Books\" opens a full-width white mega menu (200ms): left column \"Shop All Books\", \"Bestsellers\", \"Shop by Category\" list; right three tall promo cards each with a solid color block (#18b4e0, #3b8de0, #ff6a1a), a book image and a 2-line caption. Hero: full-width #f5c400 band 420px tall; left \"First Look: Fall Books\" 32px bold + paragraph + white \"Shop new books\" pill; right ~9 placeholder book covers absolutely positioned at slight rotations (-6..6deg) with soft drop shadows that drift 4px on mouse move (parallax). Then three category rows: each = one 1:1.3 solid color panel (cyan #7fe0d6, orange #ff6a1a, lavender #8e8cf0) with bold category name and underlined \"Shop all\", beside 3 #f2f2f2 tiles holding a book cover, a heart top-right, title, author line, \"From $49.95\", an outlined \"View Product\" pill and a yellow 28px round \"+\" button; round ←/→ arrows on the row edges scroll it by one tile. The search icon opens a panel under the header with a full-width grey input, a \"Stories\" link list left and 3 \"Trending Products\" cards right; typing filters a local dataset and swaps sections to Collections / Stories / Products with a 150ms fade. At 390px: header shows wordmark + icons, nav becomes a hamburger, hero stacks text above covers."
+ },
+ {
   "id": "clone-boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud",
   "slug": "boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud",
   "name": "Boiler Room club-culture portal: black page, huge wide caps wordmark over a slowly rotating dark 3D globe, yellow Find an event button, square event-poster carousel with side arrows, city tiles, video rows, and a search panel with a Browse by Genre tag cloud",
