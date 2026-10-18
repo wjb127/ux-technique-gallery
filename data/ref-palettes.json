@@ -5088,5 +5088,35 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.07
+ },
+ "studiodumbar-fullscreen-scroll-project-reel-color-field-per-project-corner-title-label-tiny-wordmark-spaced-nav-work-grid-hover-dim": {
+  "bg": "#000000",
+  "fg": "#f0f0f0",
+  "panel": "#0f0f0f",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.81
+ },
+ "moma-museum-portal-bold-grotesk-wordmark-two-row-nav-split-welcome-hours-bar-exhibition-carousel-arrows-color-block-bands-search-overlay": {
+  "bg": "#ffffff",
+  "fg": "#737373",
+  "panel": "#efefef",
+  "dark": false,
+  "ac": "#2b4442",
+  "ac2": "#402d28",
+  "ac3": "#3b5e56",
+  "coverage": 0.3
+ },
+ "gentlewoman-magazine-click-through-slideshow-varying-slide-layouts-cursor-arrow-caption-bar-category-dek-counter-centered-geometric-nav": {
+  "bg": "#ffffff",
+  "fg": "#563427",
+  "panel": "#f7f7f7",
+  "dark": false,
+  "ac": "#563427",
+  "ac2": "#121928",
+  "ac3": "#865c45",
+  "coverage": 0.72
  }
 }
