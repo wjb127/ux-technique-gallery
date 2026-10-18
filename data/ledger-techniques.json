@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud",
+  "slug": "boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud",
+  "name": "Boiler Room club-culture portal: black page, huge wide caps wordmark over a slowly rotating dark 3D globe, yellow Find an event button, square event-poster carousel with side arrows, city tiles, video rows, and a search panel with a Browse by Genre tag cloud",
+  "date": "2026-10-18",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://boilerroom.tv/",
+  "domain": "boilerroom.tv",
+  "product": "Boiler Room — global club-culture broadcaster, events and video archive",
+  "checkpoints": [
+   "Fixed black header: round BR logo, caps links Events/Video/Audio/Shop/Editorial left, Search and Login or sign up right",
+   "Hero: giant wide caps \"BOILER ROOM\" + \"Connecting Club Culture To The World\" over a dark rotating globe, yellow \"Find an event\" pill and \"Browse the archive →\"",
+   "Story cards row with photo and bold city/title + short text",
+   "Upcoming: square colourful event posters with city, yellow date and Tickets badge; side arrows shift the row (verified)",
+   "Search opens a panel with \"Search the archive\" input and a dense outlined Browse by Genre tag cloud (verified)",
+   "Video page rows: New on Boiler Room / Member Favourites with 16:9 thumbs and tag chips"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Boiler Room-style club-culture homepage in one Next.js page with Tailwind, Framer Motion and react-three-fiber. Pure black (#000) page, white text, a wide grotesk for display (e.g. \"Archivo Expanded\" 800) and a plain grotesk for UI. Fixed 56px black header with a 1px #222 bottom border: round white-outline \"BR\" logo, caps 13px links [Events, Video, Audio, Shop, Editorial] left, [Search, Login or sign up] right. Hero 100vh: a slowly rotating dark sphere (r3f, MeshStandardMaterial with a dim earth texture, low ambient + one rim light, rotation.y += 0.0015/frame) behind a centered giant \"BOILER ROOM\" (10vw, wide caps), subline \"Connecting Club Culture To The World\", a yellow #ffe500 pill button \"📍 Find an event\" with black text and a small \"Browse the archive →\" link. Below: a horizontal row of 5 story cards (photo, bold city title, 3-line text). \"Upcoming\" section: title left, → button right; a track of square poster cards (use bright placeholder gradients with big stacked caps artist names), each with city (bold), date in yellow and an optional \"TICKETS\" tag; round white ←/→ buttons on the edges move the track by one card (400ms ease), hide ← at start. \"Cities\" grid of dark map tiles with centered caps city names, hover brightens. Clicking Search slides down a black panel: label \"Search the archive\", a 1px-bordered 560px input with a search icon, then \"Browse by Genre\" and ~120 outlined 12px tag chips wrapping centered; Escape closes. At 390px make the header nav horizontally scrollable and stack the hero. Respect prefers-reduced-motion (stop the globe)."
+ },
+ {
+  "id": "clone-acehotel-booking-bar-header-location-dropdown-calendar-guest-stepper-orange-book-now-condensed-display-hero-dark-locations-panel",
+  "slug": "acehotel-booking-bar-header-location-dropdown-calendar-guest-stepper-orange-book-now-condensed-display-hero-dark-locations-panel",
+  "name": "Ace Hotel homepage: header that is itself a booking bar (Location dropdown, check-in/out calendar, guest steppers, code type, orange BOOK NOW), hand-cut condensed display hero, dark full-width Locations city panel, Private Spaces dropdown, location/offer/poster carousels",
+  "date": "2026-10-18",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.acehotel.com/",
+  "domain": "acehotel.com",
+  "product": "Ace Hotel — lifestyle hotel group",
+  "checkpoints": [
+   "Two-row header: boxed ACE HOTEL logo, serif \"Locations ⌄\", EN select, then grid of labelled booking cells and orange BOOK NOW; second row of small links",
+   "Location cell opens a city list; Checkin opens an October 2026 month calendar; Guests opens adult/children steppers (all verified)",
+   "\"Locations\" opens a dark full-width panel listing Athens, Brooklyn, Kyoto, New York, Palm Springs, Seattle, Sydney, Toronto, Fukuoka coming soon (verified)",
+   "Hero: video with chunky condensed white \"WELCOME TO ACE HOTEL\", pause button and down chevron",
+   "Carousels: LOCATIONS photo cards, OFFERS cards with condensed titles, GOINGS ON event posters; green A-List signup band",
+   "Mobile: hamburger, Locations, orange BOOK NOW top bar"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an Ace Hotel-style homepage in one Next.js page with Tailwind and Framer Motion. White header, black text; display font a chunky hand-cut condensed (e.g. \"Bowlby One SC\" or \"Anton\"), a serif for \"Locations\" (e.g. \"Playfair Display\"), a mono-ish small caps for labels. Header row 1 (56px, 1px black borders between cells): boxed \"ACE HOTEL\" logo; serif \"⌄ Locations\" button; \"EN ⌄\" select; then five booking cells each with a 9px caps label and a 13px value [LOCATION: Choose Location * ⌄, CHECKIN: October 18, 2026, CHECKOUT: October 19, 2026, GUESTS: 1 Adult, 0 Children, HAVE A CODE?: Select Code Type ⌄]; far right an orange #ff8a3d \"BOOK NOW\" block in the condensed font. Row 2: small links [Offers, Shop, Goings on, A-List, Private Spaces ⌄, Eat + Drink, Artist In Residence, Ace Reader, Ace Radio]. Interactions: clicking LOCATION opens a white list popover of 8 cities; clicking CHECKIN opens a month calendar popover (black month header \"OCTOBER 2026\", 7-col grid, selected day black, past days grey) and picking a date fills CHECKIN then moves focus to CHECKOUT; GUESTS opens a popover with Adults/Children rows and −/+ square buttons (min 1 adult) that update the cell text; only one popover open at a time, outside click or Escape closes. \"⌄ Locations\" opens a full-width dark #2a2624 panel under the header with serif city links stacked and \"Fukuoka coming soon\" in italic; hovering \"Private Spaces\" shows a grey dropdown [Private Spaces, Meetings & Events, Weddings]. Hero: full-bleed dark video placeholder, centered white \"WELCOME TO / ACE HOTEL\" at 120px condensed, round white pause button bottom-right, chevron bottom-center. Then a LOCATIONS carousel of tall photo cards with → arrow, an OFFERS row of cards with big condensed titles (\"EXTRA CREDIT\", \"IT PAYS TO PREPAY\"), and a moss-green A-List email band. At 390px show only hamburger, \"Locations ⌄\" and the orange BOOK NOW in the top bar."
+ },
+ {
+  "id": "clone-magicspoon-candy-color-cereal-dtc-bundle-pill-picker-mega-menu-featured-flavors-category-tab-switcher-floating-food-decor-starburst-badges",
+  "slug": "magicspoon-candy-color-cereal-dtc-bundle-pill-picker-mega-menu-featured-flavors-category-tab-switcher-floating-food-decor-starburst-badges",
+  "name": "Magic Spoon cereal homepage: candy purple-blue gradient hero over a tiled pool floor, \"What are you craving?\" radio pill picker, scalloped badges, hover mega menu with featured flavor tiles, category tab switcher whose floating food decorations change per tab",
+  "date": "2026-10-18",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://magicspoon.com/",
+  "domain": "magicspoon.com",
+  "product": "Magic Spoon — high-protein cereal and snacks DTC brand",
+  "checkpoints": [
+   "Magenta promo bar, white chunky logo, caps nav with chevrons and a pill BUILD YOUR BUNDLE with BESTSELLER tab",
+   "Hero: purple to blue gradient over a blue tile floor, product stack left, big bold headline, 2x2 radio pills (Cereal/Treats/Oatmeal/Granola), scalloped badges",
+   "Hovering CEREAL opens a white mega menu with featured flavor box tiles and Shop all cereal (verified)",
+   "Review video cards with product mini-card, stars and counts",
+   "\"Better for you breakfast options\" tab row: active tab fills purple with an emoji, product art and floating food bits change per tab (verified Cereal, Granola, Pastries)",
+   "Mobile: centered logo, hamburger, stacked pills"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Magic Spoon-style cereal homepage in one Next.js page with Tailwind and Framer Motion. Font: a rounded bold geometric sans (e.g. \"Poppins\" 700/800). Top promo bar magenta #c21fd6 with centered white text \"⌛ Limited! FREE Bowl Set for New Subscribers! 🥣✨\". Header transparent over the hero: white chunky two-line logo \"MAGIC / SPOON\" left; caps links with chevrons [Cereal, Oatmeal, Treats, Granola, Pastries, About us]; right a white pill \"BUILD YOUR BUNDLE\" with a tiny yellow \"BESTSELLER\" tag on its top edge, account and bag icons. Hovering a nav item opens a white mega menu panel (200ms fade+slide) with \"FEATURED FLAVORS\" and 3 product-box tiles with captions plus a \"Shop all cereal\" tile. Hero 100vh: linear gradient #7b2cf5 → #3d7bff with a perspective blue tile floor (CSS repeating-linear-gradient on a rotated plane) at the bottom; left a stack of colourful placeholder boxes with a slight float; right \"★★★★★ 80,000+ 5-STAR REVIEWS\", headline \"Childhood Classics. Grown-Up Ingredients.\" (64px white), \"Start Building Your Bundle: Pick Your Favorite\", a 2x2 grid of outlined white radio pills [Cereal, Treats, Oatmeal, Granola] (selected fills white with purple text), and 3 white scalloped badges (\"0-3g Sugar\", \"High Protein\", \"Keto-Friendly\") made with an SVG wavy circle. Section \"Better for you breakfast options\" on a pale yellow-green: 5 lavender tabs [Cereal, Granola, Treats, Pastries, Oatmeal]; the active tab fills purple #4b16c9 with white text and a small emoji; switching tabs crossfades a product image inside a scalloped blob and swaps 2–3 absolutely positioned floating food sprites (cereal ring, strawberry, toast) that drift with a slow y loop; right column shows two benefit cards with icons. Add a row of review video cards with a white product mini-card (thumb, stars, count, name). At 390px: hamburger left, logo centered, bag right, pills stay 2 columns. Respect prefers-reduced-motion."
+ },
+ {
   "id": "clone-studiodumbar-fullscreen-scroll-project-reel-color-field-per-project-corner-title-label-tiny-wordmark-spaced-nav-work-grid-hover-dim",
   "slug": "studiodumbar-fullscreen-scroll-project-reel-color-field-per-project-corner-title-label-tiny-wordmark-spaced-nav-work-grid-hover-dim",
   "name": "Studio Dumbar agency reel: every scroll step swaps a full-screen project (solid color fields, kinetic type, video) with the project name bottom-right, tiny two-line wordmark and widely spaced nav, plus a Work grid of thumbnails with captions",

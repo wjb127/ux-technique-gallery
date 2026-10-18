@@ -5118,5 +5118,35 @@
   "ac2": "#121928",
   "ac3": "#865c45",
   "coverage": 0.72
+ },
+ "boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud": {
+  "bg": "#000000",
+  "fg": "#757e66",
+  "panel": "#000001",
+  "dark": true,
+  "ac": "#493f2e",
+  "ac2": "#33211e",
+  "ac3": "#60a665",
+  "coverage": 0.55
+ },
+ "acehotel-booking-bar-header-location-dropdown-calendar-guest-stepper-orange-book-now-condensed-display-hero-dark-locations-panel": {
+  "bg": "#ffffff",
+  "fg": "#060607",
+  "panel": "#e4e4e4",
+  "dark": false,
+  "ac": "#271213",
+  "ac2": "#4e0614",
+  "ac3": "#ffc83d",
+  "coverage": 0.09
+ },
+ "magicspoon-candy-color-cereal-dtc-bundle-pill-picker-mega-menu-featured-flavors-category-tab-switcher-floating-food-decor-starburst-badges": {
+  "bg": "#305ca8",
+  "fg": "#fbfbfe",
+  "panel": "#6330e9",
+  "dark": true,
+  "ac": "#305ca8",
+  "ac2": "#6330e9",
+  "ac3": "#525ee9",
+  "coverage": 0.11
  }
 }
