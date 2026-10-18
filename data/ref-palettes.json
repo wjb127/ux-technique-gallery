@@ -5178,5 +5178,35 @@
   "ac2": "#ffc800",
   "ac3": "#a33727",
   "coverage": 0.2
+ },
+ "criterion-film-label-wheel-driven-fullscreen-section-pager-bespoke-title-art-heroes-poster-collage-vertical-side-label-dots-right-drawer-menu-search-panel": {
+  "bg": "#999999",
+  "fg": "#080808",
+  "panel": "#67727d",
+  "dark": false,
+  "ac": "#7c4b27",
+  "ac2": "#6b4a2a",
+  "ac3": "#845a2c",
+  "coverage": 0.09
+ },
+ "elektron-dark-instrument-maker-big-type-catalog-list-hover-photo-reveal-grey-suffix-names-pixel-icon-nav-top-drop-search-bar-bar-mark-section-rows": {
+  "bg": "#1a1f22",
+  "fg": "#bd89a2",
+  "panel": "#262c30",
+  "dark": true,
+  "ac": "#421a18",
+  "ac2": "#1d3b32",
+  "ac3": "#683d48",
+  "coverage": 0.07
+ },
+ "freitag-upcycled-bag-store-mono-caps-square-cell-product-grid-inline-expanding-subcategory-chips-fullscreen-grey-live-search-letterspaced-hero-arrow-slider": {
+  "bg": "#ffffff",
+  "fg": "#0d0e10",
+  "panel": "#fafafa",
+  "dark": false,
+  "ac": "#7492bb",
+  "ac2": "#191c28",
+  "ac3": "#405278",
+  "coverage": 0.12
  }
 }
