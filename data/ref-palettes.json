@@ -5328,5 +5328,35 @@
   "ac2": "#f958fd",
   "ac3": "#05f409",
   "coverage": 0.33
+ },
+ "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders": {
+  "bg": "#fafafa",
+  "fg": "#111111",
+  "panel": "#fefefe",
+  "dark": false,
+  "ac": "#ff3d00",
+  "ac2": "#ffb800",
+  "ac3": "#bfe0ff",
+  "coverage": 0.17
+ },
+ "moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections": {
+  "bg": "#989898",
+  "fg": "#202020",
+  "panel": "#969696",
+  "dark": false,
+  "ac": "#2b3a7a",
+  "ac2": "#e6dccb",
+  "ac3": "#1b1b1b",
+  "coverage": 0.68
+ },
+ "sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu": {
+  "bg": "#45190f",
+  "fg": "#ffffff",
+  "panel": "#231f20",
+  "dark": true,
+  "ac": "#f6e600",
+  "ac2": "#c9a02a",
+  "ac3": "#d11f1f",
+  "coverage": 0.26
  }
 }

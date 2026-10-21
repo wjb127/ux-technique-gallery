@@ -10754,5 +10754,68 @@
   ],
   "checkpoint_source": "ledger",
   "prompt": "Build a KIKK-style art & tech festival homepage in Next.js + Tailwind + Framer Motion. Font: a heavy geometric grotesk (Poppins 800 for display, 300 for body). Background #f1f1f1, ink #111, black #141414 bars. Header: 56px black bar with a small notched square mark + 'kikk / asbl', centered nav ABOUT PROJECTS NEWS TEAM JOBS NETWORK CONTACT in 10.5px caps with .14em tracking, FR at the right. Every section has a ~120px left rail separated by a 1px grey line, holding a vertical rotated caps label (KIKK ASBL — NAMUR, BELGIUM; a giant dark 'MISSION'; PROJECTS; NEWS). Hero: left side giant black stacked caps 'ART / SCIENCE / & TECH' (~124px, line-height .88) sitting over huge pale-grey ghost letters 'KIKK', a thin rule, a one-line description and tiny grey tag list; right 42% is a colourful geometric key-art grid (hot pink, neon green, cobalt, orange-red, ochre arcs / stairs / checks) with 'KIKK /5 FESTIVAL' — after the first pointer move it slowly transitions to grayscale (filter 1.2s) and hover restores colour. A custom cursor: a 16px pink-orange-violet radial dot that follows the pointer with lerp lag and grows over links. Then MISSION (large light text on grey + black stats column '8 ACTIVE PROJECTS', '15 YEARS'), ECOSYSTEM (giant caps heading, 'EXPLORE ALL PROJECTS →', grayscale photo cards with numbers, caps titles and descriptions; hover zooms the photo and nudges the title), LATEST NEWS with big day numbers, and a black LET'S COLLABORATE block with a dark ghost 'K' and an outlined button. Clicking PROJECTS shows a projects view with a giant 'PROJECTS' heading over ghost letters, filter chips and a card grid. Mobile 390px: rail shrinks, nav behind a hamburger, no custom cursor."
+ },
+ {
+  "id": "clone-pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
+  "slug": "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
+  "name": "Pangram Pangram type foundry: rounded full-width photo hero cards stacked down the page (giant white font name, red New pill, Explore font / Try for Free pills), Our newest fonts grid with Card view / List view toggle (list swaps to huge alphabet specimen rows), font page with a ring of rotating letters over a city photo, sticky font-name pill nav with Try/Buy, black specimen card + style-weight chip grid, tester rows with font/style selects, Size/Leading/Spacing pill sliders and OpenType chips",
+  "date": "2026-10-22",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://pangrampangram.com/",
+  "domain": "pangrampangram.com",
+  "product": "Pangram Pangram Foundry — independent type foundry",
+  "checkpoints": [
+   "Header: Pangram Pangram Foundry, centred nav, search / bag / menu icons",
+   "Rounded full-width photo hero cards stacked with giant font name, New pill, two pill CTAs",
+   "Our newest fonts bar with Card view / List view toggle (red active)",
+   "Card view: 4-col Aa cards with New / Update / Early access pills; List view: huge alphabet specimen rows",
+   "Font page: ring of rotating letters over photo, sticky pill nav with Try for Free / Buy Now",
+   "Black specimen card + weight chip grid; tester rows with style select, Size/Leading/Spacing sliders, OpenType chips, live editable text"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Pangram Pangram-style type foundry site in Next.js + Tailwind + Framer Motion. Off-white #fafafa page, ink #111, signal red-orange #ff3d00 accents, pills everywhere. Font: a neutral grotesk (Inter Tight 500/700 for display, 400 for UI at 11–13px). Header: 'Pangram Pangram Foundry' left, centred nav (All fonts, Font starter pack, Font in use, Academy, Support), search / bag / hamburger right; it turns translucent-blurred on scroll. Hero: 3 full-width rounded (18px) photo cards stacked down the page (alpine meadow, orange slices, dark sculpture) with a dark overlay, a small red 'New' pill top-centre, a giant white font name (~150px) set in that typeface, a one-line tagline and two pills 'Explore font' (white) / 'Try for Free' (outline). Next: 'Our newest fonts' bar with 'Showing 12 of 63 fonts', a Card view / List view toggle (active one red) and an outline 'View all fonts' pill. Card view = 4-col rounded grey cards with font name, style count, status pill (New / Update / Early access) on the corner and a big 'Aa' in the face; List view = full-width rounded rows with name + pill, tagline, style count, 'Check it out' pill and a huge 'AaBbCcDdEeFfG' specimen line clipped at the right. Clicking a font opens a font page: 'Update' pill, giant name, Try for Free / Buy Now (red) pills, a full-bleed photo with a slowly rotating ring of letters, a sticky pill nav (home icon, font name pill, Styles Sampler Variable Glyphs Features Infos Pairings, Try/Buy), a style list with a black 'AaBbCc 01234567' specimen card + grid of weight chips with red weight numbers (hover previews the weight in the black card), and tester rows: red font pill, style select, Size / Leading / Spacing slider pills, OpenType chips (Alt a, Round dots, liga, Case, dlig, tnum) and a contenteditable sample line that updates live. Mobile 390px: nav behind hamburger, cards 1-col, list rows wrap."
+ },
+ {
+  "id": "clone-moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections",
+  "slug": "moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections",
+  "name": "Moooi design brand: black announcement bar, transparent header with Menu / Search left, spaced lowercase 'moooi' wordmark centre and EN / account / wishlist / bag right, full-bleed autoplay video hero with small caps eyebrow, thin serif two-line title, pill CTA and a pause button bottom-left, region modal, left Menu panel (Products › with Shop our collection row of product cut-out icons, Stories, Gift guide), scroll story of full-bleed image sections with centred serif titles and split navy / beige colour panels beside photos",
+  "date": "2026-10-22",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.moooi.com/en",
+  "domain": "moooi.com",
+  "product": "Moooi — Dutch design furniture and lighting brand",
+  "checkpoints": [
+   "Black announce bar + transparent header: Menu/Search left, spaced 'moooi' wordmark centre, EN + icons right",
+   "Full-bleed video hero, small caps eyebrow, thin serif title, white pill CTA, pause button bottom-left",
+   "Region modal with Continue / close",
+   "Menu panel: serif links + small links; Products › shows Shop our collection product cut-out icon row",
+   "Full-bleed image section with centred serif title and underlined link",
+   "Split panels: navy or beige colour block with serif copy beside photo; header turns solid on scroll"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Moooi-style design furniture homepage in Next.js + Tailwind + Framer Motion. Fonts: a thin high-contrast display serif for headings (Gilda Display 400, ~64px, line-height 1.05) and a light humanist sans for UI (Lato 300/400, 11–13px). A 28px black announcement bar with an underlined spaced caps link and a close ×. Transparent header over the hero: '≡ Menu' and '⌕ Search' left, the wordmark 'moooi' centred in lowercase with ~.4em tracking, 'EN ⌄', account, heart and bag icons right; it turns solid white with dark ink once you scroll past the hero. Hero: full-bleed autoplay video (here: animated grey studio scene of a modular triangle sofa) with centred tiny caps eyebrow 'PRODUCT STORY', the thin serif title 'Peaks Sofa by Yves Béhar', a small subline and a white pill 'Available Now'; a tiny pause/play button bottom-left toggles the motion. On load a small region modal ('You are visiting the moooi site for …') with Continue / close. 'Menu' opens a white left panel (~35% width) sliding over a dimmed page: big serif links Products › / Stories / Gift guide / Gift Card, a rule, then small links (Home, About us, Store locator, Contact, Material Library); Products › swaps the page to a 'SHOP OUR COLLECTION' row of 5 product cut-out icons (Bedding & Bath, Furniture, Lighting, Accessories, Wall & Floor). Scroll story: full-bleed photo sections with centred serif title + underlined link, then 50/50 split panels — navy #2b3a7a and beige #e6dccb colour blocks with eyebrow, serif heading, copy and underlined link — beside photos, alternating sides. Mobile 390px: panels stack, menu is full width."
+ },
+ {
+  "id": "clone-sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu",
+  "slug": "sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu",
+  "name": "Sacred Bones Records label store: yellow shipping bar, white header with Shop ▾ / Artists / Record Society / Tours in a serif and a centred circular triangle emblem, oxblood split release hero (caps artist eyebrow, serif title, white PREORDER NOW button, two overlapping record covers, segmented progress dots that auto-advance), dark speckled New Releases carousel with BEST SELLER / PREORDER / NEW badges and a round arrow, cream Shop by Category row of hand-drawn snake illustration tiles, oxblood Record Society emblem + Join Us block, Shop hover mega menu with link columns plus illustrated tiles",
+  "date": "2026-10-22",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.sacredbonesrecords.com/",
+  "domain": "sacredbonesrecords.com",
+  "product": "Sacred Bones Records — independent record label store",
+  "checkpoints": [
+   "Yellow shipping bar + header with serif nav and centred circular triangle emblem",
+   "Oxblood split hero: caps eyebrow, serif title, PREORDER NOW, overlapped covers, segmented progress dots (auto-advance + click)",
+   "Dark speckled New Releases carousel with BEST SELLER / PREORDER / NEW badges and round arrow",
+   "Cream Shop by Category row of illustrated snake tiles with serif captions",
+   "Oxblood Record Society emblem + Join Us block",
+   "Shop hover mega menu with link columns + illustrated tiles"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Sacred Bones Records-style label store in Next.js + Tailwind + Framer Motion. Fonts: EB Garamond for nav, headings and captions; Lato for small UI. A 34px yellow #f6e600 bar 'Now shipping from the UK — faster delivery, lower shipping rates to UK & EU' with ×. White 58px header: 'Shop ▾', Artists, Record Society, Tours (serif 13px) left, a centred 40px circular emblem with a black triangle, account / search / cart icons right. Hero: oxblood #4a1a12 full-width split slider — left caps eyebrow 'PSYCHIC ILLS', 36px serif title, subline and a white 'PREORDER NOW' button; right two square record covers with soft shadow; a row of 6 thin segmented progress bars along the bottom (the active one fills, auto-advances every 6s, click to jump). New Releases: near-black speckled section with centred serif heading and a horizontal carousel of square covers with stacked badges (oxblood BEST SELLER, mustard PREORDER, red NEW), artist name in bold serif + italic title, and a round white arrow button that scrolls the rail. Shop by Category: cream #efe9dc section, tiny caps 'SHOP BY' + serif 'Category', a carousel of white tiles each with a hand-drawn snake illustration (hatching snake from an egg, snake head with headphones, snake T-shirt, snake book) and a serif caption under it. Record Society: oxblood speckled block with a white emblem (SACRED BONES arc text, triangle in a circle, T.L.T.A.M, MMXVIII) and 'Join Us' serif heading, copy and a white LEARN MORE button. Hovering Shop opens a white mega menu with 4 link columns (Featured, All Music, All Books, All Merch) and two illustrated tiles (New Releases, Records). Mobile 390px: hamburger, carousels swipe."
  }
 ]
