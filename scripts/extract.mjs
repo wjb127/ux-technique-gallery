@@ -59,9 +59,11 @@ export function extract() {
   for (const [id, o] of Object.entries(OV)) { const t = techById[id]; if (!t || !t.checkpoints?.length || t.name === id) techById[id] = { ...(t || {}), ...o, id }; } // also covers briefing ids missing from used_techniques
   const seen = new Map();
   for (const b of L.briefings) {
-    b.technique_ids.forEach((id, i) => {
+    const ids = b.technique_ids || b.techniques || [];
+    const sites = b.sites || ids.map((x, i) => techById[x]?.url || (b.domains?.[i] ? `https://${b.domains[i]}/` : ''));
+    ids.forEach((id, i) => {
       if (seen.has(id)) return; // dedup: first appearance wins
-      const url = b.technique_ids.length === b.sites.length ? b.sites[i] : (b.sites[i] || b.sites[0] || '');
+      const url = ids.length === sites.length ? sites[i] : (sites[i] || sites[0] || '');
       const t = techById[id] || { id, name: id };
       const h = host(url);
       const sec = secs.find((s) => s.hosts.includes(h) && s.checkpoints.length);

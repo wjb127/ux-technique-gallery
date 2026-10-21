@@ -5358,5 +5358,35 @@
   "ac2": "#c9a02a",
   "ac3": "#d11f1f",
   "coverage": 0.26
+ },
+ "whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#f2f2f2",
+  "dark": false,
+  "ac": "#d9413f",
+  "ac2": "#f2d21b",
+  "ac3": "#8c8c8c",
+  "coverage": 0.0
+ },
+ "snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list": {
+  "bg": "#ffffff",
+  "fg": "#111111",
+  "panel": "#f2f2f2",
+  "dark": false,
+  "ac": "#9a9a9a",
+  "ac2": "#c9876a",
+  "ac3": "#3f7f6c",
+  "coverage": 0.0
+ },
+ "brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu": {
+  "bg": "#ffffff",
+  "fg": "#1a1a1a",
+  "panel": "#f4f0ea",
+  "dark": false,
+  "ac": "#f6c200",
+  "ac2": "#f2d3d6",
+  "ac3": "#1f4e96",
+  "coverage": 0.0
  }
 }
