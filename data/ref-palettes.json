@@ -5298,5 +5298,35 @@
   "ac2": "#7fb6c5",
   "ac3": "#6693a7",
   "coverage": 0.07
+ },
+ "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap": {
+  "bg": "#ffffff",
+  "fg": "#48531d",
+  "panel": "#f6f6f6",
+  "dark": false,
+  "ac": "#48531d",
+  "ac2": "#4f833a",
+  "ac3": "#1b3545",
+  "coverage": 0.33
+ },
+ "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons": {
+  "bg": "#ffffff",
+  "fg": "#ca2e16",
+  "panel": "#f7f7f3",
+  "dark": false,
+  "ac": "#72baec",
+  "ac2": "#ca2e16",
+  "ac3": "#182227",
+  "coverage": 0.11
+ },
+ "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates": {
+  "bg": "#f1f1f1",
+  "fg": "#111111",
+  "panel": "#e8e8e8",
+  "dark": false,
+  "ac": "#fe4a07",
+  "ac2": "#f958fd",
+  "ac3": "#05f409",
+  "coverage": 0.33
  }
 }

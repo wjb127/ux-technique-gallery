@@ -13421,5 +13421,83 @@
   "variant": "layout-scaffold-prompt",
   "path": "/t/layout-scaffold-prompt/",
   "built": true
+ },
+ {
+  "id": "clone-ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "slug": "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "name": "ECAL art school: wide-tracked 'écal' wordmark over a caps nav row with FR/EN toggle, full-bleed video hero with a big blue overlay title, pausable marquee ticker, giant outlined circle links, black exhibition split with oversized caps title, EVENEMENTS / ARTICLES giant caps lists, search icon that swaps the nav for an input + CANCEL",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ecal.ch/fr/",
+  "domain": "ecal.ch",
+  "product": "ECAL — École cantonale d’art de Lausanne",
+  "checkpoints": [
+   "Wide letter-spaced lowercase wordmark with a rule under it, caps nav row + FR/EN toggle + search icon",
+   "Full-bleed video hero with large blue overlay title and small \"Plus d’informations\" link",
+   "Marquee ticker strip with a pause/play button at the right",
+   "Row of giant outlined circle links (ADMISSIONS / FORMATIONS / FEED / SHOP)",
+   "Search click replaces the nav row with an input and a CANCEL button",
+   "On scroll the wordmark collapses to an \"é\" mark beside the nav; black exhibition split with oversized caps title"
+  ],
+  "checkpoint_source": "ledger",
+  "short": "ECAL art school",
+  "ko": "ECAL 스타일 아트스쿨 자간 넓은 워드마크 · 영상 히어로 파란 오버레이 제목 · 일시정지 마퀴 티커 · 거대 원형 링크 · 검색 시 내비→입력창 교체 클론",
+  "engine": "saas",
+  "variant": "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "path": "/t/ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap/",
+  "built": true
+ },
+ {
+  "id": "clone-ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "slug": "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "name": "Ninja Tune record label: spaced condensed NINJA TUNE wordmark header with black circle search/bag and — LOGIN / — REGISTER, dark LABEL filter bar, 4-col square cover grid with black italic PRE-ORDER pill badges, hover dims the cover into LISTEN / BUY halves, newsletter sign-up popup, release page with big cover + arrows, format cards (LP / CD / MP3 / WAV) with prices and PRE-ORDER pills, and a tracklist with play buttons and format tabs",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ninjatune.net/releases",
+  "domain": "ninjatune.net",
+  "product": "Ninja Tune — independent record label",
+  "checkpoints": [
+   "White header: spaced condensed wordmark, caps nav, black circle search + bag icons, — LOGIN / — REGISTER",
+   "Dark LABEL bar under the header",
+   "4-column grid of square covers with black PRE-ORDER pill badges and white title/artist captions",
+   "Hover dims a cover and shows LISTEN (top) / BUY (bottom)",
+   "Release page: big cover with ‹ › arrows, title + by artist, release line, PHYSICAL / DIGITAL format cards with price + PRE-ORDER pill",
+   "Tracklist rows with round play buttons, BUY / PRE-ORDER pills and format tabs; sign-up popup bottom-left"
+  ],
+  "checkpoint_source": "ledger",
+  "short": "Ninja Tune record label",
+  "ko": "Ninja Tune 스타일 레코드 레이블 정사각 커버 그리드 · PRE-ORDER 배지 · 호버 LISTEN/BUY · 릴리즈 페이지 포맷 카드 + 트랙리스트 재생 클론",
+  "engine": "saas",
+  "variant": "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "path": "/t/ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons/",
+  "built": true
+ },
+ {
+  "id": "clone-kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "slug": "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "name": "KIKK art & tech festival: black top bar with spaced caps nav, vertical side-rail labels, giant black stacked caps hero 'ART / SCIENCE / & TECH' over pale ghost letters, colourful geometric key art that fades to grayscale after you move (hover restores), pink-dot lagging custom cursor, MISSION stats block, ECOSYSTEM grayscale project grid, dated LATEST NEWS, black LET'S COLLABORATE block, PROJECTS view",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://kikk.be/",
+  "domain": "kikk.be",
+  "product": "KIKK — art, science & technology festival (Namur)",
+  "checkpoints": [
+   "Black 56px top bar: kikk asbl mark, centered spaced caps nav (ABOUT … CONTACT), FR",
+   "Vertical rotated side labels in a left rail (KIKK ASBL — NAMUR, BELGIUM / MISSION / PROJECTS)",
+   "Giant black stacked caps ART / SCIENCE / & TECH over huge pale ghost letters",
+   "Right half colour geometric key art that turns grayscale",
+   "Pink dot custom cursor that follows the pointer",
+   "MISSION text + 8/15 stats, ECOSYSTEM heading + grayscale project cards, LATEST NEWS with big dates, LET’S COLLABORATE black block; PROJECTS page with giant heading"
+  ],
+  "checkpoint_source": "ledger",
+  "short": "KIKK art & tech festival",
+  "ko": "KIKK 스타일 아트·테크 페스티벌 거대 검정 대문자 히어로 + 고스트 글자 · 컬러 키아트→흑백 · 핑크 점 커서 · 세로 사이드 라벨 클론",
+  "engine": "saas",
+  "variant": "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "path": "/t/kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates/",
+  "built": true
  }
 ]

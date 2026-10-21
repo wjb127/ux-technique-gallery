@@ -10691,5 +10691,68 @@
   ],
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null
+ },
+ {
+  "id": "clone-ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "slug": "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "name": "ECAL art school: wide-tracked 'écal' wordmark over a caps nav row with FR/EN toggle, full-bleed video hero with a big blue overlay title, pausable marquee ticker, giant outlined circle links, black exhibition split with oversized caps title, EVENEMENTS / ARTICLES giant caps lists, search icon that swaps the nav for an input + CANCEL",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ecal.ch/fr/",
+  "domain": "ecal.ch",
+  "product": "ECAL — École cantonale d’art de Lausanne",
+  "checkpoints": [
+   "Wide letter-spaced lowercase wordmark with a rule under it, caps nav row + FR/EN toggle + search icon",
+   "Full-bleed video hero with large blue overlay title and small \"Plus d’informations\" link",
+   "Marquee ticker strip with a pause/play button at the right",
+   "Row of giant outlined circle links (ADMISSIONS / FORMATIONS / FEED / SHOP)",
+   "Search click replaces the nav row with an input and a CANCEL button",
+   "On scroll the wordmark collapses to an \"é\" mark beside the nav; black exhibition split with oversized caps title"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an ECAL-style art school homepage in Next.js + Tailwind. Font: a neutral grotesk (Inter Tight / Helvetica) everywhere. Header (white, sticky): a huge lowercase 'écal' wordmark (~64px, letter-spacing .32em) with a 1px black rule under it, then a 36px row with caps nav (ADMISSIONS, FORMATIONS & RECHERCHE, VIE ETUDIANTE, L'ECOLE, FEED), a tiny boxed FR/EN toggle (active = black fill) and a search icon. Clicking search hides the nav row contents and shows a full-width input with a search icon and an outlined CANCEL button; typing shows a live results list; Esc/CANCEL restores the nav. After scrolling 60px the wordmark collapses to a single 'é' mark left of the nav. Hero: full-bleed autoplay video (loader ring while it buffers) with a big blue (#3346d3) title 'ECAL × Chillon — Reliques du futur' bottom-left and a small 'Plus d'informations' link bottom-right. Under it a 30px marquee ticker between black rules ('Faites-vous plaisir sur ECAL Shop | Suivez-nous sur Instagram | …') with a square pause/play button at the right that pauses the CSS animation. Then a row of giant outlined circles (~150px) with caps labels and › (ADMISSIONS, FORMATIONS, FEED, SHOP). Then a black split: small EXPOSITIONS label, oversized white caps title (~76px) with dates, a paragraph and an outlined EN SAVOIR PLUS button, and a tall poster on the right. Then two columns EVENEMENTS / ARTICLES with giant caps headings, 'TOUS LES …' links and caps item rows between rules. Bottom cookie bar with black OK. Mobile 390px: smaller wordmark, nav behind a hamburger that opens a full-screen white menu."
+ },
+ {
+  "id": "clone-ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "slug": "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "name": "Ninja Tune record label: spaced condensed NINJA TUNE wordmark header with black circle search/bag and — LOGIN / — REGISTER, dark LABEL filter bar, 4-col square cover grid with black italic PRE-ORDER pill badges, hover dims the cover into LISTEN / BUY halves, newsletter sign-up popup, release page with big cover + arrows, format cards (LP / CD / MP3 / WAV) with prices and PRE-ORDER pills, and a tracklist with play buttons and format tabs",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ninjatune.net/releases",
+  "domain": "ninjatune.net",
+  "product": "Ninja Tune — independent record label",
+  "checkpoints": [
+   "White header: spaced condensed wordmark, caps nav, black circle search + bag icons, — LOGIN / — REGISTER",
+   "Dark LABEL bar under the header",
+   "4-column grid of square covers with black PRE-ORDER pill badges and white title/artist captions",
+   "Hover dims a cover and shows LISTEN (top) / BUY (bottom)",
+   "Release page: big cover with ‹ › arrows, title + by artist, release line, PHYSICAL / DIGITAL format cards with price + PRE-ORDER pill",
+   "Tracklist rows with round play buttons, BUY / PRE-ORDER pills and format tabs; sign-up popup bottom-left"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Ninja Tune-style record label releases page in Next.js + Tailwind. Fonts: a condensed bold face (Barlow Condensed) for the wordmark, Inter/Helvetica for UI. Header (48px white, sticky): 'NINJA TUNE' wordmark with wide letter-spacing, caps nav ARTISTS / RELEASES / SHOP / EVENTS (active underline), right side black circle search and bag icons (bag shows a count) and stacked '— LOGIN / — REGISTER'. Under it a 30px dark (#222) bar with '◉ LABEL' that opens a label filter dropdown. Page background #f4f4f4 with a 4-column grid of square cover cards (white caption box: title + artist, light border). Upcoming releases get a black italic 'PRE-ORDER' pill badge hanging off the top-left. Hovering a card dims the cover (rgba 0,0,0,.55) and splits it into two hit areas, LISTEN on top and BUY below, and greys the caption. A newsletter popup sits bottom-left (dark title bar with a yellow ✕, SIGN UP heading, email field, black SUBMIT). Clicking a card opens the release page: left a big square cover with round black ‹ › arrows, right the title + 'by Artist', '— Released 22nd January 2027 on Counter Records', PHYSICAL and DIGITAL columns of white format cards (LP / CD / MP3 / 16-bit WAV, catalogue number, description, shipping note, price, black PRE-ORDER pill with a small round arrow), then TRACKLIST with format tabs and rows: number, round play button (toggles to pause and shows a progress line), title, BUY or PRE-ORDER pill; 'Play All (n)' at the end. Mobile 390px: 2-column grid, nav collapsed."
+ },
+ {
+  "id": "clone-kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "slug": "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "name": "KIKK art & tech festival: black top bar with spaced caps nav, vertical side-rail labels, giant black stacked caps hero 'ART / SCIENCE / & TECH' over pale ghost letters, colourful geometric key art that fades to grayscale after you move (hover restores), pink-dot lagging custom cursor, MISSION stats block, ECOSYSTEM grayscale project grid, dated LATEST NEWS, black LET'S COLLABORATE block, PROJECTS view",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://kikk.be/",
+  "domain": "kikk.be",
+  "product": "KIKK — art, science & technology festival (Namur)",
+  "checkpoints": [
+   "Black 56px top bar: kikk asbl mark, centered spaced caps nav (ABOUT … CONTACT), FR",
+   "Vertical rotated side labels in a left rail (KIKK ASBL — NAMUR, BELGIUM / MISSION / PROJECTS)",
+   "Giant black stacked caps ART / SCIENCE / & TECH over huge pale ghost letters",
+   "Right half colour geometric key art that turns grayscale",
+   "Pink dot custom cursor that follows the pointer",
+   "MISSION text + 8/15 stats, ECOSYSTEM heading + grayscale project cards, LATEST NEWS with big dates, LET’S COLLABORATE black block; PROJECTS page with giant heading"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a KIKK-style art & tech festival homepage in Next.js + Tailwind + Framer Motion. Font: a heavy geometric grotesk (Poppins 800 for display, 300 for body). Background #f1f1f1, ink #111, black #141414 bars. Header: 56px black bar with a small notched square mark + 'kikk / asbl', centered nav ABOUT PROJECTS NEWS TEAM JOBS NETWORK CONTACT in 10.5px caps with .14em tracking, FR at the right. Every section has a ~120px left rail separated by a 1px grey line, holding a vertical rotated caps label (KIKK ASBL — NAMUR, BELGIUM; a giant dark 'MISSION'; PROJECTS; NEWS). Hero: left side giant black stacked caps 'ART / SCIENCE / & TECH' (~124px, line-height .88) sitting over huge pale-grey ghost letters 'KIKK', a thin rule, a one-line description and tiny grey tag list; right 42% is a colourful geometric key-art grid (hot pink, neon green, cobalt, orange-red, ochre arcs / stairs / checks) with 'KIKK /5 FESTIVAL' — after the first pointer move it slowly transitions to grayscale (filter 1.2s) and hover restores colour. A custom cursor: a 16px pink-orange-violet radial dot that follows the pointer with lerp lag and grows over links. Then MISSION (large light text on grey + black stats column '8 ACTIVE PROJECTS', '15 YEARS'), ECOSYSTEM (giant caps heading, 'EXPLORE ALL PROJECTS →', grayscale photo cards with numbers, caps titles and descriptions; hover zooms the photo and nudges the title), LATEST NEWS with big day numbers, and a black LET'S COLLABORATE block with a dark ghost 'K' and an outlined button. Clicking PROJECTS shows a projects view with a giant 'PROJECTS' heading over ghost letters, filter chips and a card grid. Mobile 390px: rail shrinks, nav behind a hamburger, no custom cursor."
  }
 ]
