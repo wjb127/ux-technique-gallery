@@ -4381,5 +4381,32 @@
   "proof": "transparent header bg=rgba(0, 0, 0, 0) over hero, wordmark \"TAMBURINS\" 700 30px; 9 Korean nav links (오 핸드크림 · 기프트 · 퍼퓸 · 핸드&립 · 바디 · 홈 프레그런스 · 향 노트 · 컬렉션 · 스토어), red active \"기프트\" rgb(209, 43, 43) vs rgb(255, 255, 255); search pill placeholder \"향기나를 검색해 보세요\"; hero 862px slide 1 \"O HAND CREAM\" bg rgb(194, 199, 176); centered caption 22px + links 제품 보기 / 캠페인 보기 (underline solid) + 2 progress lines; progress line 1 fills (41.9763% after 1.2s of 3800ms); auto-advance \"O HAND CREAM\" → \"SUMMER TAILS\" (crossfade slide 2 opacity 0.32 → 1.00), hero bg rgb(168, 110, 50); click progress line 1 → \"O HAND CREAM\"; nav click \"핸드&립\" → underline=true, 기프트 stays red; scroll to 563px → header solid=false bg rgba(0, 0, 0, 0) (turns white only once the hero is fully scrolled away — assumption, the reference page is too short to show it); footer 4-col grid (매장안내, 고객서비스, 법적 고지, 소셜 미디어) + legal text + \"SHOP IN KOREAN\" · stand-ins: code-drawn SVG sculptural portraits (sage background with yellow latex collar; ochre textured wall with translucent laced dress and teal hair clips) instead of TAMBURINS campaign photography; Libre Baskerville Bold substitutes the wordmark face, Noto Sans KR the Korean UI face",
   "demoNodes": 283,
   "errors": []
+ },
+ "brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu": {
+  "url": "https://ux-technique-gallery.vercel.app/t/brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu/",
+  "ok": true,
+  "at": "2026-10-21T20:07:43.716Z",
+  "http": 200,
+  "proof": "yellow announce bar (rgb(246, 194, 0)) \"BACK IN STOCK: The Pizza Night Set!\" + spaced wordmark \"BRIGHTLAND®\" (letter-spacing 5.44px); hover Shop → mega menu open=true (5 links + 3 rounded image cards with circle arrows); leave → closed=true; pink split hero (rgb(242, 211, 214)) serif \"Build Your Own Bundle\" (Newsreader); 3 product sections, 12 cards with black pill Add to Bundle + 1 Sold Out; My Bundle panel sticky (position sticky) with 5 + slots, hints \"Buy 2+ Items, Unlock 10% | Buy 4+ Items, Unlock 15%\"; Add Awake → slot 1 filled \"Awake Extra Virgin Olive Oil\", bar 25%, card shows qty stepper=true, CTA \"Add Bundle to Cart $38.00\"; stepper + → qty 2, 2 items → 10% tier unlocked=true, CTA \"Add Bundle to Cart $76.00$68.40\" (black=true); add 2 flavors → 4 items, bar 100%, 15% tier unlocked=true, CTA \"Add Bundle to Cart $156.00$132.60\", \"You’re saving 15% ($23.40)\"; remove ✕ → 3 items, 15% unlocked=false, bar 75%; Sold Out disabled=true · stand-ins: bottles, hero still-life and mega-menu photos are code-drawn SVG; Jost substitutes Brightland’s geometric sans and Newsreader its display serif; the Raw Vinegars section, discount savings line, black CTA at 2+ items and the mobile bottom-sheet bundle are assumptions; tier thresholds Buy 2+ 10% / Buy 4+ 15% follow the reference labels (fills at 2/4 items were not tested on the reference)",
+  "demoNodes": 585,
+  "errors": []
+ },
+ "whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles": {
+  "url": "https://ux-technique-gallery.vercel.app/t/whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles/",
+  "ok": true,
+  "at": "2026-10-21T20:07:43.707Z",
+  "http": 200,
+  "proof": "top: giant \"WHITNEY\" wordmark 108px (700) + hairline zigzag W path \"M48 48L793 325L793 48L1392 287L1392 48\", header 349px, hours + BOOK TICKETS / BECOME A MEMBER outline buttons; caps nav VISIT / WHAT’S ON / ART & ARTISTS / LEARN / SHOP (34.447px) + shuffle/search icons; scroll 151px → zigzag depth ×0.49, header 198px, wordmark 87px (scroll-linked collapse); scroll 549px → slim sticky bar shown=true (47px: \"Whitney Museum of American Art\", hours, 2 outline buttons, Menu); Menu → panel open=true (4 caps columns); exhibition 2-col grid: big \"ROY LICHTENSTEIN:LIKE NEW\" black rgb(0, 0, 0) over grey \"ON VIEW NOW\" rgb(140, 140, 140); 3 right-column cards e.g. \"ALEX DA CORTE:HOT DOG WITH KETCHUP\"; scroll back to 0 → full header restored=true · stand-ins: all artworks (Lichtenstein eye, Da Corte hot dog, Minnie Evans painting, gallery photos) are code-drawn SVG approximations; Inter Tight substitutes Whitney’s Neue Haas-style grotesk; the Menu panel contents and the shuffle action are assumptions (the reference Menu screenshot did not show an open panel); exact collapse easing not measured",
+  "demoNodes": 402,
+  "errors": []
+ },
+ "snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list": {
+  "url": "https://ux-technique-gallery.vercel.app/t/snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list/",
+  "ok": true,
+  "at": "2026-10-21T20:07:43.714Z",
+  "http": 200,
+  "proof": "three-point header \"Snøhetta\" / \"Menu\" / icon; light statement 59.76px weight 300; collage of 7 photos, focused #3 518px wide vs neighbour 346px, caption \"Lech Mountain Mirror\" visible=true; hover photo #4 → it grows to 518px (was ~345px), caption \"Café Atlas / An interior shaped around light\" shown=true, #3 caption hidden=true; hairline discipline list (5 items, 46px); events table 5 rows × 3 columns (Event / Location / Date); Menu → blurred overlay open=true (backdrop blur(22px)), button now \"Close\", big links People/Process/Projects, search field, 3 link columns; Close → overlay hidden=true; click focused photo → project page shown=true: black title \"Lech Mountain Mirror\" + grey subtitle (rgb(154, 154, 154)), full-bleed photo, 6 highlighted project rows with grey descriptions running off the edge · stand-ins: all project photos are code-drawn SVG scenes; Geist (light) substitutes Snøhetta’s grotesk; the collage refocus-on-hover easing, the news drag carousel and the highlighted-row hover drift are approximations; project names beyond the captured ones are placeholders",
+  "demoNodes": 767,
+  "errors": []
  }
 }
