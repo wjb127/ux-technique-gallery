@@ -5208,5 +5208,65 @@
   "ac2": "#191c28",
   "ac3": "#405278",
   "coverage": 0.12
+ },
+ "klim-type-foundry-video-scrubber-object-hero-color-band-font-index-sticky-specimen-toolbar-live-type-tester-opentype-toggles": {
+  "bg": "#cd3508",
+  "fg": "#f0f0f0",
+  "panel": "#cd3509",
+  "dark": true,
+  "ac": "#cd3508",
+  "ac2": "#cd3509",
+  "ac3": "#cd3507",
+  "coverage": 0.33
+ },
+ "baemin-mint-brand-landing-rotating-hero-copy-fullscreen-wheel-pager-hanna-display-type-line-illustration-sections-right-dots": {
+  "bg": "#476256",
+  "fg": "#cddfd8",
+  "panel": "#405c4f",
+  "dark": true,
+  "ac": "#aa794e",
+  "ac2": "#0decd0",
+  "ac3": "#6d4639",
+  "coverage": 0.07
+ },
+ "warp-records-purple-split-header-artist-hero-slideshow-release-split-panel-tracklist-tabs-caps-artist-index": {
+  "bg": "#312e1b",
+  "fg": "#fbf8f7",
+  "panel": "#000000",
+  "dark": true,
+  "ac": "#312e1b",
+  "ac2": "#363a21",
+  "ac3": "#2b2414",
+  "coverage": 0.06
+ },
+ "hasselblad-black-camera-showcase-eclipse-glow-hero-stacked-fullbleed-product-panels-orange-nav-hover-product-icon-subnav-strip-cookie-bar": {
+  "bg": "#030303",
+  "fg": "#c8b8a3",
+  "panel": "#000000",
+  "dark": true,
+  "ac": "#382e22",
+  "ac2": "#68563e",
+  "ac3": "#ffc83d",
+  "coverage": 0.45
+ },
+ "polaroid-instant-camera-store-video-hero-mode-name-cycler-handwritten-overlay-black-pill-menu-image-card-dropdown-sticker-collab-badge-product-row-photo-collage": {
+  "bg": "#878887",
+  "fg": "#070e15",
+  "panel": "#99938f",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "kinto-calm-japanese-lifestyle-store-shop-mega-panel-dark-banner-numbered-hero-slider-serif-section-titles-scene-pair-overflow-product-carousel": {
+  "bg": "#85aeaf",
+  "fg": "#141414",
+  "panel": "#73979a",
+  "dark": false,
+  "ac": "#70aac5",
+  "ac2": "#7fb6c5",
+  "ac3": "#6693a7",
+  "coverage": 0.07
  }
 }
