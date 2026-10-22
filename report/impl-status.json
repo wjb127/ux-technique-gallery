@@ -4462,5 +4462,32 @@
   "proof": "announce bar rgb(181, 211, 214) \"Free Shipping On Orders $60+ →\"; transparent nav (bg rgba(0, 0, 0, 0)) over sand photo hero with triangle badge logo; headline \"Le Fizz is finallyback in stock\" (\"Playfair Display\" 800, scaleX .7 condensed) + CTA bg rgb(238, 100, 130); maroon marquee (rgb(102, 27, 51)) 20 claims moving -120→-166px, pauses on hover (animation-play-state rule); chip Spritz → active fill rgb(102, 27, 51), rail cross-fade (fading=true) 5 \"Le Spritz Variety Pack\" → 5 \"Le Spritz Original\"; chip Aperitif → 3 cards \"Ghia Aperitif 500ml / Ghia Berry / Aperitif Gift Box\"; → arrow scrolls rail 0→13px (prev disabled before=true); Add to cart → cart badge 1; scroll past hero → solid cream sticky nav=true (bg rgb(253, 243, 236), script wordmark); cobalt editorial split rgb(74, 123, 192) \"Riviera - a cookbookby Melanie Masarin\" + mini bundle card \"The Riviera Kitchen Set\"; popup: full-screen rgb(102, 27, 51), step1 question \"Have you tried Ghia yet?\" with 2 pink pills, email step hidden=true; “No, but I’m intrigued” → question swapped out (step1 hidden=true), step2 email + Claim visible=true, Ghia script logo shown=true; Claim invalid → blocked=true \"Please enter a valid email address\"; Claim valid → reveal \"Your mystery discount: 20% off your first round\" code GHIA20-I8; × close → hidden=true, teaser pill to reopen visible=true · stand-ins: beach/bottle hero, product packshots, cookbook cover and iced-glass photo are code-drawn SVG; Playfair Display 800 squeezed with scaleX(.7) substitutes Ghia’s condensed display serif, Lobster the script logo, Questrial the body sans; chip→card sets, mystery % (15/20) and step-3 code reveal are assumptions (chip switching was unverified on the reference because the popup covered it)",
   "demoNodes": 433,
   "errors": []
+ },
+ "owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation": {
+  "url": "https://ux-technique-gallery.vercel.app/t/owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation/",
+  "ok": true,
+  "at": "2026-10-22T08:03:09.466Z",
+  "http": 200,
+  "proof": "card: serif title \"Life expectancy\" (\"Playfair Display\"), dotted definition term, logo badge; tabs Table/Map/Line/Bar active=Line; Line: 6 series with endpoint labels [Oceania, Europe, Americas, Asia, World, Africa]; hover crosshair → tooltip \"1934\" with 6 values; sidebar: check Japan → selection 7, series 7; value bar width 94.1%; play → end year animates 1900→1930 (x-axis + sidebar values follow: \"Sort by: Life expectancy, 1930\"); Map: 54 choropleth tiles, 8 legend bins, title year \"Life expectancy 2023\"; Table: 60 rows + sparkline column (60); sort by 2023 → first \"Monaco\"; Bar: 6 bars; Download modal options 3 · stand-ins: life-expectancy series are synthesised from each entity’s published 2023 value and a smooth transition curve (with 1918 / 1960 / 2021 dips) rather than the OWID dataset; the world map is a schematic tile-grid choropleth of 54 countries instead of real country shapes; Playfair Display + Lato match OWID’s fonts; download/share are demo behaviour",
+  "demoNodes": 625,
+  "errors": []
+ },
+ "fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid": {
+  "url": "https://ux-technique-gallery.vercel.app/t/fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid/",
+  "ok": true,
+  "at": "2026-10-22T08:03:09.469Z",
+  "http": 200,
+  "proof": "header: X FUJIFILM logo, condensed caps nav [PRODUCTS / SUPPORT / NEWS / X-Photographers / X Stories] (Oswald), country/region selector; region dropdown open=true (12 countries); PRODUCTS hover → mega panel visible=visible (4 categories); hero: 13-portrait strip (greyscale filter \"grayscale(1)\", 3 in colour), GFX wordmark + serif \"Challenge Grant Program 2025\", CTA \"Discover the Completed Projects Here\"; ticker: 14 links, animation fjTk; Cameras page: title \"Cameras\" + underline 24px, 14 tiles, 14 products; Series radio GFX → 4 tiles [GFX ETERNA 55, GFX100 II, GFX100S II, GFX100RF]; + Type Fixed Lens → 1 (GFX100RF); search \"x-t\" → 3 tiles; sort Newest → first \"GFX ETERNA 55\" · stand-ins: photographer portraits, camera bodies, lens/accessory icons and the ETERNA hero are code-drawn SVG instead of FUJIFILM photography; Oswald substitutes the condensed caps face, Libre Baskerville the serif headline and Noto Sans the body; product pages, region switch and news links are demo behaviour",
+  "demoNodes": 300,
+  "errors": []
+ },
+ "studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion": {
+  "url": "https://ux-technique-gallery.vercel.app/t/studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion/",
+  "ok": true,
+  "at": "2026-10-22T08:03:09.457Z",
+  "http": 200,
+  "proof": "home: 25 scattered thumbnails on a 7-col field, centred serif \"Moving Missions Forward\" (\"EB Garamond\"), mono nav \"Work, Info, News, Aeon\"; cursor parallax → thumb[1] translate(7.59306px, 8.20023px); Work: typewriter headline typing \"EXPERIENCE\" with blinking caret (sfBl); Grid view: 21 masonry items; List → 21 rows × 4 cols [Year/Client/Labels/Services], year shown on first of group \"2025\"; Zoom → 21 large single-column images with client/labels at edges; Filter (+) → \"AI\" → 7 items; Contact: bg rgb(0, 0, 0) (inverted), 6 underline inputs; submit empty → 4 required errors; FAQ (+) \"Job inquiries\" open=true icon rotate=true · stand-ins: all project imagery is code-drawn SVG (device mocks, gradient glows, halftone, colour blocks) instead of Studio Freight case-study photos; Courier Prime substitutes the custom mono serif and EB Garamond the serif; case-study pages, Info/News/Aeon content and form submission are demo behaviour",
+  "demoNodes": 974,
+  "errors": []
  }
 }
