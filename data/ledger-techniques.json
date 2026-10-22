@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band",
+  "slug": "hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band",
+  "name": "Hem: centered white gate modal over blurred-free lifestyle photo with two segmented questions (Private/Business, 4 regions) that fill electric blue on select and enable a pill Confirm selection; then thin search-bar header, full-bleed hero with big white two-line title + white pill, side-by-side campaign split panels with overlaid titles, horizontal Shop by category image rail with arrow, journal 3-card row, beige Hem Pro band with arch-shaped image and checklist",
+  "date": "2026-10-22",
+  "slot": "08:00",
+  "url": "https://hem.com/en-us/",
+  "domain": "hem.com",
+  "product": "Hem — Swedish furniture & lighting brand",
+  "checkpoints": [
+   "Gate modal: segmented choice buttons fill blue, Confirm disabled until both answered (verified)",
+   "Confirm routes to /en-us and closes gate (verified)",
+   "Header: centered wordmark + underline search field + icons",
+   "Full-bleed hero with giant white title + pill CTA",
+   "Two-up campaign split panels and horizontal category rail with arrow",
+   "Beige Pro band with arch-masked image + checklist; blue newsletter button footer"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null,
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
+  "id": "clone-fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list",
+  "slug": "fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list",
+  "name": "Fellow Stagg EKG PDP: spaced FELLOW wordmark nav with red active item, 2-col photo grid on the left with sticky buy column on the right (title, price, stars, Pro/Pro Studio model chips, circular color swatch rail, qty stepper + black pill Add to Cart, Bundle + Save cards with red Save badges, accordions), review card carousel with arrows, Precision in every detail split section with hairline-divided feature list, Take a closer look slider with dot progress",
+  "date": "2026-10-22",
+  "slot": "08:00",
+  "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle",
+  "domain": "fellowproducts.com",
+  "product": "Fellow — design-led coffee gear",
+  "checkpoints": [
+   "Header: spaced wordmark, red active nav item, announce bar",
+   "Left photo grid + right sticky buy column",
+   "Model chips + circular color swatch rail updates label (swatch click unverified)",
+   "Qty stepper + pill Add to Cart + Bundle+Save cards with Save badge",
+   "Accordions + horizontal review card carousel with arrows",
+   "Precision split section with hairline feature list + closer-look slider dots"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null,
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
+  "id": "clone-marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters",
+  "slug": "marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters",
+  "name": "Marimekko: black micro top bar (STORES / SELECT COUNTRY), lowercase marimekko wordmark with thin nav, stacked full-bleed print/photo panels each with small eyebrow + large light caption + small white boxed CTA bottom-left, hero carousel with pause/dots at bottom-right; clicking Clothing opens All clothing listing with big light title + intro paragraph, FILTERS control, grey skeleton cards that resolve into a 4-col model photo grid",
+  "date": "2026-10-22",
+  "slot": "08:00",
+  "url": "https://www.marimekko.com/com_en",
+  "domain": "marimekko.com",
+  "product": "Marimekko — Finnish print design house",
+  "checkpoints": [
+   "Black micro bar + lowercase wordmark + thin nav with underline active",
+   "Full-bleed print hero with eyebrow, light caption, boxed CTA",
+   "Hero carousel controls bottom-right (autoplay timing unverified)",
+   "Stacked editorial panels on scroll",
+   "Category page: big light title + intro + FILTERS (verified)",
+   "Skeleton cards resolve to 4-col product grid (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null,
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
   "id": "clone-whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles",
   "slug": "whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles",
   "name": "Whitney: giant WHITNEY wordmark with hairline diagonal zigzag W drawn across the header that compresses as you scroll into a slim sticky bar (name, hours, BOOK TICKETS / BECOME A MEMBER outline buttons, Menu); bold caps nav; 2-col exhibition grid with black caps title over grey caps status line (ON VIEW NOW / THROUGH JAN 10, 2027); mobile shows stacked name + TICKETS box + hamburger",

@@ -5388,5 +5388,35 @@
   "ac2": "#f2d3d6",
   "ac3": "#1f4e96",
   "coverage": 0.0
+ },
+ "hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band": {
+  "bg": "#ffffff",
+  "fg": "#111111",
+  "panel": "#dcd8c2",
+  "dark": false,
+  "ac": "#2326de",
+  "ac2": "#ef9f9a",
+  "ac3": "#c79e6c",
+  "coverage": 0.0
+ },
+ "fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list": {
+  "bg": "#ffffff",
+  "fg": "#1e1e1f",
+  "panel": "#efefed",
+  "dark": false,
+  "ac": "#9d523a",
+  "ac2": "#e6dfcf",
+  "ac3": "#d4a26a",
+  "coverage": 0.0
+ },
+ "marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters": {
+  "bg": "#ffffff",
+  "fg": "#141414",
+  "panel": "#ececec",
+  "dark": false,
+  "ac": "#178a5c",
+  "ac2": "#13427a",
+  "ac3": "#f05a5a",
+  "coverage": 0.0
  }
 }
