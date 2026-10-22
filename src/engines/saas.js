@@ -33469,4 +33469,401 @@ V['bear-app-hero-device-switcher-hand-drawn-sketch-underline-color-per-device-ma
   };
 };
 // @@sync-2026-10-23-04-end
+// @@sync-2026-10-23-08-start
+V['commercialtype-color-band-catalog-type-tester'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#111111', ac: '#3BA4F7', dark: false });
+  import('@fontsource/playfair-display/400.css'); import('@fontsource/playfair-display/500.css'); import('@fontsource/playfair-display/600.css'); import('@fontsource/playfair-display/700.css'); import('@fontsource/playfair-display/800.css'); import('@fontsource/playfair-display/900.css');
+  import('@fontsource/playfair-display/400-italic.css'); import('@fontsource/playfair-display/500-italic.css'); import('@fontsource/playfair-display/600-italic.css'); import('@fontsource/playfair-display/700-italic.css'); import('@fontsource/playfair-display/800-italic.css'); import('@fontsource/playfair-display/900-italic.css'); import('@fontsource/libre-caslon-text/400.css');
+  import('@fontsource/archivo-black'); import('@fontsource-variable/fraunces/wght-italic.css'); import('@fontsource-variable/inter-tight'); import('@fontsource-variable/inter-tight/wght-italic.css');
+  import('@fontsource/amiri/400.css'); import('@fontsource/amiri/700.css'); import('@fontsource/bodoni-moda/400.css'); import('@fontsource/bodoni-moda/800.css'); import('@fontsource/bodoni-moda/400-italic.css'); import('@fontsource/anton');
+  const UI = "'Inter Tight Variable','Inter Variable',system-ui,sans-serif";
+  const STY = [['Regular', 400, 0], ['Medium', 500, 0], ['Semibold', 600, 0], ['Bold', 700, 0], ['Black', 900, 0], ['Regular Italic', 400, 1], ['Medium Italic', 500, 1], ['Semibold Italic', 600, 1], ['Bold Italic', 700, 1], ['Black Italic', 900, 1]];
+  const ONE = [['Regular', 400, 0], ['Oblique', 400, 1]];
+  const FAM = [
+    { n: 'Spectator', f: "'Playfair Display',serif", w: 800, bg: '#3BA4F7', fg: '#DDF0FF', cap: '4 Families, 48 Styles', subs: ['Poster', 'Headline', 'Deck', 'Text'], st: STY, des: 'Paul Barnes', col: 'CLASSICS', price: '$750, styles from $60', sub: '$325',
+      blurb: 'Somewhere between Caslon and Baskerville sits Spectator, a serif face based on the famed English Roman types by Alexander Wilson of Glasgow. Wilson’s text face combined the sharpness of an oldstyle serif with the warmth, rationality, and roundness of a transitional one, its modernity mirroring the age of the Scottish Enlightenment in which it was born.' },
+    { n: 'New Doric', f: "'Archivo Black',sans-serif", w: 400, bg: '#5A004E', fg: '#FFC8E6', cap: '6 Families, 84 Styles', subs: ['Condensed', 'Regular', 'Wide'], st: ONE, des: 'Paul Barnes, Christian Schwartz', col: 'RETAIL', price: '$900, styles from $50', sub: '$280',
+      blurb: 'New Doric revisits the bold grotesques cut by Victorian founders for posters and handbills — compact, loud and unapologetically black — redrawn as a coherent system with consistent widths for contemporary editorial work.' },
+    { n: 'Orlando', f: "'Fraunces Variable',serif", w: 700, bg: '#7AFFF0', fg: '#00263A', cap: '3 Families, 36 Styles', subs: ['Display', 'Text'], st: STY, des: 'Commercial Type Studio', col: 'RETAIL', price: '$650, styles from $60', sub: '$300',
+      blurb: 'Orlando is a soft, generous display serif with ball terminals and a confident italic, drawn for magazine headlines that want warmth at very large sizes.' },
+    { n: 'Graphik', f: "'Inter Tight Variable',sans-serif", w: 300, bg: '#000000', fg: '#ffffff', cap: '4 Families, 72 Styles', subs: ['Compact', 'Regular', 'Wide'], st: STY, des: 'Christian Schwartz', col: 'RETAIL', price: '$1,200, styles from $50', sub: '$400',
+      blurb: 'Graphik is a sans serif informed by lesser-known twentieth-century European grotesques — plain, but never sterile — and has become a standard for interfaces and identities.' },
+    { n: 'Lyon Arabic', f: "'Amiri',serif", w: 700, bg: '#E5CCF0', fg: '#4A0078', cap: '2 Families, 16 Styles', subs: ['Display', 'Text'], st: [['Regular', 400, 0], ['Bold', 700, 0], ['Italic', 400, 1], ['Bold Italic', 700, 1]], des: 'Kai Bernau, Wael Morcos', col: 'RETAIL', price: '$600, styles from $60', sub: '$300',
+      blurb: 'Lyon Arabic pairs naskh calligraphic structure with the crisp contrast of Lyon’s Latin, made for bilingual books and newspapers.' },
+    { n: 'Austin', f: "'Bodoni Moda',serif", w: 800, bg: '#FF5A36', fg: '#FFE3D8', cap: '3 Families, 30 Styles', subs: ['Hairline', 'News'], st: [['Regular', 400, 0], ['Medium', 500, 0], ['Bold', 700, 0], ['Black', 800, 0], ['Italic', 400, 1]], des: 'Paul Barnes', col: 'RETAIL', price: '$700, styles from $60', sub: '$350',
+      blurb: 'Austin is a Scotch-modern display face of hairline serifs and tight apertures, cut to sparkle on fashion covers.' },
+    { n: 'Druk', f: "'Anton',sans-serif", w: 400, bg: '#FFE500', fg: '#111111', cap: '5 Families, 60 Styles', subs: ['Condensed', 'Wide'], st: ONE, des: 'Berton Hasebe', col: 'RETAIL', price: '$1,000, styles from $50', sub: '$350',
+      blurb: 'Druk is an extremely condensed, extremely heavy sans for headlines that must fill a page from edge to edge.' },
+  ];
+  const NAV = ['Catalog', 'Custom', 'Design', 'News', 'Goods', 'About', 'EULA', 'Login'];
+  const ic = { l: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M2 3h12M2 6h8M2 9h12M2 12h8" stroke="currentColor" stroke-width="1.2"/></svg>', c: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M2 3h12M4 6h8M2 9h12M4 12h8" stroke="currentColor" stroke-width="1.2"/></svg>', r: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M2 3h12M6 6h8M2 9h12M6 12h8" stroke="currentColor" stroke-width="1.2"/></svg>',
+    c1: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M2 3h12M2 6h12M2 9h12M2 12h12" stroke="currentColor" stroke-width="1.2"/></svg>', c2: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M1 3h6M1 6h6M1 9h6M1 12h6M9 3h6M9 6h6M9 9h6M9 12h6" stroke="currentColor" stroke-width="1.2"/></svg>', c3: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M1 3h4M1 6h4M1 9h4M1 12h4M6 3h4M6 6h4M6 9h4M6 12h4M11 3h4M11 6h4M11 9h4M11 12h4" stroke="currentColor" stroke-width="1.2"/></svg>',
+    cart: '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 2h2l2 8h8l1.5-6H4"/><circle cx="6" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>', pin: '<svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 2h4l-1 4 3 3H4l3-3zM8 9v6"/></svg>' };
+  css(`
+.ct{position:absolute;inset:0;background:#fff;color:#111;font:400 14px/1.4 ${UI}}.ct *{box-sizing:border-box}
+:where(.ct) button,:where(.ct) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.ct-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.ct-top{position:sticky;top:0;z-index:30;height:0}
+.ct-bar{position:absolute;left:0;right:0;top:0;display:flex;align-items:flex-start;justify-content:space-between;padding:8px 15px;pointer-events:none}.ct-bar>*{pointer-events:auto}
+.ct-chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 5px;font:500 16px/1 ${UI};box-shadow:0 1px 2px #0000004d;white-space:nowrap}
+.ct-logo{background:#fff;color:#111}.ct-nav{display:flex;gap:1px;max-width:calc(100vw - 260px);overflow-x:auto;scrollbar-width:none}.ct-nav::-webkit-scrollbar{display:none}.ct-nav .ct-chip{background:#333;color:#fff}.ct-nav .ct-chip.on{background:#fff;color:#111}.ct-nav .ct-chip:hover{background:#000}.ct-nav .ct-chip.on:hover{background:#fff}
+.ct-cart{background:#333;color:#fff;font-size:12px;letter-spacing:.03em;padding:0 7px}
+.ct-pin{position:absolute;right:15px;top:37px;background:#dbeeff;color:#111;font-size:11.5px;letter-spacing:.04em;height:21px;padding:0 6px;box-shadow:0 1px 2px #0003}.ct-pin.on{background:#3BA4F7;color:#fff}
+.ct-band{display:block;width:100%;height:256px;position:relative;text-align:center;overflow:hidden;transition:filter .2s}
+.ct-band:hover{filter:brightness(.94)}.ct-band b{display:block;font-size:clamp(44px,11.5vw,166px);line-height:256px;white-space:nowrap;transition:transform .25s ease;letter-spacing:-.01em}.ct-band:hover b{transform:translateX(4px)}
+.ct-band small{position:absolute;left:0;right:0;bottom:16px;font:400 11px ${UI};letter-spacing:.02em}
+.ct-intro{padding:58px 15px 30px;text-align:center;font:400 13px/1.5 ${UI};border-bottom:1px solid #111;max-width:none}
+.ct-three{display:grid;grid-template-columns:repeat(3,1fr)}.ct-three>div{padding:22px 15px 30px;text-align:center;border-right:1px solid #111}.ct-three>div:last-child{border-right:0}
+.ct-three h3{margin:0 0 18px;font:400 17px ${UI};letter-spacing:.08em}.ct-three p{margin:0 auto 34px;max-width:300px;font-size:12.5px}.ct-three .im{aspect-ratio:1;max-height:420px;margin:0 auto}.ct-three .cap{display:flex;justify-content:center;gap:28px;margin-top:20px;font-size:12px}
+.ct-foot{background:#dff0ff;padding:16px 15px 22px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;font-size:12px}.ct-foot .m{font:800 18px 'Bodoni Moda',serif;color:#3BA4F7;text-align:center}.ct-foot .r{text-align:right}.ct-foot input{width:180px;height:22px;border:1px solid #888;margin:0 0 0 6px}.ct-foot u{cursor:pointer}
+.ct-fam{padding:52px 15px 0}.ct-kick{text-align:center;font-size:12px;letter-spacing:.06em;color:#444}.ct-title{text-align:center;margin:6px 0 16px;font:400 48px/1.1 ${UI};letter-spacing:.01em}
+.ct-hr{border:0;border-top:1px solid #111;margin:0}
+.ct-meta{display:grid;grid-template-columns:320px 1fr;gap:22px;padding:18px 0 40px}.ct-meta table{border-collapse:collapse;font-size:11.5px;letter-spacing:.02em}.ct-meta td{vertical-align:top;padding:0 0 12px}.ct-meta td:first-child{width:92px;letter-spacing:.06em}.ct-meta u{cursor:pointer}
+.ct-blurb{font:400 17px/1.45 'Libre Caslon Text','Playfair Display',serif;max-width:580px}.ct-blurb u{display:inline-block;margin-top:16px;cursor:pointer}
+.ct .ct-pill{display:inline-flex;align-items:center;gap:6px;background:#dff0ff;height:21px;padding:0 6px;font-size:11.5px;letter-spacing:.04em;margin-right:2px}.ct .ct-pill:hover{background:#c5e4ff}
+.ct-sub{padding:16px 0 0}.ct-sub .lb{font-size:11.5px;letter-spacing:.06em;margin:16px 0 12px}.ct-sub .pr{display:flex;align-items:center;gap:6px;font-size:11.5px;margin-bottom:10px}
+.ct .ct-line{display:block;width:100%;text-align:left;font-size:56px;line-height:1.0;white-space:nowrap;overflow:hidden;text-overflow:clip;padding:0;color:#111}.ct .ct-line:hover{color:#3BA4F7}
+.ct-tb{position:sticky;top:31px;z-index:25;margin:0 -15px;background:#fff;box-shadow:0 2px 3px #0000002e;padding:3px 15px 5px;display:none}.ct-tb.on{display:block}.ct-tb.unp{position:relative;top:0}
+.ct-tb .r1,.ct-tb .r2{display:flex;align-items:center;gap:2px;flex-wrap:wrap}.ct-tb .r1{margin-bottom:3px}.ct-tb .sp{flex:1}
+.ct-tb .fc{background:#dff0ff;height:24px;font-size:15px;padding:0 5px;display:inline-flex;align-items:center}.ct-tb .cl{font-size:11.5px;letter-spacing:.06em;color:#555;margin:0 70px 0 10px}
+.ct-tb select{appearance:none;background:#dff0ff;border:0;height:24px;font:500 15px ${UI};padding:0 18px 0 5px;background-image:linear-gradient(45deg,transparent 50%,#111 50%),linear-gradient(135deg,#111 50%,transparent 50%);background-position:calc(100% - 9px) 11px,calc(100% - 5px) 11px;background-size:4px 4px;background-repeat:no-repeat;cursor:pointer}
+.ct-tb .mn{position:relative}.ct-tb .mn>button{background:#f0f0f0;height:20px;font-size:11px;padding:0 5px}.ct-tb .mn .dd{position:absolute;left:0;top:22px;background:#fff;box-shadow:0 3px 12px #0003;padding:6px;display:none;min-width:190px;z-index:5}.ct-tb .mn.on .dd{display:block}.ct-tb .dd label{display:flex;gap:6px;align-items:center;font-size:12px;padding:3px 2px;cursor:pointer}
+.ct-tb .ctr{display:flex;align-items:center;gap:6px;margin:0 auto;font-size:12px;background:#f0f0f0;padding:1px 8px}.ct-tb .ctr button{width:20px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:#888}.ct-tb .ctr button.on{color:#111}
+.ct-tb .ctr input{width:40px;height:16px;border:1px solid #111;font:400 11px ${UI};text-align:center;padding:0}.ct-tb .ctr .g{font-weight:600;margin-left:8px}
+.ct-spec{margin:22px 0 30px;border-left:1px solid #111;border-right:1px solid #111;padding:6px 60px;outline:none;color:#111;min-height:120px;overflow-wrap:anywhere}.ct-spec:focus{border-color:#3BA4F7}.ct-spec.s2{text-transform:uppercase}
+.ct-go{display:flex;justify-content:space-between;border-top:1px solid #111;padding:10px 0 40px;font-size:11.5px;letter-spacing:.04em}.ct-go u{cursor:pointer}
+.ct-sheet{display:none}
+@media (max-width:640px){.ct-nav{max-width:calc(100vw - 250px)}.ct-chip{font-size:14px}.ct-logo{font-size:13px}.ct-band{height:150px}.ct-band b{line-height:150px;font-size:clamp(34px,13vw,80px)}
+.ct-three{grid-template-columns:1fr}.ct-three>div{border-right:0;border-bottom:1px solid #111}.ct-foot{grid-template-columns:1fr}.ct-foot .r{text-align:left}
+.ct-title{font-size:32px}.ct-meta{grid-template-columns:1fr}.ct .ct-line{font-size:30px}
+.ct-tb{position:fixed!important;left:0;right:0;top:auto!important;bottom:0;margin:0;box-shadow:0 -4px 16px #0003;border-radius:12px 12px 0 0;padding:6px 10px 12px;max-height:60%;overflow:auto;transform:translateY(calc(100% - 34px));transition:transform .3s}.ct-tb.open{transform:none}
+.ct-tb .hd{display:flex!important}.ct-tb .cl{margin:0 8px}.ct-tb .ctr{flex-wrap:wrap;margin:6px 0 0;width:100%}.ct-spec{padding:6px 14px}}
+.ct-tb .hd{display:none;justify-content:center;align-items:center;gap:6px;height:22px;font-size:11px;letter-spacing:.06em;cursor:pointer}.ct-tb .hd i{width:36px;height:4px;border-radius:2px;background:#bbb}
+`);
+  const el = h('div.ct'); const sc = h('div.ct-sc'); el.append(sc); root.append(el);
+  const navBtns = NAV.map((n, i) => h('a.ct-chip' + (i === 0 ? '.on' : ''), { href: '#', onclick: (e) => { e.preventDefault(); if (i === 0) home(); else toast(n + ' — demo link'); } }, n));
+  const pinBtn = h('button.ct-chip.ct-pin.on', { onclick: () => setPin(!pinned) }, h('span', { html: ic.pin }), 'TEST PINNED');
+  const top = h('div.ct-top', {}, h('div.ct-bar', {}, h('a.ct-chip.ct-logo', { href: '#', onclick: (e) => { e.preventDefault(); home(); } }, 'Commercial Type'), h('nav.ct-nav', {}, ...navBtns), h('a.ct-chip.ct-cart', { href: '#', onclick: (e) => { e.preventDefault(); toast(`Cart: ${cart} item${cart === 1 ? '' : 's'}`); } }, 'VIEW CART')), pinBtn);
+  const main = h('div'); sc.append(top, main);
+  let cart = 0, pinned = true, view = 'home', fam = null, tb = null, specs = [];
+  const SZ = () => (el.clientWidth < 640 ? 56 : 149);
+  const st = { size: 149, lead: 1.0, track: 0, align: 'center', cols: 1, feat: {}, lang: 'en', sub: 0, style: 0 };
+  const art = (k) => {
+    if (k === 0) return '<svg viewBox="0 0 300 300" width="100%" height="100%"><rect width="300" height="300" fill="#ebe9df"/><ellipse cx="150" cy="96" rx="96" ry="18" fill="#fff" stroke="#ddd"/><path d="M54 96 L70 230 Q150 250 230 230 L246 96" fill="#f6f6f2" stroke="#ddd"/><text x="150" y="160" text-anchor="middle" font-family="Playfair Display" font-weight="800" font-size="40" fill="#1f4d3a">Chobani</text><text x="150" y="186" text-anchor="middle" font-family="Playfair Display" font-size="13" fill="#2b4a8b">Blueberry on the Bottom</text>' + [[90, 210], [210, 205], [120, 222], [190, 224], [232, 150], [72, 150]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="13" fill="#3e57b8" opacity=".85"/>`).join('') + '</svg>';
+    if (k === 1) return '<svg viewBox="0 0 300 300" width="100%" height="100%"><rect width="300" height="300" fill="#181514"/><path d="M60 300 C 80 210 120 180 150 180 C 190 180 230 210 250 300Z" fill="#c69a6a"/><path d="M90 200 Q150 120 210 200" fill="none" stroke="#a37a4e" stroke-width="8"/><g fill="none" stroke="#fff" stroke-width="5"><circle cx="150" cy="140" r="0"/></g><text x="150" y="112" text-anchor="middle" font-family="Archivo Black" font-size="15" fill="#fff" letter-spacing="6">MARK</text><text x="150" y="168" text-anchor="middle" font-family="Anton" font-size="62" fill="#fff" letter-spacing="2">CROSS</text><text x="150" y="194" text-anchor="middle" font-family="Archivo Black" font-size="14" fill="#fff" letter-spacing="6">1845</text></svg>';
+    return '<svg viewBox="0 0 300 300" width="100%" height="100%"><rect width="300" height="300" fill="#20231c"/><path d="M40 300 C 50 200 90 150 150 150 C 210 150 250 200 260 300Z" fill="#d7f74a"/><circle cx="150" cy="110" r="46" fill="#3a2a22"/><g font-family="Anton" fill="#20231c" font-size="22" text-anchor="middle" transform="rotate(-6 150 230)"><text x="150" y="210">THE RIDICULOUS</text><text x="150" y="236">TO THE</text><text x="150" y="262">SUBLIME</text></g></svg>';
+  };
+  function home() {
+    view = 'home'; fam = null; tb = null; specs = []; navBtns.forEach((b, i) => b.classList.toggle('on', i === 0)); pinBtn.style.display = 'none';
+    main.replaceChildren(
+      ...FAM.map((f, i) => h('a.ct-band', { href: '#', style: { background: f.bg, color: f.fg }, onclick: (e) => { e.preventDefault(); open(i); } }, h('b', { style: { fontFamily: f.f, fontWeight: f.w } }, f.n), h('small', {}, f.cap))),
+      h('p.ct-intro', {}, 'Commercial Type is a joint venture between Paul Barnes and Christian Schwartz. We publish retail typefaces, develop custom and commissioned work for clients and an extensive library for general use. All of our licensing is a one-time fee for perpetual usage.'),
+      h('div.ct-three', {}, ...[['CUSTOM', 'Commercial Type has created custom typefaces for clients worldwide, with a concentration on editorial, cultural, and retail projects.', 'Chobani Serif for Chobani', '4/5'], ['DESIGN STUDIO', 'Building on our foundations in type design, the Commercial Type Design Studio develops visual identity systems, generating a distinctive voice for each client.', 'Refining American luxury', '1/3'], ['GOODS', 'With a keen interest in how our work exists in the real world, we offer printed specimens and other products that help bring our typefaces to life.', 'Peter Saville t-shirt (neon)', '1/3']].map(([t, p, c, n], k) => h('div', {}, h('h3', {}, t), h('p', {}, p), h('div.im', { html: art(k) }), h('div.cap', {}, h('span', {}, c), h('span', {}, '◀ ' + n + ' ▶')))),
+      h('footer.ct-foot', {}, h('div', {}, h('div', { style: { fontSize: '16px', marginBottom: '14px' } }, '◉  ◎  ✉'), h('u', {}, 'Classics Showcase'), h('br'), h('u', {}, 'Food Issue')), h('div', { style: { textAlign: 'center' } }, h('div.m', {}, 'Commercial'), h('div', { style: { marginTop: '22px' } }, h('u', {}, 'Accessibility'), '  ', h('u', {}, 'FAQs')), '© 2026 Commercial Type. All rights reserved.'),
+        h('div.r', {}, 'Email', h('input', { type: 'email', 'aria-label': 'email' }), h('button.ct-chip', { style: { background: '#333', color: '#fff', fontSize: '12px', marginLeft: '2px' }, onclick: () => toast('Subscribed — demo') }, 'SUBSCRIBE'), h('div', { style: { marginTop: '18px' } }, 'Designed and developed by ', h('u', {}, 'GrayBits'))))));
+    sc.scrollTop = 0;
+  }
+  const fontOf = () => fam.f; const styOf = () => fam.st[st.style] || fam.st[0];
+  const SAMPLE = { en: ['General Gravitation', 'The extent of the gravitational field'], fr: ['Gravitation Générale', 'L’étendue du champ gravitationnel'], de: ['Allgemeine Gravitation', 'Die Ausdehnung des Schwerefeldes'], cs: ['Všeobecná gravitace', 'Rozsah gravitačního pole'] };
+  function apply() {
+    if (!fam) return; const [, w, it] = styOf();
+    const ff = Object.entries(st.feat).filter(([, v]) => v).map(([k]) => `"${k}" 1`).join(', ') || 'normal';
+    specs.forEach((sp, i) => Object.assign(sp.style, { fontFamily: fontOf(), fontWeight: w, fontStyle: it ? 'italic' : 'normal', fontSize: (i ? Math.round(st.size * 0.62) : st.size) + 'px', lineHeight: String(st.lead), letterSpacing: st.track + 'em', textAlign: st.align, columnCount: String(st.cols), columnGap: '40px', fontFeatureSettings: ff }));
+    if (tb) { tb.q('size').value = st.size; tb.q('lead').value = st.lead.toFixed(2); tb.q('track').value = st.track.toFixed(2); tb.al.forEach((b) => b.classList.toggle('on', b.dataset.v === st.align)); tb.co.forEach((b) => b.classList.toggle('on', +b.dataset.v === st.cols)); tb.styleSel.value = st.style; tb.subSel.value = st.sub; }
+  }
+  function setPin(v) { pinned = v; pinBtn.classList.toggle('on', v); if (tb) tb.el.classList.toggle('unp', !v); }
+  function showTester(si, sti) {
+    st.sub = si; st.style = sti;
+    if (!tb) {
+      st.size = SZ();
+      const num = (k, step, min, max, fmt) => h('input', { 'data-k': k, type: 'text', inputmode: 'decimal', value: fmt(st[k]), onchange: (e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) { st[k] = clamp(v, min, max); apply(); } }, onkeydown: (e) => { if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); st[k] = clamp(+(st[k] + (e.key === 'ArrowUp' ? step : -step)).toFixed(2), min, max); apply(); } } });
+      const subSel = h('select', { 'aria-label': 'family', onchange: (e) => { st.sub = +e.target.value; apply(); } }, ...fam.subs.map((s2, i) => h('option', { value: i }, `${fam.n} ${s2}`)));
+      const styleSel = h('select', { 'aria-label': 'style', onchange: (e) => { st.style = +e.target.value; apply(); } }, ...fam.st.map((s2, i) => h('option', { value: i }, s2[0])));
+      const al = ['left', 'center', 'right'].map((v) => h('button', { 'data-v': v, title: 'align ' + v, html: ic[v[0]], onclick: () => { st.align = v; apply(); } }));
+      const co = [1, 2, 3].map((v) => h('button', { 'data-v': v, title: v + ' columns', html: ic['c' + v], onclick: () => { st.cols = v; apply(); } }));
+      const menu = (label, items) => { const m = h('div.mn', {}, h('button', { onclick: (e) => { e.stopPropagation(); const on = !m.classList.contains('on'); el.querySelectorAll('.mn').forEach((x) => x.classList.remove('on')); m.classList.toggle('on', on); } }, label + ' ⌄'), h('div.dd', { onclick: (e) => e.stopPropagation() }, ...items)); return m; };
+      const ot = menu('OpenType', [['liga', 'Standard ligatures'], ['dlig', 'Discretionary ligatures'], ['smcp', 'Small caps'], ['onum', 'Oldstyle figures'], ['ss01', 'Stylistic set 1']].map(([k, n]) => h('label', {}, h('input', { type: 'checkbox', 'data-f': k, onchange: (e) => { st.feat[k] = e.target.checked; apply(); } }), n)));
+      const lg = menu('Languages', [['en', 'English'], ['fr', 'Français'], ['de', 'Deutsch'], ['cs', 'Čeština']].map(([k, n]) => h('label', {}, h('input', { type: 'radio', name: 'ctlang', checked: k === 'en', 'data-l': k, onchange: () => { st.lang = k; specs.forEach((sp, i) => { sp.textContent = SAMPLE[k][i]; }); apply(); } }), n)));
+      const size = num('size', 1, 8, 400, (v) => v), lead = num('lead', 0.05, 0.6, 3, (v) => v.toFixed(2)), track = num('track', 0.01, -0.2, 0.5, (v) => v.toFixed(2));
+      const e = h('div.ct-tb.on' + (pinned ? '' : '.unp'), {},
+        h('div.hd', { onclick: () => e.classList.toggle('open') }, h('i'), 'TESTER'),
+        h('div.r1', {}, h('span.fc', {}, `${fam.n} Collection`), h('span.cl', {}, fam.col), subSel, styleSel, h('button.ct-pill', { onclick: () => { cart++; toast(`${fam.n} ${fam.subs[st.sub]} ${styOf()[0]} added to cart`); } }, 'ADD TO CART ', h('span', { html: ic.cart }))),
+        h('div.r2', {}, ot, lg, h('div.ctr', {}, ...al, h('span.g', {}, 'Aᴀ'), size, h('span.g', {}, '↕'), lead, h('span.g', {}, 'AV'), track, h('span', { style: { width: '10px' } }), ...co)));
+      tb = { el: e, al, co, subSel, styleSel, ot, lg, q: (k) => e.querySelector(`[data-k="${k}"]`) };
+      const s1 = h('div.ct-spec', { contenteditable: 'true', spellcheck: 'false' }, SAMPLE[st.lang][0]); const s2 = h('div.ct-spec.s2', { contenteditable: 'true', spellcheck: 'false' }, SAMPLE[st.lang][1]);
+      specs = [s1, s2]; const ref = famEl.querySelector('.ct-hr'); famEl.insertBefore(e, ref); famEl.insertBefore(s1, ref); famEl.insertBefore(s2, ref);
+    }
+    tb.el.classList.add('on'); apply(); sc.scrollTo({ top: 0, behavior: 'smooth' }); specs[0].focus({ preventScroll: true });
+  }
+  let famEl = null;
+  function open(i) {
+    view = 'family'; fam = FAM[i]; tb = null; specs = []; st.style = 0; st.sub = 0; navBtns.forEach((b, k) => b.classList.toggle('on', k === 0)); pinBtn.style.display = '';
+    famEl = h('section.ct-fam', {},
+      h('div.ct-kick', {}, fam.col), h('h1.ct-title', {}, `${fam.n} Collection`), h('hr.ct-hr'),
+      h('div.ct-meta', {}, h('div', {}, h('table', {}, h('tbody', {}, ...[['DESIGNER', h('u', {}, fam.des)], ['TECHNICAL', h('span', {}, h('u', {}, 'Languages'), h('br'), h('u', {}, 'Suggested pairings'))], ['BONUS CUTS', h('span', {}, ...fam.subs.map((s2, k) => [h('u', {}, `${fam.n} Original ${s2} Family`), k < fam.subs.length - 1 ? ',' : '', h('br')]))], ['PRICING', h('span', {}, fam.price, h('br'), 'One-time fee for perpetual use')], [fam.col, h('span', {}, 'Commercial ' + (fam.col === 'CLASSICS' ? 'Classics is dedicated to recreating old typefaces, allowing these historical forms to escape the past and come to life again.' : 'Retail typefaces are licensed for print, web, app and broadcast.'))]].map(([a, b]) => h('tr', {}, h('td', {}, a), h('td', {}, b))))),
+        h('div', {}, h('button.ct-pill', { onclick: () => { cart++; toast(`${fam.n} Collection added to cart`); } }, 'ADD TO CART ', h('span', { html: ic.cart })), h('button.ct-pill', { onclick: () => toast('Trial fonts — demo') }, 'TRIAL'))),
+        h('div.ct-blurb', {}, fam.blurb, h('br'), h('u', {}, 'Read more'))),
+      ...fam.subs.map((s2, si) => h('div.ct-sub', {}, h('hr.ct-hr'), h('div.lb', {}, `${fam.n.toUpperCase()} ${s2.toUpperCase()} FAMILY`), h('div.pr', {}, h('button.ct-pill', { onclick: () => { cart++; toast(`${fam.n} ${s2} family added`); } }, 'ADD TO CART ', h('span', { html: ic.cart })), fam.sub),
+        ...fam.st.map(([n, w, it], sti) => h('button.ct-line', { style: { fontFamily: fam.f, fontWeight: w, fontStyle: it ? 'italic' : 'normal' }, onclick: () => showTester(si, sti) }, `${fam.n} ${s2} ${n}`)))),
+      h('div.ct-go', {}, h('span', {}, `${fam.n.toUpperCase()} ${fam.subs.at(-1).toUpperCase()} FAMILY`), h('u', { onclick: () => sc.scrollTo({ top: 0, behavior: 'smooth' }) }, 'Go to top ↑')));
+    main.replaceChildren(famEl); sc.scrollTop = 0;
+  }
+  el.addEventListener('click', () => el.querySelectorAll('.mn.on').forEach((m) => m.classList.remove('on')));
+  home();
+  window.__demoProof = async () => {
+    const o = []; const cs = getComputedStyle;
+    const bands = [...el.querySelectorAll('.ct-band')];
+    o.push(`bands=${bands.length} [${bands.map((b) => `${b.querySelector('b').textContent}:${cs(b).backgroundColor}`).slice(0, 3).join(' | ')}…] caption "${bands[0].querySelector('small').textContent}"`);
+    o.push(`nav chips=${navBtns.length + 2} (${NAV.join('/')}) + logo + VIEW CART; footer cols=${el.querySelectorAll('.ct-three>div').length}`);
+    bands[0].click(); await sleep(120);
+    o.push(`family view "${el.querySelector('.ct-title').textContent}" meta rows=${el.querySelectorAll('.ct-meta tr').length} waterfall lines=${el.querySelectorAll('.ct-line').length}`);
+    el.querySelectorAll('.ct-line')[3].click(); await sleep(200);
+    const t = tb.el, s1 = specs[0];
+    o.push(`tester open=${t.classList.contains('on')} sticky=${cs(t).position} style="${tb.styleSel.selectedOptions[0].textContent}" size=${cs(s1).fontSize} weight=${cs(s1).fontWeight}`);
+    const set = (k, v) => { const i = tb.q(k); i.value = v; i.dispatchEvent(new Event('change')); };
+    set('size', '96'); set('lead', '1.25'); set('track', '0.05'); tb.al[0].click(); tb.co[1].click();
+    o.push(`live CSS: font-size=${cs(s1).fontSize} line-height=${cs(s1).lineHeight} letter-spacing=${cs(s1).letterSpacing} align=${cs(s1).textAlign} columns=${cs(s1).columnCount}`);
+    tb.ot.querySelector('button').click(); const smcp = tb.ot.querySelector('[data-f="smcp"]'); smcp.checked = true; smcp.dispatchEvent(new Event('change'));
+    o.push(`OpenType menu open=${tb.ot.classList.contains('on')} feature=${cs(s1).fontFeatureSettings}`); smcp.checked = false; smcp.dispatchEvent(new Event('change')); el.click();
+    const fr = tb.lg.querySelector('[data-l="fr"]'); fr.checked = true; fr.dispatchEvent(new Event('change')); o.push(`language FR sample="${s1.textContent}"`);
+    const en = tb.lg.querySelector('[data-l="en"]'); en.checked = true; en.dispatchEvent(new Event('change'));
+    s1.focus(); document.execCommand('selectAll'); document.execCommand('insertText', false, 'Typed proof'); o.push(`contentEditable typed="${s1.textContent}"`); s1.textContent = SAMPLE.en[0];
+    tb.styleSel.value = '8'; tb.styleSel.dispatchEvent(new Event('change')); o.push(`style select → ${fam.st[8][0]} italic=${cs(s1).fontStyle}`);
+    pinBtn.click(); o.push(`TEST PINNED off → toolbar ${cs(t).position}`); pinBtn.click(); o.push(`pinned again → ${cs(t).position}`);
+    Object.assign(st, { size: SZ(), lead: 1, track: 0, align: 'center', cols: 1 }); apply();
+    o.push(`restored size=${cs(s1).fontSize}`);
+    home(); await sleep(60); o.push(`back to catalog bands=${el.querySelectorAll('.ct-band').length}`);
+    document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + ' · stand-ins: Spectator/New Doric/Orlando/Graphik/Lyon Arabic/Austin/Druk are rendered with Playfair Display, Archivo Black, Fraunces, Inter Tight, Amiri, Bodoni Moda and Anton; UI chips use Inter Tight; product photos are code-drawn SVG; cart/trial/nav links are demo toasts';
+  };
+};
+V['monocle-editorial-front-radio-onair-module'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#111111', ac: '#FFC500', dark: false });
+  import('@fontsource/libre-caslon-text/400.css'); import('@fontsource/libre-caslon-text/400-italic.css'); import('@fontsource/libre-caslon-text/700.css');
+  const SE = "'Libre Caslon Text','Libre Baskerville',Georgia,serif", UI = "'Inter Variable',Helvetica,Arial,sans-serif";
+  const Y = '#FFC500';
+  const pic = (seed, kind) => { // code-drawn editorial photo stand-ins
+    const P = [['#c9d8e6', '#e9d9b8', '#6d8fb0'], ['#e7e2da', '#f4f1ec', '#87929b'], ['#1d1d1f', '#3a3a3c', '#d6c08a'], ['#8fa38c', '#c7c2a8', '#4d5b45'], ['#d6dbe2', '#a9b4c0', '#4c5866'], ['#2b1d24', '#6b3045', '#e0b64c'], ['#f1e3cf', '#d9b99a', '#7c4b33'], ['#203347', '#40607f', '#e6e1d3']][seed % 8];
+    const g = `g${seed}${kind || ''}${Math.random().toString(36).slice(2, 6)}`;
+    const shapes = [
+      `<rect x="250" y="40" width="110" height="200" rx="4" fill="${P[2]}" opacity=".85"/><rect x="262" y="56" width="86" height="60" fill="#fff" opacity=".5"/><circle cx="140" cy="120" r="34" fill="#f2c9a4"/><path d="M80 300 Q140 150 200 300Z" fill="#5d7fa3"/><circle cx="210" cy="140" r="28" fill="#e9b98f"/><path d="M160 300 Q210 170 260 300Z" fill="#7b8b60"/>`,
+      `<rect x="70" y="60" width="260" height="170" fill="#fff" stroke="${P[2]}"/><path d="M200 60 V230" stroke="${P[2]}"/><rect x="88" y="80" width="96" height="80" fill="${P[2]}" opacity=".5"/><rect x="216" y="80" width="98" height="10" fill="${P[2]}" opacity=".4"/><rect x="216" y="100" width="80" height="6" fill="${P[2]}" opacity=".3"/>`,
+      `<rect x="120" y="90" width="160" height="110" rx="10" fill="#e8e8ea" opacity=".9"/><rect x="140" y="110" width="120" height="60" rx="4" fill="#f9f9f9"/><circle cx="170" cy="140" r="16" fill="#cfcfd3"/><circle cx="230" cy="140" r="16" fill="#cfcfd3"/>${[150, 180, 210, 240].map((x) => `<rect x="${x}" y="78" width="14" height="14" rx="3" fill="#bdbdc2"/>`).join('')}`,
+      `<path d="M40 210 L120 140 L220 160 L330 120 L360 210Z" fill="${P[2]}"/><rect x="120" y="150" width="170" height="60" rx="8" fill="#9aa58a"/><circle cx="150" cy="215" r="22" fill="#222"/><circle cx="260" cy="215" r="22" fill="#222"/>`,
+      `<rect x="160" y="40" width="90" height="190" fill="${P[2]}" opacity=".7"/><rect x="250" y="70" width="60" height="160" fill="${P[2]}" opacity=".5"/><path d="M60 230 L120 120 L150 230Z" fill="#555"/>`,
+      `<circle cx="200" cy="120" r="60" fill="${P[2]}" opacity=".6"/><path d="M110 300 Q200 140 290 300Z" fill="#111"/><circle cx="200" cy="120" r="34" fill="#d8a47f"/>`,
+      `<rect x="60" y="150" width="280" height="10" fill="${P[2]}"/><circle cx="130" cy="120" r="30" fill="#fff" opacity=".8"/><rect x="200" y="80" width="50" height="70" rx="20" fill="${P[2]}" opacity=".7"/>`,
+      `<path d="M0 200 Q100 150 200 190 T400 170 V300 H0Z" fill="${P[1]}"/><circle cx="300" cy="80" r="30" fill="#f4e3b0"/>`][seed % 8];
+    return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><defs><linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${P[0]}"/><stop offset="1" stop-color="${P[1]}"/></linearGradient></defs><rect width="400" height="300" fill="url(#${g})"/>${shapes}</svg>`;
+  };
+  const cover = (t, c1, c2, tag) => `<svg viewBox="0 0 120 90" width="100%" height="100%"><rect width="120" height="90" fill="${c1}"/><path d="M0 90 L40 20 L90 60 L120 10 V90Z" fill="${c2}" opacity=".8"/><text x="50" y="40" text-anchor="middle" font-family="Libre Caslon Text" font-size="12" fill="#fff">${t.split(' ').slice(0, 2).join(' ')}</text><text x="50" y="55" text-anchor="middle" font-family="Libre Caslon Text" font-size="12" fill="#fff">${t.split(' ').slice(2).join(' ')}</text><rect x="104" y="0" width="16" height="90" fill="${c2}"/><circle cx="112" cy="9" r="5" fill="#fff"/><text x="112" y="70" transform="rotate(-90 112 70)" font-family="Inter Variable" font-size="8" fill="#fff">${tag}</text></svg>`;
+  const BOOK = '<svg viewBox="0 0 80 60" width="72" height="54" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"><path d="M6 10 Q22 4 40 10 Q58 4 74 10 V52 Q58 46 40 52 Q22 46 6 52Z"/><path d="M40 10 V52"/><path d="M10 16 h22 M10 21 h18 M10 26 h22 M46 16 h22 M46 21 h20"/><rect x="12" y="32" width="18" height="12" fill="#e8504a" stroke="none"/><rect x="48" y="30" width="20" height="14" fill="#e8504a" stroke="none" opacity=".8"/><path d="M14 40 l4-4 4 4 4-6 4 6" stroke="#fff"/></svg>';
+  const DOG = '<svg viewBox="0 0 100 60" width="92" height="54" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 40 Q10 28 22 26 L46 26 Q56 18 54 10 L60 6 L64 12 L70 12 L72 20 L64 24 Q62 34 56 38 L56 52 M22 40 L18 52 M30 40 L30 52 M48 40 L50 52 M14 34 Q4 30 6 22"/><path d="M58 14 l2 0"/><g transform="rotate(-18 82 22)"><rect x="68" y="12" width="28" height="20" fill="#fff"/><path d="M68 12 L82 24 L96 12"/></g><path d="M22 30 q8 4 16 0"/></svg>';
+  const IC = { ham: '<svg viewBox="0 0 18 14" width="16" height="12"><path d="M0 1h18M0 7h18M0 13h18" stroke="#111" stroke-width="1.5"/></svg>', srch: '<svg viewBox="0 0 18 18" width="15" height="15" fill="none" stroke="#111" stroke-width="1.5"><circle cx="7.5" cy="7.5" r="6"/><path d="M12 12l5 5"/></svg>', bag: '<svg viewBox="0 0 16 18" width="13" height="15" fill="none" stroke="#111" stroke-width="1.4"><path d="M1 5h14v12H1zM5 5V3a3 3 0 016 0v2"/></svg>', cur: '<svg viewBox="0 0 18 18" width="15" height="15" fill="none" stroke="#111" stroke-width="1.3"><circle cx="9" cy="9" r="8"/><text x="9" y="13" text-anchor="middle" font-size="10" fill="#111" stroke="none" font-family="Inter Variable">$</text></svg>', book: '<svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="#666" stroke-width="1"><path d="M1 2 Q4 1 8 2 Q12 1 15 2 V11 Q12 10 8 11 Q4 10 1 11Z M8 2V11"/></svg>', mic: '<svg viewBox="0 0 10 14" width="9" height="12" fill="none" stroke="#444" stroke-width="1.2"><rect x="3" y="1" width="4" height="8" rx="2"/><path d="M1 7a4 4 0 008 0M5 11v3"/></svg>', spk: '<svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 6h3l4-3v10L5 10H2z" fill="#111"/><path d="M11 5q2 3 0 6M12.5 3.5q3.5 4.5 0 9" stroke="#111" fill="none" stroke-width="1.3"/></svg>' };
+  css(`
+.mo{position:absolute;inset:0;background:#fff;color:#111;font:400 15px/1.45 ${SE}}.mo *{box-sizing:border-box}
+:where(.mo) button,:where(.mo) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.mo-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}.mo-w{width:922px;max-width:calc(100% - 40px);margin:0 auto}
+.mo-ad{height:178px;margin:38px auto 46px;width:690px;max-width:calc(100% - 40px);display:grid;grid-template-columns:1fr 210px;background:#fff58f}.mo-ad .t{padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between}.mo-ad .t i{display:block;height:11px;background:#111}.mo-ad h4{margin:6px 0 0;font:400 21px/1.08 ${SE};letter-spacing:.05em}.mo-ad .k{display:flex;align-items:center;gap:8px;font:700 10px ${UI};letter-spacing:.12em}.mo-ad .k b{font:400 15px ${SE};letter-spacing:.06em}.mo-ad .k span{flex:1;height:1px;background:#111}.mo-ad .cv{background:#fff;margin:10px;display:flex;flex-direction:column;align-items:center;font:400 22px ${SE};letter-spacing:.05em;padding-top:4px}.mo-ad .cv div{flex:1;width:86%;margin-top:4px;background:linear-gradient(#e9e4dc,#c0703f 70%,#8a4a2a)}
+.mo-ut{display:flex;align-items:center;height:30px;font:700 9.5px ${UI};letter-spacing:.06em}.mo-ut .l{display:flex;align-items:center;gap:10px;flex:1}.mo-ut .r{display:flex;align-items:center;gap:14px}.mo-ut a:hover{text-decoration:underline}
+.mo-sub{background:${Y};height:28px;padding:0 12px;display:inline-flex;align-items:center;font:700 9.5px ${UI};letter-spacing:.06em}.mo-sub:hover{background:#ffb000}
+.mo-rule{height:1px;background:#111}
+.mo-mast{display:grid;grid-template-columns:150px 1fr 150px;align-items:center;padding:8px 0 10px;border-bottom:1px solid #111}.mo-mast .c{text-align:center;font:400 78px/1 ${SE};letter-spacing:.075em;padding-left:.07em;white-space:nowrap}.mo-mast .il{font:400 11.5px/1.25 ${SE}}.mo-mast .il.r{text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.mo-nav{display:flex;justify-content:center;flex-wrap:nowrap;gap:0;height:31px;align-items:center;font:400 12px ${SE};letter-spacing:.05em;border-bottom:1px solid #111;overflow-x:auto;scrollbar-width:none;white-space:nowrap}.mo-nav a{padding:0 8px;border-left:1px solid #111;line-height:12px}.mo-nav a:first-child{border-left:0}.mo-nav a:hover,.mo-nav a.on{text-decoration:underline}
+.mo-sticky{position:absolute;left:0;right:0;top:0;z-index:20;background:#fff;transform:translateY(-100%);transition:transform .3s ease;box-shadow:0 1px 0 #111}.mo-sticky.on{transform:none}.mo-sticky .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:44px}.mo-sticky .wm{font:400 22px ${SE};letter-spacing:.075em}.mo-sticky .mo-nav{border-bottom:0;border-top:1px solid #111}
+.mo-grid{display:grid;grid-template-columns:449px 236px 213px;gap:0;padding:22px 0 30px}.mo-grid>div{padding:0 11px}.mo-grid>div:first-child{padding-left:0;border-right:1px solid #111}.mo-grid>div:nth-child(2){border-right:1px solid #111}.mo-grid>div:last-child{padding-right:0}
+.mo-k{font:400 9.5px ${SE};letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}.mo-lead h2{margin:0 0 10px;font:400 22px/1.27 ${SE};max-width:330px}.mo-lead p{margin:0 0 16px;font-size:12.5px;line-height:1.55}.mo-meta{display:flex;align-items:center;gap:6px;font:400 9px ${SE};letter-spacing:.06em;color:#444;text-transform:uppercase}.mo-meta i{width:1px;height:10px;background:#888}
+.mo-lead .ph{margin-top:20px;height:338px;cursor:pointer;overflow:hidden}.mo-lead .ph svg{transition:transform .6s}.mo-lead .ph:hover svg{transform:scale(1.03)}
+.mo-card{padding:12px 0 14px;border-top:1px solid #111;cursor:pointer}.mo-card:first-child{border-top:0;padding-top:0}.mo-card .ph{height:160px;margin-bottom:12px;position:relative}.mo-card h3{margin:0 0 30px;font:400 14px/1.3 ${SE}}.mo-card:hover h3{text-decoration:underline}
+.mo-rad{background:#2a2a2a;color:#fff;border-radius:4px;padding:10px 10px 12px}.mo-rad>h4{margin:0 0 10px;font:400 14px ${SE};letter-spacing:.05em}.mo-air{background:#000;border-radius:4px;padding:10px 10px 12px;position:relative}
+.mo-oa{display:flex;align-items:center;gap:6px;font:700 8.5px ${UI};letter-spacing:.08em;color:${Y}}.mo-eq{display:inline-flex;gap:1.5px;align-items:flex-end;height:8px}.mo-eq i{width:2px;background:${Y};animation:moEq .9s ease-in-out infinite}.mo-eq i:nth-child(2){animation-delay:-.3s}.mo-eq i:nth-child(3){animation-delay:-.6s}@keyframes moEq{0%,100%{height:2px}50%{height:8px}}
+.mo-air .row{display:grid;grid-template-columns:54px 1fr;gap:8px;align-items:start}.mo-air .cv{height:42px;border:1px solid #fff}.mo-air h5{margin:4px 0 0;font:400 11.5px/1.2 ${SE};letter-spacing:.02em;overflow-wrap:anywhere;text-transform:uppercase}.mo-air p{display:none;margin:8px 0 0;font-size:12.5px;line-height:1.45}
+.mo-ll{margin-top:10px;width:100%;height:32px;background:${Y};color:#111!important;display:flex!important;align-items:center;justify-content:center;gap:8px;font:700 9.5px ${UI}!important;letter-spacing:.08em}.mo-ll:hover{background:#ffb000!important}.mo-ll .tri{width:0;height:0;border-left:7px solid #111;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}.mo-ll .pz{display:none;gap:2px}.mo-ll .pz i{width:3px;height:9px;background:#111}.mo-ll.on .tri{display:none}.mo-ll.on .pz{display:inline-flex}
+.mo-nx{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid #555;cursor:pointer}.mo-nx .cv{height:52px;border:1px solid #fff}.mo-nx b{display:block;font:400 13px ${SE}}.mo-nx span{font:400 9.5px ${UI};color:#ccc}
+.mo-vfp{display:block;width:100%;margin-top:12px;height:30px;border:1px solid #fff!important;font:700 9px ${UI}!important;letter-spacing:.06em;color:#fff!important}.mo-vfp:hover{background:#fff!important;color:#111!important}
+.mo-latest{background:#2a2a2a;color:#fff;padding:22px 0 30px}.mo-latest .hd{display:flex;justify-content:space-between;align-items:end;border-top:3px solid #fff;padding-top:10px;margin-bottom:14px}.mo-latest h2{margin:0;font:400 20px ${SE};letter-spacing:.04em}.mo-latest .hd a{font:700 9.5px ${UI};letter-spacing:.06em}
+.mo-rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px)/4);gap:12px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;position:relative}.mo-rail::-webkit-scrollbar{display:none}
+.mo-ep{cursor:pointer;border-right:1px solid #555;padding-right:12px}.mo-ep .ph{height:160px;position:relative;margin-bottom:10px}.mo-badge{position:absolute;left:6px;top:6px;width:34px;height:34px;border-radius:50%;background:${Y};display:flex;align-items:center;justify-content:center}.mo-ep h3{margin:4px 0 8px;font:400 14px/1.3 ${SE}}.mo-ep .mo-meta{color:#ccc}.mo-ep .mo-meta svg path,.mo-ep .mo-meta svg rect{stroke:#ccc}
+.mo-rw{position:relative}.mo-arr{position:absolute;right:-14px;top:68px;width:28px;height:28px;border-radius:50%;background:#111;border:1.5px solid #fff!important;color:#fff!important;display:flex!important;align-items:center;justify-content:center;font:700 13px ${UI}!important;z-index:2}
+.mo-player{position:absolute;left:0;right:0;bottom:0;z-index:30;background:#111;color:#fff;height:58px;display:flex;align-items:center;gap:14px;padding:0 20px;transform:translateY(100%);transition:transform .35s ease}.mo-player.on{transform:none}.mo-player .cv{width:40px;height:40px;border:1px solid #fff}.mo-player .t{min-width:180px}.mo-player .t b{display:block;font:400 13px ${SE};text-transform:uppercase;letter-spacing:.04em}.mo-player .t span{font:400 10px ${UI};color:${Y};letter-spacing:.08em}
+.mo-player .pg{flex:1;height:3px;background:#444;position:relative;overflow:hidden}.mo-player .pg i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,${Y},transparent);animation:moSh 1.6s linear infinite}@keyframes moSh{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.mo-player button{width:34px;height:34px;border-radius:50%;background:${Y}!important;color:#111!important;font:700 12px ${UI}!important}.mo-player input{width:90px;accent-color:${Y}}
+.mo-sch{background:#2a2a2a;color:#fff;padding:12px 0 40px;min-height:600px}.mo-crumb{font:400 11px ${SE};margin-bottom:10px}.mo-sch .hd{display:flex;justify-content:space-between;align-items:center;border-top:3px solid #fff;padding-top:8px}.mo-sch h2{margin:0;font:400 20px ${SE};letter-spacing:.05em}.mo-jump{background:${Y}!important;color:#111!important;height:30px;padding:0 12px!important;font:700 9.5px ${UI}!important;letter-spacing:.06em}
+.mo-days{margin-top:10px;border:1px solid #fff;display:grid;grid-template-columns:50px 1fr 1fr 1fr 50px;align-items:center;height:56px;padding:0 6px}.mo-days button{height:34px;font:700 11px ${UI}!important;color:#fff!important}.mo-days button.on{background:#3a3a3a!important}.mo-days .ar{font-size:18px!important}
+.mo-tl{border:1px solid #fff;border-top:0}.mo-tr{display:grid;grid-template-columns:84px 130px 1fr;gap:16px;padding:14px;border-top:1px solid #555;transition:background .4s}.mo-tr:first-child{border-top:0}.mo-tr .tm{font:400 11px ${UI};border-right:1px solid #555;height:100%}.mo-tr .cv{height:76px;border:1px solid #fff}.mo-tr h5{margin:0;font:400 12.5px ${SE};letter-spacing:.04em;text-transform:uppercase}.mo-tr p{margin:4px 0 0;font-size:12px;color:#ccc}.mo-tr.now{background:#3a3a3a}.mo-tr.flash{background:#5a4a00}
+.mo-rnav{display:flex;justify-content:center;height:31px;align-items:center;font:400 12px ${SE};letter-spacing:.05em}.mo-rnav a{padding:0 8px;border-left:1px solid #111;line-height:12px}.mo-rnav a:first-child{border-left:0}.mo-rnav a.on{text-decoration:underline}
+@media (max-width:700px){.mo-ad{display:none}.mo-ut .l a.t{display:none}.mo-ut .r .lg{display:none}.mo-mast{grid-template-columns:1fr}.mo-mast .il{display:none!important}.mo-mast .c{font-size:44px}.mo-nav{justify-content:flex-start}
+.mo-grid{grid-template-columns:1fr;padding-top:16px}.mo-grid>div{padding:0!important;border-right:0!important}.mo-grid>div:first-child{order:1}.mo-grid>div:last-child{order:2;margin:20px 0}.mo-grid>div:nth-child(2){order:3}.mo-lead .ph{height:230px}.mo-rail{grid-auto-columns:72%}.mo-arr{right:0}.mo-tr{grid-template-columns:60px 80px 1fr;gap:10px}.mo-tr .cv{height:56px}.mo-days{grid-template-columns:30px 1fr 1fr 1fr 30px}.mo-player .t{min-width:0}.mo-player input{display:none}}
+`);
+  const el = h('div.mo'); const sc = h('div.mo-sc'); el.append(sc); root.append(el);
+  const SEC = ['AFFAIRS', 'BUSINESS', 'CULTURE', 'DESIGN', 'FASHION', 'TRAVEL', 'CITY GUIDES', 'SHOP', 'EVENTS'];
+  const RSEC = ['RADIO HOME', 'SHOWS', 'SCHEDULE', 'ABOUT', 'ON THE ROAD'];
+  const navOf = (cls, items, on, fn) => h('nav.' + cls, {}, ...items.map((n) => h('a' + (n === on ? '.on' : ''), { href: '#', onclick: (e) => { e.preventDefault(); fn(n); } }, n)));
+  const goSec = (n) => (n === 'SCHEDULE' ? showSched() : n === 'RADIO HOME' ? (showFront(), sc.scrollTo({ top: radio.offsetTop - 120, behavior: 'smooth' })) : toast(n + ' — demo section'));
+  const util = () => h('div.mo-ut', {}, h('div.l', {}, h('button', { html: IC.ham, 'aria-label': 'menu', onclick: () => toast('Menu — demo') }), h('a.t', { href: '#', onclick: (e) => { e.preventDefault(); showFront(); } }, 'MAGAZINE'), h('a.t', { href: '#', onclick: (e) => { e.preventDefault(); showSched(); } }, 'RADIO'), h('a.t', { href: '#', onclick: (e) => e.preventDefault() }, 'SHOP')),
+    h('div.r', {}, h('button', { html: IC.srch, 'aria-label': 'search', onclick: () => toast('Search — demo') }), h('a.lg', { href: '#', onclick: (e) => e.preventDefault() }, 'LOG IN'), h('a.mo-sub', { href: '#', onclick: (e) => { e.preventDefault(); toast('Subscribe — demo'); } }, 'SUBSCRIBE'), h('button', { html: IC.bag, 'aria-label': 'bag' }), h('button', { html: IC.cur, 'aria-label': 'currency' })));
+  const sticky = h('div.mo-sticky', {}, h('div.mo-w', {}, h('div.bar', {}, h('div.mo-ut', {}, util().querySelector('.l')), h('a.wm', { href: '#', onclick: (e) => { e.preventDefault(); sc.scrollTo({ top: 0, behavior: 'smooth' }); } }, 'MONOCLE'), h('div.mo-ut', { style: { justifySelf: 'end' } }, util().querySelector('.r')))), h('div.mo-w', {}, navOf('mo-nav', SEC, null, goSec)));
+  el.append(sticky);
+  const SHOWS = [['The Entrepreneurs', '#c8232c', '#7a0f14', 'Business', 'A weekly deep dive into global business. Inspiring stories from startups to legacy brands in hospitality, design, fashion, and retail.'], ['The Pacific Shift', '#e27a3f', '#3a8fc9', 'Music', 'Curated music from across the Pacific'], ['Top of the Hour', '#111', '#333', 'News', 'Headlines as they happen'], ['The Briefing', '#1f3f6e', '#c9a227', 'Affairs', 'News and analysis, every weekday'], ['The Globalist', '#0e5a4a', '#e5c14a', 'Affairs', 'Monocle’s flagship morning show'], ['Monocle on Design', '#7d6bb0', '#e0d2f2', 'Design', 'Architecture, interiors and design'], ['The Bulletin with UBS', '#d8202a', '#f0f0f0', 'Business', 'Global news and business, live'], ['Konfekt Conversations', '#b78857', '#5b3b22', 'Culture', 'Long-form conversations about the good life']];
+  const cv = (i) => { const s2 = SHOWS[i % SHOWS.length]; return cover(s2[0], s2[1], s2[2], s2[3]); };
+  let playing = false, live = 0;
+  const player = h('div.mo-player', {}, h('div.cv', { html: cv(0) }), h('div.t', {}, h('span', {}, '● ON AIR'), h('b', {}, SHOWS[0][0])), h('div.pg', {}, h('i')), h('input', { type: 'range', min: 0, max: 100, value: 70, 'aria-label': 'volume' }), h('button', { onclick: () => toggle() }, '❚❚'));
+  el.append(player);
+  const llBtns = [];
+  const llBtn = () => { const b = h('button.mo-ll', { onclick: () => toggle() }, h('span.tri'), h('span.pz', {}, h('i'), h('i')), h('span.lbl', {}, 'LISTEN LIVE')); llBtns.push(b); return b; };
+  function toggle(v = !playing) { playing = v; llBtns.forEach((b) => { b.classList.toggle('on', v); b.querySelector('.lbl').textContent = v ? 'PAUSE' : 'LISTEN LIVE'; }); player.classList.toggle('on', v); player.querySelector('button').textContent = v ? '❚❚' : '▶'; if (v) sc.style.paddingBottom = '58px'; }
+  const onair = () => h('div.mo-air', {}, h('div.row', {}, h('div.cv', { html: cv(live) }), h('div', {}, h('div.mo-oa', {}, 'ON AIR', h('span.mo-eq', {}, h('i'), h('i'), h('i'))), h('h5', {}, SHOWS[live][0]))), h('p', {}, SHOWS[live][4]), llBtn());
+  const radio = h('div.mo-rad', {}, h('h4', {}, 'MONOCLE RADIO'), onair(), ...[1, 2].map((i) => h('div.mo-nx', { onclick: () => toast(`Up next: ${SHOWS[i][0]}`) }, h('div.cv', { html: cv(i) }), h('div', {}, h('b', {}, SHOWS[i][0]), h('span', {}, SHOWS[i][4])))), h('button.mo-vfp', { onclick: () => showSched() }, 'VIEW FULL PROGRAMME'));
+  const STORIES = [['DESIGN', 'The second edition of our ‘Design Directory’ is a reminder that there is more to the sector than meets the eye', 'DESIGN DIRECTORY #2', 2], ['PRODUCT DESIGN', 'The best new homewares, books and gadgets to brighten the season', 'SHOPPING', 4], ['AFFAIRS', 'Jaguar Land Rover has supplied the British Army for eight decades. Will it win the race to build the West’s next light mobility vehicle?', 'DEFENCE', 5], ['ARCHITECTURE', 'The beige-toned winner of the Stirling Prize is proof that architecture needs a new pop of colour', 'URBANISM', 2]];
+  const card = ([k, t, m, n], i) => h('article.mo-card', { onclick: () => toast(t.slice(0, 40) + '…') }, h('div.ph', { html: pic(i + 1) }), h('div.mo-k', {}, k), h('h3', {}, t), h('div.mo-meta', { html: `${IC.book}<i></i>${m} <i></i> ${n} MIN READ` }));
+  const EPS = [['DESIGN', 'Sense of place', 'MONOCLE ON DESIGN', 14, 5], ['URBANISM', 'Nadim Karam on the art of rebuilding Beirut', 'THE URBANIST', 28, 4], ['AFFAIRS', 'British jets for the UAE and Emirati fuel for France', 'THE BRIEFING', 35, 3], ['CULTURE', 'The fun world of Finnish pop', 'THE GLOBAL COUNTDOWN', 10, 7], ['AFFAIRS', 'What are the US midterm elections really about?', 'THE GLOBALIST', 22, 6], ['CULTURE', 'An ode to jewellery: collecting, cameos and Foundrae’s modern heirlooms', 'KONFEKT CONVERSATIONS', 49, 1]];
+  const rail = h('div.mo-rail', {}, ...EPS.map(([k, t, s2, m, p], i) => h('article.mo-ep', { onclick: () => toast(`Play episode: ${t}`) }, h('div.ph', { html: pic(p + 8) }, h('span.mo-badge', { html: IC.spk })), h('div.mo-k', {}, k), h('h3', {}, t), h('div.mo-meta', { html: `${IC.mic} ${s2} <i></i> ${m} MIN` }))));
+  const front = h('div', {},
+    h('div.mo-ad', {}, h('div.t', {}, h('i'), h('h4', {}, 'EASY LAYERS, INDULGENT SPAS AND OUR FIRST JAPAN SPECIAL'), h('div.k', {}, h('b', {}, 'KONFEKT'), h('span'), 'AUTUMN ISSUE OUT NOW')), h('div.cv', {}, 'KONFEKT', h('div'))),
+    h('header.mo-w', {}, util(), h('div.mo-rule'), h('div.mo-mast', {}, h('div.il', { html: BOOK + '<div>Currently being edited<br>in London</div>' }), h('a.c', { href: '#', onclick: (e) => e.preventDefault() }, 'MONOCLE'), h('div.il.r', { html: DOG + '<div>Daily inbox intelligence<br>from Monocle</div>' })), navOf('mo-nav', SEC, null, goSec)),
+    h('main.mo-w.mo-grid', {},
+      h('div.mo-lead', {}, h('div.mo-k', {}, 'ART'), h('h2', {}, 'Has the art world forgotten how to feel? Museums need less explanation and more emotion'), h('p', {}, 'Museums such as the LMNA might appear to critics as though they have abandoned intellectualism. But with a focus on emotional immersion, they’re highlighting something that has been missing from traditional galleries.'), h('div.mo-meta', { html: `${IC.book}<i></i>3 MIN READ` }), h('div.ph', { html: pic(0), onclick: () => toast('Open story — demo') }),
+        h('article.mo-card', { style: { borderTop: '1px solid #111', marginTop: '22px', paddingTop: '14px' }, onclick: () => toast('Open story — demo') }, h('div.mo-k', {}, 'FILM'), h('h3', { style: { fontSize: '18px', marginBottom: '14px' } }, 'Paweł Pawlikowski tackles ‘sacred beast’ Thomas Mann in his new film, ‘Fatherland’'), h('div.mo-meta', { html: `${IC.book}<i></i>6 MIN READ` })),
+        h('article.mo-card', { style: { borderTop: '1px solid #111', paddingTop: '14px' }, onclick: () => toast('Open story — demo') }, h('div.mo-k', {}, 'CULTURE'), h('h3', { style: { fontSize: '18px', marginBottom: '14px' } }, 'Parisian art centre Large opens on the former site of a Renault production facility'), h('div.mo-meta', { html: `${IC.book}<i></i>4 MIN READ` }))),
+      h('div', {}, ...STORIES.slice(0, 2).map(card)),
+      h('div', {}, radio, ...STORIES.slice(2).map((s2, i) => card(s2, i + 2)))),
+    h('section.mo-latest', {}, h('div.mo-w', {}, h('div.hd', {}, h('h2', {}, 'LATEST FROM MONOCLE RADIO'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); showSched(); } }, 'SEE ALL')), h('div.mo-rw', {}, rail, h('button.mo-arr', { 'aria-label': 'next', onclick: () => { rail.scrollLeft += rail.clientWidth / 2; } }, '→')))));
+  // schedule
+  const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const lon = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/London' }));
+  const todayIdx = (lon.getDay() + 6) % 7, nowMin = lon.getHours() * 60 + lon.getMinutes();
+  const SLOTS = [['00:01', 6], ['01:00', 4], ['02:00', 1], ['05:00', 3], ['07:00', 4], ['08:00', 0], ['09:00', 5], ['10:00', 7], ['12:00', 4], ['14:00', 1], ['16:00', 0], ['18:00', 3], ['20:00', 5], ['22:00', 2]];
+  let win = clamp(todayIdx - 1, 0, 4), day = todayIdx;
+  const dayBtns = [0, 1, 2].map((k) => h('button', { onclick: () => { day = win + k; renderSched(); } }));
+  const tl = h('div.mo-tl');
+  const nowRow = () => { let r = 0; SLOTS.forEach(([t], i) => { const [hh, mm] = t.split(':').map(Number); if (hh * 60 + mm <= nowMin) r = i; }); return r; };
+  function renderSched() {
+    dayBtns.forEach((b, k) => { b.textContent = DAYS[win + k]; b.classList.toggle('on', win + k === day); });
+    const nr = day === todayIdx ? nowRow() : -1; const z = lon.getMonth() > 2 && lon.getMonth() < 10 ? 'BST' : 'GMT';
+    tl.replaceChildren(...SLOTS.map(([t, si], i) => { const s2 = SHOWS[(si + day) % SHOWS.length]; return h('div.mo-tr' + (i === nr ? '.now' : ''), { 'data-i': i }, h('div.tm', {}, `${t} ${z}`), h('div.cv', { html: cover(s2[0], s2[1], s2[2], s2[3]) }), h('div', {}, i === nr ? h('div.mo-oa', {}, 'ON AIR', h('span.mo-eq', {}, h('i'), h('i'), h('i'))) : null, h('h5', {}, s2[0]), h('p', {}, s2[4]))); }));
+  }
+  function jump() { day = todayIdx; win = clamp(todayIdx - 1, 0, 4); renderSched(); const r = tl.querySelector('.mo-tr.now'); if (r) { sc.scrollTo({ top: r.offsetTop - 140, behavior: 'smooth' }); r.classList.add('flash'); setTimeout(() => r.classList.remove('flash'), 1400); } return r; }
+  const sched = h('div', {},
+    h('header.mo-w', {}, util(), h('div.mo-rule'), h('div.mo-mast', {}, h('div.il', { html: BOOK + '<div>Currently being edited<br>in London</div>' }), h('a.c', { href: '#', style: { fontSize: '56px' }, onclick: (e) => e.preventDefault() }, 'MONOCLE RADIO'), h('div.il.r', { html: DOG + '<div>Daily inbox intelligence<br>from Monocle</div>' })), navOf('mo-rnav', RSEC, 'SCHEDULE', goSec)),
+    h('section.mo-sch', {}, h('div.mo-w', {}, h('div.mo-crumb', {}, h('a', { href: '#', onclick: (e) => { e.preventDefault(); showFront(); } }, 'Home')), h('div.hd', {}, h('h2', {}, 'RADIO SCHEDULE'), h('button.mo-jump', { onclick: () => jump() }, 'JUMP TO ON AIR NOW')),
+      h('div.mo-days', {}, h('button.ar', { 'aria-label': 'previous days', onclick: () => { win = clamp(win - 1, 0, 4); renderSched(); } }, '←'), ...dayBtns, h('button.ar', { 'aria-label': 'next days', onclick: () => { win = clamp(win + 1, 0, 4); renderSched(); } }, '→')), tl)));
+  const pages = h('div', {}, front); sc.append(pages);
+  let view = 'front';
+  function showFront() { view = 'front'; pages.replaceChildren(front); sc.scrollTop = 0; }
+  function showSched() { view = 'sched'; renderSched(); pages.replaceChildren(sched); sc.scrollTop = 0; }
+  const onScroll = () => sticky.classList.toggle('on', view === 'front' && sc.scrollTop > 330);
+  sc.addEventListener('scroll', onScroll);
+  window.__demoProof = async () => {
+    const o = []; const cs = getComputedStyle;
+    o.push(`masthead wordmark "${front.querySelector('.mo-mast .c').textContent}" ${cs(front.querySelector('.mo-mast .c')).fontSize}, illustrations=${front.querySelectorAll('.mo-mast svg').length}, SUBSCRIBE bg=${cs(front.querySelector('.mo-sub')).backgroundColor}, section nav=${front.querySelectorAll('.mo-nav a').length}`);
+    sc.scrollTop = 600; onScroll(); await sleep(350); o.push(`scroll 600 → condensed sticky header=${sticky.classList.contains('on')}`); sc.scrollTop = 0; onScroll();
+    const g = front.querySelector('.mo-grid'); o.push(`front grid cols=${cs(g).gridTemplateColumns.split(' ').length} lead="${front.querySelector('.mo-lead h2').textContent.slice(0, 28)}…" cards=${front.querySelectorAll('.mo-card').length}`);
+    o.push(`radio rail bg=${cs(radio).backgroundColor} ON AIR eq bars animated=${cs(radio.querySelector('.mo-eq i')).animationName} show="${radio.querySelector('h5').textContent}"`);
+    const ll = radio.querySelector('.mo-ll'); ll.click(); await sleep(400);
+    o.push(`LISTEN LIVE → "${ll.textContent}" bottom player shown=${player.classList.contains('on')} (${Math.round(player.getBoundingClientRect().bottom - el.getBoundingClientRect().bottom)}px from bottom)`);
+    ll.click(); await sleep(50); o.push(`toggle back "${ll.textContent}" player=${player.classList.contains('on')}`);
+    const s0 = rail.scrollLeft; front.querySelector('.mo-arr').click(); await sleep(600); o.push(`radio episodes=${rail.children.length} yellow badges=${rail.querySelectorAll('.mo-badge').length} arrow scroll ${s0}→${Math.round(rail.scrollLeft)}`); rail.scrollLeft = 0;
+    radio.querySelector('.mo-vfp').click(); await sleep(60);
+    o.push(`VIEW FULL PROGRAMME → schedule view=${view} tabs [${dayBtns.map((b) => b.textContent + (b.classList.contains('on') ? '*' : '')).join(', ')}] rows=${tl.children.length}`);
+    const ar = sched.querySelectorAll('.mo-days .ar'); ar[1].click(); const a1 = dayBtns.map((b) => b.textContent).join('/'); ar[0].click(); ar[0].click(); o.push(`arrows shift window → ${a1} → ${dayBtns.map((b) => b.textContent).join('/')}`);
+    dayBtns[2].click(); o.push(`pick ${dayBtns[2].textContent} active=${dayBtns[2].classList.contains('on')}`);
+    const r = jump(); await sleep(500); o.push(`JUMP TO ON AIR NOW → day ${DAYS[day]} row "${r?.querySelector('.tm').textContent}" ${r?.querySelector('h5').textContent} highlighted=${r?.classList.contains('flash')} visible=${r ? r.getBoundingClientRect().top < el.getBoundingClientRect().bottom : false}`);
+    showFront(); player.classList.remove('on'); sc.style.paddingBottom = ''; document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    o.push(`restored view=${view}`);
+    return o.join('; ') + ' · stand-ins: Libre Caslon Text replaces Monocle’s Plantin-style serif, Inter the grotesk caps; photos, show covers and the book/terrier line drawings are code-drawn SVG; audio is a visual demo (no stream); ad slot is a static placeholder';
+  };
+};
+V['hellomonday-illustrated-word-cycle-hero'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#111111', ac: '#111111', dark: false });
+  import('@fontsource/zilla-slab/400.css'); import('@fontsource/zilla-slab/500.css'); import('@fontsource/zilla-slab/300.css');
+  const UI = "'Inter Variable',Helvetica,Arial,sans-serif", SL = "'Zilla Slab',Rockwell,'Courier New',serif";
+  const K = '#111', W = 'stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"';
+  // --- hand-drawn duo (code-drawn line art) ---
+  const ground = `<path d="M40 338 Q120 334 170 337 T300 336" ${W} fill="none" stroke-width="3"/>`;
+  const manHead = (x, y) => `<ellipse cx="${x}" cy="${y}" rx="12" ry="14" fill="#fff" ${W}/><path d="M${x - 15} ${y - 2} C${x - 17} ${y - 24} ${x + 18} ${y - 26} ${x + 16} ${y - 4} C${x + 8} ${y - 12} ${x - 6} ${y - 12} ${x - 15} ${y - 2}Z" fill="${K}"/><path d="M${x - 2} ${y + 5} q2 2 4 0" ${W} fill="none" stroke-width="1.6"/>`;
+  const womanHead = (x, y) => `<circle cx="${x + 2}" cy="${y - 19}" r="6" fill="${K}"/><ellipse cx="${x}" cy="${y}" rx="11" ry="12" fill="#fff" ${W}/><path d="M${x - 11} ${y - 1} C${x - 12} ${y - 15} ${x + 12} ${y - 15} ${x + 11} ${y - 1} C${x + 4} ${y - 8} ${x - 4} ${y - 8} ${x - 11} ${y - 1}Z" fill="${K}"/><path d="M${x - 1} ${y + 3} l0 4" ${W} stroke-width="1.6"/>`;
+  const stripes = (x, y0, y1, w0, w1) => Array.from({ length: 6 }, (_, i) => { const y = y0 + ((y1 - y0) * (i + 1)) / 7, t = (y - y0) / (y1 - y0), hw = (w0 + (w1 - w0) * t) / 2; return `<path d="M${x - hw + 2} ${y} Q${x} ${y + 4} ${x + hw - 2} ${y}" ${W} fill="none" stroke-width="1.8"/>`; }).join('');
+  const dress = (x, y) => `<path d="M${x - 13} ${y} L${x + 13} ${y} L${x + 36} ${y + 170} Q${x} ${y + 180} ${x - 36} ${y + 170}Z" fill="#fff" ${W}/><path d="M${x - 9} ${y} L${x} ${y + 26} L${x + 9} ${y}" ${W} fill="none" stroke-width="1.8"/>${stripes(x, y + 26, y + 172, 34, 72)}`;
+  const wLegs = (x, y) => `<path d="M${x - 9} ${y} L${x - 10} ${y + 58} M${x + 9} ${y} L${x + 10} ${y + 58}" ${W} fill="none"/><path d="M${x - 10} ${y + 58} l-12 2 M${x + 10} ${y + 58} l12 2" ${W}/>`;
+  const stool = (x) => `<ellipse cx="${x}" cy="244" rx="30" ry="6" fill="#fff" ${W}/><path d="M${x - 22} 248 L${x - 28} 336 M${x + 22} 248 L${x + 28} 336 M${x - 8} 250 L${x - 9} 336 M${x + 8} 250 L${x + 9} 336 M${x - 24} 296 L${x + 24} 296" ${W} fill="none"/>`;
+  const paper = (x, y) => `<path d="M${x - 50} ${y + 6} L${x} ${y} L${x + 50} ${y + 6} L${x + 46} ${y + 78} L${x} ${y + 74} L${x - 46} ${y + 78}Z" fill="#fff" ${W}/><path d="M${x} ${y} L${x} ${y + 74}" ${W}/><rect x="${x - 38}" y="${y + 14}" width="14" height="34" fill="none" ${W} stroke-width="1.6"/><rect x="${x - 38}" y="${y + 54}" width="16" height="10" fill="none" ${W} stroke-width="1.6"/>${[18, 28, 38, 48, 58].map((d) => `<path d="M${x - 18} ${y + d} h12 M${x + 10} ${y + d} h28" ${W} stroke-width="1.4"/>`).join('')}`;
+  const seatedMan = (x) => `${stool(x)}<path d="M${x - 22} 228 Q${x - 40} 240 ${x - 46} 270 L${x - 50} 330 L${x - 34} 330 L${x - 26} 272 L${x} 252 L${x + 26} 272 L${x + 34} 330 L${x + 50} 330 L${x + 46} 270 Q${x + 40} 240 ${x + 22} 228Z" fill="${K}"/><path d="M${x - 50} 332 l-22 4 M${x + 50} 332 l22 4" ${W}/><path d="M${x - 24} 160 L${x + 24} 160 L${x + 26} 232 L${x - 26} 232Z" fill="#fff" ${W}/>${manHead(x, 122)}`;
+  const POSES = [
+    // A: standing, hands on chest + woman pointing up
+    `${ground}<g>${manHead(116, 46)}<path d="M98 76 Q116 66 134 76 L138 130 L94 130Z" fill="#fff" ${W}/><path d="M104 78 L128 78 L132 200 L100 200Z" fill="${K}"/><path d="M100 196 L113 196 L112 330 L101 330Z M119 196 L132 196 L131 330 L120 330Z" fill="${K}"/><path d="M101 332 l-14 4 M131 332 l14 4" ${W}/><path d="M96 80 C88 120 90 160 94 210" ${W} fill="none"/><path d="M136 80 C144 120 142 160 138 210" ${W} fill="none"/><path d="M96 92 Q110 110 118 100 M136 92 Q124 112 114 104" ${W} fill="none" stroke-width="2"/></g>
+     <g>${womanHead(214, 96)}${dress(214, 120)}${wLegs(214, 290)}<path d="M201 124 C188 110 182 90 186 64 L184 46" ${W} fill="none"/><path d="M184 46 l-3 -8" ${W}/><path d="M227 124 C242 160 244 200 238 240" ${W} fill="none"/></g>`,
+    // B: man on stool reading the paper, woman hands folded
+    `${ground}<g>${seatedMan(112)}${paper(112, 150)}<path d="M66 176 q-6 10 2 18 M158 176 q6 10 -2 18" ${W} fill="none"/></g>
+     <g>${womanHead(222, 70)}${dress(222, 94)}${wLegs(222, 264)}<path d="M209 98 C196 130 204 160 220 168 M235 98 C248 130 240 160 224 168" ${W} fill="none"/><path d="M214 166 q8 6 16 0" ${W} fill="none"/></g>`,
+    // C: woman leaning over his shoulder reading together
+    `${ground}<g>${seatedMan(112)}${paper(106, 150)}<path d="M62 176 q-6 10 2 18" ${W} fill="none"/></g>
+     <g transform="translate(34 0) rotate(-14 236 336)">${womanHead(206, 60)}${dress(206, 84)}${wLegs(206, 254)}<path d="M193 92 C176 120 160 140 140 168" ${W} fill="none"/><path d="M219 92 C214 130 190 160 150 186" ${W} fill="none"/></g>`];
+  const WORDS = ['Products', 'Experiences', 'Branding'];
+  const TILES = [['Gemini API', 'Developer Competition', 'radial-gradient(circle at 20% 70%,#2d6bff 0,#0b1020 55%)'], ['D&AD', 'Annual 2026', 'radial-gradient(circle at 50% 40%,#ff3fa4 0,#ff8a1f 45%,#f36b10 70%)'], ['AI for every developer', 'Google AI', 'radial-gradient(circle at 70% 80%,#3a7bff 0,#0c1a3d 60%)'], ['Kinder Joy', 'Play Universe', 'radial-gradient(circle at 40% 30%,#ffe26b 0,#ff5a5a 70%)'], ['Pinterest', 'Predicts 2027', 'radial-gradient(circle at 60% 40%,#e60023 0,#5b0010 75%)'], ['Shopify', 'Editions', 'radial-gradient(circle at 30% 60%,#9be15d 0,#0d3d2b 70%)']];
+  css(`
+.hm{position:absolute;inset:0;background:#fff;color:#111;font:400 13px/1.4 ${UI}}.hm *{box-sizing:border-box}
+:where(.hm) button,:where(.hm) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.hm-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.hm-logo{position:absolute;left:48px;top:28px;z-index:5;font:900 11px/0.95 ${UI};letter-spacing:-.02em}.hm-cal{position:absolute;right:48px;top:26px;z-index:5;display:flex;align-items:center;gap:8px;font:500 10.5px ${UI};letter-spacing:-.01em}
+.hm-pin{height:300vh;position:relative}.hm-stage{position:sticky;top:0;height:100vh;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:40px}
+.hm-ill{width:420px;height:445px;position:relative}.hm-ill svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .15s steps(2,end)}.hm-ill svg.on{opacity:1}
+.hm-tag{margin-top:34px;font:500 10.5px ${UI};letter-spacing:-.01em}
+.hm-word{position:relative;height:76px;overflow:hidden;margin-top:10px;min-width:420px;text-align:center}.hm-word span{position:absolute;left:0;right:0;top:0;font:400 66px/76px ${SL};letter-spacing:.005em;transition:transform .55s cubic-bezier(.7,0,.2,1)}.hm-word span.up{transform:translateY(-100%)}.hm-word span.dn{transform:translateY(100%)}
+.hm-dot{width:4px;height:4px;border-radius:50%;background:#111;margin-top:10px;animation:hmP 1.6s ease-in-out infinite}@keyframes hmP{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.8);opacity:.5}}
+.hm-steps{position:absolute;left:48px;bottom:40px;display:none;gap:6px}.hm-steps i{width:18px;height:2px;background:#ddd;transition:background .3s}.hm-steps i.on{background:#111}
+.hm-tab{position:absolute;right:0;top:50%;z-index:40;width:80px;height:440px;transform:translateY(-50%);cursor:pointer}.hm-tab svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.hm-tab path{transform-origin:100% 50%;transform:scaleX(.72);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}.hm-tab:hover path{transform:scaleX(1)}
+.hm-tab .ic{position:absolute;right:15px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:3px;pointer-events:none}.hm-tab .ic i{display:block;width:13px;height:1.5px;background:#fff}.hm-tab .ic i:nth-child(2){width:9px;margin-left:4px}
+.hm-menu{position:absolute;inset:0 0 0 auto;width:min(620px,100%);z-index:50;background:#111;color:#fff;transform:translateX(100%);transition:transform .6s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;justify-content:center;padding:0 70px}.hm-menu.on{transform:none}
+.hm-menu a{display:block;font:300 68px/1.12 ${SL};color:#fff;opacity:0;transform:translateX(40px);transition:opacity .4s,transform .4s}.hm-menu.on a{opacity:1;transform:none}.hm-menu a:hover{font-style:italic}.hm-menu .x{position:absolute;right:32px;top:26px;font:500 12px ${UI};color:#fff;letter-spacing:.04em}.hm-menu .ft{position:absolute;left:70px;bottom:36px;font:500 11px ${UI};color:#aaa;display:flex;gap:20px}
+.hm-shade{position:absolute;inset:0;z-index:45;background:#0000;pointer-events:none;transition:background .5s}.hm-shade.on{background:#0004;pointer-events:auto}
+.hm-work{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;padding:40px 48px 120px}.hm-t{cursor:pointer}.hm-t .v{aspect-ratio:1/1.05;border-radius:6px;overflow:hidden;position:relative;background-size:180% 180%;animation:hmV 8s ease-in-out infinite alternate;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;transition:transform .5s}.hm-t:hover .v{transform:scale(.97)}
+.hm-t .v b{font:500 26px ${UI};letter-spacing:-.02em}.hm-t .v small{font:500 11px ${UI};opacity:.85;margin-top:4px}.hm-t p{margin:14px 0 0;font:500 12px ${UI}}.hm-t p span{color:#888}@keyframes hmV{from{background-position:0% 0%}to{background-position:100% 100%}}
+@media (max-width:640px){.hm-logo{left:20px}.hm-cal{right:20px}.hm-ill{width:228px;height:240px}.hm-word{height:52px;min-width:300px}.hm-word span{font-size:44px;line-height:52px}.hm-tag{margin-top:30px}.hm-tab{width:56px;height:300px}.hm-tab .ic{right:9px}.hm-menu{padding:0 32px}.hm-menu a{font-size:46px}.hm-menu .ft{left:32px}.hm-work{grid-template-columns:1fr;gap:30px;padding:30px 20px 80px}.hm-steps{left:20px}}
+`);
+  const el = h('div.hm'); const sc = h('div.hm-sc'); el.append(sc); root.append(el);
+  const untilMonday = (d = new Date()) => { const n = (8 - d.getDay()) % 7; return n === 0 ? 'Today is Monday!' : `${n} day${n === 1 ? '' : 's'} until Monday`; };
+  const cal = h('div.hm-cal', { html: '<svg viewBox="0 0 18 16" width="17" height="15" fill="none" stroke="#111" stroke-width="1.3"><path d="M3 3h12l-1.5 11H1.5z" fill="#fff"/><path d="M5 1v3M12 1v3M3 6h11.5"/><text x="8" y="12.5" font-size="6" fill="#111" stroke="none" font-family="Inter Variable" font-weight="700">F</text></svg>' });
+  const calTxt = h('span', {}, untilMonday()); cal.append(calTxt);
+  const ill = h('div.hm-ill', { html: POSES.map((p, i) => `<svg viewBox="0 0 340 360" class="${i ? '' : 'on'}">${p}</svg>`).join('') });
+  const word = h('div.hm-word', {}, h('span', {}, WORDS[0]));
+  const steps = h('div.hm-steps', {}, ...WORDS.map((_, i) => h('i' + (i ? '' : '.on'))));
+  const stage = h('div.hm-stage', {}, ill, h('div.hm-tag', {}, 'We make digital (and magical)...'), word, h('div.hm-dot'), steps);
+  const pin = h('section.hm-pin', {}, stage);
+  const work = h('section.hm-work', {}, ...TILES.map(([t, s2, bg]) => h('article.hm-t', { onclick: () => toast(`${t} — case study (demo)`) }, h('div.v', { style: { backgroundImage: bg } }, h('b', {}, t), h('small', {}, s2)), h('p', {}, t, h('span', {}, ' — ' + s2)))));
+  sc.append(h('div.hm-logo', { html: 'HELLO<br>MONDAY<br>/DEPT<sup style="font-size:6px">®</sup>' }), cal, pin, work);
+  const shade = h('div.hm-shade', { onclick: () => menu(false) });
+  const LINKS = ['Work', 'About', 'Careers', 'News', 'Contact'];
+  const panel = h('nav.hm-menu', {}, h('button.x', { onclick: () => menu(false) }, 'CLOSE ✕'), ...LINKS.map((n, i) => h('a', { href: '#', style: { transitionDelay: `${0.15 + i * 0.05}s` }, onclick: (e) => { e.preventDefault(); menu(false); if (n === 'Work') sc.scrollTo({ top: work.offsetTop, behavior: 'smooth' }); else toast(n + ' — demo'); } }, n)), h('div.ft', {}, h('span', {}, 'Copenhagen'), h('span', {}, 'New York'), h('span', {}, 'hello@hellomonday.com')));
+  const tab = h('button.hm-tab', { 'aria-label': 'Open menu', onclick: () => menu(true), html: '<svg viewBox="0 0 80 440" preserveAspectRatio="none"><path d="M80 0 C80 130 6 150 6 220 C6 290 80 310 80 440 Z" fill="#111"/></svg><span class="ic"><i></i><i></i><i></i></span>' });
+  el.append(tab, shade, panel);
+  function menu(v) { panel.classList.toggle('on', v); shade.classList.toggle('on', v); tab.style.visibility = v ? 'hidden' : ''; }
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') menu(false); });
+  let cur = 0, busy = false;
+  function go(i) {
+    i = ((i % 3) + 3) % 3; if (i === cur) return; const old = word.querySelector('span:not(.up)'); const nw = h('span.dn', {}, WORDS[i]); word.append(nw);
+    requestAnimationFrame(() => { requestAnimationFrame(() => { nw.classList.remove('dn'); old?.classList.add('up'); }); }); setTimeout(() => old?.remove(), 600);
+    [...ill.children].forEach((s2, k) => s2.classList.toggle('on', k === i)); [...steps.children].forEach((s2, k) => s2.classList.toggle('on', k === i)); cur = i;
+  }
+  let lastScroll = 0;
+  const onScroll = () => { lastScroll = Date.now(); const p = clamp(sc.scrollTop / (pin.offsetHeight - sc.clientHeight), 0, 0.999); if (sc.scrollTop > 2) go(Math.floor(p * 3)); };
+  sc.addEventListener('scroll', onScroll);
+  const timer = setInterval(() => { if (!document.body.contains(el)) return clearInterval(timer); if (sc.scrollTop < 2 && Date.now() - lastScroll > 1200 && !panel.classList.contains('on')) go(cur + 1); }, 2500);
+  window.__demoProof = async () => {
+    const o = []; const cs = getComputedStyle; const wd = () => word.querySelector('span:not(.up)')?.textContent; const pose = () => [...ill.children].findIndex((s2) => s2.classList.contains('on'));
+    o.push(`logo "${el.querySelector('.hm-logo').textContent}" countdown "${calTxt.textContent}" (Mon→"${untilMonday(new Date(2026, 9, 26))}", Sun→"${untilMonday(new Date(2026, 9, 25))}")`);
+    o.push(`duo svg poses=${ill.children.length} word font=${cs(word.querySelector('span')).fontFamily.split(',')[0]} ${cs(word.querySelector('span')).fontSize}`);
+    const span = pin.offsetHeight - sc.clientHeight; const seen = [];
+    for (const f of [0.1, 0.45, 0.8]) { sc.scrollTop = Math.round(span * f); onScroll(); await sleep(650); seen.push(`${Math.round(f * 100)}%→${wd()}/pose${pose()}`); }
+    o.push(`scroll steps (sticky=${cs(stage).position}) ${seen.join(', ')}`);
+    sc.scrollTop = span + 200; await sleep(120); o.push(`released → work tiles=${work.children.length} visible=${work.getBoundingClientRect().top < el.getBoundingClientRect().bottom}`);
+    sc.scrollTop = 0; await sleep(60); go(0); await sleep(650);
+    o.push(`bulge tab width=${Math.round(tab.getBoundingClientRect().width)} at right edge=${Math.round(el.getBoundingClientRect().right - tab.getBoundingClientRect().right)}px`);
+    tab.click(); await sleep(700); o.push(`menu open=${panel.classList.contains('on')} panel x=${Math.round(panel.getBoundingClientRect().left)} links=[${LINKS.join(', ')}] link font=${cs(panel.querySelector('a')).fontSize}`);
+    dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); await sleep(650); o.push(`Esc closes=${!panel.classList.contains('on')}`);
+    go(1); await sleep(650); o.push(`auto-cycle step → ${wd()}/pose${pose()}`); go(0); await sleep(650); o.push(`restored ${wd()}`);
+    document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + ' · stand-ins: the two characters are code-drawn SVG line art (3 poses, flipbook crossfade), Zilla Slab substitutes the slab serif, project tiles use animated gradients instead of videos; tiles/menu links are demo toasts';
+  };
+};
+// @@sync-2026-10-23-08-end
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

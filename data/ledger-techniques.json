@@ -1,10 +1,74 @@
 [
  {
+  "id": "clone-commercialtype-color-band-catalog-type-tester",
+  "slug": "commercialtype-color-band-catalog-type-tester",
+  "name": "Commercial Type color-band specimen catalog + pinned type tester",
+  "date": "2026-10-23",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://commercialtype.com/",
+  "domain": "commercialtype.com",
+  "product": "Commercial Type (type foundry)",
+  "checkpoints": [
+   "Full-width color bands (~256px tall), each a family name set huge in its own face, bg/fg pairs (sky blue/pale blue, plum/pink, mint/navy, black/white, lilac/purple), tiny \"N Families, M Styles\" caption (verified)",
+   "Boxed nav chips: white logo chip left, dark joined chips Catalog/Custom/Design/News/Goods/About/EULA/Login center, VIEW CART right (verified)",
+   "Family page: centered collection title, DESIGNER/TECHNICAL/PRICING/CLASSICS metadata table + serif blurb, ADD TO CART/TRIAL chips (verified)",
+   "Waterfall of every style as a full-width line (Regular to Black Italic) (verified)",
+   "Click a style line: sticky tester toolbar appears (family + style dropdowns, align, size 149, leading 1.00, tracking 0.00, columns, OpenType/Languages menus, TEST PINNED) with huge specimen text (verified)",
+   "Three-column CUSTOM / DESIGN STUDIO / GOODS footer row with ruled dividers (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a type-foundry catalog inspired by Commercial Type in Next.js + Tailwind. Home: a stack of full-width color bands, each ~256px tall, showing one family name at ~150px in its own typeface (use Google stand-ins: Playfair Display Black, Archivo Black, Fraunces, Inter Tight Light, Amiri) with a tiny 11px caption '4 Families, 48 Styles' below; band palettes: #3BA4F7 bg/#DDF0FF text, #5A004E/#FFC8E6, #7AFFF0/#00263A, #000/#fff, #E5CCF0/#4A0078. Fixed top bar over the bands: a white boxed logo chip 'Commercial Type' left, a centered row of joined dark #333 chips (Catalog, Custom, Design, News, Goods, About, EULA, Login) with white text, and a dark 'VIEW CART' chip right; chips have 1px shadow. Hovering a band nudges the name 4px and darkens bg slightly. Clicking a band opens the family page: centered small caps 'CLASSICS' label + 48px 'Spectator Collection', a hairline rule, then a 2-col block: left metadata table (DESIGNER, TECHNICAL, BONUS CUTS, PRICING '$750, styles from $60', CLASSICS) with underlined links, right a 17px serif paragraph + 'Read more'; ADD TO CART and TRIAL pale-blue chips. Below: for each sub-family a small caps label + '$325' chip and a waterfall of every style as one full-width 56px line (Regular, Medium, Semibold, Bold, Black, then italics). Clicking any line opens a sticky tester toolbar under the nav: family dropdown, style dropdown, ADD TO CART, align left/center/right icons, size input (149), leading (1.00), tracking (0.00), 1/2/3 column toggles, OpenType and Languages menus, and a 'TEST PINNED' toggle at right; the specimen area becomes contentEditable huge text ('General Gravitation') framed by thin vertical side rules, and all toolbar inputs live-update CSS (font-size, line-height, letter-spacing, text-align, column-count). Footer: three equal ruled columns CUSTOM / DESIGN STUDIO / GOODS. Mobile 390px: bands shrink names to fit one line with clamp(), nav chips wrap to a scrollable row, tester toolbar collapses into a bottom sheet."
+ },
+ {
+  "id": "clone-monocle-editorial-front-radio-onair-module",
+  "slug": "monocle-editorial-front-radio-onair-module",
+  "name": "Monocle editorial front page + on-air radio module + day-tab schedule",
+  "date": "2026-10-23",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://monocle.com/",
+  "domain": "monocle.com",
+  "product": "Monocle (magazine + Monocle Radio)",
+  "checkpoints": [
+   "Masthead: hamburger + MAGAZINE RADIO SHOP left, search/LOG IN/yellow SUBSCRIBE/bag/currency right, huge serif MONOCLE wordmark flanked by line illustrations (open book \"Currently being edited in London\", dog with envelope \"Daily inbox intelligence\") (verified)",
+   "Ruled serif section nav AFFAIRS | BUSINESS | CULTURE | DESIGN ... and condensed sticky header on scroll (verified)",
+   "Three-column front: lead serif headline + dek + \"3 MIN READ\" with book icon, middle column of image cards with small-caps kicker, right dark Monocle Radio rail (verified)",
+   "Dark radio module: ON AIR yellow label with animated bars, show title, blurb, cover art, full-width yellow LISTEN LIVE button, up-next rows, VIEW FULL PROGRAMME (verified)",
+   "Radio page: episode cards with yellow round speaker badges, mic icon + show name + duration (verified)",
+   "Schedule: day tabs Thursday/Friday/Saturday with arrows, JUMP TO ON AIR NOW, timeline rows with BST times (verified); persistent audio player after Listen Live (unverified headless)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a magazine front page with a live radio module inspired by Monocle in Next.js + Tailwind. White page, black text, serif body (Libre Caslon Text or Source Serif) and tiny bold grotesk caps for UI (Inter 11px tracking 0.06em). Masthead: left hamburger + 'MAGAZINE RADIO SHOP' caps links; right search icon, 'LOG IN', a solid #FFC500 'SUBSCRIBE' button, bag icon, circled currency icon; a 1px black rule; then a centered ~96px wide-tracked serif wordmark 'MONOCLE' flanked by two hand-drawn line illustrations as SVG (left an open book with caption 'Currently being edited in London', right a terrier carrying an envelope with 'Daily inbox intelligence from Monocle'); under it a ruled section nav 'AFFAIRS | BUSINESS | CULTURE | DESIGN | FASHION | TRAVEL | CITY GUIDES | SHOP | EVENTS'. On scroll past the masthead, a condensed sticky header slides in with a 22px wordmark centered. Body: a 3-column grid with vertical hairlines: column 1 lead story (small caps kicker 'ART', 28px serif headline, dek, '📖 | 3 MIN READ' meta, big photo), column 2 stacked image cards each with kicker + 18px serif title + meta, column 3 a dark #2A2A2A 'MONOCLE RADIO' rail. Radio rail: black rounded card with yellow 'ON AIR' label plus three animated equalizer bars (CSS keyframes), show title in caps serif, 2-line blurb, a square cover art at right, and a full-width yellow 'LISTEN LIVE ▶' button; clicking it toggles to '❚❚ PAUSE' and reveals a fixed bottom player bar (show name, progress shimmer, volume) — then two up-next rows with thumbnails and 'VIEW FULL PROGRAMME' outline button. A /schedule view: dark band with 'RADIO SCHEDULE' + yellow 'JUMP TO ON AIR NOW' button, a day-tab strip with ← Thursday Friday Saturday → (active tab filled #3A3A3A, arrows shift the 3-day window), and timeline rows '00:01 BST | cover | ON AIR THE BULLETIN WITH UBS'; jump scrolls to and highlights the current row. Episode cards elsewhere carry a round yellow speaker badge top-left and a '🎙 SHOW NAME | 14 MIN' meta line. Mobile 390px: columns stack, radio rail moves directly under the lead story, nav becomes a horizontal scroll."
+ },
+ {
+  "id": "clone-hellomonday-illustrated-word-cycle-hero",
+  "slug": "hellomonday-illustrated-word-cycle-hero",
+  "name": "Hello Monday illustrated duo hero with serif word cycle + curved side menu tab",
+  "date": "2026-10-23",
+  "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.hellomonday.com/",
+  "domain": "hellomonday.com",
+  "product": "Hello Monday/DEPT® (studio site)",
+  "checkpoints": [
+   "Pure white hero with two black-and-white hand-drawn characters (man in overalls, woman in striped dress) on a ground line (verified)",
+   "Characters change pose per scroll step (standing/waving, reading newspaper on stool, reading together) (verified)",
+   "\"We make digital (and magical)...\" tiny line + a big slab serif word that cycles Products / Experiences / Branding with a small dot indicator (verified)",
+   "Top-right \"3 days until Monday\" countdown with tiny calendar icon; stacked HELLO MONDAY /DEPT® logo (verified)",
+   "Black curved bulge tab on the right edge holding the menu icon (verified); menu open state (unverified headless click)",
+   "Work grid of 3 video/image tiles appears after the hero (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a studio homepage hero inspired by Hello Monday in Next.js + Tailwind + Framer Motion. White canvas. Top-left a stacked 3-line bold grotesk logo 'HELLO / MONDAY / /DEPT®' at 11px; top-right a tiny calendar icon + '3 days until Monday' computed live from today's date (say 'Today is Monday!' on Mondays). Right edge: a black SVG shape that bulges out of the viewport edge as a smooth half-lens (about 60px wide at its center, 420px tall, vertically centered) holding a white three-line menu icon; on hover it bulges wider (spring), on click it expands into a full-height black panel from the right with huge white serif nav links. Center: an illustration area (~320px tall) with two hand-drawn black-ink characters on a shared ground line — a short-haired man in black overalls and a woman with a bun in a striped A-line dress — drawn as SVGs (simple line art, solid black fills for hair/trousers). Below, a tiny 12px line 'We make digital (and magical)...' and a 72px slab serif word (Zilla Slab or Rockwell-like) that cycles every 2.5s and on scroll steps through 'Products' → 'Experiences' → 'Branding': each change swaps the word with a vertical clip-mask slide (old word moves up out, new word rises in) AND swaps the characters' pose (pose A: man hands on chest, woman pointing up; pose B: man sitting on a bar stool reading a newspaper, woman standing with hands folded; pose C: woman leaning over the man's shoulder reading the paper) with a quick 150ms crossfade so it reads like flipbook animation. A single 4px dot under the word pulses. Pin the hero for 3 scroll steps (sticky + scroll progress), then release into a 3-column grid of rounded-corner video tiles. Mobile 390px: word 44px, illustration scales to 240px, side tab becomes a smaller bulge."
+ },
+ {
   "id": "clone-fontsinuse-archive-condensed-wordmark-tabs-ruled-dropdown-bar-image-grid-specimen-name-captions-staff-pick-ribbon-sponsor-tile-use-detail-sidebar",
   "slug": "fontsinuse-archive-condensed-wordmark-tabs-ruled-dropdown-bar-image-grid-specimen-name-captions-staff-pick-ribbon-sponsor-tile-use-detail-sidebar",
   "name": "Fonts In Use archive: stacked condensed wordmark, Collection/Blog big tabs, thick-ruled Topics/Formats/Typefaces dropdown bar, 5-col square image grid where each caption is set in the typeface it names, Staff Pick corner ribbon, rotating sponsor tile; use detail page with italic+roman title, Like/Add to Set, ruled metadata sidebar",
   "date": "2026-10-23",
   "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://fontsinuse.com/",
   "domain": "fontsinuse.com",
   "product": "Fonts In Use — independent typography archive",
@@ -16,8 +80,7 @@
    "Use detail page: italic+roman condensed title, contributor line, Like 12 / Add to Set pills, big image, ruled sidebar Typefaces/Formats/Topics/Designers/Tagged with counts, prev/next side arrows (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a typography archive inspired by Fonts In Use in Next.js + Tailwind (two routes: / and /uses/[id]). White canvas, pure black text, 980px centered container. Header: a stacked heavy condensed wordmark \"FONTS / IN USE\" (use a free condensed like Bebas Neue or Oswald 700, tight leading), a two-line small tagline \"An independent archive of typography. Made possible by sponsors like <b>NAME</b>\" where NAME rotates on each load from a list, two big condensed tabs \"Collection\" (black, active) and \"Blog\" (grey #999), and at right a small 'sign in to participate' line plus a rounded search field with placeholder 'Enter a word, typeface, tag…' and an underlined 'Advanced Search' link. Under the header a 4px black rule, then a bar with bold 'Topics ▾  Formats ▾  Typefaces ▾' that open simple panel dropdowns (columns of linked tags with counts), then a thin rule. Right-aligned filter row: 'Show: All (34883) / Staff Picks (6391) / Blog (171)  Sort: Contribution Date ▾' and a two-icon grid/list toggle. Grid: 5 columns of square image tiles with 16px gaps; under each tile one or two typeface names, each rendered IN THAT TYPEFACE (load ~10 different Google Fonts: e.g. Space Grotesk, Fraunces, DM Serif Display, Archivo Black, Syne, Major Mono Display, Playfair Display, Bricolage Grotesque), ~26px, separated by a hairline. Some tiles get a black diagonal 'Staff Pick' corner ribbon. One tile slot is a sponsor card (image + small 'Sponsor' label + bold name + 2-line blurb + underlined 'Discover More'). Hover: tile image dims 8% and caption underlines. List toggle switches to rows (thumb, title, typefaces, date). Detail page: title in condensed type with the first words italic ('Encounters: Giacometti guidebook'), small 'Contributed by X on date. Artwork published in circa May 2025.', grey 'Like 12' split pill and 'Add to Set' pill (Like toggles count), a 680px image column with a 160px-wide sidebar of sections (Typefaces with each name in its own font and a ⊕ icon, Formats, Topics, Designers/Agencies, Tagged with) each headed by condensed bold label over a 2px rule, link + (count). Fixed faint ‹ › arrows at the viewport edges for prev/next use, and a vertical 'Flag' tab on the right edge. Mobile 390px: wordmark shrinks, grid becomes 2 columns, sidebar moves under the image.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a typography archive inspired by Fonts In Use in Next.js + Tailwind (two routes: / and /uses/[id]). White canvas, pure black text, 980px centered container. Header: a stacked heavy condensed wordmark \"FONTS / IN USE\" (use a free condensed like Bebas Neue or Oswald 700, tight leading), a two-line small tagline \"An independent archive of typography. Made possible by sponsors like <b>NAME</b>\" where NAME rotates on each load from a list, two big condensed tabs \"Collection\" (black, active) and \"Blog\" (grey #999), and at right a small 'sign in to participate' line plus a rounded search field with placeholder 'Enter a word, typeface, tag…' and an underlined 'Advanced Search' link. Under the header a 4px black rule, then a bar with bold 'Topics ▾  Formats ▾  Typefaces ▾' that open simple panel dropdowns (columns of linked tags with counts), then a thin rule. Right-aligned filter row: 'Show: All (34883) / Staff Picks (6391) / Blog (171)  Sort: Contribution Date ▾' and a two-icon grid/list toggle. Grid: 5 columns of square image tiles with 16px gaps; under each tile one or two typeface names, each rendered IN THAT TYPEFACE (load ~10 different Google Fonts: e.g. Space Grotesk, Fraunces, DM Serif Display, Archivo Black, Syne, Major Mono Display, Playfair Display, Bricolage Grotesque), ~26px, separated by a hairline. Some tiles get a black diagonal 'Staff Pick' corner ribbon. One tile slot is a sponsor card (image + small 'Sponsor' label + bold name + 2-line blurb + underlined 'Discover More'). Hover: tile image dims 8% and caption underlines. List toggle switches to rows (thumb, title, typefaces, date). Detail page: title in condensed type with the first words italic ('Encounters: Giacometti guidebook'), small 'Contributed by X on date. Artwork published in circa May 2025.', grey 'Like 12' split pill and 'Add to Set' pill (Like toggles count), a 680px image column with a 160px-wide sidebar of sections (Typefaces with each name in its own font and a ⊕ icon, Formats, Topics, Designers/Agencies, Tagged with) each headed by condensed bold label over a 2px rule, link + (count). Fixed faint ‹ › arrows at the viewport edges for prev/next use, and a vertical 'Flag' tab on the right edge. Mobile 390px: wordmark shrinks, grid becomes 2 columns, sidebar moves under the image."
  },
  {
   "id": "clone-olafureliasson-news-stream-floating-cutout-object-staggered-media-column-menu-opens-pastel-gradient-wash-charcoal-right-drawer",
@@ -25,6 +88,7 @@
   "name": "Studio Olafur Eliasson: minimal serif wordmark / Search / Menu header; news stream of staggered offset media columns (video, photos) with wide-tracked small caption text and relative dates; floating cut-out glass object at left; Menu opens a charcoal right drawer with Search field + grouped caps sections while the page behind washes into a lilac-to-pink gradient",
   "date": "2026-10-23",
   "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://olafureliasson.net/",
   "domain": "olafureliasson.net",
   "product": "Studio Olafur Eliasson — artist studio website",
@@ -36,8 +100,7 @@
    "Page behind menu fades to a lilac→pink gradient wash, media tinted (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build an artist-studio news stream inspired by Studio Olafur Eliasson in Next.js + Tailwind + Framer Motion. Pure white canvas, black text. Fixed transparent header, three points: left a small book serif 'Olafur Eliasson' (17px), center 'Search', right 'Menu', both in a small wide-tracked grotesk (letter-spacing 0.06em, 12px). Main: a vertical stream of news items, each a media block (autoplay muted video or photo) plus a 2–4 paragraph caption in 12px grotesk with generous 1.75 line-height and wide tracking, quoted work titles in single quotes, then a small relative date ('12 days ago') or 'DD/MM/YYYY'. Blocks deliberately do NOT share a grid: vary left offset (30px, 100px, 190px, 360px) and width (500–620px) item by item so the column drifts left and right as you scroll; let a later image slightly overlap the previous caption's date. On the first item, place a floating PNG cut-out of a translucent glass/ice rock (~280px) in the left margin, gently bobbing (translateY ±6px, 6s) and parallaxing slower than scroll. Menu: clicking 'Menu' slides in a 380px charcoal (#2E2E2E) drawer from the right with an underline-only 'Search' input at top, then groups with tiny grey caps labels (CURRENT / WORK / EXPLORE / ABOUT) and 13px white wide-tracked links (News; Artworks, Exhibitions, Publications; Your uncertain archive, Watch soe.tv, Read, Research map, Projects; Olafur Eliasson, Studio Olafur Eliasson, (Co-)Founded by Olafur Eliasson; Contact, Jobs, Legal, Privacy policy). Simultaneously the page behind fades (500ms) to a soft horizontal gradient wash from lilac #CFC6EE to pink #F4C3D6, media gets a purple multiply tint, and the wordmark hides. Esc or clicking the wash closes. 'Search' in the header expands an inline underline input with live filtering of the stream by caption text. Mobile 390px: all items full-width with 16px gutters, the rock shrinks to 140px above the first item, drawer becomes full-screen. Respect prefers-reduced-motion.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build an artist-studio news stream inspired by Studio Olafur Eliasson in Next.js + Tailwind + Framer Motion. Pure white canvas, black text. Fixed transparent header, three points: left a small book serif 'Olafur Eliasson' (17px), center 'Search', right 'Menu', both in a small wide-tracked grotesk (letter-spacing 0.06em, 12px). Main: a vertical stream of news items, each a media block (autoplay muted video or photo) plus a 2–4 paragraph caption in 12px grotesk with generous 1.75 line-height and wide tracking, quoted work titles in single quotes, then a small relative date ('12 days ago') or 'DD/MM/YYYY'. Blocks deliberately do NOT share a grid: vary left offset (30px, 100px, 190px, 360px) and width (500–620px) item by item so the column drifts left and right as you scroll; let a later image slightly overlap the previous caption's date. On the first item, place a floating PNG cut-out of a translucent glass/ice rock (~280px) in the left margin, gently bobbing (translateY ±6px, 6s) and parallaxing slower than scroll. Menu: clicking 'Menu' slides in a 380px charcoal (#2E2E2E) drawer from the right with an underline-only 'Search' input at top, then groups with tiny grey caps labels (CURRENT / WORK / EXPLORE / ABOUT) and 13px white wide-tracked links (News; Artworks, Exhibitions, Publications; Your uncertain archive, Watch soe.tv, Read, Research map, Projects; Olafur Eliasson, Studio Olafur Eliasson, (Co-)Founded by Olafur Eliasson; Contact, Jobs, Legal, Privacy policy). Simultaneously the page behind fades (500ms) to a soft horizontal gradient wash from lilac #CFC6EE to pink #F4C3D6, media gets a purple multiply tint, and the wordmark hides. Esc or clicking the wash closes. 'Search' in the header expands an inline underline input with live filtering of the stream by caption text. Mobile 390px: all items full-width with 16px gutters, the rock shrinks to 140px above the first item, drawer becomes full-screen. Respect prefers-reduced-motion."
  },
  {
   "id": "clone-bear-app-hero-device-switcher-hand-drawn-sketch-underline-color-per-device-mac-three-pane-iphone-fan-ipad-sketch-toolbar-award-laurels",
@@ -45,6 +108,7 @@
   "name": "Bear app site: rounded grotesk hero with hand-drawn underline under 'love' whose color changes per device; Mac / iPhone / iPad switcher with sketched underline + spark ticks; device mock swaps (Mac three-pane notes app, fanned three iPhones, iPad pencil sketch note with tool palette); store badge swaps; award laurels",
   "date": "2026-10-23",
   "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://bear.app/",
   "domain": "bear.app",
   "product": "Bear — markdown notes app",
@@ -56,8 +120,7 @@
    "Award laurels row + blob background illustrations below (verified; embedded video section blocked in headless)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a notes-app landing hero inspired by Bear in Next.js + Tailwind + Framer Motion. White canvas, charcoal #444 text, a friendly rounded geometric sans (Nunito or Varela Round). Top nav: red Bear logo mark + 'Bear' left, 'Features Pricing Blog Community Support' right. Hero (centered): 40px headline 'Markdown notes you'll love' where 'love' has a hand-drawn SVG underline (slightly wobbly path, 3px, stroke-dasharray draw-in 600ms), subline 'on Mac, iPhone & iPad'. Device switcher row: three items with line icons (laptop, phone, tablet) + labels Mac / iPhone / iPad; inactive are grey #999, active is charcoal with its own hand-drawn swoosh underline and three tiny spark ticks above, color-coded: Mac teal #8CCFD9, iPhone purple #8B5FBF, iPad mustard #F2C94C. Switching redraws the swoosh under the new item AND recolors the headline 'love' underline to the same color. The black-outline store badge crossfades between 'Download on the Mac App Store' and 'Download on the App Store'. Below, the device mock crossfades/slides up (400ms) per device: Mac = a rounded window with traffic lights, a dark #2B2B2E sidebar (Notes ▾ expanded: Untagged, Todo, Today, Locked; Archive, Trash), a light note list (selected item with a 3px red left bar, '🐻‍❄️ Polar Bears' title, two-line excerpt, thumbnail, 'Yesterday'), and an editor pane with B I U toolbar and a big note title + photo; iPhone = three phones fanned (left rotated -10° showing dark sidebar, center upright editor, right rotated 8° showing note list); iPad = a large tablet with a note 'Lila's Rocket Project!' (italic underlined red word), a #science tag pill, a dotted-grid sketch area with a hand-drawn rocket SVG, a floating rounded pencil palette (undo/redo, pen, highlighter, pencil, eraser, ruler, 6 color dots) and an Apple Pencil leaning on the left edge. Under the hero: three award laurels (Editor's Choice 2020, Apple Design Award 2017, App of the year 2016) with SVG laurel branches, then soft grey/teal blob shapes with star sparkles behind a 'Seamless Markdown' section. Mobile 390px: switcher stays one row, mocks scale to fit, iPhones fan tighter.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a notes-app landing hero inspired by Bear in Next.js + Tailwind + Framer Motion. White canvas, charcoal #444 text, a friendly rounded geometric sans (Nunito or Varela Round). Top nav: red Bear logo mark + 'Bear' left, 'Features Pricing Blog Community Support' right. Hero (centered): 40px headline 'Markdown notes you'll love' where 'love' has a hand-drawn SVG underline (slightly wobbly path, 3px, stroke-dasharray draw-in 600ms), subline 'on Mac, iPhone & iPad'. Device switcher row: three items with line icons (laptop, phone, tablet) + labels Mac / iPhone / iPad; inactive are grey #999, active is charcoal with its own hand-drawn swoosh underline and three tiny spark ticks above, color-coded: Mac teal #8CCFD9, iPhone purple #8B5FBF, iPad mustard #F2C94C. Switching redraws the swoosh under the new item AND recolors the headline 'love' underline to the same color. The black-outline store badge crossfades between 'Download on the Mac App Store' and 'Download on the App Store'. Below, the device mock crossfades/slides up (400ms) per device: Mac = a rounded window with traffic lights, a dark #2B2B2E sidebar (Notes ▾ expanded: Untagged, Todo, Today, Locked; Archive, Trash), a light note list (selected item with a 3px red left bar, '🐻‍❄️ Polar Bears' title, two-line excerpt, thumbnail, 'Yesterday'), and an editor pane with B I U toolbar and a big note title + photo; iPhone = three phones fanned (left rotated -10° showing dark sidebar, center upright editor, right rotated 8° showing note list); iPad = a large tablet with a note 'Lila's Rocket Project!' (italic underlined red word), a #science tag pill, a dotted-grid sketch area with a hand-drawn rocket SVG, a floating rounded pencil palette (undo/redo, pen, highlighter, pencil, eraser, ruler, 6 color dots) and an Apple Pencil leaning on the left edge. Under the hero: three award laurels (Editor's Choice 2020, Apple Design Award 2017, App of the year 2016) with SVG laurel branches, then soft grey/teal blob shapes with star sparkles behind a 'Seamless Markdown' section. Mobile 390px: switcher stays one row, mocks scale to fit, iPhones fan tighter."
  },
  {
   "id": "clone-prose-hair-consultation-multi-step-quiz-segmented-section-progress-serif-questions-option-cards-sage-selected-auto-advance-line-art-texture-grid-lilac-visual-learner-sheet",
@@ -65,6 +128,7 @@
   "name": "Prose hair consultation: serif intro with BEGIN/RESUME HERE pills over bottle photo; 4-segment section progress strip; serif question + helper + \"visual learner\" link; white option cards that fill sage green on click, reveal a dark NEXT bar and auto-advance; line-art pattern texture card grid; lilac photo-carousel side sheet; 60% OFF promo modal",
   "date": "2026-10-23",
   "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://prose.com/consultation/haircare",
   "domain": "prose.com",
   "product": "Prose — custom haircare consultation quiz",
@@ -77,8 +141,7 @@
    "Lilac visual-learner sheet with photo carousel + tip (verified); promo modal (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a multi-step hair consultation quiz inspired by Prose, in Next.js + Tailwind + Framer Motion. Palette: warm off-white (#F6F3EE) canvas, charcoal (#2F3A34) text, sage green (#BFC9A8) selected state, lilac (#E9DDF5) side sheet. Typography: a light high-contrast serif for questions (with one italic word on the intro screen) and a wide-tracked mono/grotesk caps for labels and buttons. Screen 1 (intro): thin dark promo bar \"Limited Time: 60% off + Free Welcome Kit\" (underlined), centered small wordmark with \"Save + exit\" at right, full-bleed photo of two amber/lilac pump bottles, serif headline \"We're excited to get started on your hair consultation.\", short copy, a solid dark pill \"BEGIN\" and an outlined pill \"RESUME HERE\" under \"Already gave us your email?\". Quiz shell: a 4-segment progress strip under the header (HAIR & SCALP / TREATMENTS / LIFESTYLE / PREFERENCES & GOALS) where the active segment fills from the left as questions are answered; centered serif question \"How long is your hair?\", grey helper line, a \"+ More of a visual learner? Tap for pics\" underlined link; a 320px column of white option cards with a bold title and small grey subtitle (Short / Buzz-cut to early-Beatles, Chin-length, Shoulder length, Long, Very Long). Clicking a card fills it sage green, a full-width dark \"NEXT\" bar slides up from the bottom-right, and after ~400ms the step auto-advances with a fade/slide to the next question. Question 2 \"What's your natural, untreated, air-dried hair texture?\" uses a 2-column grid of cards each with a black line-art pattern thumbnail (straight lines, waves, S-curves, loops, coils) for Type 1 to Type 4C. The visual-learner link opens a lilac bottom-left sheet with a drag handle, caps title \"MORE OF A VISUAL LEARNER? TAP FOR PICS\", a swipeable photo carousel with progress dashes and a caption \"Short Hair\", plus a tip \"If you are stuck between 2 lengths, choose the longer one.\" while the page behind dims. Circular back button bottom-left. Add a first-visit promo modal (lime \"60% OFF\" sticker, product photo, serif title, dark \"UNLOCK OFFER\" pill, × close). Persist answers in localStorage so \"RESUME HERE\" works. Mobile (390px): single column, sheet becomes full-width bottom sheet.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a multi-step hair consultation quiz inspired by Prose, in Next.js + Tailwind + Framer Motion. Palette: warm off-white (#F6F3EE) canvas, charcoal (#2F3A34) text, sage green (#BFC9A8) selected state, lilac (#E9DDF5) side sheet. Typography: a light high-contrast serif for questions (with one italic word on the intro screen) and a wide-tracked mono/grotesk caps for labels and buttons. Screen 1 (intro): thin dark promo bar \"Limited Time: 60% off + Free Welcome Kit\" (underlined), centered small wordmark with \"Save + exit\" at right, full-bleed photo of two amber/lilac pump bottles, serif headline \"We're excited to get started on your hair consultation.\", short copy, a solid dark pill \"BEGIN\" and an outlined pill \"RESUME HERE\" under \"Already gave us your email?\". Quiz shell: a 4-segment progress strip under the header (HAIR & SCALP / TREATMENTS / LIFESTYLE / PREFERENCES & GOALS) where the active segment fills from the left as questions are answered; centered serif question \"How long is your hair?\", grey helper line, a \"+ More of a visual learner? Tap for pics\" underlined link; a 320px column of white option cards with a bold title and small grey subtitle (Short / Buzz-cut to early-Beatles, Chin-length, Shoulder length, Long, Very Long). Clicking a card fills it sage green, a full-width dark \"NEXT\" bar slides up from the bottom-right, and after ~400ms the step auto-advances with a fade/slide to the next question. Question 2 \"What's your natural, untreated, air-dried hair texture?\" uses a 2-column grid of cards each with a black line-art pattern thumbnail (straight lines, waves, S-curves, loops, coils) for Type 1 to Type 4C. The visual-learner link opens a lilac bottom-left sheet with a drag handle, caps title \"MORE OF A VISUAL LEARNER? TAP FOR PICS\", a swipeable photo carousel with progress dashes and a caption \"Short Hair\", plus a tip \"If you are stuck between 2 lengths, choose the longer one.\" while the page behind dims. Circular back button bottom-left. Add a first-visit promo modal (lime \"60% OFF\" sticker, product photo, serif title, dark \"UNLOCK OFFER\" pill, × close). Persist answers in localStorage so \"RESUME HERE\" works. Mobile (390px): single column, sheet becomes full-width bottom sheet."
  },
  {
   "id": "clone-primavera-sound-festival-dot-poster-tiered-condensed-lineup-festival-cards-agenda-filter-chips-monthly-calendar-next-events-ticket-accordion-rows",
@@ -86,6 +149,7 @@
   "name": "Primavera Sound: stacked condensed caps logo + caps nav with mint account pill; dark hero carousel; multicolor dot poster beside a tiered condensed-caps line-up that shrinks row by row; 4 festival poster cards; Agenda with colored filter chips, monthly calendar card and giant next-event date; ticket accordion rows with tag pills, prices and green BUY pills; dot-header newsletter modal",
   "date": "2026-10-23",
   "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://www.primaverasound.com/en",
   "domain": "primaverasound.com",
   "product": "Primavera Sound — music festival (Barcelona, Porto, Buenos Aires, São Paulo)",
@@ -98,8 +162,7 @@
    "Ticket accordion rows + newsletter modal (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Recreate the Primavera Sound festival homepage in Next.js + Tailwind. Style: white and pale grey backgrounds, black heavy condensed grotesk caps for the logo and line-up, mono for small labels, a mint green (#7ED9A6) accent pill. Header: stacked two-line \"PRIMAVERA / SOUND\" logo at left, caps nav \"FESTIVALS ⌄  TOURS  RADIO  PRO  LABELS  SHOP\", right side \"MYPRIMAVERA  CONTACT  PRESS\", search icon, mint \"MY ACCOUNT\" pill and outlined \"TICKETS\" pill. Hero: full-bleed dark concert photo carousel with chevron arrows, dot pagination, small caps eyebrow \"PRIMAVERA SOUND BUENOS AIRES\", big white title, artist list and a white \"TICKETS\" pill. Below: the signature dot poster, a grid of colored circles (8-10 colors: pink, teal, mustard, lilac, grey, navy, red) arranged around a \"parc del fòrum barcelona 2-6 juny 2027 / primavera sound\" lockup, next to a centered line-up block where headliners are huge condensed caps separated by \"·\" and lower rows get progressively smaller (poster hierarchy), with small labels like \"closing set\" and \"B2B\" inline. Dots fade/scale in with a staggered random delay and gently re-color on hover. \"Festivals\" section: 4 cards (Buenos Aires, São Paulo, Barcelona, Porto) each with poster art, caps eyebrow, name and date/venue line. A dark promo banner. \"Agenda\" section with a Filter icon and colored outline chips (Primavera Sound, Primavera Labels, Primavera Pro, Radio, Fundació...) that filter events; a \"MONTHLY VIEW\" calendar card (month switcher, weekday grid with dot markers on event days) next to a \"NEXT EVENTS\" card with a giant day number \"23\", month label and arrow pagers. Ticket rows: tabs \"GENERAL SALE / PRIMAVERA PRO\", accordion rows with \"+\", ticket name, \"On Sale\"/\"VIP\" tag pills, \"FROM €350.00 + fees\" and a green \"BUY\" pill. Add a newsletter modal on first visit: dot-poster header strip, bold \"Do not miss anything\", rounded email field and a disabled-until-valid \"JOIN UP\" button. Mobile: line-up stays centered and scales with clamp().",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Recreate the Primavera Sound festival homepage in Next.js + Tailwind. Style: white and pale grey backgrounds, black heavy condensed grotesk caps for the logo and line-up, mono for small labels, a mint green (#7ED9A6) accent pill. Header: stacked two-line \"PRIMAVERA / SOUND\" logo at left, caps nav \"FESTIVALS ⌄  TOURS  RADIO  PRO  LABELS  SHOP\", right side \"MYPRIMAVERA  CONTACT  PRESS\", search icon, mint \"MY ACCOUNT\" pill and outlined \"TICKETS\" pill. Hero: full-bleed dark concert photo carousel with chevron arrows, dot pagination, small caps eyebrow \"PRIMAVERA SOUND BUENOS AIRES\", big white title, artist list and a white \"TICKETS\" pill. Below: the signature dot poster, a grid of colored circles (8-10 colors: pink, teal, mustard, lilac, grey, navy, red) arranged around a \"parc del fòrum barcelona 2-6 juny 2027 / primavera sound\" lockup, next to a centered line-up block where headliners are huge condensed caps separated by \"·\" and lower rows get progressively smaller (poster hierarchy), with small labels like \"closing set\" and \"B2B\" inline. Dots fade/scale in with a staggered random delay and gently re-color on hover. \"Festivals\" section: 4 cards (Buenos Aires, São Paulo, Barcelona, Porto) each with poster art, caps eyebrow, name and date/venue line. A dark promo banner. \"Agenda\" section with a Filter icon and colored outline chips (Primavera Sound, Primavera Labels, Primavera Pro, Radio, Fundació...) that filter events; a \"MONTHLY VIEW\" calendar card (month switcher, weekday grid with dot markers on event days) next to a \"NEXT EVENTS\" card with a giant day number \"23\", month label and arrow pagers. Ticket rows: tabs \"GENERAL SALE / PRIMAVERA PRO\", accordion rows with \"+\", ticket name, \"On Sale\"/\"VIP\" tag pills, \"FROM €350.00 + fees\" and a green \"BUY\" pill. Add a newsletter modal on first visit: dot-poster header strip, bold \"Do not miss anything\", rounded email field and a disabled-until-valid \"JOIN UP\" button. Mobile: line-up stays centered and scales with clamp()."
  },
  {
   "id": "clone-flamingo-estate-editorial-shop-cream-wide-serif-wordmark-rounded-split-hero-love-letter-pill-most-loved-draggable-rail-badges-stamps-editorial-cards-press-quote-crossfade",
@@ -107,6 +170,7 @@
   "name": "Flamingo Estate: cream canvas, letterspaced serif wordmark header with membership top bar; rounded split-image hero with \"From Morocco, With Love\" + pill; Most Loved draggable product rail with green badges, Subscribe stamps, ratings and thin scrollbar; tall editorial story cards with dark pills; Tomato Collection rail; press logo row with cross-fading serif pull quote; Get 10% Off modal",
   "date": "2026-10-23",
   "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://flamingoestate.com/",
   "domain": "flamingoestate.com",
   "product": "Flamingo Estate — Los Angeles heritage-farm goods, candles and pantry",
@@ -119,8 +183,7 @@
    "Get 10% Off modal (verified); rail drag unverified"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build an editorial lifestyle shop homepage inspired by Flamingo Estate, in Next.js + Tailwind + Embla carousel. Palette: cream (#F7F3EA) background, deep forest green (#2F3B2C) pills and badges, black text. Type: a wide letterspaced serif wordmark \"FLAMINGO ESTATE\" centered in the header, a warm book serif for headlines, small grotesk for UI. Header: thin black top bar \"The Estate Membership →\"; left search icon + \"Shop  The Estate  Gift Guide  Membership\", centered wordmark, right \"Sign in\" and \"Cart (0)\". Hero: two rounded 16px image panels side by side (pink still-life of soaps and jars; a candle on a mustard backdrop with a tilted paper \"NEW: SEASONAL\" label), an overlay headline \"From Morocco, With Love\", subline and a white pill \"OPEN YOUR LOVE LETTER\"; the hero cross-fades between scenes. \"MOST LOVED\" product rail: centered caps label, horizontally draggable cards with grey rounded image tiles, small green \"NEW\" / \"BEST SELLER\" badges, a circular \"Subscribe\" stamp on some, title, one-line description, star rating with review count, and a thin custom scrollbar under the rail. Two tall editorial cards (\"Paradise, Uncivilized\" and \"Marrakesh Express\") with photo, serif headline, short copy and a dark pill CTA. A second rail \"TOMATO COLLECTION\". A press block: row of greyscale press logos (EATER, DECOR, VOGUE) where the active logo darkens, and a large serif pull quote that cross-fades between quotes (\"Best Luxury Candles for Your Home, According to Vogue\") every 4s. Big two-up lifestyle photos below. A delayed \"Get 10% Off\" modal: photo left, serif title, email field, black \"CONTINUE\" button, × close. Respect prefers-reduced-motion. Mobile (390px): hero panels stack, rails snap one-and-a-half cards.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build an editorial lifestyle shop homepage inspired by Flamingo Estate, in Next.js + Tailwind + Embla carousel. Palette: cream (#F7F3EA) background, deep forest green (#2F3B2C) pills and badges, black text. Type: a wide letterspaced serif wordmark \"FLAMINGO ESTATE\" centered in the header, a warm book serif for headlines, small grotesk for UI. Header: thin black top bar \"The Estate Membership →\"; left search icon + \"Shop  The Estate  Gift Guide  Membership\", centered wordmark, right \"Sign in\" and \"Cart (0)\". Hero: two rounded 16px image panels side by side (pink still-life of soaps and jars; a candle on a mustard backdrop with a tilted paper \"NEW: SEASONAL\" label), an overlay headline \"From Morocco, With Love\", subline and a white pill \"OPEN YOUR LOVE LETTER\"; the hero cross-fades between scenes. \"MOST LOVED\" product rail: centered caps label, horizontally draggable cards with grey rounded image tiles, small green \"NEW\" / \"BEST SELLER\" badges, a circular \"Subscribe\" stamp on some, title, one-line description, star rating with review count, and a thin custom scrollbar under the rail. Two tall editorial cards (\"Paradise, Uncivilized\" and \"Marrakesh Express\") with photo, serif headline, short copy and a dark pill CTA. A second rail \"TOMATO COLLECTION\". A press block: row of greyscale press logos (EATER, DECOR, VOGUE) where the active logo darkens, and a large serif pull quote that cross-fades between quotes (\"Best Luxury Candles for Your Home, According to Vogue\") every 4s. Big two-up lifestyle photos below. A delayed \"Get 10% Off\" modal: photo left, serif title, email field, black \"CONTINUE\" button, × close. Respect prefers-reduced-motion. Mobile (390px): hero panels stack, rails snap one-and-a-half cards."
  },
  {
   "id": "clone-usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price",
@@ -191,6 +254,7 @@
   "name": "Studio Freight: cream canvas with scattered project thumbnails around a centered serif tagline, mono nav with Home/Info/News/Aeon; Work page with giant typewriter headline cycling disciplines (DESIG|, STRATEGY) and Grid / List / Zoom view toggle (masonry grid, year/client/labels/services table, single large zoom stream); Contact page inverted to black with underline input form and (+) FAQ accordion",
   "date": "2026-10-22",
   "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://studiofreight.com/work/",
   "domain": "studiofreight.com",
   "product": "Studio Freight — brand and digital design studio",
@@ -203,8 +267,7 @@
    "Filter (+) panel (unverified: click timed out)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a Studio Freight-style design studio site in Next.js + Tailwind + Framer Motion. Warm off-white #f0ede6 canvas, near-black #121212 ink, one accent orange #ff4d00. Fonts: a light high-contrast serif (e.g. Instrument Serif) for the centred tagline and big headlines, a small monospace (IBM Plex Mono, 11px caps) for nav, labels and meta. Home: mono nav in the top bar (Studio Freight wordmark left; Home / Work / Info / News / Contact; local time right); 14 project thumbnails absolutely positioned and scattered around the viewport at varied sizes, drifting slightly with the cursor (parallax), each hover showing a mono caption; a single centred serif line in the middle. Work page: giant uppercase typewriter headline that types and deletes discipline words (DESIGN, STRATEGY, MOTION, DEVELOPMENT) with a blinking caret; a toolbar with (+) Filter and a Grid / List / Zoom segmented toggle. Grid = masonry thumbnails with captions; List = 4-column table (Year / Client / Labels / Services) with hover thumbnail preview following the cursor; Zoom = single-column large image stream. Filter (+) opens a chip panel of disciplines that filters all three views. Contact page inverts to black #0d0d0d with white text: underline-only inputs (Name / Email / Company / Budget select / Message), arrow submit with validation and success state, and an FAQ list where each row has a (+) that rotates to (×) and expands the answer with a height animation.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a Studio Freight-style design studio site in Next.js + Tailwind + Framer Motion. Warm off-white #f0ede6 canvas, near-black #121212 ink, one accent orange #ff4d00. Fonts: a light high-contrast serif (e.g. Instrument Serif) for the centred tagline and big headlines, a small monospace (IBM Plex Mono, 11px caps) for nav, labels and meta. Home: mono nav in the top bar (Studio Freight wordmark left; Home / Work / Info / News / Contact; local time right); 14 project thumbnails absolutely positioned and scattered around the viewport at varied sizes, drifting slightly with the cursor (parallax), each hover showing a mono caption; a single centred serif line in the middle. Work page: giant uppercase typewriter headline that types and deletes discipline words (DESIGN, STRATEGY, MOTION, DEVELOPMENT) with a blinking caret; a toolbar with (+) Filter and a Grid / List / Zoom segmented toggle. Grid = masonry thumbnails with captions; List = 4-column table (Year / Client / Labels / Services) with hover thumbnail preview following the cursor; Zoom = single-column large image stream. Filter (+) opens a chip panel of disciplines that filters all three views. Contact page inverts to black #0d0d0d with white text: underline-only inputs (Name / Email / Company / Budget select / Message), arrow submit with validation and success state, and an FAQ list where each row has a (+) that rotates to (×) and expands the answer with a height animation."
  },
  {
   "id": "clone-owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation",
@@ -212,6 +275,7 @@
   "name": "Our World in Data grapher: chart card with serif title + dotted-underline definition, Table/Map/Line/Bar tab pills, labeled line endpoints, right sidebar of country checkboxes with inline value bars, sort and type filter, dual-handle timeline slider with play/pause animation, Download/Share/Full-screen actions",
   "date": "2026-10-22",
   "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://ourworldindata.org/grapher/life-expectancy",
   "domain": "ourworldindata.org",
   "product": "Our World in Data — open data publication",
@@ -224,8 +288,7 @@
    "Table view with sparkline change column (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build an Our World in Data-style grapher chart card in React + D3 (or SVG by hand) with Tailwind. White card on #f7f7f7, 1px #ddd border. Header: serif (Playfair Display) title 'Life expectancy at birth, 1950 to 2023', grey subtitle with a dotted-underlined term that opens a definition tooltip, OWID navy #002147 / red #ce261e logo badge top-right. Tab pills: Table / Map / Line / Bar (active pill filled light blue #dbe5f0 with navy text). Line view: multi-series SVG line chart with light gridlines, y-axis in years, series labels placed at line endpoints in each series colour, hover crosshair + tooltip listing values. Right sidebar: search box, sort toggle, list of countries/regions with checkboxes, an inline horizontal value bar and value per row; checking/unchecking adds/removes series. Bottom: play/pause button + dual-handle timeline range slider (1950–2023) with year labels; play animates the end year forward and updates chart, sidebar values and map. Map view: choropleth (simple world grid/tiles is fine) with a binned colour legend (yellow→teal→navy) and hover tooltip; Table view: sortable table with start/end values, absolute change and a tiny sparkline column. Footer row: Data source, Download / Share / Full-screen icon buttons (Download opens a modal with PNG/SVG/CSV cards).",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build an Our World in Data-style grapher chart card in React + D3 (or SVG by hand) with Tailwind. White card on #f7f7f7, 1px #ddd border. Header: serif (Playfair Display) title 'Life expectancy at birth, 1950 to 2023', grey subtitle with a dotted-underlined term that opens a definition tooltip, OWID navy #002147 / red #ce261e logo badge top-right. Tab pills: Table / Map / Line / Bar (active pill filled light blue #dbe5f0 with navy text). Line view: multi-series SVG line chart with light gridlines, y-axis in years, series labels placed at line endpoints in each series colour, hover crosshair + tooltip listing values. Right sidebar: search box, sort toggle, list of countries/regions with checkboxes, an inline horizontal value bar and value per row; checking/unchecking adds/removes series. Bottom: play/pause button + dual-handle timeline range slider (1950–2023) with year labels; play animates the end year forward and updates chart, sidebar values and map. Map view: choropleth (simple world grid/tiles is fine) with a binned colour legend (yellow→teal→navy) and hover tooltip; Table view: sortable table with start/end values, absolute change and a tiny sparkline column. Footer row: Data source, Download / Share / Full-screen icon buttons (Download opens a modal with PNG/SVG/CSV cards)."
  },
  {
   "id": "clone-fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid",
@@ -233,6 +296,7 @@
   "name": "FUJIFILM X: home hero of a photographer portrait strip with huge GFX wordmark headline and outlined CTA, scrolling promo ticker bar, condensed caps nav; Cameras listing with condensed centered title + underline, Series/Type radio filter sidebar, search box, sort select, and light-grey product tiles on white",
   "date": "2026-10-22",
   "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://www.fujifilm-x.com/global/products/cameras/",
   "domain": "fujifilm-x.com",
   "product": "FUJIFILM X Series & GFX — camera brand site",
@@ -245,8 +309,7 @@
    "Sort select + product tile hover"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a FUJIFILM X-style camera brand site in Next.js + Tailwind. White background, black #000 text, red accent #e60012 sparingly, light grey #f2f2f2 tiles. Fonts: a bold condensed caps sans (Barlow Condensed / Oswald) for nav, headings and wordmarks; a clean sans (Inter) for body. Header: black bar with FUJIFILM wordmark, condensed caps nav (PRODUCTS / STORIES / LEARNING / SUPPORT / NEWS) with a hover mega panel, search and a country/region selector button. Home hero: a full-width strip of 5 photographer portrait panels side by side (greyscale→colour on hover) with a huge white condensed wordmark headline 'GFX ECOSYSTEM' overlaid and an outlined white 'LEARN MORE' button; under it a black promo ticker bar with repeating links and dot separators scrolling continuously (pauses on hover). Cameras listing: centred condensed caps title 'CAMERAS' with a short red underline; left sidebar of radio filters (Series: All / GFX / X-H / X-T / X-S / X-E / X100 / XF; Type: All / Mirrorless / Compact) that instantly filter the grid with a fade; search input; sort select (Newest / Name A–Z / Name Z–A); 3–4 column grid of light-grey product tiles with camera image, condensed model name and caption; hover lifts the tile and shows a 'VIEW' link; result count updates.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a FUJIFILM X-style camera brand site in Next.js + Tailwind. White background, black #000 text, red accent #e60012 sparingly, light grey #f2f2f2 tiles. Fonts: a bold condensed caps sans (Barlow Condensed / Oswald) for nav, headings and wordmarks; a clean sans (Inter) for body. Header: black bar with FUJIFILM wordmark, condensed caps nav (PRODUCTS / STORIES / LEARNING / SUPPORT / NEWS) with a hover mega panel, search and a country/region selector button. Home hero: a full-width strip of 5 photographer portrait panels side by side (greyscale→colour on hover) with a huge white condensed wordmark headline 'GFX ECOSYSTEM' overlaid and an outlined white 'LEARN MORE' button; under it a black promo ticker bar with repeating links and dot separators scrolling continuously (pauses on hover). Cameras listing: centred condensed caps title 'CAMERAS' with a short red underline; left sidebar of radio filters (Series: All / GFX / X-H / X-T / X-S / X-E / X100 / XF; Type: All / Mirrorless / Compact) that instantly filter the grid with a fade; search input; sort select (Newest / Name A–Z / Name Z–A); 3–4 column grid of light-grey product tiles with camera image, condensed model name and caption; hover lifts the tile and shows a 'VIEW' link; result count updates."
  },
  {
   "id": "clone-ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup",
@@ -254,6 +317,7 @@
   "name": "Ghia: pale-blue announce bar, transparent nav over sandy photo hero with tilted red badge logo, huge cream condensed serif caps headline + pink pill CTA, maroon scrolling claims marquee with star separators, SHOP NOW row with outline filter chips (Popular/Spritz/Aperitif/Fizz) and arrow carousel, cobalt editorial split with yellow illustrated title; maroon full-screen Mystery Discount popup that first asks 'Have you tried Ghia yet?' with two pink pills then swaps to email + Claim",
   "date": "2026-10-22",
   "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://drinkghia.com/",
   "domain": "drinkghia.com",
   "product": "Ghia — non-alcoholic aperitif brand",
@@ -266,8 +330,7 @@
    "Two-step popup: question pills, then email + Claim (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a Ghia-style non-alcoholic aperitif landing in Next.js + Tailwind + Framer Motion. Pale-blue #cfe3f3 announce bar ('Free shipping on orders $60+'), transparent nav over a full-bleed sandy beach photo hero (Shop / Learn / Find Ghia left, tilted red circular badge logo centred, account/cart right). Hero copy: a huge cream condensed serif caps headline (~120px, tight leading) plus a pink #f4b6c8 pill CTA 'SHOP NOW'. Below: a maroon #6b1d2a infinite marquee of claims ('NON-ALCOHOLIC ✶ NO ADDED SUGAR ✶ ALL NATURAL ✶ …') that pauses on hover. SHOP NOW row: outline filter chips Popular / Spritz / Aperitif / Fizz (active chip fills maroon) that cross-fade a product card carousel with round arrow buttons and Add to cart pills. Cobalt #2340a8 editorial split with a yellow illustrated title and a mini product card. After ~1s show a full-screen maroon Mystery Discount popup: step 1 asks 'Have you tried Ghia yet?' with two pink pills (Yes / Not yet), step 2 swaps to an email field + 'Claim' button with validation and a close ×. Mobile 390px: hamburger nav, 1.3-card carousel, popup full-height.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a Ghia-style non-alcoholic aperitif landing in Next.js + Tailwind + Framer Motion. Pale-blue #cfe3f3 announce bar ('Free shipping on orders $60+'), transparent nav over a full-bleed sandy beach photo hero (Shop / Learn / Find Ghia left, tilted red circular badge logo centred, account/cart right). Hero copy: a huge cream condensed serif caps headline (~120px, tight leading) plus a pink #f4b6c8 pill CTA 'SHOP NOW'. Below: a maroon #6b1d2a infinite marquee of claims ('NON-ALCOHOLIC ✶ NO ADDED SUGAR ✶ ALL NATURAL ✶ …') that pauses on hover. SHOP NOW row: outline filter chips Popular / Spritz / Aperitif / Fizz (active chip fills maroon) that cross-fade a product card carousel with round arrow buttons and Add to cart pills. Cobalt #2340a8 editorial split with a yellow illustrated title and a mini product card. After ~1s show a full-screen maroon Mystery Discount popup: step 1 asks 'Have you tried Ghia yet?' with two pink pills (Yes / Not yet), step 2 swaps to an email field + 'Claim' button with validation and a close ×. Mobile 390px: hamburger nav, 1.3-card carousel, popup full-height."
  },
  {
   "id": "clone-hoxton-hotel-cream-split-hero-big-light-title-city-card-rail-arrows-select-location-region-accordion-panel-find-a-room-booking-drawer-tabs-steppers",
@@ -275,6 +338,7 @@
   "name": "The Hoxton: black micro promo bar, cream header with lowercase serif wordmark, Select Location toggle and coral FIND A ROOM block; split hero with large light 'Welcome to The Hoxton' title over photo and a portrait city card rail with circle arrows; Select Location opens a left cream panel with region list and + expanders; Find a Room opens a right drawer with Bedrooms/Meeting Rooms/Restaurants tabs, location/dates/rooms selects, Adults/Children steppers, promo code field, dark full-width CTA, page dimmed behind",
   "date": "2026-10-22",
   "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://thehoxton.com/",
   "domain": "thehoxton.com",
   "product": "The Hoxton — boutique hotel group",
@@ -287,8 +351,7 @@
    "Trending destinations + hotel cards with View hotel links"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a The Hoxton-style hotel group home in Next.js + Tailwind + Framer Motion. Black 32px promo bar, cream #f3eee4 header with a lowercase serif wordmark 'the hoxton', a 'Select Location ▾' toggle and a coral 'FIND A ROOM' block on the right. Split hero: left cream column with a huge light-weight title 'Welcome to The Hoxton' and intro text; right a large photo; below, a rail of portrait city cards (city name over photo) with two circle arrow buttons. Select Location opens a left cream panel (slides in, page dims) listing regions (Europe, North America, …) with + expanders that reveal hotels. Find a Room opens a right drawer with Bedrooms / Meeting Rooms / Restaurants tabs, a location select, check-in/check-out date fields, a rooms select, Adults / Children − + steppers, a promo code field and a full-width dark CTA; close × and click on the dim overlay close it. Under the hero an inline booking bar; then Trending destinations and hotel cards with 'View hotel' links. Mobile 390px: header collapses to wordmark + FIND A ROOM, drawers go full-width.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a The Hoxton-style hotel group home in Next.js + Tailwind + Framer Motion. Black 32px promo bar, cream #f3eee4 header with a lowercase serif wordmark 'the hoxton', a 'Select Location ▾' toggle and a coral 'FIND A ROOM' block on the right. Split hero: left cream column with a huge light-weight title 'Welcome to The Hoxton' and intro text; right a large photo; below, a rail of portrait city cards (city name over photo) with two circle arrow buttons. Select Location opens a left cream panel (slides in, page dims) listing regions (Europe, North America, …) with + expanders that reveal hotels. Find a Room opens a right drawer with Bedrooms / Meeting Rooms / Restaurants tabs, a location select, check-in/check-out date fields, a rooms select, Adults / Children − + steppers, a promo code field and a full-width dark CTA; close × and click on the dim overlay close it. Under the hero an inline booking bar; then Trending destinations and hotel cards with 'View hotel' links. Mobile 390px: header collapses to wordmark + FIND A ROOM, drawers go full-width."
  },
  {
   "id": "clone-kexp-radio-dark-header-live-now-playing-strip-play-button-volume-menu-overlay-playlist-page-station-select-date-time-picker-track-cards-on-air-dj",
@@ -296,6 +359,7 @@
   "name": "KEXP: dark header with orange bar-chart logo, red LIVE dot, circle play button, now-playing art + track/artist/DJ strip and volume control, yellow Donate link; Menu opens a dark left overlay with orange Close; Playlist page with station pill select, month/day/year/time pickers + GO, Currently on Air DJ card, and a stream of track cards (time, title, artist, album/label, cover, DJ comment with links)",
   "date": "2026-10-22",
   "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://www.kexp.org/playlist/",
   "domain": "kexp.org",
   "product": "KEXP — listener-powered Seattle radio station",
@@ -308,8 +372,7 @@
    "Play toggles to pause and now-playing updates on interval (unverified, no audio in headless)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": "Build a KEXP-style radio station playlist page in Next.js + Tailwind. Dark #231f20 header: orange bar-chart logo, red pulsing LIVE dot, a circular play/pause button, now-playing album art + track / artist / DJ strip, a volume slider and a yellow 'Donate' link; 'Menu' opens a dark left overlay with big nav links and an orange 'Close'. Playlist page on white: station pill select, month / day / year / time pickers and a 'GO' button that reloads the list for that time; a 'Currently on Air' DJ card (photo, show name, host); then a stream of track cards — air time, song title bold, artist, album · label, square cover, optional DJ comment with links — plus 'Air break' rows. Play toggles to pause and the now-playing strip rotates to the next track on an interval. Mobile 390px: now-playing strip collapses, pickers wrap.",
-  "lens": "aesthetic-interactive-craft"
+  "prompt": "Build a KEXP-style radio station playlist page in Next.js + Tailwind. Dark #231f20 header: orange bar-chart logo, red pulsing LIVE dot, a circular play/pause button, now-playing album art + track / artist / DJ strip, a volume slider and a yellow 'Donate' link; 'Menu' opens a dark left overlay with big nav links and an orange 'Close'. Playlist page on white: station pill select, month / day / year / time pickers and a 'GO' button that reloads the list for that time; a 'Currently on Air' DJ card (photo, show name, host); then a stream of track cards — air time, song title bold, artist, album · label, square cover, optional DJ comment with links — plus 'Air break' rows. Play toggles to pause and the now-playing strip rotates to the next track on an interval. Mobile 390px: now-playing strip collapses, pickers wrap."
  },
  {
   "id": "clone-hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band",
@@ -317,6 +380,7 @@
   "name": "Hem: centered white gate modal over blurred-free lifestyle photo with two segmented questions (Private/Business, 4 regions) that fill electric blue on select and enable a pill Confirm selection; then thin search-bar header, full-bleed hero with big white two-line title + white pill, side-by-side campaign split panels with overlaid titles, horizontal Shop by category image rail with arrow, journal 3-card row, beige Hem Pro band with arch-shaped image and checklist",
   "date": "2026-10-22",
   "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://hem.com/en-us/",
   "domain": "hem.com",
   "product": "Hem — Swedish furniture & lighting brand",
@@ -329,8 +393,7 @@
    "Beige Pro band with arch-masked image + checklist; blue newsletter button footer"
   ],
   "checkpoint_source": "ledger",
-  "prompt": null,
-  "lens": "aesthetic-interactive-craft"
+  "prompt": null
  },
  {
   "id": "clone-fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list",
@@ -338,6 +401,7 @@
   "name": "Fellow Stagg EKG PDP: spaced FELLOW wordmark nav with red active item, 2-col photo grid on the left with sticky buy column on the right (title, price, stars, Pro/Pro Studio model chips, circular color swatch rail, qty stepper + black pill Add to Cart, Bundle + Save cards with red Save badges, accordions), review card carousel with arrows, Precision in every detail split section with hairline-divided feature list, Take a closer look slider with dot progress",
   "date": "2026-10-22",
   "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle",
   "domain": "fellowproducts.com",
   "product": "Fellow — design-led coffee gear",
@@ -350,8 +414,7 @@
    "Precision split section with hairline feature list + closer-look slider dots"
   ],
   "checkpoint_source": "ledger",
-  "prompt": null,
-  "lens": "aesthetic-interactive-craft"
+  "prompt": null
  },
  {
   "id": "clone-marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters",
@@ -359,6 +422,7 @@
   "name": "Marimekko: black micro top bar (STORES / SELECT COUNTRY), lowercase marimekko wordmark with thin nav, stacked full-bleed print/photo panels each with small eyebrow + large light caption + small white boxed CTA bottom-left, hero carousel with pause/dots at bottom-right; clicking Clothing opens All clothing listing with big light title + intro paragraph, FILTERS control, grey skeleton cards that resolve into a 4-col model photo grid",
   "date": "2026-10-22",
   "slot": "08:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://www.marimekko.com/com_en",
   "domain": "marimekko.com",
   "product": "Marimekko — Finnish print design house",
@@ -371,8 +435,7 @@
    "Skeleton cards resolve to 4-col product grid (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": null,
-  "lens": "aesthetic-interactive-craft"
+  "prompt": null
  },
  {
   "id": "clone-whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles",
@@ -380,6 +443,7 @@
   "name": "Whitney: giant WHITNEY wordmark with hairline diagonal zigzag W drawn across the header that compresses as you scroll into a slim sticky bar (name, hours, BOOK TICKETS / BECOME A MEMBER outline buttons, Menu); bold caps nav; 2-col exhibition grid with black caps title over grey caps status line (ON VIEW NOW / THROUGH JAN 10, 2027); mobile shows stacked name + TICKETS box + hamburger",
   "date": "2026-10-22",
   "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://whitney.org/",
   "domain": "whitney.org",
   "product": "Whitney Museum of American Art",
@@ -392,8 +456,7 @@
    "Mobile: stacked name, TICKETS outline box, hamburger"
   ],
   "checkpoint_source": "ledger",
-  "prompt": null,
-  "lens": "aesthetic-interactive-craft"
+  "prompt": null
  },
  {
   "id": "clone-snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list",
@@ -401,6 +464,7 @@
   "name": "Snøhetta: minimal three-point header (name / Menu / icon); large sans statement over a horizontal collage of overlapping project photos that lift and show a caption on hover; discipline link list with hairlines; latest news carousel; upcoming events table; Menu opens blurred white overlay with big links, search and link columns; project page with black title + grey subtitle and row list of highlighted projects with grey descriptions running off the edge",
   "date": "2026-10-22",
   "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://www.snohetta.com/",
   "domain": "snohetta.com",
   "product": "Snøhetta — architecture, landscape and design practice",
@@ -413,8 +477,7 @@
    "Project page: black + grey two-tone title, full-bleed photo, highlighted projects row list"
   ],
   "checkpoint_source": "ledger",
-  "prompt": null,
-  "lens": "aesthetic-interactive-craft"
+  "prompt": null
  },
  {
   "id": "clone-brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu",
@@ -422,6 +485,7 @@
   "name": "Brightland: yellow announce bar, spaced wordmark; Shop hover mega menu with link list + rounded image cards with circle arrow; Build Your Own Bundle page with pink split hero, category product grids with black pill Add to Bundle buttons, and sticky cream My Bundle panel holding numbered + slot placeholders, a tier progress bar (Buy 2+ 10%, Buy 4+ 15%) that fills as items are added, line items with remove, and Add Bundle to Cart button showing the running total",
   "date": "2026-10-22",
   "slot": "04:00",
+  "lens": "aesthetic-interactive-craft",
   "url": "https://brightland.co/pages/build-your-own-set",
   "domain": "brightland.co",
   "product": "Brightland — California olive oil and vinegar brand",
@@ -434,8 +498,133 @@
    "Add fills slot, progress bar, qty stepper on card, total in CTA (verified)"
   ],
   "checkpoint_source": "ledger",
-  "prompt": null,
-  "lens": "aesthetic-interactive-craft"
+  "prompt": null
+ },
+ {
+  "id": "clone-pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
+  "slug": "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
+  "name": "Pangram Pangram type foundry: rounded full-width photo hero cards stacked down the page (giant white font name, red New pill, Explore font / Try for Free pills), Our newest fonts grid with Card view / List view toggle (list swaps to huge alphabet specimen rows), font page with a ring of rotating letters over a city photo, sticky font-name pill nav with Try/Buy, black specimen card + style-weight chip grid, tester rows with font/style selects, Size/Leading/Spacing pill sliders and OpenType chips",
+  "date": "2026-10-22",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://pangrampangram.com/",
+  "domain": "pangrampangram.com",
+  "product": "Pangram Pangram Foundry — independent type foundry",
+  "checkpoints": [
+   "Header: Pangram Pangram Foundry, centred nav, search / bag / menu icons",
+   "Rounded full-width photo hero cards stacked with giant font name, New pill, two pill CTAs",
+   "Our newest fonts bar with Card view / List view toggle (red active)",
+   "Card view: 4-col Aa cards with New / Update / Early access pills; List view: huge alphabet specimen rows",
+   "Font page: ring of rotating letters over photo, sticky pill nav with Try for Free / Buy Now",
+   "Black specimen card + weight chip grid; tester rows with style select, Size/Leading/Spacing sliders, OpenType chips, live editable text"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Pangram Pangram-style type foundry site in Next.js + Tailwind + Framer Motion. Off-white #fafafa page, ink #111, signal red-orange #ff3d00 accents, pills everywhere. Font: a neutral grotesk (Inter Tight 500/700 for display, 400 for UI at 11–13px). Header: 'Pangram Pangram Foundry' left, centred nav (All fonts, Font starter pack, Font in use, Academy, Support), search / bag / hamburger right; it turns translucent-blurred on scroll. Hero: 3 full-width rounded (18px) photo cards stacked down the page (alpine meadow, orange slices, dark sculpture) with a dark overlay, a small red 'New' pill top-centre, a giant white font name (~150px) set in that typeface, a one-line tagline and two pills 'Explore font' (white) / 'Try for Free' (outline). Next: 'Our newest fonts' bar with 'Showing 12 of 63 fonts', a Card view / List view toggle (active one red) and an outline 'View all fonts' pill. Card view = 4-col rounded grey cards with font name, style count, status pill (New / Update / Early access) on the corner and a big 'Aa' in the face; List view = full-width rounded rows with name + pill, tagline, style count, 'Check it out' pill and a huge 'AaBbCcDdEeFfG' specimen line clipped at the right. Clicking a font opens a font page: 'Update' pill, giant name, Try for Free / Buy Now (red) pills, a full-bleed photo with a slowly rotating ring of letters, a sticky pill nav (home icon, font name pill, Styles Sampler Variable Glyphs Features Infos Pairings, Try/Buy), a style list with a black 'AaBbCc 01234567' specimen card + grid of weight chips with red weight numbers (hover previews the weight in the black card), and tester rows: red font pill, style select, Size / Leading / Spacing slider pills, OpenType chips (Alt a, Round dots, liga, Case, dlig, tnum) and a contenteditable sample line that updates live. Mobile 390px: nav behind hamburger, cards 1-col, list rows wrap."
+ },
+ {
+  "id": "clone-moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections",
+  "slug": "moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections",
+  "name": "Moooi design brand: black announcement bar, transparent header with Menu / Search left, spaced lowercase 'moooi' wordmark centre and EN / account / wishlist / bag right, full-bleed autoplay video hero with small caps eyebrow, thin serif two-line title, pill CTA and a pause button bottom-left, region modal, left Menu panel (Products › with Shop our collection row of product cut-out icons, Stories, Gift guide), scroll story of full-bleed image sections with centred serif titles and split navy / beige colour panels beside photos",
+  "date": "2026-10-22",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.moooi.com/en",
+  "domain": "moooi.com",
+  "product": "Moooi — Dutch design furniture and lighting brand",
+  "checkpoints": [
+   "Black announce bar + transparent header: Menu/Search left, spaced 'moooi' wordmark centre, EN + icons right",
+   "Full-bleed video hero, small caps eyebrow, thin serif title, white pill CTA, pause button bottom-left",
+   "Region modal with Continue / close",
+   "Menu panel: serif links + small links; Products › shows Shop our collection product cut-out icon row",
+   "Full-bleed image section with centred serif title and underlined link",
+   "Split panels: navy or beige colour block with serif copy beside photo; header turns solid on scroll"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Moooi-style design furniture homepage in Next.js + Tailwind + Framer Motion. Fonts: a thin high-contrast display serif for headings (Gilda Display 400, ~64px, line-height 1.05) and a light humanist sans for UI (Lato 300/400, 11–13px). A 28px black announcement bar with an underlined spaced caps link and a close ×. Transparent header over the hero: '≡ Menu' and '⌕ Search' left, the wordmark 'moooi' centred in lowercase with ~.4em tracking, 'EN ⌄', account, heart and bag icons right; it turns solid white with dark ink once you scroll past the hero. Hero: full-bleed autoplay video (here: animated grey studio scene of a modular triangle sofa) with centred tiny caps eyebrow 'PRODUCT STORY', the thin serif title 'Peaks Sofa by Yves Béhar', a small subline and a white pill 'Available Now'; a tiny pause/play button bottom-left toggles the motion. On load a small region modal ('You are visiting the moooi site for …') with Continue / close. 'Menu' opens a white left panel (~35% width) sliding over a dimmed page: big serif links Products › / Stories / Gift guide / Gift Card, a rule, then small links (Home, About us, Store locator, Contact, Material Library); Products › swaps the page to a 'SHOP OUR COLLECTION' row of 5 product cut-out icons (Bedding & Bath, Furniture, Lighting, Accessories, Wall & Floor). Scroll story: full-bleed photo sections with centred serif title + underlined link, then 50/50 split panels — navy #2b3a7a and beige #e6dccb colour blocks with eyebrow, serif heading, copy and underlined link — beside photos, alternating sides. Mobile 390px: panels stack, menu is full width."
+ },
+ {
+  "id": "clone-sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu",
+  "slug": "sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu",
+  "name": "Sacred Bones Records label store: yellow shipping bar, white header with Shop ▾ / Artists / Record Society / Tours in a serif and a centred circular triangle emblem, oxblood split release hero (caps artist eyebrow, serif title, white PREORDER NOW button, two overlapping record covers, segmented progress dots that auto-advance), dark speckled New Releases carousel with BEST SELLER / PREORDER / NEW badges and a round arrow, cream Shop by Category row of hand-drawn snake illustration tiles, oxblood Record Society emblem + Join Us block, Shop hover mega menu with link columns plus illustrated tiles",
+  "date": "2026-10-22",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.sacredbonesrecords.com/",
+  "domain": "sacredbonesrecords.com",
+  "product": "Sacred Bones Records — independent record label store",
+  "checkpoints": [
+   "Yellow shipping bar + header with serif nav and centred circular triangle emblem",
+   "Oxblood split hero: caps eyebrow, serif title, PREORDER NOW, overlapped covers, segmented progress dots (auto-advance + click)",
+   "Dark speckled New Releases carousel with BEST SELLER / PREORDER / NEW badges and round arrow",
+   "Cream Shop by Category row of illustrated snake tiles with serif captions",
+   "Oxblood Record Society emblem + Join Us block",
+   "Shop hover mega menu with link columns + illustrated tiles"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Sacred Bones Records-style label store in Next.js + Tailwind + Framer Motion. Fonts: EB Garamond for nav, headings and captions; Lato for small UI. A 34px yellow #f6e600 bar 'Now shipping from the UK — faster delivery, lower shipping rates to UK & EU' with ×. White 58px header: 'Shop ▾', Artists, Record Society, Tours (serif 13px) left, a centred 40px circular emblem with a black triangle, account / search / cart icons right. Hero: oxblood #4a1a12 full-width split slider — left caps eyebrow 'PSYCHIC ILLS', 36px serif title, subline and a white 'PREORDER NOW' button; right two square record covers with soft shadow; a row of 6 thin segmented progress bars along the bottom (the active one fills, auto-advances every 6s, click to jump). New Releases: near-black speckled section with centred serif heading and a horizontal carousel of square covers with stacked badges (oxblood BEST SELLER, mustard PREORDER, red NEW), artist name in bold serif + italic title, and a round white arrow button that scrolls the rail. Shop by Category: cream #efe9dc section, tiny caps 'SHOP BY' + serif 'Category', a carousel of white tiles each with a hand-drawn snake illustration (hatching snake from an egg, snake head with headphones, snake T-shirt, snake book) and a serif caption under it. Record Society: oxblood speckled block with a white emblem (SACRED BONES arc text, triangle in a circle, T.L.T.A.M, MMXVIII) and 'Join Us' serif heading, copy and a white LEARN MORE button. Hovering Shop opens a white mega menu with 4 link columns (Featured, All Music, All Books, All Merch) and two illustrated tiles (New Releases, Records). Mobile 390px: hamburger, carousels swipe."
+ },
+ {
+  "id": "clone-ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "slug": "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
+  "name": "ECAL art school: wide-tracked 'écal' wordmark over a caps nav row with FR/EN toggle, full-bleed video hero with a big blue overlay title, pausable marquee ticker, giant outlined circle links, black exhibition split with oversized caps title, EVENEMENTS / ARTICLES giant caps lists, search icon that swaps the nav for an input + CANCEL",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ecal.ch/fr/",
+  "domain": "ecal.ch",
+  "product": "ECAL — École cantonale d’art de Lausanne",
+  "checkpoints": [
+   "Wide letter-spaced lowercase wordmark with a rule under it, caps nav row + FR/EN toggle + search icon",
+   "Full-bleed video hero with large blue overlay title and small \"Plus d’informations\" link",
+   "Marquee ticker strip with a pause/play button at the right",
+   "Row of giant outlined circle links (ADMISSIONS / FORMATIONS / FEED / SHOP)",
+   "Search click replaces the nav row with an input and a CANCEL button",
+   "On scroll the wordmark collapses to an \"é\" mark beside the nav; black exhibition split with oversized caps title"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an ECAL-style art school homepage in Next.js + Tailwind. Font: a neutral grotesk (Inter Tight / Helvetica) everywhere. Header (white, sticky): a huge lowercase 'écal' wordmark (~64px, letter-spacing .32em) with a 1px black rule under it, then a 36px row with caps nav (ADMISSIONS, FORMATIONS & RECHERCHE, VIE ETUDIANTE, L'ECOLE, FEED), a tiny boxed FR/EN toggle (active = black fill) and a search icon. Clicking search hides the nav row contents and shows a full-width input with a search icon and an outlined CANCEL button; typing shows a live results list; Esc/CANCEL restores the nav. After scrolling 60px the wordmark collapses to a single 'é' mark left of the nav. Hero: full-bleed autoplay video (loader ring while it buffers) with a big blue (#3346d3) title 'ECAL × Chillon — Reliques du futur' bottom-left and a small 'Plus d'informations' link bottom-right. Under it a 30px marquee ticker between black rules ('Faites-vous plaisir sur ECAL Shop | Suivez-nous sur Instagram | …') with a square pause/play button at the right that pauses the CSS animation. Then a row of giant outlined circles (~150px) with caps labels and › (ADMISSIONS, FORMATIONS, FEED, SHOP). Then a black split: small EXPOSITIONS label, oversized white caps title (~76px) with dates, a paragraph and an outlined EN SAVOIR PLUS button, and a tall poster on the right. Then two columns EVENEMENTS / ARTICLES with giant caps headings, 'TOUS LES …' links and caps item rows between rules. Bottom cookie bar with black OK. Mobile 390px: smaller wordmark, nav behind a hamburger that opens a full-screen white menu."
+ },
+ {
+  "id": "clone-ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "slug": "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
+  "name": "Ninja Tune record label: spaced condensed NINJA TUNE wordmark header with black circle search/bag and — LOGIN / — REGISTER, dark LABEL filter bar, 4-col square cover grid with black italic PRE-ORDER pill badges, hover dims the cover into LISTEN / BUY halves, newsletter sign-up popup, release page with big cover + arrows, format cards (LP / CD / MP3 / WAV) with prices and PRE-ORDER pills, and a tracklist with play buttons and format tabs",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://ninjatune.net/releases",
+  "domain": "ninjatune.net",
+  "product": "Ninja Tune — independent record label",
+  "checkpoints": [
+   "White header: spaced condensed wordmark, caps nav, black circle search + bag icons, — LOGIN / — REGISTER",
+   "Dark LABEL bar under the header",
+   "4-column grid of square covers with black PRE-ORDER pill badges and white title/artist captions",
+   "Hover dims a cover and shows LISTEN (top) / BUY (bottom)",
+   "Release page: big cover with ‹ › arrows, title + by artist, release line, PHYSICAL / DIGITAL format cards with price + PRE-ORDER pill",
+   "Tracklist rows with round play buttons, BUY / PRE-ORDER pills and format tabs; sign-up popup bottom-left"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Ninja Tune-style record label releases page in Next.js + Tailwind. Fonts: a condensed bold face (Barlow Condensed) for the wordmark, Inter/Helvetica for UI. Header (48px white, sticky): 'NINJA TUNE' wordmark with wide letter-spacing, caps nav ARTISTS / RELEASES / SHOP / EVENTS (active underline), right side black circle search and bag icons (bag shows a count) and stacked '— LOGIN / — REGISTER'. Under it a 30px dark (#222) bar with '◉ LABEL' that opens a label filter dropdown. Page background #f4f4f4 with a 4-column grid of square cover cards (white caption box: title + artist, light border). Upcoming releases get a black italic 'PRE-ORDER' pill badge hanging off the top-left. Hovering a card dims the cover (rgba 0,0,0,.55) and splits it into two hit areas, LISTEN on top and BUY below, and greys the caption. A newsletter popup sits bottom-left (dark title bar with a yellow ✕, SIGN UP heading, email field, black SUBMIT). Clicking a card opens the release page: left a big square cover with round black ‹ › arrows, right the title + 'by Artist', '— Released 22nd January 2027 on Counter Records', PHYSICAL and DIGITAL columns of white format cards (LP / CD / MP3 / 16-bit WAV, catalogue number, description, shipping note, price, black PRE-ORDER pill with a small round arrow), then TRACKLIST with format tabs and rows: number, round play button (toggles to pause and shows a progress line), title, BUY or PRE-ORDER pill; 'Play All (n)' at the end. Mobile 390px: 2-column grid, nav collapsed."
+ },
+ {
+  "id": "clone-kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "slug": "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
+  "name": "KIKK art & tech festival: black top bar with spaced caps nav, vertical side-rail labels, giant black stacked caps hero 'ART / SCIENCE / & TECH' over pale ghost letters, colourful geometric key art that fades to grayscale after you move (hover restores), pink-dot lagging custom cursor, MISSION stats block, ECOSYSTEM grayscale project grid, dated LATEST NEWS, black LET'S COLLABORATE block, PROJECTS view",
+  "date": "2026-10-21",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://kikk.be/",
+  "domain": "kikk.be",
+  "product": "KIKK — art, science & technology festival (Namur)",
+  "checkpoints": [
+   "Black 56px top bar: kikk asbl mark, centered spaced caps nav (ABOUT … CONTACT), FR",
+   "Vertical rotated side labels in a left rail (KIKK ASBL — NAMUR, BELGIUM / MISSION / PROJECTS)",
+   "Giant black stacked caps ART / SCIENCE / & TECH over huge pale ghost letters",
+   "Right half colour geometric key art that turns grayscale",
+   "Pink dot custom cursor that follows the pointer",
+   "MISSION text + 8/15 stats, ECOSYSTEM heading + grayscale project cards, LATEST NEWS with big dates, LET’S COLLABORATE black block; PROJECTS page with giant heading"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a KIKK-style art & tech festival homepage in Next.js + Tailwind + Framer Motion. Font: a heavy geometric grotesk (Poppins 800 for display, 300 for body). Background #f1f1f1, ink #111, black #141414 bars. Header: 56px black bar with a small notched square mark + 'kikk / asbl', centered nav ABOUT PROJECTS NEWS TEAM JOBS NETWORK CONTACT in 10.5px caps with .14em tracking, FR at the right. Every section has a ~120px left rail separated by a 1px grey line, holding a vertical rotated caps label (KIKK ASBL — NAMUR, BELGIUM; a giant dark 'MISSION'; PROJECTS; NEWS). Hero: left side giant black stacked caps 'ART / SCIENCE / & TECH' (~124px, line-height .88) sitting over huge pale-grey ghost letters 'KIKK', a thin rule, a one-line description and tiny grey tag list; right 42% is a colourful geometric key-art grid (hot pink, neon green, cobalt, orange-red, ochre arcs / stairs / checks) with 'KIKK /5 FESTIVAL' — after the first pointer move it slowly transitions to grayscale (filter 1.2s) and hover restores colour. A custom cursor: a 16px pink-orange-violet radial dot that follows the pointer with lerp lag and grows over links. Then MISSION (large light text on grey + black stats column '8 ACTIVE PROJECTS', '15 YEARS'), ECOSYSTEM (giant caps heading, 'EXPLORE ALL PROJECTS →', grayscale photo cards with numbers, caps titles and descriptions; hover zooms the photo and nudges the title), LATEST NEWS with big day numbers, and a black LET'S COLLABORATE block with a dark ghost 'K' and an outlined button. Clicking PROJECTS shows a projects view with a giant 'PROJECTS' heading over ghost letters, filter chips and a card grid. Mobile 390px: rail shrinks, nav behind a hamburger, no custom cursor."
  },
  {
   "id": "clone-muuto-scandi-furniture-giant-two-line-type-over-hero-photo-color-block-sections-inset-video-thumb-vertical-side-label-products-mega-panel-card-hover-lifestyle-swap",
@@ -1441,6 +1630,27 @@
    "Horizontal rail of large rounded grey template cards, each with a looping animated poster (The Track: Poster, Image Stretch Transition, Promo Reel...) + avatar + title; hover shows Open template",
    "On scroll the full nav collapses into a floating black Sign up pill + round hamburger at top-right",
    "Animation, accelerated chip + From idea to motion in seconds section and opacity-split statement paragraph"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": null
+ },
+ {
+  "id": "clone-ableton-learning-music-clip-launch-grid-step-sequencer-playhead-lessons",
+  "slug": "ableton-learning-music-clip-launch-grid-step-sequencer-playhead-lessons",
+  "name": "Ableton Learning Music clip-launch grid + 16-step beat sequencer with playhead + chapter lessons",
+  "date": "2026-10-17",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://learningmusic.ableton.com/",
+  "domain": "learningmusic.ableton.com",
+  "product": "Ableton Learning Music — free in-browser music-making lessons",
+  "checkpoints": [
+   "Flat graphite shell: left Chapters rail + hamburger, Ableton bars logo top-right, lesson counter 1/10: Beats",
+   "Futura-style white headline + short instructional copy left column",
+   "Get started 4x4 clip grid (Drums/Bass/Chords/Melodies) where a clicked tile turns teal with stop icon, sibling in column dims",
+   "16-step grid (Hihat/Closed Hat/Clap/Kick rows) with yellow toggled cells, bar dividers every 4 steps, step numbers under",
+   "Play/Pause square + Reset + Clear + Export to Live, white vertical playhead sweeping in tempo + tempo slider",
+   "Black coachmark tooltip (Click this button to start and stop playback / Close) and Web Audio playback"
   ],
   "checkpoint_source": "ledger",
   "prompt": null
@@ -11129,131 +11339,5 @@
   ],
   "checkpoint_source": "derived-from-ledger-name",
   "prompt": null
- },
- {
-  "id": "clone-ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
-  "slug": "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap",
-  "name": "ECAL art school: wide-tracked 'écal' wordmark over a caps nav row with FR/EN toggle, full-bleed video hero with a big blue overlay title, pausable marquee ticker, giant outlined circle links, black exhibition split with oversized caps title, EVENEMENTS / ARTICLES giant caps lists, search icon that swaps the nav for an input + CANCEL",
-  "date": "2026-10-21",
-  "slot": "20:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://ecal.ch/fr/",
-  "domain": "ecal.ch",
-  "product": "ECAL — École cantonale d’art de Lausanne",
-  "checkpoints": [
-   "Wide letter-spaced lowercase wordmark with a rule under it, caps nav row + FR/EN toggle + search icon",
-   "Full-bleed video hero with large blue overlay title and small \"Plus d’informations\" link",
-   "Marquee ticker strip with a pause/play button at the right",
-   "Row of giant outlined circle links (ADMISSIONS / FORMATIONS / FEED / SHOP)",
-   "Search click replaces the nav row with an input and a CANCEL button",
-   "On scroll the wordmark collapses to an \"é\" mark beside the nav; black exhibition split with oversized caps title"
-  ],
-  "checkpoint_source": "ledger",
-  "prompt": "Build an ECAL-style art school homepage in Next.js + Tailwind. Font: a neutral grotesk (Inter Tight / Helvetica) everywhere. Header (white, sticky): a huge lowercase 'écal' wordmark (~64px, letter-spacing .32em) with a 1px black rule under it, then a 36px row with caps nav (ADMISSIONS, FORMATIONS & RECHERCHE, VIE ETUDIANTE, L'ECOLE, FEED), a tiny boxed FR/EN toggle (active = black fill) and a search icon. Clicking search hides the nav row contents and shows a full-width input with a search icon and an outlined CANCEL button; typing shows a live results list; Esc/CANCEL restores the nav. After scrolling 60px the wordmark collapses to a single 'é' mark left of the nav. Hero: full-bleed autoplay video (loader ring while it buffers) with a big blue (#3346d3) title 'ECAL × Chillon — Reliques du futur' bottom-left and a small 'Plus d'informations' link bottom-right. Under it a 30px marquee ticker between black rules ('Faites-vous plaisir sur ECAL Shop | Suivez-nous sur Instagram | …') with a square pause/play button at the right that pauses the CSS animation. Then a row of giant outlined circles (~150px) with caps labels and › (ADMISSIONS, FORMATIONS, FEED, SHOP). Then a black split: small EXPOSITIONS label, oversized white caps title (~76px) with dates, a paragraph and an outlined EN SAVOIR PLUS button, and a tall poster on the right. Then two columns EVENEMENTS / ARTICLES with giant caps headings, 'TOUS LES …' links and caps item rows between rules. Bottom cookie bar with black OK. Mobile 390px: smaller wordmark, nav behind a hamburger that opens a full-screen white menu."
- },
- {
-  "id": "clone-ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
-  "slug": "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons",
-  "name": "Ninja Tune record label: spaced condensed NINJA TUNE wordmark header with black circle search/bag and — LOGIN / — REGISTER, dark LABEL filter bar, 4-col square cover grid with black italic PRE-ORDER pill badges, hover dims the cover into LISTEN / BUY halves, newsletter sign-up popup, release page with big cover + arrows, format cards (LP / CD / MP3 / WAV) with prices and PRE-ORDER pills, and a tracklist with play buttons and format tabs",
-  "date": "2026-10-21",
-  "slot": "20:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://ninjatune.net/releases",
-  "domain": "ninjatune.net",
-  "product": "Ninja Tune — independent record label",
-  "checkpoints": [
-   "White header: spaced condensed wordmark, caps nav, black circle search + bag icons, — LOGIN / — REGISTER",
-   "Dark LABEL bar under the header",
-   "4-column grid of square covers with black PRE-ORDER pill badges and white title/artist captions",
-   "Hover dims a cover and shows LISTEN (top) / BUY (bottom)",
-   "Release page: big cover with ‹ › arrows, title + by artist, release line, PHYSICAL / DIGITAL format cards with price + PRE-ORDER pill",
-   "Tracklist rows with round play buttons, BUY / PRE-ORDER pills and format tabs; sign-up popup bottom-left"
-  ],
-  "checkpoint_source": "ledger",
-  "prompt": "Build a Ninja Tune-style record label releases page in Next.js + Tailwind. Fonts: a condensed bold face (Barlow Condensed) for the wordmark, Inter/Helvetica for UI. Header (48px white, sticky): 'NINJA TUNE' wordmark with wide letter-spacing, caps nav ARTISTS / RELEASES / SHOP / EVENTS (active underline), right side black circle search and bag icons (bag shows a count) and stacked '— LOGIN / — REGISTER'. Under it a 30px dark (#222) bar with '◉ LABEL' that opens a label filter dropdown. Page background #f4f4f4 with a 4-column grid of square cover cards (white caption box: title + artist, light border). Upcoming releases get a black italic 'PRE-ORDER' pill badge hanging off the top-left. Hovering a card dims the cover (rgba 0,0,0,.55) and splits it into two hit areas, LISTEN on top and BUY below, and greys the caption. A newsletter popup sits bottom-left (dark title bar with a yellow ✕, SIGN UP heading, email field, black SUBMIT). Clicking a card opens the release page: left a big square cover with round black ‹ › arrows, right the title + 'by Artist', '— Released 22nd January 2027 on Counter Records', PHYSICAL and DIGITAL columns of white format cards (LP / CD / MP3 / 16-bit WAV, catalogue number, description, shipping note, price, black PRE-ORDER pill with a small round arrow), then TRACKLIST with format tabs and rows: number, round play button (toggles to pause and shows a progress line), title, BUY or PRE-ORDER pill; 'Play All (n)' at the end. Mobile 390px: 2-column grid, nav collapsed."
- },
- {
-  "id": "clone-kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
-  "slug": "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates",
-  "name": "KIKK art & tech festival: black top bar with spaced caps nav, vertical side-rail labels, giant black stacked caps hero 'ART / SCIENCE / & TECH' over pale ghost letters, colourful geometric key art that fades to grayscale after you move (hover restores), pink-dot lagging custom cursor, MISSION stats block, ECOSYSTEM grayscale project grid, dated LATEST NEWS, black LET'S COLLABORATE block, PROJECTS view",
-  "date": "2026-10-21",
-  "slot": "20:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://kikk.be/",
-  "domain": "kikk.be",
-  "product": "KIKK — art, science & technology festival (Namur)",
-  "checkpoints": [
-   "Black 56px top bar: kikk asbl mark, centered spaced caps nav (ABOUT … CONTACT), FR",
-   "Vertical rotated side labels in a left rail (KIKK ASBL — NAMUR, BELGIUM / MISSION / PROJECTS)",
-   "Giant black stacked caps ART / SCIENCE / & TECH over huge pale ghost letters",
-   "Right half colour geometric key art that turns grayscale",
-   "Pink dot custom cursor that follows the pointer",
-   "MISSION text + 8/15 stats, ECOSYSTEM heading + grayscale project cards, LATEST NEWS with big dates, LET’S COLLABORATE black block; PROJECTS page with giant heading"
-  ],
-  "checkpoint_source": "ledger",
-  "prompt": "Build a KIKK-style art & tech festival homepage in Next.js + Tailwind + Framer Motion. Font: a heavy geometric grotesk (Poppins 800 for display, 300 for body). Background #f1f1f1, ink #111, black #141414 bars. Header: 56px black bar with a small notched square mark + 'kikk / asbl', centered nav ABOUT PROJECTS NEWS TEAM JOBS NETWORK CONTACT in 10.5px caps with .14em tracking, FR at the right. Every section has a ~120px left rail separated by a 1px grey line, holding a vertical rotated caps label (KIKK ASBL — NAMUR, BELGIUM; a giant dark 'MISSION'; PROJECTS; NEWS). Hero: left side giant black stacked caps 'ART / SCIENCE / & TECH' (~124px, line-height .88) sitting over huge pale-grey ghost letters 'KIKK', a thin rule, a one-line description and tiny grey tag list; right 42% is a colourful geometric key-art grid (hot pink, neon green, cobalt, orange-red, ochre arcs / stairs / checks) with 'KIKK /5 FESTIVAL' — after the first pointer move it slowly transitions to grayscale (filter 1.2s) and hover restores colour. A custom cursor: a 16px pink-orange-violet radial dot that follows the pointer with lerp lag and grows over links. Then MISSION (large light text on grey + black stats column '8 ACTIVE PROJECTS', '15 YEARS'), ECOSYSTEM (giant caps heading, 'EXPLORE ALL PROJECTS →', grayscale photo cards with numbers, caps titles and descriptions; hover zooms the photo and nudges the title), LATEST NEWS with big day numbers, and a black LET'S COLLABORATE block with a dark ghost 'K' and an outlined button. Clicking PROJECTS shows a projects view with a giant 'PROJECTS' heading over ghost letters, filter chips and a card grid. Mobile 390px: rail shrinks, nav behind a hamburger, no custom cursor."
- },
- {
-  "id": "clone-pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
-  "slug": "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
-  "name": "Pangram Pangram type foundry: rounded full-width photo hero cards stacked down the page (giant white font name, red New pill, Explore font / Try for Free pills), Our newest fonts grid with Card view / List view toggle (list swaps to huge alphabet specimen rows), font page with a ring of rotating letters over a city photo, sticky font-name pill nav with Try/Buy, black specimen card + style-weight chip grid, tester rows with font/style selects, Size/Leading/Spacing pill sliders and OpenType chips",
-  "date": "2026-10-22",
-  "slot": "00:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://pangrampangram.com/",
-  "domain": "pangrampangram.com",
-  "product": "Pangram Pangram Foundry — independent type foundry",
-  "checkpoints": [
-   "Header: Pangram Pangram Foundry, centred nav, search / bag / menu icons",
-   "Rounded full-width photo hero cards stacked with giant font name, New pill, two pill CTAs",
-   "Our newest fonts bar with Card view / List view toggle (red active)",
-   "Card view: 4-col Aa cards with New / Update / Early access pills; List view: huge alphabet specimen rows",
-   "Font page: ring of rotating letters over photo, sticky pill nav with Try for Free / Buy Now",
-   "Black specimen card + weight chip grid; tester rows with style select, Size/Leading/Spacing sliders, OpenType chips, live editable text"
-  ],
-  "checkpoint_source": "ledger",
-  "prompt": "Build a Pangram Pangram-style type foundry site in Next.js + Tailwind + Framer Motion. Off-white #fafafa page, ink #111, signal red-orange #ff3d00 accents, pills everywhere. Font: a neutral grotesk (Inter Tight 500/700 for display, 400 for UI at 11–13px). Header: 'Pangram Pangram Foundry' left, centred nav (All fonts, Font starter pack, Font in use, Academy, Support), search / bag / hamburger right; it turns translucent-blurred on scroll. Hero: 3 full-width rounded (18px) photo cards stacked down the page (alpine meadow, orange slices, dark sculpture) with a dark overlay, a small red 'New' pill top-centre, a giant white font name (~150px) set in that typeface, a one-line tagline and two pills 'Explore font' (white) / 'Try for Free' (outline). Next: 'Our newest fonts' bar with 'Showing 12 of 63 fonts', a Card view / List view toggle (active one red) and an outline 'View all fonts' pill. Card view = 4-col rounded grey cards with font name, style count, status pill (New / Update / Early access) on the corner and a big 'Aa' in the face; List view = full-width rounded rows with name + pill, tagline, style count, 'Check it out' pill and a huge 'AaBbCcDdEeFfG' specimen line clipped at the right. Clicking a font opens a font page: 'Update' pill, giant name, Try for Free / Buy Now (red) pills, a full-bleed photo with a slowly rotating ring of letters, a sticky pill nav (home icon, font name pill, Styles Sampler Variable Glyphs Features Infos Pairings, Try/Buy), a style list with a black 'AaBbCc 01234567' specimen card + grid of weight chips with red weight numbers (hover previews the weight in the black card), and tester rows: red font pill, style select, Size / Leading / Spacing slider pills, OpenType chips (Alt a, Round dots, liga, Case, dlig, tnum) and a contenteditable sample line that updates live. Mobile 390px: nav behind hamburger, cards 1-col, list rows wrap."
- },
- {
-  "id": "clone-moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections",
-  "slug": "moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections",
-  "name": "Moooi design brand: black announcement bar, transparent header with Menu / Search left, spaced lowercase 'moooi' wordmark centre and EN / account / wishlist / bag right, full-bleed autoplay video hero with small caps eyebrow, thin serif two-line title, pill CTA and a pause button bottom-left, region modal, left Menu panel (Products › with Shop our collection row of product cut-out icons, Stories, Gift guide), scroll story of full-bleed image sections with centred serif titles and split navy / beige colour panels beside photos",
-  "date": "2026-10-22",
-  "slot": "00:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://www.moooi.com/en",
-  "domain": "moooi.com",
-  "product": "Moooi — Dutch design furniture and lighting brand",
-  "checkpoints": [
-   "Black announce bar + transparent header: Menu/Search left, spaced 'moooi' wordmark centre, EN + icons right",
-   "Full-bleed video hero, small caps eyebrow, thin serif title, white pill CTA, pause button bottom-left",
-   "Region modal with Continue / close",
-   "Menu panel: serif links + small links; Products › shows Shop our collection product cut-out icon row",
-   "Full-bleed image section with centred serif title and underlined link",
-   "Split panels: navy or beige colour block with serif copy beside photo; header turns solid on scroll"
-  ],
-  "checkpoint_source": "ledger",
-  "prompt": "Build a Moooi-style design furniture homepage in Next.js + Tailwind + Framer Motion. Fonts: a thin high-contrast display serif for headings (Gilda Display 400, ~64px, line-height 1.05) and a light humanist sans for UI (Lato 300/400, 11–13px). A 28px black announcement bar with an underlined spaced caps link and a close ×. Transparent header over the hero: '≡ Menu' and '⌕ Search' left, the wordmark 'moooi' centred in lowercase with ~.4em tracking, 'EN ⌄', account, heart and bag icons right; it turns solid white with dark ink once you scroll past the hero. Hero: full-bleed autoplay video (here: animated grey studio scene of a modular triangle sofa) with centred tiny caps eyebrow 'PRODUCT STORY', the thin serif title 'Peaks Sofa by Yves Béhar', a small subline and a white pill 'Available Now'; a tiny pause/play button bottom-left toggles the motion. On load a small region modal ('You are visiting the moooi site for …') with Continue / close. 'Menu' opens a white left panel (~35% width) sliding over a dimmed page: big serif links Products › / Stories / Gift guide / Gift Card, a rule, then small links (Home, About us, Store locator, Contact, Material Library); Products › swaps the page to a 'SHOP OUR COLLECTION' row of 5 product cut-out icons (Bedding & Bath, Furniture, Lighting, Accessories, Wall & Floor). Scroll story: full-bleed photo sections with centred serif title + underlined link, then 50/50 split panels — navy #2b3a7a and beige #e6dccb colour blocks with eyebrow, serif heading, copy and underlined link — beside photos, alternating sides. Mobile 390px: panels stack, menu is full width."
- },
- {
-  "id": "clone-sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu",
-  "slug": "sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu",
-  "name": "Sacred Bones Records label store: yellow shipping bar, white header with Shop ▾ / Artists / Record Society / Tours in a serif and a centred circular triangle emblem, oxblood split release hero (caps artist eyebrow, serif title, white PREORDER NOW button, two overlapping record covers, segmented progress dots that auto-advance), dark speckled New Releases carousel with BEST SELLER / PREORDER / NEW badges and a round arrow, cream Shop by Category row of hand-drawn snake illustration tiles, oxblood Record Society emblem + Join Us block, Shop hover mega menu with link columns plus illustrated tiles",
-  "date": "2026-10-22",
-  "slot": "00:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://www.sacredbonesrecords.com/",
-  "domain": "sacredbonesrecords.com",
-  "product": "Sacred Bones Records — independent record label store",
-  "checkpoints": [
-   "Yellow shipping bar + header with serif nav and centred circular triangle emblem",
-   "Oxblood split hero: caps eyebrow, serif title, PREORDER NOW, overlapped covers, segmented progress dots (auto-advance + click)",
-   "Dark speckled New Releases carousel with BEST SELLER / PREORDER / NEW badges and round arrow",
-   "Cream Shop by Category row of illustrated snake tiles with serif captions",
-   "Oxblood Record Society emblem + Join Us block",
-   "Shop hover mega menu with link columns + illustrated tiles"
-  ],
-  "checkpoint_source": "ledger",
-  "prompt": "Build a Sacred Bones Records-style label store in Next.js + Tailwind + Framer Motion. Fonts: EB Garamond for nav, headings and captions; Lato for small UI. A 34px yellow #f6e600 bar 'Now shipping from the UK — faster delivery, lower shipping rates to UK & EU' with ×. White 58px header: 'Shop ▾', Artists, Record Society, Tours (serif 13px) left, a centred 40px circular emblem with a black triangle, account / search / cart icons right. Hero: oxblood #4a1a12 full-width split slider — left caps eyebrow 'PSYCHIC ILLS', 36px serif title, subline and a white 'PREORDER NOW' button; right two square record covers with soft shadow; a row of 6 thin segmented progress bars along the bottom (the active one fills, auto-advances every 6s, click to jump). New Releases: near-black speckled section with centred serif heading and a horizontal carousel of square covers with stacked badges (oxblood BEST SELLER, mustard PREORDER, red NEW), artist name in bold serif + italic title, and a round white arrow button that scrolls the rail. Shop by Category: cream #efe9dc section, tiny caps 'SHOP BY' + serif 'Category', a carousel of white tiles each with a hand-drawn snake illustration (hatching snake from an egg, snake head with headphones, snake T-shirt, snake book) and a serif caption under it. Record Society: oxblood speckled block with a white emblem (SACRED BONES arc text, triangle in a circle, T.L.T.A.M, MMXVIII) and 'Join Us' serif heading, copy and a white LEARN MORE button. Hovering Shop opens a white mega menu with 4 link columns (Featured, All Music, All Books, All Merch) and two illustrated tiles (New Releases, Records). Mobile 390px: hamburger, carousels swipe."
  }
 ]

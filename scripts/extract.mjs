@@ -60,6 +60,7 @@ export function extract() {
   const seen = new Map();
   for (const b of L.briefings) {
     const ids = (b.technique_ids || b.techniques || []).map((x) => (typeof x === 'string' ? x : x.id)); // briefings may embed technique objects
+    const emb = Object.fromEntries((b.techniques || []).filter((x) => x && typeof x === 'object').map((x) => [x.id, x]));
     const sites = b.sites || ids.map((x, i) => techById[x]?.url || (b.domains?.[i] ? `https://${b.domains[i]}/` : ''));
     ids.forEach((id, i) => {
       if (seen.has(id)) return; // dedup: first appearance wins
@@ -70,11 +71,11 @@ export function extract() {
       seen.set(id, {
         id, slug: slugOf(id), name: t.name,
         date: b.date, slot: /^\d\d:\d\d$/.test(b.slot || '') ? b.slot : (b.slot || '—'),
-        lens: b.lens, url, domain: h,
+        lens: b.lens || emb[id]?.lens || t.lens || 'aesthetic-interactive-craft', url, domain: h,
         product: t.product || sec?.product?.split('(')[0].trim() || productFromName(t.name, url),
         checkpoints: sec?.checkpoints?.length ? sec.checkpoints.slice(0, 6) : (t.checkpoints?.length ? t.checkpoints.slice(0, 6) : checkpointsFromName(t.name)),
         checkpoint_source: sec?.checkpoints?.length ? `briefing:${sec.file}` : (t.checkpoints?.length ? (t.checkpoint_source || 'ledger') : 'derived-from-ledger-name'),
-        prompt: sec?.prompt || null,
+        prompt: b.prompts?.[id] || emb[id]?.prompt || t.prompt || sec?.prompt || null, // newer slots: briefing.prompts{id: text}
       });
     });
   }
@@ -88,7 +89,9 @@ export function extract() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const list = extract();
+  // keep hand-curated fields (prompts/checkpoints written in earlier sync runs) for techniques already extracted
+  const prev = fs.existsSync('data/ledger-techniques.json') ? Object.fromEntries(JSON.parse(fs.readFileSync('data/ledger-techniques.json', 'utf8')).map((t) => [t.slug, t])) : {};
+  const list = extract().map((t) => (prev[t.slug] ? { ...t, ...Object.fromEntries(Object.entries(prev[t.slug]).filter(([, v]) => v != null)) } : t));
   fs.writeFileSync('data/ledger-techniques.json', JSON.stringify(list, null, 1));
   console.log(list.length, 'techniques;', list.filter((t) => t.checkpoint_source !== 'derived-from-ledger-name').length, 'with briefing checkpoints');
 }
