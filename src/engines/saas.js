@@ -32254,4 +32254,476 @@ V['fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cam
   };
 };
 // @@sync-2026-10-22-16-end
+// @@sync-2026-10-22-20-start
+V['usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#000000', ac: '#000000', dark: false });
+  import('@fontsource/gochi-hand/400.css');
+  const F = "Arial,'Helvetica Neue',Helvetica,sans-serif", HW = "'Gochi Hand','Comic Sans MS',cursive";
+  const RAL = [['Pure white', 'RAL 9010', '#f6f4ea'], ['Light grey', 'RAL 7035', '#cfd3cf'], ['Mid-grey', 'RAL 7005', '#6b7272'], ['Anthracite grey', 'RAL 7016', '#45494e'], ['Graphite black', 'RAL 9011', '#141616'], ['Golden yellow', 'RAL 1004', '#f0b400'], ['Pure orange', 'RAL 2004', '#ee6a12'], ['USM ruby red', 'RAL 3003', '#b5121b'], ['Gentian blue', 'RAL 5010', '#0e4c8a'], ['Steel blue', 'RAL 5011', '#1c3557'], ['USM green', 'RAL 6024', '#0f9a3c'], ['Olive', 'RAL 6003', '#56603d'], ['USM beige', 'RAL 1001', '#c6a77c'], ['USM brown', 'RAL 8007', '#5d3a20']];
+  const FELT = [['anthracite', '#3a3b3d'], ['warm grey', '#9a8f86'], ['light grey', '#b5b5b3'], ['olive', '#7c7a2b'], ['blue', '#2f4a6e'], ['red', '#7b2428']];
+  const ACC = { door: ['Drop-down door', 182], glass: ['Glass door', 214], drawer: ['Drawer', 266], soft: ['USM Soft Panel', 151], shelf: ['Shelf', 58], plant: ['Plant tray', 46], open: ['Open', 0] };
+  const GROUPS = [['Doors', ['door', 'door', 'door', 'door', 'glass', 'glass']], ['USM Soft Panel', ['soft', 'soft', 'soft']], ['Shelves and drawers', ['drawer', 'drawer', 'drawer', 'drawer', 'shelf', 'shelf', 'shelf', 'shelf']], ['Accessories', ['open', 'plant', 'drawer']]];
+  const DEF = () => ({ depth: 350, height: 350, width: 750, cols: 2, rows: 2, body: 8, acc: 8, felt: 4, pat: 0, foot: 0, struct: 3, sel: [1, 1], cells: { '0,0': 'door', '1,0': 'door', '0,1': 'door', '1,1': 'door' } });
+  let S = DEF(), hist = [], tab = 'structure', cfilter = 'all', conflict = null, zoom = 1, flip = false, shown = 0, priceT = 0;
+  const snap = () => { hist.push(JSON.stringify(S)); if (hist.length > 40) hist.shift(); };
+  const raw = (st) => { let r = 0; for (let c = 0; c < st.cols; c++) for (let w = 0; w < st.rows; w++) { r += 0.19 * st.width + 0.24 * st.height + 0.16 * st.depth; r += ACC[st.cells[c + ',' + w] || 'open'][1]; } return r + (st.cols + 1) * (st.rows + 1) * 14 + (st.foot ? 4 * 11 : 0); };
+  const K = 1903.07 / raw(DEF());
+  const price = () => raw(S) * K;
+  const fmt = (v) => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  const IC = { share: '<svg viewBox="0 0 24 24" width="13" height="13"><circle cx="17" cy="6" r="2.2" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="7" cy="12" r="2.2" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="17" cy="18" r="2.2" fill="none" stroke="#000" stroke-width="1.4"/><path d="M9 11l6-4M9 13l6 4" stroke="#000" stroke-width="1.4"/></svg>', dl: '<svg viewBox="0 0 24 24" width="13" height="13"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19h14" fill="none" stroke="#000" stroke-width="1.5"/></svg>', help: '<svg viewBox="0 0 24 24" width="13" height="13"><path d="M9 9.2a3 3 0 1 1 4.2 2.7c-.8.4-1.2 1-1.2 1.9v.7" fill="none" stroke="#000" stroke-width="1.4"/><circle cx="12" cy="17.6" r=".9"/></svg>', chat: '<svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 18l1.2-3.4A6.5 6.5 0 1 1 9 17.2z" fill="none" stroke="#000" stroke-width="1.4"/><path d="M9 11h6M9 13.6h4" stroke="#000" stroke-width="1.2"/></svg>', undo: '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 7L4.5 11 9 15" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11h9a5 5 0 0 1 5 5v1" fill="none" stroke="currentColor" stroke-width="2"/></svg>', del: '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 7h14M9 7V4.5h6V7M7 7l1 13h8l1-13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 10v7M13.5 10v7" stroke="currentColor" stroke-width="1.6"/></svg>', zoom: '<svg viewBox="0 0 24 24" width="18" height="18"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.5 15.5L20 20" stroke="currentColor" stroke-width="2.6"/><path d="M8 8l5 5M13 8l-5 5" stroke="currentColor" stroke-width="1.8"/></svg>', cube: '<svg viewBox="0 0 24 24" width="13" height="13"><path d="M12 4l7 4v8l-7 4-7-4V8z M5 8l7 4 7-4M12 12v8" fill="none" stroke="#000" stroke-width="1.3"/></svg>', mark: '<svg viewBox="0 0 24 24" width="13" height="13"><path d="M7 4h10v16l-5-4-5 4z" fill="none" stroke="#000" stroke-width="1.4"/></svg>' };
+  const logo = '<svg viewBox="0 0 76 40" width="76" height="40"><defs><radialGradient id="usmBall" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#b9bcbf"/><stop offset=".8" stop-color="#6e7277"/><stop offset="1" stop-color="#3d4044"/></radialGradient></defs><circle cx="19" cy="20" r="17" fill="url(#usmBall)"/><path d="M6 20h26M19 7v26M10 11l18 18M28 11L10 29" stroke="#5c6065" stroke-width="1" opacity=".55"/><circle cx="56" cy="20" r="17" fill="#111"/><text x="56" y="25" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-style="italic" font-size="13" fill="#fff">USM</text></svg>';
+  css(`
+.usx{position:absolute;inset:0;background:#fff;color:#000;font:400 12px/1.35 ${F};display:grid;grid-template-rows:56px 36px 1fr 22px;overflow:hidden;-webkit-font-smoothing:antialiased}
+.usx *{box-sizing:border-box}:where(.usx) button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.us-top{display:flex;justify-content:flex-end;align-items:center;padding:0 22px;border-bottom:1px solid #e3e3e3}
+.us-tb{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 22px;border-bottom:1px solid #9a9a9a;margin:0 0 0 0}
+.us-tb .c{display:flex;gap:6px}.us-cb{width:22px;height:22px;border:1px solid #333;border-radius:50%;display:grid;place-items:center;background:#fff}.us-cb:hover{background:#f2f2f2}
+.us-tb .r{justify-self:end;display:flex;align-items:center;gap:12px}.us-tb .r b{font:700 16.5px ${F};letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.us-main{display:grid;grid-template-columns:316px 1fr;min-height:0}
+.us-pn{display:flex;flex-direction:column;padding:6px 18px 8px 12px;min-height:0}
+.us-tabs{display:grid;grid-template-columns:repeat(3,auto);justify-content:space-between;gap:10px;border-bottom:1px solid #c8c8c8;width:192px;margin-bottom:6px}.us-tabs button{padding:6px 4px 5px;font-size:12px;position:relative;color:#222}.us-tabs button.on{font-weight:700;color:#000}.us-tabs button.on::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#000}
+.us-bd{flex:1;overflow:auto;min-height:0;padding-right:4px}.us-bd h6{margin:12px 0 8px;font:400 12.5px ${F};color:#222}
+.us-chips{display:grid;gap:3px;width:192px}.us-chip{height:22px;border:1px solid #000!important;font-size:10.5px!important;font-weight:700!important;background:#fff!important;transition:background .12s,color .12s}.us-chip:hover{background:#eee!important}.us-chip.on{background:#000!important;color:#fff!important}
+.us-chips.dis{opacity:.35;pointer-events:none}
+.us-se{display:flex;gap:5px}.us-se button{width:34px;height:30px;display:grid;place-items:center;border-bottom:2px solid transparent}.us-se button.on{border-color:#000}
+.us-gl{display:grid;grid-template-columns:repeat(3,60px);width:192px}.us-gl button{height:34px;display:grid;place-items:center;border-bottom:2px solid #ddd}.us-gl button.on{border-color:#000}
+.us-ag h6{margin:10px 0 6px}.us-ag .g{display:grid;grid-template-columns:repeat(4,44px);gap:6px 8px}.us-th{width:44px;height:36px;display:grid;place-items:center;border-radius:2px;cursor:grab;touch-action:none}.us-th:hover{background:#f1f3f4}.us-th:active{cursor:grabbing}
+.us-cf{display:grid;grid-template-columns:1fr 1fr;gap:5px;width:192px}.us-cf button{height:21px;border:1px solid #000;font-size:11px}.us-cf button.on{background:#000;color:#fff;font-weight:700}
+.us-cn{margin:24px 0 14px;font-size:10.5px}.us-sw{display:grid;grid-template-columns:repeat(6,23px);gap:8px 9px}.us-sw button{width:23px;height:23px;border:1px solid #ddd;position:relative}.us-sw button.on{outline:2px solid #000;outline-offset:1px}
+.us-pt{display:grid;grid-template-columns:repeat(6,23px);gap:6px 9px}.us-pt button{width:23px;height:23px;border:1px solid #ccc}.us-pt button.on{outline:2px solid #000;outline-offset:1px}
+.us-ft{padding-top:8px}.us-ct{width:100%;height:24px;border:1px solid #000!important;border-radius:12px!important;font-weight:700!important;font-size:11px!important;background:#fff!important}.us-ct:hover{background:#000!important;color:#fff!important}
+.us-ft b{display:block;font:700 13.5px ${F};margin-top:6px;font-variant-numeric:tabular-nums}.us-ft small{display:block;font-size:9px;color:#222;line-height:1.25}
+.us-cv{position:relative;background:#fff;overflow:hidden;min-height:0}.us-cv svg.st{position:absolute;inset:0;width:100%;height:100%}
+.us-tools{position:absolute;left:10px;top:4px;display:flex;gap:6px;z-index:3;color:#000}.us-tools button{color:#000}.us-tools button:disabled{color:#bbb;cursor:default}
+.us-rt{position:absolute;right:16px;top:4px;display:flex;flex-direction:column;gap:9px;z-index:3}
+.us-pf{transition:fill .2s ease,opacity .2s}
+.us-hint{position:absolute;font:400 15px/1.25 ${HW};color:#333;transform:rotate(3deg);pointer-events:none;width:180px;z-index:2;transition:opacity .2s}
+.us-cfp{position:absolute;z-index:4;color:#d0021b;font:400 17px/1.25 ${HW};transform:rotate(4deg);width:200px}.us-cfp p{margin:0 0 10px}.us-cfp .b{display:flex;justify-content:space-between;width:150px}.us-cfp button{font:400 14px ${HW}!important;padding:1px 4px!important}.us-cfp .rm{background:#000!important;color:#fff!important;transform:rotate(-2deg)}.us-cfp .cc{border:1px solid #000!important;color:#000!important;background:#fff!important;transform:rotate(3deg) translateY(10px);box-shadow:1px 1px 0 #000}
+.us-dis{border-top:1px solid #ccc;font-size:9px;display:flex;align-items:center;padding:0 38px;color:#222}
+.us-ghost{position:fixed;z-index:99;pointer-events:none;opacity:.85;transform:translate(-50%,-50%)}
+.us-cell{cursor:pointer}.us-cell.drop .us-pf{fill:#ffe500!important;opacity:.55}
+.usx.m{grid-template-rows:48px 36px auto 30px;overflow:auto}.usx.m .us-main{grid-template-columns:1fr;grid-template-rows:330px auto}.usx.m .us-cv{grid-row:1;border-bottom:1px solid #ddd}.usx.m .us-pn{grid-row:2;padding:6px 14px 14px}.usx.m .us-bd{overflow:visible;flex:none}.usx.m .us-tabs,.usx.m .us-chips,.usx.m .us-cf,.usx.m .us-gl{width:100%}.usx.m .us-dis{padding:0 12px;position:sticky;bottom:0;background:#fff;line-height:1.2}
+.usx.m .us-tb{padding:0 12px}.usx.m .us-top{padding:0 12px}
+`);
+  const el = h('div.usx');
+  const priceTop = h('b'), priceBot = h('b');
+  const showPrice = () => { const to = price(), from = shown, t0 = performance.now(); cancelAnimationFrame(priceT); const step = (t) => { const k = Math.min(1, (t - t0) / 380), v = from + (to - from) * (1 - (1 - k) ** 3); priceTop.textContent = priceBot.textContent = fmt(v); if (k < 1) priceT = requestAnimationFrame(step); else shown = to; }; if (!from) { shown = to; priceTop.textContent = priceBot.textContent = fmt(to); } else priceT = requestAnimationFrame(step); };
+  const cb = (ic, lab, fn) => h('button.us-cb', { html: IC[ic], 'aria-label': lab, title: lab, onclick: fn });
+  const top = h('div.us-top', {}, h('a', { href: '#', html: logo, onclick: (e) => { e.preventDefault(); toast('USM home (demo)'); } }));
+  const tb = h('div.us-tb', {}, h('span'), h('div.c', {}, cb('share', 'Share', () => toast('Configuration link copied (demo)')), cb('dl', 'Download', () => toast('PDF with parts list downloaded (demo)')), cb('help', 'Help', () => toast('Help: drag elements, click + to extend (demo)'))), h('div.r', {}, priceTop, cb('chat', 'Chat', () => toast('Chat with a USM specialist (demo)'))));
+  // ---- left panel
+  const tabsEl = h('div.us-tabs'), bd = h('div.us-bd');
+  const drawTabs = () => tabsEl.replaceChildren(...[['structure', 'Structure'], ['accessories', 'Accessories'], ['color', 'Color']].map(([k, l]) => h('button' + (tab === k ? '.on' : ''), { onclick: () => { tab = k; drawTabs(); drawPanel(); draw(); } }, l)));
+  const chipRow = (label, key, vals) => [h('h6', {}, label), h('div.us-chips' + (conflict ? '.dis' : ''), { style: { gridTemplateColumns: `repeat(${vals.length},1fr)` } }, ...vals.map((v) => h('button.us-chip' + (S[key] === v ? '.on' : ''), { 'data-k': key, 'data-v': v, onclick: () => setDim(key, v) }, v)))];
+  const seIcon = (i) => `<svg viewBox="0 0 34 26" width="30" height="24"><g fill="none" stroke="#9aa0a6" stroke-width="1.4"><path d="M4 8h20v15H4zM24 8l6-4v15l-6 4M4 8l6-4h20"/></g>${i === 0 ? '<path d="M4 8h20v15H4z" fill="#d9dde0"/>' : i === 1 ? '<path d="M4 8h20v15H4z" fill="#a9adb1"/><path d="M24 8l6-4v15l-6 4z" fill="#c4c8cb"/>' : i === 3 ? '<path d="M4 8h20v15H4z" fill="#a8bed2"/>' : ''}</svg>`;
+  const footIcon = (i) => `<svg viewBox="0 0 30 26" width="26" height="22">${i === 0 ? '<path d="M15 4v10" stroke="#333" stroke-width="2"/><ellipse cx="15" cy="17" rx="7" ry="3.5" fill="#111"/>' : `<path d="M11 4v6" stroke="#333" stroke-width="2"/><rect x="8" y="9" width="10" height="5" rx="2" fill="#333"/><circle cx="17" cy="18" r="5.5" fill="#111"/><circle cx="17" cy="18" r="2" fill="#666"/>${i === 2 ? '<rect x="5" y="13" width="6" height="3" fill="#c00"/>' : ''}`}</svg>`;
+  const accThumb = (k) => { const c = k === 'glass' ? '#cfe6ea' : k === 'soft' ? '#2b2b2b' : k === 'plant' ? '#fff' : '#8d9194'; return `<svg viewBox="0 0 40 30" width="38" height="28"><path d="M8 9l6-4h20v16l-6 4H8z" fill="#e3e5e7" stroke="#b5b9bc" stroke-width=".8"/>${k === 'soft' ? '<path d="M14 6l12-2v20l-12 3z" fill="#2b2b2b"/>' : k === 'plant' ? '<path d="M17 21h10l-2 5h-6z" fill="#8a5a3a"/><circle cx="22" cy="15" r="6" fill="#2f7d32"/><circle cx="18" cy="12" r="4" fill="#3c9a3f"/>' : k === 'open' ? '' : `<rect x="8" y="${k === 'drawer' ? 15 : 9}" width="20" height="${k === 'drawer' ? 10 : 16}" fill="${c}" stroke="#666" stroke-width=".6"/>${k === 'shelf' ? '<path d="M8 17h20" stroke="#888" stroke-width="1.5"/>' : '<rect x="15" y="' + (k === 'drawer' ? 16 : 10) + '" width="6" height="1.6" fill="#222"/>'}`}</svg>`; };
+  const drawPanel = () => {
+    if (tab === 'structure') {
+      if (conflict) { bd.replaceChildren(); return; }
+      bd.replaceChildren(...chipRow('Depth in mm', 'depth', [250, 350, 500]), ...chipRow('Height in mm', 'height', [100, 175, 250, 350, 395, 500]), ...chipRow('Width in mm', 'width', [250, 350, 395, 500, 750]),
+        h('h6', {}, 'Structure element'), h('div.us-se', {}, ...[0, 1, 2, 3, 4].map((i) => h('button' + (S.struct === i ? '.on' : ''), { html: seIcon(i), onclick: () => { snap(); S.struct = i; drawPanel(); draw(); toast(['Back panels', 'Side + back panels', 'Open frame', 'Glass back panel', 'Wire frame'][i] + ' (demo)'); } }))),
+        h('h6', {}, 'Glides + castors'), h('div.us-gl', {}, ...[0, 1, 2].map((i) => h('button' + (S.foot === i ? '.on' : ''), { html: footIcon(i), onclick: () => { snap(); S.foot = i; drawPanel(); draw(); showPrice(); } }))));
+    } else if (tab === 'accessories') {
+      bd.replaceChildren(...GROUPS.map(([g, list]) => h('div.us-ag', {}, h('h6', {}, g), h('div.g', {}, ...list.map((k) => { const th = h('div.us-th', { html: accThumb(k), title: ACC[k][0], 'data-acc': k }); dragAcc(th, k); return th; })))));
+    } else {
+      const cur = RAL[cfilter === 'accessories' ? S.acc : S.body];
+      bd.replaceChildren(...[h('div.us-cf', {}, ...[['all', 'All'], ['compartment', 'Compartment'], ['accessories', 'Accessories'], ['panel', 'Panel']].map(([k, l]) => h('button' + (cfilter === k ? '.on' : ''), { onclick: () => { cfilter = k; drawPanel(); } }, l))),
+        cfilter !== 'panel' ? [h('div.us-cn', {}, `${cur[0]} [${cur[1]}]`), h('div.us-sw', {}, ...RAL.map(([n, r, c], i) => h('button' + ((cfilter === 'accessories' ? S.acc : S.body) === i ? '.on' : ''), { style: { background: c }, title: `${n} [${r}]`, onclick: () => setColor(i) })))] : null,
+        cfilter === 'all' || cfilter === 'panel' ? [h('div.us-cn', {}, `USM Soft Panel 95 - ${FELT[S.felt][0]}`), h('div.us-pt', {}, ...[0, 1, 2].map((i) => h('button' + (S.pat === i ? '.on' : ''), { html: `<svg viewBox="0 0 23 23" width="21" height="21">${i === 0 ? [3, 6, 9, 12, 15, 18, 21].map((r) => `<circle cx="0" cy="23" r="${r}" fill="none" stroke="#000" stroke-width="1.3"/>`).join('') : i === 1 ? [0, 5, 10, 15, 20, 25, 30, 35].map((x) => `<path d="M${x} 0L${x - 23} 23" stroke="#000" stroke-width="1.6"/>`).join('') : [3, 7, 11, 15, 19].map((x) => `<path d="M${x} 0v23" stroke="#000" stroke-width="1.6"/>`).join('')}</svg>`, onclick: () => { snap(); S.pat = i; drawPanel(); draw(); } })), h('span'), h('span'), h('span'), ...FELT.map(([n, c], i) => h('button' + (S.felt === i ? '.on' : ''), { style: { background: c }, title: n, onclick: () => { snap(); S.felt = i; drawPanel(); draw(); } })))] : null].flat().filter(Boolean));
+    }
+  };
+  const pn = h('div.us-pn', {}, tabsEl, bd, h('div.us-ft', {}, h('button.us-ct', { onclick: () => toast('Contact form for a USM partner (demo)') }, 'Contact'), priceBot, h('small', {}, 'Recommended retail price / not including VAT, delivery and assembly costs')));
+  // ---- canvas
+  const cv = h('div.us-cv'), svg = s('svg', { class: 'st' });
+  const undoB = h('button', { html: IC.undo, 'aria-label': 'Undo', onclick: () => { if (!hist.length) return; S = JSON.parse(hist.pop()); conflict = null; drawPanel(); draw(); showPrice(); } });
+  const delB = h('button', { html: IC.del, 'aria-label': 'Delete element', onclick: () => { const k = S.sel.join(','); if (!S.cells[k] || S.cells[k] === 'open') return toast('Select a compartment with an element'); snap(); S.cells[k] = 'open'; draw(); showPrice(); } });
+  const zoomB = h('button', { html: IC.zoom, 'aria-label': 'Zoom', onclick: () => { zoom = zoom === 1 ? 1.3 : 1; draw(); } });
+  const hint = h('div.us-hint', {}, 'Insert an element into the desired compartment using drag and drop.');
+  const cfp = h('div.us-cfp', { style: { display: 'none' } }, h('p', {}, 'The accessory does not exist for the desired compartment size. Do you want to remove it?'), h('div.b', {}, h('button.rm', { onclick: () => resolve(true) }, 'Remove'), h('button.cc', { onclick: () => resolve(false) }, 'Cancel')));
+  cv.append(svg, h('div.us-tools', {}, undoB, delB, zoomB), h('div.us-rt', {}, cb('cube', '3D view', () => { flip = !flip; draw(); }), cb('mark', 'Bookmark', () => toast('Configuration saved to bookmarks (demo)'))), hint, cfp);
+  function setDim(key, v) {
+    if (S[key] === v) return;
+    if (key === 'height' && v < 250 && Object.values(S.cells).some((a) => a && a !== 'open' && a !== 'shelf')) { conflict = { key, v, prev: S[key] }; S[key] = v; drawPanel(); draw(); return; }
+    snap(); S[key] = v; drawPanel(); draw(); showPrice();
+  }
+  function resolve(remove) { if (!conflict) return; if (remove) { const old = JSON.parse(JSON.stringify(S)); old[conflict.key] = conflict.prev; hist.push(JSON.stringify(old)); for (const k in S.cells) if (S.cells[k] !== 'shelf') S.cells[k] = 'open'; toast('Accessories removed'); } else S[conflict.key] = conflict.prev; conflict = null; drawPanel(); draw(); showPrice(); }
+  function setColor(i) { snap(); if (cfilter === 'all' || cfilter === 'compartment') S.body = i; if (cfilter === 'all' || cfilter === 'accessories') S.acc = i; drawPanel(); recolor(); }
+  // projection
+  let G = {};
+  const P = (x, y, z) => { const { k, ox, oy, sx } = G; return [ox + k * (x * sx + 0.34 * z * (flip ? -1 : 1) + (flip ? 0 : 0)), oy - k * (y + 0.24 * z) + k * 0.025 * x]; };
+  const pts = (...a) => a.map((p) => p.map((n) => n.toFixed(1)).join(',')).join(' ');
+  const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255, m = (c) => Math.max(0, Math.min(255, Math.round(f > 0 ? c + (255 - c) * f : c * (1 + f)))); return '#' + [m(r), m(g), m(b)].map((c) => c.toString(16).padStart(2, '0')).join(''); };
+  function recolor() { const bc = RAL[S.body][2], ac = RAL[S.acc][2]; svg.querySelectorAll('.us-pf').forEach((p) => { const role = p.dataset.role; p.style.fill = role === 'side' ? shade(bc, .18) : role === 'top' ? shade(bc, .3) : role === 'back' ? shade(bc, -.1) : role === 'acc' ? ac : role === 'felt' ? FELT[S.felt][1] : p.style.fill; }); }
+  function draw() {
+    const cw = cv.clientWidth || 900, ch = cv.clientHeight || 600, W = S.cols * S.width, H = S.rows * S.height, D = S.depth, mob = el.classList.contains('m');
+    const k = Math.min((cw - (mob ? 90 : 300)) / (W + 0.34 * D + 0.25 * S.width), (ch - (mob ? 120 : 220)) / (H + 0.24 * D + 0.5 * S.height), 0.34) * zoom;
+    G = { k, sx: 1, ox: (cw - k * (W + 0.34 * D)) / 2 + (mob ? 0 : 30), oy: ch / 2 + k * (H - 0.24 * D) / 2 + (mob ? 30 : 40) };
+    if (flip) G.ox += k * 0.34 * D;
+    const bc = RAL[S.body][2], ac = RAL[S.acc][2], red = conflict ? '#c8001e' : null, tube = red || '#8e959b', hl = red ? '#ff8a8a' : '#eef1f3';
+    const nodes = [], kids = [];
+    kids.push(s('defs', {}, s('pattern', { id: 'usArc', patternUnits: 'userSpaceOnUse', width: 600, height: 600 }, ...Array.from({ length: 30 }, (_, i) => s('circle', { cx: 300, cy: 300, r: 10 + i * 10, fill: 'none', stroke: '#fff', 'stroke-opacity': .07, 'stroke-width': 1.4 }))), s('pattern', { id: 'usDia', patternUnits: 'userSpaceOnUse', width: 8, height: 8, patternTransform: 'rotate(45)' }, s('rect', { width: 3, height: 8, fill: '#fff', 'fill-opacity': .08 })), s('pattern', { id: 'usVer', patternUnits: 'userSpaceOnUse', width: 7, height: 7 }, s('rect', { width: 2.4, height: 7, fill: '#fff', 'fill-opacity': .08 })), s('radialGradient', { id: 'usNode', cx: .35, cy: .35, r: .7 }, s('stop', { offset: 0, 'stop-color': red ? '#ffb3b3' : '#fff' }), s('stop', { offset: .6, 'stop-color': red || '#9ba1a6' }), s('stop', { offset: 1, 'stop-color': red ? '#7a0012' : '#5b6166' }))));
+    // floor
+    kids.push(s('polygon', { points: pts([0, G.oy - k * 0.24 * 2600 + 60], [cw, G.oy - k * 0.24 * 2600 + 60 + cw * 0.03], [cw, ch], [0, ch]), fill: '#e8edf0' }));
+    // ghost extend handles (behind)
+    const sc = S.sel[0];
+    const tg = [P(sc * S.width, H, D), P((sc + 1) * S.width, H, D)], apex = Math.min(70, k * S.height * 0.7);
+    const topG = s('g', { class: 'us-hd', style: 'cursor:pointer', onclick: () => { if (S.rows >= 4) return toast('Maximum height reached'); snap(); S.rows++; for (let c = 0; c < S.cols; c++) S.cells[c + ',' + (S.rows - 1)] = 'open'; draw(); showPrice(); } },
+      s('polygon', { points: pts([tg[0][0] + 4, tg[0][1] - 4], [tg[0][0] + 4, tg[0][1] - apex * .6], [(tg[0][0] + tg[1][0]) / 2, tg[0][1] - apex], [tg[1][0] - 4, tg[1][1] - apex * .6], [tg[1][0] - 4, tg[1][1] - 4]), fill: '#aac3da', 'fill-opacity': .55 }),
+      s('circle', { cx: (tg[0][0] + tg[1][0]) / 2, cy: tg[0][1] - apex * .62, r: 7, fill: 'none', stroke: '#fff', 'stroke-width': 1.3 }), s('path', { d: `M${(tg[0][0] + tg[1][0]) / 2 - 3.5} ${tg[0][1] - apex * .62}h7M${(tg[0][0] + tg[1][0]) / 2} ${tg[0][1] - apex * .62 - 3.5}v7`, stroke: '#fff', 'stroke-width': 1.3 }));
+    const rb = P(W, 0, D), rt = P(W, H, D), rx = rb[0] + (flip ? -1 : 1) * 8, dir = flip ? -1 : 1, my = (rb[1] + rt[1]) / 2;
+    const rightG = s('g', { class: 'us-hd', style: 'cursor:pointer', onclick: () => { if (S.cols >= 5) return toast('Maximum width reached'); snap(); S.cols++; for (let r = 0; r < S.rows; r++) S.cells[(S.cols - 1) + ',' + r] = 'open'; draw(); showPrice(); } },
+      s('polygon', { points: pts([rx, rt[1] + 4], [rx + dir * 26, rt[1] + 14], [rx + dir * 44, my], [rx + dir * 26, rb[1] - 10], [rx, rb[1] - 2]), fill: '#aac3da', 'fill-opacity': .55 }),
+      s('circle', { cx: rx + dir * 22, cy: my, r: 7, fill: 'none', stroke: '#fff', 'stroke-width': 1.3 }), s('path', { d: `M${rx + dir * 22 - 3.5} ${my}h7M${rx + dir * 22} ${my - 3.5}v7`, stroke: '#fff', 'stroke-width': 1.3 }));
+    if (!conflict) kids.push(topG, rightG);
+    const op = conflict ? .3 : 1;
+    // back panels + side + top
+    const sideX = flip ? 0 : W;
+    kids.push(s('polygon', { class: 'us-pf', 'data-role': 'side', points: pts(P(sideX, 0, 0), P(sideX, H, 0), P(sideX, H, D), P(sideX, 0, D)), style: `fill:${shade(bc, .18)}`, opacity: S.struct === 2 || S.struct === 4 ? .15 : op }));
+    kids.push(s('polygon', { class: 'us-pf', 'data-role': 'top', points: pts(P(0, H, 0), P(W, H, 0), P(W, H, D), P(0, H, D)), style: `fill:${shade(bc, .3)}`, opacity: S.struct === 2 || S.struct === 4 ? .15 : op }));
+    // cells
+    for (let c = 0; c < S.cols; c++) for (let r = 0; r < S.rows; r++) {
+      const key = c + ',' + r, a = S.cells[key] || 'open', x0 = c * S.width, x1 = x0 + S.width, y0 = r * S.height, y1 = y0 + S.height;
+      const g = s('g', { class: 'us-cell', 'data-cell': key, onclick: () => { S.sel = [c, r]; draw(); } });
+      const fr = pts(P(x0, y0, 0), P(x1, y0, 0), P(x1, y1, 0), P(x0, y1, 0));
+      if (a === 'open' || a === 'shelf' || a === 'plant') {
+        g.append(s('polygon', { class: 'us-pf', 'data-role': 'back', points: fr, style: `fill:${S.struct === 2 || S.struct === 4 ? '#f2f4f6' : shade(bc, -.1)}`, opacity: conflict ? .3 : .9 }));
+        g.append(s('polygon', { points: pts(P(x0, y0, 0), P(x1, y0, 0), P(x1, y0 + 25 / k * 0 + S.height * .12, 0), P(x0, y0 + S.height * .12, 0)), fill: '#000', 'fill-opacity': .12 }));
+        if (a === 'shelf') g.append(s('line', { x1: P(x0, y0 + S.height / 2, 0)[0], y1: P(x0, y0 + S.height / 2, 0)[1], x2: P(x1, y0 + S.height / 2, 0)[0], y2: P(x1, y0 + S.height / 2, 0)[1], stroke: '#c9ced2', 'stroke-width': 4 }));
+        if (a === 'plant') { const m = P((x0 + x1) / 2, y0, 0), u = k * Math.min(S.width, S.height); g.append(s('path', { d: `M${m[0] - u * .14} ${m[1] - 3}l${u * .04} ${-u * .2}h${u * .2}l${u * .04} ${u * .2}z`, fill: '#8a5a3a' }), s('circle', { cx: m[0], cy: m[1] - u * .33, r: u * .16, fill: '#2f7d32' }), s('circle', { cx: m[0] - u * .1, cy: m[1] - u * .4, r: u * .1, fill: '#43a047' })); }
+      } else {
+        const role = a === 'soft' ? 'felt' : 'acc', fill = a === 'soft' ? FELT[S.felt][1] : a === 'glass' ? '#cfe3ea' : ac;
+        g.append(s('polygon', { class: 'us-pf', 'data-role': a === 'glass' ? 'glass' : role, points: fr, style: `fill:${fill}`, opacity: a === 'glass' ? .6 * op : op }));
+        g.append(s('polygon', { points: fr, fill: `url(#${a === 'soft' ? ['usArc', 'usDia', 'usVer'][S.pat] : 'usArc'})`, opacity: op, 'pointer-events': 'none' }));
+        const hm = P((x0 + x1) / 2, y1 - S.height * .05, 0), hw = Math.max(8, k * 60);
+        if (a !== 'soft') g.append(s('rect', { x: hm[0] - hw / 2, y: hm[1], width: hw, height: Math.max(3, k * 18), fill: '#151515', opacity: conflict ? .4 : 1 }));
+        if (a === 'drawer') { const l0 = P(x0, (y0 + y1) / 2, 0), l1 = P(x1, (y0 + y1) / 2, 0), hm2 = P((x0 + x1) / 2, (y0 + y1) / 2 - S.height * .05, 0); g.append(s('line', { x1: l0[0], y1: l0[1], x2: l1[0], y2: l1[1], stroke: '#0006', 'stroke-width': 1.2 }), s('rect', { x: hm2[0] - hw / 2, y: hm2[1], width: hw, height: Math.max(3, k * 18), fill: '#151515' })); }
+      }
+      kids.push(g);
+    }
+    // tubes
+    const tubeLine = (a, b) => [s('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: tube, 'stroke-width': red ? 3.6 : 3.2, 'stroke-linecap': 'round' }), s('line', { x1: a[0], y1: a[1] - .9, x2: b[0], y2: b[1] - .9, stroke: hl, 'stroke-width': .9, opacity: .8 })];
+    const tubes = s('g', { 'pointer-events': 'none' });
+    for (let c = 0; c <= S.cols; c++) { tubes.append(...tubeLine(P(c * S.width, 0, 0), P(c * S.width, H, 0)), ...tubeLine(P(c * S.width, H, 0), P(c * S.width, H, D))); for (let r = 0; r <= S.rows; r++) nodes.push(P(c * S.width, r * S.height, 0)); nodes.push(P(c * S.width, H, D)); }
+    for (let r = 0; r <= S.rows; r++) { tubes.append(...tubeLine(P(0, r * S.height, 0), P(W, r * S.height, 0)), ...tubeLine(P(sideX, r * S.height, 0), P(sideX, r * S.height, D))); nodes.push(P(sideX, r * S.height, D)); }
+    tubes.append(...tubeLine(P(0, H, D), P(W, H, D)), ...tubeLine(P(sideX, 0, D), P(sideX, H, D)));
+    nodes.forEach(([x, y]) => tubes.append(s('circle', { cx: x, cy: y, r: Math.max(3, k * 13), fill: 'url(#usNode)' })));
+    // feet
+    for (let c = 0; c <= S.cols; c++) for (const z of [0, D]) { if (z === D && c !== (flip ? 0 : S.cols)) continue; const [x, y] = P(c * S.width, 0, z); if (S.foot) tubes.append(s('circle', { cx: x + 2, cy: y + 9, r: 5, fill: '#111' }), s('circle', { cx: x + 2, cy: y + 9, r: 1.8, fill: '#777' })); else tubes.append(s('rect', { x: x - 1, y: y + 2, width: 2, height: 5, fill: '#444' }), s('ellipse', { cx: x, cy: y + 8, rx: 5, ry: 2.4, fill: '#111' })); }
+    kids.push(tubes);
+    // dimension labels
+    const lab = s('g', { 'font-family': 'Verdana,Arial', 'font-size': 8.5, fill: '#444', 'pointer-events': 'none' });
+    for (let c = 0; c < S.cols; c++) { const [x, y] = P((c + .5) * S.width, H, D * .55); lab.append(s('text', { x, y, 'text-anchor': 'middle', transform: `rotate(1.4 ${x} ${y})` }, `${S.width} mm`)); }
+    const lx = P(0, 0, 0)[0] - 10;
+    for (let r = 0; r < S.rows; r++) { const y = P(0, (r + .5) * S.height, 0)[1]; lab.append(s('text', { x: lx, y, 'text-anchor': 'middle', transform: `rotate(-90 ${lx} ${y})` }, `${S.height} mm`)); }
+    const ly = P(0, H / 2, 0)[1], lx2 = lx - 14; lab.append(s('text', { x: lx2, y: ly, 'text-anchor': 'middle', transform: `rotate(-90 ${lx2} ${ly})` }, `Outside dimension ${(H + 40).toLocaleString('en-US')} mm`), s('line', { x1: lx2 + 5, y1: P(0, 0, 0)[1] + 8, x2: lx2 + 5, y2: P(0, H, 0)[1], stroke: '#bbb', 'stroke-width': .6 }));
+    const b0 = P(0, 0, 0), b1 = P(W, 0, 0), by = Math.max(b0[1], b1[1]) + 26, bx = (b0[0] + b1[0]) / 2 + 30;
+    lab.append(s('line', { x1: b0[0], y1: b0[1] + 12, x2: b1[0], y2: b1[1] + 12, stroke: '#ccc', 'stroke-width': .6 }), s('text', { x: bx, y: by, 'text-anchor': 'middle', 'font-style': 'italic', transform: `rotate(7 ${bx} ${by})` }, `Outside dimension ${(W + 23).toLocaleString('en-US')} mm`));
+    const dp = P(sideX, 0, D * .5); lab.append(s('text', { x: dp[0] + 14 * dir, y: dp[1] + 16, 'font-size': 7.5, transform: `rotate(-62 ${dp[0] + 14 * dir} ${dp[1] + 16})` }, `Side ${D + 23} mm`));
+    kids.push(lab);
+    // selection
+    if (!conflict) { const [c, r] = S.sel, x0 = c * S.width, x1 = x0 + S.width, y0 = r * S.height, y1 = y0 + S.height, a = P(x0, y1, 0), b = P(x1, y0, 0), u = Math.max(14, k * 70);
+      kids.push(s('polygon', { points: pts(P(x0, y0, 0), P(x1, y0, 0), P(x1, y1, 0), P(x0, y1, 0)), fill: 'none', stroke: '#ffe500', 'stroke-width': 3.4, 'pointer-events': 'none', class: 'us-selo' }),
+        s('path', { d: `M${a[0] + 5} ${a[1] + 5}l${u} ${u * .25}l${-u * .62} ${u * .12}l${-u * .1} ${u * .6}z`, fill: '#ffe500', stroke: '#c9b400', 'stroke-width': .6, 'pointer-events': 'none' }),
+        s('path', { d: `M${b[0] - 5} ${b[1] - 5}l${-u} ${-u * .25}l${u * .62} ${-u * .12}l${u * .1} ${-u * .6}z`, fill: '#ffe500', stroke: '#c9b400', 'stroke-width': .6, 'pointer-events': 'none' })); }
+    svg.replaceChildren(...kids);
+    // overlays
+    hint.style.opacity = tab === 'accessories' && !conflict ? 1 : 0; const hp = P(0, H * .35, 0); hint.style.left = Math.max(8, hp[0] - (mob ? 150 : 200)) + 'px'; hint.style.top = hp[1] + 'px'; if (mob) hint.style.width = '140px';
+    cfp.style.display = conflict ? 'block' : 'none'; if (conflict) { const cp = P(0, H * .6, 0); cfp.style.left = Math.max(6, cp[0] - (mob ? 120 : 220)) + 'px'; cfp.style.top = cp[1] + 'px'; }
+    undoB.disabled = !hist.length;
+  }
+  // drag & drop accessories
+  let ghost = null;
+  function dragAcc(th, kind) {
+    th.addEventListener('click', () => { if (th._dragged) return; snap(); S.cells[S.sel.join(',')] = kind; draw(); showPrice(); toast(`${ACC[kind][0]} → compartment ${S.sel[0] + 1}/${S.sel[1] + 1}`); });
+    th.addEventListener('pointerdown', (e) => { th._dragged = false; const sx = e.clientX, sy = e.clientY; let over = null;
+      const mv = (ev) => { if (!ghost && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 6) return; th._dragged = true; if (!ghost) { ghost = h('div.us-ghost', { html: accThumb(kind) }); document.body.append(ghost); } ghost.style.left = ev.clientX + 'px'; ghost.style.top = ev.clientY + 'px'; const t = document.elementFromPoint(ev.clientX, ev.clientY)?.closest?.('[data-cell]'); if (over && over !== t) over.classList.remove('drop'); over = t; if (t) t.classList.add('drop'); };
+      const up = (ev) => { window.removeEventListener('pointermove', mv); window.removeEventListener('pointerup', up); if (ghost) { ghost.remove(); ghost = null; } if (over) { over.classList.remove('drop'); dropOn(over.dataset.cell, kind); } setTimeout(() => (th._dragged = false), 0); };
+      window.addEventListener('pointermove', mv); window.addEventListener('pointerup', up); });
+  }
+  function dropOn(key, kind) { if (S.height < 250 && kind !== 'open' && kind !== 'shelf' && kind !== 'plant') return toast('The accessory does not exist for this compartment size'); snap(); S.cells[key] = kind; S.sel = key.split(',').map(Number); draw(); showPrice(); toast(`${ACC[kind][0]} inserted`); }
+  el.append(top, tb, h('div.us-main', {}, pn, cv), h('div.us-dis', {}, 'Important: The configuration is checked for stability upon completion and safety measures are added if necessary.'));
+  root.append(el);
+  drawTabs(); drawPanel();
+  const fit = () => { el.classList.toggle('m', el.clientWidth <= 760); draw(); }; new ResizeObserver(fit).observe(el); fit(); showPrice();
+  window.__demoProof = async () => {
+    const o = [], q = (sel) => bd.querySelector(sel), cs = (x) => getComputedStyle(x);
+    S = DEF(); hist = []; conflict = null; tab = 'structure'; drawTabs(); drawPanel(); draw(); showPrice(); await sleep(50);
+    o.push(`toolbar: ${tb.querySelectorAll('.us-cb').length} circle icon buttons + live price "${priceTop.textContent}"`);
+    const act = [...bd.querySelectorAll('.us-chip.on')].map((b) => b.textContent); o.push(`Structure tab: ${bd.querySelectorAll('.us-chip').length} mm chips, active (black ${cs(q('.us-chip.on')).backgroundColor}) depth/height/width = ${act.join('/')}`);
+    o.push(`3D cabinet: ${svg.querySelectorAll('[data-cell]').length} compartments, ${svg.querySelectorAll('circle[fill="url(#usNode)"]').length} chrome ball joints, labels [${[...svg.querySelectorAll('text')].slice(0, 3).map((t) => t.textContent).join(' | ')}], yellow selection outline=${!!svg.querySelector('.us-selo')}, extend handles=${svg.querySelectorAll('.us-hd').length}`);
+    q('.us-chip[data-k=width][data-v="500"]').click(); await sleep(450); o.push(`width 500 → price ${priceTop.textContent}`);
+    svg.querySelectorAll('.us-hd')[1].dispatchEvent(new MouseEvent('click', { bubbles: true })); await sleep(450); o.push(`right + handle → ${S.cols} columns (${svg.querySelectorAll('[data-cell]').length} cells), price ${priceTop.textContent}`);
+    undoB.click(); undoB.click(); await sleep(450); o.push(`undo×2 → ${S.cols} cols, width ${S.width}, ${priceTop.textContent}`);
+    q('.us-chip[data-k=height][data-v="175"]').click(); await sleep(60); o.push(`height 175 → conflict prompt visible=${cfp.style.display === 'block'} "${cfp.querySelector('p').textContent.slice(0, 44)}…", red frame=${svg.querySelector('line').getAttribute('stroke')}, chips hidden=${!bd.children.length}`);
+    cfp.querySelector('.cc').click(); await sleep(60); o.push(`Cancel → height back to ${S.height}`);
+    q('.us-chip[data-k=height][data-v="175"]').click(); cfp.querySelector('.rm').click(); await sleep(450); o.push(`Remove → height ${S.height}, elements left ${Object.values(S.cells).filter((a) => a !== 'open').length}, price ${priceTop.textContent}`);
+    undoB.click(); await sleep(60);
+    tabsEl.children[1].click(); await sleep(280); o.push(`Accessories tab: groups [${[...bd.querySelectorAll('h6')].map((x) => x.textContent).join(', ')}], ${bd.querySelectorAll('.us-th').length} thumbnails, drag hint opacity ${cs(hint).opacity}`);
+    const th = bd.querySelector('.us-th[data-acc=glass]'), cell = svg.querySelector('[data-cell="0,0"] polygon'), r1 = th.getBoundingClientRect(), r2 = cell.getBoundingClientRect();
+    th.dispatchEvent(new PointerEvent('pointerdown', { clientX: r1.x + 10, clientY: r1.y + 10, bubbles: true })); window.dispatchEvent(new PointerEvent('pointermove', { clientX: r2.x + r2.width / 2, clientY: r2.y + r2.height / 2 })); window.dispatchEvent(new PointerEvent('pointermove', { clientX: r2.x + r2.width / 2 + 2, clientY: r2.y + r2.height / 2 })); window.dispatchEvent(new PointerEvent('pointerup', { clientX: r2.x + r2.width / 2, clientY: r2.y + r2.height / 2 }));
+    await sleep(60); o.push(`drag Glass door thumbnail onto compartment 0,0 → ${S.cells['0,0']}`);
+    tabsEl.children[2].click(); await sleep(30); o.push(`Color tab: filter [${[...bd.querySelectorAll('.us-cf button')].map((b) => b.textContent).join('/')}], label "${bd.querySelector('.us-cn').textContent}", ${bd.querySelectorAll('.us-sw button').length} RAL swatches, ${bd.querySelectorAll('.us-pt button').length} panel swatches`);
+    bd.querySelectorAll('.us-sw button')[7].click(); await sleep(260); o.push(`swatch → "${bd.querySelector('.us-cn').textContent}", door fill ${svg.querySelector('[data-role=acc]')?.style.fill}`);
+    S = DEF(); hist = []; conflict = null; zoom = 1; flip = false; tab = 'structure'; cfilter = 'all'; drawTabs(); drawPanel(); draw(); shown = 0; showPrice(); document.querySelectorAll('.tg-toast').forEach((t) => t.classList.remove('on')); await sleep(30);
+    return o.join('; ') + ' · stand-ins: the WebGL cabinet is an SVG oblique projection (chrome tubes, ball joints, panels drawn in code) instead of USM\'s 3D renderer; prices are a calibrated formula starting at 1,903.07 €; Gochi Hand substitutes the handwritten prompt font; share/download/chat are demo toasts';
+  };
+};
+V['stedelijk-museum-giant-grotesk-wordmark-sticker-badge-ruled-type-rows-inline-thumbnails-arrow-labels-infinite-marquee-rows-shrink-to-header-black-right-menu-panel'] = (root, T) => {
+  theme(root, T, { bg: '#ffffff', fg: '#000000', ac: '#33ff33', dark: false });
+  import('@fontsource-variable/inter-tight/index.css'); import('@fontsource/permanent-marker/400.css');
+  const G = "'Inter Tight Variable','Helvetica Neue',Arial,sans-serif", GREEN = '#2bff2b', YEL = '#ffd60a';
+  let uid = 0;
+  const art = (i, w = 140, hh = 92) => { const r = rng(i * 733 + 11), id = 'sa' + (uid++), k = i % 7; let b = '';
+    if (k === 0) b = `<rect width="${w}" height="${hh}" fill="#2a1a0c"/>${Array.from({ length: 70 }, () => `<circle cx="${r() * w}" cy="${r() * hh}" r="${2 + r() * 7}" fill="none" stroke="${['#d9a52b', '#f1c74a', '#8a5a1a'][Math.floor(r() * 3)]}" stroke-width="${1 + r() * 2}"/>`).join('')}<circle cx="${w * .5}" cy="${hh * .35}" r="${hh * .1}" fill="#e2261d"/>`;
+    else if (k === 1) b = `<rect width="${w}" height="${hh}" fill="#0078c8"/>${[46, 38, 30, 23, 16, 9].map((rr, j) => `<circle cx="${w / 2}" cy="${hh / 2}" r="${rr * hh / 100}" fill="${['#fff', '#f2a6c8', '#f7d23a', '#e4372e', '#2a8f3b', '#111'][j]}"/>`).join('')}`;
+    else if (k === 2) b = `<rect width="${w}" height="${hh}" fill="#e9e3d6"/><rect x="${w * .1}" y="${hh * .1}" width="${w * .35}" height="${hh * .8}" fill="#c33d5e"/><rect x="${w * .5}" y="${hh * .2}" width="${w * .4}" height="${hh * .6}" fill="#3a5f9a"/><circle cx="${w * .3}" cy="${hh * .4}" r="${hh * .14}" fill="#f4c7a0"/>`;
+    else if (k === 3) b = `<defs><linearGradient id="${id}" x2="0" y2="1"><stop offset="0" stop-color="#b9b2a8"/><stop offset="1" stop-color="#6a645c"/></linearGradient></defs><rect width="${w}" height="${hh}" fill="url(#${id})"/><ellipse cx="${w * .5}" cy="${hh * .42}" rx="${w * .16}" ry="${hh * .26}" fill="#e8c5a8"/><path d="M${w * .28} ${hh} q${w * .22} ${-hh * .5} ${w * .44} 0z" fill="#2b2b33"/><path d="M${w * .58} ${hh * .5}l${w * .2} ${-hh * .05}" stroke="#fff" stroke-width="2"/>`;
+    else if (k === 4) b = `<rect width="${w}" height="${hh}" fill="#f2efe9"/><ellipse cx="${w * .55}" cy="${hh * .62}" rx="${w * .3}" ry="${hh * .2}" fill="#f1b9c2"/><circle cx="${w * .3}" cy="${hh * .4}" r="${hh * .12}" fill="#f6dcc2"/><circle cx="${w * .55}" cy="${hh * .32}" r="${hh * .11}" fill="#fbe7c9"/><path d="M${w * .3} ${hh * .3}l-8 -10M${w * .6} ${hh * .5}l10 -14" stroke="#7bbf6a" stroke-width="4"/>`;
+    else if (k === 5) b = `<rect width="${w}" height="${hh}" fill="#efe9dc"/>${Array.from({ length: 6 }, (_, j) => `<rect x="${j * w / 6 + 3}" y="${hh * .15 + (j % 2) * 6}" width="${w / 6 - 6}" height="${hh * .7}" fill="${['#d14b2a', '#e9b23a', '#4a7fb5', '#c9529a', '#2f2f2f', '#e7d7b1'][j]}"/>`).join('')}`;
+    else b = `<rect width="${w}" height="${hh}" fill="#d9d2c6"/><rect x="${w * .08}" y="${hh * .08}" width="${w * .84}" height="${hh * .84}" fill="#f8f6f1"/><path d="M${w * .2} ${hh * .75}l${w * .2} ${-hh * .45}l${w * .15} ${hh * .3}l${w * .1} ${-hh * .15}l${w * .15} ${hh * .3}z" fill="#5b6b52"/>`;
+    return `<svg viewBox="0 0 ${w} ${hh}" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">${b}</svg>`; };
+  const ROWS = [
+    { t: "WHAT'S ON: EXHIBITIONS & EVENTS", go: 'whatson' },
+    { img: 0, t: 'YAYOI KUSAMA', arrow: 1, lab: ['EXHIBITION'] },
+    { t: 'ADAM PENDLETON: SOME WILD KIND OF LANGUAGE', arrow: 1, lab: ['EXHIBITION', 'UNTIL MAR 2027'] },
+    { t: 'BECOME A FRIEND', arrow: 1, lab: ['NO EXTRA CHARGE', 'NO TIME SLOT RESERVATION'] },
+    { badge: 'ESSEN-\nTIALS\nTOUR', t: 'THE MODERN ART MUSEUM IN ONE HOUR', arrow: 1, lab: ['GUIDED TOUR', 'DAILY'] },
+    { t: 'QUEER GAZE TOUR', img: 1, imgAfter: 1, arrow: 1, lab: [] },
+    { t: 'POST/NO/BILLS #7', img: 2, imgAfter: 1, t2: 'KEXIN HAO — ANATOMY OF A SCREAM', lab: ['STEDELIJK BASE'] },
+    { pre: '2027', t: 'MARC CHAGALL', img: 3, imgAfter: 1, t2: 'A NEW LIGHT', lab: ['OPENS', 'FEB 2027'] },
+    { t: 'TIP: FONDA CAFÉ AND COFFEE BAR', arrow: 1, lab: ['OPEN DAILY'] },
+    { strip: 1 },
+    { t: 'ANNUAL PROGRAM 2026/2027', arrow: 1, lab: ['READ MORE'] },
+    { t: 'FAMILIES', arrow: 1, lab: ['UNDER 18', 'FREE ENTRY'] },
+    { t: 'THE DON QUIXOTE SCHOOL', img: 5, imgAfter: 1, arrow: 1, lab: ['EDUCATION'] },
+  ];
+  const WO = [['YAYOI KUSAMA', 0, 'SEP 11, 2026', 'JAN 17, 2027'], ['COLLECTION', 4, 'MORE THAN 500 WORKS FROM THE COLLECTION', ''], ['ADAM PENDLETON', null, 'SOME WILD KIND OF LANGUAGE', 'MAR 7, 2027'], ['POST/NO/BILLS #7 KEXIN HAO', 2, 'ANATOMY OF A SCREAM', 'DEC 6, 2026'], ['STEDELIJK BASE', 5, 'FROM 1880 TO NOW', ''], ['QUEER GAZE TOUR', 1, 'EVERY SUNDAY', '']];
+  const ARCH = [['SAMSON YOUNG', 'MAY 2026'], ['TOMÁS SARACENO', 'MAR 2026'], ['MARLENE DUMAS', 'JAN 2026'], ['EL LISSITZKY', 'OCT 2025'], ['SUPERFLEX', 'AUG 2025'], ['DESIGN IN TIMES OF WAR', 'JUN 2025']];
+  const arrowSvg = '<svg viewBox="0 0 80 50" width="1.15em" height=".72em" preserveAspectRatio="none"><path d="M0 25h74M50 3l24 22-24 22" fill="none" stroke="currentColor" stroke-width="6"/></svg>';
+  const sticker = `<svg viewBox="0 0 220 74" width="100%" height="100%"><rect x="2" y="4" width="216" height="66" fill="${YEL}"/><text x="110" y="52" text-anchor="middle" font-family="'Permanent Marker',cursive" font-size="42" fill="#111" letter-spacing="-1">Unbubble</text></svg>`;
+  const IC = { srch: '<svg viewBox="0 0 20 20" width="15" height="15"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="#000" stroke-width="2"/><path d="M12.5 12.5L17 17" stroke="#000" stroke-width="2.2"/></svg>', a11y: '<svg viewBox="0 0 22 20" width="17" height="15"><circle cx="7" cy="6" r="3" fill="none" stroke="#000" stroke-width="1.7"/><path d="M1.5 17q1-6 5.5-6t5.5 6" fill="none" stroke="#000" stroke-width="1.7"/><path d="M15 4q2 2.5 0 5M17.5 2q4 4.5 0 9" fill="none" stroke="#000" stroke-width="1.6"/></svg>', menu: '<svg viewBox="0 0 20 16" width="19" height="15"><path d="M1 2h18M1 8h18M1 14h18" stroke="currentColor" stroke-width="2"/></svg>', x: '<svg viewBox="0 0 20 20" width="18" height="18"><path d="M2 2l16 16M18 2L2 18" stroke="#fff" stroke-width="2"/></svg>' };
+  css(`
+.stx{position:absolute;inset:0;overflow:hidden;background:#fff;color:#000;font:400 16px/1.25 ${G};-webkit-font-smoothing:antialiased}
+.stx *{box-sizing:border-box}:where(.stx) button,:where(.stx) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.st-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.st-hd{position:absolute;left:0;right:0;top:0;height:64px;z-index:20;display:flex;align-items:center;padding:0 35px;gap:44px;font-size:21px;background:#fff;transition:box-shadow .2s}.st-hd.sh{box-shadow:inset 0 -1.5px 0 #000}
+.st-hd a:hover{text-decoration:underline;text-underline-offset:4px}.st-hd .ic{display:flex}.st-hd .sp{flex:1}.st-hd .fr{text-decoration:underline;text-underline-offset:4px}.st-hd .bk{background:${GREEN};padding:6px 13px;margin-left:-14px}.st-hd .bk:hover{background:#000;color:${GREEN};text-decoration:none}.st-hd .mn{display:flex;align-items:center;gap:14px;font-size:26px}
+.st-wm{position:absolute;left:35px;top:64px;z-index:21;transform-origin:0 0;cursor:pointer;white-space:nowrap;will-change:transform}.st-wm b{display:block;font:400 var(--wf,260px)/1 ${G};letter-spacing:-.045em;margin-left:-.04em;height:.76em;margin-top:-.12em}
+.st-stk{position:absolute;right:-.5%;top:12%;width:24%;aspect-ratio:220/74;transform:rotate(-14deg);filter:drop-shadow(1px 2px 0 #0002)}
+.st-sp{height:var(--wh,220px)}.st-sub{padding:0 35px 22px;font-size:clamp(18px,2.85vw,41px);letter-spacing:-.01em;line-height:1.05}
+.st-row{border-top:5px solid #000;height:var(--rh,156px);overflow:hidden;position:relative;cursor:pointer}.st-row:last-child{border-bottom:5px solid #000}
+.st-tr{display:flex;align-items:center;height:100%;white-space:nowrap;width:max-content;will-change:transform}.st-it{display:flex;align-items:center;gap:var(--g,22px);padding:0 35px 0 35px;height:100%}
+.st-it .tx{font-size:var(--rf,96px);letter-spacing:-.025em;line-height:1}.st-it .ot{color:#fff;-webkit-text-stroke:1.5px #000;font-size:calc(var(--rf,96px)*.9);line-height:.95}
+.st-it .im{width:calc(var(--rh,156px)*1.38);height:calc(var(--rh,156px)*.83);flex:none;overflow:hidden}.st-it .im.sq{width:calc(var(--rh,156px)*.83)}
+.st-it .ar{font-size:var(--rf,96px);display:flex;align-items:center}.st-it .lb{font-size:calc(var(--rf,96px)*.33);line-height:.98}.st-it .pre{font-size:calc(var(--rf,96px)*.33)}
+.st-it .bd{width:calc(var(--rh,156px)*.85);height:calc(var(--rh,156px)*.85);border-radius:50%;background:#e8231c;color:#fff;display:grid;place-items:center;text-align:center;font-size:calc(var(--rh,156px)*.15);line-height:.95;white-space:pre;border:3px solid #111;flex:none}
+.st-row:hover .tx{text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:8px}
+.st-row.strip{height:calc(var(--rh,156px)*1.5)}
+.st-ov{position:absolute;inset:0;background:#0007;z-index:40;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}.st-ov.on{opacity:1;visibility:visible}
+.st-mp{position:absolute;top:0;right:0;bottom:0;width:67%;background:#0a0a0a;color:#fff;z-index:41;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:64px 1fr;padding:0 34px 0 52px;overflow:auto}.st-mp.on{transform:none}
+.st-mt{grid-column:1/3;display:flex;align-items:center;gap:34px;font-size:20px}.st-mt .sp{flex:1}.st-mt u{text-underline-offset:4px}
+.st-ml{padding-top:16px}.st-ml>div{border-top:1.5px solid #fff;padding:14px 0 12px;opacity:0;transform:translateX(30px);transition:opacity .35s,transform .35s}.st-ml>div:last-child{border-bottom:1.5px solid #fff}.st-mp.on .st-ml>div{opacity:1;transform:none}
+.st-ml b{display:block;font-weight:400;font-size:34px;line-height:1.1}.st-ml b:hover{text-decoration:underline;text-underline-offset:5px}.st-ml a{display:flex;align-items:center;gap:10px;font-size:19px;margin-top:6px}.st-ml a:hover{text-decoration:underline}.st-ml a span{display:inline-flex}
+.st-mi{padding:32px 0 0 150px;font-size:19.5px;line-height:1.25}.st-mi h6{margin:0;font:400 19.5px ${G}}.st-mi p{margin:0 0 24px}.st-mi .bk{background:${GREEN};color:#000;padding:4px 10px;margin-right:18px}.st-mi .r{display:flex;align-items:center;margin-bottom:26px}.st-mi u{text-underline-offset:4px}
+.st-wo{padding-top:64px}.st-wo .bc{padding:24px 70px 0;font-size:20px}.st-wo h1{margin:20px 70px 52px;font:400 clamp(44px,6.2vw,92px)/1 ${G};letter-spacing:-.02em}
+.st-tabs{border-top:2px solid #000;border-bottom:1px solid #000;display:flex;gap:60px;padding:0 70px;height:58px;align-items:center;font-size:19.5px}.st-tabs button{position:relative;height:100%}.st-tabs button.on::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:4px;background:#000}
+.st-wo .cap{padding:50px 35px 22px;font-size:19.5px}.st-wo .st-row{--rh:96px;--rf:62px}
+.st-wo .dt{font-size:24px;letter-spacing:0}.st-wo .dt i{font-style:normal;font-weight:600}
+.st-ck{position:absolute;right:16px;bottom:16px;width:665px;max-width:calc(100% - 32px);background:#000;color:#fff;font-size:13px;line-height:1.4;padding:16px;z-index:30}.st-ck b{display:block;margin-bottom:8px}.st-ck p{margin:0 0 22px}.st-ck .r{display:flex;align-items:center}.st-ck .r span{flex:1}.st-ck .r button{border:1px solid #fff;padding:3px 9px;font-size:16px}.st-ck .r button:first-of-type{background:#fff;color:#000}
+.stx.m .st-hd{padding:0 16px;gap:30px;font-size:19px;height:62px}.stx.m .st-hd .xs{display:none}.stx.m .st-hd .bk{margin-left:0;font-size:16px;padding:5px 8px}.stx.m .st-wm{left:14px;z-index:19}.stx.m .st-sub{padding:0 15px 14px}
+.stx.m .st-it{padding:0 10px 0 16px;gap:12px}.stx.m .st-mp{width:100%;grid-template-columns:1fr;padding:0 22px}.stx.m .st-mt{grid-column:1}.stx.m .st-mi{padding:24px 0 30px}.stx.m .st-ml b{font-size:27px}
+.stx.m .st-wo .bc{padding:16px 16px 0}.stx.m .st-wo h1{margin:16px 16px 30px}.stx.m .st-tabs{padding:0 16px;gap:30px}.stx.m .st-wo .st-row{--rh:66px;--rf:38px}.stx.m .st-wo .dt{font-size:15px}
+`);
+  const el = h('div.stx'), sc = h('div.st-sc');
+  let page = 'home', wtab = 'all', mq = [], raf = 0, menuOpen = false;
+  // header
+  const hd = h('header.st-hd', {}, h('a.xs0', { href: '#', onclick: (e) => { e.preventDefault(); toast('Visit (demo)'); } }, 'Visit'), h('a.xs', { href: '#', onclick: (e) => { e.preventDefault(); go('whatson'); } }, "What's on"), h('button.ic', { html: IC.srch, 'aria-label': 'Search', onclick: () => toast('Search (demo)') }), h('button.ic', { html: IC.a11y, 'aria-label': 'Audio tour', onclick: () => toast('Audio tour (demo)') }), h('span.sp'),
+    h('a.fr.xs', { href: '#', onclick: (e) => { e.preventDefault(); toast('Become a Friend (demo)'); } }, 'Become a Friend'), h('a.bk', { href: '#', onclick: (e) => { e.preventDefault(); toast('Ticket shop (demo)'); } }, 'Book ticket'), h('button.mn', { onclick: () => setMenu(true), 'aria-label': 'Menu' }, h('span.xs', {}, 'Menu'), h('span', { html: IC.menu })));
+  const wmText = h('b', {}, 'STEDELIJK'), wm = h('div.st-wm', { onclick: () => { if (page !== 'home') go('home'); else sc.scrollTo({ top: 0, behavior: 'smooth' }); } }, wmText, h('div.st-stk', { html: sticker }));
+  // rows
+  const rowEl = (R, i) => { const it = h('div.st-it'); const add = (...n) => it.append(...n);
+    if (R.strip) { add(h('div.im', { html: art(3) }), h('div.im', { html: art(4) }), h('span.ot', { html: 'STEDELIJK<br>COLLECTION' }), h('div.im', { html: art(5) }), h('div.im', { html: art(2) })); }
+    else { if (R.pre) add(h('span.pre', {}, R.pre)); if (R.badge) add(h('div.bd', {}, R.badge)); if (R.img != null && !R.imgAfter) add(h('div.im', { html: art(R.img) })); add(h('span.tx', {}, R.t)); if (R.img != null && R.imgAfter) add(h('div.im' + (R.img === 1 ? '.sq' : ''), { html: art(R.img) })); if (R.t2) add(h('span.tx', {}, R.t2)); if (R.arrow) add(h('span.ar', { html: arrowSvg })); if (R.lab?.length) add(h('span.lb', { html: R.lab.join('<br>') })); }
+    const tr = h('div.st-tr', {}, it); const row = h('div.st-row' + (R.strip ? '.strip' : ''), { 'data-i': i, onclick: () => (R.go ? go(R.go) : toast(`${(R.t || 'Stedelijk Collection').replace(/\s+/g, ' ')} (demo)`)) }, tr);
+    row.addEventListener('mouseenter', () => (row._p = true)); row.addEventListener('mouseleave', () => (row._p = false)); return row; };
+  const rowsBox = h('div'), sub = h('div.st-sub', {}, 'MUSEUM OF MODERN AND CONTEMPORARY ART AND DESIGN'), spacer = h('div.st-sp');
+  const home = h('div', {}, spacer, sub, rowsBox);
+  // what's on
+  const woRows = h('div'), tabsEl = h('div.st-tabs');
+  const drawWo = () => { tabsEl.replaceChildren(...[['all', 'All events'], ['archive', 'Archive']].map(([k, l]) => h('button' + (wtab === k ? '.on' : ''), { onclick: () => { wtab = k; drawWo(); } }, l)));
+    const list = wtab === 'all' ? WO.map(([t, im, s2, till], i) => ({ i, t, im, s2, till })) : ARCH.map(([t, d], i) => ({ i, t, s2: d }));
+    woCap.textContent = wtab === 'all' ? 'Current exhibitions' : 'Past exhibitions';
+    woRows.replaceChildren(...list.map((x) => { const it = h('div.st-it', {}, h('span.tx', {}, x.t), x.im != null ? h('div.im', { html: art(x.im) }) : null, x.till ? h('span.ar', { html: arrowSvg }) : null, x.till ? h('span.dt', { html: `${x.s2} <i>TILL</i> ${x.till}` }) : h('span.tx', {}, x.s2)); const row = h('div.st-row', { onclick: () => toast(`${x.t} (demo)`) }, h('div.st-tr', {}, it)); return row; })); setupMarquee(); };
+  const woCap = h('div.cap');
+  const wo = h('div.st-wo', {}, h('div.bc', {}, h('a', { href: '#', onclick: (e) => { e.preventDefault(); go('home'); } }, 'Home')), h('h1', {}, 'NOW AT THE STEDELIJK'), tabsEl, woCap, woRows);
+  // menu
+  const ov = h('div.st-ov', { onclick: () => setMenu(false) });
+  const ML = [["WHAT'S ON", []], ['VISIT', ['Plan your visit', 'Families', 'Guided tours', 'Accessibility', 'FAQ']], ['EDUCATION', []], ['DIG DEEPER', []], ['MUSEUM', []], ['NEWS & PRESS', []], ['SUPPORT US', []]];
+  const arr = '<svg viewBox="0 0 20 14" width="17" height="12"><path d="M0 7h17M11 1l6 6-6 6" fill="none" stroke="#fff" stroke-width="1.8"/></svg>';
+  const ml = h('div.st-ml', {}, ...ML.map(([t, subs], i) => h('div', { style: { transitionDelay: `${100 + i * 60}ms` } }, h('b', { onclick: () => { setMenu(false); if (i === 0) go('whatson'); else toast(`${t} (demo)`); } }, t), ...subs.map((s2) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(`${s2} (demo)`); } }, s2, h('span', { html: arr }))))));
+  const mp = h('div.st-mp', { role: 'dialog', 'aria-label': 'Menu' }, h('div.st-mt', {}, h('a', { href: '#', onclick: (e) => { e.preventDefault(); setMenu(false); go('home'); } }, 'Home'), h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast('Support us (demo)'); } }, 'Support us'), h('u', {}, 'EN ⌄'), h('span.sp'), h('button', { html: IC.x, 'aria-label': 'Close menu', onclick: () => setMenu(false) })), ml,
+    h('div.st-mi', {}, h('h6', {}, 'OPENING HOURS'), h('p', {}, 'Mon - Sun: 10 am - 6 pm'), h('h6', {}, 'PRICES'), h('p', { html: 'Adults: € 22,50<br>Students: € 12,50' }), h('div.r', {}, h('a.bk', { href: '#', onclick: (e) => { e.preventDefault(); toast('Ticket shop (demo)'); } }, 'Book ticket'), h('u', {}, 'Become a Friend')), h('h6', {}, 'ADDRESS'), h('p', { html: 'Museumplein 10<br>1071 DJ Amsterdam<br>info@stedelijk.nl' }), h('a', { href: '#', style: { display: 'flex', alignItems: 'center', gap: '10px' }, onclick: (e) => { e.preventDefault(); toast('Route planner (demo)'); } }, 'Plan your route', h('span', { html: arr }))));
+  function setMenu(on) { menuOpen = on; ov.classList.toggle('on', on); mp.classList.toggle('on', on); }
+  const ck = h('div.st-ck', {}, h('b', {}, 'Wij maken gebruik van cookies'), h('p', {}, "Mogen we cookies plaatsen? Zo kunnen we je de beste website-ervaring bieden. Door op 'Accepteren' te klikken, ga je akkoord met het gebruik van alle cookies zoals omschreven in onze cookieverklaring. Je kunt je toestemming op elk moment wijzigen of intrekken."), h('div.r', {}, h('span', {}, 'Instellen +'), h('button', { onclick: () => ck.remove() }, 'Accepteren'), h('button', { onclick: () => ck.remove() }, 'Noodzakelijke cookies')));
+  // sizing + wordmark shrink
+  let big = 1, wmW = 1, wmH = 1;
+  function size() { wm.style.transform = ''; const W = el.clientWidth, mob = el.classList.contains('m'), pad = mob ? 14 : 35; el.style.setProperty('--wf', '100px'); const w100 = wmText.getBoundingClientRect().width || 560; const f = (W - pad * 2) / w100 * 100 * 1.0; el.style.setProperty('--wf', f + 'px'); wmW = W - pad * 2; wmH = f * .745; el.style.setProperty('--wh', (64 + wmH + (mob ? 10 : 16)) + 'px'); const rh = mob ? 70 : Math.max(96, Math.min(156, W * .105)); el.style.setProperty('--rh', rh + 'px'); el.style.setProperty('--rf', (rh * .62) + 'px'); el.style.setProperty('--g', (mob ? 10 : 22) + 'px'); onScroll(); setupMarquee(); }
+  function onScroll() { const W = el.clientWidth, mob = el.classList.contains('m'), pad = mob ? 14 : 35, s0 = page === 'home' ? sc.scrollTop : 1e4; const p = clamp(s0 / (wmH + 10), 0, 1), e = p, small = (mob ? 0 : 26) / (wmH / .8 * .8 || 1); const sc2 = mob ? 1 - p * 1 : 1 + (small * 1.35 - 1) * e; const tx = mob ? pad : pad + ((W - wmW * (small * 1.35)) / 2 - pad) * e; const ty = mob ? 64 - s0 : 64 + (12 - 64) * e;
+    if (mob) { wm.style.transform = `translate(${tx - pad}px,${Math.min(0, -s0)}px)`; wm.style.opacity = 1; } else { wm.style.transform = `translate(${tx - pad}px,${ty - 64}px) scale(${sc2})`; } hd.classList.toggle('sh', p >= 1 || page !== 'home'); }
+  sc.addEventListener('scroll', onScroll, { passive: true });
+  // marquee
+  function setupMarquee() { mq = []; const host = page === 'home' ? rowsBox : woRows; host.querySelectorAll('.st-row').forEach((row, i) => { const tr = row.firstChild; while (tr.children.length > 1) tr.lastChild.remove(); tr.style.transform = ''; const w = tr.firstChild.scrollWidth; if (w > row.clientWidth + 4) { tr.append(tr.firstChild.cloneNode(true)); mq.push({ row, tr, w, x: 0, v: (i % 2 ? .55 : .8) * (page === 'home' ? 1 : .7) }); } }); }
+  let last = performance.now();
+  const tick = (t) => { const dt = Math.min(50, t - last); last = t; for (const m of mq) { if (m.row._p) continue; m.x -= m.v * dt * .06; if (m.x <= -m.w) m.x += m.w; m.tr.style.transform = `translateX(${m.x.toFixed(1)}px)`; } raf = requestAnimationFrame(tick); };
+  raf = requestAnimationFrame(tick);
+  function go(p) { page = p; setMenu(false); sc.replaceChildren(p === 'home' ? home : wo); sc.scrollTop = 0; wm.style.display = ''; if (p === 'whatson') drawWo(); else { rowsBox.replaceChildren(...ROWS.map(rowEl)); } requestAnimationFrame(() => { onScroll(); setupMarquee(); }); }
+  el.append(sc, hd, wm, ov, mp, ck); root.append(el);
+  go('home');
+  const fit = () => { el.classList.toggle('m', el.clientWidth <= 760); size(); }; new ResizeObserver(fit).observe(el); fit();
+  document.fonts?.ready.then(() => size()); document.fonts?.load("400 100px 'Inter Tight Variable'", 'STEDELIJK').then(() => setTimeout(size, 30)).catch(() => {});
+  window.__demoProof = async () => {
+    const o = [], cs = (x) => getComputedStyle(x); go('home'); await sleep(80); size(); await sleep(60);
+    const bk = hd.querySelector('.bk'); o.push(`header: [${[...hd.querySelectorAll('a,button')].map((a) => a.textContent.trim()).filter(Boolean).join(' / ')}], Book ticket bg ${cs(bk).backgroundColor}`);
+    o.push(`giant wordmark "${wmText.textContent}" ${Math.round(parseFloat(cs(wmText).fontSize))}px (${Math.round(wmText.getBoundingClientRect().width)}px wide of ${el.clientWidth}), sticker rotated ${cs(wm.querySelector('.st-stk')).transform.slice(0, 26)}`);
+    const rows = rowsBox.querySelectorAll('.st-row'); o.push(`${rows.length} ruled type rows (border-top ${cs(rows[0]).borderTopWidth}), ${rowsBox.querySelectorAll('.im').length} inline thumbnails, ${rowsBox.querySelectorAll('.ar').length} arrows, ${rowsBox.querySelectorAll('.lb').length} labels`);
+    const m0 = mq[0], x0 = m0 ? m0.x : 0; await sleep(500); o.push(`marquee rows: ${mq.length} overflowing rows animate (row ${m0?.row.dataset.i} moved ${m0 ? Math.abs(m0.x - x0).toFixed(0) : 0}px in 0.5s)`);
+    const r0 = wm.getBoundingClientRect(); sc.scrollTop = wmH + 40; onScroll(); await sleep(60); const r1 = wm.getBoundingClientRect(); o.push(`scroll (${el.classList.contains('m') ? 'mobile: wordmark scrolls away, top ' + Math.round(r0.top) + '→' + Math.round(r1.top) + 'px' : 'shrink-to-header'}) → wordmark ${Math.round(r0.height)}px → ${Math.round(r1.height)}px tall, centred at x=${Math.round(r1.left + r1.width / 2 - el.getBoundingClientRect().left)} (of ${el.clientWidth}), header rule=${hd.classList.contains('sh')}`);
+    sc.scrollTop = 0; onScroll();
+    hd.querySelector('.mn').click(); await sleep(520); o.push(`Menu → black panel ${Math.round(mp.getBoundingClientRect().width)}px (${cs(mp).backgroundColor}), links [${[...ml.querySelectorAll('b')].map((b) => b.textContent).join(', ')}], VISIT sub-links ${ml.querySelectorAll('a').length}, info column ${mp.querySelector('.st-mi').textContent.includes('Museumplein')}`);
+    mp.querySelector('.st-mt button').click(); await sleep(60); o.push(`× closes menu: ${!mp.classList.contains('on')}`);
+    rowsBox.querySelector('.st-row').click(); await sleep(80); o.push(`WHAT'S ON row → "${wo.querySelector('h1').textContent}", tabs [${[...tabsEl.children].map((b) => b.textContent).join('/')}], ${woRows.children.length} rows, first "${woRows.querySelector('.dt')?.textContent}"`);
+    tabsEl.children[1].click(); await sleep(40); o.push(`Archive tab → ${woRows.children.length} past rows (${woCap.textContent})`);
+    wtab = 'all'; go('home'); document.querySelectorAll('.tg-toast').forEach((t) => t.classList.remove('on')); await sleep(40);
+    return o.join('; ') + ' · stand-ins: exhibition thumbnails are code-drawn SVG instead of artworks; Inter Tight substitutes Stedelijk\'s grotesk and Permanent Marker the "Unbubble" sticker lettering; ticket shop, search and detail pages are demo toasts';
+  };
+};
+V['dishoom-restaurant-menu-cream-serif-letterspaced-caps-nav-arrow-scroll-menu-tabs-dietary-filters-right-drawer-diamond-divider-two-column-dish-list-navy-caps-prices'] = (root, T) => {
+  theme(root, T, { bg: '#efebe0', fg: '#2f2c28', ac: '#1d3d63', dark: false });
+  import('@fontsource/eb-garamond/400.css'); import('@fontsource/eb-garamond/400-italic.css'); import('@fontsource/gilda-display/400.css'); import('@fontsource/lato/400.css'); import('@fontsource/lato/700.css');
+  const SR = "'EB Garamond',Garamond,Georgia,serif", DS = "'Gilda Display','EB Garamond',Georgia,serif", GS = "'Gill Sans','Gill Sans MT',Lato,'Helvetica Neue',sans-serif", CR = '#efebe0', INK = '#2f2c28', NV = '#1d3d63', LN = '#d9d3c3';
+  const D = (n, p, d, t = '') => ({ n, p, d, t: t ? t.split(',') : [] });
+  const MENUS = {
+    'ALL DAY': { title: 'All Day', served: 'Served from 12pm daily.', intro: 'Eat your way through Bombay: delicious lunches and fancy salads, street-side bites, fine snackery or a full-on fiery feast.', cols: [
+      [['CAFÉ SPECIALS', '', [D('Butter Pepper Crab', '26.90', 'A glorious Indo-Chinese sharing affair. Delicate white crab meat in salty-sweet oyster sauce. Strewn with chilli and coriander. Scoop from its shell and pat onto toasted pau.', 'S')]],
+        ['SNACK', '', [D('Papad Basket', '5.50', "Poppadoms torn, then fried 'til crisp. Some green-chilli-flecked, others are not. Best dipped into home-made chutneys. Marries nicely with drinks.", 'Ve,V')]],
+        ['AT LUNCH, AND LATER', 'Satisfyingly agreeable dishes for lunch, or perhaps part of a feast to share at supper-time.', [D('Chole Puri Halwa', '15.90', 'Where to start? Chole (chickpeas), halwa (sweet semolina), pickles (which are pickles) and one giant, crackled, puffy puri. Satisfying morning, noon or night.', 'V'), D('Chilli Broccoli Salad', '15.40', 'Toasted pistachios and shredded mint leaves with finest, greenest broccoli, fresh red chillies, pumpkin and sunflower seeds, cranberries and a little lime.', 'Ve,V,S'), D('Keralan Chicken Salad', '15.40', 'Spoonable freshness. Black pepper and curry leaf chicken with crunchy perky vegetables, curly kale, coconut masala and a vibrant dressing. Chopped and salli-crisp topped.'), D('Pineapple Chaat Salad', '15.40', 'Bright, juicy, soft chilli tingles! Pineapple jumbled with pomegranate, green beans and bulgur. Crisp leaves, veg and toasty pistachios. Jazzed up with masala\'d tamarind.', 'Ve,V'), D('Vada Pau', '7.50', 'Much-loved Bombay street staple, sized for sharing. Two hot potato vada, crunchy titbits and chutneys, tucked inside soft home-made buns. Sprinkle with chilli.', 'Ve,V,S')]]],
+      [['GRILLS', 'First comes the marinade, then the open-air grill. Picture Bademiya in Colaba, a Bombay institution since 1942. A balmy night, with newspapers laid out on old car bonnets. You eat. Savour. Spill.', [D('Murgh Malai', '15.50', 'Chicken thigh meat is steeped overnight in garlic, ginger, coriander stems and a little cream. Slightly pink when fully cooked.'), D('Charred Lamb Chops', '19.90', 'Two chops of generous proportions lie overnight in raw papaya, yoghurt and humble spices. Blackened on the grill and finished with a thrilling Kashmiri chilli sauce. A speciality of new standing.', 'S'), D('Dishoom Chicken Tikka', '15.50', 'A family recipe, using a marinade of sweet vinegar, not yoghurt. Laced with ginger, turmeric, garlic and green chilli. Butter-glossed.', 'S'), D('Masala Prawns', '18.50', 'Skewered and charred slightly at the edges. Slip into green chutney. Succulent and simple, nothing to bamboozle.'), D('Sheekh Kabab', '15.50', 'Sorcery of softest smoky minced lamb, lively with black pepper and green chilli.', 'S'), D('Makhmali Paneer', '14.70', 'Paneer marinated, charred and spiced gently. A flourish of pomegranate. Makhmali means velvety.', 'V'), D('Gunpowder Potatoes', '10.70', 'Potatoes in a crumble. New potatoes are smoky-grilled, broken and tossed with crushed aromatic seeds and green herbs.', 'Ve,V,S')]],
+        ['RUBY MURRAY', '', [D('Chicken Ruby', '18.90', 'A rich, silky Ruby Murray (curry). Tikka-ed chicken with spicy sauce and makhani. Good with roti or rice.', 'S'), D('House Black Daal', '9.90', 'A Dishoom signature. Simmered for over 24 hours for extra depth. Rich, dark and deeply flavoured.', 'V'), D('Mattar Paneer', '13.90', 'Fresh home-made paneer and soft green peas in a light, tomatoey sauce.', 'V')]]]] },
+    BREAKFAST: { title: 'Breakfast', served: 'Served 8am – 11.45am weekdays, 9am – 11.45am weekends.', intro: 'Bombay mornings on a plate: bacon naan rolls, akuri and bottomless House Chai.', cols: [[['NAAN ROLLS', '', [D('Bacon Naan Roll', '8.50', 'Smoked streaky bacon from the Ginger Pig with cream cheese, chilli tomato jam and fresh herbs, wrapped in a just-baked naan.'), D('Egg Naan Roll', '7.20', 'Two fried eggs with runny yolks, cream cheese, chilli tomato jam and fresh herbs, rolled into a just-baked naan.', 'V'), D('Vegan Sausage Naan Roll', '8.50', 'Spiced vegan sausages with chilli tomato jam and coriander, rolled in a naan.', 'Ve,V')]]], [['BIGGER PLATES', '', [D('The Big Bombay', '15.90', 'A Bombay-style full English. Bacon, sausage, masala beans, grilled tomato, mushrooms, fried eggs and buttered pau.'), D('Kejriwal', '9.50', 'Two fried eggs on chilli cheese toast. A Bombay gymkhana classic.', 'V,S'), D('Akuri', '9.90', 'Spicy scrambled eggs, Parsi-style, with buttered pau.', 'V,S'), D('Dishoom Granola', '6.90', 'Toasted oats, nuts and seeds with yoghurt and seasonal fruit.', 'V')]]]] },
+    DRINKS: { title: 'Drinks', served: 'Served all day.', intro: 'Chai, lassis, coolers and the bar\'s famous Bombay cocktails.', cols: [[['CHAI', '', [D('House Chai', '4.50', 'Warming, spiced, milky. Bottomless at breakfast.', 'V'), D('Vegan Chai', '4.50', 'Made with oat milk, just as spicy.', 'Ve,V')]], ['LASSI', '', [D('Mango & Fennel Lassi', '5.90', 'Thick, cooling yoghurt with Alphonso mango and fennel.', 'V'), D('Rose & Cardamom Lassi', '5.90', 'Fragrant, gently sweet.', 'V')]]], [['COCKTAILS', '', [D('Bombay Colada', '11.50', 'Rum, coconut, pineapple, fennel. Swizzled.', 'Ve,V'), D('Chaijito', '11.50', 'A mojito sweetened with chai syrup.', 'Ve,V'), D("Viceroy's Old Fashioned", '12.50', 'Bourbon, ghee-washed, with a dash of masala bitters.')]]]] },
+    PUDDINGS: { title: 'Puddings', served: 'Served from 12pm daily.', intro: 'Sweet endings: kulfi on a stick and chai-laced chocolate.', cols: [[['PUDDINGS', '', [D('Kulfi on a Stick', '5.50', 'Mango, pistachio or chocolate chilli. Traditional Indian ice cream.', 'V'), D('Malai Kulfi', '6.20', 'Rich and creamy, with toasted nuts.', 'V')]]], [['MORE', '', [D('Chocolate Chai Pot', '7.90', 'Dark chocolate mousse with a chai cream.', 'V,S'), D('Gulab Jamun', '6.50', 'Warm milk dumplings in rose syrup.', 'V')]]]] },
+    'LATE PLATES': { title: 'Late Plates', served: 'Served from 9.30pm, Sunday to Thursday.', intro: 'Off-menu dishes, after dusk: the Chef-walle cook what you will not find on the All Day menu.', cols: [[['AFTER DUSK', '', [D('Keema Pau', '11.50', 'Spiced minced lamb and peas with a toasted buttered pau.', 'S'), D('Lamb Raan Bun', '13.50', 'Slow-cooked pulled leg of lamb in a toasted brioche bun.')]]], [['SMALL PLATES', '', [D('Paneer Tikka Roll', '11.90', 'Charred paneer, pickled onions and mint chutney in a roomali roti.', 'V'), D('Okra Fries', '6.50', 'Crisp, salty, a little chilli.', 'Ve,V,S')]]]] },
+  };
+  const TABS = ['ALL DAY', 'BREAKFAST', 'DRINKS', 'PUDDINGS', 'GROUP FEASTS', 'CHRISTMAS FEASTING', 'BREAKFAST FEASTS', 'LATE PLATES', 'KIDS'];
+  const CAFES = ['All Cafés', 'Covent Garden', 'Shoreditch', "King's Cross", 'Carnaby', 'Kensington', 'Canary Wharf', 'Battersea', 'Manchester', 'Birmingham', 'Edinburgh'];
+  const IC = { srch: '<svg viewBox="0 0 20 20" width="15" height="15"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12.5 12.5L17 17" stroke="currentColor" stroke-width="1.5"/></svg>', user: '<svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="7" r="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3 18q1-6 7-6t7 6z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>', bag: '<svg viewBox="0 0 20 20" width="15" height="15"><path d="M4 7h12l-1 11H5z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 7V5.5a2.5 2.5 0 0 1 5 0V7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>', chev: '<svg viewBox="0 0 12 8" width="9" height="6"><path d="M1 1.5l5 5 5-5" fill="none" stroke="#888" stroke-width="1.2"/></svg>', filt: '<svg viewBox="0 0 16 18" width="13" height="15"><path d="M3 1v16M8 1v16M13 1v16" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="4" width="4" height="3" fill="#efebe0" stroke="currentColor"/><rect x="6" y="10" width="4" height="3" fill="#efebe0" stroke="currentColor"/><rect x="11" y="6" width="4" height="3" fill="#efebe0" stroke="currentColor"/></svg>', burger: '<svg viewBox="0 0 24 18" width="24" height="18"><path d="M0 2h24M0 9h24M0 16h24" stroke="currentColor" stroke-width="2"/></svg>' };
+  const arrowL = '<svg viewBox="0 0 44 14" width="30" height="10"><path d="M2 7h40" stroke="currentColor" stroke-width="1.6"/><path d="M9 1L2 7l7 6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M30 2l6 5-6 5M35 2l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="20" cy="7" r="2" fill="currentColor"/></svg>';
+  const arrowR = arrowL.replace('<svg ', '<svg style="transform:scaleX(-1)" ');
+  const diamonds = `<svg width="100%" height="8" preserveAspectRatio="none"><defs><pattern id="dhDia" width="9" height="8" patternUnits="userSpaceOnUse"><path d="M4.5 .8L8 4 4.5 7.2 1 4z" fill="none" stroke="${INK}" stroke-width=".9"/></pattern></defs><rect width="100%" height="8" fill="url(#dhDia)"/></svg>`;
+  const food = (w = 480, hh = 270, seed = 3) => { const r = rng(seed); const bowls = Array.from({ length: 11 }, (_, i) => ({ x: 40 + (i % 5) * 92 + r() * 30, y: 70 + Math.floor(i / 5) * 78 + r() * 18, rr: 26 + r() * 16, c: ['#c4501f', '#d98b2b', '#8f2a17', '#e7b54a', '#6a8a3a', '#b8452a', '#f0d27a'][Math.floor(r() * 7)] }));
+    return `<svg viewBox="0 0 ${w} ${hh}" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="${w}" height="${hh}" fill="#c9431a"/><rect y="${hh * .2}" width="${w}" height="${hh}" fill="#ddd6cb"/>${Array.from({ length: 12 }, () => `<path d="M${r() * w} ${hh * .2 + r() * hh}q${40 + r() * 60} ${-10 + r() * 20} ${90 + r() * 80} ${r() * 30}" stroke="#b5aa98" stroke-width="${.6 + r()}" fill="none" opacity=".7"/>`).join('')}<rect x="${w * .72}" y="0" width="${w * .1}" height="${hh * .35}" rx="6" fill="#f2e6c0" opacity=".9"/><rect x="${w * .6}" y="${hh * .2}" width="${w * .06}" height="${hh * .3}" rx="5" fill="#f4ecd2" opacity=".85"/>${bowls.map((b) => `<ellipse cx="${b.x}" cy="${b.y + 6}" rx="${b.rr + 4}" ry="${b.rr * .62 + 4}" fill="#0005"/><ellipse cx="${b.x}" cy="${b.y}" rx="${b.rr + 3}" ry="${b.rr * .62 + 3}" fill="#151515"/><ellipse cx="${b.x}" cy="${b.y}" rx="${b.rr - 2}" ry="${b.rr * .62 - 2}" fill="${b.c}"/>${Array.from({ length: 6 }, () => `<circle cx="${b.x - b.rr * .5 + r() * b.rr}" cy="${b.y - b.rr * .3 + r() * b.rr * .6}" r="${1.5 + r() * 3}" fill="${['#3f7d2a', '#f3e2b0', '#7a1e10'][Math.floor(r() * 3)]}"/>`).join('')}`).join('')}<path d="M10 ${hh * .3}l70 -30 60 50 -80 30z" fill="#e2b46a"/><path d="M20 ${hh * .3}l55 -22" stroke="#a8742c" stroke-width="2"/><text x="${w * .16}" y="${hh - 8}" font-family="Georgia" font-weight="700" font-size="16" fill="#222" transform="rotate(8 ${w * .16} ${hh - 8})">DISHOOM</text></svg>`; };
+  css(`
+.dhx{position:absolute;inset:0;overflow:hidden;background:${CR};color:${INK};font:400 15px/1.5 ${SR};-webkit-font-smoothing:antialiased}
+.dhx *{box-sizing:border-box}:where(.dhx) button,:where(.dhx) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.dh-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.dh-hd{position:sticky;top:0;z-index:30;height:66px;background:${CR};border-bottom:1px solid ${LN};display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 40px}
+.dh-nv{display:flex;align-items:center;gap:22px;font:600 12.5px/1 ${GS};letter-spacing:.22em}.dh-nv a:hover{text-decoration:underline;text-underline-offset:5px}.dh-nv i{width:1px;height:26px;background:${LN};margin:0 6px}
+.dh-lg{font:400 23px/1 ${DS};letter-spacing:.16em;color:#3a3530}.dh-rt{justify-self:end;display:flex;align-items:center;gap:16px}.dh-bk{border:1.5px solid ${INK};border-radius:16px;padding:6px 13px;font:700 12.5px/1 ${GS};letter-spacing:.02em}.dh-bk:hover{background:${INK};color:${CR}}
+.dh-in{display:grid;grid-template-columns:1fr 1fr;margin:44px 40px 18px;gap:36px}.dh-in .l{border-left:1px solid ${LN};border-right:1px solid ${LN};padding:18px 120px 18px 62px}
+.dh-in small{display:block;font:400 17px ${SR};letter-spacing:.04em}.dh-in h1{margin:6px 0 20px;font:400 39px/1.1 ${DS}}.dh-in p{margin:0 0 22px;font-size:17.5px;line-height:1.6;text-align:justify}
+.dh-in label{display:block;font:700 13.5px ${SR};margin-bottom:6px}.dh-sel{position:relative;width:340px}.dh-sel>button{width:100%;height:40px;border:1px solid ${LN};background:#f4f1e9;padding:0 12px;display:flex;align-items:center;justify-content:space-between;font:400 14px ${SR}}
+.dh-sel ul{position:absolute;left:0;right:0;top:41px;margin:0;padding:4px 0;list-style:none;background:#f7f5ef;border:1px solid ${LN};z-index:5;display:none;max-height:240px;overflow:auto;box-shadow:0 8px 20px #0001}.dh-sel.on ul{display:block}.dh-sel li{padding:6px 12px;cursor:pointer;font-size:14px}.dh-sel li:hover,.dh-sel li.on{background:#e8e3d6}
+.dh-ph{height:380px;overflow:hidden}
+.dh-tb{position:sticky;top:66px;z-index:25;background:${CR};border-top:1px solid ${LN};border-bottom:1px solid ${LN};height:58px;display:flex;align-items:center;padding:0 40px}
+.dh-ar{width:58px;height:100%;display:grid;place-items:center;color:${INK};transition:opacity .2s}.dh-ar:disabled{opacity:.25;cursor:default}.dh-ar.l{border-right:1px solid ${LN};margin-right:12px}.dh-ar.r{border-left:1px solid ${LN};margin-left:4px}
+.dh-tl{flex:1;display:flex;gap:26px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;height:100%;align-items:center}.dh-tl::-webkit-scrollbar{display:none}
+.dh-tl button{white-space:nowrap;font:600 12.5px/1 ${GS};letter-spacing:.2em;padding:6px 0;border-bottom:1.5px solid transparent;color:#4a4540}.dh-tl button:hover{color:#000}.dh-tl button.on{border-color:${INK};color:${INK}}
+.dh-df{display:flex;align-items:center;gap:10px;font:600 12.5px/1 ${GS};letter-spacing:.2em;border-left:1px solid ${LN};padding-left:20px;height:100%;white-space:nowrap}.dh-df b{font:inherit;background:${NV};color:#fff;border-radius:9px;padding:2px 6px;letter-spacing:0;font-size:11px}
+.dh-mn{margin:0 110px;border-left:1px solid ${LN};border-right:1px solid ${LN};padding:40px 32px 60px}
+.dh-mh{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding-bottom:44px;border-bottom:1px solid ${LN}}.dh-mh h2{margin:0 0 18px;font:400 30px/1 ${DS}}.dh-mh em{display:block;font-size:15px;margin-bottom:22px}.dh-mh>div:first-child a{font-style:italic;text-decoration:underline;text-underline-offset:3px}.dh-mh p{margin:0 0 30px;font-style:italic;font-size:15px}
+.dh-btn{display:inline-block;background:#33373a;color:#fff;padding:4px;font:700 13.5px ${GS};letter-spacing:.03em}.dh-btn span{display:block;border:1px solid #fff9;padding:9px 20px}.dh-btn:hover{background:#000}.dh-btn.o{background:none;color:${INK};border:1.5px solid ${INK}}.dh-btn.o span{border-color:${INK}}
+.dh-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-top:40px}.dh-col>section{padding-bottom:26px;margin-bottom:34px;border-bottom:1px solid ${LN}}.dh-col>section:last-child{border:0}
+.dh-col h3{margin:0 0 24px;font:700 13px/1 ${GS};letter-spacing:.2em}.dh-col h3+i{display:block;font-size:14px;margin:-10px 0 24px;line-height:1.45}
+.dh-dish{margin-bottom:26px;transition:opacity .25s}.dh-dish h4{margin:0 0 9px;font:600 13px/1.2 ${GS};letter-spacing:.24em;color:${NV}}.dh-dish p{margin:0;font-size:15px;line-height:1.55}
+.dh-empty{font-style:italic;opacity:.7}
+.dh-ov{position:absolute;inset:0;background:#2f2c2855;z-index:50;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}.dh-ov.on{opacity:1;visibility:visible}
+.dh-dr{position:absolute;top:0;right:0;bottom:0;width:45%;background:${CR};z-index:51;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding:26px 40px 30px}.dh-dr.on{transform:none}
+.dh-dr header{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.dh-dr header b{font:700 15px ${GS};letter-spacing:.06em}.dh-dr header button{font:600 11.5px ${GS};letter-spacing:.2em}
+.dh-dr h5{margin:30px 0 14px;font:700 15px ${GS};letter-spacing:.06em}.dh-ch{display:flex;gap:8px}.dh-ch button{border:1px solid #c9c2b0;padding:9px 10px;font-size:13px;background:#f4f1e9}.dh-ch button.on{background:${INK};color:${CR};border-color:${INK}}
+.dh-dr .sp{flex:1}.dh-cl{border:1.5px solid ${INK};padding:3px}.dh-cl span{display:block;border:1px solid ${INK};padding:9px;text-align:center;font:700 13.5px ${GS}}.dh-cl:hover{background:#e6e1d4}
+.dh-pm{position:absolute;inset:0;z-index:60;display:grid;place-items:center;background:#2f2c28aa;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}.dh-pm.on{opacity:1;visibility:visible}
+.dh-pb{width:450px;max-width:calc(100% - 40px);background:#163a5f;color:#fff;padding:5px 5px 34px;text-align:center;position:relative;transform:translateY(16px);transition:transform .35s}.dh-pm.on .dh-pb{transform:none}.dh-pb .ph{height:290px;overflow:hidden}
+.dh-pb>button.x{position:absolute;right:0;top:-24px;background:#163a5f;padding:5px 12px;font:600 11.5px ${GS};letter-spacing:.2em}.dh-pb h3{margin:24px 0 18px;font:400 28px ${DS}}.dh-pb p{margin:0 auto 14px;max-width:340px;font-size:15px}.dh-pb .b2{display:inline-block;border:1.5px solid #fff;padding:3px;margin-top:6px}.dh-pb .b2 span{display:block;border:1px solid #fff;padding:9px 12px;font:700 13.5px ${GS}}.dh-pb .b2:hover{background:#fff2}
+.dh-ck{position:absolute;right:40px;bottom:40px;width:440px;background:#33373a;color:#fff;padding:20px 26px;z-index:40;border-radius:3px;box-shadow:0 8px 30px #0003}.dh-ck b{display:block;font:700 18px ${SR};margin-bottom:10px}.dh-ck p{margin:0 0 20px;font-size:13px;line-height:1.5}.dh-ck p u{text-underline-offset:2px}.dh-ck .r{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.dh-ck .r button{border:1px solid #fff;padding:9px 0;font-size:12.5px}.dh-ck .r button:last-child{background:#6a6d70}
+.dh-fp{display:none}
+.dhx.m .dh-hd{grid-template-columns:auto 1fr auto;padding:0 20px;gap:12px;height:72px}.dhx.m .dh-nv{display:none}.dhx.m .dh-bg{display:flex}.dhx.m .dh-lg{justify-self:start;font-size:21px}.dhx.m .dh-rt{gap:10px}.dhx.m .dh-bk{padding:5px 9px}
+.dhx.m .dh-in{grid-template-columns:1fr;margin:24px 20px 20px;gap:20px}.dhx.m .dh-in .l{border:0;padding:0}.dhx.m .dh-in p{display:none}.dhx.m .dh-sel{width:100%}.dhx.m .dh-ph{display:none}.dhx.m .dh-in h1{font-size:36px;margin-bottom:14px}
+.dhx.m .dh-tb{top:72px;padding:0 0 0 20px}.dhx.m .dh-ar,.dhx.m .dh-df{display:none}.dhx.m .dh-mn{margin:0 20px;border:0;padding:30px 0 90px}.dhx.m .dh-mh,.dhx.m .dh-cols{grid-template-columns:1fr;gap:0}.dhx.m .dh-mh .r{display:flex;flex-direction:column;gap:10px}.dhx.m .dh-btn{text-align:center}
+.dhx.m .dh-dr{width:100%;padding:22px 20px}.dhx.m .dh-ck{left:12px;right:12px;width:auto;bottom:12px}
+.dhx.m .dh-fp{display:block;position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:35;background:${CR};border:1.5px solid ${INK};padding:3px}.dhx.m .dh-fp span{display:flex;align-items:center;gap:10px;border:1px solid ${INK};padding:8px 54px;font:600 12.5px ${GS};letter-spacing:.2em;white-space:nowrap}
+.dh-bg{display:none}
+`);
+  const el = h('div.dhx'), sc = h('div.dh-sc');
+  let tab = 'ALL DAY', cafe = 'All Cafés', only = new Set(), hide = new Set(), promoShown = false;
+  const link = (t, fn) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); fn ? fn() : toast(`${t} (demo)`); } }, t);
+  const hd = h('header.dh-hd', {}, h('div.dh-nv', {}, link('EXPLORE'), h('i'), link('CAFÉS'), link('MENUS'), link('SHOP'), link('FESTIVITIES')), h('button.dh-bg', { html: IC.burger, 'aria-label': 'Menu', onclick: () => toast('Menu (demo)') }), h('a.dh-lg', { href: '#', onclick: (e) => { e.preventDefault(); sc.scrollTo({ top: 0, behavior: 'smooth' }); } }, 'DISHOOM'),
+    h('div.dh-rt', {}, h('button', { html: IC.srch, 'aria-label': 'Search', onclick: () => toast('Search (demo)') }), h('button', { html: IC.user, 'aria-label': 'Account', onclick: () => toast('Account (demo)') }), h('button', { html: IC.bag, 'aria-label': 'Basket', onclick: () => toast('Basket (demo)') }), h('a.dh-bk', { href: '#', onclick: (e) => { e.preventDefault(); toast('Book a table (demo)'); } }, h('span.xs', {}, el.clientWidth <= 760 ? 'Book' : 'Book a table'))));
+  const selLab = h('span'), selUl = h('ul'), sel = h('div.dh-sel', {}, h('button', { onclick: () => sel.classList.toggle('on') }, selLab, h('span', { html: IC.chev })), selUl);
+  const drawSel = () => { selLab.textContent = cafe; selUl.replaceChildren(...CAFES.map((c) => h('li' + (c === cafe ? '.on' : ''), { onclick: () => { cafe = c; sel.classList.remove('on'); drawSel(); drawMenu(); toast(c === 'All Cafés' ? 'Showing all cafés' : `${c} specials added`); } }, c))); };
+  const intro = h('div.dh-in', {}, h('div.l', {}, h('small', {}, 'Bombay comfort food'), h('h1', {}, 'Our Menus'), h('p', {}, "At Dishoom, you'll find the food of all Bombay – its cafés, grills, street stalls, homes and everything delicious in between. Come, eat your way through the city with us, for breakfast, lunch, afternoon chai, dinner or late-night tipples. Much awaits you."), h('label', {}, 'Select a Café to explore their specials:'), sel), h('div.dh-ph', { html: food() }));
+  const tl = h('div.dh-tl'), arL = h('button.dh-ar.l', { html: arrowL, 'aria-label': 'Scroll tabs left', onclick: () => tl.scrollBy({ left: -260 }) }), arR = h('button.dh-ar.r', { html: arrowR, 'aria-label': 'Scroll tabs right', onclick: () => tl.scrollBy({ left: 260 }) });
+  const dfCount = h('b', { style: { display: 'none' } }), dfB = h('button.dh-df', { onclick: () => setDrawer(true) }, h('span', { html: IC.filt }), 'DIETARY FILTERS', dfCount);
+  const tb = h('div.dh-tb', {}, arL, tl, arR, dfB);
+  const updArrows = () => { arL.disabled = tl.scrollLeft <= 2; arR.disabled = tl.scrollLeft + tl.clientWidth >= tl.scrollWidth - 2; };
+  tl.addEventListener('scroll', updArrows, { passive: true });
+  const drawTabs = () => { tl.replaceChildren(...TABS.map((t) => h('button' + (t === tab ? '.on' : ''), { onclick: (e) => { tab = t; drawTabs(); drawMenu(); e.currentTarget.scrollIntoView?.({ inline: 'nearest', block: 'nearest' }); const y = tb.offsetTop - 66; if (sc.scrollTop > y) sc.scrollTop = y; } }, t))); requestAnimationFrame(updArrows); };
+  const mn = h('div.dh-mn');
+  const pass = (d) => (!only.size || [...only].every((x) => d.t.includes(x === 'Vegetarian' ? 'V' : 'Ve'))) && !(hide.has('Spicy') && d.t.includes('S'));
+  const tagTxt = (d) => { const t = d.t.filter((x) => x !== 'S'); const s2 = d.t.includes('S') ? ' (S)' : ''; return t.length ? ` (${t.join(', ')})${s2}` : s2; };
+  function drawMenu() { const M = MENUS[tab] || { title: tab[0] + tab.slice(1).toLowerCase(), served: 'Available at all cafés.', intro: 'A selection of Dishoom favourites, perfect for sharing.', cols: MENUS['ALL DAY'].cols.map((c) => c.slice(0, 1)) };
+    const special = cafe !== 'All Cafés' ? [[`${cafe.toUpperCase()} SPECIAL`, '', [D(`${cafe} Lamb Biryani`, '17.90', `Only at Dishoom ${cafe}: layered rice, tender lamb and caramelised onions, sealed and slow-cooked.`, 'S')]]] : [];
+    let shown = 0; const col = (secs) => h('div.dh-col', {}, ...secs.map(([t, i, dishes]) => { const ds = dishes.filter(pass); shown += ds.length; if (!ds.length) return null; return h('section', {}, h('h3', {}, t), i ? h('i', {}, i) : null, ...ds.map((d) => h('div.dh-dish', { 'data-tags': d.t.join(',') }, h('h4', {}, `${d.n.toUpperCase()} ${d.p}`), h('p', {}, d.d + tagTxt(d))))); }));
+    const c1 = col([...special, ...M.cols[0]]), c2 = col(M.cols[1] || []);
+    mn.replaceChildren(h('div.dh-mh', {}, h('div', {}, h('h2', {}, M.title), h('em', {}, M.served), h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast('Allergen guide (demo)'); } }, 'View allergens.')), h('div.r', {}, h('p', {}, M.intro), h('a.dh-btn', { href: '#', onclick: (e) => { e.preventDefault(); toast('Reservations (demo)'); } }, h('span', {}, 'Make a reservation')), ' ', h('a.dh-btn.o', { href: '#', onclick: (e) => { e.preventDefault(); toast('Group bookings (demo)'); } }, h('span', {}, 'Group bookings')))),
+      h('div.dh-cols', {}, c1, c2), shown ? null : h('p.dh-empty', {}, 'No dishes match your dietary filters. Try clearing your selection.'));
+    const n = only.size + hide.size; dfCount.style.display = n ? '' : 'none'; dfCount.textContent = n; fpCount.textContent = n ? ` (${n})` : ''; }
+  // drawer
+  const ov = h('div.dh-ov', { onclick: () => setDrawer(false) });
+  const chip = (set, v) => h('button' + (set.has(v) ? '.on' : ''), { 'aria-pressed': set.has(v), onclick: () => { set.has(v) ? set.delete(v) : set.add(v); drawDr(); drawMenu(); } }, v);
+  const drBody = h('div');
+  const drawDr = () => drBody.replaceChildren(h('h5', {}, 'SHOW ONLY DISHES THAT ARE...'), h('div.dh-ch', {}, chip(only, 'Vegetarian'), chip(only, 'Vegan')), h('h5', {}, 'HIDE DISHES THAT ARE...'), h('div.dh-ch', {}, chip(hide, 'Spicy')));
+  const dr = h('aside.dh-dr', { role: 'dialog', 'aria-label': 'Dietary filters' }, h('header', {}, h('b', {}, 'DIETARY FILTERS'), h('button', { onclick: () => setDrawer(false) }, '✕ CLOSE')), h('div', { html: diamonds }), drBody, h('div.sp'), h('button.dh-cl', { onclick: () => { only.clear(); hide.clear(); drawDr(); drawMenu(); } }, h('span', {}, 'Clear selection')));
+  function setDrawer(on) { ov.classList.toggle('on', on); dr.classList.toggle('on', on); }
+  // promo
+  const pm = h('div.dh-pm', { onclick: (e) => { if (e.target === pm) setPromo(false); } }, h('div.dh-pb', {}, h('button.x', { onclick: () => setPromo(false) }, '× CLOSE'), h('div.ph', { html: food(440, 290, 9) }), h('h3', {}, 'Off-menu dishes, after dusk'), h('p', {}, 'Indulge in Late Plates, when our Chef-walle cook off-menu: dishes that you will not find on the All Day menu, served only late at night.'), h('p', { html: '<b>Book a table from 9.30pm.</b><br><i>Sunday to Thursday.</i>' }), h('a.b2', { href: '#', onclick: (e) => { e.preventDefault(); setPromo(false); tab = 'LATE PLATES'; drawTabs(); drawMenu(); tl.querySelector('.on')?.scrollIntoView?.({ inline: 'center', block: 'nearest' }); sc.scrollTop = tb.offsetTop - 66; } }, h('span', {}, 'Book for Late Plates'))));
+  function setPromo(on) { pm.classList.toggle('on', on); if (on) promoShown = true; }
+  const promoT = setTimeout(() => { if (!promoShown && document.body.contains(el)) setPromo(true); }, 9000);
+  const ck = h('div.dh-ck', {}, h('b', {}, 'The best cookies are for dipping'), h('p', { html: 'Preferably into a warming cup of our House Chai. Regrettably, our digital cookies are less tasty than <i>nankhatai</i> or <i>jeera</i> biscuits. Kindly accept or adjust your preferences, for an optimised experience. For more, read our <u>Privacy Policy</u>' }), h('div.r', {}, h('button', { onclick: () => toast('Cookie settings (demo)') }, 'Customize'), h('button', { onclick: () => ck.remove() }, 'Reject All'), h('button', { onclick: () => ck.remove() }, 'Accept All')));
+  const fpCount = h('span'); const fp = h('button.dh-fp', { onclick: () => setDrawer(true) }, h('span', {}, h('i', { html: IC.filt, style: { display: 'flex' } }), 'DIETARY FILTERS', fpCount));
+  sc.append(hd, intro, tb, mn);
+  el.append(sc, fp, ov, dr, pm, ck); root.append(el);
+  drawSel(); drawTabs(); drawDr(); drawMenu();
+  document.addEventListener('pointerdown', (e) => { if (!sel.contains(e.target)) sel.classList.remove('on'); });
+  const fit = () => { el.classList.toggle('m', el.clientWidth <= 760); hd.querySelector('.dh-bk span').textContent = el.clientWidth <= 760 ? 'Book' : 'Book a table'; updArrows(); }; new ResizeObserver(fit).observe(el); fit();
+  window.__demoProof = async () => {
+    const o = [], cs = (x) => getComputedStyle(x); clearTimeout(promoT); promoShown = true; tab = 'ALL DAY'; only.clear(); hide.clear(); cafe = 'All Cafés'; drawSel(); drawTabs(); drawDr(); drawMenu(); tl.scrollLeft = 0; await sleep(60);
+    o.push(`header: caps nav (${cs(hd.querySelector('.dh-nv')).letterSpacing} tracking) + serif wordmark "${hd.querySelector('.dh-lg').textContent}" (${cs(hd.querySelector('.dh-lg')).fontFamily.split(',')[0]}) + "${hd.querySelector('.dh-bk').textContent}" pill`);
+    o.push(`intro: H1 "${intro.querySelector('h1').textContent}", café select "${selLab.textContent}"`);
+    sel.querySelector('button').click(); await sleep(30); o.push(`café dropdown ${selUl.children.length} cafés open=${sel.classList.contains('on')}`); selUl.children[2].click(); await sleep(40); o.push(`→ "${cafe}" adds special "${mn.querySelector('h3').textContent}"`); cafe = 'All Cafés'; drawSel(); drawMenu();
+    const nAll = mn.querySelectorAll('.dh-dish').length; o.push(`menu: ${mn.querySelectorAll('.dh-col').length} columns, ${nAll} dishes, name colour ${cs(mn.querySelector('.dh-dish h4')).color} e.g. "${mn.querySelector('.dh-dish h4').textContent}"`);
+    o.push(`tab bar: ${tl.children.length} tabs, left arrow disabled=${arL.disabled}, overflow=${tl.scrollWidth > tl.clientWidth}`);
+    if (tl.scrollWidth > tl.clientWidth) { tl.style.scrollBehavior = 'auto'; arR.click(); await sleep(80); o.push(`→ arrow scrolls tabs to ${Math.round(tl.scrollLeft)}px, left arrow enabled=${!arL.disabled}`); tl.scrollLeft = 0; tl.style.scrollBehavior = ''; }
+    tl.children[2].click(); await sleep(40); o.push(`DRINKS tab → "${mn.querySelector('h2').textContent}" ${mn.querySelectorAll('.dh-dish').length} dishes`); tl.children[0].click(); await sleep(30);
+    (el.classList.contains('m') ? fp : dfB).click(); await sleep(450); o.push(`Dietary Filters drawer open (${Math.round(dr.getBoundingClientRect().width)}px, diamond divider, sections [${[...drBody.querySelectorAll('h5')].map((x) => x.textContent).join(' | ')}])`);
+    drBody.querySelectorAll('.dh-ch button')[1].click(); await sleep(30); const nVe = mn.querySelectorAll('.dh-dish').length; o.push(`Vegan → ${nVe}/${nAll} dishes [${[...mn.querySelectorAll('.dh-dish h4')].slice(0, 3).map((x) => x.textContent).join(', ')}…]`);
+    drBody.querySelectorAll('.dh-ch')[1].querySelector('button').click(); await sleep(30); o.push(`+ hide Spicy → ${mn.querySelectorAll('.dh-dish').length} dishes, filter badge "${dfCount.textContent}"`);
+    dr.querySelector('.dh-cl').click(); await sleep(30); o.push(`Clear selection → ${mn.querySelectorAll('.dh-dish').length} dishes`); setDrawer(false); await sleep(420);
+    setPromo(true); await sleep(380); o.push(`navy promo modal "${pm.querySelector('h3').textContent}" bg ${cs(pm.querySelector('.dh-pb')).backgroundColor}`); pm.querySelector('.b2').click(); await sleep(50); o.push(`"Book for Late Plates" → tab ${tab}, modal closed=${!pm.classList.contains('on')}`);
+    if (el.classList.contains('m')) o.push(`mobile floating filter pill visible=${cs(fp).display !== 'none'}`);
+    tab = 'ALL DAY'; drawTabs(); drawMenu(); sc.scrollTop = 0; tl.scrollLeft = 0; document.querySelectorAll('.tg-toast').forEach((t) => t.classList.remove('on')); await sleep(40);
+    return o.join('; ') + ' · stand-ins: food photography is a code-drawn SVG table spread; EB Garamond / Gilda Display substitute Dishoom\'s serifs and Lato their Gill Sans caps; reservations, allergens and café specials are demo behaviour';
+  };
+};
+// @@sync-2026-10-22-20-end
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

@@ -5478,5 +5478,35 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.52
+ },
+ "usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price": {
+  "bg": "#ffffff",
+  "fg": "#2e4b65",
+  "panel": "#eaeff3",
+  "dark": false,
+  "ac": "#2e4b65",
+  "ac2": "#2d4962",
+  "ac3": "#5b7b8d",
+  "coverage": 0.26
+ },
+ "stedelijk-museum-giant-grotesk-wordmark-sticker-badge-ruled-type-rows-inline-thumbnails-arrow-labels-infinite-marquee-rows-shrink-to-header-black-right-menu-panel": {
+  "bg": "#ffffff",
+  "fg": "#0a0a0a",
+  "panel": "#eaeaea",
+  "dark": false,
+  "ac": "#f8e99f",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.51
+ },
+ "dishoom-restaurant-menu-cream-serif-letterspaced-caps-nav-arrow-scroll-menu-tabs-dietary-filters-right-drawer-diamond-divider-two-column-dish-list-navy-caps-prices": {
+  "bg": "#f0ece0",
+  "fg": "#3f2e24",
+  "panel": "#f3efe3",
+  "dark": false,
+  "ac": "#3f2e24",
+  "ac2": "#ab7645",
+  "ac3": "#cfa66e",
+  "coverage": 0.47
  }
 }
