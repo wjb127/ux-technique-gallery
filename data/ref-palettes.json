@@ -5538,5 +5538,35 @@
   "ac2": "#67a5ad",
   "ac3": "#a0860e",
   "coverage": 0.08
+ },
+ "fontsinuse-archive-condensed-wordmark-tabs-ruled-dropdown-bar-image-grid-specimen-name-captions-staff-pick-ribbon-sponsor-tile-use-detail-sidebar": {
+  "bg": "#ffffff",
+  "fg": "#464b53",
+  "panel": "#f2f1ef",
+  "dark": false,
+  "ac": "#0f1837",
+  "ac2": "#1e2035",
+  "ac3": "#76465c",
+  "coverage": 0.47
+ },
+ "olafureliasson-news-stream-floating-cutout-object-staggered-media-column-menu-opens-pastel-gradient-wash-charcoal-right-drawer": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#d8d8d8",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.65
+ },
+ "bear-app-hero-device-switcher-hand-drawn-sketch-underline-color-per-device-mac-three-pane-iphone-fan-ipad-sketch-toolbar-award-laurels": {
+  "bg": "#ffffff",
+  "fg": "#4c6076",
+  "panel": "#f4f5f6",
+  "dark": false,
+  "ac": "#4c6076",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.74
  }
 }
