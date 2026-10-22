@@ -2025,32 +2025,6 @@
   "built": true
  },
  {
-  "id": "clone-ableton-learning-music-clip-launch-grid-step-sequencer-playhead-lessons",
-  "slug": "ableton-learning-music-clip-launch-grid-step-sequencer-playhead-lessons",
-  "name": "Ableton Learning Music clip-launch grid + 16-step beat sequencer with playhead + chapter lessons",
-  "date": "2026-10-17",
-  "slot": "00:00",
-  "lens": "aesthetic-interactive-craft",
-  "url": "https://learningmusic.ableton.com/",
-  "domain": "learningmusic.ableton.com",
-  "product": "Ableton Learning Music — free in-browser music-making lessons",
-  "checkpoints": [
-   "Flat graphite shell: left Chapters rail + hamburger, Ableton bars logo top-right, lesson counter 1/10: Beats",
-   "Futura-style white headline + short instructional copy left column",
-   "Get started 4x4 clip grid (Drums/Bass/Chords/Melodies) where a clicked tile turns teal with stop icon, sibling in column dims",
-   "16-step grid (Hihat/Closed Hat/Clap/Kick rows) with yellow toggled cells, bar dividers every 4 steps, step numbers under",
-   "Play/Pause square + Reset + Clear + Export to Live, white vertical playhead sweeping in tempo + tempo slider",
-   "Black coachmark tooltip (Click this button to start and stop playback / Close) and Web Audio playback"
-  ],
-  "checkpoint_source": "ledger",
-  "short": "Ableton Learning Music clip-launch grid + 16-step beat sequencer with playhead + chapter lessons",
-  "ko": "Ableton Learning Music 스타일 사운드 클론",
-  "engine": null,
-  "variant": "ableton-learning-music-clip-launch-grid-step-sequencer-playhead-lessons",
-  "path": "/t/ableton-learning-music-clip-launch-grid-step-sequencer-playhead-lessons/",
-  "built": false
- },
- {
   "id": "clone-halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone",
   "slug": "halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone",
   "name": "Halide Mark III dark camera-gear hero + iPad/iPhone device stack + pegboard Quick Edit phone reveal",
