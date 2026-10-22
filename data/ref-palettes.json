@@ -5418,5 +5418,35 @@
   "ac2": "#13427a",
   "ac3": "#f05a5a",
   "coverage": 0.0
+ },
+ "ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup": {
+  "bg": "#fdf3ec",
+  "fg": "#661b33",
+  "panel": "#b5d3d6",
+  "dark": false,
+  "ac": "#ee6482",
+  "ac2": "#4a7bc0",
+  "ac3": "#c7a487",
+  "coverage": 0.0
+ },
+ "hoxton-hotel-cream-split-hero-big-light-title-city-card-rail-arrows-select-location-region-accordion-panel-find-a-room-booking-drawer-tabs-steppers": {
+  "bg": "#fdf3e6",
+  "fg": "#1d1b19",
+  "panel": "#e6dccd",
+  "dark": false,
+  "ac": "#f58b6f",
+  "ac2": "#3d3935",
+  "ac3": "#7a6ad8",
+  "coverage": 0.0
+ },
+ "kexp-radio-dark-header-live-now-playing-strip-play-button-volume-menu-overlay-playlist-page-station-select-date-time-picker-track-cards-on-air-dj": {
+  "bg": "#fdfcf7",
+  "fg": "#231f20",
+  "panel": "#efecdc",
+  "dark": false,
+  "ac": "#fbad18",
+  "ac2": "#7a5214",
+  "ac3": "#e8392b",
+  "coverage": 0.0
  }
 }
