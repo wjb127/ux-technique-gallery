@@ -4408,5 +4408,32 @@
   "proof": "three-point header \"Snøhetta\" / \"Menu\" / icon; light statement 59.76px weight 300; collage of 7 photos, focused #3 518px wide vs neighbour 346px, caption \"Lech Mountain Mirror\" visible=true; hover photo #4 → it grows to 518px (was ~345px), caption \"Café Atlas / An interior shaped around light\" shown=true, #3 caption hidden=true; hairline discipline list (5 items, 46px); events table 5 rows × 3 columns (Event / Location / Date); Menu → blurred overlay open=true (backdrop blur(22px)), button now \"Close\", big links People/Process/Projects, search field, 3 link columns; Close → overlay hidden=true; click focused photo → project page shown=true: black title \"Lech Mountain Mirror\" + grey subtitle (rgb(154, 154, 154)), full-bleed photo, 6 highlighted project rows with grey descriptions running off the edge · stand-ins: all project photos are code-drawn SVG scenes; Geist (light) substitutes Snøhetta’s grotesk; the collage refocus-on-hover easing, the news drag carousel and the highlighted-row hover drift are approximations; project names beyond the captured ones are placeholders",
   "demoNodes": 767,
   "errors": []
+ },
+ "hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band": {
+  "url": "https://ux-technique-gallery.vercel.app/t/hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band/",
+  "ok": true,
+  "at": "2026-10-22T00:03:35.438Z",
+  "http": 200,
+  "proof": "gate modal over lifestyle photo: visible=true, 2+4 segmented options, Confirm disabled=true (bg rgb(222, 222, 222)); Private → fill rgb(35, 38, 222) / text rgb(255, 255, 255); Confirm still disabled=true; region Europe→United States switches selection (Europe on=false, US on=true); Confirm enabled=true bg rgb(35, 38, 222); Confirm → gate closed=true, routed \"hem.com/en-us/\", blue bar \"🇺🇸▾Ships from the US: No import duties, tariffs or hidden …\"; header: wordmark \"Hem\" (\"Outfit Variable\"), underline search field; hero \"The Min Chairby Max Lamb\" + pill \"Shop Min\"; search focus → underline rgba(17, 17, 17, 0.706), \"3 suggestions\"; campaign split panels 2+2 with overlaid titles \"Discover Min / Hunk in sheepskin / Novelties 26/27\"; category rail 8 cards: → arrow scrolls 0→610px (prev arrow hidden before=true, after=false); Pro band bg rgb(220, 216, 194), arch image radius 999px, 4 checklist rows; footer newsletter button rgb(35, 38, 222); flag in blue bar reopens gate=true · stand-ins: all photography (room, workshop, Min chair, sheepskin, plaid sofa, category and journal images) is code-drawn SVG; Outfit substitutes Hem’s geometric grotesk; region→URL mapping (en-ca/en-eu/en-gb) and search suggestions are assumptions; reference was captured in the gate flow (a fresh Seoul-IP capture shows a different “Are you browsing from South Korea?” modal)",
+  "demoNodes": 545,
+  "errors": []
+ },
+ "fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list": {
+  "url": "https://ux-technique-gallery.vercel.app/t/fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list/",
+  "ok": true,
+  "at": "2026-10-22T00:03:35.451Z",
+  "http": 200,
+  "proof": "black announce bar + spaced wordmark \"FELLOW\" (tracking 5px), red active nav rgb(157, 82, 58); layout: 2-col photo grid (6 shots) + buy column position sticky top -461px; swatch → label \"Matte Black\", ring on=true, photos recolored=true; swatch → \"Sky Blue + Maple\"; model chip Pro Studio Edition → price $229.95; qty stepper → 3, \"4 interest-free installments, or from $54.24/mo with shop ⓘ\"; Add to Cart → \"Added 3 × Sky Blue + Maple\", cart badge 3; 2 Bundle + Save cards with badges \"Save $149 / Save $75\" (rgb(157, 82, 58)); accordion Details open=true height 49px; scroll 1400px → photo grid moved 1400px, buy column only 746px (sticky, bottom-pinned at top -461px); review carousel 6 cards: next → scrollLeft 0→306, prev enabled=true; Precision split: \"Precision in every detail\" with 4 hairline rows (solid); closer-look slider dot 3 → \"Pour like a pro\" (translateX(-200%)), active dot width 18px · stand-ins: kettle photography, dial close-up and black-spout B&W image are code-drawn SVG; DM Sans + Jost substitute Fellow’s grotesk/display faces; swatch names beyond Sesame + Maple, the Pro Studio price, review texts and per-swatch photo recolouring are assumptions (swatch click was unverified on the reference)",
+  "demoNodes": 575,
+  "errors": []
+ },
+ "marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters": {
+  "url": "https://ux-technique-gallery.vercel.app/t/marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters/",
+  "ok": true,
+  "at": "2026-10-22T00:03:35.448Z",
+  "http": 200,
+  "proof": "black micro bar (rgb(20, 20, 20), 24px) \"STORESSELECT COUNTRYIn\" + lowercase wordmark \"marimekko\" (\"Courier Prime\"); SELECT COUNTRY → dropdown open=true (7 markets); pick → \"United States (USD)\" closed=true; hero caption \"The story of Marimekko\" / \"Art of printmaking since 1951\" (weight 300) + boxed CTA \"Learn more →\" bg rgb(255, 255, 255); dot 2 → slide 2/3 visible=true, progress bar running=true; pause → paused=true (Play button), slide holds at 2; mute toggle → Mute; 3 stacked full-bleed panels below: \"Celebrating colourful collections\", \"The art of iconic prints\", \"Timeless design, lasting joy\"; Clothing → listing \"All clothing\" (active underline rgba(20, 20, 20, 0.804)), FILTERS control, 8 grey skeleton cards; skeletons resolve → 8 product cards in 4-col grid, \"8 products\"; FILTERS → drawer open=true; Category \"Dresses\" → skeleton again (4); → 3 cards \"3 products · Dresses\" · stand-ins: print/video frames (screen-print table, factory print hall, Siirtolapuutarha-like screen, floral print, denim Unikko, tableware) and model photos are code-drawn SVG; Courier Prime bold substitutes the slab wordmark and Archivo (wide) the brand grotesk; slide dots/progress, country list, filter drawer contents and product names/prices are assumptions (autoplay timing unverified on the reference)",
+  "demoNodes": 583,
+  "errors": []
  }
 }
