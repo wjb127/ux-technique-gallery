@@ -14,6 +14,9 @@ const ENGINE_LABEL = { gradient: '그라디언트', palette: '컬러', paint: '�
   pixel: '그리드/타일', globe: '지도/지구', cssfx: 'CSS 생성기', svggen: 'SVG 생성기', imagefx: '이미지 스튜디오', puzzle: '퍼즐/게임', code: '라이브 코딩',
   three: '3D 스테이지', desk: '레트로 데스크톱', sim: '시뮬레이션', chart: '데이터/타임라인', gen: '제너레이티브 아트' };
 const LABEL_OVERRIDE = { 'active-theory-webgl-metallic-emblem-scroll-gate-work-contact-audio': 'WebGL 메탈릭 엠블럼 스크롤 게이트 · WORK/CONTACT 필 · Toggle Audio', 'bun-pink-fast-hero-benchmark-bar-race-replay-terminal-install': '핑크 fast 히어로 · 탭 벤치마크 바 레이스 리플레이 · 터미널 설치 OS 토글', 'mute-jetson-3d-pod-configurator-drag-rotate-step-rail-feature-swatches': 'Jetson S1 3D 포드 컨피규레이터 · 드래그 로테이트 · 스텝 레일 · 피처/퍼니싱 스와치',
+  'studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion': '디자인 스튜디오 · 흩뿌린 썸네일 필드 + 가운데 세리프 한 줄 · 분야 단어 타자기 헤드라인 · Grid/List/Zoom 보기 토글 · (+) 필터 · 검정 반전 문의 폼 + (+) FAQ 아코디언',
+  'owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation': '데이터 출판 그래퍼 차트 · Table/Map/Line/Bar 탭 · 끝점 라벨 선 차트 + 호버 툴팁 · 국가 체크박스 사이드바 값 막대 · 이중 핸들 타임라인 + 재생 애니메이션 · 코로플레스 지도/표',
+  'fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid': '카메라 브랜드 · 사진가 초상 스트립 히어로 + GFX 워드마크 · 흐르는 프로모 티커 · 콘덴스드 대문자 내비 + 메가 패널 · Cameras 라디오 필터 사이드바 + 검색/정렬 + 회색 제품 타일 그리드',
   'paodao-clay-explorer-loading-gate-arrow-mouse-playable-webgl-world': '클레이 탐험가 로딩 게이트 · 화살표/마우스 플레이어블 WebGL 월드',
   'suno-warm-grain-gradient-chat-create-music-hero-tilted-track-cards': '웜 그레인 그라디언트 챗-투-크리에이트 뮤직 히어로 · 틸트 트랙 카드',
   'framer-dark-ai-design-agent-glow-prompt-haus-layout-explorations-panel': '다크 AI 디자인 에이전트 글로우 프롬프트 · HAUS 레이아웃 탐색 패널',

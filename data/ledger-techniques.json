@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion",
+  "slug": "studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion",
+  "name": "Studio Freight: cream canvas with scattered project thumbnails around a centered serif tagline, mono nav with Home/Info/News/Aeon; Work page with giant typewriter headline cycling disciplines (DESIG|, STRATEGY) and Grid / List / Zoom view toggle (masonry grid, year/client/labels/services table, single large zoom stream); Contact page inverted to black with underline input form and (+) FAQ accordion",
+  "date": "2026-10-22",
+  "slot": "16:00",
+  "url": "https://studiofreight.com/work/",
+  "domain": "studiofreight.com",
+  "product": "Studio Freight — brand and digital design studio",
+  "checkpoints": [
+   "Home: scattered absolute-positioned thumbnails + centered serif line + mono nav (verified)",
+   "Work: typewriter headline cycling discipline words with caret (verified)",
+   "Grid / List / Zoom toggle swaps layout (verified)",
+   "List: 4-column year/client/labels/services table",
+   "Contact: black theme, underline inputs, (+) FAQ accordion (verified page; accordion open unverified)",
+   "Filter (+) panel (unverified: click timed out)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a Studio Freight-style design studio site in Next.js + Tailwind + Framer Motion. Warm off-white #f0ede6 canvas, near-black #121212 ink, one accent orange #ff4d00. Fonts: a light high-contrast serif (e.g. Instrument Serif) for the centred tagline and big headlines, a small monospace (IBM Plex Mono, 11px caps) for nav, labels and meta. Home: mono nav in the top bar (Studio Freight wordmark left; Home / Work / Info / News / Contact; local time right); 14 project thumbnails absolutely positioned and scattered around the viewport at varied sizes, drifting slightly with the cursor (parallax), each hover showing a mono caption; a single centred serif line in the middle. Work page: giant uppercase typewriter headline that types and deletes discipline words (DESIGN, STRATEGY, MOTION, DEVELOPMENT) with a blinking caret; a toolbar with (+) Filter and a Grid / List / Zoom segmented toggle. Grid = masonry thumbnails with captions; List = 4-column table (Year / Client / Labels / Services) with hover thumbnail preview following the cursor; Zoom = single-column large image stream. Filter (+) opens a chip panel of disciplines that filters all three views. Contact page inverts to black #0d0d0d with white text: underline-only inputs (Name / Email / Company / Budget select / Message), arrow submit with validation and success state, and an FAQ list where each row has a (+) that rotates to (×) and expands the answer with a height animation.",
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
+  "id": "clone-owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation",
+  "slug": "owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation",
+  "name": "Our World in Data grapher: chart card with serif title + dotted-underline definition, Table/Map/Line/Bar tab pills, labeled line endpoints, right sidebar of country checkboxes with inline value bars, sort and type filter, dual-handle timeline slider with play/pause animation, Download/Share/Full-screen actions",
+  "date": "2026-10-22",
+  "slot": "16:00",
+  "url": "https://ourworldindata.org/grapher/life-expectancy",
+  "domain": "ourworldindata.org",
+  "product": "Our World in Data — open data publication",
+  "checkpoints": [
+   "Card header: serif title, definition text, logo badge",
+   "Tab pills switch Table / Map / Line (verified)",
+   "Choropleth map with legend bins (verified)",
+   "Sidebar checkboxes with value bars toggle series",
+   "Dual-handle timeline slider + play animates years (verified play state)",
+   "Table view with sparkline change column (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an Our World in Data-style grapher chart card in React + D3 (or SVG by hand) with Tailwind. White card on #f7f7f7, 1px #ddd border. Header: serif (Playfair Display) title 'Life expectancy at birth, 1950 to 2023', grey subtitle with a dotted-underlined term that opens a definition tooltip, OWID navy #002147 / red #ce261e logo badge top-right. Tab pills: Table / Map / Line / Bar (active pill filled light blue #dbe5f0 with navy text). Line view: multi-series SVG line chart with light gridlines, y-axis in years, series labels placed at line endpoints in each series colour, hover crosshair + tooltip listing values. Right sidebar: search box, sort toggle, list of countries/regions with checkboxes, an inline horizontal value bar and value per row; checking/unchecking adds/removes series. Bottom: play/pause button + dual-handle timeline range slider (1950–2023) with year labels; play animates the end year forward and updates chart, sidebar values and map. Map view: choropleth (simple world grid/tiles is fine) with a binned colour legend (yellow→teal→navy) and hover tooltip; Table view: sortable table with start/end values, absolute change and a tiny sparkline column. Footer row: Data source, Download / Share / Full-screen icon buttons (Download opens a modal with PNG/SVG/CSV cards).",
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
+  "id": "clone-fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid",
+  "slug": "fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid",
+  "name": "FUJIFILM X: home hero of a photographer portrait strip with huge GFX wordmark headline and outlined CTA, scrolling promo ticker bar, condensed caps nav; Cameras listing with condensed centered title + underline, Series/Type radio filter sidebar, search box, sort select, and light-grey product tiles on white",
+  "date": "2026-10-22",
+  "slot": "16:00",
+  "url": "https://www.fujifilm-x.com/global/products/cameras/",
+  "domain": "fujifilm-x.com",
+  "product": "FUJIFILM X Series & GFX — camera brand site",
+  "checkpoints": [
+   "Condensed caps top nav + country/region selector",
+   "Portrait-strip hero with giant wordmark headline + CTA",
+   "Promo ticker bar with repeating links",
+   "Cameras page: centered condensed title + short underline (verified)",
+   "Radio filter sidebar filters tile grid (unverified: click blocked in headless)",
+   "Sort select + product tile hover"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a FUJIFILM X-style camera brand site in Next.js + Tailwind. White background, black #000 text, red accent #e60012 sparingly, light grey #f2f2f2 tiles. Fonts: a bold condensed caps sans (Barlow Condensed / Oswald) for nav, headings and wordmarks; a clean sans (Inter) for body. Header: black bar with FUJIFILM wordmark, condensed caps nav (PRODUCTS / STORIES / LEARNING / SUPPORT / NEWS) with a hover mega panel, search and a country/region selector button. Home hero: a full-width strip of 5 photographer portrait panels side by side (greyscale→colour on hover) with a huge white condensed wordmark headline 'GFX ECOSYSTEM' overlaid and an outlined white 'LEARN MORE' button; under it a black promo ticker bar with repeating links and dot separators scrolling continuously (pauses on hover). Cameras listing: centred condensed caps title 'CAMERAS' with a short red underline; left sidebar of radio filters (Series: All / GFX / X-H / X-T / X-S / X-E / X100 / XF; Type: All / Mirrorless / Compact) that instantly filter the grid with a fade; search input; sort select (Newest / Name A–Z / Name Z–A); 3–4 column grid of light-grey product tiles with camera image, condensed model name and caption; hover lifts the tile and shows a 'VIEW' link; result count updates.",
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
   "id": "clone-ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup",
   "slug": "ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup",
   "name": "Ghia: pale-blue announce bar, transparent nav over sandy photo hero with tilted red badge logo, huge cream condensed serif caps headline + pink pill CTA, maroon scrolling claims marquee with star separators, SHOP NOW row with outline filter chips (Popular/Spritz/Aperitif/Fizz) and arrow carousel, cobalt editorial split with yellow illustrated title; maroon full-screen Mystery Discount popup that first asks 'Have you tried Ghia yet?' with two pink pills then swaps to email + Claim",
