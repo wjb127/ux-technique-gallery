@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-prose-hair-consultation-multi-step-quiz-segmented-section-progress-serif-questions-option-cards-sage-selected-auto-advance-line-art-texture-grid-lilac-visual-learner-sheet",
+  "slug": "prose-hair-consultation-multi-step-quiz-segmented-section-progress-serif-questions-option-cards-sage-selected-auto-advance-line-art-texture-grid-lilac-visual-learner-sheet",
+  "name": "Prose hair consultation: serif intro with BEGIN/RESUME HERE pills over bottle photo; 4-segment section progress strip; serif question + helper + \"visual learner\" link; white option cards that fill sage green on click, reveal a dark NEXT bar and auto-advance; line-art pattern texture card grid; lilac photo-carousel side sheet; 60% OFF promo modal",
+  "date": "2026-10-23",
+  "slot": "00:00",
+  "url": "https://prose.com/consultation/haircare",
+  "domain": "prose.com",
+  "product": "Prose — custom haircare consultation quiz",
+  "checkpoints": [
+   "Intro screen: promo bar, serif headline with italic word, BEGIN + RESUME HERE pills (verified)",
+   "Section progress strip with 4 segments (verified)",
+   "Option card column, sage selected state + NEXT bar (verified)",
+   "Auto-advance to texture question (verified: URL changed length to texture)",
+   "Line-art texture card grid (verified)",
+   "Lilac visual-learner sheet with photo carousel + tip (verified); promo modal (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a multi-step hair consultation quiz inspired by Prose, in Next.js + Tailwind + Framer Motion. Palette: warm off-white (#F6F3EE) canvas, charcoal (#2F3A34) text, sage green (#BFC9A8) selected state, lilac (#E9DDF5) side sheet. Typography: a light high-contrast serif for questions (with one italic word on the intro screen) and a wide-tracked mono/grotesk caps for labels and buttons. Screen 1 (intro): thin dark promo bar \"Limited Time: 60% off + Free Welcome Kit\" (underlined), centered small wordmark with \"Save + exit\" at right, full-bleed photo of two amber/lilac pump bottles, serif headline \"We're excited to get started on your hair consultation.\", short copy, a solid dark pill \"BEGIN\" and an outlined pill \"RESUME HERE\" under \"Already gave us your email?\". Quiz shell: a 4-segment progress strip under the header (HAIR & SCALP / TREATMENTS / LIFESTYLE / PREFERENCES & GOALS) where the active segment fills from the left as questions are answered; centered serif question \"How long is your hair?\", grey helper line, a \"+ More of a visual learner? Tap for pics\" underlined link; a 320px column of white option cards with a bold title and small grey subtitle (Short / Buzz-cut to early-Beatles, Chin-length, Shoulder length, Long, Very Long). Clicking a card fills it sage green, a full-width dark \"NEXT\" bar slides up from the bottom-right, and after ~400ms the step auto-advances with a fade/slide to the next question. Question 2 \"What's your natural, untreated, air-dried hair texture?\" uses a 2-column grid of cards each with a black line-art pattern thumbnail (straight lines, waves, S-curves, loops, coils) for Type 1 to Type 4C. The visual-learner link opens a lilac bottom-left sheet with a drag handle, caps title \"MORE OF A VISUAL LEARNER? TAP FOR PICS\", a swipeable photo carousel with progress dashes and a caption \"Short Hair\", plus a tip \"If you are stuck between 2 lengths, choose the longer one.\" while the page behind dims. Circular back button bottom-left. Add a first-visit promo modal (lime \"60% OFF\" sticker, product photo, serif title, dark \"UNLOCK OFFER\" pill, × close). Persist answers in localStorage so \"RESUME HERE\" works. Mobile (390px): single column, sheet becomes full-width bottom sheet.",
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
+  "id": "clone-primavera-sound-festival-dot-poster-tiered-condensed-lineup-festival-cards-agenda-filter-chips-monthly-calendar-next-events-ticket-accordion-rows",
+  "slug": "primavera-sound-festival-dot-poster-tiered-condensed-lineup-festival-cards-agenda-filter-chips-monthly-calendar-next-events-ticket-accordion-rows",
+  "name": "Primavera Sound: stacked condensed caps logo + caps nav with mint account pill; dark hero carousel; multicolor dot poster beside a tiered condensed-caps line-up that shrinks row by row; 4 festival poster cards; Agenda with colored filter chips, monthly calendar card and giant next-event date; ticket accordion rows with tag pills, prices and green BUY pills; dot-header newsletter modal",
+  "date": "2026-10-23",
+  "slot": "00:00",
+  "url": "https://www.primaverasound.com/en",
+  "domain": "primaverasound.com",
+  "product": "Primavera Sound — music festival (Barcelona, Porto, Buenos Aires, São Paulo)",
+  "checkpoints": [
+   "Header: stacked logo, caps nav, mint MY ACCOUNT + TICKETS pills (verified)",
+   "Dark hero carousel with arrows + dots (verified)",
+   "Dot poster + tiered line-up typography (verified)",
+   "Festival cards row (verified)",
+   "Agenda: filter chips + monthly calendar + next-events card (verified visible; chip filtering unverified)",
+   "Ticket accordion rows + newsletter modal (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Recreate the Primavera Sound festival homepage in Next.js + Tailwind. Style: white and pale grey backgrounds, black heavy condensed grotesk caps for the logo and line-up, mono for small labels, a mint green (#7ED9A6) accent pill. Header: stacked two-line \"PRIMAVERA / SOUND\" logo at left, caps nav \"FESTIVALS ⌄  TOURS  RADIO  PRO  LABELS  SHOP\", right side \"MYPRIMAVERA  CONTACT  PRESS\", search icon, mint \"MY ACCOUNT\" pill and outlined \"TICKETS\" pill. Hero: full-bleed dark concert photo carousel with chevron arrows, dot pagination, small caps eyebrow \"PRIMAVERA SOUND BUENOS AIRES\", big white title, artist list and a white \"TICKETS\" pill. Below: the signature dot poster, a grid of colored circles (8-10 colors: pink, teal, mustard, lilac, grey, navy, red) arranged around a \"parc del fòrum barcelona 2-6 juny 2027 / primavera sound\" lockup, next to a centered line-up block where headliners are huge condensed caps separated by \"·\" and lower rows get progressively smaller (poster hierarchy), with small labels like \"closing set\" and \"B2B\" inline. Dots fade/scale in with a staggered random delay and gently re-color on hover. \"Festivals\" section: 4 cards (Buenos Aires, São Paulo, Barcelona, Porto) each with poster art, caps eyebrow, name and date/venue line. A dark promo banner. \"Agenda\" section with a Filter icon and colored outline chips (Primavera Sound, Primavera Labels, Primavera Pro, Radio, Fundació...) that filter events; a \"MONTHLY VIEW\" calendar card (month switcher, weekday grid with dot markers on event days) next to a \"NEXT EVENTS\" card with a giant day number \"23\", month label and arrow pagers. Ticket rows: tabs \"GENERAL SALE / PRIMAVERA PRO\", accordion rows with \"+\", ticket name, \"On Sale\"/\"VIP\" tag pills, \"FROM €350.00 + fees\" and a green \"BUY\" pill. Add a newsletter modal on first visit: dot-poster header strip, bold \"Do not miss anything\", rounded email field and a disabled-until-valid \"JOIN UP\" button. Mobile: line-up stays centered and scales with clamp().",
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
+  "id": "clone-flamingo-estate-editorial-shop-cream-wide-serif-wordmark-rounded-split-hero-love-letter-pill-most-loved-draggable-rail-badges-stamps-editorial-cards-press-quote-crossfade",
+  "slug": "flamingo-estate-editorial-shop-cream-wide-serif-wordmark-rounded-split-hero-love-letter-pill-most-loved-draggable-rail-badges-stamps-editorial-cards-press-quote-crossfade",
+  "name": "Flamingo Estate: cream canvas, letterspaced serif wordmark header with membership top bar; rounded split-image hero with \"From Morocco, With Love\" + pill; Most Loved draggable product rail with green badges, Subscribe stamps, ratings and thin scrollbar; tall editorial story cards with dark pills; Tomato Collection rail; press logo row with cross-fading serif pull quote; Get 10% Off modal",
+  "date": "2026-10-23",
+  "slot": "00:00",
+  "url": "https://flamingoestate.com/",
+  "domain": "flamingoestate.com",
+  "product": "Flamingo Estate — Los Angeles heritage-farm goods, candles and pantry",
+  "checkpoints": [
+   "Header with top bar + centered wordmark (verified)",
+   "Rounded split hero with overlay headline + pill (verified)",
+   "Most Loved rail with badges, stamps, ratings, scrollbar (verified)",
+   "Editorial cards Paradise, Uncivilized / Marrakesh Express (verified)",
+   "Press logos + quote crossfade (verified: two quotes overlapped mid-transition)",
+   "Get 10% Off modal (verified); rail drag unverified"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an editorial lifestyle shop homepage inspired by Flamingo Estate, in Next.js + Tailwind + Embla carousel. Palette: cream (#F7F3EA) background, deep forest green (#2F3B2C) pills and badges, black text. Type: a wide letterspaced serif wordmark \"FLAMINGO ESTATE\" centered in the header, a warm book serif for headlines, small grotesk for UI. Header: thin black top bar \"The Estate Membership →\"; left search icon + \"Shop  The Estate  Gift Guide  Membership\", centered wordmark, right \"Sign in\" and \"Cart (0)\". Hero: two rounded 16px image panels side by side (pink still-life of soaps and jars; a candle on a mustard backdrop with a tilted paper \"NEW: SEASONAL\" label), an overlay headline \"From Morocco, With Love\", subline and a white pill \"OPEN YOUR LOVE LETTER\"; the hero cross-fades between scenes. \"MOST LOVED\" product rail: centered caps label, horizontally draggable cards with grey rounded image tiles, small green \"NEW\" / \"BEST SELLER\" badges, a circular \"Subscribe\" stamp on some, title, one-line description, star rating with review count, and a thin custom scrollbar under the rail. Two tall editorial cards (\"Paradise, Uncivilized\" and \"Marrakesh Express\") with photo, serif headline, short copy and a dark pill CTA. A second rail \"TOMATO COLLECTION\". A press block: row of greyscale press logos (EATER, DECOR, VOGUE) where the active logo darkens, and a large serif pull quote that cross-fades between quotes (\"Best Luxury Candles for Your Home, According to Vogue\") every 4s. Big two-up lifestyle photos below. A delayed \"Get 10% Off\" modal: photo left, serif title, email field, black \"CONTINUE\" button, × close. Respect prefers-reduced-motion. Mobile (390px): hero panels stack, rails snap one-and-a-half cards.",
+  "lens": "aesthetic-interactive-craft"
+ },
+ {
   "id": "clone-usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price",
   "slug": "usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price",
   "name": "USM Haller web configurator: white chrome, left panel with Structure/Accessories/Color tabs; Depth/Height/Width-in-mm rectangular chip rows (active = solid black), structure-element thumbnails, glides/castors icons; center 3D cabinet of chrome tubes + blue panels with dimension labels, yellow selected-compartment outline with chevrons, translucent + extension handles; height change triggers red-highlighted frame with inline 'The accessory does not exist for the desired compartment size. Do you want to remove it?' Remove/Cancel prompt; Accessories tab grouped thumbnails with drag-and-drop hint; Color tab All/Compartment/Accessories/Panel segmented filter, RAL color name label, square swatch grid + panel pattern swatches; live price top right + Contact pill",

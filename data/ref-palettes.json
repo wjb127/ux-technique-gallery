@@ -5508,5 +5508,35 @@
   "ac2": "#ab7645",
   "ac3": "#cfa66e",
   "coverage": 0.47
+ },
+ "prose-hair-consultation-multi-step-quiz-segmented-section-progress-serif-questions-option-cards-sage-selected-auto-advance-line-art-texture-grid-lilac-visual-learner-sheet": {
+  "bg": "#262a29",
+  "fg": "#b4a497",
+  "panel": "#744a40",
+  "dark": true,
+  "ac": "#e08372",
+  "ac2": "#744a40",
+  "ac3": "#ffc83d",
+  "coverage": 0.08
+ },
+ "primavera-sound-festival-dot-poster-tiered-condensed-lineup-festival-cards-agenda-filter-chips-monthly-calendar-next-events-ticket-accordion-rows": {
+  "bg": "#ffffff",
+  "fg": "#010000",
+  "panel": "#d6d9d7",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.2
+ },
+ "flamingo-estate-editorial-shop-cream-wide-serif-wordmark-rounded-split-hero-love-letter-pill-most-loved-draggable-rail-badges-stamps-editorial-cards-press-quote-crossfade": {
+  "bg": "#956e11",
+  "fg": "#fcfbf6",
+  "panel": "#67a5ad",
+  "dark": true,
+  "ac": "#956e11",
+  "ac2": "#67a5ad",
+  "ac3": "#a0860e",
+  "coverage": 0.08
  }
 }

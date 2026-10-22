@@ -59,7 +59,7 @@ export function extract() {
   for (const [id, o] of Object.entries(OV)) { const t = techById[id]; if (!t || !t.checkpoints?.length || t.name === id) techById[id] = { ...(t || {}), ...o, id }; } // also covers briefing ids missing from used_techniques
   const seen = new Map();
   for (const b of L.briefings) {
-    const ids = b.technique_ids || b.techniques || [];
+    const ids = (b.technique_ids || b.techniques || []).map((x) => (typeof x === 'string' ? x : x.id)); // briefings may embed technique objects
     const sites = b.sites || ids.map((x, i) => techById[x]?.url || (b.domains?.[i] ? `https://${b.domains[i]}/` : ''));
     ids.forEach((id, i) => {
       if (seen.has(id)) return; // dedup: first appearance wins
