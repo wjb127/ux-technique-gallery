@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-bellroy-swatch-grid-pdp-feature-bands",
+  "slug": "bellroy-swatch-grid-pdp-feature-bands",
+  "name": "Bellroy calm PDP with leather swatch grid, accordions + dark feature bands",
+  "date": "2026-10-23",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://bellroy.com/products/note-sleeve-wallet",
+  "domain": "bellroy.com",
+  "product": "Bellroy (Note Sleeve wallet product page)",
+  "checkpoints": [
+   "White header with owl wordmark, centered nav, orange-dot mail icon, utility strip (verified)",
+   "Gray split hero: large product image carousel with #slide-N hash left, centered title/price/free-shipping right (verified)",
+   "Material & color: 5-col square swatch tiles with captions (Black…Tan) + Leather alternative group, active tile orange border, ?color= URL sync (verified)",
+   "Full-width burnt-orange ADD TO CART (verified); cart bubble animation (unverified headless click)",
+   "Accordion rows Specifications / 3-year warranty / Materials (verified)",
+   "Dark navy \"This professional billfold is full of features\" alternating text/photo bands (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a calm premium product detail page inspired by Bellroy's Note Sleeve wallet in Next.js + Tailwind. Top: thin utility strip right-aligned ('Free shipping available | Need help?') at 11px, then a white 88px header with a lowercase rounded wordmark + small owl SVG at left, 7 centered 13px nav links, and right 'Stores & Stockists' + mail icon with an orange #D04A1E dot, search and cart icons; 1px #E5E5E5 bottom border. Main: #F5F5F5 band split 60/40. Left: a large product image (placeholder SVG wallet) inside a horizontal slide carousel with hash URLs (#slide-0..5), dots, swipe and arrow keys. Right column: tiny breadcrumb 'Shop / Wallets / Men's Wallets / Note Sleeve', 26px semibold centered title, '$95' price, small green 'Free Shipping Available!', then left-aligned 'Material & color:' and group label 'Premium leather (US$95)' over a 5-column grid of 52px square swatch tiles (white bg, 1px #CCC border, mini wallet thumbnail tinted per color: Black, Navy, Everglade, Willow, Java, Cocoa, Sienna, Hazelnut, Burnt Umber, Tan) with 10px captions; a second group 'Leather alternative (US$95)' with one tile. Selecting a tile gives it a 1px #D04A1E border, crossfades the main image tint in 250ms, and updates ?color= in the URL without reload. Full-width 44px #D04A1E 'ADD TO CART' button with letter-spaced white caps; clicking animates a check and a cart count bubble. Below: accordion rows (Specifications, 3-year warranty, Materials & composition) with chevrons rotating 180deg and smooth height animation. Then a dark #141824 feature band: centered 22px headline 'This professional billfold is full of features', then alternating text/image rows that fade+rise 16px into view on scroll. Sticky bottom cookie bar with outlined 'GOT IT'. Mobile 390px: carousel full-bleed on top, swatch grid 5 columns of 56px, add-to-cart sticky at the bottom."
+ },
+ {
+  "id": "clone-tonys-custom-bar-wrapper-designer",
+  "slug": "tonys-custom-bar-wrapper-designer",
+  "name": "Tony's Chocolonely custom bar wrapper designer (4-step tilted-tab editor)",
+  "date": "2026-10-23",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://us.tonyschocolonely.com/pages/custom-bars",
+  "domain": "us.tonyschocolonely.com",
+  "product": "Tony's Chocolonely (custom bar wrappers)",
+  "checkpoints": [
+   "Blue editor stage with white tilted 3D chocolate bar + yellow flavor band (verified)",
+   "Hand-drawn blob \"edit sides\" button, upload button, tilted \"ready!\" tab (verified)",
+   "Four tilted tab tiles (paint/photo/balloon/T) + \"step 1/4 ->\" (verified)",
+   "Two-row round color swatch grid recolors the wrapper (verified UI; live recolor unverified headless)",
+   "Yellow \"Attention choco fans\" tip card with circled X (verified)",
+   "Home: giant red slab CHOCO SHOP, yellow square arrows + shop all, colored product-tile carousel with yellow pencil buttons (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a playful custom chocolate-bar wrapper designer inspired by Tony's Chocolonely custom bars in Next.js + Tailwind. Typography: a chunky slab/typewriter display face (Zilla Slab Bold or Special Elite), lowercase everywhere. Top nav on the page color: lowercase white bold links (home, choco shop, custom wrappers, corporate, become a reseller, our promise, about Tony's) left; flag, search, user, bag icons right. Editor stage: full-width #0066CC panel ~420px tall. Center: a white 3D-ish chocolate bar (CSS perspective rotateX(8deg) rotateZ(-3deg), 6px radius, soft shadow ellipse below) with a vertical yellow #FFE600 band near the right edge carrying rotated red text 'your flavor here', plus blue 'NET WT 6.35 OZ (180 g)'. Left: a hand-drawn blob button 'edit sides' (border-radius 47% 53% 44% 56%) that flips the bar to its back face with a 600ms rotateY; below it an 'upload' icon button. Right: a slightly rotated translucent 'ready!' tab. Under the bar, four tilted tab tiles (paint bucket, camera, balloon, T) each with a tiny random rotation; active tile white with blue icon, others light blue. 'step 1/4 ->' advances tabs. Step 1 color: a 2-row grid of 34px circle swatches (black, grays, white, red, orange, amber, yellow, lime, green, teal, blues, lilac, pinks, purple, rainbow); active swatch gets a 2px black ring; clicking recolors the wrapper instantly. Step 2 photo: file input places an image on the wrapper, draggable and scalable with corner handles. Step 3 stickers: tap balloons/stars/hearts to drop draggable SVG stickers. Step 4 text: input + 3 font choices, live text on the bar. Dismissible yellow tip card bottom-right ('Attention choco fans:' + 3 bullets, circled X). Below the stage a white section with a giant 160px red #E30613 slab 'choco shop' heading, yellow square prev/next arrows + 'shop all' button, and a 4-card carousel of colored product tiles each with a yellow round pencil 'edit' button that opens the designer prefilled. Mobile 390px: tabs become a bottom bar, swatches scroll horizontally."
+ },
+ {
+  "id": "clone-luma-floating-poster-hero-discover-list",
+  "slug": "luma-floating-poster-hero-discover-list",
+  "name": "Luma floating poster-card hero with gradient headline + discover list/category grid",
+  "date": "2026-10-23",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://luma.com/",
+  "domain": "luma.com",
+  "product": "Luma (event platform)",
+  "checkpoints": [
+   "Off-white hero with scattered framed event-poster cards around the headline (verified); drift/parallax motion (unverified in static capture)",
+   "\"Delightful events / start here\" with pink-orange gradient text, black pill CTA, Discover Events link (verified)",
+   "/discover: Popular Events + city subtitle + View All pill (verified)",
+   "2-col event rows: poster thumb, gray date-time, title, venue (verified)",
+   "Browse by Category 3-col cards with colored outline icons + event counts (verified)",
+   "Live local time in header \"12:20 PM GMT+9\" (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build an event-platform landing + discover page inspired by Luma in Next.js + Tailwind + Framer Motion. Landing: off-white bg with a faint top gradient; tiny sparkle icon top-left and a pill 'Sign In' (#F1F1F1) top-right. Center: small gray wordmark 'luma', a 72px tight-tracked black headline 'Delightful events' with a third line 'start here' filled by a linear gradient (#C42CF0 -> #F55A7A -> #F6A21B) via background-clip:text; 17px gray subcopy; black pill 'Create Your First Event'; gray 'Discover Events ->' link. Around it, 12 floating event-poster cards (90–160px squares, white 6px frame, 14px radius, layered soft shadows) at fixed scattered positions, each a different poster gradient/illustration; they drift in a 6–10s float loop, parallax away from the cursor by 8–20px depending on depth, and on hover scale 1.06 with slight tilt. On load they fly out from the center with staggered springs. /discover: 760px centered column, 32px 'Discover Events' + gray intro; 'Popular Events' with light-gray city line 'Washington, DC' and a gray pill 'View All ->' at right; a 2-column list of rows: 56px rounded poster thumb, gray date-time ('Tomorrow, 8:00 PM'), 15px semibold title clamped to 2 lines, gray venue. Then 'Browse by Category' as a 3-col grid of white cards (16px radius, 1px #EEE) with a colored outline icon (pink Family, amber Books, orange Games, blue Tech, orange Food & Drink, pink AI) + title + 'NNN Events'; hover lifts 2px with shadow. Header shows the visitor's live local time ('12:20 PM GMT+9'). Clicking a row slides an event sheet in from the right with large poster, host chip, date block, location placeholder and a gradient 'Register' button. Mobile 390px: list 1 column, floating posters reduce to 6 around the headline."
+ },
+ {
   "id": "clone-commercialtype-color-band-catalog-type-tester",
   "slug": "commercialtype-color-band-catalog-type-tester",
   "name": "Commercial Type color-band specimen catalog + pinned type tester",
