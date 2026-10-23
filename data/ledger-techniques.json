@@ -1,5 +1,67 @@
 [
  {
+  "id": "clone-bandcamp-discover-chip-filter-grid-player-rail",
+  "slug": "bandcamp-discover-chip-filter-grid-player-rail",
+  "name": "Bandcamp Discover: stacked genre/subgenre/format chip filters + URL-synced album grid + sticky player rail",
+  "date": "2026-10-23",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://bandcamp.com/discover",
+  "domain": "bandcamp.com",
+  "product": "Bandcamp Discover",
+  "checkpoints": [
+   "Genre chip row with horizontal scroll + right arrow; selected chip turns teal with an x (verified)",
+   "Selecting a genre reveals a second teal-tinted subgenre chip row (verified: ambient -> chill-out, drone, dark ambient...)",
+   "Format chips (all categories/digital/vinyl/compact discs/cassettes/t-shirts) with icons; selection updates URL path /discover/ambient/vinyl (verified)",
+   "Sort/location/fresh dropdown row + 'clear all filters' (verified)",
+   "4-col square cover grid with genre pill badge, title, 'by artist' (verified)",
+   "Sticky right rail: big cover, format thumb, round play button, Go to album / Wishlist, release meta (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a music discovery page inspired by Bandcamp Discover in Next.js + Tailwind. Header: small blue parallelogram logo + 'bandcamp' wordmark, a 220px light-gray search field, right 'Sign up' 'Log in'. Below: a 320px rounded-full 'Add a genre, location, or tag' input with a 'Follow' button. Row 1: horizontally scrolling genre chips (36px tall, 1px #CCC border, 6px radius, 13px Helvetica Neue) with a right chevron that scrolls the row; the selected chip turns #1E7F7F teal with white text and an x to clear. When a genre is selected, slide down a second row on a pale teal (#BFDCDC) band with that genre's subgenre chips (fake data map for 6 genres). Row 3: format chips with tiny line icons (all categories, digital, vinyl, compact discs, cassettes, t-shirts), single-select, teal when active. Row 4: three text dropdowns (best-selling, artists from anywhere, fresh) + 'artists and labels I follow' and a right 'clear all filters' link. Sync all filters to the URL path /discover/{genre}/{format}?sort= using the router, and support back/forward. Main: 2-column layout; left a 4-column grid of 150px square covers (generated gradient art) with a small dark pill genre badge top-right, 14px bold title, 'by Artist' gray line; filter changes fade the grid out/in with a 6-card skeleton. Right: a 300px sticky rail showing the selected album: large cover, a small vinyl-format thumbnail, a 48px black circular play button that toggles to pause and animates a thin progress bar, track title/'from Album'/'by Artist', black 'Go to album' and outlined 'Wishlist' (heart toggles) buttons, '46 minutes / Released ...' meta. Clicking a grid tile updates the rail with a crossfade. Infinite scroll appends 12 items with a sticky breadcrumb 'all genres / all categories / best-selling' + result count. Mobile: chips stay scrollable, rail becomes a bottom mini-player."
+ },
+ {
+  "id": "clone-omsom-starburst-badge-wavy-band-brand-landing",
+  "slug": "omsom-starburst-badge-wavy-band-brand-landing",
+  "name": "Omsom loud brand landing: starburst headline badges over photo, wavy-stripe product band, retailer + press grids",
+  "date": "2026-10-23",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://omsom.com/",
+  "domain": "omsom.com",
+  "product": "Omsom (Asian pantry brand)",
+  "checkpoints": [
+   "Warm photo hero with a yellow spiky starburst badge holding red condensed caps 'PROUD + LOUD ASIAN FLAVORS' (verified)",
+   "Lilac/cream wavy-stripe band with product packs + two starburst badges 'SAUCY NOODLES IN 4 MINUTES' / 'RIP-AND-POUR COOKING SAUCES' (verified)",
+   "Cream retailer block: offset orange-framed photo + 'YOU CAN FIND OMSOM IN STORES NATIONWIDE' + logo grid + '+ MORE...' (verified)",
+   "Mint 'AS SEEN IN' press grid with orange underlined quotes over outlet logos (verified)",
+   "Big orange 'OM SÒM' wordmark footer band (verified); badge wobble/hover motion (unverified, static capture)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a loud, maximal food-brand landing page inspired by Omsom in Next.js + Tailwind + Framer Motion. Palette: tomato red #F0452B, sunny yellow #FFE234, lilac #E7B6F0, cream #F6EEDB, mint #9FE3A0, ink #1A1A1A. Fonts: a condensed heavy display (e.g. 'Anton' or 'Bebas Neue') for badges, a rounded geometric sans for body. Section 1: full-bleed warm photo hero (placeholder noodle bowl on a red table) with a 320px yellow starburst badge (SVG polygon with 22 spikes, 4px red-orange outline offset shadow) at right, rotated -8deg, containing red caps 'PROUD + LOUD / ASIAN FLAVORS' and small copy; it pops in with a spring scale and gently wobbles (rotate +-2deg loop); hover scales 1.05. Section 2: a lilac band with an animated cream wavy-stripe background (SVG sine paths translating slowly), two product clusters each topped by its own starburst badge ('SAUCY NOODLES IN 4 MINUTES', 'RIP-AND-POUR COOKING SAUCES'); clicking a cluster badge opens a small flavor drawer. Section 3: cream band, left a photo inside an offset 10px solid orange frame (frame shifts on hover), right red centered caps 'YOU CAN FIND OMSOM IN STORES NATIONWIDE:' over a 2x2 retailer logo grid (placeholder circles) and '+ MORE...' link. Section 4: mint band split: left a yellow pill 'AS SEEN IN' with an orange drop shadow, then a 2-col grid of underlined orange italic quotes above outlet wordmarks; right a full-height food photo. Footer band: giant orange 'OM SÒM' wordmark that scales with viewport. All sections reveal with staggered slide-up on scroll; respect prefers-reduced-motion. Mobile keeps badges overlapping images."
+ },
+ {
+  "id": "clone-tracksmith-serif-italic-editorial-run-shop",
+  "slug": "tracksmith-serif-italic-editorial-run-shop",
+  "name": "Tracksmith editorial running shop: serif-italic hero over landscape photo, centered hare logo nav, dual Shop Men/Women links",
+  "date": "2026-10-23",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.tracksmith.com/",
+  "domain": "tracksmith.com",
+  "product": "Tracksmith (running apparel)",
+  "checkpoints": [
+   "Olive-brown announcement bar with left/right arrows rotating messages (verified)",
+   "White nav: small extended-caps links with chevrons (NEW/WOMEN/MEN/COMMUNITY), centered hare logo, right icons; hovered link turns tan (verified); mega-menu panel (unverified, did not open in capture)",
+   "Full-bleed landscape hero with 'Merino is Magic' serif + italic 'is', tan rectangular CTAs, round scroll-down chevron (verified)",
+   "Product row: serif product names, extended-caps material label, dual underlined 'SHOP MEN / SHOP WOMEN' links (verified)",
+   "Two big editorial photo tiles + category tiles (Apparel/Footwear/Accessories) with serif labels + dual links (verified)",
+   "Closing 'Start Here' photo band with italic word and two tan CTAs (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a calm, literary running-apparel homepage inspired by Tracksmith in Next.js + Tailwind. Fonts: a high-contrast serif (e.g. 'Cormorant Garamond' as a stand-in for SainteColombe) for headlines/product names, and an extended grotesk (e.g. 'Archivo Expanded') at 10–11px uppercase with 0.12em tracking for nav/labels. Colors: tan #9C7A55, olive-brown bar #8A7350, off-white #FAF8F4, ink #1F2430. Top: 32px olive-brown announcement bar with centered small serif text containing underlined links and left/right arrow buttons that cycle 3 messages with a horizontal slide. Nav: 72px white bar; left links 'NEW v  WOMEN v  MEN v  COMMUNITY v'; centered SVG hare logo; right search/account/bag icons. Hovering a link turns it tan and opens a full-width mega menu (three columns of serif links + one image tile) that fades down 180ms and closes on mouse leave/Escape. Hero: full-bleed 100vh landscape photo (country road placeholder) with centered white 64px serif headline 'Merino *is* Magic' (only 'is' italic), 16px serif subline, two tan rectangular 11px-caps buttons 'SHOP NOW' / 'LEARN MORE', and a 32px translucent round chevron that smooth-scrolls to the next section. Section 2: 4-up product row with transparent product images, 20px serif names, tiny caps material label 'MERINO WOOL', and two underlined tan links 'SHOP MEN' 'SHOP WOMEN'. Section 3: two large side-by-side editorial images with slow zoom on hover. Section 4: three category tiles (Apparel/Footwear/Accessories) with white serif labels + dual links over darkened photos. Closing band: photo with 'Start *Here*' italic serif and two tan buttons. Floating round chat button bottom-left. Mobile: hamburger with accordion menus."
+ },
+ {
   "id": "clone-bellroy-swatch-grid-pdp-feature-bands",
   "slug": "bellroy-swatch-grid-pdp-feature-bands",
   "name": "Bellroy calm PDP with leather swatch grid, accordions + dark feature bands",

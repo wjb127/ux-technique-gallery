@@ -1,5 +1,115 @@
 [
  {
+  "id": "clone-bandcamp-discover-chip-filter-grid-player-rail",
+  "slug": "bandcamp-discover-chip-filter-grid-player-rail",
+  "name": "Bandcamp Discover: stacked genre/subgenre/format chip filters + URL-synced album grid + sticky player rail",
+  "date": "2026-10-23",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://bandcamp.com/discover",
+  "domain": "bandcamp.com",
+  "product": "Bandcamp Discover",
+  "checkpoints": [
+   "Genre chip row with horizontal scroll + right arrow; selected chip turns teal with an x (verified)",
+   "Selecting a genre reveals a second teal-tinted subgenre chip row (verified: ambient -> chill-out, drone, dark ambient...)",
+   "Format chips (all categories/digital/vinyl/compact discs/cassettes/t-shirts) with icons; selection updates URL path /discover/ambient/vinyl (verified)",
+   "Sort/location/fresh dropdown row + 'clear all filters' (verified)",
+   "4-col square cover grid with genre pill badge, title, 'by artist' (verified)",
+   "Sticky right rail: big cover, format thumb, round play button, Go to album / Wishlist, release meta (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a music discovery page inspired by Bandcamp Discover in Next.js + Tailwind. Header: small blue parallelogram logo + 'bandcamp' wordmark, a 220px light-gray search field, right 'Sign up' 'Log in'. Below: a 320px rounded-full 'Add a genre, location, or tag' input with a 'Follow' button. Row 1: horizontally scrolling genre chips (36px tall, 1px #CCC border, 6px radius, 13px Helvetica Neue) with a right chevron that scrolls the row; the selected chip turns #1E7F7F teal with white text and an x to clear. When a genre is selected, slide down a second row on a pale teal (#BFDCDC) band with that genre's subgenre chips (fake data map for 6 genres). Row 3: format chips with tiny line icons (all categories, digital, vinyl, compact discs, cassettes, t-shirts), single-select, teal when active. Row 4: three text dropdowns (best-selling, artists from anywhere, fresh) + 'artists and labels I follow' and a right 'clear all filters' link. Sync all filters to the URL path /discover/{genre}/{format}?sort= using the router, and support back/forward. Main: 2-column layout; left a 4-column grid of 150px square covers (generated gradient art) with a small dark pill genre badge top-right, 14px bold title, 'by Artist' gray line; filter changes fade the grid out/in with a 6-card skeleton. Right: a 300px sticky rail showing the selected album: large cover, a small vinyl-format thumbnail, a 48px black circular play button that toggles to pause and animates a thin progress bar, track title/'from Album'/'by Artist', black 'Go to album' and outlined 'Wishlist' (heart toggles) buttons, '46 minutes / Released ...' meta. Clicking a grid tile updates the rail with a crossfade. Infinite scroll appends 12 items with a sticky breadcrumb 'all genres / all categories / best-selling' + result count. Mobile: chips stay scrollable, rail becomes a bottom mini-player.",
+  "short": "Bandcamp Discover",
+  "ko": "Bandcamp Discover 스타일 음악 디스커버 · 장르/서브장르/포맷 칩 필터 3단(틸 선택 + ×) · URL 해시 동기화 + 뒤로/앞으로 · 4열 커버 그리드 스켈레톤 페이드 · 우측 스티키 플레이어 레일(재생/위시리스트) · 무한 스크롤 + 스티키 브레드크럼 클론",
+  "engine": "saas",
+  "variant": "bandcamp-discover-chip-filter-grid-player-rail",
+  "theme": {
+   "bg": "#606060",
+   "fg": "#ffffff",
+   "panel": "#5e5e5e",
+   "dark": true,
+   "ac": "#5b601a",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.17
+  },
+  "path": "/t/bandcamp-discover-chip-filter-grid-player-rail/",
+  "built": true
+ },
+ {
+  "id": "clone-omsom-starburst-badge-wavy-band-brand-landing",
+  "slug": "omsom-starburst-badge-wavy-band-brand-landing",
+  "name": "Omsom loud brand landing: starburst headline badges over photo, wavy-stripe product band, retailer + press grids",
+  "date": "2026-10-23",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://omsom.com/",
+  "domain": "omsom.com",
+  "product": "Omsom (Asian pantry brand)",
+  "checkpoints": [
+   "Warm photo hero with a yellow spiky starburst badge holding red condensed caps 'PROUD + LOUD ASIAN FLAVORS' (verified)",
+   "Lilac/cream wavy-stripe band with product packs + two starburst badges 'SAUCY NOODLES IN 4 MINUTES' / 'RIP-AND-POUR COOKING SAUCES' (verified)",
+   "Cream retailer block: offset orange-framed photo + 'YOU CAN FIND OMSOM IN STORES NATIONWIDE' + logo grid + '+ MORE...' (verified)",
+   "Mint 'AS SEEN IN' press grid with orange underlined quotes over outlet logos (verified)",
+   "Big orange 'OM SÒM' wordmark footer band (verified); badge wobble/hover motion (unverified, static capture)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a loud, maximal food-brand landing page inspired by Omsom in Next.js + Tailwind + Framer Motion. Palette: tomato red #F0452B, sunny yellow #FFE234, lilac #E7B6F0, cream #F6EEDB, mint #9FE3A0, ink #1A1A1A. Fonts: a condensed heavy display (e.g. 'Anton' or 'Bebas Neue') for badges, a rounded geometric sans for body. Section 1: full-bleed warm photo hero (placeholder noodle bowl on a red table) with a 320px yellow starburst badge (SVG polygon with 22 spikes, 4px red-orange outline offset shadow) at right, rotated -8deg, containing red caps 'PROUD + LOUD / ASIAN FLAVORS' and small copy; it pops in with a spring scale and gently wobbles (rotate +-2deg loop); hover scales 1.05. Section 2: a lilac band with an animated cream wavy-stripe background (SVG sine paths translating slowly), two product clusters each topped by its own starburst badge ('SAUCY NOODLES IN 4 MINUTES', 'RIP-AND-POUR COOKING SAUCES'); clicking a cluster badge opens a small flavor drawer. Section 3: cream band, left a photo inside an offset 10px solid orange frame (frame shifts on hover), right red centered caps 'YOU CAN FIND OMSOM IN STORES NATIONWIDE:' over a 2x2 retailer logo grid (placeholder circles) and '+ MORE...' link. Section 4: mint band split: left a yellow pill 'AS SEEN IN' with an orange drop shadow, then a 2-col grid of underlined orange italic quotes above outlet wordmarks; right a full-height food photo. Footer band: giant orange 'OM SÒM' wordmark that scales with viewport. All sections reveal with staggered slide-up on scroll; respect prefers-reduced-motion. Mobile keeps badges overlapping images.",
+  "short": "Omsom loud brand landing",
+  "ko": "Omsom 스타일 맥시멀 식품 브랜드 랜딩 · 노란 스타버스트 배지(오프셋 그림자 + 팝/흔들림) · 라일락 물결 줄무늬 제품 밴드 + 맛 서랍 · 오렌지 오프셋 프레임 리테일러 그리드 · 민트 AS SEEN IN 프레스 · 대형 OM SÒM 워드마크 클론",
+  "engine": "saas",
+  "variant": "omsom-starburst-badge-wavy-band-brand-landing",
+  "theme": {
+   "bg": "#f0c3f4",
+   "fg": "#650501",
+   "panel": "#ecf842",
+   "dark": false,
+   "ac": "#650501",
+   "ac2": "#4d0501",
+   "ac3": "#ecf842",
+   "coverage": 0.09
+  },
+  "path": "/t/omsom-starburst-badge-wavy-band-brand-landing/",
+  "built": true
+ },
+ {
+  "id": "clone-tracksmith-serif-italic-editorial-run-shop",
+  "slug": "tracksmith-serif-italic-editorial-run-shop",
+  "name": "Tracksmith editorial running shop: serif-italic hero over landscape photo, centered hare logo nav, dual Shop Men/Women links",
+  "date": "2026-10-23",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.tracksmith.com/",
+  "domain": "tracksmith.com",
+  "product": "Tracksmith (running apparel)",
+  "checkpoints": [
+   "Olive-brown announcement bar with left/right arrows rotating messages (verified)",
+   "White nav: small extended-caps links with chevrons (NEW/WOMEN/MEN/COMMUNITY), centered hare logo, right icons; hovered link turns tan (verified); mega-menu panel (unverified, did not open in capture)",
+   "Full-bleed landscape hero with 'Merino is Magic' serif + italic 'is', tan rectangular CTAs, round scroll-down chevron (verified)",
+   "Product row: serif product names, extended-caps material label, dual underlined 'SHOP MEN / SHOP WOMEN' links (verified)",
+   "Two big editorial photo tiles + category tiles (Apparel/Footwear/Accessories) with serif labels + dual links (verified)",
+   "Closing 'Start Here' photo band with italic word and two tan CTAs (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a calm, literary running-apparel homepage inspired by Tracksmith in Next.js + Tailwind. Fonts: a high-contrast serif (e.g. 'Cormorant Garamond' as a stand-in for SainteColombe) for headlines/product names, and an extended grotesk (e.g. 'Archivo Expanded') at 10–11px uppercase with 0.12em tracking for nav/labels. Colors: tan #9C7A55, olive-brown bar #8A7350, off-white #FAF8F4, ink #1F2430. Top: 32px olive-brown announcement bar with centered small serif text containing underlined links and left/right arrow buttons that cycle 3 messages with a horizontal slide. Nav: 72px white bar; left links 'NEW v  WOMEN v  MEN v  COMMUNITY v'; centered SVG hare logo; right search/account/bag icons. Hovering a link turns it tan and opens a full-width mega menu (three columns of serif links + one image tile) that fades down 180ms and closes on mouse leave/Escape. Hero: full-bleed 100vh landscape photo (country road placeholder) with centered white 64px serif headline 'Merino *is* Magic' (only 'is' italic), 16px serif subline, two tan rectangular 11px-caps buttons 'SHOP NOW' / 'LEARN MORE', and a 32px translucent round chevron that smooth-scrolls to the next section. Section 2: 4-up product row with transparent product images, 20px serif names, tiny caps material label 'MERINO WOOL', and two underlined tan links 'SHOP MEN' 'SHOP WOMEN'. Section 3: two large side-by-side editorial images with slow zoom on hover. Section 4: three category tiles (Apparel/Footwear/Accessories) with white serif labels + dual links over darkened photos. Closing band: photo with 'Start *Here*' italic serif and two tan buttons. Floating round chat button bottom-left. Mobile: hamburger with accordion menus.",
+  "short": "Tracksmith editorial running shop",
+  "ko": "Tracksmith 스타일 러닝 의류 에디토리얼 홈 · 세리프 이탤릭 히어로(Merino is Magic) · 슬라이드 공지 바 · 중앙 토끼 로고 + 확장 캡스 내비 메가메뉴 · 제품 행 듀얼 Shop Men/Women 링크 · 줌 에디토리얼 타일 · Start Here 밴드 클론",
+  "engine": "saas",
+  "variant": "tracksmith-serif-italic-editorial-run-shop",
+  "theme": {
+   "bg": "#2a3320",
+   "fg": "#ffffff",
+   "panel": "#423829",
+   "dark": true,
+   "ac": "#2a3320",
+   "ac2": "#423829",
+   "ac3": "#292719",
+   "coverage": 0.08
+  },
+  "path": "/t/tracksmith-serif-italic-editorial-run-shop/",
+  "built": true
+ },
+ {
   "id": "clone-bellroy-swatch-grid-pdp-feature-bands",
   "slug": "bellroy-swatch-grid-pdp-feature-bands",
   "name": "Bellroy calm PDP with leather swatch grid, accordions + dark feature bands",
@@ -24,14 +134,14 @@
   "engine": "saas",
   "variant": "bellroy-swatch-grid-pdp-feature-bands",
   "theme": {
-   "bg": "#ffffff",
-   "fg": "#333333",
-   "panel": "#f5f5f5",
+   "bg": "#f7f7f7",
+   "fg": "#88665a",
+   "panel": "#ffffff",
    "dark": false,
-   "ac": "#D04A1E",
-   "ac2": "#141824",
-   "ac3": "#3c7a5a",
-   "coverage": 0.48
+   "ac": "#503931",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.49
   },
   "path": "/t/bellroy-swatch-grid-pdp-feature-bands/",
   "built": true
@@ -61,14 +171,14 @@
   "engine": "saas",
   "variant": "tonys-custom-bar-wrapper-designer",
   "theme": {
-   "bg": "#0565CB",
+   "bg": "#0066cc",
    "fg": "#ffffff",
-   "panel": "#3d8be0",
+   "panel": "#0063cb",
    "dark": true,
-   "ac": "#FFE600",
-   "ac2": "#E30613",
-   "ac3": "#ffffff",
-   "coverage": 0.55
+   "ac": "#0066cc",
+   "ac2": "#ffed00",
+   "ac3": "#0063cb",
+   "coverage": 0.4
   },
   "path": "/t/tonys-custom-bar-wrapper-designer/",
   "built": true
@@ -98,14 +208,14 @@
   "engine": "saas",
   "variant": "luma-floating-poster-hero-discover-list",
   "theme": {
-   "bg": "#fafafa",
-   "fg": "#131517",
-   "panel": "#ffffff",
+   "bg": "#ffffff",
+   "fg": "#2f312e",
+   "panel": "#fefefe",
    "dark": false,
-   "ac": "#C42CF0",
-   "ac2": "#F55A7A",
-   "ac3": "#F6A21B",
-   "coverage": 0.7
+   "ac": "#8b5645",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.45
   },
   "path": "/t/luma-floating-poster-hero-discover-list/",
   "built": true
@@ -135,13 +245,13 @@
   "engine": "saas",
   "variant": "commercialtype-color-band-catalog-type-tester",
   "theme": {
-   "bg": "#3BA4F7",
-   "fg": "#DDF0FF",
-   "panel": "#5A004E",
-   "dark": false,
-   "ac": "#5A004E",
-   "ac2": "#FFC8E6",
-   "ac3": "#7AFFF0",
+   "bg": "#5a0050",
+   "fg": "#38a4fa",
+   "panel": "#5a004f",
+   "dark": true,
+   "ac": "#5a0050",
+   "ac2": "#38a4fa",
+   "ac3": "#78fff0",
    "coverage": 0.29
   },
   "path": "/t/commercialtype-color-band-catalog-type-tester/",
@@ -173,12 +283,12 @@
   "variant": "monocle-editorial-front-radio-onair-module",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#111111",
-   "panel": "#2a2a2a",
+   "fg": "#806652",
+   "panel": "#dcdbdb",
    "dark": false,
-   "ac": "#FFC500",
-   "ac2": "#2a2a2a",
-   "ac3": "#e8504a",
+   "ac": "#fff79a",
+   "ac2": "#fff69a",
+   "ac3": "#806652",
    "coverage": 0.57
   },
   "path": "/t/monocle-editorial-front-radio-onair-module/",
@@ -213,9 +323,9 @@
    "fg": "#000000",
    "panel": "#f4f4f4",
    "dark": false,
-   "ac": "#111111",
-   "ac2": "#555555",
-   "ac3": "#999999",
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
    "coverage": 0.9
   },
   "path": "/t/hellomonday-illustrated-word-cycle-hero/",
@@ -687,14 +797,14 @@
   "engine": "saas",
   "variant": "ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup",
   "theme": {
-   "bg": "#fdf3ec",
-   "fg": "#661b33",
-   "panel": "#b5d3d6",
+   "bg": "#fef6ee",
+   "fg": "#9e7f6a",
+   "panel": "#c5cfcb",
    "dark": false,
-   "ac": "#ee6482",
-   "ac2": "#4a7bc0",
-   "ac3": "#c7a487",
-   "coverage": 0
+   "ac": "#886c58",
+   "ac2": "#957560",
+   "ac3": "#7e6250",
+   "coverage": 0.09
   },
   "path": "/t/ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup/",
   "built": true
@@ -724,14 +834,14 @@
   "engine": "saas",
   "variant": "hoxton-hotel-cream-split-hero-big-light-title-city-card-rail-arrows-select-location-region-accordion-panel-find-a-room-booking-drawer-tabs-steppers",
   "theme": {
-   "bg": "#fdf3e6",
-   "fg": "#1d1b19",
-   "panel": "#e6dccd",
+   "bg": "#fef9f3",
+   "fg": "#311202",
+   "panel": "#fef2e3",
    "dark": false,
-   "ac": "#f58b6f",
-   "ac2": "#3d3935",
-   "ac3": "#7a6ad8",
-   "coverage": 0
+   "ac": "#311202",
+   "ac2": "#42200f",
+   "ac3": "#401908",
+   "coverage": 0.14
   },
   "path": "/t/hoxton-hotel-cream-split-hero-big-light-title-city-card-rail-arrows-select-location-region-accordion-panel-find-a-room-booking-drawer-tabs-steppers/",
   "built": true
@@ -761,14 +871,14 @@
   "engine": "saas",
   "variant": "kexp-radio-dark-header-live-now-playing-strip-play-button-volume-menu-overlay-playlist-page-station-select-date-time-picker-track-cards-on-air-dj",
   "theme": {
-   "bg": "#fdfcf7",
+   "bg": "#fefdfa",
    "fg": "#231f20",
-   "panel": "#efecdc",
+   "panel": "#fefefe",
    "dark": false,
-   "ac": "#fbad18",
-   "ac2": "#7a5214",
-   "ac3": "#e8392b",
-   "coverage": 0
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.51
   },
   "path": "/t/kexp-radio-dark-header-live-now-playing-strip-play-button-volume-menu-overlay-playlist-page-station-select-date-time-picker-track-cards-on-air-dj/",
   "built": true
@@ -799,13 +909,13 @@
   "variant": "hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#111111",
-   "panel": "#dcd8c2",
+   "fg": "#17180e",
+   "panel": "#d9d4c5",
    "dark": false,
-   "ac": "#2326de",
-   "ac2": "#ef9f9a",
-   "ac3": "#c79e6c",
-   "coverage": 0
+   "ac": "#533d2d",
+   "ac2": "#75654c",
+   "ac3": "#9b604c",
+   "coverage": 0.12
   },
   "path": "/t/hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band/",
   "built": true
@@ -835,14 +945,14 @@
   "engine": "saas",
   "variant": "fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list",
   "theme": {
-   "bg": "#ffffff",
+   "bg": "#f5f5f5",
    "fg": "#1e1e1f",
-   "panel": "#efefed",
+   "panel": "#ffffff",
    "dark": false,
-   "ac": "#9d523a",
-   "ac2": "#e6dfcf",
-   "ac3": "#d4a26a",
-   "coverage": 0
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.36
   },
   "path": "/t/fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list/",
   "built": true
@@ -873,13 +983,13 @@
   "variant": "marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#141414",
-   "panel": "#ececec",
+   "fg": "#127655",
+   "panel": "#ddd3d9",
    "dark": false,
-   "ac": "#178a5c",
-   "ac2": "#13427a",
-   "ac3": "#f05a5a",
-   "coverage": 0
+   "ac": "#127655",
+   "ac2": "#0d593e",
+   "ac3": "#0e3236",
+   "coverage": 0.12
   },
   "path": "/t/marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters/",
   "built": true
@@ -910,13 +1020,13 @@
   "variant": "whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#000000",
-   "panel": "#f2f2f2",
+   "fg": "#5e5841",
+   "panel": "#e5e5e4",
    "dark": false,
-   "ac": "#d9413f",
-   "ac2": "#f2d21b",
-   "ac3": "#8c8c8c",
-   "coverage": 0
+   "ac": "#e5a947",
+   "ac2": "#977454",
+   "ac3": "#7d2a20",
+   "coverage": 0.5
   },
   "path": "/t/whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles/",
   "built": true
@@ -947,13 +1057,13 @@
   "variant": "snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#111111",
-   "panel": "#f2f2f2",
+   "fg": "#2f2f30",
+   "panel": "#efeeec",
    "dark": false,
-   "ac": "#9a9a9a",
-   "ac2": "#c9876a",
-   "ac3": "#3f7f6c",
-   "coverage": 0
+   "ac": "#3e3028",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.61
   },
   "path": "/t/snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list/",
   "built": true
@@ -984,13 +1094,13 @@
   "variant": "brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#1a1a1a",
-   "panel": "#f4f0ea",
+   "fg": "#68532e",
+   "panel": "#f2d4d7",
    "dark": false,
-   "ac": "#f6c200",
-   "ac2": "#f2d3d6",
-   "ac3": "#1f4e96",
-   "coverage": 0
+   "ac": "#a59264",
+   "ac2": "#68532e",
+   "ac3": "#e3bc60",
+   "coverage": 0.23
   },
   "path": "/t/brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu/",
   "built": true
@@ -1021,12 +1131,12 @@
   "variant": "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders",
   "theme": {
    "bg": "#fafafa",
-   "fg": "#111111",
+   "fg": "#6f7878",
    "panel": "#fefefe",
    "dark": false,
-   "ac": "#ff3d00",
-   "ac2": "#ffb800",
-   "ac3": "#bfe0ff",
+   "ac": "#3f471c",
+   "ac2": "#2e4449",
+   "ac3": "#6e1207",
    "coverage": 0.17
   },
   "path": "/t/pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders/",
@@ -1061,9 +1171,9 @@
    "fg": "#202020",
    "panel": "#969696",
    "dark": false,
-   "ac": "#2b3a7a",
-   "ac2": "#e6dccb",
-   "ac3": "#1b1b1b",
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
    "coverage": 0.68
   },
   "path": "/t/moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections/",
@@ -1098,9 +1208,9 @@
    "fg": "#ffffff",
    "panel": "#231f20",
    "dark": true,
-   "ac": "#f6e600",
-   "ac2": "#c9a02a",
-   "ac3": "#d11f1f",
+   "ac": "#45190f",
+   "ac2": "#fbe93b",
+   "ac3": "#45180e",
    "coverage": 0.26
   },
   "path": "/t/sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu/",
@@ -2574,14 +2684,14 @@
   "engine": "saas",
   "variant": "vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards",
   "theme": {
-   "bg": "#0b0b0c",
-   "fg": "#ffffff",
-   "panel": "#efefef",
+   "bg": "#232224",
+   "fg": "#fffffc",
+   "panel": "#100f10",
    "dark": true,
-   "ac": "#f2fd5d",
-   "ac2": "#ff2b24",
-   "ac3": "#2e2e2e",
-   "coverage": 0.7
+   "ac": "#ebf55d",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.07
   },
   "path": "/t/vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards/",
   "built": true
@@ -2612,13 +2722,13 @@
   "variant": "nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#1d1d1d",
-   "panel": "#f1f1f1",
+   "fg": "#000000",
+   "panel": "#d3d2d0",
    "dark": false,
-   "ac": "#8fe6dc",
-   "ac2": "#2f64c8",
-   "ac3": "#3a3a3e",
-   "coverage": 0.7
+   "ac": "#3d181a",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.56
   },
   "path": "/t/nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip/",
   "built": true
@@ -2648,14 +2758,14 @@
   "engine": "saas",
   "variant": "lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar",
   "theme": {
-   "bg": "#ffffff",
-   "fg": "#0a0a0a",
-   "panel": "#f4f4f5",
-   "dark": false,
-   "ac": "#000000",
-   "ac2": "#b3202a",
-   "ac3": "#1f5fae",
-   "coverage": 0.7
+   "bg": "#333333",
+   "fg": "#ffffff",
+   "panel": "#313132",
+   "dark": true,
+   "ac": "#2f6097",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.19
   },
   "path": "/t/lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar/",
   "built": true
@@ -2685,14 +2795,14 @@
   "engine": "saas",
   "variant": "oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan",
   "theme": {
-   "bg": "#f4ede4",
-   "fg": "#1c1c1c",
-   "panel": "#eae0d3",
+   "bg": "#f4e7dc",
+   "fg": "#9c5d3e",
+   "panel": "#eee6dc",
    "dark": false,
-   "ac": "#2c62f4",
-   "ac2": "#9c5d3e",
-   "ac3": "#151515",
-   "coverage": 0.7
+   "ac": "#9c5d3e",
+   "ac2": "#b98465",
+   "ac3": "#7f3b1f",
+   "coverage": 0.39
   },
   "path": "/t/oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan/",
   "built": true
@@ -2723,13 +2833,13 @@
   "variant": "teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles",
   "theme": {
    "bg": "#0e0f0e",
-   "fg": "#ffffff",
-   "panel": "#000000",
+   "fg": "#a48797",
+   "panel": "#000100",
    "dark": true,
    "ac": "#812b40",
    "ac2": "#5e3d69",
-   "ac3": "#9a9a9a",
-   "coverage": 0.7
+   "ac3": "#451527",
+   "coverage": 0.16
   },
   "path": "/t/teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles/",
   "built": true
@@ -2760,13 +2870,13 @@
   "variant": "sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#000000",
-   "panel": "#f4f1ec",
+   "fg": "#815a38",
+   "panel": "#fffffe",
    "dark": false,
-   "ac": "#000000",
-   "ac2": "#815a38",
-   "ac3": "#4b2d1e",
-   "coverage": 0.7
+   "ac": "#815a38",
+   "ac2": "#4b2d1e",
+   "ac3": "#31221a",
+   "coverage": 0.09
   },
   "path": "/t/sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system/",
   "built": true
@@ -2797,13 +2907,13 @@
   "variant": "kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#111111",
-   "panel": "#dbded5",
+   "fg": "#a82616",
+   "panel": "#f0f0ef",
    "dark": false,
-   "ac": "#c64620",
-   "ac2": "#dbded5",
-   "ac3": "#bcbdb9",
-   "coverage": 0.7
+   "ac": "#a82616",
+   "ac2": "#b22718",
+   "ac3": "#d48577",
+   "coverage": 0.81
   },
   "path": "/t/kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu/",
   "built": true
@@ -2833,14 +2943,14 @@
   "engine": "saas",
   "variant": "balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal",
   "theme": {
-   "bg": "#202020",
-   "fg": "#ffffff",
-   "panel": "#2e2f2f",
-   "dark": true,
-   "ac": "#eb6100",
-   "ac2": "#ffffff",
-   "ac3": "#3c3e3d",
-   "coverage": 0.7
+   "bg": "#ffffff",
+   "fg": "#161616",
+   "panel": "#ebebeb",
+   "dark": false,
+   "ac": "#271916",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.11
   },
   "path": "/t/balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal/",
   "built": true
@@ -2871,13 +2981,13 @@
   "variant": "tana-meetings-call-mock-live-capture-cards-gradient-feature-panels",
   "theme": {
    "bg": "#fbfbfb",
-   "fg": "#111111",
-   "panel": "#f4f2f3",
+   "fg": "#946f42",
+   "panel": "#ffffff",
    "dark": false,
-   "ac": "#4563d7",
-   "ac2": "#eac6cd",
-   "ac3": "#efc471",
-   "coverage": 0.7
+   "ac": "#946f42",
+   "ac2": "#463227",
+   "ac3": "#85573c",
+   "coverage": 0.29
   },
   "path": "/t/tana-meetings-call-mock-live-capture-cards-gradient-feature-panels/",
   "built": true
@@ -2907,14 +3017,14 @@
   "engine": "saas",
   "variant": "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap",
   "theme": {
-   "bg": "#121212",
-   "fg": "#ffffff",
-   "panel": "#1d1d1f",
+   "bg": "#111111",
+   "fg": "#9b9e8f",
+   "panel": "#101010",
    "dark": true,
-   "ac": "#ff9a1f",
-   "ac2": "#1f6bff",
-   "ac3": "#2fd36e",
-   "coverage": 0.7
+   "ac": "#4e627f",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.59
   },
   "path": "/t/rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap/",
   "built": true
@@ -2944,14 +3054,14 @@
   "engine": "saas",
   "variant": "monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel",
   "theme": {
-   "bg": "#0d0c2a",
-   "fg": "#ffffff",
-   "panel": "#4a3f8e",
+   "bg": "#616fbf",
+   "fg": "#fbfbfc",
+   "panel": "#3c4683",
    "dark": true,
-   "ac": "#7f86f0",
-   "ac2": "#e48fc0",
-   "ac3": "#f4c467",
-   "coverage": 0.65
+   "ac": "#616fbf",
+   "ac2": "#0e142c",
+   "ac3": "#161b34",
+   "coverage": 0.1
   },
   "path": "/t/monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel/",
   "built": true
@@ -2982,13 +3092,13 @@
   "variant": "jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero",
   "theme": {
    "bg": "#ffffff",
-   "fg": "#18181b",
-   "panel": "#f1f1f3",
+   "fg": "#0a090d",
+   "panel": "#fbfbfb",
    "dark": false,
-   "ac": "#b69cf8",
-   "ac2": "#18181b",
-   "ac3": "#ff4b1f",
-   "coverage": 0.7
+   "ac": "#b290fa",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.88
   },
   "path": "/t/jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero/",
   "built": true
@@ -3018,14 +3128,14 @@
   "engine": "saas",
   "variant": "halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone",
   "theme": {
-   "bg": "#0a0a0a",
-   "fg": "#f5f5f5",
-   "panel": "#141414",
+   "bg": "#020507",
+   "fg": "#bebdb3",
+   "panel": "#010406",
    "dark": true,
-   "ac": "#f5d547",
-   "ac2": "#ff6b9d",
-   "ac3": "#8a8a8a",
-   "coverage": 0.7
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.46
   },
   "path": "/t/halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone/",
   "built": true
@@ -3055,14 +3165,14 @@
   "engine": "saas",
   "variant": "chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-timeline",
   "theme": {
-   "bg": "#f8f1de",
-   "fg": "#1a1a1a",
-   "panel": "#fdf8e9",
+   "bg": "#fff5dd",
+   "fg": "#141414",
+   "panel": "#fff6dd",
    "dark": false,
-   "ac": "#c41e3a",
-   "ac2": "#1a1a1a",
-   "ac3": "#8a8070",
-   "coverage": 0.65
+   "ac": "#7c5cff",
+   "ac2": "#ff5c8a",
+   "ac3": "#ffc83d",
+   "coverage": 0.75
   },
   "path": "/t/chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-timeline/",
   "built": true

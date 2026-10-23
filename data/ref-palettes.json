@@ -1,4 +1,364 @@
 {
+ "bandcamp-discover-chip-filter-grid-player-rail": {
+  "bg": "#606060",
+  "fg": "#ffffff",
+  "panel": "#5e5e5e",
+  "dark": true,
+  "ac": "#5b601a",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.17
+ },
+ "omsom-starburst-badge-wavy-band-brand-landing": {
+  "bg": "#f0c3f4",
+  "fg": "#650501",
+  "panel": "#ecf842",
+  "dark": false,
+  "ac": "#650501",
+  "ac2": "#4d0501",
+  "ac3": "#ecf842",
+  "coverage": 0.09
+ },
+ "tracksmith-serif-italic-editorial-run-shop": {
+  "bg": "#2a3320",
+  "fg": "#ffffff",
+  "panel": "#423829",
+  "dark": true,
+  "ac": "#2a3320",
+  "ac2": "#423829",
+  "ac3": "#292719",
+  "coverage": 0.08
+ },
+ "bellroy-swatch-grid-pdp-feature-bands": {
+  "bg": "#f7f7f7",
+  "fg": "#88665a",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#503931",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.49
+ },
+ "tonys-custom-bar-wrapper-designer": {
+  "bg": "#0066cc",
+  "fg": "#ffffff",
+  "panel": "#0063cb",
+  "dark": true,
+  "ac": "#0066cc",
+  "ac2": "#ffed00",
+  "ac3": "#0063cb",
+  "coverage": 0.4
+ },
+ "luma-floating-poster-hero-discover-list": {
+  "bg": "#ffffff",
+  "fg": "#2f312e",
+  "panel": "#fefefe",
+  "dark": false,
+  "ac": "#8b5645",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.45
+ },
+ "commercialtype-color-band-catalog-type-tester": {
+  "bg": "#5a0050",
+  "fg": "#38a4fa",
+  "panel": "#5a004f",
+  "dark": true,
+  "ac": "#5a0050",
+  "ac2": "#38a4fa",
+  "ac3": "#78fff0",
+  "coverage": 0.29
+ },
+ "monocle-editorial-front-radio-onair-module": {
+  "bg": "#ffffff",
+  "fg": "#806652",
+  "panel": "#dcdbdb",
+  "dark": false,
+  "ac": "#fff79a",
+  "ac2": "#fff69a",
+  "ac3": "#806652",
+  "coverage": 0.57
+ },
+ "hellomonday-illustrated-word-cycle-hero": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#f4f4f4",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.9
+ },
+ "fontsinuse-archive-condensed-wordmark-tabs-ruled-dropdown-bar-image-grid-specimen-name-captions-staff-pick-ribbon-sponsor-tile-use-detail-sidebar": {
+  "bg": "#ffffff",
+  "fg": "#464b53",
+  "panel": "#f2f1ef",
+  "dark": false,
+  "ac": "#0f1837",
+  "ac2": "#1e2035",
+  "ac3": "#76465c",
+  "coverage": 0.47
+ },
+ "olafureliasson-news-stream-floating-cutout-object-staggered-media-column-menu-opens-pastel-gradient-wash-charcoal-right-drawer": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#d8d8d8",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.65
+ },
+ "bear-app-hero-device-switcher-hand-drawn-sketch-underline-color-per-device-mac-three-pane-iphone-fan-ipad-sketch-toolbar-award-laurels": {
+  "bg": "#ffffff",
+  "fg": "#4c6076",
+  "panel": "#f4f5f6",
+  "dark": false,
+  "ac": "#4c6076",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.74
+ },
+ "prose-hair-consultation-multi-step-quiz-segmented-section-progress-serif-questions-option-cards-sage-selected-auto-advance-line-art-texture-grid-lilac-visual-learner-sheet": {
+  "bg": "#262a29",
+  "fg": "#b4a497",
+  "panel": "#744a40",
+  "dark": true,
+  "ac": "#e08372",
+  "ac2": "#744a40",
+  "ac3": "#ffc83d",
+  "coverage": 0.08
+ },
+ "primavera-sound-festival-dot-poster-tiered-condensed-lineup-festival-cards-agenda-filter-chips-monthly-calendar-next-events-ticket-accordion-rows": {
+  "bg": "#ffffff",
+  "fg": "#010000",
+  "panel": "#d6d9d7",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.2
+ },
+ "flamingo-estate-editorial-shop-cream-wide-serif-wordmark-rounded-split-hero-love-letter-pill-most-loved-draggable-rail-badges-stamps-editorial-cards-press-quote-crossfade": {
+  "bg": "#956e11",
+  "fg": "#fcfbf6",
+  "panel": "#67a5ad",
+  "dark": true,
+  "ac": "#956e11",
+  "ac2": "#67a5ad",
+  "ac3": "#a0860e",
+  "coverage": 0.08
+ },
+ "usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price": {
+  "bg": "#ffffff",
+  "fg": "#2e4b65",
+  "panel": "#eaeff3",
+  "dark": false,
+  "ac": "#2e4b65",
+  "ac2": "#2d4962",
+  "ac3": "#5b7b8d",
+  "coverage": 0.26
+ },
+ "stedelijk-museum-giant-grotesk-wordmark-sticker-badge-ruled-type-rows-inline-thumbnails-arrow-labels-infinite-marquee-rows-shrink-to-header-black-right-menu-panel": {
+  "bg": "#ffffff",
+  "fg": "#0a0a0a",
+  "panel": "#eaeaea",
+  "dark": false,
+  "ac": "#f8e99f",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.51
+ },
+ "dishoom-restaurant-menu-cream-serif-letterspaced-caps-nav-arrow-scroll-menu-tabs-dietary-filters-right-drawer-diamond-divider-two-column-dish-list-navy-caps-prices": {
+  "bg": "#f0ece0",
+  "fg": "#3f2e24",
+  "panel": "#f3efe3",
+  "dark": false,
+  "ac": "#3f2e24",
+  "ac2": "#ab7645",
+  "ac3": "#cfa66e",
+  "coverage": 0.47
+ },
+ "studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion": {
+  "bg": "#fefdfc",
+  "fg": "#000000",
+  "panel": "#e3e1d4",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.4
+ },
+ "owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation": {
+  "bg": "#ffffff",
+  "fg": "#002147",
+  "panel": "#ebeef2",
+  "dark": false,
+  "ac": "#f7c020",
+  "ac2": "#002147",
+  "ac3": "#d9b23d",
+  "coverage": 0.43
+ },
+ "fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid": {
+  "bg": "#ffffff",
+  "fg": "#3f3f3f",
+  "panel": "#fafafa",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.52
+ },
+ "ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup": {
+  "bg": "#fef6ee",
+  "fg": "#9e7f6a",
+  "panel": "#c5cfcb",
+  "dark": false,
+  "ac": "#886c58",
+  "ac2": "#957560",
+  "ac3": "#7e6250",
+  "coverage": 0.09
+ },
+ "hoxton-hotel-cream-split-hero-big-light-title-city-card-rail-arrows-select-location-region-accordion-panel-find-a-room-booking-drawer-tabs-steppers": {
+  "bg": "#fef9f3",
+  "fg": "#311202",
+  "panel": "#fef2e3",
+  "dark": false,
+  "ac": "#311202",
+  "ac2": "#42200f",
+  "ac3": "#401908",
+  "coverage": 0.14
+ },
+ "kexp-radio-dark-header-live-now-playing-strip-play-button-volume-menu-overlay-playlist-page-station-select-date-time-picker-track-cards-on-air-dj": {
+  "bg": "#fefdfa",
+  "fg": "#231f20",
+  "panel": "#fefefe",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.51
+ },
+ "hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band": {
+  "bg": "#ffffff",
+  "fg": "#17180e",
+  "panel": "#d9d4c5",
+  "dark": false,
+  "ac": "#533d2d",
+  "ac2": "#75654c",
+  "ac3": "#9b604c",
+  "coverage": 0.12
+ },
+ "fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list": {
+  "bg": "#f5f5f5",
+  "fg": "#1e1e1f",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.36
+ },
+ "marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters": {
+  "bg": "#ffffff",
+  "fg": "#127655",
+  "panel": "#ddd3d9",
+  "dark": false,
+  "ac": "#127655",
+  "ac2": "#0d593e",
+  "ac3": "#0e3236",
+  "coverage": 0.12
+ },
+ "whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles": {
+  "bg": "#ffffff",
+  "fg": "#5e5841",
+  "panel": "#e5e5e4",
+  "dark": false,
+  "ac": "#e5a947",
+  "ac2": "#977454",
+  "ac3": "#7d2a20",
+  "coverage": 0.5
+ },
+ "snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list": {
+  "bg": "#ffffff",
+  "fg": "#2f2f30",
+  "panel": "#efeeec",
+  "dark": false,
+  "ac": "#3e3028",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.61
+ },
+ "brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu": {
+  "bg": "#ffffff",
+  "fg": "#68532e",
+  "panel": "#f2d4d7",
+  "dark": false,
+  "ac": "#a59264",
+  "ac2": "#68532e",
+  "ac3": "#e3bc60",
+  "coverage": 0.23
+ },
+ "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders": {
+  "bg": "#fafafa",
+  "fg": "#6f7878",
+  "panel": "#fefefe",
+  "dark": false,
+  "ac": "#3f471c",
+  "ac2": "#2e4449",
+  "ac3": "#6e1207",
+  "coverage": 0.17
+ },
+ "moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections": {
+  "bg": "#989898",
+  "fg": "#202020",
+  "panel": "#969696",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.68
+ },
+ "sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu": {
+  "bg": "#45190f",
+  "fg": "#ffffff",
+  "panel": "#231f20",
+  "dark": true,
+  "ac": "#45190f",
+  "ac2": "#fbe93b",
+  "ac3": "#45180e",
+  "coverage": 0.26
+ },
+ "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap": {
+  "bg": "#ffffff",
+  "fg": "#48531d",
+  "panel": "#f6f6f6",
+  "dark": false,
+  "ac": "#48531d",
+  "ac2": "#4f833a",
+  "ac3": "#1b3545",
+  "coverage": 0.33
+ },
+ "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons": {
+  "bg": "#ffffff",
+  "fg": "#ca2e16",
+  "panel": "#f7f7f3",
+  "dark": false,
+  "ac": "#72baec",
+  "ac2": "#ca2e16",
+  "ac3": "#182227",
+  "coverage": 0.11
+ },
+ "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates": {
+  "bg": "#f1f1f1",
+  "fg": "#111111",
+  "panel": "#e8e8e8",
+  "dark": false,
+  "ac": "#fe4a07",
+  "ac2": "#f958fd",
+  "ac3": "#05f409",
+  "coverage": 0.33
+ },
  "muuto-scandi-furniture-giant-two-line-type-over-hero-photo-color-block-sections-inset-video-thumb-vertical-side-label-products-mega-panel-card-hover-lifestyle-swap": {
   "bg": "#4f3d3a",
   "fg": "#d6c8b5",
@@ -28,6 +388,476 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.08
+ },
+ "hasselblad-black-camera-showcase-eclipse-glow-hero-stacked-fullbleed-product-panels-orange-nav-hover-product-icon-subnav-strip-cookie-bar": {
+  "bg": "#030303",
+  "fg": "#c8b8a3",
+  "panel": "#000000",
+  "dark": true,
+  "ac": "#382e22",
+  "ac2": "#68563e",
+  "ac3": "#ffc83d",
+  "coverage": 0.45
+ },
+ "polaroid-instant-camera-store-video-hero-mode-name-cycler-handwritten-overlay-black-pill-menu-image-card-dropdown-sticker-collab-badge-product-row-photo-collage": {
+  "bg": "#878887",
+  "fg": "#070e15",
+  "panel": "#99938f",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "kinto-calm-japanese-lifestyle-store-shop-mega-panel-dark-banner-numbered-hero-slider-serif-section-titles-scene-pair-overflow-product-carousel": {
+  "bg": "#85aeaf",
+  "fg": "#141414",
+  "panel": "#73979a",
+  "dark": false,
+  "ac": "#70aac5",
+  "ac2": "#7fb6c5",
+  "ac3": "#6693a7",
+  "coverage": 0.07
+ },
+ "klim-type-foundry-video-scrubber-object-hero-color-band-font-index-sticky-specimen-toolbar-live-type-tester-opentype-toggles": {
+  "bg": "#cd3508",
+  "fg": "#f0f0f0",
+  "panel": "#cd3509",
+  "dark": true,
+  "ac": "#cd3508",
+  "ac2": "#cd3509",
+  "ac3": "#cd3507",
+  "coverage": 0.33
+ },
+ "baemin-mint-brand-landing-rotating-hero-copy-fullscreen-wheel-pager-hanna-display-type-line-illustration-sections-right-dots": {
+  "bg": "#476256",
+  "fg": "#cddfd8",
+  "panel": "#405c4f",
+  "dark": true,
+  "ac": "#aa794e",
+  "ac2": "#0decd0",
+  "ac3": "#6d4639",
+  "coverage": 0.07
+ },
+ "warp-records-purple-split-header-artist-hero-slideshow-release-split-panel-tracklist-tabs-caps-artist-index": {
+  "bg": "#312e1b",
+  "fg": "#fbf8f7",
+  "panel": "#000000",
+  "dark": true,
+  "ac": "#312e1b",
+  "ac2": "#363a21",
+  "ac3": "#2b2414",
+  "coverage": 0.06
+ },
+ "criterion-film-label-wheel-driven-fullscreen-section-pager-bespoke-title-art-heroes-poster-collage-vertical-side-label-dots-right-drawer-menu-search-panel": {
+  "bg": "#999999",
+  "fg": "#080808",
+  "panel": "#67727d",
+  "dark": false,
+  "ac": "#7c4b27",
+  "ac2": "#6b4a2a",
+  "ac3": "#845a2c",
+  "coverage": 0.09
+ },
+ "elektron-dark-instrument-maker-big-type-catalog-list-hover-photo-reveal-grey-suffix-names-pixel-icon-nav-top-drop-search-bar-bar-mark-section-rows": {
+  "bg": "#1a1f22",
+  "fg": "#bd89a2",
+  "panel": "#262c30",
+  "dark": true,
+  "ac": "#421a18",
+  "ac2": "#1d3b32",
+  "ac3": "#683d48",
+  "coverage": 0.07
+ },
+ "freitag-upcycled-bag-store-mono-caps-square-cell-product-grid-inline-expanding-subcategory-chips-fullscreen-grey-live-search-letterspaced-hero-arrow-slider": {
+  "bg": "#ffffff",
+  "fg": "#0d0e10",
+  "panel": "#fafafa",
+  "dark": false,
+  "ac": "#7492bb",
+  "ac2": "#191c28",
+  "ac3": "#405278",
+  "coverage": 0.12
+ },
+ "annapurna-game-publisher-dark-light-toggle-pill-nav-fullbleed-key-art-hero-carousel-arrows-dots-cover-art-grid-hover-details-pill-platform-filter-dropdown": {
+  "bg": "#1b2128",
+  "fg": "#dbdcdc",
+  "panel": "#0f1317",
+  "dark": true,
+  "ac": "#324251",
+  "ac2": "#1f2832",
+  "ac3": "#43586a",
+  "coverage": 0.08
+ },
+ "cowboy-ebike-scroll-showcase-cursor-follow-explore-pill-model-segmented-toggle-angle-slider-arrows-scroll-fill-headline-mega-menu-bike-lineup": {
+  "bg": "#3e3d32",
+  "fg": "#d2cfc9",
+  "panel": "#666046",
+  "dark": true,
+  "ac": "#5e553a",
+  "ac2": "#62583d",
+  "ac3": "#6f6348",
+  "coverage": 0.06
+ },
+ "phaidon-art-book-publisher-yellow-scattered-cover-hero-color-block-category-panels-book-rows-image-mega-menu-live-search-panel": {
+  "bg": "#f8cb00",
+  "fg": "#a33727",
+  "panel": "#ffc800",
+  "dark": false,
+  "ac": "#f8cb00",
+  "ac2": "#ffc800",
+  "ac3": "#a33727",
+  "coverage": 0.2
+ },
+ "boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud": {
+  "bg": "#000000",
+  "fg": "#757e66",
+  "panel": "#000001",
+  "dark": true,
+  "ac": "#493f2e",
+  "ac2": "#33211e",
+  "ac3": "#60a665",
+  "coverage": 0.55
+ },
+ "acehotel-booking-bar-header-location-dropdown-calendar-guest-stepper-orange-book-now-condensed-display-hero-dark-locations-panel": {
+  "bg": "#ffffff",
+  "fg": "#060607",
+  "panel": "#e4e4e4",
+  "dark": false,
+  "ac": "#271213",
+  "ac2": "#4e0614",
+  "ac3": "#ffc83d",
+  "coverage": 0.09
+ },
+ "magicspoon-candy-color-cereal-dtc-bundle-pill-picker-mega-menu-featured-flavors-category-tab-switcher-floating-food-decor-starburst-badges": {
+  "bg": "#305ca8",
+  "fg": "#fbfbfe",
+  "panel": "#6330e9",
+  "dark": true,
+  "ac": "#305ca8",
+  "ac2": "#6330e9",
+  "ac3": "#525ee9",
+  "coverage": 0.11
+ },
+ "studiodumbar-fullscreen-scroll-project-reel-color-field-per-project-corner-title-label-tiny-wordmark-spaced-nav-work-grid-hover-dim": {
+  "bg": "#000000",
+  "fg": "#f0f0f0",
+  "panel": "#0f0f0f",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.81
+ },
+ "moma-museum-portal-bold-grotesk-wordmark-two-row-nav-split-welcome-hours-bar-exhibition-carousel-arrows-color-block-bands-search-overlay": {
+  "bg": "#ffffff",
+  "fg": "#737373",
+  "panel": "#efefef",
+  "dark": false,
+  "ac": "#2b4442",
+  "ac2": "#402d28",
+  "ac3": "#3b5e56",
+  "coverage": 0.3
+ },
+ "gentlewoman-magazine-click-through-slideshow-varying-slide-layouts-cursor-arrow-caption-bar-category-dek-counter-centered-geometric-nav": {
+  "bg": "#ffffff",
+  "fg": "#563427",
+  "panel": "#f7f7f7",
+  "dark": false,
+  "ac": "#563427",
+  "ac2": "#121928",
+  "ac3": "#865c45",
+  "coverage": 0.72
+ },
+ "joby-rounded-hero-card-expands-full-bleed-scroll-scrubbed-aircraft-sequence-blue-statement-cream-sticky-partner-list-fullscreen-blue-menu": {
+  "bg": "#030303",
+  "fg": "#f3cda3",
+  "panel": "#302012",
+  "dark": true,
+  "ac": "#007ae5",
+  "ac2": "#302012",
+  "ac3": "#007ce9",
+  "coverage": 0.21
+ },
+ "big-architecture-index-center-column-glyph-icon-project-list-logo-to-hamburger-category-filter-subfilter-row": {
+  "bg": "#ffffff",
+  "fg": "#252f2d",
+  "panel": "#dde1e6",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.7
+ },
+ "1x-neo-warm-grey-robot-product-story-sticky-section-subnav-rounded-video-cards-chore-pill-carousel-center-zoom-feature-carousel": {
+  "bg": "#737f96",
+  "fg": "#141414",
+  "panel": "#8a99b0",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "ssense-stark-caps-grotesk-shop-a-world-of-vertical-brand-roller-tone-shift-banner-giant-split-shop-links-editorial-story-grid": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#fbfbfb",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.28
+ },
+ "mubi-cinematic-film-still-hero-rotation-caps-headline-inline-email-cta-device-line-art-band-notebook-magazine-split": {
+  "bg": "#212223",
+  "fg": "#e3e4e6",
+  "panel": "#292a2a",
+  "dark": true,
+  "ac": "#161a2e",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "bluebottle-airy-caps-tracked-nav-bw-hero-numbered-01-02-03-pager-image-mega-menu-product-rail-split-story-panels": {
+  "bg": "#ffffff",
+  "fg": "#27201e",
+  "panel": "#f6f6f3",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.33
+ },
+ "superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list": {
+  "bg": "#232235",
+  "fg": "#7cc1e3",
+  "panel": "#181825",
+  "dark": true,
+  "ac": "#232235",
+  "ac2": "#28243e",
+  "ac3": "#3b2445",
+  "coverage": 0.13
+ },
+ "leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid": {
+  "bg": "#ffffff",
+  "fg": "#6f624f",
+  "panel": "#e8e8e7",
+  "dark": false,
+  "ac": "#4c3c2f",
+  "ac2": "#886525",
+  "ac3": "#6d4124",
+  "coverage": 0.23
+ },
+ "lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs": {
+  "bg": "#16282f",
+  "fg": "#f0f0f0",
+  "panel": "#2e3d42",
+  "dark": true,
+  "ac": "#16282f",
+  "ac2": "#2a1516",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "pentagram-we-design-sentence-filter-pill-hero-slider-dot-pager-frosted-discipline-chip-panel-poster-rail": {
+  "bg": "#ffffff",
+  "fg": "#222222",
+  "panel": "#e7f8d0",
+  "dark": false,
+  "ac": "#e8f46c",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.13
+ },
+ "sweetgreen-cream-grotesk-food-hero-slider-serif-category-tabs-dot-bowl-card-swap-split-color-panels": {
+  "bg": "#f1f2ed",
+  "fg": "#4f4730",
+  "panel": "#dfd7c6",
+  "dark": false,
+  "ac": "#4f4730",
+  "ac2": "#7b5633",
+  "ac3": "#3a2d1e",
+  "coverage": 0.1
+ },
+ "sky-painterly-cloud-hero-platform-circle-icons-mist-section-dissolve-news-awards-media-carousel": {
+  "bg": "#2e7090",
+  "fg": "#ffffff",
+  "panel": "#3e616c",
+  "dark": true,
+  "ac": "#2e7090",
+  "ac2": "#112430",
+  "ac3": "#3e616c",
+  "coverage": 0.07
+ },
+ "gentlemonster-cinematic-campaign-hero-segmented-progress-hover-dropdown-model-pair-thumbnail-swap": {
+  "bg": "#747473",
+  "fg": "#141414",
+  "panel": "#4f4c4a",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.15
+ },
+ "aman-cream-serif-hotel-editorial-split-feature-cards-seasonal-rail-progress-split-drawer-menu": {
+  "bg": "#494745",
+  "fg": "#fdf9f5",
+  "panel": "#484644",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.61
+ },
+ "liquiddeath-heavy-condensed-caps-hero-slider-center-raised-can-trio-punk-merch-crest-cards": {
+  "bg": "#ffffff",
+  "fg": "#0f1314",
+  "panel": "#dfdfde",
+  "dark": false,
+  "ac": "#1e3037",
+  "ac2": "#6a4f44",
+  "ac3": "#996a5a",
+  "coverage": 0.1
+ },
+ "vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards": {
+  "bg": "#232224",
+  "fg": "#fffffc",
+  "panel": "#100f10",
+  "dark": true,
+  "ac": "#ebf55d",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.07
+ },
+ "nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip": {
+  "bg": "#ffffff",
+  "fg": "#000000",
+  "panel": "#d3d2d0",
+  "dark": false,
+  "ac": "#3d181a",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.56
+ },
+ "lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar": {
+  "bg": "#333333",
+  "fg": "#ffffff",
+  "panel": "#313132",
+  "dark": true,
+  "ac": "#2f6097",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.19
+ },
+ "oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan": {
+  "bg": "#f4e7dc",
+  "fg": "#9c5d3e",
+  "panel": "#eee6dc",
+  "dark": false,
+  "ac": "#9c5d3e",
+  "ac2": "#b98465",
+  "ac3": "#7f3b1f",
+  "coverage": 0.39
+ },
+ "teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles": {
+  "bg": "#0e0f0e",
+  "fg": "#a48797",
+  "panel": "#000100",
+  "dark": true,
+  "ac": "#812b40",
+  "ac2": "#5e3d69",
+  "ac3": "#451527",
+  "coverage": 0.16
+ },
+ "sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system": {
+  "bg": "#ffffff",
+  "fg": "#815a38",
+  "panel": "#fffffe",
+  "dark": false,
+  "ac": "#815a38",
+  "ac2": "#4b2d1e",
+  "ac3": "#31221a",
+  "coverage": 0.09
+ },
+ "kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu": {
+  "bg": "#ffffff",
+  "fg": "#a82616",
+  "panel": "#f0f0ef",
+  "dark": false,
+  "ac": "#a82616",
+  "ac2": "#b22718",
+  "ac3": "#d48577",
+  "coverage": 0.81
+ },
+ "balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal": {
+  "bg": "#ffffff",
+  "fg": "#161616",
+  "panel": "#ebebeb",
+  "dark": false,
+  "ac": "#271916",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.11
+ },
+ "tana-meetings-call-mock-live-capture-cards-gradient-feature-panels": {
+  "bg": "#fbfbfb",
+  "fg": "#946f42",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#946f42",
+  "ac2": "#463227",
+  "ac3": "#85573c",
+  "coverage": 0.29
+ },
+ "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap": {
+  "bg": "#111111",
+  "fg": "#9b9e8f",
+  "panel": "#101010",
+  "dark": true,
+  "ac": "#4e627f",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.59
+ },
+ "monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel": {
+  "bg": "#616fbf",
+  "fg": "#fbfbfc",
+  "panel": "#3c4683",
+  "dark": true,
+  "ac": "#616fbf",
+  "ac2": "#0e142c",
+  "ac3": "#161b34",
+  "coverage": 0.1
+ },
+ "jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero": {
+  "bg": "#ffffff",
+  "fg": "#0a090d",
+  "panel": "#fbfbfb",
+  "dark": false,
+  "ac": "#b290fa",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.88
+ },
+ "halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone": {
+  "bg": "#020507",
+  "fg": "#bebdb3",
+  "panel": "#010406",
+  "dark": true,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.46
+ },
+ "chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-timeline": {
+  "bg": "#fff5dd",
+  "fg": "#141414",
+  "panel": "#fff6dd",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.75
  },
  "dich-fashion-cyber-hud-discover-orb-terminal-columns-collection-rail": {
   "bg": "#070707",
@@ -427,7 +1257,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1
+  "coverage": 1.0
  },
  "artefakt-ascii-particle-mouse-3d-gallery-image-focus-pixel-reveal": {
   "bg": "#0b0b0b",
@@ -2167,7 +2997,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1
+  "coverage": 1.0
  },
  "georgeandjonathan-album-experience": {
   "bg": "#170d2f",
@@ -2447,7 +3277,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1
+  "coverage": 1.0
  },
  "bitsy-pixel-game-maker-desk": {
   "bg": "#ccccff",
@@ -2557,7 +3387,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1
+  "coverage": 1.0
  },
  "hydra-live-visual-synth": {
   "bg": "#000000",
@@ -4437,7 +5267,7 @@
   "ac": "#7c5cff",
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
-  "coverage": 1
+  "coverage": 1.0
  },
  "code-snippet-image-studio": {
   "bg": "#0d0d0d",
@@ -4828,805 +5658,5 @@
   "ac2": "#ff5c8a",
   "ac3": "#ffc83d",
   "coverage": 0.32
- },
- "halide-mark3-dark-camera-gear-hero-device-stack-pegboard-quick-edit-phone": {
-  "bg": "#0a0a0a",
-  "fg": "#f5f5f5",
-  "panel": "#141414",
-  "dark": true,
-  "ac": "#f5d547",
-  "ac2": "#ff6b9d",
-  "ac3": "#8a8a8a",
-  "coverage": 0.7
- },
- "chartogne-taillet-engraved-cream-age-gate-ink-reveal-letterspaced-parcel-timeline": {
-  "bg": "#f8f1de",
-  "fg": "#1a1a1a",
-  "panel": "#fdf8e9",
-  "dark": false,
-  "ac": "#c41e3a",
-  "ac2": "#1a1a1a",
-  "ac3": "#8a8070",
-  "coverage": 0.65
- },
- "rainbow-dark-sticky-phone-scroll-swap-screens-section-rail-hold-to-swap": {
-  "bg": "#121212",
-  "fg": "#ffffff",
-  "panel": "#1d1d1f",
-  "dark": true,
-  "ac": "#ff9a1f",
-  "ac2": "#1f6bff",
-  "ac3": "#2fd36e",
-  "coverage": 0.7
- },
- "monument-valley-franchise-tab-header-impossible-architecture-hero-hex-scroll-rail-art-carousel": {
-  "bg": "#0d0c2a",
-  "fg": "#ffffff",
-  "panel": "#4a3f8e",
-  "dark": true,
-  "ac": "#7f86f0",
-  "ac2": "#e48fc0",
-  "ac3": "#f4c467",
-  "coverage": 0.65
- },
- "jitter-motion-template-poster-carousel-collapsing-pill-nav-design-in-motion-hero": {
-  "bg": "#ffffff",
-  "fg": "#18181b",
-  "panel": "#f1f1f3",
-  "dark": false,
-  "ac": "#b69cf8",
-  "ac2": "#18181b",
-  "ac3": "#ff4b1f",
-  "coverage": 0.7
- },
- "kinfolk-issue-cover-hero-latest-stories-hover-list-fullbleed-sage-menu": {
-  "bg": "#ffffff",
-  "fg": "#111111",
-  "panel": "#dbded5",
-  "dark": false,
-  "ac": "#c64620",
-  "ac2": "#dbded5",
-  "ac3": "#bcbdb9",
-  "coverage": 0.7
- },
- "balmuda-dark-serif-toaster-hero-region-modal-product-grid-reveal": {
-  "bg": "#202020",
-  "fg": "#ffffff",
-  "panel": "#2e2f2f",
-  "dark": true,
-  "ac": "#eb6100",
-  "ac2": "#ffffff",
-  "ac3": "#3c3e3d",
-  "coverage": 0.7
- },
- "tana-meetings-call-mock-live-capture-cards-gradient-feature-panels": {
-  "bg": "#fbfbfb",
-  "fg": "#111111",
-  "panel": "#f4f2f3",
-  "dark": false,
-  "ac": "#4563d7",
-  "ac2": "#eac6cd",
-  "ac3": "#efc471",
-  "coverage": 0.7
- },
- "oura-wear-your-best-life-hand-ring-hero-health-pillar-card-carousel-app-screen-fan": {
-  "bg": "#f4ede4",
-  "fg": "#1c1c1c",
-  "panel": "#eae0d3",
-  "dark": false,
-  "ac": "#2c62f4",
-  "ac2": "#9c5d3e",
-  "ac3": "#151515",
-  "coverage": 0.7
- },
- "teamlab-dark-index-immersive-hero-on-view-exhibition-grid-works-hover-title-tiles": {
-  "bg": "#0e0f0e",
-  "fg": "#ffffff",
-  "panel": "#000000",
-  "dark": true,
-  "ac": "#812b40",
-  "ac2": "#5e3d69",
-  "ac3": "#9a9a9a",
-  "coverage": 0.7
- },
- "sonos-love-the-sound-hero-scroll-exploded-speaker-play-your-way-carousel-floating-system": {
-  "bg": "#ffffff",
-  "fg": "#000000",
-  "panel": "#f4f1ec",
-  "dark": false,
-  "ac": "#000000",
-  "ac2": "#815a38",
-  "ac3": "#4b2d1e",
-  "coverage": 0.7
- },
- "vanmoof-s6-dark-hero-red-light-floating-glass-pill-nav-handlebar-display-inset-cards": {
-  "bg": "#0b0b0c",
-  "fg": "#ffffff",
-  "panel": "#efefef",
-  "dark": true,
-  "ac": "#f2fd5d",
-  "ac2": "#ff2b24",
-  "ac3": "#2e2e2e",
-  "coverage": 0.7
- },
- "nomos-airy-editorial-watch-hero-family-mega-menu-model-rail-manufactory-strip": {
-  "bg": "#ffffff",
-  "fg": "#1d1d1d",
-  "panel": "#f1f1f1",
-  "dark": false,
-  "ac": "#8fe6dc",
-  "ac2": "#2f64c8",
-  "ac3": "#3a3a3e",
-  "coverage": 0.7
- },
- "lummi-giant-lowercase-headline-color-curated-masonry-hover-author-chip-sticky-toolbar": {
-  "bg": "#ffffff",
-  "fg": "#0a0a0a",
-  "panel": "#f4f4f5",
-  "dark": false,
-  "ac": "#000000",
-  "ac2": "#b3202a",
-  "ac3": "#1f5fae",
-  "coverage": 0.7
- },
- "aman-cream-serif-hotel-editorial-split-feature-cards-seasonal-rail-progress-split-drawer-menu": {
-  "bg": "#494745",
-  "fg": "#fdf9f5",
-  "panel": "#484644",
-  "dark": true,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.61
- },
- "gentlemonster-cinematic-campaign-hero-segmented-progress-hover-dropdown-model-pair-thumbnail-swap": {
-  "bg": "#747473",
-  "fg": "#141414",
-  "panel": "#4f4c4a",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.15
- },
- "liquiddeath-heavy-condensed-caps-hero-slider-center-raised-can-trio-punk-merch-crest-cards": {
-  "bg": "#ffffff",
-  "fg": "#0f1314",
-  "panel": "#dfdfde",
-  "dark": false,
-  "ac": "#1e3037",
-  "ac2": "#6a4f44",
-  "ac3": "#996a5a",
-  "coverage": 0.1
- },
- "pentagram-we-design-sentence-filter-pill-hero-slider-dot-pager-frosted-discipline-chip-panel-poster-rail": {
-  "bg": "#ffffff",
-  "fg": "#222222",
-  "panel": "#e7f8d0",
-  "dark": false,
-  "ac": "#e8f46c",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.13
- },
- "sweetgreen-cream-grotesk-food-hero-slider-serif-category-tabs-dot-bowl-card-swap-split-color-panels": {
-  "bg": "#f1f2ed",
-  "fg": "#4f4730",
-  "panel": "#dfd7c6",
-  "dark": false,
-  "ac": "#4f4730",
-  "ac2": "#7b5633",
-  "ac3": "#3a2d1e",
-  "coverage": 0.1
- },
- "sky-painterly-cloud-hero-platform-circle-icons-mist-section-dissolve-news-awards-media-carousel": {
-  "bg": "#2e7090",
-  "fg": "#ffffff",
-  "panel": "#3e616c",
-  "dark": true,
-  "ac": "#2e7090",
-  "ac2": "#112430",
-  "ac3": "#3e616c",
-  "coverage": 0.07
- },
- "superlist-dark-gradient-hero-red-accent-headline-app-window-dropdown-nav-color-tile-feature-grid-fading-capability-list": {
-  "bg": "#232235",
-  "fg": "#7cc1e3",
-  "panel": "#181825",
-  "dark": true,
-  "ac": "#232235",
-  "ac2": "#28243e",
-  "ac3": "#3b2445",
-  "coverage": 0.13
- },
- "leica-airy-wordmark-headline-photo-hero-product-line-tabs-red-dot-pill-cta-art-of-leica-editorial-tiles-category-grid": {
-  "bg": "#ffffff",
-  "fg": "#6f624f",
-  "panel": "#e8e8e7",
-  "dark": false,
-  "ac": "#4c3c2f",
-  "ac2": "#886525",
-  "ac3": "#6d4124",
-  "coverage": 0.23
- },
- "lamborghini-dark-condensed-caps-hero-video-slider-line-pager-fullscreen-menu-models-carousel-configure-model-tabs": {
-  "bg": "#16282f",
-  "fg": "#f0f0f0",
-  "panel": "#2e3d42",
-  "dark": true,
-  "ac": "#16282f",
-  "ac2": "#2a1516",
-  "ac3": "#ffc83d",
-  "coverage": 0.07
- },
- "ssense-stark-caps-grotesk-shop-a-world-of-vertical-brand-roller-tone-shift-banner-giant-split-shop-links-editorial-story-grid": {
-  "bg": "#ffffff",
-  "fg": "#000000",
-  "panel": "#fbfbfb",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.28
- },
- "mubi-cinematic-film-still-hero-rotation-caps-headline-inline-email-cta-device-line-art-band-notebook-magazine-split": {
-  "bg": "#212223",
-  "fg": "#e3e4e6",
-  "panel": "#292a2a",
-  "dark": true,
-  "ac": "#161a2e",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.07
- },
- "bluebottle-airy-caps-tracked-nav-bw-hero-numbered-01-02-03-pager-image-mega-menu-product-rail-split-story-panels": {
-  "bg": "#ffffff",
-  "fg": "#27201e",
-  "panel": "#f6f6f3",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.33
- },
- "joby-rounded-hero-card-expands-full-bleed-scroll-scrubbed-aircraft-sequence-blue-statement-cream-sticky-partner-list-fullscreen-blue-menu": {
-  "bg": "#030303",
-  "fg": "#f3cda3",
-  "panel": "#302012",
-  "dark": true,
-  "ac": "#007ae5",
-  "ac2": "#302012",
-  "ac3": "#007ce9",
-  "coverage": 0.21
- },
- "big-architecture-index-center-column-glyph-icon-project-list-logo-to-hamburger-category-filter-subfilter-row": {
-  "bg": "#ffffff",
-  "fg": "#252f2d",
-  "panel": "#dde1e6",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.7
- },
- "1x-neo-warm-grey-robot-product-story-sticky-section-subnav-rounded-video-cards-chore-pill-carousel-center-zoom-feature-carousel": {
-  "bg": "#737f96",
-  "fg": "#141414",
-  "panel": "#8a99b0",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.07
- },
- "studiodumbar-fullscreen-scroll-project-reel-color-field-per-project-corner-title-label-tiny-wordmark-spaced-nav-work-grid-hover-dim": {
-  "bg": "#000000",
-  "fg": "#f0f0f0",
-  "panel": "#0f0f0f",
-  "dark": true,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.81
- },
- "moma-museum-portal-bold-grotesk-wordmark-two-row-nav-split-welcome-hours-bar-exhibition-carousel-arrows-color-block-bands-search-overlay": {
-  "bg": "#ffffff",
-  "fg": "#737373",
-  "panel": "#efefef",
-  "dark": false,
-  "ac": "#2b4442",
-  "ac2": "#402d28",
-  "ac3": "#3b5e56",
-  "coverage": 0.3
- },
- "gentlewoman-magazine-click-through-slideshow-varying-slide-layouts-cursor-arrow-caption-bar-category-dek-counter-centered-geometric-nav": {
-  "bg": "#ffffff",
-  "fg": "#563427",
-  "panel": "#f7f7f7",
-  "dark": false,
-  "ac": "#563427",
-  "ac2": "#121928",
-  "ac3": "#865c45",
-  "coverage": 0.72
- },
- "boilerroom-club-culture-portal-rotating-3d-globe-hero-yellow-find-event-cta-poster-carousel-arrows-city-tiles-search-genre-tag-cloud": {
-  "bg": "#000000",
-  "fg": "#757e66",
-  "panel": "#000001",
-  "dark": true,
-  "ac": "#493f2e",
-  "ac2": "#33211e",
-  "ac3": "#60a665",
-  "coverage": 0.55
- },
- "acehotel-booking-bar-header-location-dropdown-calendar-guest-stepper-orange-book-now-condensed-display-hero-dark-locations-panel": {
-  "bg": "#ffffff",
-  "fg": "#060607",
-  "panel": "#e4e4e4",
-  "dark": false,
-  "ac": "#271213",
-  "ac2": "#4e0614",
-  "ac3": "#ffc83d",
-  "coverage": 0.09
- },
- "magicspoon-candy-color-cereal-dtc-bundle-pill-picker-mega-menu-featured-flavors-category-tab-switcher-floating-food-decor-starburst-badges": {
-  "bg": "#305ca8",
-  "fg": "#fbfbfe",
-  "panel": "#6330e9",
-  "dark": true,
-  "ac": "#305ca8",
-  "ac2": "#6330e9",
-  "ac3": "#525ee9",
-  "coverage": 0.11
- },
- "annapurna-game-publisher-dark-light-toggle-pill-nav-fullbleed-key-art-hero-carousel-arrows-dots-cover-art-grid-hover-details-pill-platform-filter-dropdown": {
-  "bg": "#1b2128",
-  "fg": "#dbdcdc",
-  "panel": "#0f1317",
-  "dark": true,
-  "ac": "#324251",
-  "ac2": "#1f2832",
-  "ac3": "#43586a",
-  "coverage": 0.08
- },
- "cowboy-ebike-scroll-showcase-cursor-follow-explore-pill-model-segmented-toggle-angle-slider-arrows-scroll-fill-headline-mega-menu-bike-lineup": {
-  "bg": "#3e3d32",
-  "fg": "#d2cfc9",
-  "panel": "#666046",
-  "dark": true,
-  "ac": "#5e553a",
-  "ac2": "#62583d",
-  "ac3": "#6f6348",
-  "coverage": 0.06
- },
- "phaidon-art-book-publisher-yellow-scattered-cover-hero-color-block-category-panels-book-rows-image-mega-menu-live-search-panel": {
-  "bg": "#f8cb00",
-  "fg": "#a33727",
-  "panel": "#ffc800",
-  "dark": false,
-  "ac": "#f8cb00",
-  "ac2": "#ffc800",
-  "ac3": "#a33727",
-  "coverage": 0.2
- },
- "criterion-film-label-wheel-driven-fullscreen-section-pager-bespoke-title-art-heroes-poster-collage-vertical-side-label-dots-right-drawer-menu-search-panel": {
-  "bg": "#999999",
-  "fg": "#080808",
-  "panel": "#67727d",
-  "dark": false,
-  "ac": "#7c4b27",
-  "ac2": "#6b4a2a",
-  "ac3": "#845a2c",
-  "coverage": 0.09
- },
- "elektron-dark-instrument-maker-big-type-catalog-list-hover-photo-reveal-grey-suffix-names-pixel-icon-nav-top-drop-search-bar-bar-mark-section-rows": {
-  "bg": "#1a1f22",
-  "fg": "#bd89a2",
-  "panel": "#262c30",
-  "dark": true,
-  "ac": "#421a18",
-  "ac2": "#1d3b32",
-  "ac3": "#683d48",
-  "coverage": 0.07
- },
- "freitag-upcycled-bag-store-mono-caps-square-cell-product-grid-inline-expanding-subcategory-chips-fullscreen-grey-live-search-letterspaced-hero-arrow-slider": {
-  "bg": "#ffffff",
-  "fg": "#0d0e10",
-  "panel": "#fafafa",
-  "dark": false,
-  "ac": "#7492bb",
-  "ac2": "#191c28",
-  "ac3": "#405278",
-  "coverage": 0.12
- },
- "klim-type-foundry-video-scrubber-object-hero-color-band-font-index-sticky-specimen-toolbar-live-type-tester-opentype-toggles": {
-  "bg": "#cd3508",
-  "fg": "#f0f0f0",
-  "panel": "#cd3509",
-  "dark": true,
-  "ac": "#cd3508",
-  "ac2": "#cd3509",
-  "ac3": "#cd3507",
-  "coverage": 0.33
- },
- "baemin-mint-brand-landing-rotating-hero-copy-fullscreen-wheel-pager-hanna-display-type-line-illustration-sections-right-dots": {
-  "bg": "#476256",
-  "fg": "#cddfd8",
-  "panel": "#405c4f",
-  "dark": true,
-  "ac": "#aa794e",
-  "ac2": "#0decd0",
-  "ac3": "#6d4639",
-  "coverage": 0.07
- },
- "warp-records-purple-split-header-artist-hero-slideshow-release-split-panel-tracklist-tabs-caps-artist-index": {
-  "bg": "#312e1b",
-  "fg": "#fbf8f7",
-  "panel": "#000000",
-  "dark": true,
-  "ac": "#312e1b",
-  "ac2": "#363a21",
-  "ac3": "#2b2414",
-  "coverage": 0.06
- },
- "hasselblad-black-camera-showcase-eclipse-glow-hero-stacked-fullbleed-product-panels-orange-nav-hover-product-icon-subnav-strip-cookie-bar": {
-  "bg": "#030303",
-  "fg": "#c8b8a3",
-  "panel": "#000000",
-  "dark": true,
-  "ac": "#382e22",
-  "ac2": "#68563e",
-  "ac3": "#ffc83d",
-  "coverage": 0.45
- },
- "polaroid-instant-camera-store-video-hero-mode-name-cycler-handwritten-overlay-black-pill-menu-image-card-dropdown-sticker-collab-badge-product-row-photo-collage": {
-  "bg": "#878887",
-  "fg": "#070e15",
-  "panel": "#99938f",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.07
- },
- "kinto-calm-japanese-lifestyle-store-shop-mega-panel-dark-banner-numbered-hero-slider-serif-section-titles-scene-pair-overflow-product-carousel": {
-  "bg": "#85aeaf",
-  "fg": "#141414",
-  "panel": "#73979a",
-  "dark": false,
-  "ac": "#70aac5",
-  "ac2": "#7fb6c5",
-  "ac3": "#6693a7",
-  "coverage": 0.07
- },
- "ecal-art-school-spaced-wordmark-caps-nav-fullbleed-video-hero-overlay-title-pausable-marquee-ticker-giant-circle-pill-links-oversized-caps-news-grid-search-bar-swap": {
-  "bg": "#ffffff",
-  "fg": "#48531d",
-  "panel": "#f6f6f6",
-  "dark": false,
-  "ac": "#48531d",
-  "ac2": "#4f833a",
-  "ac3": "#1b3545",
-  "coverage": 0.33
- },
- "ninja-tune-record-label-condensed-wordmark-square-cover-grid-preorder-badges-hover-dim-listen-buy-overlay-release-page-format-cards-tracklist-play-buttons": {
-  "bg": "#ffffff",
-  "fg": "#ca2e16",
-  "panel": "#f7f7f3",
-  "dark": false,
-  "ac": "#72baec",
-  "ac2": "#ca2e16",
-  "ac3": "#182227",
-  "coverage": 0.11
- },
- "kikk-art-tech-festival-giant-black-stacked-caps-hero-ghost-letters-color-keyart-to-grayscale-pink-dot-cursor-vertical-side-labels-ecosystem-grid-news-dates": {
-  "bg": "#f1f1f1",
-  "fg": "#111111",
-  "panel": "#e8e8e8",
-  "dark": false,
-  "ac": "#fe4a07",
-  "ac2": "#f958fd",
-  "ac3": "#05f409",
-  "coverage": 0.33
- },
- "pangram-pangram-type-foundry-stacked-rounded-photo-hero-cards-new-pills-card-list-view-toggle-aa-specimen-cards-font-page-ring-letter-motion-style-grid-tester-sliders": {
-  "bg": "#fafafa",
-  "fg": "#111111",
-  "panel": "#fefefe",
-  "dark": false,
-  "ac": "#ff3d00",
-  "ac2": "#ffb800",
-  "ac3": "#bfe0ff",
-  "coverage": 0.17
- },
- "moooi-cinematic-video-hero-thin-serif-title-pause-button-spaced-wordmark-menu-panel-category-icon-row-split-color-panels-full-bleed-story-sections": {
-  "bg": "#989898",
-  "fg": "#202020",
-  "panel": "#969696",
-  "dark": false,
-  "ac": "#2b3a7a",
-  "ac2": "#e6dccb",
-  "ac3": "#1b1b1b",
-  "coverage": 0.68
- },
- "sacred-bones-records-oxblood-label-store-split-release-hero-dots-new-releases-carousel-badges-illustrated-snake-category-tiles-record-society-emblem-mega-menu": {
-  "bg": "#45190f",
-  "fg": "#ffffff",
-  "panel": "#231f20",
-  "dark": true,
-  "ac": "#f6e600",
-  "ac2": "#c9a02a",
-  "ac3": "#d11f1f",
-  "coverage": 0.26
- },
- "whitney-museum-giant-wordmark-diagonal-w-line-logo-collapses-on-scroll-sticky-mini-bar-caps-nav-pop-art-exhibition-grid-black-grey-two-tone-caps-titles": {
-  "bg": "#ffffff",
-  "fg": "#000000",
-  "panel": "#f2f2f2",
-  "dark": false,
-  "ac": "#d9413f",
-  "ac2": "#f2d21b",
-  "ac3": "#8c8c8c",
-  "coverage": 0
- },
- "snohetta-architecture-practice-statement-hero-overlapping-photo-collage-hover-caption-discipline-list-events-table-blur-menu-overlay-project-two-tone-title-marquee-project-list": {
-  "bg": "#ffffff",
-  "fg": "#111111",
-  "panel": "#f2f2f2",
-  "dark": false,
-  "ac": "#9a9a9a",
-  "ac2": "#c9876a",
-  "ac3": "#3f7f6c",
-  "coverage": 0
- },
- "brightland-olive-oil-build-your-own-bundle-sticky-my-bundle-panel-slot-placeholders-tier-progress-bar-discount-unlocks-qty-stepper-image-card-mega-menu": {
-  "bg": "#ffffff",
-  "fg": "#1a1a1a",
-  "panel": "#f4f0ea",
-  "dark": false,
-  "ac": "#f6c200",
-  "ac2": "#f2d3d6",
-  "ac3": "#1f4e96",
-  "coverage": 0
- },
- "hem-furniture-two-step-customer-region-gate-modal-segmented-blue-select-confirm-enable-editorial-split-campaign-panels-category-rail-arch-image-pro-band": {
-  "bg": "#ffffff",
-  "fg": "#111111",
-  "panel": "#dcd8c2",
-  "dark": false,
-  "ac": "#2326de",
-  "ac2": "#ef9f9a",
-  "ac3": "#c79e6c",
-  "coverage": 0
- },
- "fellow-stagg-ekg-kettle-pdp-photo-grid-sticky-buy-column-color-swatch-rail-model-toggle-bundle-save-cards-accordion-review-carousel-precision-feature-list": {
-  "bg": "#ffffff",
-  "fg": "#1e1e1f",
-  "panel": "#efefed",
-  "dark": false,
-  "ac": "#9d523a",
-  "ac2": "#e6dfcf",
-  "ac3": "#d4a26a",
-  "coverage": 0
- },
- "marimekko-full-bleed-print-panel-hero-carousel-caption-cta-thin-nav-stores-select-country-bar-category-listing-skeleton-to-grid-filters": {
-  "bg": "#ffffff",
-  "fg": "#141414",
-  "panel": "#ececec",
-  "dark": false,
-  "ac": "#178a5c",
-  "ac2": "#13427a",
-  "ac3": "#f05a5a",
-  "coverage": 0
- },
- "ghia-aperitif-beach-photo-hero-condensed-serif-caps-pink-pill-cta-maroon-claims-marquee-filter-chip-product-carousel-two-step-mystery-discount-popup": {
-  "bg": "#fdf3ec",
-  "fg": "#661b33",
-  "panel": "#b5d3d6",
-  "dark": false,
-  "ac": "#ee6482",
-  "ac2": "#4a7bc0",
-  "ac3": "#c7a487",
-  "coverage": 0
- },
- "hoxton-hotel-cream-split-hero-big-light-title-city-card-rail-arrows-select-location-region-accordion-panel-find-a-room-booking-drawer-tabs-steppers": {
-  "bg": "#fdf3e6",
-  "fg": "#1d1b19",
-  "panel": "#e6dccd",
-  "dark": false,
-  "ac": "#f58b6f",
-  "ac2": "#3d3935",
-  "ac3": "#7a6ad8",
-  "coverage": 0
- },
- "kexp-radio-dark-header-live-now-playing-strip-play-button-volume-menu-overlay-playlist-page-station-select-date-time-picker-track-cards-on-air-dj": {
-  "bg": "#fdfcf7",
-  "fg": "#231f20",
-  "panel": "#efecdc",
-  "dark": false,
-  "ac": "#fbad18",
-  "ac2": "#7a5214",
-  "ac3": "#e8392b",
-  "coverage": 0
- },
- "studiofreight-agency-scattered-thumbnail-field-serif-center-title-typewriter-discipline-headline-grid-list-zoom-work-toggle-black-contact-form-faq-accordion": {
-  "bg": "#fefdfc",
-  "fg": "#000000",
-  "panel": "#e3e1d4",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.4
- },
- "owid-grapher-explorable-chart-table-map-line-bar-tabs-country-checkbox-sidebar-inline-value-bars-timeline-range-slider-play-animation": {
-  "bg": "#ffffff",
-  "fg": "#002147",
-  "panel": "#ebeef2",
-  "dark": false,
-  "ac": "#f7c020",
-  "ac2": "#002147",
-  "ac3": "#d9b23d",
-  "coverage": 0.43
- },
- "fujifilm-x-camera-brand-portrait-strip-hero-condensed-wordmark-ticker-bar-cameras-listing-radio-filter-sidebar-sort-select-product-tile-grid": {
-  "bg": "#ffffff",
-  "fg": "#3f3f3f",
-  "panel": "#fafafa",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.52
- },
- "usm-haller-modular-furniture-configurator-structure-accessories-color-tabs-mm-chip-selectors-3d-cabinet-dimension-labels-extend-handles-conflict-remove-prompt-ral-swatches-live-price": {
-  "bg": "#ffffff",
-  "fg": "#2e4b65",
-  "panel": "#eaeff3",
-  "dark": false,
-  "ac": "#2e4b65",
-  "ac2": "#2d4962",
-  "ac3": "#5b7b8d",
-  "coverage": 0.26
- },
- "stedelijk-museum-giant-grotesk-wordmark-sticker-badge-ruled-type-rows-inline-thumbnails-arrow-labels-infinite-marquee-rows-shrink-to-header-black-right-menu-panel": {
-  "bg": "#ffffff",
-  "fg": "#0a0a0a",
-  "panel": "#eaeaea",
-  "dark": false,
-  "ac": "#f8e99f",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.51
- },
- "dishoom-restaurant-menu-cream-serif-letterspaced-caps-nav-arrow-scroll-menu-tabs-dietary-filters-right-drawer-diamond-divider-two-column-dish-list-navy-caps-prices": {
-  "bg": "#f0ece0",
-  "fg": "#3f2e24",
-  "panel": "#f3efe3",
-  "dark": false,
-  "ac": "#3f2e24",
-  "ac2": "#ab7645",
-  "ac3": "#cfa66e",
-  "coverage": 0.47
- },
- "prose-hair-consultation-multi-step-quiz-segmented-section-progress-serif-questions-option-cards-sage-selected-auto-advance-line-art-texture-grid-lilac-visual-learner-sheet": {
-  "bg": "#262a29",
-  "fg": "#b4a497",
-  "panel": "#744a40",
-  "dark": true,
-  "ac": "#e08372",
-  "ac2": "#744a40",
-  "ac3": "#ffc83d",
-  "coverage": 0.08
- },
- "primavera-sound-festival-dot-poster-tiered-condensed-lineup-festival-cards-agenda-filter-chips-monthly-calendar-next-events-ticket-accordion-rows": {
-  "bg": "#ffffff",
-  "fg": "#010000",
-  "panel": "#d6d9d7",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.2
- },
- "flamingo-estate-editorial-shop-cream-wide-serif-wordmark-rounded-split-hero-love-letter-pill-most-loved-draggable-rail-badges-stamps-editorial-cards-press-quote-crossfade": {
-  "bg": "#956e11",
-  "fg": "#fcfbf6",
-  "panel": "#67a5ad",
-  "dark": true,
-  "ac": "#956e11",
-  "ac2": "#67a5ad",
-  "ac3": "#a0860e",
-  "coverage": 0.08
- },
- "fontsinuse-archive-condensed-wordmark-tabs-ruled-dropdown-bar-image-grid-specimen-name-captions-staff-pick-ribbon-sponsor-tile-use-detail-sidebar": {
-  "bg": "#ffffff",
-  "fg": "#464b53",
-  "panel": "#f2f1ef",
-  "dark": false,
-  "ac": "#0f1837",
-  "ac2": "#1e2035",
-  "ac3": "#76465c",
-  "coverage": 0.47
- },
- "olafureliasson-news-stream-floating-cutout-object-staggered-media-column-menu-opens-pastel-gradient-wash-charcoal-right-drawer": {
-  "bg": "#ffffff",
-  "fg": "#000000",
-  "panel": "#d8d8d8",
-  "dark": false,
-  "ac": "#7c5cff",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.65
- },
- "bear-app-hero-device-switcher-hand-drawn-sketch-underline-color-per-device-mac-three-pane-iphone-fan-ipad-sketch-toolbar-award-laurels": {
-  "bg": "#ffffff",
-  "fg": "#4c6076",
-  "panel": "#f4f5f6",
-  "dark": false,
-  "ac": "#4c6076",
-  "ac2": "#ff5c8a",
-  "ac3": "#ffc83d",
-  "coverage": 0.74
- },
- "commercialtype-color-band-catalog-type-tester": {
-  "bg": "#3BA4F7",
-  "fg": "#DDF0FF",
-  "panel": "#5A004E",
-  "dark": false,
-  "ac": "#5A004E",
-  "ac2": "#FFC8E6",
-  "ac3": "#7AFFF0",
-  "coverage": 0.29
- },
- "monocle-editorial-front-radio-onair-module": {
-  "bg": "#ffffff",
-  "fg": "#111111",
-  "panel": "#2a2a2a",
-  "dark": false,
-  "ac": "#FFC500",
-  "ac2": "#2a2a2a",
-  "ac3": "#e8504a",
-  "coverage": 0.57
- },
- "hellomonday-illustrated-word-cycle-hero": {
-  "bg": "#ffffff",
-  "fg": "#000000",
-  "panel": "#f4f4f4",
-  "dark": false,
-  "ac": "#111111",
-  "ac2": "#555555",
-  "ac3": "#999999",
-  "coverage": 0.9
- },
- "bellroy-swatch-grid-pdp-feature-bands": {
-  "bg": "#ffffff",
-  "fg": "#333333",
-  "panel": "#f5f5f5",
-  "dark": false,
-  "ac": "#D04A1E",
-  "ac2": "#141824",
-  "ac3": "#3c7a5a",
-  "coverage": 0.48
- },
- "tonys-custom-bar-wrapper-designer": {
-  "bg": "#0565CB",
-  "fg": "#ffffff",
-  "panel": "#3d8be0",
-  "dark": true,
-  "ac": "#FFE600",
-  "ac2": "#E30613",
-  "ac3": "#ffffff",
-  "coverage": 0.55
- },
- "luma-floating-poster-hero-discover-list": {
-  "bg": "#fafafa",
-  "fg": "#131517",
-  "panel": "#ffffff",
-  "dark": false,
-  "ac": "#C42CF0",
-  "ac2": "#F55A7A",
-  "ac3": "#F6A21B",
-  "coverage": 0.7
  }
 }
