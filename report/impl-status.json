@@ -4624,5 +4624,32 @@
   "proof": "headline \"Delightfuleventsstart here\" 72px; gradient line clip=text img=linear-gradient(90deg, rgb(196, 44, 240)…; CTA bg=rgb(19, 21, 23) radius=99px; floating posters=12/12 framed radius=14px float anim=lmF flown-in=true; parallax near/far shift=translate(9.26944px, 9.1819px) | translate(5.71944px, 5.66543px); Discover Events → view=disc rows=6 list cols=2 cats=9 cat cols=3 clock \"1:03 PM GMT+9\"; row title clamp=2 thumb=56px; row → sheet open=true x=972 \"Glamourween: A Glam Goth Halloween Party\" register bg=linear-gradient(90deg, rgb(196…; register → \"You’re going ✓\"; Esc closes=true; restored landing · stand-ins: event posters are code-drawn CSS/SVG art (Anton/Lilita One/Archivo Black/Lobster), Inter substitutes Luma’s UI face; sign-in/create/view-all are demo toasts",
   "demoNodes": 322,
   "errors": []
+ },
+ "tracksmith-serif-italic-editorial-run-shop": {
+  "url": "https://ux-technique-gallery.vercel.app/t/tracksmith-serif-italic-editorial-run-shop/",
+  "ok": true,
+  "at": "2026-10-23T07:55:47.797Z",
+  "http": 200,
+  "proof": "hero \"Merino is Magic\" 64px \"EB Garamond\"; italic word style=italic; CTA bg=rgb(156, 122, 85) radius=0px; bar bg=rgb(125, 103, 72); announcement › → msg 2/3 translate=translateX(-100%); hover WOMEN → color=rgb(156, 122, 85) megamenu open=true cols=4 opacity=1; Esc closes=true; chevron smooth-scroll → scrollTop=824 nav solid=true; products=4 name font=\"EB Garamond\" cap=\"Merino wool\" tracking=1.36px dual links=8 color=rgb(156, 122, 85); editorial tiles=2 zoom transition=1.6s; categories=3; Start Here italic=italic; chat panel=true; restored top · stand-ins: photos are code-drawn SVG landscapes/garments, EB Garamond substitutes SainteColombe and Archivo (expanded) the extended grotesk",
+  "demoNodes": 402,
+  "errors": []
+ },
+ "omsom-starburst-badge-wavy-band-brand-landing": {
+  "url": "https://ux-technique-gallery.vercel.app/t/omsom-starburst-badge-wavy-band-brand-landing/",
+  "ok": true,
+  "at": "2026-10-23T07:55:47.794Z",
+  "http": 200,
+  "proof": "hero badge rot=matrix(0.990268, -0.139173, 0. anim=omwob star pts=44 shadow fill=#FF5A1F font=\"Lilita One\" color=rgb(240, 69, 43); wavy band bg=rgb(231, 182, 240) stripes anim=omwv; cluster badges=2; cluster badge → drawer open=true items=4; outside click closes=true; scroll → retailer revealed=true logos=4 frame offset shadow=rgb(255, 90, 31); press pill shadow=rgb(255, 90, 31) 5px 5px 0 quotes=4 quote color=rgb(255, 90, 31); footer wordmark \"OM SÒM\" size=129.6px; scrolled back to top · stand-ins: food photos are code-drawn SVG scenes, Lilita One substitutes Omsom’s display face, retailer/press marks are typeset approximations",
+  "demoNodes": 405,
+  "errors": []
+ },
+ "bandcamp-discover-chip-filter-grid-player-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/bandcamp-discover-chip-filter-grid-player-rail/",
+  "ok": true,
+  "at": "2026-10-23T07:55:47.787Z",
+  "http": 200,
+  "proof": "genre chips=25 chip h=26px radius=6px border=rgb(204, 204, 204); grid cols=4; rail sticky=sticky; click ambient → chip bg=rgb(30, 127, 127) has×=true subrow open=true bg=rgb(191, 220, 220) subs=\"chill-out, drone, dark ambient…\"; format vinyl → hash #/discover/ambient/vinyl?sort=top; tiles=13 all vinyl=true crumb \"ambient / vinyl / best-selling385,638 results\"; back → hash #/discover/ambient/all?sort=top format=all; forward → format=vinyl; tile click → rail \"Keysfrom Peasant Remixesby Nala Sinephro\" sel=true; play → pause progress=2.28%; wishlist on=true; cleared → default list 640; infinite scroll 24→36; sticky crumb on=true; cleared filters, restored default · stand-ins: covers are generated gradient art, URL sync uses the hash (#/discover/genre/format?sort=) since the gallery serves a static page",
+  "demoNodes": 355,
+  "errors": []
  }
 }
