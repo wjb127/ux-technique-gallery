@@ -4570,5 +4570,32 @@
   "proof": "hero: \"Markdown notes you’ll love\" (\"Nunito Variable\" 50px), love underline stroke #8ccfd9, sub \"on Mac, iPhone & iPad\"; switcher: Mac → swoosh #8ccfd9 + 3 sparks, love=#8ccfd9, mock=mac (opacity 1), badge \"Mac App Store\" | iPhone → swoosh #8b5fbf + 3 sparks, love=#8b5fbf, mock=iphone (opacity 1), badge \"App Store\" | iPad → swoosh #f2c94c + 3 sparks, love=#f2c94c, mock=ipad (opacity 1), badge \"App Store\"; inactive colour rgb(153, 153, 153); Mac mock: 1050px window, traffic lights 3, sidebar bg rgb(43, 43, 46) [Notes, Untagged, Todo, Today, Locked, Archive, Trash], active note bar rgb(221, 76, 79) 3px, editor \"🐻‍❄️ Polar Bears\"; click note → editor \"☕ Coffee ratios\"; iPhone fan rotations [rot, 0, rot]; iPad: \"Lila’s Rocket Project!\", #science tag, rocket labels 6 (Gochi Hand), palette tools 6 + 6 colours, pencil=true; pick eraser raised=true (matrix(1, 0, 0, 1, 0, 0)), red colour ring=true (rgb(255, 255, 255) 0px 0px 0px 2px, rgb(17, 17, 17) 0px 0px 0px 4px); laurels [Editor’s Choice, Design Award, App of the year]; sticky nav shadow=true; mobile=false scale 1.000 · stand-ins: app screenshots, polar bear photo and rocket sketch are code-drawn HTML/SVG; Nunito substitutes Bear’s Avenir-style UI face, Gochi Hand the handwritten labels; store badges and nav are demo toasts",
   "demoNodes": 404,
   "errors": []
+ },
+ "commercialtype-color-band-catalog-type-tester": {
+  "url": "https://ux-technique-gallery.vercel.app/t/commercialtype-color-band-catalog-type-tester/",
+  "ok": true,
+  "at": "2026-10-23T00:01:21.259Z",
+  "http": 200,
+  "proof": "bands=7 [Spectator:rgb(59, 164, 247) | New Doric:rgb(90, 0, 78) | Orlando:rgb(122, 255, 240)…] caption \"4 Families, 48 Styles\"; nav chips=10 (Catalog/Custom/Design/News/Goods/About/EULA/Login) + logo + VIEW CART; footer cols=3; family view \"Spectator Collection\" meta rows=5 waterfall lines=40; tester open=true sticky=sticky style=\"Bold\" size=149px weight=700; live CSS: font-size=96px line-height=120px letter-spacing=4.8px align=left columns=2; OpenType menu open=true feature=\"smcp\"; language FR sample=\"Gravitation Générale\"; contentEditable typed=\"Typed proof\"; style select → Bold Italic italic=italic; TEST PINNED off → toolbar relative; pinned again → sticky; restored size=149px; back to catalog bands=7 · stand-ins: Spectator/New Doric/Orlando/Graphik/Lyon Arabic/Austin/Druk are rendered with Playfair Display, Archivo Black, Fraunces, Inter Tight, Amiri, Bodoni Moda and Anton; UI chips use Inter Tight; product photos are code-drawn SVG; cart/trial/nav links are demo toasts",
+  "demoNodes": 109,
+  "errors": []
+ },
+ "monocle-editorial-front-radio-onair-module": {
+  "url": "https://ux-technique-gallery.vercel.app/t/monocle-editorial-front-radio-onair-module/",
+  "ok": true,
+  "at": "2026-10-23T00:01:21.269Z",
+  "http": 200,
+  "proof": "masthead wordmark \"MONOCLE\" 78px, illustrations=2, SUBSCRIBE bg=rgb(255, 197, 0), section nav=9; scroll 600 → condensed sticky header=true; front grid cols=3 lead=\"Has the art world forgotten …\" cards=6; radio rail bg=rgb(42, 42, 42) ON AIR eq bars animated=moEq show=\"The Entrepreneurs\"; LISTEN LIVE → \"PAUSE\" bottom player shown=true (0px from bottom); toggle back \"LISTEN LIVE\" player=false; radio episodes=6 yellow badges=6 arrow scroll 0→461; VIEW FULL PROGRAMME → schedule view=sched tabs [Thursday, Friday*, Saturday] rows=14; arrows shift window → Friday/Saturday/Sunday → Wednesday/Thursday/Friday; pick Friday active=true; JUMP TO ON AIR NOW → day Friday row \"01:00 BST\" The Entrepreneurs highlighted=true visible=true; restored view=front · stand-ins: Libre Caslon Text replaces Monocle’s Plantin-style serif, Inter the grotesk caps; photos, show covers and the book/terrier line drawings are code-drawn SVG; audio is a visual demo (no stream); ad slot is a static placeholder",
+  "demoNodes": 438,
+  "errors": []
+ },
+ "hellomonday-illustrated-word-cycle-hero": {
+  "url": "https://ux-technique-gallery.vercel.app/t/hellomonday-illustrated-word-cycle-hero/",
+  "ok": true,
+  "at": "2026-10-23T00:01:21.272Z",
+  "http": 200,
+  "proof": "logo \"HELLOMONDAY/DEPT®\" countdown \"3 days until Monday\" (Mon→\"Today is Monday!\", Sun→\"1 day until Monday\"); duo svg poses=3 word font=\"Zilla Slab\" 66px; scroll steps (sticky=sticky) 10%→Products/pose0, 45%→Experiences/pose1, 80%→Branding/pose2; released → work tiles=6 visible=true; bulge tab width=80 at right edge=0px; menu open=true panel x=820 links=[Work, About, Careers, News, Contact] link font=68px; Esc closes=true; auto-cycle step → Experiences/pose1; restored Products · stand-ins: the two characters are code-drawn SVG line art (3 poses, flipbook crossfade), Zilla Slab substitutes the slab serif, project tiles use animated gradients instead of videos; tiles/menu links are demo toasts",
+  "demoNodes": 186,
+  "errors": []
  }
 }
