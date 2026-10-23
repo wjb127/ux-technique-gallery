@@ -4705,5 +4705,32 @@
   "proof": "hero h1 \"Stress lessall with Headspace\" font=\"Nunito Variable\"; panels=2 bg=rgb(247, 241, 234) radius=24px; headline word cycle \"Stress less\"→\"Sleep better\"; goal tiles=6 cols=3 radius=12px icons=6; AI guidance active pill bg=rgb(45, 44, 43) stage bg=rgb(255, 206, 0); typed \"I get so stressed talking to my mom.…\" Ebb bubble visible=true thinking dots anim=hsdot; click \"Sleep resources\" → stage centered offset=0px bg=rgb(75, 43, 179) \"Bedtime essentials\" search typed=\"Falling asleep\" dot 2 indicator left=277px; neighbours peek: prev right edge=150px next left=1290px of 1440; audio play → playing progress 19.2%; pause stops=true; swipe left → tab \"Expert-led programs\" in sync=true; restored AI guidance/top · stand-ins: illustrations, phone screens and photos are CSS/SVG approximations, Nunito substitutes Headspace Apercu",
   "demoNodes": 263,
   "errors": []
+ },
+ "acne-giant-wordmark-split-hero-collapse": {
+  "url": "https://ux-technique-gallery.vercel.app/t/acne-giant-wordmark-split-hero-collapse/",
+  "ok": true,
+  "at": "2026-10-23T20:03:37.164Z",
+  "http": 200,
+  "proof": "top: 2-up split hero halves=2 labels \"Bags\"/\"Scarves\"; giant wordmark width=1097px (76% of viewport) font=\"Outfit Variable\" centred=true; scroll 30% → wordmark still large (1097px, holds centre while halves scroll under); mid-collapse k=0.40 width=763px; after hero → wordmark collapsed into header: width=150px top=7 bottom=35 inside 42px header=true header bg=rgba(255, 255, 255, 0.97) clickable=true; hover \"WOMEN'S NEW ARRIVALS\" half → image matrix(1.03, 0, 0, 1.03, 0, 0) + \"Shop now\" opacity=1; category tile \"Bags\" hover swaps image a→b: a=0 b=1; NEWS strip drag scrollLeft 0→1008; SEARCH → panel slides down transform=none; restored top (wordmark 1097px) · stand-ins: product/editorial photos are SVG/gradient illustrations, campaign video is a canvas grain loop, Outfit substitutes the Acne wordmark face",
+  "demoNodes": 168,
+  "errors": []
+ },
+ "darkroom-red-pixel-terminal-studio-reel": {
+  "url": "https://ux-technique-gallery.vercel.app/t/darkroom-red-pixel-terminal-studio-reel/",
+  "ok": true,
+  "at": "2026-10-23T20:03:37.162Z",
+  "http": 200,
+  "proof": "hero decode → \"WHERE THINGS GET DEVELOPED\" font=VT323 color=rgb(238, 20, 25) words span edge-to-edge: left=14 right gap=14; status glyph scramble ▪◙█◙◙▯…→▯▬◘▀▒▮… changed=true; nav tab invert bg=rgb(58, 5, 7) color=rgb(238, 20, 25); chrome: top tabs=6 bottom \"BECOME AN OPEN SOURCE SPONSOR\" fixed=absolute; hover Oreo & BTS panel → mosaic block 27px → 1px (pixelate in/out); crosshair \"VIEW OREO & BTS\" visible=true; scroll into LOOPED: title pinned sticky top=0px right-aligned=true; progress bar top=calc(63.16% - 25.3px); menu square → overlay flex; restored top · stand-ins: case reels are live canvas scenes (not the real videos), VT323 substitutes the studio pixel face",
+  "demoNodes": 96,
+  "errors": []
+ },
+ "rivian-r2-trim-segment-swatch-lineup-stage": {
+  "url": "https://ux-technique-gallery.vercel.app/t/rivian-r2-trim-segment-swatch-lineup-stage/",
+  "ok": true,
+  "at": "2026-10-23T20:03:37.153Z",
+  "http": 200,
+  "proof": "top: global floating nav visible=true sub-nav hidden=true; scroll to lineup → floating R2 sub-nav=true bg=rgb(255, 255, 255) radius=10px active=\"Lineup\" pill bg=rgb(218, 218, 218); segmented Standard→Premium: black pill 4px→138px bg=rgb(0, 0, 0); specs count-up → 330mi / 4.6s / 450 hp / Dual; Starting at $50,9901; paint swatch \"Rivian Blue\" ring=true outline=rgb(0, 0, 0) → body fill #2E4E78; wheel swatch → \"Premium · Rivian Blue · 21\" Sport wheels\"; tooltip \"Glacier White\" opacity=1; Compare drawer open translate=none highlighted col=\"Premium\" rows=6; scroll to \"Any road, any time\" → sub-nav active=\"Performance\" indicator left=72px; charging → active=\"Charging\"; restored Standard/Half Moon Grey/top (spec 275mi) · stand-ins: vehicle is an inline-SVG silhouette, photos are gradients, Inter Tight substitutes Rivian's typeface; non-Standard trim figures are illustrative",
+  "demoNodes": 246,
+  "errors": []
  }
 }
