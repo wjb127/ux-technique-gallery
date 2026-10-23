@@ -4597,5 +4597,32 @@
   "proof": "logo \"HELLOMONDAY/DEPT®\" countdown \"3 days until Monday\" (Mon→\"Today is Monday!\", Sun→\"1 day until Monday\"); duo svg poses=3 word font=\"Zilla Slab\" 66px; scroll steps (sticky=sticky) 10%→Products/pose0, 45%→Experiences/pose1, 80%→Branding/pose2; released → work tiles=6 visible=true; bulge tab width=80 at right edge=0px; menu open=true panel x=820 links=[Work, About, Careers, News, Contact] link font=68px; Esc closes=true; auto-cycle step → Experiences/pose1; restored Products · stand-ins: the two characters are code-drawn SVG line art (3 poses, flipbook crossfade), Zilla Slab substitutes the slab serif, project tiles use animated gradients instead of videos; tiles/menu links are demo toasts",
   "demoNodes": 186,
   "errors": []
+ },
+ "tonys-custom-bar-wrapper-designer": {
+  "url": "https://ux-technique-gallery.vercel.app/t/tonys-custom-bar-wrapper-designer/",
+  "ok": true,
+  "at": "2026-10-23T04:03:41.007Z",
+  "http": 200,
+  "proof": "stage bg=rgb(5, 101, 203) nav links=7; bar transform=matrix3d(0.99863, -0.051… band bg=rgb(255, 230, 0) \"your flavor her\" \"Alfa Slab One\"; tabs=4 tilts=[-2.5,1.8,-1.2,2.4] active=0 label \"step 1/4\"; swatches=20 radius=50%; pick red → wrapper=rgb(240, 15, 15) ring=\"rgb(255, 255, 255) 0px 0px 0px 2px, rgb(\"; rainbow → conic-gradient(r; edit sides → flipped=true (matrix3d(-0.99863, -…) back visible; step arrow → \"step 2/4\" pane photo=true; photo placed, dragged 24→83px, scaled 160→200px; stickers on bar=3; text step → bar text \"hi Junbok\" font=Lobster color=rgb(255, 255, 255); ready! → modal=true mini preview=true; add to bag → 1; tip card dismissed=true; template carousel → translateX(calc(-25% - 3.5px)); pencil “bcorp” → step step 4/4, text \"Proudly B Corp\" wrapper=rgb(47, 179, 166); heading \"choose a template\" \"Alfa Slab One\" 106.56px color=rgb(227, 6, 19); restored white/step 1 · stand-ins: Special Elite + Alfa Slab One substitute Tony’s typewriter/slab faces; bar, icons, template mock-ups and stickers are code-drawn CSS/SVG; checkout/nav are demo toasts",
+  "demoNodes": 318,
+  "errors": []
+ },
+ "bellroy-swatch-grid-pdp-feature-bands": {
+  "url": "https://ux-technique-gallery.vercel.app/t/bellroy-swatch-grid-pdp-feature-bands/",
+  "ok": true,
+  "at": "2026-10-23T04:03:40.999Z",
+  "http": 200,
+  "proof": "header h=88 nav=7 mail dot=rgb(208, 74, 30); hero band bg=rgb(245, 245, 245) cols=2; title \"Note Sleeve\" 26px price $95; swatches premium=10 alt=1 grid cols=5 tile=52px; pick Willow → active border=rgb(208, 74, 30) caption=\"Willow\" url=?color=willow crossfade layer=true main image tinted=true; slide → #slide-2 transform=translateX(-200%); ArrowRight → #slide-3; ADD TO CART → \"ADDED\" check=true bubble=1 shown=true btn bg=rgb(208, 74, 30); accordion Specifications open=true h=78 chevron=true; feature band bg=rgb(20, 24, 36) rows revealed=2/3; cookie bar \"GOT IT\"; mobile sticky ATC=false; restored Black/slide-0 · stand-ins: product photos and lifestyle shots are code-drawn SVG wallets/scenes, Jost substitutes Bellroy’s humanist sans; nav/search are demo toasts",
+  "demoNodes": 671,
+  "errors": []
+ },
+ "luma-floating-poster-hero-discover-list": {
+  "url": "https://ux-technique-gallery.vercel.app/t/luma-floating-poster-hero-discover-list/",
+  "ok": true,
+  "at": "2026-10-23T04:03:41.010Z",
+  "http": 200,
+  "proof": "headline \"Delightfuleventsstart here\" 72px; gradient line clip=text img=linear-gradient(90deg, rgb(196, 44, 240)…; CTA bg=rgb(19, 21, 23) radius=99px; floating posters=12/12 framed radius=14px float anim=lmF flown-in=true; parallax near/far shift=translate(9.26944px, 9.1819px) | translate(5.71944px, 5.66543px); Discover Events → view=disc rows=6 list cols=2 cats=9 cat cols=3 clock \"1:03 PM GMT+9\"; row title clamp=2 thumb=56px; row → sheet open=true x=972 \"Glamourween: A Glam Goth Halloween Party\" register bg=linear-gradient(90deg, rgb(196…; register → \"You’re going ✓\"; Esc closes=true; restored landing · stand-ins: event posters are code-drawn CSS/SVG art (Anton/Lilita One/Archivo Black/Lobster), Inter substitutes Luma’s UI face; sign-in/create/view-all are demo toasts",
+  "demoNodes": 322,
+  "errors": []
  }
 }
