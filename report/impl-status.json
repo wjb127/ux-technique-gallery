@@ -4651,5 +4651,32 @@
   "proof": "genre chips=25 chip h=26px radius=6px border=rgb(204, 204, 204); grid cols=4; rail sticky=sticky; click ambient → chip bg=rgb(30, 127, 127) has×=true subrow open=true bg=rgb(191, 220, 220) subs=\"chill-out, drone, dark ambient…\"; format vinyl → hash #/discover/ambient/vinyl?sort=top; tiles=13 all vinyl=true crumb \"ambient / vinyl / best-selling385,638 results\"; back → hash #/discover/ambient/all?sort=top format=all; forward → format=vinyl; tile click → rail \"Keysfrom Peasant Remixesby Nala Sinephro\" sel=true; play → pause progress=2.28%; wishlist on=true; cleared → default list 640; infinite scroll 24→36; sticky crumb on=true; cleared filters, restored default · stand-ins: covers are generated gradient art, URL sync uses the hash (#/discover/genre/format?sort=) since the gallery serves a static page",
   "demoNodes": 355,
   "errors": []
+ },
+ "nintendo-icon-thumb-carousel-pill-megamenu": {
+  "url": "https://ux-technique-gallery.vercel.app/t/nintendo-icon-thumb-carousel-pill-megamenu/",
+  "ok": true,
+  "at": "2026-10-23T12:00:00.793Z",
+  "http": 200,
+  "proof": "logo tab bg=rgb(230, 0, 18) at x=0; pill radius=99px; links=3 icons=3; hero slide slanted photo clip=polygon(0px 0px, 100% 0px, 72% 100 pattern anim=ntpat headline 56px INCLUDES pill bg=rgb(230, 0, 18); thumb 3 click → slide 3/4 wipe=ntwipe caption=\"The legend reborn for a new generation—a\" blue ring translate(594px, 19px) → translate(722px, 19px) border=rgb(61, 127, 230); pause → playing=false label=play; back to slide 1 reverse wipe=ntwipeb; Support → mega menu open=true dim opacity=0.4 red block \"Support\" bg=rgb(230, 0, 18) pills=7 pill radius=99px cols=3; switch to Explore → pills=7 active link color=rgb(230, 0, 18); Esc closes=true dim=0; round close button closes=true; store band red block width=506 striped bg=repeating-linear-gradient( icons=6; restored slide 1/menu closed/top · stand-ins: key art and game tiles are code-drawn SVG, Nunito substitutes Nintendo’s rounded face, pictograms are hand-drawn approximations",
+  "demoNodes": 231,
+  "errors": []
+ },
+ "verge-vertical-wordmark-storystream-front": {
+  "url": "https://ux-technique-gallery.vercel.app/t/verge-vertical-wordmark-storystream-front/",
+  "ok": true,
+  "at": "2026-10-23T12:00:00.789Z",
+  "http": 200,
+  "proof": "rail wordmark \"Verge\" 215px writing-mode=vertical-rl rail position=sticky; nav slashes=7 subscribe bg=rgb(82, 0, 255); storystream toggle sticky=sticky top=12px; posts=4 author color=rgb(82, 0, 255) time=\"15 minutes ago\" inline link underline=rgb(82, 0, 255); FOLLOWING → indicator transform=matrix(1, 0, 0, 1, 77, 0) empty state=\"Follow topics to fill this feed\" visible=true; follow Policy chip on=true → following posts=1; back to LATEST active=true list visible=true; new-posts pill \"+1 new post\" shown=true; click pill → prepended 4→5 slide anim=vgsl; scrolled 900 → rail still pinned top=0px; section head rule=rgb(82, 0, 255) 2px; hamburger → purple drawer bg=rgb(82, 0, 255) links=9; Esc closes=true; restored Latest tab/top · stand-ins: thumbnails are generated gradient art (the reference images did not load headless), Space Grotesk substitutes Polysans, Newsreader the serif",
+  "demoNodes": 308,
+  "errors": []
+ },
+ "eightsleep-pod-expanding-cards-dual-zone-heat": {
+  "url": "https://ux-technique-gallery.vercel.app/t/eightsleep-pod-expanding-cards-dual-zone-heat/",
+  "ok": true,
+  "at": "2026-10-23T12:00:00.799Z",
+  "http": 200,
+  "proof": "hero bg=linear-gradient(rgb(62, 108, 154) 0%, rg… \"Pod 6\" 260px weight=300 clip=text product bob=esbob; glass nav blur=blur(14px) saturate(1.2) radius=12px; scroll 300 → nav solid=true bg=rgb(255, 255, 255) radius=0px; product parallax=translateY(-105px); click Hub card → open=true size 639px vs Cover 320px (was 639); + rotated=matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0); progress anim=esprog; pause autoplay=true; dual zone: LEFT 66→58°F (58°F) RIGHT→97°F; canvas 597x585; timeline dot moved on scroll translate(237.4582061767578 69.55623626708984) → translate(291.2594909667969 57.68816375732422); announcement → quiz modal open=true answers=4 btn bg=rgb(232, 238, 251); answer \"I feel hot or cold\" → step 2 \"Unlock your surprise\" visible=true input underline=1px; Esc closes=true dismissal stored=1; restored temps/scroll/localStorage · stand-ins: photos and the Pod render are code-drawn SVG, Inter Tight substitutes Eight Sleep’s grotesk",
+  "demoNodes": 304,
+  "errors": []
  }
 }
