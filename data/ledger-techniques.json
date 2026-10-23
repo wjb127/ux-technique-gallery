@@ -1,5 +1,67 @@
 [
  {
+  "id": "clone-dice-zine-ticketing-landing-chip-browse",
+  "slug": "dice-zine-ticketing-landing-chip-browse",
+  "name": "DICE: heavy condensed-caps welcome hero with phone mock, trending poster rail, black hand-drawn mascot band, icon chip category browse with sub-genre chips",
+  "date": "2026-10-24",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://dice.fm/",
+  "domain": "dice.fm",
+  "product": "DICE (live-event ticketing app)",
+  "checkpoints": [
+   "White hero: huge black condensed 'WELCOME TO THE ALTERNATIVE' left, dark phone mock showing the app on the right, black pill 'GET THE APP' + search pill in nav (verified)",
+   "'Trending in <city>' horizontal poster rail of square event posters with heart buttons, date/venue/price lines (verified)",
+   "Black 'Weirdly easy ticketing' band with three white hand-drawn line mascots and captions (verified)",
+   "Alternating sticky phone-mock feature rows ('What else?', 'Familiar favs, new crushes') + partner logo wall + 'Loved by millions' store-rating cards (verified)",
+   "Dark /browse page: London/Date/Price pills, scrollable icon category chips with arrows; clicking Comedy routes to /culture/comedy, highlights the chip white and reveals a sub-genre chip row (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a live-event ticketing site inspired by DICE in Next.js + Tailwind + Framer Motion, two routes. Fonts: a heavy condensed grotesk (e.g. 'Anton' or 'Archivo Black' condensed) for display caps, 'Inter' for UI. Colors: ink #000, white, grey #1A1A1A cards, accent lime #D6FF3A for dates. Route '/': white nav with a small mascot logo + 'DICE', a rounded grey search pill 'Search by event, venue or city', text links and a black pill 'GET THE APP'. Hero: left 120px condensed black caps 'WELCOME TO THE ALTERNATIVE' (3 lines, tight 0.9 leading) + small copy + black pill; right a dark rounded panel with a phone mock that cross-fades between 3 fake app screens every 4s. Next: 'Trending in London' heading + copy + black 'BROWSE EVENTS' pill, then a horizontal snap rail of 180px square poster cards (bold placeholder posters) each with a round heart toggle (fills + pops) and name/date/venue/price lines; rail drags with momentum. Then a full-bleed black band 'Weirdly easy ticketing' with three inline-SVG white line-drawn mascot characters that wiggle (rotate +-4deg) on hover, captions below. Then two alternating rows where a phone mock is sticky while three feature bullets highlight one-by-one as you scroll. Route '/browse/london': black page, location/date/price pill filters (date opens a small calendar popover), a horizontally scrolling row of 64px rounded-square icon chips (Gigs, Comedy, DJ, Party, Theatre, Art, Film, Food & drink...) with left/right arrow buttons; clicking a chip turns it white, pushes the URL to /browse/london/<category>, slides in a second row of small sub-genre chips, and swaps the heading to '<Category> in London' (grey 'in London'); grid of 4-col event cards with lime date lines animates with layout transitions. Include a 'Find shows by artists you're into' dark card with Spotify/Apple Music pills and a doodle mascot. Mobile: hero stacks, chips swipe."
+ },
+ {
+  "id": "clone-koto-dark-agency-sticky-case-stack-time-nav",
+  "slug": "koto-dark-agency-sticky-case-stack-time-nav",
+  "name": "Koto agency site: black full-bleed reel hero with thin two-weight intro, live local-time nav, sticky case-study text column beside stacked big media, VIEW CASE cursor, collapsing logo-chip menu",
+  "date": "2026-10-24",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://koto.com/",
+  "domain": "koto.com",
+  "product": "Koto (creative agency)",
+  "checkpoints": [
+   "Black hero with small yellow Koto logo, tiny caps nav and a live clock '09:27 UTC+9' at right; bottom-left 'We're Koto' white + 'The Creative Company' grey thin type, 'PLAY' control bottom-right (verified; reel video did not render headless, unverified)",
+   "Intro paragraph in large light sans with second sentence dimmed grey (verified)",
+   "'Our work / Instagram' left column with long body copy and a small related-item chip stays while big stacked case media (Instagram, Amazon, Copilot+PC, Tripadvisor) scroll on the right (verified)",
+   "Hovering a case shows a small 'VIEW CASE' pill attached to the cursor (verified)",
+   "After scrolling the nav collapses into a 'KOTO / HOME' chip that opens a compact dropdown with nav links + socials (verified)",
+   "'Studio news' 3-up card row with small caps tag chips; 'Contact / Press and careers' rule-separated table footer (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a dark creative-agency homepage inspired by Koto in Next.js + Tailwind + Framer Motion. Fonts: a light geometric sans (e.g. 'Inter Tight' 300/400) for big text and 'IBM Plex Mono' 10px caps for nav/meta. Colors: #000 bg, white, grey #6B6B6B, logo yellow #F2E205, case accent green #00E05A. Nav (fixed): tiny yellow wordmark logo left, 9px mono-caps links WORK/ABOUT/SERVICES/LATEST/CAREERS/CONTACT, right a live clock showing the visitor's local time like '00:27 UTC+9' updating every second. Hero 100vh: full-bleed muted looping video (placeholder gradient noise canvas), bottom-left 48px 'We're Koto' white over 'The Creative Company' grey, bottom-right a small 'PLAY' pill that expands the reel into a full-screen player with a scrub bar. Intro: 28px light paragraph where the first sentence is white and the rest grey. Work section: 2-column grid: left 320px sticky column showing 'Our work' + the current project's name, a long small body paragraph and a related-item chip; right a vertical stack of 16:9 media panels (Instagram, Amazon, Copilot+PC, Tripadvisor placeholders with big white wordmarks over color fields). As each panel crosses the middle of the viewport, the left column cross-fades to that project (IntersectionObserver). Custom cursor: over a panel, a small white pill 'VIEW CASE' with an arrow follows the pointer with spring lag; panel image scales 1.03. After 200px scroll the nav collapses into a compact dark chip 'KOTO / HOME' with a chevron that opens a dropdown panel listing nav links and mono socials (height animation, click-outside closes). Then 'STUDIO NEWS' header with '[VIEW ALL]' and 3 image cards with mono caps tag chips (PRESS, OPINION). Footer: 'Contact / Press and careers' with a rule-separated 3-row table (Press + Media, Recruitment, Channels). Respect prefers-reduced-motion."
+ },
+ {
+  "id": "clone-headspace-goal-tiles-tabbed-feature-stage",
+  "slug": "headspace-goal-tiles-tabbed-feature-stage",
+  "name": "Headspace home: split product cards hero, goal tiles with illustrated icons, pill-tab feature stage that swaps colored scenes (AI chat / sleep), blob-character testimonials",
+  "date": "2026-10-24",
+  "slot": "00:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.headspace.com/",
+  "domain": "headspace.com",
+  "product": "Headspace (meditation & mental-health app)",
+  "checkpoints": [
+   "Hero 'Stress less all with Headspace' with two rounded panels: app card (orange/yellow phone mock) and 'Online therapy' card (video-call mock), each with its own blue/black CTA (verified)",
+   "'What kind of headspace are you looking for?' 3x2 grid of outlined goal tiles each with a small colorful illustrated icon + chevron (verified)",
+   "'The mental health app for every moment' pill tabs (AI guidance / Guided meditations / Sleep resources / Expert-led programs / Online therapy); active pill turns black (verified)",
+   "Clicking Sleep resources swaps the big yellow 'Always-there support' chat stage to a purple 'Bedtime essentials' scene with a 'Falling asleep' search pill + audio player (verified); stage is a horizontal carousel with peeking neighbor slides + dots (verified)",
+   "Yellow AI chat stage: 'You' message bubble, 'Ebb Thinking…' bubble and a gradient blob character with a calm face (verified)",
+   "Testimonial 3-up beige quote cards framed by floating blob faces and sparkle stars; blue 'Trusted by thousands' B2B band with collaged photos (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a friendly wellness-app homepage inspired by Headspace in Next.js + Tailwind + Framer Motion. Font: a rounded humanist sans (e.g. 'Nunito Sans' 700 for headings, 400 body). Colors: orange #FF7A00, sun yellow #FFCE00, purple #4B2BB3, sky blue #0061EF, beige #F7F1EA, ink #2D2C2B. Nav: orange dot logo + 'headspace', small links, blue rounded 'Try for free' button. Hero: centered 44px 'Stress less / all with Headspace' over three tiny check stats, then two rounded 24px panels side by side (left wider): 'Mental health app with expert-led meditations and tools' with a blue CTA and a phone mock with floating cards; right 'Online therapy that accepts insurance' with black CTA and a video-call mock. Goal section: heading 'What kind of headspace are you looking for?' and a 3x2 grid of outlined 12px-radius tiles (Stress less, Sleep soundly, Manage anxiety, Process thoughts, Practice meditation, Start therapy) each with a small inline-SVG colorful icon (zigzag, moon, spiral, face blob, sun, chat bubbles) and chevron; hover lifts the tile and wiggles the icon. Feature stage: heading 'The mental health app for every moment' + 5 pill tabs (active = black fill, white text, sliding with layoutId). Below, a 1100px rounded stage carousel with the neighbours peeking at both edges; each tab maps to a slide: 'AI guidance' yellow slide with a typed-out user bubble 'I get so stressed talking to my mom.' then an 'Ebb  Thinking...' bubble with animated dots and a breathing gradient blob face; 'Sleep resources' purple slide 'Bedtime essentials' with a search pill that types 'Falling asleep' and a mini audio player whose play button toggles and progresses. Tab click and swipe stay in sync; dots under the stage. Testimonials: 3 beige rounded quote cards, with 3 blob-face characters and sparkle stars floating around the heading on slow loops. B2B band: full-width blue rounded section with white heading and a collage of three tilted photo cards + cloud shape. Respect prefers-reduced-motion; mobile stacks hero panels and makes tabs a scroll row."
+ },
+ {
   "id": "clone-verge-vertical-wordmark-storystream-front",
   "slug": "verge-vertical-wordmark-storystream-front",
   "name": "The Verge front: giant vertical wordmark rail, slash-separated nav, Latest/Following pill toggle storystream, purple-rule section heads",
