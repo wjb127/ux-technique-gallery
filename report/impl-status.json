@@ -4678,5 +4678,32 @@
   "proof": "hero bg=linear-gradient(rgb(62, 108, 154) 0%, rg… \"Pod 6\" 260px weight=300 clip=text product bob=esbob; glass nav blur=blur(14px) saturate(1.2) radius=12px; scroll 300 → nav solid=true bg=rgb(255, 255, 255) radius=0px; product parallax=translateY(-105px); click Hub card → open=true size 639px vs Cover 320px (was 639); + rotated=matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0); progress anim=esprog; pause autoplay=true; dual zone: LEFT 66→58°F (58°F) RIGHT→97°F; canvas 597x585; timeline dot moved on scroll translate(237.4582061767578 69.55623626708984) → translate(291.2594909667969 57.68816375732422); announcement → quiz modal open=true answers=4 btn bg=rgb(232, 238, 251); answer \"I feel hot or cold\" → step 2 \"Unlock your surprise\" visible=true input underline=1px; Esc closes=true dismissal stored=1; restored temps/scroll/localStorage · stand-ins: photos and the Pod render are code-drawn SVG, Inter Tight substitutes Eight Sleep’s grotesk",
   "demoNodes": 304,
   "errors": []
+ },
+ "dice-zine-ticketing-landing-chip-browse": {
+  "url": "https://ux-technique-gallery.vercel.app/t/dice-zine-ticketing-landing-chip-browse/",
+  "ok": true,
+  "at": "2026-10-23T16:02:14.758Z",
+  "http": 200,
+  "proof": "hero \"Welcometo thealternative\" font=Anton 95.04px uppercase=uppercase; nav pill GET THE APP bg=rgb(0, 0, 0); phone mock screens=3 cross-fade 0→1 opacity=1; ticket stepper + → qty 2 \"CHECKOUT · $159.98\"; poster rail cards=9 heart toggled=true pop=dcpop; rail scrolls scrollLeft=400; mascot band bg=rgb(0, 0, 0) mascots=3; sticky feature phone position=sticky bullet highlight 1→2; → /browse/london bg=rgb(0, 0, 0) hash=#/browse/london chips=14 heading=\"Popular Events in London\"; DATE pill opens calendar=true; click Comedy → chip bg=rgb(255, 255, 255) hash=#/browse/london/comedy sub-genre chips=13 visible=true heading=\"Comedy in London\" cards=8; sub-genre \"Alternative\" → heading \"Alternative in London\" date color=rgb(240, 255, 84); chip arrow → scrollLeft=162; restored home route · stand-ins: posters are generated SVG art, Anton substitutes DICE’s condensed grotesk, mascots are hand-drawn SVG approximations",
+  "demoNodes": 776,
+  "errors": []
+ },
+ "koto-dark-agency-sticky-case-stack-time-nav": {
+  "url": "https://ux-technique-gallery.vercel.app/t/koto-dark-agency-sticky-case-stack-time-nav/",
+  "ok": true,
+  "at": "2026-10-23T16:02:14.772Z",
+  "http": 200,
+  "proof": "nav mono links=6 font=\"IBM Plex Mono\" clock=\"01:02 UTC+9\" logo yellow=#F2E205; hero \"We’re Koto\" + grey \"The Creative Company\" color=rgb(154, 154, 154); PLAY → fullscreen player open=true progress advancing=true; Esc closes player=true; intro dim sentence color=rgb(107, 107, 107); scroll 260 → nav collapsed into chip \"KOTO / HOME\" opacity=1; chip opens dropdown height=291px links=6; click-outside closes=true; sticky case column position=sticky; panel 3 crosses middle → left column \"Microsoft Copilot+PC\"; hover panel → VIEW CASE cursor on=true followed to (300,200) of (300,200); studio news cards=3 tags=PRESS/OPINION/PRESS; contact rows=3; restored top/expanded nav · stand-ins: reel video and case imagery are generated gradients/canvas grain, Inter Tight substitutes Koto’s sans",
+  "demoNodes": 137,
+  "errors": []
+ },
+ "headspace-goal-tiles-tabbed-feature-stage": {
+  "url": "https://ux-technique-gallery.vercel.app/t/headspace-goal-tiles-tabbed-feature-stage/",
+  "ok": true,
+  "at": "2026-10-23T16:02:14.773Z",
+  "http": 200,
+  "proof": "hero h1 \"Stress lessall with Headspace\" font=\"Nunito Variable\"; panels=2 bg=rgb(247, 241, 234) radius=24px; headline word cycle \"Stress less\"→\"Sleep better\"; goal tiles=6 cols=3 radius=12px icons=6; AI guidance active pill bg=rgb(45, 44, 43) stage bg=rgb(255, 206, 0); typed \"I get so stressed talking to my mom.…\" Ebb bubble visible=true thinking dots anim=hsdot; click \"Sleep resources\" → stage centered offset=0px bg=rgb(75, 43, 179) \"Bedtime essentials\" search typed=\"Falling asleep\" dot 2 indicator left=277px; neighbours peek: prev right edge=150px next left=1290px of 1440; audio play → playing progress 19.2%; pause stops=true; swipe left → tab \"Expert-led programs\" in sync=true; restored AI guidance/top · stand-ins: illustrations, phone screens and photos are CSS/SVG approximations, Nunito substitutes Headspace Apercu",
+  "demoNodes": 263,
+  "errors": []
  }
 }
