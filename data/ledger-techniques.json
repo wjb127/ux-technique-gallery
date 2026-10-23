@@ -1,5 +1,65 @@
 [
  {
+  "id": "clone-verge-vertical-wordmark-storystream-front",
+  "slug": "verge-vertical-wordmark-storystream-front",
+  "name": "The Verge front: giant vertical wordmark rail, slash-separated nav, Latest/Following pill toggle storystream, purple-rule section heads",
+  "date": "2026-10-23",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.theverge.com/",
+  "domain": "theverge.com",
+  "product": "The Verge (tech news front page)",
+  "checkpoints": [
+   "Huge black 'Verge' wordmark rotated 90deg as a fixed left rail beside the content (verified)",
+   "Slash-separated nav 'The Verge / Tech / Reviews / Science / Entertainment / AI / Policy /' with bell + hamburger, purple SUBSCRIBE chip above (verified)",
+   "Right storystream column with a purple/grey 'LATEST | FOLLOWING' pill toggle that stays sticky while the column scrolls (verified)",
+   "Quick-post cards: purple caps author + timestamp, bold sans lead sentence running into serif body with purple underlined links (verified)",
+   "Center 2-col headline grid with small thumbs, purple caps bylines, comment-count icons; 'Today's picks / ...' section head on a purple top rule (verified); thumbnails did not load in headless capture (unverified imagery)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a tech-news front page inspired by The Verge in Next.js + Tailwind. Fonts: a tight grotesk display (e.g. 'Space Grotesk' bold) for headlines, a bookish serif (e.g. 'Newsreader') for body, and a mono-caps (e.g. 'JetBrains Mono' 10px, 0.08em tracking) for bylines/timestamps. Colors: ink #131313, white, accent purple #5200FF, light grey #E9E9E9. Layout at 1440px: a fixed 200px left rail with a giant black 'Verge' wordmark rotated -90deg (CSS writing-mode/rotate, ~260px font size, clipped) that stays put while the page scrolls. Top-right: a small purple 'SUBSCRIBE' chip + 'SIGN IN'. Nav row: logo then links separated by ' / ' slashes, a bell and a hamburger that opens a full-height purple drawer. Main area is 2 columns: left 640px headline grid (one lead story with big image + 40px serif dek, then a 2x2 grid of headlines with 56px square thumbs, purple mono-caps bylines and a comment-bubble count); right 300px storystream column separated by a 1px rule. Storystream top: a pill segmented toggle 'LATEST | FOLLOWING' (active = purple fill, white text, sliding indicator with spring), sticky at top: 16px; switching tabs crossfades the list and Following shows an empty state 'Follow topics to fill this feed' with topic chips you can toggle. Each quick-post: avatar + purple mono author + '18 MINUTES AGO' (live-updating relative time), bold sans first sentence flowing into serif body, purple underlined inline links, and a bold underlined link card below; a '+N new posts' pill appears at the top every 30s (fake) and clicking it prepends with a slide-down. Section heads: 2px purple top rule then 'Today's picks' bold + ' / ' + light grey description in the same line. Hover: headline underline in purple. Mobile: rail becomes a horizontal wordmark banner, storystream becomes a tab next to Top Stories."
+ },
+ {
+  "id": "clone-eightsleep-pod-expanding-cards-dual-zone-heat",
+  "slug": "eightsleep-pod-expanding-cards-dual-zone-heat",
+  "name": "Eight Sleep Pod: sky hero with giant gradient product wordmark, glass nav, expandable feature cards, dual-zone heat visual + timeline curve, 2-step quiz modal",
+  "date": "2026-10-23",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.eightsleep.com/",
+  "domain": "eightsleep.com",
+  "product": "Eight Sleep Pod 6 (sleep tech product site)",
+  "checkpoints": [
+   "Sky-gradient hero: giant thin 'Pod 6' type fading white-to-sky behind a floating black ribbed product render, white 'Shop Pod 6' pill (verified)",
+   "Floating rounded glass nav that becomes a solid white bar on scroll (verified)",
+   "'What's the Pod?' row of three photo cards with tag pills and +/x buttons; the open card is wider with copy and a pause icon, others collapsed (verified)",
+   "'Built for couples' dark bed photo with blue LEFT SIDE / red RIGHT SIDE thermal wave glow and a thin dotted timeline curve with '12:00 PM' marker (verified)",
+   "Split-screen quiz modal 'Unlock a surprise' with four pale-blue answer buttons, then step 2 email capture with underline input + black button + 'Not now' (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a premium sleep-tech product homepage inspired by Eight Sleep in Next.js + Tailwind + Framer Motion. Font: a neutral grotesk (e.g. 'Inter Tight', 300 for display, 400 body). Colors: sky #7FA6C9 to #C9D9E6 gradient, off-white #F5F5F3, ink #0B0B0B, cool blue #3B5BDB, warm red #E5484D. Top: navy 32px announcement bar. Nav: a floating 16px-radius translucent glass bar (backdrop-blur, white/20) inset 24px with small spaced caps links, centered logo, black 'Shop the Pod' button; after 80px scroll it morphs into a full-width solid white bar. Hero 100vh: sky gradient with slow drifting cloud blur layers; a 260px thin 'Pod 6' headline whose fill is a vertical gradient white->transparent, sitting BEHIND a floating product image (placeholder black ribbed rounded box) that bobs 6px; the product parallaxes up faster than the text on scroll. Below it a two-line subline and a white pill CTA. Section 'What's the Pod?': three tall 24px-radius photo cards in a row; exactly one card is open (flex 2) showing a tag pill, title, two-line copy and a tiny pause icon for an autoplay progress; others are flex 1 with only a tag and a title; clicking a card's '+' expands it (layout animation 450ms) and its '+' rotates to 'x'; auto-advance every 6s. Section 'Built for couples': left a dark bed image with an animated canvas overlay of two wavy glow fields (blue on left, red on right) and two glass labels 'LEFT SIDE' / 'RIGHT SIDE' each with a temperature stepper (55-110F) that changes that half's color intensity; right a thin SVG curve with three dots and a '12:00 PM' label that a dot travels along on scroll, plus a centered heading + 'Learn more' underline link. Also add a split-screen modal (photo left, white panel right) that opens after 8s: step 1 'Unlock a surprise / What's your main sleep challenge?' with 4 pale-blue full-width answer buttons + 'Skip the question'; picking one slides to step 2 'Unlock your surprise' with an underline email input, black 'Get my surprise' button, 'Not now' link and tiny legal text; Escape/X closes and stores dismissal in localStorage. Respect prefers-reduced-motion."
+ },
+ {
+  "id": "clone-nintendo-icon-thumb-carousel-pill-megamenu",
+  "slug": "nintendo-icon-thumb-carousel-pill-megamenu",
+  "name": "Nintendo front: red tab logo, slanted split hero banner with icon-thumbnail carousel controls, red-block + pill-icon mega menu, chunky store band",
+  "date": "2026-10-23",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.nintendo.com/us/",
+  "domain": "nintendo.com",
+  "product": "Nintendo (official US site)",
+  "checkpoints": [
+   "Red notch logo tab flush top-left with Explore/Shop/Support icon links and right search pill, heart, cart, avatar trio, flag (verified)",
+   "Full-width hero banner: photo left cut by a slanted white-edged divider into a patterned coral field with big white rounded headline + red 'INCLUDES' pill (verified)",
+   "Under the banner: red round pause button + square game-icon thumbnails as carousel controls, active thumb outlined in blue (verified)",
+   "Mega menu: red rounded block 'Support / Get help now' on the left, 2-3 column grid of white pill links with red pictograms, round close button, page dims behind (verified)",
+   "Red 'Nintendo Store' band with a slanted edge into a diagonally striped grey area holding red icons (d-pad, controller, shirt, star, Mario, tag) (verified)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a playful game-company homepage inspired by Nintendo in Next.js + Tailwind + Framer Motion. Font: a rounded friendly sans (e.g. 'Nunito' 800 for headings, 600 body). Colors: Nintendo red #E60012, coral #F26B5B, white, grey #F2F2F2, ink #484848, focus blue #3D7FE6. Header 64px white: a red block flush to the top-left holding a white rounded-pill 'Nintendo' logo; links 'Explore', 'Shop', 'Support' each with a small red icon; right side a grey pill search, round icon buttons (heart, cart), three tiny avatar circles and a flag. Clicking a link opens a mega menu under the header (slide down 200ms, rest of page dims to 40% black): left a red 16px-radius block with white title + underlined 'Get help now'; right a 3-column grid of white rounded-full pill links with 1px grey border, each with a red pictogram; pills lift with a shadow on hover; round grey close button top-right; Escape closes. Hero: full-width 360px banner, slides auto-rotate every 6s; each slide = left photo region cut by a slanted (clip-path polygon) white-edged diagonal into a coral field filled with a faint repeating pattern of tiny triangle/circle/square outlines drifting slowly, a 56px white rounded headline, a smaller subline and a red 'INCLUDES' pill; price tag bottom-left. Under the banner: a centered caption line and a row of controls: a red round pause/play button and 48px rounded-square thumbnails of each slide; the active thumb gets a 3px blue outline that animates between thumbs (shared layout); clicking a thumb jumps slides with a horizontal wipe. Then a 'Featured' horizontally scrolling row of 220px rounded cards with snap and arrow buttons. Then a 'Nintendo Store' band: left red panel with bag icon + white wordmark, slanted edge into a diagonally striped light-grey area with six red icons that bounce on hover (spring). Mobile: hamburger opens a full-screen menu with the pill grid stacked."
+ },
+ {
   "id": "clone-bandcamp-discover-chip-filter-grid-player-rail",
   "slug": "bandcamp-discover-chip-filter-grid-player-rail",
   "name": "Bandcamp Discover: stacked genre/subgenre/format chip filters + URL-synced album grid + sticky player rail",
