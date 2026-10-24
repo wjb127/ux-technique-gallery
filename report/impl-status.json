@@ -4759,5 +4759,32 @@
   "proof": "gateway modal: blue half rgb(0, 89, 214) \"LEGO.com\" + yellow half rgb(255, 213, 0) \"THE PLAY ZONE\", red badge straddles top (top=-39px), page blurred=blur(6px) brightness(0.55); hover LEGO.com half widens 529→581px; Continue → modal closed=true localStorage=shop; Shop ▾ mega panel open with 6 themed icon tiles; hero mouse-move → gold disc parallax translate(12.8px, -12.4px) rotate(25.6deg); band tab \"Gifting\" → tiles: Gifts under $50 / Gifts for adults / Gifts for kids…; tile hover lift+tilt transform=matrix(0.999391, -0.0348995, 0.0348995, 0.999391, 0, -6); torn-paper edge path into white: true; Add to Bag → \"✓ Added\" bag 0→1 header=\"(1)\"; heart toggle on=true; carousel next → translateX(-274.109px); + hotspot → \"Wednesday Backpack$44.99  ›\" popover; restored (gateway + localStorage + bag) · stand-ins: set photos/art are SVG illustrations, Outfit substitutes the LEGO Cera typeface",
   "demoNodes": 2456,
   "errors": []
+ },
+ "glossier-cropped-wordmark-hero-script-nav-mega": {
+  "url": "https://ux-technique-gallery.vercel.app/t/glossier-cropped-wordmark-hero-script-nav-mega/",
+  "ok": true,
+  "at": "2026-10-24T04:00:33.262Z",
+  "http": 200,
+  "proof": "nav \"Gift Guide\" font=Caveat vs caps items \"Plus Jakarta Sans Variable\" uppercase; announcement next → vertical slide \"Free standard shipping…\" → \"Our Glossier Gift Guid…\" (msg 2/3); pause → Play shown, auto-rotate halted; hover SKINCARE → mega panel open h=371px cols=3 [Moisturizers, Cleansers, Treatments…] card \"Create a Custom Skincare Set to meet your skin goals\"; leave +80ms → still open (150ms grace); +240ms → closed; giant wordmark 1621px wide, 73px cropped below hero edge; scroll 200 → photo translateY 50px vs wordmark -24px (parallax); scroll 45% → \"Join the list\" modal shown (opacity 1), session flag=1; re-scroll → modal stays closed (once per session); Add to bag → BAG (1); category tile radius 10px; restored top/bag 0/msg 1/session flag · stand-ins: product + still-life photos are SVG illustrations, Plus Jakarta Sans (skewed) substitutes the Glossier wordmark, Caveat substitutes the Gift Guide script",
+  "demoNodes": 600,
+  "errors": []
+ },
+ "polene-serif-category-stack-cutout-bag-row": {
+  "url": "https://ux-technique-gallery.vercel.app/t/polene-serif-category-stack-cutout-bag-row/",
+  "ok": true,
+  "at": "2026-10-24T04:00:33.262Z",
+  "http": 200,
+  "proof": "country modal \"Hey! Great to See You Here\" shown on first visit; \"No, Stay Here\" → modal closed, localStorage=stay; hero photo scale matrix(1.00047, 0, 0, 1.00047, 0, 0) · header bg rgba(0, 0, 0, 0); product card \"Cyme Mini · 390 €\" hover lift (css :hover translateY -6px); scroll 140 → header turns white bg=rgb(255, 255, 255) ink=rgb(17, 17, 17); category stack 3 serif lines font=\"Bodoni Moda\" 64px; hover BIJOUX → others opacity 0.25/0.25, active 1; row → [Bague Iris, Boucles Goutte, Collier Lune, Jonc Onde] staggered in=4; tap PETITE MAROQUINERIE → [Portefeuille Neuf, Porte-cartes Un, Pochette Cyme, Porte-clés Dix]; product hover → name+price opacity 1 \"Portefeuille Neuf195 €\"; ♡ → wishlist count 1; restored SACS/top/counters/localStorage · stand-ins: landscape + portraits + product cut-outs are SVG illustrations, Bodoni Moda + EB Garamond substitute Polène’s faces",
+  "demoNodes": 339,
+  "errors": []
+ },
+ "porsche-model-overview-radio-filter-compare-tray": {
+  "url": "https://ux-technique-gallery.vercel.app/t/porsche-model-overview-radio-filter-compare-tray/",
+  "ok": true,
+  "at": "2026-10-24T04:00:33.262Z",
+  "http": 200,
+  "proof": "PORSCHE wordmark letter-spacing 4.25px; 22 variant cards under All, \"Understand the differences\" disabled=true; car image overlaps card top edge by 87px of 140px; card radius 22px; radio Taycan → aria-checked=true hash=\"#series=Taycan\" heading \"Taycan Model variants\" cards=5; Drive ▸ All-wheel drive → cards=3 [Taycan 4, Taycan 4S, Taycan Turbo S Cross Turismo] hash=\"#series=Taycan&drive=All-wheel+drive\"; Understand the differences → drawer \"Taycan body types & model designations\" transform=none; Compare ×3 → tray shown chips=[ Taycan 4 | Taycan 4S | Taycan Turbo S Cross Turismo]; 4th compare blocked=true (max 3), tray still 3; Compare Models → full-screen table 8 rows × 3 models, best-value cells: € 107,300 / 2.4 s / 700 kW / 952 PS / 260 km/h; chip × → 2 left; Reset → All (22 cards), compare cleared, hash restored · stand-ins: cars are SVG side profiles, mock data (22 variants), Michroma substitutes the Porsche wordmark, Inter substitutes Porsche Next",
+  "demoNodes": 1552,
+  "errors": []
  }
 }
