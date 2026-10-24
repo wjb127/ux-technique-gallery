@@ -4840,5 +4840,32 @@
   "proof": "wordmark \"EB Garamond\" centered; nav 7 items; hero shots 3; card backdrop=blur(14px) saturate(1.1) bg rgba(255, 255, 255, 0.72); hover Fragrances → mega panel open (6 links); pause → aria \"Play video\", hero paused=true, progress frozen 17.2233%→17.4533%; unmute → aria \"Mute video\"; scene 3 → card \"Sapin (Pine Tree)Classic Candle\" → \"Advent Calendar25 scented treasures\" (Add to bag  -  450 €); card Add to bag → bag 0→1; tabs → Fragrances:2 Bath & Body:2 Holiday Icons:5; header compact=true; → arrow (hidden=false) rail 89px; carousel add → bag 2 · restored bag, tab, scene, scroll · stand-ins: hero video is an animated procedural SVG studio scene (Ken Burns + spinning tops + flickering flames; mute toggles a soft synth drone), product shots are SVG, EB Garamond/Jost substitute Diptyque’s faces",
   "demoNodes": 692,
   "errors": []
+ },
+ "evervault-toggle-stack-transaction-ledger": {
+  "url": "https://ux-technique-gallery.vercel.app/t/evervault-toggle-stack-transaction-ledger/",
+  "ok": true,
+  "at": "2026-10-24T16:11:13.610Z",
+  "http": 200,
+  "proof": "canvas rgb(11, 7, 20); headline \"Take controlof your payments\" 44px \"Geist Variable\"; stack: ALWAYS ON=2, toggles=3 (on=3); table rows=5 mono=\"Geist Mono Variable\" ids EV:ZS1Y:1LVL1QR65G; volume $50,422.78, rate 94.1%; 3D Secure off → declined 1, rate 88.0%, 3DS badges 0; BIN Lookup off → processors stripe, rate 83.8%, volume $44,778.65; wallet rows off=true; all on → rate 94.1%, declined 0; live feed new row EV:ZS1Y:1LVL1QR65G→EV:GT8V:ERG9LB692Z; scroll → glass dock on=true blur=blur(14px); decrypt → 4242 4242 4242 4242 · restored toggles, feed, scroll · stand-ins: logos are text glyphs, Geist substitutes Roobert, rate/volume math is illustrative",
+  "demoNodes": 306,
+  "errors": []
+ },
+ "mux-blueprint-grid-video-demo-node-flow": {
+  "url": "https://ux-technique-gallery.vercel.app/t/mux-blueprint-grid-video-demo-node-flow/",
+  "ok": true,
+  "at": "2026-10-24T16:11:18.180Z",
+  "http": 200,
+  "proof": "canvas rgb(228, 228, 220); headline uppercase \"Archivo Variable\" stretch 125% 46px; TALK TO US bg rgb(255, 178, 0); blueprint grid bg-size 24.2px 24.2px, 24.2px 24.2px; logo cells 6; connector nodes 5; transcript playhead 0:09 → active \"Welcome to Mux. A RESTful\"; Try another video → clip \"Robot Studio\", nodes pulsed=4, transcript \"0:02Okay, you guys ready?\"→\"0:01Hey, Mux Robot.\", cost $4.10, robot Q1 YES; tabs Transcript:9 Thumbnails:6 GIFs:1 Clipping:8 Storyboards:10; clip range → CLIP 0:09 – 0:55 · 46s; header sticky=sticky · restored clip, tab, scroll · stand-ins: videos are procedural SVG scenes (Ken Burns + playhead), Archivo 125% wdth substitutes Rotonto, Space Grotesk substitutes Aeonik",
+  "demoNodes": 378,
+  "errors": []
+ },
+ "mailchimp-personalize-quiz-modal": {
+  "url": "https://ux-technique-gallery.vercel.app/t/mailchimp-personalize-quiz-modal/",
+  "ok": true,
+  "at": "2026-10-24T16:11:20.664Z",
+  "http": 200,
+  "proof": "modal open=true 1161px; headline Newsreader 34px; underline rgb(255, 224, 27) scaleX=none; industry listbox open=true → \"Ecommerce & retail\", dashboard text true; 4 goals picked → 6 disabled, 5th blocked=true, counter \"4 of 4 selected — that’s the max\"; uncheck → 0 disabled; Esc closes=true; Customize → modal closed=true, cards [Get more sales | Attract more customers | Design better emails | Save time with automation], For-you tags 4, badge \"✓ Personalized for Ecommerce & retail\" · restored quiz + homepage cards · stand-ins: Newsreader substitutes Means, Inter substitutes Graphik, hero photo + laptop dashboard are procedural SVG",
+  "demoNodes": 239,
+  "errors": []
  }
 }
