@@ -4813,5 +4813,32 @@
   "proof": "cream bg rgb(251, 243, 228); ticker \"Super Peach x Bar Etoile (Nov 3): Book Now\" mono=\"IBM Plex Mono\"; 4 rounded event cards radius 8px, kicker font \"Permanent Marker\"; ticker rotate → \"Majordōmo x Max & Helen’s — Nov 7 & 8 in Los Angeles\" (changed=true); Restaurants (+) → dropdown open with 10 venues in 3 cities; scroll stack → card1 transform scale(0.9727), header min=true; state pills → NY:4[Noodle Bar East Village/Noodle Bar Uptown] ind=translateX(156px) url=NY | CA:3[Majordōmo/Bar Majordōmo] ind=translateX(52px) url=CA | NV:2[Momofuku Las Vegas/Bar Moon Palace] ind=translateX(104px) url=NV | All:9[Noodle Bar East Village/Noodle Bar Uptown] ind=translateX(0px) url=-; → arrow (hidden=false) scrolls rail to 872px, ← visible=true · restored All filter, URL, scroll · stand-ins: food photography is procedural SVG, restaurant list is mock, Inter Tight / Permanent Marker substitute Momofuku’s custom faces",
   "demoNodes": 566,
   "errors": []
+ },
+ "superhuman-glass-floating-panels-photo-hero": {
+  "url": "https://ux-technique-gallery.vercel.app/t/superhuman-glass-floating-panels-photo-hero/",
+  "ok": true,
+  "at": "2026-10-24T12:07:04.445Z",
+  "http": 200,
+  "proof": "glass panels 5 backdrop=blur(22px) saturate(1.2) radius=10px; headline \"Superpowers,everywhere you work\" 45px; dock icons 5; chat send → \"✓ Booked “Launch sync” — Monday at 3:00 …\" chip on=Monday at 3:00 PM; dock Mail → inbox focus=true chat dim=true (0.55); dock Calendar → tab Calendar, rows 3 \"Launch sync · Mon 3:00 PM\"; tab Other → 3 rows; dock Grammarly → doc focus=true; toolbar B+I → mark weight 611.5 style italic; Tailor chip → paragraph rewritten \"Recommendation: consolidate onboar…\" (fmt kept=true); parallax → doc transform translate(5.9px, -5.3px) · restored original copy, formats, focus, tab, chat · stand-ins: dusk portrait photo is procedural SVG, Inter substitutes Superhuman’s custom grotesk, app data is mock",
+  "demoNodes": 493,
+  "errors": []
+ },
+ "savee-inline-image-tile-headline-masonry": {
+  "url": "https://ux-technique-gallery.vercel.app/t/savee-inline-image-tile-headline-masonry/",
+  "ok": true,
+  "at": "2026-10-24T12:07:09.657Z",
+  "http": 200,
+  "proof": "headline 62px \"Inter Tight Variable\" tracking -3.1px; inline tiles 3 radius 12px inside h1=true; tile flip → face 0→1 (fl=true); masonry 5 cols × 20 cards, offsets 0px/26px/0px/24px/-4px; scroll → header solid=true Join pill opacity=1; Save → Saved ✓; search pill typed \"more like this portrait\" → 3 results, masonry hits 3; \"orange poster\" → 6 results [6 references for “orange poster”]; quote dot 3 → \"The search by colour alone i…\" · restored search, quote, scroll · stand-ins: saved reference images are procedural SVG posters/objects, Inter Tight substitutes Savee’s grotesk",
+  "demoNodes": 796,
+  "errors": []
+ },
+ "diptyque-video-hero-shoppable-scene-card": {
+  "url": "https://ux-technique-gallery.vercel.app/t/diptyque-video-hero-shoppable-scene-card/",
+  "ok": true,
+  "at": "2026-10-24T12:07:12.775Z",
+  "http": 200,
+  "proof": "wordmark \"EB Garamond\" centered; nav 7 items; hero shots 3; card backdrop=blur(14px) saturate(1.1) bg rgba(255, 255, 255, 0.72); hover Fragrances → mega panel open (6 links); pause → aria \"Play video\", hero paused=true, progress frozen 17.2233%→17.4533%; unmute → aria \"Mute video\"; scene 3 → card \"Sapin (Pine Tree)Classic Candle\" → \"Advent Calendar25 scented treasures\" (Add to bag  -  450 €); card Add to bag → bag 0→1; tabs → Fragrances:2 Bath & Body:2 Holiday Icons:5; header compact=true; → arrow (hidden=false) rail 89px; carousel add → bag 2 · restored bag, tab, scene, scroll · stand-ins: hero video is an animated procedural SVG studio scene (Ken Burns + spinning tops + flickering flames; mute toggles a soft synth drone), product shots are SVG, EB Garamond/Jost substitute Diptyque’s faces",
+  "demoNodes": 692,
+  "errors": []
  }
 }
