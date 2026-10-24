@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-superhuman-glass-floating-panels-photo-hero",
+  "slug": "superhuman-glass-floating-panels-photo-hero",
+  "name": "Superhuman: frosted-glass floating app panels (AI chat, inbox, doc editor) layered over a dusk portrait photo hero with a vertical icon dock and dark purple CTA",
+  "date": "2026-10-24",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://superhuman.com",
+  "domain": "superhuman.com",
+  "product": "Superhuman homepage",
+  "checkpoints": [
+   "Full-bleed dusk-sky portrait photo hero (lilac/blue clouds) with rounded translucent purple announcement bar 'Looking for Superhuman Mail? Learn more →' (verified)",
+   "Header: SUPERHUMAN wordmark + Products/Solutions/AI/Resources/Pricing dropdowns + Love, Contact sales / outlined Sign in (verified)",
+   "Centered white 2-line headline 'Superpowers, everywhere you work' + sub-copy + dark Get Superhuman pill with purple arrow tile (verified)",
+   "Frosted-glass AI chat panel left (scheduling suggestion, time chips, 'book it for monday' input) beside a vertical glass icon dock (Superhuman/Grammarly/Contacts/Mail/Calendar) (verified)",
+   "Glass inbox panel bottom-left (Important/Calendar/Docs/Other split tabs + sender rows) and glass doc editor right with highlighted text + floating format toolbar + 'Tailor this language for executives' chip (verified)",
+   "Panels float with parallax and the dock switches which panel is in focus (practice; ref motion unverified)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-24 20:00)",
+  "prompt": "Build a Superhuman-homepage-style hero in Next.js + Tailwind + Framer Motion. Font: a geometric grotesk (Inter / Geist 400, -0.02em) 64px white headline. Colors: dusk sky photo (lilac #b8a3d6 → blue #6f8fd8), glass panels rgba(120,100,170,.35) with backdrop-blur 24px + 1px white/25 border + 14px radius, dark CTA #1e1530 with violet arrow tile #7a5af5. (1) Translucent rounded announcement bar on top of the photo. (2) Header with dropdown nav. (3) Centered headline, sub-copy, Get Superhuman pill. (4) Around the portrait, floating glass panels: AI chat (assistant message, time slot chips, input that types 'book it for monday' then confirms), inbox (split tabs with counts, rows), doc editor (selection highlight, floating B/I/U toolbar, a suggestion chip that rewrites the paragraph). (5) A vertical glass icon dock: clicking an app brings its panel forward and dims others. (6) Panels drift with pointer parallax."
+ },
+ {
+  "id": "clone-savee-inline-image-tile-headline-masonry",
+  "slug": "savee-inline-image-tile-headline-masonry",
+  "name": "Savee: giant grotesk headline with inline rounded image tiles set inside the text line, staggered 5-column masonry of saved references, and a search pill that types example queries",
+  "date": "2026-10-24",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://savee.com",
+  "domain": "savee.com",
+  "product": "Savee homepage",
+  "checkpoints": [
+   "Light gray #f3f3f3 canvas, minimal header: Savee wordmark, Features/Teams/Pricing, Instagram + X icons, Log in (verified)",
+   "Giant tight-tracked 2-line headline 'The best place [tile] to save / [tile] and share inspiration [tile]' with rounded square image tiles sitting inline in the text (verified)",
+   "Sub-copy + black Join for free pill + gray See plans pill (verified)",
+   "Staggered 5-column masonry of rounded image cards (posters, objects, portraits, type) with column offsets; header gains Join for free on scroll (verified)",
+   "'Finding the right reference took hours. Now it’s one search.' with gray second half + white search pill that types queries (more like this portrait…) (verified)",
+   "Inline tiles cycle images and the typed query filters the masonry (practice)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-24 20:00)",
+  "prompt": "Build a Savee-homepage-style landing in Next.js + Tailwind + Framer Motion. Font: Inter Tight / Geist 500, -0.045em, 84px headline. Colors: canvas #f3f3f3, ink #0b0b0b, gray pill #dcdcdc, muted #9a9a9a. (1) Minimal header; on scroll it turns white with a black Join for free pill. (2) Headline with three inline 64px rounded (14px) image tiles placed between words (vertical-align middle, slight tilt), each cycling through images every 2s with a flip. (3) Join for free / See plans pills. (4) 5-col masonry of rounded cards with staggered column offsets, hover lift + save button. (5) 'Finding the right reference took hours. Now it's one search.' (second sentence gray) + a white search pill with caret that auto-types queries (portrait, orange poster, chair) and filters/highlights matching masonry cards; user can type too."
+ },
+ {
+  "id": "clone-diptyque-video-hero-shoppable-scene-card",
+  "slug": "diptyque-video-hero-shoppable-scene-card",
+  "name": "Diptyque: full-bleed video hero with pause/mute controls and a translucent shoppable product card, centered serif header with mega nav, Limited edition product carousel",
+  "date": "2026-10-24",
+  "slot": "20:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.diptyqueparis.com",
+  "domain": "diptyqueparis.com",
+  "product": "Diptyque Paris homepage",
+  "checkpoints": [
+   "Thin announcement strip 'The Advent Calendar is here…' + white header: search left, centered DIPTYQUE / PARIS serif wordmark, Belgium – EUR € / account / bag right, centered category nav (verified)",
+   "Full-bleed autoplay video hero (wooden pine-tree studio scene) with small pause (top-left) and mute (top-right) controls (verified)",
+   "Translucent frosted shoppable card bottom-right: product thumbnail, serif 'Sapin (Pine Tree) Classic Candle', 'Classic – 190 g +2 models', underlined Add to bag – 75 € (verified)",
+   "Header turns compact on scroll (wordmark hides, nav only) (verified)",
+   "Best sellers with tabs (Holiday Icons/Fragrances/Candles & Home…) + horizontal carousel of 'Limited edition' product cards with serif names, price, add-to-bag and arrow (verified)",
+   "Split editorial 'Icons of the season' block with Add to bag – 90 € button (verified)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-24 20:00)",
+  "prompt": "Build a Diptyque-homepage-style storefront in Next.js + Tailwind + Framer Motion. Fonts: EB Garamond / Cormorant 400 for wordmark, product names and headings; a light grotesk (Jost 400, 11px) for nav and meta. Colors: white, ink #1a1a1a, warm wood video tones, card rgba(255,255,255,.72) + backdrop-blur 14px. (1) 24px announcement strip, white header with search, centered DIPTYQUE/PARIS wordmark, locale/account/bag, centered nav with hover mega panel; header compacts on scroll. (2) Full-bleed video hero (autoplay muted loop) with tiny pause/play and mute/unmute icon buttons. (3) Bottom-right translucent product card synced to the video scene (thumbnail, serif name, variant line, underlined 'Add to bag – 75 €' that increments the bag count). (4) Best sellers: tab row + snap carousel of Limited edition cards (image, serif name, description, price, + add-to-bag icon), arrows. (5) Split editorial block 'Icons of the season' with CTA."
+ },
+ {
   "id": "clone-tailwind-annotated-grid-hero-live-class-editor",
   "slug": "tailwind-annotated-grid-hero-live-class-editor",
   "name": "Tailwind homepage: hairline guide-grid hero with monospace class annotations above each text block, dark code editor that types class changes into a live preview card, logo wall grid",
