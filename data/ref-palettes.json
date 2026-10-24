@@ -1,4 +1,34 @@
 {
+ "evervault-toggle-stack-transaction-ledger": {
+  "bg": "#010314",
+  "fg": "#f0f0f0",
+  "panel": "#07011f",
+  "dark": true,
+  "ac": "#1b1c31",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.23
+ },
+ "mux-blueprint-grid-video-demo-node-flow": {
+  "bg": "#e2e4dd",
+  "fg": "#7e5037",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#7e5037",
+  "ac2": "#ccae6c",
+  "ac3": "#ffc83d",
+  "coverage": 0.55
+ },
+ "mailchimp-personalize-quiz-modal": {
+  "bg": "#ffffff",
+  "fg": "#77746f",
+  "panel": "#e6e7e3",
+  "dark": false,
+  "ac": "#3b2e20",
+  "ac2": "#2f2317",
+  "ac3": "#ffc83d",
+  "coverage": 0.49
+ },
  "superhuman-glass-floating-panels-photo-hero": {
   "bg": "#4e5891",
   "fg": "#f0f0f0",
