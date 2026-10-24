@@ -4786,5 +4786,32 @@
   "proof": "PORSCHE wordmark letter-spacing 4.25px; 22 variant cards under All, \"Understand the differences\" disabled=true; car image overlaps card top edge by 87px of 140px; card radius 22px; radio Taycan → aria-checked=true hash=\"#series=Taycan\" heading \"Taycan Model variants\" cards=5; Drive ▸ All-wheel drive → cards=3 [Taycan 4, Taycan 4S, Taycan Turbo S Cross Turismo] hash=\"#series=Taycan&drive=All-wheel+drive\"; Understand the differences → drawer \"Taycan body types & model designations\" transform=none; Compare ×3 → tray shown chips=[ Taycan 4 | Taycan 4S | Taycan Turbo S Cross Turismo]; 4th compare blocked=true (max 3), tray still 3; Compare Models → full-screen table 8 rows × 3 models, best-value cells: € 107,300 / 2.4 s / 700 kW / 952 PS / 260 km/h; chip × → 2 left; Reset → All (22 cards), compare cleared, hash restored · stand-ins: cars are SVG side profiles, mock data (22 variants), Michroma substitutes the Porsche wordmark, Inter substitutes Porsche Next",
   "demoNodes": 1552,
   "errors": []
+ },
+ "tailwind-annotated-grid-hero-live-class-editor": {
+  "url": "https://ux-technique-gallery.vercel.app/t/tailwind-annotated-grid-hero-live-class-editor/",
+  "ok": true,
+  "at": "2026-10-24T08:00:40.484Z",
+  "http": 200,
+  "proof": "annotations visible=3/3 [\"text-8xl text-gray-950 tracking-tighter text-balance\"]; guide rails 27.9911px/27.9911px; h1 64px tracking -3.2px; inline mono tokens=4 (rgb(2, 132, 199)); editor 17 lines; preview flex-direction=column, cover 150px; typed flex-col→\"flex-row\" → preview flex-direction=row, device wide=true; click token size-48 → \"size-24\" cover 84px; preset Square → radius 0px, padding 12px, chip on=true; hero token text-center → t2=\"text-center\"; logo wall 20 cells, revealed=20 · restored Stacked state + autoplay · stand-ins: album cover is a procedural duotone SVG, customer logos are type-set text marks, Inter/IBM Plex Mono substitute Tailwind's faces",
+  "demoNodes": 270,
+  "errors": []
+ },
+ "railway-starry-sky-hero-canvas-dashboard-train-rail": {
+  "url": "https://ux-technique-gallery.vercel.app/t/railway-starry-sky-hero-canvas-dashboard-train-rail/",
+  "ok": true,
+  "at": "2026-10-24T08:00:45.521Z",
+  "http": 200,
+  "proof": "serif h1 \"\"IBM Plex Serif\"\" 40px; starfield canvas 1007×660 animating (+24 frames), 6 drifting clouds; hero radius 9px; Product dropdown opacity=1 items=4; Deploy → badge DEPLOYING, node \"Building...\", streamed 4 lines so far; build finished → badge SUCCESS, node \"Active · just deployed\", build log lines=20; filter \"railpack\" → 2 lines; Deploy Logs tab → 6 lines (\"5Healthcheck succeeded ✔\"); HTTP Logs → 5; drag node → (180,182); click node → panel hidden=true; zoom + → 1.15; rail train marker by scroll: 881px/3stops → 1605px/4stops → 1605px/4stops · restored scroll/zoom/node/panel (SUCCESS state kept) · stand-ins: sky, clouds and bullet train are procedural canvas/SVG, logos are text marks, IBM Plex Serif substitutes Railway’s serif, build logs are mock",
+  "demoNodes": 533,
+  "errors": []
+ },
+ "momofuku-rounded-event-card-stack-state-filter-carousel": {
+  "url": "https://ux-technique-gallery.vercel.app/t/momofuku-rounded-event-card-stack-state-filter-carousel/",
+  "ok": true,
+  "at": "2026-10-24T08:00:52.375Z",
+  "http": 200,
+  "proof": "cream bg rgb(251, 243, 228); ticker \"Super Peach x Bar Etoile (Nov 3): Book Now\" mono=\"IBM Plex Mono\"; 4 rounded event cards radius 8px, kicker font \"Permanent Marker\"; ticker rotate → \"Majordōmo x Max & Helen’s — Nov 7 & 8 in Los Angeles\" (changed=true); Restaurants (+) → dropdown open with 10 venues in 3 cities; scroll stack → card1 transform scale(0.9727), header min=true; state pills → NY:4[Noodle Bar East Village/Noodle Bar Uptown] ind=translateX(156px) url=NY | CA:3[Majordōmo/Bar Majordōmo] ind=translateX(52px) url=CA | NV:2[Momofuku Las Vegas/Bar Moon Palace] ind=translateX(104px) url=NV | All:9[Noodle Bar East Village/Noodle Bar Uptown] ind=translateX(0px) url=-; → arrow (hidden=false) scrolls rail to 872px, ← visible=true · restored All filter, URL, scroll · stand-ins: food photography is procedural SVG, restaurant list is mock, Inter Tight / Permanent Marker substitute Momofuku’s custom faces",
+  "demoNodes": 566,
+  "errors": []
  }
 }
