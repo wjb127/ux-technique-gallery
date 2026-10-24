@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-tailwind-annotated-grid-hero-live-class-editor",
+  "slug": "tailwind-annotated-grid-hero-live-class-editor",
+  "name": "Tailwind homepage: hairline guide-grid hero with monospace class annotations above each text block, dark code editor that types class changes into a live preview card, logo wall grid",
+  "date": "2026-10-24",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://tailwindcss.com",
+  "domain": "tailwindcss.com",
+  "product": "Tailwind CSS homepage",
+  "checkpoints": [
+   "White canvas framed by full-height hairline guide rails with diagonal-hatched gutters; slim header with wave logo, v4.3 pill, Ctrl K search, Docs/Play/Blog/Showcase/Partners/Plus (verified)",
+   "Each hero text block sits in a ruled band with a tiny monospace class annotation above it (text-8xl text-gray-950 tracking-tighter …) (verified)",
+   "Giant tight-tracked 2-line headline + sub-copy with sky-blue inline mono class tokens (flex, pt-4, text-center, rotate-90) (verified)",
+   "Get started black pill + rounded Quick search field with Ctrl K hint (verified)",
+   "Dark editor panel (traffic dots, line numbers, syntax-coloured JSX classes) beside a live preview card (album cover + Class Warfare / The Anti-Patterns / No. 4) that restyles as class edits are typed (verified layout; typing loop unverified frame-by-frame)",
+   "Logo wall: 4-column grid of customer wordmarks in hairline cells (verified)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-24 16:00)",
+  "prompt": "Build a Tailwind-CSS-homepage-style hero in Next.js + Tailwind. Fonts: Inter 500 (tracking -0.04em) for the 2-line 96px headline, IBM Plex Mono / JetBrains Mono 10px for annotations and code. Colors: white, gray-950 #030712, hairlines #0000000d, sky-500 #0ea5e9 for inline class tokens, editor #111827. (1) Frame the page with two full-height vertical guide lines 28px in from each edge; the gutters get a 45° hatch pattern. (2) Every text block sits in a full-width horizontal band ruled top and bottom; above it print its own class list in tiny mono gray. (3) Hero: headline, sub-copy with mono sky tokens, Get started black pill + Quick search with Ctrl K. (4) Below: dark code editor (traffic dots, numbered lines, JSX with pink tags/sky attrs) that auto-types class changes (e.g. rounded-2xl → rounded-none, flex-col → flex-row, size-48 → size-32) with a caret; the live preview card on the right re-renders instantly; clicking a preset chip jumps to that state. (5) Logo wall: 4-col hairline grid of wordmarks that fade in on scroll."
+ },
+ {
+  "id": "clone-railway-starry-sky-hero-canvas-dashboard-train-rail",
+  "slug": "railway-starry-sky-hero-canvas-dashboard-train-rail",
+  "name": "Railway: serif headline over illustrated night-sky hero, embedded dark project canvas with service node + streaming build logs, vertical rail timeline with train marker beside feature sections",
+  "date": "2026-10-24",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://railway.com",
+  "domain": "railway.com",
+  "product": "Railway homepage",
+  "checkpoints": [
+   "Near-black #13111c shell with Railway logo, Product/Developers/Enterprise/Company dropdown nav + Pricing, Sign in / Book a demo (verified)",
+   "Rounded inset hero card: illustrated starry night sky with drifting lilac clouds, centered serif 'Ship software peacefully', underlined 'intelligent', purple Deploy → + dark Agents buttons (verified)",
+   "Embedded dark project canvas: breadcrumb gravy-truck / production, Architecture/Observability/Logs/Settings tabs, dotted grid with zoom controls, backend service node 'Building…' (verified)",
+   "Deployment side panel: backend / commit hash, DEPLOYING badge, Details/Build Logs/Deploy Logs/HTTP Logs tabs, monospace timestamped logs streaming line by line (verified layout; streaming is practice)",
+   "Logo band: 6-col hairline grid of customer logos on a sage-dark panel under a passing bullet-train illustration (verified)",
+   "Feature sections with a vertical rail on the left: hollow ring stops + a train-car marker that rides the rail with scroll; 'Build and deploy' chip + serif 'Deploy anything without the complexity' (verified)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-24 16:00)",
+  "prompt": "Build a Railway-homepage-style landing in Next.js + Tailwind + Framer Motion. Fonts: IBM Plex Serif 400 for headlines (52px hero), Inter 400/500 for UI, JetBrains Mono 10px for logs. Colors: shell #13111C, hero sky gradient #2b3546→#4a5a6e with lilac clouds #8d7a9a, purple #853BCE / #6d3fa8 button, panel #181622 with #ffffff14 borders, green success #3ecf8e. (1) Sticky header with dropdown nav. (2) Hero inside an 18px-radius card: canvas starfield with twinkle + slowly drifting SVG clouds; serif headline, sub with underlined 'intelligent', Deploy → / Agents buttons. (3) Overlapping the hero bottom, an app-window canvas: breadcrumb, tabs, dot-grid, a draggable backend service node with a pulsing 'Building…' status; clicking Deploy restarts a build: side panel badge DEPLOYING → SUCCESS, build log lines stream in with timestamps, Build/Deploy/HTTP log tabs swap content, a filter box filters lines. (4) Logo band grid. (5) Feature sections: a 2px vertical rail on the left with ring stops per section; a small train SVG travels down the rail proportional to scroll and the stop it passes fills; each section has a chip, serif headline and Learn more →."
+ },
+ {
+  "id": "clone-momofuku-rounded-event-card-stack-state-filter-carousel",
+  "slug": "momofuku-rounded-event-card-stack-state-filter-carousel",
+  "name": "Momofuku: cream mono ticker bar, stacked rounded full-width event photo cards with pill CTAs over a floating header, Our Restaurants state filter pills (All/CA/NV/NY) driving a horizontal card carousel",
+  "date": "2026-10-24",
+  "slot": "16:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://momofuku.com",
+  "domain": "momofuku.com",
+  "product": "Momofuku homepage",
+  "checkpoints": [
+   "Cream #fbf3e4 page with a thin rounded mono announcement bar 'Super Peach x Bar Etoile (Nov 3): Book Now' (verified)",
+   "Header floating over the first card: orange-peach logo + white momofuku wordmark, Home / Restaurants (+) / Our Story, white Make a Reservation + Order Online pills, outlined Shop pill (verified)",
+   "Stacked full-width rounded (≈10px) event photo cards with dark scrim: rough caps city kicker LOS ANGELES, huge white grotesk title, white pill CTA (Reserve Now: Nov 7 & 8) (verified)",
+   "Our Restaurants heading with right-aligned All / CA / NV / NY segmented pill filter; active pill is black (verified)",
+   "Horizontal carousel of tall rounded restaurant photo cards with white name captions (Noodle Bar East Village, Kabawa…) and a round → arrow button (verified)",
+   "Selecting a state re-filters the carousel cards (verified pill state switch; card swap animation is practice)"
+  ],
+  "checkpoint_source": "ledger-briefing-note+ref-screens (2026-10-24 16:00)",
+  "prompt": "Build a Momofuku-style restaurant group homepage in Next.js + Tailwind + Framer Motion. Fonts: a friendly grotesk (Instrument Sans / Manrope 600) for titles at 56px, a rough brush caps (Permanent Marker / Gochi Hand) for city kickers, a mono (IBM Plex Mono) for the ticker. Colors: cream #FBF3E4, ink #1d1d1b, peach #f6a01a, white pills. (1) 32px rounded cream mono ticker bar that rotates messages. (2) Header overlaid on the first card: logo, Home / Restaurants (+ opens a city list dropdown) / Our Story, pills. (3) A stack of 4 full-width rounded photo cards (gap 10px) each with scrim, city kicker, huge title, pill CTA; cards scale 0.96→1 as they enter and stick-stack while scrolling. (4) Our Restaurants: All/CA/NV/NY pills (black active, sliding indicator) filter a horizontal snap carousel of 4:5 rounded cards with captions; arrow buttons page the rail and hide at ends; filter swap fades/staggers cards; URL ?state= sync."
+ },
+ {
   "id": "clone-glossier-cropped-wordmark-hero-script-nav-mega",
   "slug": "glossier-cropped-wordmark-hero-script-nav-mega",
   "name": "Glossier home: black announcement ticker with prev/next/pause, handwritten GIFT GUIDE nav item, full-bleed checkerboard still-life hero with a giant white Glossier wordmark cropped off the bottom, floating white promo card, three-column hover mega menu with image card, editorial product rows",
