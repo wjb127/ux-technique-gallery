@@ -35785,4 +35785,443 @@ V['acne-giant-wordmark-split-hero-collapse'] = (root, T) => {
     return o.join('; ') + `; restored top (wordmark ${Math.round(wm.getBoundingClientRect().width)}px) · stand-ins: product/editorial photos are SVG/gradient illustrations, campaign video is a canvas grain loop, Outfit substitutes the Acne wordmark face`;
   };
 };
+V['standard-mirrored-logo-city-stack-fullscreen-slides'] = (root, T) => {
+  theme(root, T, { bg: '#111111', fg: '#FFFFFF', ac: '#E2231A', ac2: '#FFFFFF', ac3: '#1A1A1A', dark: true });
+  import('@fontsource/oswald/400.css'); import('@fontsource/oswald/500.css'); import('@fontsource/oswald/600.css');
+  const C = "'Oswald','Arial Narrow',sans-serif", RED = '#E2231A';
+  css(`
+.sd{position:absolute;inset:0;background:#111;color:#fff;font:500 12px/1.2 ${C};overflow:hidden;touch-action:none}.sd *{box-sizing:border-box}
+:where(.sd) button,:where(.sd) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.sd-sl{position:absolute;inset:0;clip-path:inset(0 0 0 0);transition:clip-path .9s cubic-bezier(.77,0,.18,1);will-change:clip-path}
+.sd-sl.below{clip-path:inset(100% 0 0 0)}.sd-sl.above{clip-path:inset(0 0 100% 0)}
+.sd.rm .sd-sl{transition:opacity .5s;clip-path:none!important}.sd.rm .sd-sl.below,.sd.rm .sd-sl.above{opacity:0;pointer-events:none}
+.sd-bg{position:absolute;inset:0;transition:opacity .4s ease,transform 6s linear}.sd-bg svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sd-bg.off{opacity:0}.sd-sl.cur .sd-bg:not(.off){transform:scale(1.04)}
+.sd-sh{position:absolute;inset:0;background:linear-gradient(90deg,#0009,#0000 45%)}
+.sd-hd{position:absolute;z-index:20;left:0;right:0;top:0;height:64px;display:flex;align-items:flex-start;padding:10px 12px 0 10px}
+.sd-logo{display:block;background:${RED};height:34px;padding:0 9px;transform:rotate(180deg);font:500 25px/34px ${C};letter-spacing:-.005em;white-space:nowrap}
+.sd-ht{position:relative;margin-left:16px;margin-top:4px;height:24px;padding:0 6px;font:500 10.5px/24px ${C};letter-spacing:.02em;display:flex;gap:6px;align-items:center;border:1px solid transparent;transition:color .2s,border-color .2s}
+.sd-ht:hover,.sd-ht.on{color:${RED}}.sd-ht svg{transition:transform .25s}.sd-ht.on svg{transform:rotate(180deg)}
+.sd-dd{position:absolute;z-index:22;left:156px;top:40px;background:#fff;color:#111;padding:6px 16px 8px;min-width:108px;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s}
+.sd-dd.on{opacity:1;transform:none;pointer-events:auto}.sd-dd a{display:block;font:600 8.6px/16px ${C};letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}.sd-dd a:hover{color:${RED}}
+.sd-nv{margin-left:auto;display:flex;gap:11px;align-items:center;margin-top:9px;font:500 10.5px/1 ${C};letter-spacing:.01em;text-transform:uppercase}
+.sd-nv a{position:relative;padding:2px 0}.sd-nv a::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#fff;transform:scaleX(0);transition:transform .25s}.sd-nv a:hover::after{transform:scaleX(1)}
+.sd-mb{display:none;margin-left:auto;margin-top:8px;font:500 12px ${C};letter-spacing:.04em}
+.sd-cs{position:absolute;left:11px;top:130px;z-index:3;margin:0;padding:0;list-style:none}
+.sd-cs li a{display:block;font:500 34.5px/35.2px ${C};letter-spacing:-.012em;transition:opacity .4s;white-space:nowrap}
+.sd-cs.hv li a{opacity:.35}.sd-cs.hv li a.on{opacity:1}
+.sd-cap{position:absolute;left:11px;bottom:40px;z-index:3;max-width:560px}.sd-cap h2{margin:0;font:500 92px/.92 ${C};text-transform:uppercase;letter-spacing:-.01em}
+.sd-cap p{font:400 15px/1.45 ${C};letter-spacing:.02em;margin:14px 0 10px;max-width:420px}.sd-cap a{font:500 12px ${C};text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #fff;padding-bottom:3px}
+.sd-dt{position:absolute;z-index:15;right:13px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px}
+.sd-dt button{width:7px;height:7px;border-radius:50%;border:1px solid #fff;transition:background .3s}.sd-dt button.on{background:#fff}
+.sd-bk{position:absolute;z-index:25;right:11px;bottom:11px;width:53px;height:53px;border-radius:50%;background:${RED};font:500 12px/12px ${C};display:flex;align-items:center;justify-content:center;text-align:center;transition:transform .35s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.sd-bk:hover{transform:translateX(-4px) rotate(-8deg) scale(1.06);box-shadow:0 6px 20px #0006}
+.sd-dw{position:absolute;z-index:30;top:0;right:0;bottom:0;width:min(380px,100%);background:#fff;color:#111;padding:68px 26px 26px;transform:translateX(100%);transition:transform .55s cubic-bezier(.77,0,.18,1);display:flex;flex-direction:column;gap:14px}
+.sd-dw.on{transform:none}.sd-dw h3{margin:0 0 6px;font:500 40px/1 ${C};text-transform:uppercase;color:${RED}}
+.sd-dw label{font:500 10px ${C};letter-spacing:.08em;text-transform:uppercase;color:#666;display:block;margin-bottom:5px}
+.sd-dw select,.sd-dw input{width:100%;border:0;border-bottom:1px solid #111;font:500 16px ${C};padding:6px 0;background:none;color:#111;outline:none;border-radius:0}
+.sd-dw .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sd-st{display:flex;align-items:center;gap:14px;font:500 18px ${C}}.sd-st button{width:30px;height:30px;border:1px solid #111;border-radius:50%;font:500 16px ${C}}
+.sd-dw .go{margin-top:auto;background:${RED};color:#fff;height:48px;font:500 14px ${C};letter-spacing:.08em;text-transform:uppercase}
+.sd-dw .x{position:absolute;right:20px;top:18px;font:500 11px ${C};letter-spacing:.08em}
+.sd-sc{position:absolute;inset:0;z-index:28;background:#0006;opacity:0;pointer-events:none;transition:opacity .4s}.sd-sc.on{opacity:1;pointer-events:auto}
+.sd-mm{position:absolute;z-index:40;inset:0;background:${RED};padding:70px 20px 30px;transform:translateY(-100%);transition:transform .6s cubic-bezier(.77,0,.18,1);overflow:auto}.sd-mm.on{transform:none}
+.sd-mm a{display:block;font:500 40px/1.05 ${C};text-transform:uppercase}.sd-mm .x{position:absolute;right:14px;top:18px;font:500 12px ${C};letter-spacing:.06em}
+.sd-sr{position:absolute;z-index:26;left:0;right:0;top:0;height:64px;background:#111;display:flex;align-items:center;padding:0 20px;gap:12px;transform:translateY(-100%);transition:transform .35s}.sd-sr.on{transform:none}
+.sd-sr input{flex:1;background:none;border:0;border-bottom:1px solid #fff;color:#fff;font:500 22px ${C};outline:none;padding:4px 0}
+@media (min-width:1200px){.sd{zoom:1.4}}
+.sd-a11y{position:absolute;z-index:24;right:14px;bottom:106px;width:32px;height:32px;border-radius:50%;background:#1565e6;display:flex;align-items:center;justify-content:center}
+@media (max-width:760px){.sd-nv,.sd-ht{display:none}.sd-mb{display:block}.sd-cs{top:84px;bottom:80px;overflow-y:auto;scrollbar-width:none;padding-right:20px}.sd-cs li a{font-size:32px;line-height:33px}
+.sd-logo{font-size:21px;height:30px;line-height:30px}.sd-cap h2{font-size:54px}.sd-dd{left:12px}}
+`);
+  const el = h('div.sd', { tabindex: 0 }); root.append(el);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) el.classList.add('rm');
+  const CITIES = [['High Line, NYC', 34, 1], ['East Village, NYC', 28, 2], ['Bangkok', 330, 3], ['Miami Beach', 185, 4], ['Ibiza', 40, 5], ['Hua Hin', 160, 6], ['Maldives', 190, 7], ['London', 20, 8], ['Singapore', 300, 9], ['Melbourne X', 12, 10], ['Lisbon', 45, 11], ['Brussels', 30, 12], ['Pattaya Na Jomtien', 200, 13], ['Mexico City', 350, 14]];
+  // procedural night facade: concrete grid, warm/tinted lit windows, one window with a figure
+  const facade = (hue, seed, fig = true) => { const r = rng(seed * 97 + 3); let o = `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="cg${seed}" x1="0" x2="1"><stop offset="0" stop-color="#1c1a17"/><stop offset=".55" stop-color="#2a2722"/><stop offset="1" stop-color="#141311"/></linearGradient>
+<radialGradient id="wl${seed}" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="hsl(${hue} 85% 62%)"/><stop offset=".6" stop-color="hsl(${hue} 70% 38%)"/><stop offset="1" stop-color="hsl(${hue} 60% 16%)"/></radialGradient>
+<linearGradient id="fw${seed}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfd6dc"/><stop offset="1" stop-color="#9aa4ad"/></linearGradient></defs><rect width="1440" height="900" fill="url(#cg${seed})"/>`;
+    const cols = [[0, 300], [330, 250], [590, 380], [1000, 260], [1290, 220]]; const sk = r() * 40;
+    for (const [x0, w] of cols) for (let y = -60 + sk; y < 900; y += 190) { const lit = r(); const wx = x0 + 24, wy = y + 22, ww = w - 48, wh = 150;
+      o += `<rect x="${wx - 8}" y="${wy - 8}" width="${ww + 16}" height="${wh + 16}" fill="#0d0c0b"/>`;
+      if (lit > .55) { o += `<rect x="${wx}" y="${wy}" width="${ww}" height="${wh}" fill="url(#wl${seed})" opacity="${(.45 + lit * .5).toFixed(2)}"/><rect x="${wx + ww * .25}" y="${wy + 30}" width="${ww * .14}" height="${wh - 30}" fill="hsl(${hue} 50% 22%)" opacity=".7"/>`; }
+      else o += `<rect x="${wx}" y="${wy}" width="${ww}" height="${wh}" fill="#17191b"/><path d="M${wx} ${wy + wh}L${wx + ww} ${wy}" stroke="#ffffff08" stroke-width="30"/>`;
+      o += `<path d="M${wx + ww / 2} ${wy}v${wh}" stroke="#0d0c0b" stroke-width="5"/>`; }
+    for (const [x0, w] of cols) o += `<rect x="${x0 + w - 6}" y="0" width="34" height="900" fill="#24221e"/><rect x="${x0 + w - 6}" y="0" width="8" height="900" fill="#ffffff0a"/>`;
+    if (fig) o += `<g transform="translate(980 260)"><rect x="-16" y="-16" width="232" height="272" fill="#0d0c0b"/><rect width="200" height="240" fill="url(#fw${seed})"/><rect x="120" width="80" height="240" fill="#b9c2ca"/><path d="M90 70q14-6 22 6t-4 26q16 8 30 30l-10 8-14-14v40l10 60h-12l-12-50-12 50h-12l6-60q-26-6-30-30l-14 10-8-8q16-26 40-36q-10-24 10-32Z" fill="hsl(${(hue + 300) % 360} 70% 72%)"/><circle cx="102" cy="66" r="11" fill="#2b1f1b"/><path d="M60 190q40-16 90 0l-6 44H70Z" fill="#1d1f22"/></g>`;
+    return o + `<rect width="1440" height="900" fill="#000" opacity=".42"/></svg>`; };
+  const s1 = h('section.sd-sl.cur'); const bgs = [h('div.sd-bg', { html: facade(34, 0) }), ...CITIES.map(([, hu, sd]) => h('div.sd-bg.off', { html: facade(hu, sd, sd % 3 !== 0) }))];
+  let hoverI = -1; const cs = h('ul.sd-cs');
+  const setHover = (i) => { hoverI = i; cs.classList.toggle('hv', i >= 0); [...cs.querySelectorAll('a')].forEach((a, j) => a.classList.toggle('on', j === i)); bgs.forEach((b, j) => b.classList.toggle('off', i >= 0 ? j !== i + 1 : j !== 0)); };
+  CITIES.forEach(([n], i) => { const a = h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(`The Standard, ${n} — demo`); } }, n); a.addEventListener('pointerenter', () => setHover(i)); a.addEventListener('focus', () => setHover(i)); cs.append(h('li', {}, a)); });
+  cs.addEventListener('pointerleave', () => setHover(-1));
+  s1.append(...bgs, h('div.sd-sh'), cs);
+  const capSlide = (hue, seed, t, p, l) => h('section.sd-sl.below', {}, h('div.sd-bg', { html: facade(hue, seed, false) }), h('div.sd-sh'), h('div.sd-cap', {}, h('h2', {}, t), h('p', {}, p), h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(l + ' — demo'); } }, l)));
+  const slides = [s1, capSlide(350, 21, 'Happenings', 'Parties, performances and pool days across every Standard — the calendar never sleeps.', 'See what\u2019s on'), capSlide(200, 33, 'The StandardX', 'A smaller, scrappier Standard: rooms for travellers who mostly need a bed and a good night out.', 'Discover StandardX')];
+  let cur = 0, lock = 0; const dots = h('div.sd-dt');
+  const go = (n) => { n = Math.max(0, Math.min(slides.length - 1, n)); if (n === cur) return false; slides.forEach((s, i) => { s.classList.toggle('below', i > n); s.classList.toggle('above', i < n); s.classList.toggle('cur', i === n); s.style.zIndex = i === n ? 2 : (i === cur ? 1 : 0); }); cur = n; [...dots.children].forEach((d, i) => d.classList.toggle('on', i === n)); return true; };
+  slides.forEach((_, i) => dots.append(h('button', { class: i ? '' : 'on', 'aria-label': `Slide ${i + 1}`, onclick: () => go(i) })));
+  const step = (d) => { const now = performance.now(); if (now < lock) return; if (go(cur + d)) lock = now + 900; };
+  el.addEventListener('wheel', (e) => { if (e.target.closest('.sd-dw,.sd-mm,.sd-dd') || (e.target.closest('.sd-cs') && cs.scrollHeight > cs.clientHeight + 2)) return; e.preventDefault(); if (Math.abs(e.deltaY) > 4) step(Math.sign(e.deltaY)); }, { passive: false });
+  let ty0 = null; el.addEventListener('touchstart', (e) => { ty0 = e.touches[0].clientY; }, { passive: true }); el.addEventListener('touchend', (e) => { if (ty0 == null) return; const d = ty0 - e.changedTouches[0].clientY; if (Math.abs(d) > 40 && !e.target.closest('.sd-cs')) step(Math.sign(d)); ty0 = null; });
+  el.addEventListener('keydown', (e) => { if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); step(1); } if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); step(-1); } if (e.key === 'Escape') { openDD(false); openBk(false); openMM(false); openSr(false); } });
+  // header
+  const car = '<svg width="7" height="5" viewBox="0 0 7 5"><path d="M0 0h7L3.5 5Z" fill="currentColor"/></svg>';
+  const dd = h('div.sd-dd', {}, ...CITIES.map(([n]) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); openDD(false); toast(n + ' — demo'); } }, n)));
+  const ht = h('button.sd-ht', { 'aria-expanded': 'false', onclick: (e) => { e.stopPropagation(); openDD(!dd.classList.contains('on')); }, html: 'HOTELS ' + car });
+  const openDD = (on) => { dd.classList.toggle('on', on); ht.classList.toggle('on', on); ht.setAttribute('aria-expanded', String(on)); };
+  el.addEventListener('click', (e) => { if (!e.target.closest('.sd-dd,.sd-ht')) openDD(false); });
+  const sr = h('div.sd-sr', {}, h('input', { placeholder: 'Search The Standard', 'aria-label': 'Search' }), h('button', { onclick: () => openSr(false), style: { font: `500 11px ${C}`, letterSpacing: '.08em' } }, 'CLOSE'));
+  const openSr = (on) => { sr.classList.toggle('on', on); if (on) setTimeout(() => sr.querySelector('input').focus({ preventScroll: true }), 300); };
+  const NAV = ['Book Now', 'Culture', 'Offers', 'Happenings', 'Meetings & Events', 'Upcoming Hotels', 'Residences', 'Shop', 'The StandardX'];
+  const nv = h('nav.sd-nv', {}, ...NAV.map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); if (t === 'Book Now') openBk(true); else toast(t + ' — demo'); } }, t)), h('button', { 'aria-label': 'Search', onclick: () => openSr(true), html: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="5" cy="5" r="3.8"/><path d="m8 8 3.4 3.4"/></svg>' }));
+  const mm = h('div.sd-mm', {}, h('button.x', { onclick: () => openMM(false) }, 'CLOSE'), ...['Hotels', ...NAV].map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); openMM(false); if (t === 'Book Now') openBk(true); } }, t)));
+  const openMM = (on) => mm.classList.toggle('on', on);
+  const mb = h('button.sd-mb', { onclick: () => openMM(true) }, 'MENU');
+  const hd = h('header.sd-hd', {}, h('a.sd-logo', { href: '#', 'aria-label': 'The Standard', onclick: (e) => { e.preventDefault(); go(0); } }, 'The Standard'), ht, nv, mb);
+  // booking drawer
+  let guests = 2; const gOut = h('span', {}, '2');
+  const today = new Date(), iso = (d) => d.toISOString().slice(0, 10), plus = (n) => { const d = new Date(today); d.setDate(d.getDate() + n); return iso(d); };
+  const sel = h('select', { 'aria-label': 'Hotel' }, ...CITIES.map(([n]) => h('option', {}, n)));
+  const dIn = h('input', { type: 'date', value: plus(7) }), dOut = h('input', { type: 'date', value: plus(9) });
+  const setG = (n) => { guests = Math.max(1, Math.min(8, n)); gOut.textContent = guests; };
+  const dw = h('aside.sd-dw', { 'aria-label': 'Book' }, h('button.x', { onclick: () => openBk(false) }, 'CLOSE'), h('h3', {}, 'Book now'), h('div', {}, h('label', {}, 'Hotel'), sel), h('div.row', {}, h('div', {}, h('label', {}, 'Check in'), dIn), h('div', {}, h('label', {}, 'Check out'), dOut)),
+    h('div', {}, h('label', {}, 'Guests'), h('div.sd-st', {}, h('button', { onclick: () => setG(guests - 1), 'aria-label': 'Fewer' }, '−'), gOut, h('button', { onclick: () => setG(guests + 1), 'aria-label': 'More' }, '+'))),
+    h('button.go', { onclick: () => { toast(`Checking ${sel.value} · ${dIn.value} → ${dOut.value} · ${guests} guests — demo`); } }, 'Check availability'));
+  const scr = h('div.sd-sc', { onclick: () => openBk(false) });
+  const bk = h('button.sd-bk', { onclick: () => openBk(true) }, h('span', {}, 'Book', h('br'), 'Now'));
+  const openBk = (on) => { dw.classList.toggle('on', on); scr.classList.toggle('on', on); };
+  const a11y = h('button.sd-a11y', { 'aria-label': 'Accessibility', onclick: () => toast('Accessibility menu — demo'), html: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="4.5" r="1.6" fill="#fff"/><path d="M5 8l7 1.5L19 8M12 9.5V15l-3 6M12 15l3 6"/></svg>' });
+  el.append(...slides, hd, dd, sr, dots, a11y, bk, scr, dw, mm);
+  go(0);
+  window.__demoProof = async () => {
+    const o = [], gs = getComputedStyle;
+    const tile = el.querySelector('.sd-logo'); o.push(`red logo tile bg=${gs(tile).backgroundColor} wordmark transform=${gs(tile).transform} (rotate 180°) font=${gs(tile).fontFamily.split(',')[0]}`);
+    o.push(`city stack ${cs.children.length} names, font-size ${gs(cs.querySelector('a')).fontSize}`);
+    const a3 = cs.querySelectorAll('a')[2]; a3.dispatchEvent(new PointerEvent('pointerenter')); await sleep(480);
+    o.push(`hover "${a3.textContent}" → others opacity ${gs(cs.querySelectorAll('a')[0]).opacity}, bg layer ${bgs.findIndex((b) => !b.classList.contains('off'))} visible (${gs(bgs[3]).opacity})`);
+    cs.dispatchEvent(new PointerEvent('pointerleave')); await sleep(420);
+    ht.click(); await sleep(260); o.push(`HOTELS ▾ → dropdown ${dd.classList.contains('on') ? 'open' : 'closed'} with ${dd.children.length} caps cities (opacity ${gs(dd).opacity})`); openDD(false);
+    lock = 0; el.dispatchEvent(new WheelEvent('wheel', { deltaY: 120, bubbles: true, cancelable: true })); await sleep(40);
+    el.dispatchEvent(new WheelEvent('wheel', { deltaY: 120, bubbles: true, cancelable: true })); o.push(`2nd wheel 40ms later ignored by 900ms lock → still slide ${cur + 1}`); await sleep(420);
+    o.push(`mid-wipe clip=${gs(slides[1]).clipPath}`); await sleep(520);
+    o.push(`wheel ↓ → slide ${cur + 1}/3 clip=${gs(slides[1]).clipPath} dots=[${[...dots.children].map((d) => d.classList.contains('on') ? '●' : '○').join('')}]`);
+    lock = 0; el.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })); await sleep(950); o.push(`ArrowDown → slide ${cur + 1} "${slides[cur].querySelector('h2')?.textContent}"`);
+    bk.click(); await sleep(620); setG(3); o.push(`red Book Now circle (${Math.round(bk.getBoundingClientRect().width)}px, ${gs(bk).borderRadius}) → drawer transform=${gs(dw).transform} guests=${guests}`);
+    openBk(false); setG(2);
+    if (gs(mb).display !== 'none') { mb.click(); await sleep(650); o.push(`mobile MENU → fullscreen red menu bg=${gs(mm).backgroundColor} transform=${gs(mm).transform}`); openMM(false); }
+    lock = 0; go(0); lock = 0; await sleep(950); setHover(-1); document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + ` ; restored slide 1 · stand-ins: hotel photos are procedural SVG night facades, Oswald substitutes The Standard's condensed face`;
+  };
+};
+V['lego-gateway-split-modal-tile-rail-torn-edge'] = (root, T) => {
+  theme(root, T, { bg: '#FFFFFF', fg: '#000000', ac: '#FFCF00', ac2: '#E3000B', ac3: '#006CB7', dark: false });
+  import('@fontsource-variable/outfit');
+  const F = "'Outfit Variable','Outfit',Futura,sans-serif", Y = '#FFCF00', R = '#E3000B', B = '#0059D6', OR = '#F5821F';
+  css(`
+.lg{position:absolute;inset:0;background:#fff;color:#000;font:400 13px/1.35 ${F}}.lg *{box-sizing:border-box}
+:where(.lg) button,:where(.lg) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.lg-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;transition:filter .4s}.lg.gw .lg-sc{filter:blur(6px) brightness(.55)}
+.lg-pr{height:27px;display:flex;align-items:center;justify-content:center;font:500 10.5px ${F};position:relative}.lg-pr a{color:#0059D6;margin-left:4px;font-weight:600}.lg-pr .x{position:absolute;right:12px;font-size:18px;line-height:1}
+.lg-hd{position:sticky;top:0;z-index:20;height:45px;background:${Y};display:flex;align-items:center;padding:0 22px;gap:4px}
+.lg-logo{width:34px;height:34px;background:${R};border-radius:3px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 1.5px #ffd500}
+.lg-logo b{font:900 italic 11.5px/1 ${F};color:#fff;letter-spacing:-.02em;-webkit-text-stroke:2.4px #000;paint-order:stroke fill;transform:skewX(-6deg)}
+.lg-mi{display:flex;align-items:center;gap:8px;font:500 12.5px ${F};padding:0 20px 0 28px;height:45px;position:relative}.lg-mi svg{transition:transform .25s}.lg-mi.on svg{transform:rotate(180deg)}
+.lg-mi.on::after{content:'';position:absolute;left:28px;right:20px;bottom:6px;height:2px;background:#000;border-radius:2px}
+.lg-new{background:#fff;color:${R};font:600 12px ${F};border-radius:99px;padding:6px 12px;margin-left:4px}
+.lg-se{margin-left:auto;display:flex;align-items:center;gap:8px;width:224px;height:28px;background:#fff;border:1px solid #0003;border-radius:99px;padding:0 12px}.lg-se input{border:0;outline:0;font:400 12px ${F};width:100%;background:none}
+.lg-ic{display:flex;align-items:center;gap:6px;margin-left:20px;font:500 9.5px ${F}}.lg-bag{position:relative}.lg-bag.bump{animation:lgb .45s}
+@keyframes lgb{40%{transform:scale(1.3) rotate(-8deg)}}
+.lg-mega{position:absolute;left:0;right:0;top:45px;background:#fff;padding:18px 22px 22px;box-shadow:0 12px 30px #0002;display:none;grid-template-columns:repeat(6,1fr);gap:12px}.lg-mega.on{display:grid}
+.lg-mega a{border-radius:6px;padding:10px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;font:600 12px ${F};transition:background .2s}.lg-mega a:hover{background:#f4f4f4}.lg-mega i{width:46px;height:46px;border-radius:8px;display:block}
+.lg-hero{background:#000;color:#fff;height:320px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.lg-ht{padding:80px 22px 0;position:relative;z-index:2}.lg-tags{display:flex;gap:8px}.lg-tags span{background:${Y};color:#000;font:500 8.5px/1 ${F};padding:4px 9px;border-radius:2px}
+.lg-ht h1{font:600 27px/1.32 ${F};margin:10px 0 8px;letter-spacing:-.005em;max-width:380px}.lg-ht p{font:400 10px ${F};margin:0 0 14px}
+.lg-btns{display:flex;gap:9px}.lg-btns a{height:28px;border-radius:99px;padding:0 12px;display:flex;align-items:center;gap:12px;font:500 11.5px ${F};transition:background .2s,color .2s}
+.lg-btns .p{background:#dcdcdc;color:#000}.lg-btns .p:hover{background:#fff}.lg-btns .o{border:1.5px solid #fff}.lg-btns .o:hover{background:#fff;color:#000}
+.lg-art{position:relative}.lg-art svg.fr{position:absolute;left:30px;top:20px;width:290px;height:280px}
+.lg-disc{position:absolute;border-radius:50%;will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.lg-band{background:#2B2B2B;color:#fff;padding:20px 22px 56px;position:relative}
+.lg-tabs{display:flex;gap:18px;margin-bottom:16px}.lg-tabs button{font:600 13.5px ${F};padding:4px 0 8px;position:relative;opacity:.9}.lg-tabs button::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2.5px;background:#fff;transform:scaleX(0);transition:transform .3s;transform-origin:left}.lg-tabs button.on{opacity:1}.lg-tabs button.on::after{transform:none}
+.lg-tiles{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;transition:opacity .25s}.lg-tiles.sw{opacity:0}
+.lg-tile{position:relative;height:162px;border-radius:2px;overflow:hidden;text-align:center;padding-top:8px;font:600 12px ${F};transition:transform .35s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
+.lg-tile:hover,.lg-tile.hv{transform:translateY(-6px) rotate(-2deg);box-shadow:0 12px 22px #0008}.lg-tile svg{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:86%;height:70%}
+.lg-torn{position:absolute;left:0;right:0;bottom:-1px;height:40px;display:block;width:100%}
+.lg-fs{padding:30px 22px 20px}.lg-fs h2,.lg-ev h2{text-align:center;font:600 19px ${F};margin:0 0 14px}
+.lg-fs .bar{display:flex;align-items:center}.lg-fs .tb{display:flex;gap:16px}.lg-fs .tb button{font:600 12.5px ${F};padding:0 0 8px;color:#777;border-bottom:2.5px solid transparent}.lg-fs .tb button.on{color:#000;border-color:#000}
+.lg-fs .nv{margin-left:auto;display:flex;gap:6px}.lg-fs .nv button{width:31px;height:31px;border-radius:50%;border:1.5px solid #000;display:flex;align-items:center;justify-content:center;transition:background .2s}.lg-fs .nv button:hover{background:#000;color:#fff}.lg-fs .nv button:disabled{opacity:.3;cursor:default;background:none;color:#000}
+.lg-car{overflow:hidden;margin-top:14px}.lg-trk{display:flex;gap:13px;transition:transform .55s cubic-bezier(.3,.9,.3,1)}
+.lg-cd{flex:none;width:calc((100% - 52px)/5);border:1px solid #e8e8e8;padding:10px 6px 12px;position:relative;background:#fff}
+.lg-cd .im{height:178px;display:flex;align-items:center;justify-content:center}.lg-cd .im svg{width:92%;height:92%;transition:transform .4s}.lg-cd:hover .im svg{transform:scale(1.05)}
+.lg-cd .nw{position:absolute;right:6px;top:10px;background:${Y};font:500 8px ${F};padding:3px 7px}
+.lg-cd .mt{display:flex;gap:10px;font:500 9.5px ${F};margin:12px 0 10px;align-items:center}.lg-cd .mt span{display:flex;gap:3px;align-items:center}
+.lg-cd .nm{font:400 11px ${F};height:38px}.lg-cd .pc{font:700 10.5px ${F};margin:2px 0 8px}
+.lg-cd .ac{display:flex;gap:6px;align-items:center}.lg-add{height:29px;padding:0 14px;border-radius:99px;background:${OR};font:500 11px ${F};display:flex;gap:8px;align-items:center;min-width:107px;justify-content:center;transition:background .25s,min-width .3s}
+.lg-add:hover{background:#e06f10}.lg-add.ok{background:#1d8a3a;color:#fff}
+.lg-ht2{width:31px;height:31px;border-radius:50%;background:#f2f2f2;display:flex;align-items:center;justify-content:center}.lg-ht2.on svg path{fill:${R};stroke:${R}}
+.lg-ev{padding:30px 0 20px}.lg-ev p{text-align:center;font:400 10px ${F};margin:-8px 0 14px}
+.lg-gr{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:500px;padding:0 8px}.lg-gr>div{position:relative;overflow:visible}.lg-gr>div:first-child{grid-row:span 2}
+.lg-gr .ph{position:absolute;inset:0;overflow:hidden}.lg-gr .ph svg{width:100%;height:100%;display:block}
+.lg-hs{position:absolute;width:27px;height:27px;border-radius:50%;background:#fff;border:1.5px solid #000;font:400 18px/1 ${F};display:flex;align-items:center;justify-content:center;z-index:2;transition:transform .2s}.lg-hs:hover{transform:scale(1.1)}
+.lg-pop{position:absolute;z-index:3;background:#fff;border-radius:8px;box-shadow:0 6px 20px #0003;padding:12px 14px;width:140px;font:400 10px ${F};display:none}.lg-pop.on{display:block}.lg-pop b{display:block;font:700 10px ${F};margin-top:10px}
+.lg-ft{background:${B === '#0059D6' ? '#000' : '#000'};color:#fff;padding:30px 22px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;font:400 11px ${F}}.lg-ft h4{margin:0 0 10px;font:700 12px ${F}}.lg-ft a{display:block;margin:4px 0;opacity:.8}.lg-ft a:hover{opacity:1;text-decoration:underline}
+@media (min-width:1200px){.lg{zoom:1.4}}
+.lg-gwo{position:absolute;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:30px;background:#0002;opacity:0;pointer-events:none;transition:opacity .35s}.lg.gw .lg-gwo{opacity:1;pointer-events:auto}
+.lg-gwm{position:relative;width:min(755px,92%);height:330px;display:flex;border-radius:8px;transform:scale(.96);transition:transform .45s cubic-bezier(.3,1.4,.5,1)}.lg.gw .lg-gwm{transform:none}
+.lg-gwm>.badge{position:absolute;left:50%;top:-28px;transform:translateX(-50%);width:56px;height:56px;z-index:3}
+.lg-hf{flex:0 0 50%;display:flex;flex-direction:column;align-items:center;padding:44px 20px 0;transition:flex-basis .45s cubic-bezier(.3,.9,.3,1);overflow:hidden;min-width:0}
+.lg-hf.l{background:${B};color:#fff;border-radius:8px 0 0 8px}.lg-hf.r{background:#FFD500;border-radius:0 8px 8px 0}.lg-hf.wide{flex-basis:55%}.lg-hf.nar{flex-basis:45%}
+.lg-hf h3{font:600 13px ${F};margin:0 0 26px;letter-spacing:.01em}.lg-hf p{font:400 11px/1.6 ${F};text-align:center;margin:0 0 14px;white-space:nowrap}
+.lg-bb{display:flex;gap:4px;align-items:flex-start;height:96px;margin-bottom:12px}.lg-bb span{background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:lgbob 2.6s ease-in-out infinite}
+.lg-bb span:nth-child(2){animation-delay:-.9s;margin-top:8px}.lg-bb span:nth-child(3){animation-delay:-1.7s}@keyframes lgbob{50%{transform:translateY(-6px)}}
+.lg-hf .cta{height:33px;padding:0 15px;border-radius:99px;font:500 12px ${F};transition:transform .2s,box-shadow .2s}.lg-hf .cta:hover{transform:scale(1.05)}
+.lg-hf.l .cta{background:#fff;color:#000;box-shadow:0 0 0 2px ${B},0 0 0 3.5px #9cc3ff}.lg-hf.r .cta{background:#fff8d8;color:#000;font-weight:600}
+.lg-mf{width:200px;height:142px;margin-bottom:10px}
+.lg-ck{width:min(755px,92%);background:#000;color:#fff;border-radius:4px;font:400 9px/1.6 ${F};text-align:center;padding:12px 16px}.lg-ck u{cursor:pointer}
+@media (max-width:760px){.lg-mi,.lg-new,.lg-ic .tx{display:none}.lg-se{width:auto;flex:1;margin-left:12px}.lg-ic{margin-left:12px}
+.lg-hero{grid-template-columns:1fr;height:auto}.lg-ht{padding:30px 16px 20px}.lg-art{height:260px}.lg-ht h1{font-size:23px}
+.lg-tiles{display:flex;overflow-x:auto;scrollbar-width:none;padding-top:8px}.lg-tile{flex:none;width:118px}
+.lg-cd{width:calc((100% - 13px)/1.6)}.lg-gr{grid-template-columns:1fr 1fr;height:640px}.lg-gr>div:first-child{grid-column:span 2;grid-row:auto}
+.lg-gwm{flex-direction:column;height:auto;max-height:86%}.lg-hf,.lg-hf.wide,.lg-hf.nar{padding:34px 14px 18px;flex:none}.lg-hf.l{border-radius:8px 8px 0 0}.lg-hf.r{border-radius:0 0 8px 8px;padding-top:16px}.lg-hf h3{margin-bottom:10px}.lg-bb{height:70px;transform:scale(.8)}.lg-mf{height:96px}.lg-ft{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){.lg-bb span{animation:none}.lg-disc,.lg-hf,.lg-trk{transition:none}}
+`);
+  const el = h('div.lg'); const sc = h('div.lg-sc'); el.append(sc); root.append(el);
+  const KEY = 'tg-lego-gateway';
+  const logo = (sz = 34) => { const d = h('a.lg-logo', { href: '#', 'aria-label': 'LEGO', style: { width: sz + 'px', height: sz + 'px' }, onclick: (e) => { e.preventDefault(); sc.scrollTo({ top: 0, behavior: 'smooth' }); } }, h('b', { style: { fontSize: sz * .34 + 'px' } }, 'LEGO')); return d; };
+  const chev = '<svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="#000" stroke-width="1.5"><path d="m1 1 4 4 4-4"/></svg>';
+  const ic = { bag: '<svg width="15" height="16" viewBox="0 0 15 16" fill="none" stroke="#000" stroke-width="1.6"><rect x="1.5" y="5" width="12" height="10" rx="1.5"/><path d="M4.5 7V4a3 3 0 0 1 6 0v3"/></svg>', heart: '<svg width="17" height="15" viewBox="0 0 17 15"><path d="M8.5 14S1 9.3 1 4.6A3.6 3.6 0 0 1 8.5 3a3.6 3.6 0 0 1 7.5 1.6C16 9.3 8.5 14 8.5 14Z" fill="none" stroke="#000" stroke-width="1.6"/></svg>', head: '<svg width="16" height="18" viewBox="0 0 16 18" fill="none" stroke="#000" stroke-width="1.5"><rect x="5" y="1" width="6" height="3" rx=".5"/><rect x="2" y="4" width="12" height="11" rx="4"/><circle cx="6" cy="8.5" r=".9" fill="#000"/><circle cx="10" cy="8.5" r=".9" fill="#000"/><path d="M5.5 11q2.5 2 5 0"/></svg>', srch: '<svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="#000" stroke-width="1.8"><circle cx="5.5" cy="5.5" r="4.2"/><path d="m8.6 8.6 3.6 3.6"/></svg>' };
+  // header + mega menus
+  let bagN = 0; const bagC = h('span', {}, '(0)'); const bagB = h('a.lg-ic.lg-bag', { href: '#', html: ic.bag, onclick: (e) => { e.preventDefault(); toast(`Bag: ${bagN} item(s) — demo`); } }, bagC);
+  const MEGA = { Shop: [['Sets by theme', '#FFCF00'], ['Exclusives', '#1e3a8a'], ['Offers & sales', '#8a2be2'], ['New', '#E3000B'], ['Bestsellers', '#0e7a5f'], ['Gift cards', '#F5821F']], Discover: [['LEGO Life', '#00a0e0'], ['Games', '#5b2ad6'], ['Building instructions', '#666'], ['Kids site', '#FFD500'], ['Adults welcome', '#111'], ['LEGO Insiders', '#d6001c']], Help: [['Order status', '#0059D6'], ['Shipping & returns', '#444'], ['Replacement parts', '#E3000B'], ['Find a store', '#0e7a5f'], ['Contact us', '#8a2be2'], ['Accessibility', '#F5821F']] };
+  const mega = h('div.lg-mega'); let megaOn = null; const mis = {};
+  const openMega = (k) => { megaOn = megaOn === k ? null : k; Object.entries(mis).forEach(([n, b]) => b.classList.toggle('on', n === megaOn)); mega.classList.toggle('on', !!megaOn); if (megaOn) mega.replaceChildren(...MEGA[megaOn].map(([t, c]) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); openMega(megaOn); toast(t + ' — demo'); } }, h('i', { style: { background: c } }), t))); };
+  for (const k of Object.keys(MEGA)) mis[k] = h('button.lg-mi', { onclick: (e) => { e.stopPropagation(); openMega(k); }, html: `${k} ${chev}` });
+  el.addEventListener('click', (e) => { if (megaOn && !e.target.closest('.lg-mega,.lg-mi')) openMega(megaOn); });
+  const pr = h('div.lg-pr', {}, 'Get the LEGO® Fun Halloween Skeleton with purchases of $40 or more*', h('a', { href: '#', onclick: (e) => e.preventDefault() }, 'Learn more'), h('button.x', { 'aria-label': 'Close', onclick: () => pr.remove() }, '×'));
+  const hd = h('header.lg-hd', {}, logo(), ...Object.values(mis), h('a.lg-new', { href: '#', onclick: (e) => e.preventDefault() }, 'New'), h('label.lg-se', { html: ic.srch }, h('input', { placeholder: 'Search', 'aria-label': 'Search' })),
+    h('a.lg-ic', { href: '#', html: ic.head, onclick: (e) => e.preventDefault() }, h('span.tx', {}, 'Sign Up')), h('a.lg-ic', { href: '#', html: ic.heart, onclick: (e) => e.preventDefault() }), bagB, mega);
+  // hero — Klimt-like gold mosaic frame + floating spiral discs
+  const mosaic = (() => { const r = rng(7); let o = `<svg class="fr" viewBox="0 0 290 280"><rect width="290" height="280" fill="#d9c79a"/><rect x="7" y="7" width="276" height="266" fill="#8a7a5c"/>`;
+    for (let y = 10; y < 270; y += 6) for (let x = 10; x < 280; x += 6) { const dx = x - 160, dy = y - 140, inF = (dx * dx) / 5200 + (dy * dy) / 13000 < 1; const c = inF ? pick(['#f2c230', '#e8b520', '#ffd84a', '#c9961a', '#fff1a8', '#3b3b3b', '#d14a2a'], r) : pick(['#8f7f60', '#9c8b6a', '#7b6c50', '#a89874', '#b6a37a'], r); o += `<rect x="${x}" y="${y}" width="5" height="5" fill="${c}"/>`; }
+    o += `<circle cx="168" cy="48" r="20" fill="#262626"/><circle cx="168" cy="48" r="13" fill="#3e8a3a"/><path d="M120 120q30-40 70-20" stroke="#f3d6b0" stroke-width="10" fill="none"/><rect x="18" y="54" width="88" height="40" fill="#b49a64" stroke="#e5c542" stroke-width="4"/><text x="62" y="80" font-family="serif" font-size="14" fill="#5a4a2a" text-anchor="middle">GVSTAV</text></svg>`; return o; })();
+  const disc = (sz, x, y, dep) => { const d = h('span.lg-disc', { style: { width: sz + 'px', height: sz + 'px', left: x, top: y, background: `repeating-radial-gradient(circle at 50% 50%,#ffd84a 0 ${sz * .06}px,#d99b0c ${sz * .06}px ${sz * .1}px)`, boxShadow: '0 0 0 2px #c58a00 inset,0 8px 18px #0008' } }); d.dataset.dep = dep; return d; };
+  const discs = [disc(70, '78%', '20%', 26), disc(40, '74%', '42%', 14), disc(58, '0%', '67%', 34), disc(30, '64%', '72%', 10), disc(50, '-2%', '45%', 20)];
+  const art = h('div.lg-art', { html: mosaic }, ...discs, h('span', { style: { position: 'absolute', right: '10px', top: '14px', font: `600 22px ${F}`, color: '#fff' } }, 'art'));
+  const hero = h('section.lg-hero', {}, h('div.lg-ht', {}, h('div.lg-tags', {}, h('span', {}, 'New'), h('span', {}, 'Exclusives')), h('h1', {}, 'Boost your artistic creativity with new sets!'), h('p', {}, 'Take a look at the latest releases, like the LEGO® Art Gustav Klimt – The Kiss set.'),
+    h('div.lg-btns', {}, h('a.p', { href: '#', onclick: (e) => e.preventDefault() }, 'Buy now', h('span', {}, '›')), h('a.o', { href: '#', onclick: (e) => e.preventDefault() }, 'Shop all new', h('span', {}, '›')))), art);
+  let mx = 0, my = 0; const parallax = () => discs.forEach((d) => { const k = +d.dataset.dep; d.style.transform = `translate(${(mx * k).toFixed(1)}px,${(my * k).toFixed(1)}px) rotate(${(mx * k * 2).toFixed(1)}deg)`; });
+  hero.addEventListener('pointermove', (e) => { const r = hero.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; parallax(); });
+  hero.addEventListener('pointerleave', () => { mx = my = 0; parallax(); });
+  // category tiles
+  const cut = { fig: (c) => `<rect x="30" y="20" width="40" height="34" rx="12" fill="#ffd21f"/><rect x="38" y="10" width="24" height="12" rx="3" fill="${c}"/><circle cx="43" cy="36" r="3"/><circle cx="57" cy="36" r="3"/><path d="M42 45q8 6 16 0" stroke="#000" fill="none" stroke-width="2"/><path d="M22 60h56l8 60H14Z" fill="${c}"/>`, brick: (c) => `<rect x="18" y="40" width="64" height="70" rx="3" fill="${c}"/><g fill="${c}" stroke="#0003">${[0, 1].map((i) => [0, 1].map((j) => `<rect x="${26 + i * 28}" y="${26 + j * 0}" width="20" height="16" rx="2"/>`).join('')).join('')}</g>`, tag: () => `<g transform="rotate(-18 50 70)"><path d="M20 50h50l18 22-18 22H20Z" fill="#e3001b"/><circle cx="34" cy="64" r="5" fill="#fff"/><circle cx="56" cy="82" r="5" fill="#fff"/><path d="M60 58 32 90" stroke="#fff" stroke-width="5"/></g>`, walker: () => `<rect x="24" y="30" width="54" height="30" rx="4" fill="#9a9a9a"/><rect x="70" y="36" width="22" height="16" fill="#7a7a7a"/><path d="M30 60v50M45 60v54M58 60v50M70 60v54" stroke="#6e6e6e" stroke-width="7"/>`, pump: () => `<ellipse cx="50" cy="80" rx="38" ry="30" fill="#f07a10"/><path d="M50 50v-14" stroke="#3a8a2a" stroke-width="7"/><path d="M32 76l8-8 8 8ZM52 76l8-8 8 8ZM34 92q16 10 32 0" fill="#3a1a00"/>`, car: () => `<path d="M8 96q4-20 26-24l14-14h26l14 14q8 2 10 24Z" fill="#0f5a30"/><circle cx="28" cy="98" r="9" fill="#111"/><circle cx="76" cy="98" r="9" fill="#111"/>`, crowd: () => [0, 1, 2].map((i) => `<g transform="translate(${8 + i * 28} ${20 + (i % 2) * 14})"><rect x="4" y="10" width="22" height="20" rx="7" fill="#ffd21f"/><path d="M0 34h30l4 50H-4Z" fill="${['#2aa889', '#c8102e', '#9a9a9a'][i]}"/></g>`).join(''), dragon: () => `<circle cx="50" cy="70" r="40" fill="#e0c060" opacity=".6"/><path d="M30 90q0-40 30-46q16 4 14 20q-10-6-16 4q14 10 6 30Z" fill="#f07a10"/><path d="M60 50q20-30 30-10" fill="#2aa8d8"/>` };
+  const SETS = { "What's new": [['All new sets', 'linear-gradient(#5cc6f2,#1a8fd6)', cut.fig('#2b2b2b'), '#000'], ['Exclusives', 'linear-gradient(#14306e,#0a1a3a)', cut.brick('#d4b04a'), '#fff'], ['Offers', 'linear-gradient(#8a2be2,#6a10c8)', cut.tag(), '#fff'], ['Star Wars™', 'linear-gradient(#202020,#060606)', cut.walker(), '#fff', 1], ['Seasonal', 'linear-gradient(#55308a,#2a1450)', cut.pump(), '#fff'], ['Icons', 'linear-gradient(#141414,#3a1c00)', cut.car(), '#fff'], ['Bestsellers', 'linear-gradient(#0f2a28,#0a1a18)', cut.crowd(), '#fff'], ['SMART Play™ sets', 'linear-gradient(#ffd500,#f0b400)', cut.dragon(), '#000']],
+    Gifting: [['Gifts under $50', 'linear-gradient(#e3001b,#a00012)', cut.brick('#ffd500'), '#fff'], ['Gifts for adults', 'linear-gradient(#222,#000)', cut.car(), '#fff'], ['Gifts for kids', 'linear-gradient(#ffd500,#f5a000)', cut.fig('#e3001b'), '#000'], ['Gift cards', 'linear-gradient(#0059d6,#003a8c)', cut.tag(), '#fff'], ['Advent calendars', 'linear-gradient(#0e7a5f,#05402f)', cut.crowd(), '#fff'], ['Stocking stuffers', 'linear-gradient(#c8102e,#7a0010)', cut.fig('#0e7a5f'), '#fff'], ['Seasonal', 'linear-gradient(#55308a,#2a1450)', cut.pump(), '#fff'], ['Exclusives', 'linear-gradient(#14306e,#0a1a3a)', cut.brick('#d4b04a'), '#fff']],
+    Themes: [['City', 'linear-gradient(#0089d6,#00589a)', cut.car(), '#fff'], ['Technic', 'linear-gradient(#3a3a3a,#111)', cut.walker(), '#fff'], ['Friends', 'linear-gradient(#ff7ac0,#d63c90)', cut.fig('#8a2be2'), '#fff'], ['Ninjago', 'linear-gradient(#b8001a,#600010)', cut.dragon(), '#fff'], ['Botanicals', 'linear-gradient(#5cae4a,#2b6a20)', cut.pump(), '#fff'], ['Ideas', 'linear-gradient(#ffd500,#f5a000)', cut.brick('#0059d6'), '#000'], ['Minecraft', 'linear-gradient(#5d8a2a,#2f4a10)', cut.crowd(), '#fff'], ['Speed Champions', 'linear-gradient(#111,#3a0000)', cut.car(), '#fff']] };
+  const tilesW = h('div.lg-tiles'); let tab = "What's new";
+  const drawTiles = () => tilesW.replaceChildren(...SETS[tab].map(([t, bg, svg, c, it]) => h('a.lg-tile', { href: '#', style: { background: bg, color: c, fontStyle: it ? 'italic' : 'normal' }, onclick: (e) => { e.preventDefault(); toast(t + ' — demo'); }, html: `<svg viewBox="0 0 100 120">${svg}</svg>` }, h('span', { style: { position: 'relative' } }, t))));
+  const tabsW = h('div.lg-tabs', {}, ...Object.keys(SETS).map((k) => h('button', { class: k === tab ? 'on' : '', onclick: async (e) => { if (k === tab) return; tab = k; [...tabsW.children].forEach((b) => b.classList.toggle('on', b.textContent === k)); tilesW.classList.add('sw'); await sleep(200); drawTiles(); tilesW.classList.remove('sw'); } }, k)));
+  drawTiles();
+  const torn = `<svg class="lg-torn" viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0 18 L60 22 L120 16 L190 24 L260 19 L340 26 L420 20 L500 28 L560 22 L640 30 L700 24 L760 32 L790 20 L800 34 L860 26 L940 33 L1010 27 L1090 35 L1160 29 L1240 36 L1310 30 L1380 37 L1440 31 L1440 40 L0 40Z" fill="#fff"/></svg>`;
+  const band = h('section.lg-band', { html: torn }, tabsW, tilesW);
+  // product carousel
+  const prod = { house: `<rect x="20" y="60" width="160" height="80" fill="#c8102e"/><path d="M10 64 100 14l90 50Z" fill="#f2f2f2"/><rect x="40" y="86" width="22" height="22" fill="#ffd56a"/><rect x="90" y="96" width="22" height="44" fill="#6a3a10"/><rect x="140" y="86" width="22" height="22" fill="#ffd56a"/><path d="M190 150 0 150" stroke="#fff" stroke-width="8"/><path d="M6 140l12-40 12 40Z" fill="#1d7a2a"/>`, console: `<rect x="40" y="40" width="130" height="100" rx="6" fill="#c9c9cc"/><circle cx="100" cy="85" r="34" fill="#b4b4b8"/><circle cx="100" cy="85" r="26" fill="#a9a9ad"/><path d="M20 150q-10-30 20-30h30q20 0 16 30" fill="#c0c0c4"/><path d="M70 130q40 0 60-20" stroke="#555" fill="none" stroke-width="2"/>`, castle: `<rect x="20" y="70" width="160" height="70" fill="#c9b27a"/><g fill="#b89a5a"><rect x="30" y="30" width="22" height="50"/><rect x="88" y="20" width="24" height="60"/><rect x="148" y="30" width="22" height="50"/></g><g fill="#5a4a2a">${[0, 1, 2, 3, 4, 5, 6].map((i) => `<rect x="${28 + i * 21}" y="92" width="8" height="12"/>`).join('')}</g><circle cx="10" cy="110" r="16" fill="#3a6a2a"/>`, santa: `<rect x="50" y="100" width="100" height="44" fill="#a8401a"/><circle cx="100" cy="70" r="38" fill="#d6001c"/><circle cx="100" cy="64" r="16" fill="#f5c9a0"/><path d="M80 74q20 30 40 0" fill="#fff"/><path d="M70 40q30-36 60 0" fill="#d6001c"/><circle cx="100" cy="110" r="14" fill="#1d7a2a"/>`, elf: `<path d="M90 10l20 0 6 34H84Z" fill="#1d9a3a"/><circle cx="100" cy="56" r="16" fill="#f5c9a0"/><rect x="78" y="72" width="44" height="40" fill="#1d9a3a"/><path d="M84 112h12v34H84ZM104 112h12v34h-12Z" fill="#f2d100"/><path d="M60 80v60" stroke="#d6001c" stroke-width="6" stroke-dasharray="6 6"/><path d="M140 80v60" stroke="#d6001c" stroke-width="6" stroke-dasharray="6 6"/>`, ship: `<path d="M20 110h160l-24 30H44Z" fill="#6a3a10"/><path d="M100 20v90" stroke="#3a2a10" stroke-width="4"/><path d="M104 26q46 30 0 70Z" fill="#f2f2f2"/><path d="M96 34q-40 26 0 60Z" fill="#e8e8e8"/>`, rocket: `<path d="M100 10q30 30 24 100H76q-6-70 24-100Z" fill="#f2f2f2"/><circle cx="100" cy="56" r="10" fill="#0059d6"/><path d="M76 110l-16 24h20ZM124 110l16 24h-20Z" fill="#d6001c"/>`, tree: `<path d="M100 10 150 80h-24l30 40H44l30-40H50Z" fill="#1d7a2a"/><rect x="92" y="120" width="16" height="22" fill="#6a3a10"/><circle cx="100" cy="12" r="6" fill="#ffd500"/>` };
+  const P = { Featured: [['Holiday House', 119.99, '18+', 1354, 4.2, 'house'], ['PlayStation™', 179.99, '18+', 1911, 4.8, 'console'], ['Downton Abbey', 349.99, '18+', 4711, 4.3, 'castle'], ["Santa's Holiday Countdown", 59.99, '10+', 873, 4.6, 'santa'], ['Buddy the Elf', 39.99, '12+', 713, 4.8, 'elf'], ['Pirate Ship Bay', 199.99, '9+', 2140, 4.7, 'ship'], ['Space Shuttle', 89.99, '10+', 1032, 4.5, 'rocket']],
+    Popular: [['Winter Pine Tree', 29.99, '9+', 512, 4.9, 'tree'], ['Space Shuttle', 89.99, '10+', 1032, 4.5, 'rocket'], ['Buddy the Elf', 39.99, '12+', 713, 4.8, 'elf'], ['PlayStation™', 179.99, '18+', 1911, 4.8, 'console'], ['Pirate Ship Bay', 199.99, '9+', 2140, 4.7, 'ship'], ['Holiday House', 119.99, '18+', 1354, 4.2, 'house']] };
+  const trk = h('div.lg-trk'); let pTab = 'Featured', pos = 0; const prevB = h('button', { 'aria-label': 'Previous', onclick: () => slide(-1) }, '‹'), nextB = h('button', { 'aria-label': 'Next', onclick: () => slide(1) }, '›');
+  const perView = () => (el.clientWidth <= 760 ? 1 : 5);
+  const slide = (d) => { const n = P[pTab].length; pos = Math.max(0, Math.min(n - perView(), pos + d)); const c = trk.children[0]; const w = c ? c.getBoundingClientRect().width + 13 : 0; trk.style.transform = `translateX(${-pos * w}px)`; prevB.disabled = pos === 0; nextB.disabled = pos >= n - perView(); };
+  const mkCard = ([n, p, age, pcs, st, art]) => { const add = h('button.lg-add', { html: `${ic.bag.replace(/#000/g, '#000').replace('width="15"', 'width="11"')} Add to Bag` }); let busy = false;
+    add.onclick = async () => { if (busy) return; busy = true; add.classList.add('ok'); add.innerHTML = '✓ Added'; bagN++; bagC.textContent = `(${bagN})`; bagB.classList.remove('bump'); void bagB.offsetWidth; bagB.classList.add('bump'); await sleep(1400); add.classList.remove('ok'); add.innerHTML = `${ic.bag.replace('width="15"', 'width="11"')} Add to Bag`; busy = false; };
+    const hb = h('button.lg-ht2', { 'aria-label': 'Wishlist', html: ic.heart.replace('width="17"', 'width="14"'), onclick: () => hb.classList.toggle('on') });
+    return h('div.lg-cd', {}, h('span.nw', {}, 'New'), h('div.im', { html: `<svg viewBox="0 0 200 160">${prod[art]}</svg>` }), h('div.mt', {}, h('span', {}, '▦ ' + age), h('span', {}, '⌂ ' + pcs), h('span', {}, h('b', { style: { color: '#f5b400' } }, '★'), ' ' + st)), h('div.nm', {}, n), h('div.pc', {}, '$' + p.toFixed(2)), h('div.ac', {}, add, hb)); };
+  const drawP = () => { trk.replaceChildren(...P[pTab].map(mkCard)); pos = 0; requestAnimationFrame(() => slide(0)); };
+  const ptabs = h('div.tb', {}, ...Object.keys(P).map((k) => h('button', { class: k === pTab ? 'on' : '', onclick: () => { pTab = k; [...ptabs.children].forEach((b) => b.classList.toggle('on', b.textContent === k)); drawP(); } }, k)));
+  drawP();
+  const fs = h('section.lg-fs', {}, h('h2', {}, 'Find the perfect set'), h('div.bar', {}, ptabs, h('div.nv', {}, prevB, nextB)), h('div.lg-car', {}, trk));
+  // inspiration grid with + hotspots
+  const scene = (a, b, body) => `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="${a}"/><rect y="200" width="400" height="100" fill="${b}"/>${body}</svg>`;
+  const SC = [[scene('#8a6a2a', '#c49a5a', `<rect x="70" y="150" width="270" height="80" fill="#6a6a6a"/><path d="M120 150q-10-90 30-110q30 20 10 110" fill="#f0a020"/><path d="M220 150V80l40-30 40 30v70Z" fill="#f2f2f2" stroke="#3a2a10" stroke-width="4"/>`), 'Botanical Garden', 59.99, [30, 60]], [scene('#e8e0d0', '#7a5a30', `<circle cx="200" cy="170" r="70" fill="#2a6a2a"/><circle cx="170" cy="120" r="30" fill="#e86a3a"/><circle cx="240" cy="130" r="22" fill="#e86a3a"/>`), 'Mushroom Garden', 49.99, [70, 72]], [scene('#efe6d8', '#a87a3a', `<path d="M110 200V110l90-50 90 50v90Z" fill="#c88a4a"/><path d="M100 114l100-60 100 60" stroke="#5a4ad6" stroke-width="10" fill="none"/>`), 'Family Tree House', 129.99, [8, 82]], [scene('#e0c8c0', '#555', `<rect x="140" y="40" width="120" height="200" fill="#1a1a1a"/><circle cx="200" cy="140" r="34" fill="#c8c0ff" opacity=".4"/>`), 'Wednesday Backpack', 44.99, [8, 82]], [scene('#3a3a40', '#8a6a40', `<path d="M120 220V120l20-40 20 40v-40l20-30 20 30v40l20-50 20 50v100Z" fill="#9a9aa0"/><path d="M110 220h200" stroke="#fff" stroke-width="6"/>`), 'Hogwarts Castle', 99.99, [8, 82]]];
+  let popOn = null; const pops = [];
+  const gr = h('div.lg-gr', {}, ...SC.map(([svg, n, p, [x, y]], i) => { const pop = h('div.lg-pop', { style: { left: `calc(${x}% + 0px)`, top: `calc(${y}% - 72px)` } }, h('button', { style: { position: 'absolute', right: '8px', top: '6px' }, onclick: () => togglePop(i) }, '×'), n, h('b', {}, '$' + p + '  ›')); pops.push(pop);
+    return h('div', {}, h('div.ph', { html: svg }), h('button.lg-hs', { style: { left: x + '%', top: y + '%' }, 'aria-label': 'Show product ' + n, onclick: () => togglePop(i) }, '+'), pop); }));
+  const togglePop = (i) => { popOn = popOn === i ? null : i; pops.forEach((p, j) => p.classList.toggle('on', j === popOn)); };
+  const ev = h('section.lg-ev', {}, h('h2', {}, "See what everyone's building"), h('p', {}, 'Take on a new building adventure with these inspirational LEGO® sets.'), gr);
+  const ft = h('footer.lg-ft', {}, ...[['About us', ['About the LEGO Group', 'LEGO news', 'Sustainability']], ['Support', ['Contact us', 'Find building instructions', 'Replacement parts']], ['Attractions', ['LEGO House', 'LEGOLAND Parks', 'LEGOLAND Discovery Centers']], ['More from us', ['LEGO Life', 'LEGO Education', 'Reset LEGO.com gateway']]].map(([t, l]) => h('div', {}, h('h4', {}, t), ...l.map((x) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); if (x.startsWith('Reset')) { try { localStorage.removeItem(KEY); } catch {} showGW(true); } } }, x)))));
+  sc.append(pr, hd, hero, band, fs, ev, ft);
+  // gateway modal
+  const badge = h('div.badge', {}, logo(56)); badge.firstChild.style.borderRadius = '2px';
+  const bubble = (sz, svg) => h('span', { style: { width: sz + 'px', height: sz + 'px' }, html: svg });
+  const L = h('div.lg-hf.l', {}, h('h3', {}, 'LEGO.com'), h('div.lg-bb', {}, bubble(50, '<svg width="24" height="16" viewBox="0 0 24 16" fill="none" stroke="#000" stroke-width="1.6"><rect x="1" y="5" width="22" height="10" rx="1"/><rect x="5" y="1" width="4" height="4"/><rect x="15" y="1" width="4" height="4"/></svg>'), bubble(62, ic.bag.replace('width="15" height="16"', 'width="24" height="26"')), bubble(50, '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6"><path d="M12 21a9 9 0 1 0-8-4.8L3 21l4.6-1.2A9 9 0 0 0 12 21Z"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.4v.6"/><circle cx="12" cy="16.6" r=".6" fill="#000"/></svg>')),
+    h('p', {}, 'You are about to enter LEGO.com.', h('br'), 'You can shop, get support & more.'), h('button.cta', { onclick: () => choose('shop') }, 'Continue'));
+  const mf = `<svg class="lg-mf" viewBox="0 0 200 142"><ellipse cx="100" cy="134" rx="80" ry="8" fill="#0002"/><g transform="translate(46 8)"><rect x="6" y="14" width="34" height="30" rx="10" fill="#ffd21f"/><path d="M4 18q16-22 38-4l-2 10q-14-10-34 0Z" fill="#1a1a1a"/><circle cx="17" cy="30" r="2.4"/><circle cx="29" cy="30" r="2.4"/><path d="M16 37q7 5 14 0" stroke="#000" fill="none" stroke-width="1.6"/><path d="M0 48h46l6 44H-6Z" fill="#f2f2f2"/><path d="M14 58l10 14 8-14" fill="#0059d6"/><rect x="0" y="92" width="22" height="32" fill="#5a6a80"/><rect x="24" y="92" width="22" height="32" fill="#5a6a80"/><rect x="-8" y="70" width="30" height="16" rx="6" fill="#333"/></g><g transform="translate(108 8)"><rect x="6" y="14" width="34" height="30" rx="10" fill="#ffd21f"/><path d="M4 22q14-26 40-6l2 26-8-4q0-16-14-18-12 2-20 8Z" fill="#8a3a1a"/><circle cx="17" cy="30" r="2.4"/><circle cx="29" cy="30" r="2.4"/><path d="M16 37q7 5 14 0" stroke="#000" fill="none" stroke-width="1.6"/><path d="M0 48h46l6 44H-6Z" fill="#e3000b"/><rect x="0" y="92" width="22" height="32" fill="#f2f2f2"/><rect x="24" y="92" width="22" height="32" fill="#f2f2f2"/><rect x="46" y="40" width="14" height="24" rx="2" fill="#222" transform="rotate(14 53 52)"/></g></svg>`;
+  const Rh = h('div.lg-hf.r', {}, h('h3', {}, 'THE PLAY ZONE'), h('div', { html: mf }), h('p', {}, 'Play games, watch videos and more!'), h('button.cta', { onclick: () => choose('play') }, 'START PLAYING'));
+  [L, Rh].forEach((x) => { x.addEventListener('pointerenter', () => { L.classList.toggle('wide', x === L); Rh.classList.toggle('wide', x === Rh); L.classList.toggle('nar', x !== L); Rh.classList.toggle('nar', x !== Rh); }); x.addEventListener('pointerleave', () => { L.classList.remove('wide', 'nar'); Rh.classList.remove('wide', 'nar'); }); });
+  const gwo = h('div.lg-gwo', { role: 'dialog', 'aria-label': 'Choose where to go' }, h('div.lg-gwm', {}, badge, L, Rh), h('div.lg-ck', {}, 'We want to let you know that we are placing cookies on your device that remember your choices on LEGO.com, e.g. your home country, high-score and your LEGO Account. We also place cookies that help us run the website. For more info view our ', h('u', {}, 'Cookie Policy'), ' and our ', h('u', {}, 'Privacy Policy'), '.'));
+  el.append(gwo);
+  const showGW = (on) => el.classList.toggle('gw', on);
+  const choose = (c) => { try { localStorage.setItem(KEY, c); } catch {} showGW(false); toast(c === 'shop' ? 'Welcome to LEGO.com — choice saved' : 'THE PLAY ZONE — demo (choice saved)'); };
+  let saved = null; try { saved = localStorage.getItem(KEY); } catch {} showGW(!saved);
+  window.__demoProof = async () => {
+    const o = [], gs = getComputedStyle; let prev = null; try { prev = localStorage.getItem(KEY); } catch {}
+    const wasGW = el.classList.contains('gw'); showGW(true); await sleep(480);
+    o.push(`gateway modal: blue half ${gs(L).backgroundColor} "${L.querySelector('h3').textContent}" + yellow half ${gs(Rh).backgroundColor} "${Rh.querySelector('h3').textContent}", red badge straddles top (top=${Math.round(badge.getBoundingClientRect().top - L.getBoundingClientRect().top)}px), page blurred=${gs(sc).filter}`);
+    const w0 = L.getBoundingClientRect().width; L.dispatchEvent(new PointerEvent('pointerenter')); await sleep(520); o.push(`hover LEGO.com half widens ${Math.round(w0)}→${Math.round(L.getBoundingClientRect().width)}px`); L.dispatchEvent(new PointerEvent('pointerleave'));
+    L.querySelector('.cta').click(); await sleep(420); let st = null; try { st = localStorage.getItem(KEY); } catch {} o.push(`Continue → modal closed=${!el.classList.contains('gw')} localStorage=${st}`);
+    mis.Shop.click(); await sleep(60); o.push(`Shop ▾ mega panel ${mega.classList.contains('on') ? 'open' : 'closed'} with ${mega.children.length} themed icon tiles`); openMega('Shop');
+    hero.dispatchEvent(new PointerEvent('pointermove', { clientX: hero.getBoundingClientRect().right - 10, clientY: hero.getBoundingClientRect().top + 10 })); await sleep(550); o.push(`hero mouse-move → gold disc parallax ${discs[0].style.transform}`); hero.dispatchEvent(new PointerEvent('pointerleave'));
+    tabsW.children[1].click(); await sleep(300); o.push(`band tab "Gifting" → tiles: ${[...tilesW.children].slice(0, 3).map((t) => t.textContent).join(' / ')}…`); tabsW.children[0].click(); await sleep(300);
+    const t0 = tilesW.children[2]; t0.classList.add('hv'); await sleep(420); o.push(`tile hover lift+tilt transform=${gs(t0).transform}`); t0.classList.remove('hv');
+    o.push(`torn-paper edge path into white: ${!!band.querySelector('.lg-torn path')}`);
+    const n0 = bagN; trk.querySelector('.lg-add').click(); await sleep(80); o.push(`Add to Bag → "${trk.querySelector('.lg-add').textContent.trim()}" bag ${n0}→${bagN} header="${bagC.textContent}"`);
+    const hb = trk.querySelector('.lg-ht2'); hb.click(); o.push(`heart toggle on=${hb.classList.contains('on')}`); hb.click();
+    nextB.click(); await sleep(620); o.push(`carousel next → ${trk.style.transform}`); prevB.click(); await sleep(600);
+    togglePop(3); o.push(`+ hotspot → "${pops[3].textContent.replace('×', '').trim()}" popover`); togglePop(3);
+    await sleep(1400); bagN = n0; bagC.textContent = `(${bagN})`;
+    try { if (prev == null) localStorage.removeItem(KEY); else localStorage.setItem(KEY, prev); } catch {} showGW(wasGW); sc.scrollTop = 0; document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + '; restored (gateway + localStorage + bag) · stand-ins: set photos/art are SVG illustrations, Outfit substitutes the LEGO Cera typeface';
+  };
+};
+V['pitchfork-score-ring-review-header-filter-pills'] = (root, T) => {
+  theme(root, T, { bg: '#FFFFFF', fg: '#000000', ac: '#FF3530', ac2: '#1E1E1E', ac3: '#DDDDDD', dark: false });
+  import('@fontsource/playfair-display/700.css'); import('@fontsource/playfair-display/800.css'); import('@fontsource/playfair-display/800-italic.css'); import('@fontsource/libre-caslon-text/400.css'); import('@fontsource-variable/archivo');
+  const SF = "'Playfair Display',Georgia,serif", BODY = "'Libre Caslon Text',Georgia,serif", SA = "'Archivo Variable','Archivo',Helvetica,sans-serif", RED = '#FF3530';
+  css(`
+.pf{position:absolute;inset:0;background:#fff;color:#000;font:400 13px/1.5 ${SA}}.pf *{box-sizing:border-box}
+:where(.pf) button,:where(.pf) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.pf-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.pf-hd{position:sticky;top:0;z-index:20;background:#1E1E1E;color:#fff}
+.pf-r1{height:78px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 18px;transition:height .3s;border-bottom:1px solid #444}
+.pf.cmp .pf-r1{height:44px}.pf-wm{font:700 34px/1 ${SF};letter-spacing:-.035em;transition:font-size .3s}.pf.cmp .pf-wm{font-size:17px}
+.pf-r1 .rt{display:flex;gap:16px;justify-content:flex-end;align-items:center;font:600 8.5px ${SA};letter-spacing:.12em;text-transform:uppercase}
+.pf-sub{background:${RED};color:#000!important;padding:4px 6px;font-weight:700!important;letter-spacing:.1em}
+.pf-r2{height:34px;display:flex;justify-content:center;align-items:center;gap:12px;font:600 8.6px ${SA};letter-spacing:.1em;text-transform:uppercase;color:#ccc}.pf-r2 a{white-space:nowrap;flex:none;padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}.pf-r2 a:hover,.pf-r2 a.on{color:#fff;border-color:#fff}
+.pf-dr{position:absolute;z-index:40;left:0;top:0;bottom:0;width:300px;background:#1E1E1E;color:#fff;padding:60px 26px;transform:translateX(-100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}.pf-dr.on{transform:none}.pf-dr a{display:block;font:700 26px/1.5 ${SF}}.pf-dr .x{position:absolute;right:18px;top:16px;font:600 10px ${SA};letter-spacing:.12em}
+.pf-main{max-width:960px;margin:0 auto;padding:0 22px 90px}
+.pf-ix h1{text-align:center;font:700 37px/1 ${SF};letter-spacing:-.03em;margin:110px 0 22px}
+.pf-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.pf-pills button{height:27px;padding:0 17px;border-radius:99px;background:#E7E7E7;font:700 8.4px ${SA};letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s}.pf-pills button:hover{background:#d4d4d4}.pf-pills button.on{background:#000;color:#fff}
+.pf-pr{display:flex;align-items:center;justify-content:center;gap:12px;border-top:1px solid #000;border-bottom:1px solid #000;padding:6px 0;margin:52px 0 40px}
+.pf-ten{width:50px;height:50px;border-radius:50%;border:2.5px solid #000;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3.5px #000;display:flex;align-items:center;justify-content:center;font:600 17px ${SA};letter-spacing:-.02em}
+.pf-pr p{margin:0;font:400 9.3px ${SA}}.pf-pr .b{background:#000;color:#fff;height:34px;padding:0 26px;font:700 9px ${SA};letter-spacing:.14em;display:flex;align-items:center}
+.pf-gr{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 23px}
+.pf-al{display:block;text-align:left}.pf-al .cv{position:relative;aspect-ratio:1;overflow:hidden;background:#222}.pf-al .cv svg{width:100%;height:100%;display:block;transition:transform .5s}.pf-al:hover .cv svg{transform:scale(1.03)}
+.pf-rb{position:absolute;right:0;top:0;width:34px;height:34px;background:linear-gradient(225deg,#fff 0 50%,transparent 50%)}.pf-rb::after{content:'';position:absolute;right:3px;top:3px;width:14px;height:14px;background:repeating-linear-gradient(225deg,${RED} 0 3px,transparent 3px 6px)}
+.pf-al .ar{font:700 12px/1.25 ${SA};margin:12px 0 2px}.pf-al .tt{font:800 italic 13.5px/1.25 ${SF}}.pf-al .gn{font:600 8px ${SA};letter-spacing:.12em;text-transform:uppercase;color:#666;margin-top:8px}.pf-al .dt{font:400 9px ${SA};color:#666;margin-top:2px}
+.pf-emp{grid-column:1/-1;text-align:center;color:#666;padding:40px 0}
+.pf-rv .bk{display:inline-block;margin:26px 0 0;font:600 8.5px ${SA};letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid #000}
+.pf-rh{display:grid;grid-template-columns:auto 1fr 222px;gap:0 24px;align-items:center;margin-top:70px;padding:0 50px 22px 70px}
+.pf-ring{position:relative;width:92px;height:92px;align-self:center;margin-left:-44px}.pf-ring>svg{position:absolute;inset:0;transform:rotate(-90deg)}.pf-ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 31px ${SA};letter-spacing:-.02em;color:${RED}}
+.pf-ring .cr{position:absolute;left:50%;top:-20px;transform:translateX(-50%)}
+.pf-rh .lb{font:700 8px ${SA};letter-spacing:.12em;text-transform:uppercase}.pf-rh h1{font:800 italic 36px/1.08 ${SF};letter-spacing:-.02em;margin:10px 0 18px}.pf-rh .ar{font:400 20px ${SA};text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}.pf-rh .yr{font:400 8px ${SA};margin-top:28px}
+.pf-rh .cv{width:222px;height:222px;grid-column:3;grid-row:1}.pf-rh .cv svg{width:100%;height:100%;display:block}
+.pf-hr{border:0;border-top:1px solid #DDD;margin:0 0 28px}
+.pf-rd{display:flex;align-items:center;gap:16px;position:relative}.pf-rr{width:52px;height:52px;border-radius:50%;border:2.5px solid #000;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3.5px #000;display:flex;align-items:center;justify-content:center;font:600 15px ${SA}}
+.pf-rd .lb{font:700 8px ${SA};letter-spacing:.12em}.pf-rd .bs{font:400 8px ${SA};text-decoration:underline;display:block;margin-top:4px}
+.pf-pop{position:absolute;left:0;top:64px;z-index:5;background:#fff;border:1px solid #000;padding:16px 18px;width:260px;box-shadow:6px 6px 0 #000;display:none}.pf-pop.on{display:block}
+.pf-pop .v{font:800 italic 40px/1 ${SF};text-align:center}.pf-pop input{width:100%;accent-color:#000;margin:10px 0}.pf-pop .go{width:100%;height:32px;background:#000;color:#fff;font:700 9px ${SA};letter-spacing:.14em}
+.pf-mt{display:flex;gap:22px;font:700 8px ${SA};letter-spacing:.1em;text-transform:uppercase;margin:46px 0 34px}.pf-mt span{font-weight:600;letter-spacing:.02em;text-transform:none;margin-left:4px}
+.pf-by{font:400 8.5px ${SA};color:#333;margin-bottom:28px}.pf-by i{font-style:normal;margin:0 6px}
+.pf-bd{max-width:455px;font:400 12px/1.85 ${BODY};color:#111}.pf-bd p{margin:0 0 18px}.pf-bd a{text-decoration:underline}
+.pf-bd p:first-child::first-letter{float:left;font:800 58px/.86 ${SF};margin:4px 8px 0 0}
+@media (min-width:1200px){.pf{zoom:1.4}}
+.pf-stk{position:absolute;z-index:15;left:0;right:0;bottom:0;height:30px;background:#F2F2F2;border-top:1px solid #DDD;display:flex;align-items:center;justify-content:center;gap:4px;font:400 10px ${SA};transform:translateY(100%);transition:transform .35s}.pf-stk.on{transform:none}.pf-stk b{font-weight:700;letter-spacing:.12em;text-decoration:underline;margin-left:4px;font-size:9px}
+@media (max-width:760px){.pf-r1 .rt .h{display:none}.pf-wm{font-size:26px}.pf-r2{gap:9px;overflow-x:auto;justify-content:flex-start;padding:0 12px;scrollbar-width:none}
+.pf-gr{grid-template-columns:1fr 1fr;gap:28px 14px}.pf-ix h1{margin-top:50px}.pf-pills{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;padding-bottom:4px}.pf-pills button{flex:none}
+.pf-pr{flex-wrap:wrap;padding:12px 0}.pf-rh{grid-template-columns:1fr;margin-top:30px;gap:16px}.pf-ring{margin-left:0;margin-top:18px}.pf-rh .cv{grid-row:auto;grid-column:auto;width:100%;height:auto;aspect-ratio:1}.pf-mt{flex-wrap:wrap;gap:10px 18px}}
+@media (prefers-reduced-motion:reduce){.pf-r1,.pf-wm,.pf-dr{transition:none}}
+`);
+  const el = h('div.pf'); const sc = h('div.pf-sc'); el.append(sc); root.append(el);
+  // covers: procedural album art
+  const cover = (k, i) => { const r = rng(i * 31 + 5); const A = {
+    jazz: `<rect width="200" height="200" fill="#3a0f2a"/><rect width="200" height="200" fill="url(#gj${i})" opacity=".6"/><text x="100" y="34" text-anchor="middle" font-family="Archivo Variable" font-weight="900" font-size="22" fill="#4a2aa8" opacity=".75">JAZZ DREAMS</text><g fill="none" stroke="#c9b8d8" stroke-width="1.4"><ellipse cx="112" cy="96" rx="30" ry="24"/><path d="M142 92l18-12v30Z"/><circle cx="102" cy="90" r="5"/><path d="M94 104q8 8 18 0M74 110v58M66 168h18M60 186q16-6 30 0"/><circle cx="74" cy="108" r="4"/></g><defs><radialGradient id="gj${i}"><stop offset="0" stop-color="#5a1a40"/><stop offset="1" stop-color="#14040c"/></radialGradient></defs>`,
+    lamb: `<rect width="200" height="200" fill="#9fd0f0"/><ellipse cx="100" cy="110" rx="80" ry="70" fill="#c8e6fa" filter="url(#b${i})"/><ellipse cx="74" cy="100" rx="10" ry="7" fill="#20306a" filter="url(#b${i})"/><ellipse cx="126" cy="100" rx="10" ry="7" fill="#20306a" filter="url(#b${i})"/><defs><filter id="b${i}"><feGaussianBlur stdDeviation="5"/></filter></defs>`,
+    green: `<rect width="200" height="200" fill="#d8d8d0"/><path d="M40 200q0-90 60-110q60 20 60 110Z" fill="#1a1a1a"/><circle cx="100" cy="60" r="28" fill="#6a5a50"/><g font-family="Archivo Variable" font-weight="900" font-size="30" fill="#3af03a" stroke="#0a5a0a" stroke-width="1.5"><text x="40" y="140" transform="rotate(-12 100 140)">SHABAZZ</text></g>`,
+    grid: (() => { let o = `<rect width="200" height="200" fill="hsl(${Math.floor(r() * 360)} 30% 85%)"/>`; for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) o += `<rect x="${x * 50 + 4}" y="${y * 50 + 4}" width="42" height="42" fill="hsl(${Math.floor(r() * 360)} ${40 + r() * 40}% ${30 + r() * 40}%)" rx="${r() > .5 ? 21 : 0}"/>`; return o; })(),
+    sun: `<rect width="200" height="200" fill="#f2c14a"/><circle cx="100" cy="120" r="60" fill="#e0482a"/><rect y="140" width="200" height="60" fill="#1a3a5a"/><path d="M0 150h200M0 162h200M0 176h200" stroke="#f2c14a" stroke-width="3"/>`,
+    face: `<rect width="200" height="200" fill="#111"/><ellipse cx="100" cy="104" rx="52" ry="66" fill="#d9a07a"/><path d="M48 90q52-70 104 0q0-60-52-60t-52 60Z" fill="#2a1a10"/><rect x="70" y="96" width="60" height="12" fill="#000"/><text x="100" y="190" text-anchor="middle" font-family="Playfair Display" font-weight="800" font-style="italic" font-size="20" fill="#fff">Night Shift</text>`,
+    neon: `<rect width="200" height="200" fill="#0a0a2a"/><path d="M20 160 100 30l80 130Z" fill="none" stroke="#ff2ad6" stroke-width="5"/><path d="M50 160 100 80l50 80Z" fill="none" stroke="#2af0ff" stroke-width="3"/><rect y="170" width="200" height="30" fill="#ff2ad6" opacity=".25"/>`,
+    paper: `<rect width="200" height="200" fill="#efe9dd"/><path d="M30 40h140v120H30Z" fill="none" stroke="#111" stroke-width="2"/><text x="40" y="80" font-family="Libre Caslon Text" font-size="20" fill="#111">quiet</text><text x="40" y="104" font-family="Libre Caslon Text" font-size="20" fill="#111">rooms</text><circle cx="150" cy="140" r="12" fill="#c22"/>`,
+    wave: (() => { let o = '<rect width="200" height="200" fill="#123"/>'; for (let k2 = 0; k2 < 14; k2++) o += `<path d="M0 ${30 + k2 * 12} Q50 ${16 + k2 * 12 + r() * 20} 100 ${30 + k2 * 12} T200 ${30 + k2 * 12}" stroke="hsl(${180 + k2 * 8} 70% ${40 + k2 * 3}%)" fill="none" stroke-width="3"/>`; return o; })(),
+    car: `<rect width="200" height="200" fill="#1a0a06"/><rect width="200" height="200" fill="url(#ca${i})"/><path d="M20 140q30-60 90-60t70 60Z" fill="#000" opacity=".6"/><circle cx="70" cy="90" r="16" fill="#f0c0a0" opacity=".8"/><circle cx="124" cy="96" r="16" fill="#e0a080" opacity=".8"/><defs><radialGradient id="ca${i}" cx=".3" cy=".4"><stop offset="0" stop-color="#ff5a1a"/><stop offset="1" stop-color="#1a0a06" stop-opacity="0"/></radialGradient></defs>` }; return `<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">${A[k]}</svg>`; };
+  const AL = [
+    { a: 'Fine', t: 'Jazz dreams', g: 'Pop/R&B', l: 'Escho', y: 2026, s: 8.7, bnm: 1, cv: 'jazz', d: 'October 23, 2026', by: 'Hattie Lindert', rs: 8.5, rn: 27 },
+    { a: 'Mount Eerie', t: 'Night Palace II', g: 'Folk/Country', l: 'P.W. Elverum & Sun', y: 2026, s: 7.6, cv: 'lamb', d: 'October 23, 2026', by: 'Jazz Monroe', rs: 7.1, rn: 14 },
+    { a: 'Shabazz Palaces', t: 'Exotic Birds of Prey', g: 'Rap', l: 'Sub Pop', y: 2026, s: 7.4, cv: 'green', d: 'October 22, 2026', by: 'Dylan Green', rs: 6.9, rn: 11 },
+    { a: 'Stereolab', t: 'Instant Holograms', g: 'Rock/Electronic', l: 'Warp', y: 2026, s: 8.2, cv: 'grid', d: 'October 22, 2026', by: 'Philip Sherburne', rs: 8.0, rn: 41, sun: 0 },
+    { a: 'Talk Talk', t: 'Spirit of Eden (Deluxe)', g: 'Rock', l: 'Parlophone', y: 1988, s: 9.4, bnm: 1, re: 1, cv: 'paper', d: 'October 21, 2026', by: 'Sam Sodsky', rs: 9.1, rn: 88 },
+    { a: 'Ruthie', t: 'Night Shift', g: 'Pop/R&B', l: 'Saddest Factory', y: 2026, s: 6.8, cv: 'face', d: 'October 21, 2026', by: 'Arielle Gordon', rs: 7.3, rn: 9 },
+    { a: 'Sade', t: 'Love Deluxe', g: 'Pop/R&B', l: 'Epic', y: 1992, s: 9.0, sun: 1, cv: 'sun', d: 'October 19, 2026', by: 'Jayson Greene', rs: 8.9, rn: 63 },
+    { a: 'Floating Points', t: 'Cascade', g: 'Electronic', l: 'Ninja Tune', y: 2026, s: 8.1, cv: 'wave', d: 'October 20, 2026', by: 'Andy Beta', rs: 7.8, rn: 22 },
+    { a: 'Kelela', t: 'Raven (Remixes)', g: 'Electronic', l: 'Warp', y: 2026, s: 8.4, bnm: 1, re: 1, cv: 'neon', d: 'October 20, 2026', by: 'Julianne Escobedo Shepherd', rs: 8.2, rn: 19 },
+    { a: 'Haim', t: '“Down to Be Wrong”', g: 'Rock', l: 'Polydor', y: 2026, s: 0, tr: 1, cv: 'car', d: 'October 20, 2026', by: 'Anna Gaca' },
+    { a: 'Joni Mitchell', t: 'Hejira', g: 'Folk/Country', l: 'Asylum', y: 1976, s: 10, sun: 1, cv: 'paper', d: 'October 12, 2026', by: 'Amanda Petrusich', rs: 9.6, rn: 120 },
+    { a: 'Fred again..', t: '“Places to Be”', g: 'Electronic', l: 'Atlantic', y: 2026, s: 0, tr: 1, bnm: 1, cv: 'grid', d: 'October 19, 2026', by: 'Alphonse Pierre' }];
+  const F = [['albums', 'Albums', (x) => !x.tr], ['best-new-albums', 'Best New Albums', (x) => x.bnm && !x.re && !x.tr], ['best-new-reissues', 'Best New Reissues', (x) => x.bnm && x.re], ['8-plus', '8.0+ Reviews', (x) => !x.tr && x.s >= 8], ['sunday', 'Sunday Reviews', (x) => x.sun], ['tracks', 'Tracks', (x) => x.tr]];
+  // header
+  const ham = h('button', { 'aria-label': 'Menu', onclick: () => dr.classList.add('on'), html: '<svg width="12" height="10" viewBox="0 0 12 10" stroke="#fff" stroke-width="1.3"><path d="M0 1h12M0 5h12M0 9h12"/></svg>' });
+  const SECT = ['News', 'Reviews', 'Best New Music', 'Features', 'Lists', 'Columns', 'Video'];
+  const r2 = h('nav.pf-r2', {}, ...SECT.map((t) => h('a', { href: '#', class: t === 'Reviews' ? 'on' : '', onclick: (e) => { e.preventDefault(); if (t === 'Reviews') showIndex('albums'); else if (t === 'Best New Music') showIndex('best-new-albums'); else toast(t + ' — demo'); } }, t)));
+  const hd = h('header.pf-hd', {}, h('div.pf-r1', {}, h('div', {}, ham), h('a.pf-wm', { href: '#', onclick: (e) => { e.preventDefault(); showIndex('albums'); } }, 'Pitchfork'),
+    h('div.rt', {}, h('a.h', { href: '#', onclick: (e) => e.preventDefault() }, 'Newsletter'), h('a.h', { href: '#', onclick: (e) => e.preventDefault() }, 'Sign in'), h('a.pf-sub', { href: '#', onclick: (e) => { e.preventDefault(); toast('Subscribe — demo'); } }, 'Subscribe'), h('button', { 'aria-label': 'Search', onclick: () => toast('Search — demo'), html: '<svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="5" cy="5" r="4"/><path d="m8 8 3.5 3.5"/></svg>' }))), r2);
+  const dr = h('aside.pf-dr', {}, h('button.x', { onclick: () => dr.classList.remove('on') }, 'CLOSE'), ...SECT.map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); dr.classList.remove('on'); if (t === 'Reviews') showIndex('albums'); } }, t)));
+  const main = h('main.pf-main'); const stk = h('div.pf-stk', {}, 'Subscribe to get your score on the record. $5/Month.', h('b', {}, 'SUBSCRIBE'));
+  sc.append(hd, main); el.append(stk, dr);
+  sc.addEventListener('scroll', () => { el.classList.toggle('cmp', sc.scrollTop > 100); }, { passive: true });
+  const promo = () => h('div.pf-pr', {}, h('div.pf-ten', {}, '10'), h('p', {}, 'Subscribe to Pitchfork and get your score on the record.'), h('a.b', { href: '#', onclick: (e) => { e.preventDefault(); toast('Subscribe — demo'); } }, 'SUBSCRIBE'));
+  // URL sync (query param on this page; restored by proof)
+  const setURL = (k, v) => { try { const u = new URL(location.href); if (v == null) u.searchParams.delete(k); else u.searchParams.set(k, v); history.replaceState(null, '', u); } catch {} };
+  let view = 'index', filter = 'albums', grid = null, pills = null;
+  const card = (x, i) => h('a.pf-al', { href: '#', onclick: (e) => { e.preventDefault(); if (x.tr) { toast(`Track review: ${x.a} — ${x.t} — demo`); return; } showReview(AL.indexOf(x)); } }, h('div.cv', { html: cover(x.cv, AL.indexOf(x)) }, x.bnm ? h('span.pf-rb', { title: 'Best New Music' }) : null), h('div.ar', {}, x.a), h('div.tt', {}, x.t), h('div.gn', {}, x.g), h('div.dt', {}, x.d));
+  const applyFilter = (k) => { filter = k; [...pills.children].forEach((b) => b.classList.toggle('on', b.dataset.k === k)); const f = F.find((z) => z[0] === k)[2]; const list = AL.filter(f); grid.replaceChildren(...(list.length ? list.map(card) : [h('div.pf-emp', {}, 'No reviews yet.')])); setURL('filter', k === 'albums' ? null : k); };
+  const showIndex = (k = filter) => { view = 'index'; setURL('review', null); stk.classList.remove('on'); [...r2.children].forEach((a) => a.classList.toggle('on', a.textContent === (k === 'best-new-albums' ? 'Best New Music' : 'Reviews')));
+    pills = h('div.pf-pills', {}, ...F.map(([key, label]) => h('button', { 'data-k': key, onclick: () => applyFilter(key) }, label))); grid = h('div.pf-gr');
+    main.replaceChildren(h('section.pf-ix', {}, h('h1', {}, 'Albums'), pills, promo(), grid)); applyFilter(k); sc.scrollTop = 0; };
+  // review detail
+  let ringAnim = 0, cur = null, readerRS = 0, readerN = 0;
+  const spring = (from, to, on, done) => { let x = from, v = 0; const id = ++ringAnim; const tick = () => { if (id !== ringAnim) return; const f = -170 * (x - to) - 18 * v; v += f / 60; x += v / 60; on(x); if (Math.abs(x - to) < .004 && Math.abs(v) < .01) { on(to); done && done(); return; } requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+  const showReview = (i) => { const x = AL[i]; cur = i; view = 'review'; setURL('review', x.t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')); stk.classList.add('on'); readerRS = x.rs; readerN = x.rn;
+    const top = x.s >= 8, col = top ? RED : '#000', R0 = 40, CIRC = 2 * Math.PI * R0;
+    const arc = s('circle', { cx: 46, cy: 46, r: R0, fill: 'none', stroke: col, 'stroke-width': 5.5, 'stroke-dasharray': CIRC, 'stroke-dashoffset': CIRC });
+    const num = h('b', { style: { color: col } }, '0.0');
+    const ring = h('div.pf-ring', {}, s('svg', { viewBox: '0 0 92 92', width: 92, height: 92 }, s('circle', { cx: 46, cy: 46, r: R0, fill: 'none', stroke: '#eee', 'stroke-width': 5.5 }), arc), num,
+      x.bnm ? h('span.cr', { title: 'Best New Music', html: `<svg width="40" height="20" viewBox="0 0 40 20" fill="${RED}"><path d="M20 0l7 8h-4.5v4h-5V8H13Z"/><path d="M2 20l6-8 6 8ZM26 20l6-8 6 8Z"/><rect x="0" y="18" width="40" height="2"/></svg>` }) : null);
+    ring.dataset.score = x.s;
+    const rr = h('div.pf-rr', {}, x.rs.toFixed(1)); const bs = h('button.bs', {}, `Based on ${x.rn} readers`);
+    const val = h('div.v', {}, '7.5'); const inp = h('input', { type: 'range', min: 0, max: 10, step: .1, value: 7.5, 'aria-label': 'Your score', oninput: () => { val.textContent = (+inp.value).toFixed(1); } });
+    const pop = h('div.pf-pop', {}, h('div', { style: { font: `700 8px ${SA}`, letterSpacing: '.12em', marginBottom: '8px' } }, 'YOUR SCORE'), val, inp, h('button.go', { onclick: () => submit(+inp.value) }, 'SUBMIT SCORE'));
+    const submit = (v) => { const from = readerRS; readerRS = (readerRS * readerN + v) / (readerN + 1); readerN++; bs.textContent = `Based on ${readerN} readers`; pop.classList.remove('on'); rr.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.18)' }, { transform: 'scale(1)' }], { duration: 500, easing: 'cubic-bezier(.3,1.6,.5,1)' }); let xx = from, vv = 0; const to = readerRS; const tk = () => { const f = -120 * (xx - to) - 14 * vv; vv += f / 60; xx += vv / 60; rr.textContent = xx.toFixed(1); if (Math.abs(xx - to) > .002 || Math.abs(vv) > .01) requestAnimationFrame(tk); else rr.textContent = to.toFixed(1); }; requestAnimationFrame(tk); };
+    const toggle = () => pop.classList.toggle('on'); rr.style.cursor = 'pointer'; rr.onclick = toggle; bs.onclick = toggle;
+    const body = h('div.pf-bd', {}, h('p', {}, 'You know ', h('a', { href: '#' }, `${x.a}`), ` from somewhere. Perhaps you recognize the voice from a dozen features, pitched up and smeared across someone else\u2019s breakout single; maybe a hook you hummed for a week turned out to be hers. `, h('i', {}, x.t), ' is the first time the whole picture comes into focus.'),
+      h('p', {}, 'The record moves like a late-night drive with the windows half down: lush, slightly blurred, never in a hurry. Synth pads swell under brushed drums, a saxophone wanders in and out of frame, and the songs keep folding back on themselves until a chorus you barely noticed becomes the thing you can\u2019t stop singing.'),
+      h('p', {}, 'It would be easy to call it background music. That undersells how carefully every surface has been treated — the reverb tails that end exactly on the downbeat, the harmonies stacked just a few cents apart so they shimmer. This is pop as interior design, and the room is gorgeous.'));
+    main.replaceChildren(h('section.pf-rv', {}, h('a.bk', { href: '#', onclick: (e) => { e.preventDefault(); showIndex(); } }, '← All album reviews'),
+      h('div.pf-rh', {}, ring, h('div', {}, h('div.lb', {}, 'Albums'), h('h1', {}, x.t), h('a.ar', { href: '#', onclick: (e) => e.preventDefault() }, x.a), h('div.yr', {}, String(x.y))), h('div.cv', { html: cover(x.cv, i) })),
+      h('hr.pf-hr'), h('div.pf-rd', {}, rr, h('div', {}, h('div.lb', {}, 'READER SCORE'), bs), pop),
+      h('div.pf-mt', {}, h('div', {}, 'Genre:', h('span', {}, x.g)), h('div', {}, 'Label:', h('span', {}, x.l)), h('div', {}, 'Release date:', h('span', {}, String(x.y)))),
+      h('div.pf-by', {}, 'By ', x.by, h('i', {}, '·'), 'Reviewed ', x.d), body, promo()));
+    sc.scrollTop = 0;
+    spring(0, x.s, (v) => { const c = Math.max(0, Math.min(10, v)); arc.setAttribute('stroke-dashoffset', (CIRC * (1 - c / 10)).toFixed(2)); num.textContent = c.toFixed(1); }); };
+  // initial view from URL
+  let q = null; try { q = new URL(location.href).searchParams; } catch {}
+  const qr = q && q.get('review'), qf = q && q.get('filter');
+  if (qr) { const i = AL.findIndex((x) => x.t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') === qr); i >= 0 ? showReview(i) : showIndex(); } else showIndex(F.some((z) => z[0] === qf) ? qf : 'albums');
+  window.__demoProof = async () => {
+    const o = [], gs = getComputedStyle, url0 = location.href;
+    showIndex('albums'); await sleep(60);
+    o.push(`header bg=${gs(hd).backgroundColor} wordmark "${hd.querySelector('.pf-wm').textContent}" ${gs(hd.querySelector('.pf-wm')).fontFamily.split(',')[0]} ${gs(hd.querySelector('.pf-wm')).fontSize}; red SUBSCRIBE box ${gs(hd.querySelector('.pf-sub')).backgroundColor}`);
+    o.push(`index: "Albums" + ${pills.children.length} pills, ${grid.children.length} covers (${grid.querySelectorAll('.pf-rb').length} with red BNM ribbon); circled-10 strip=${!!main.querySelector('.pf-ten')}`);
+    pills.children[3].click(); await sleep(260); o.push(`pill "8.0+ REVIEWS" → ${grid.children.length} covers, active bg=${gs(pills.children[3]).backgroundColor}, URL ?${new URL(location.href).searchParams}`);
+    pills.children[2].click(); await sleep(40); o.push(`"BEST NEW REISSUES" → ${[...grid.querySelectorAll('.tt')].map((t) => t.textContent).join(', ')}`);
+    pills.children[0].click();
+    sc.scrollTop = 160; sc.dispatchEvent(new Event('scroll')); await sleep(380); o.push(`scroll >100px → header compacts (row ${Math.round(hd.querySelector('.pf-r1').getBoundingClientRect().height)}px, wordmark ${gs(hd.querySelector('.pf-wm')).fontSize})`); sc.scrollTop = 0; sc.dispatchEvent(new Event('scroll'));
+    grid.querySelector('.pf-al').click(); await sleep(1300);
+    const ring = main.querySelector('.pf-ring'), arc = ring.querySelectorAll('circle')[1];
+    o.push(`open review "${main.querySelector('h1').textContent}" → red ring ${ring.querySelector('b').textContent} (stroke ${arc.getAttribute('stroke')}, dashoffset ${(+arc.getAttribute('stroke-dashoffset')).toFixed(1)} of ${(+arc.getAttribute('stroke-dasharray')).toFixed(1)}) crown=${!!ring.querySelector('.cr')} URL ?${new URL(location.href).searchParams}`);
+    const rr = main.querySelector('.pf-rr'); o.push(`READER SCORE ${rr.textContent} · ${main.querySelector('.pf-rd .bs').textContent}`);
+    rr.click(); const pop = main.querySelector('.pf-pop'); const inp = pop.querySelector('input'); inp.value = 10; inp.dispatchEvent(new Event('input')); o.push(`click ring → slider popover ${gs(pop).display} value ${pop.querySelector('.v').textContent}`);
+    pop.querySelector('.go').click(); await sleep(1200); o.push(`submit → spring average ${rr.textContent} · ${main.querySelector('.pf-rd .bs').textContent}`);
+    o.push(`meta row "${main.querySelector('.pf-mt').textContent}" · drop cap font-size ${gs(main.querySelector('.pf-bd p'), '::first-letter').fontSize} · sticky subscribe bar ${gs(stk).transform === 'none' ? 'visible' : gs(stk).transform}`);
+    showIndex('albums'); try { history.replaceState(null, '', url0); } catch {} document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + '; restored index/ALBUMS + URL · stand-ins: album covers are procedural SVG, Playfair Display / Libre Caslon / Archivo substitute Pitchfork\u2019s licensed faces; reader-score slider and ring draw-in are practice additions';
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }
