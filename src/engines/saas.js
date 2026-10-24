@@ -36224,4 +36224,420 @@ V['pitchfork-score-ring-review-header-filter-pills'] = (root, T) => {
     return o.join('; ') + '; restored index/ALBUMS + URL · stand-ins: album covers are procedural SVG, Playfair Display / Libre Caslon / Archivo substitute Pitchfork\u2019s licensed faces; reader-score slider and ring draw-in are practice additions';
   };
 };
+V['glossier-cropped-wordmark-hero-script-nav-mega'] = (root, T) => {
+  theme(root, T, { bg: '#FFFFFF', fg: '#000000', ac: '#000000', ac2: '#F7D7D5', ac3: '#F5F5F5', dark: false });
+  import('@fontsource-variable/plus-jakarta-sans'); import('@fontsource-variable/inter'); import('@fontsource/caveat/500.css');
+  const F = "'Plus Jakarta Sans Variable','Inter Variable',Helvetica,Arial,sans-serif", SC = "'Caveat',cursive", PINK = '#F7D7D5';
+  css(`
+.gl{position:absolute;inset:0;background:#fff;color:#000;font:400 9px/1.35 ${F}}.gl *{box-sizing:border-box}
+:where(.gl) button,:where(.gl) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.gl-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.gl-ab{position:sticky;top:0;z-index:30;height:22px;background:#000;color:#fff;display:flex;align-items:center;padding:0 11px;overflow:hidden}
+.gl-ab .vp{position:relative;flex:1;height:22px;overflow:hidden}.gl-ab .m{position:absolute;left:0;top:0;height:22px;line-height:22px;font-size:9.3px;white-space:nowrap;transition:transform .45s cubic-bezier(.6,0,.2,1),opacity .45s}
+.gl-ab .m a{text-decoration:underline}.gl-ab .m.up{transform:translateY(-100%);opacity:0}.gl-ab .m.dn{transform:translateY(100%);opacity:0}
+.gl-ab .ct{display:flex;gap:12px;align-items:center}.gl-ab .ct button{width:12px;height:16px;display:flex;align-items:center;justify-content:center}
+.gl-hd{position:sticky;top:22px;z-index:29;height:28px;background:#fff;display:flex;align-items:center;padding:0 11px;border-bottom:1px solid #eee}
+.gl-logo{font:700 12.5px/1 ${F};letter-spacing:-.03em;transform:skewX(-8deg);display:inline-block}
+.gl-nv{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:11px;align-items:center;height:28px}
+.gl-nv a{font:500 7.6px/28px ${F};letter-spacing:.02em;text-transform:uppercase;position:relative;white-space:nowrap}
+.gl-nv a::after{content:'';position:absolute;left:0;right:0;bottom:8px;height:1px;background:#000;transform:scaleX(0);transition:transform .2s}.gl-nv a.on::after,.gl-nv a:hover::after{transform:scaleX(1)}
+.gl-nv a.gg{font:500 11.5px/28px ${SC};letter-spacing:.06em;text-transform:uppercase;margin-right:2px}
+.gl-rt{margin-left:auto;display:flex;gap:11px;align-items:center;font:500 7.6px ${F};text-transform:uppercase}.gl-rt button{display:flex;gap:4px;align-items:center}
+.gl-mg{position:absolute;z-index:28;left:0;right:0;top:50px;background:#fff;display:grid;grid-template-columns:1fr 1fr 158px;padding:0 11px;max-height:0;opacity:0;overflow:hidden;transition:max-height .2s ease,opacity .2s ease,padding .2s}
+.gl-mg.on{max-height:300px;opacity:1;padding:12px 11px 22px;box-shadow:0 8px 14px -12px #0003}
+.gl-mg a{display:block;font:500 8.6px/19.6px ${F}}.gl-mg .c1 a{font-weight:600}.gl-mg a:hover{text-decoration:underline}
+.gl-mg .card .im{height:196px;border-radius:0;overflow:hidden}.gl-mg .card p{margin:7px 0 0;font:500 8.6px/14px ${F};display:flex;gap:8px;justify-content:space-between}
+.gl-hero{position:relative;height:570px;overflow:hidden;background:#ddd}
+.gl-ph{position:absolute;inset:-60px 0 0;will-change:transform}.gl-ph svg{width:100%;height:100%;display:block}
+.gl-wm{position:absolute;left:-6px;bottom:-52px;font:700 296px/1 ${F};letter-spacing:-.045em;color:#fff;white-space:nowrap;transform-origin:left bottom;will-change:transform;pointer-events:none}
+.gl-wm span{display:inline-block;transform:skewX(-8deg)}
+.gl-card{position:absolute;left:11px;top:40px;width:273px;background:#fff;padding:12px 12px 11px;z-index:2}
+.gl-card small{font:500 7.6px ${F};letter-spacing:.04em}.gl-card h3{margin:11px 0 6px;font:500 13.5px/1.2 ${F};letter-spacing:.01em}.gl-card p{margin:0 0 10px;font:400 9px/1.6 ${F}}
+.gl-ob{border:1px solid #000;padding:7px 11px;font:400 9px ${F};background:#fff;transition:background .2s,color .2s}.gl-ob:hover{background:#000;color:#fff}
+.gl-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;padding:24px 11px 20px}
+.gl-pc .im{position:relative;aspect-ratio:1/1.32;background:#f5f5f5;overflow:hidden}.gl-pc .im svg{width:100%;height:100%;display:block;transition:transform .5s}.gl-pc:hover .im svg{transform:scale(1.03)}
+.gl-pc .tg{position:absolute;left:0;top:0;display:flex;gap:4px}.gl-pc .tg i{font:600 7px/14px ${F};font-style:normal;padding:0 5px;background:#1a3cff;color:#fff}.gl-pc .tg i+i{background:${PINK};color:#000}
+.gl-pc h4{margin:9px 0 1px;font:500 9px ${F}}.gl-pc .s{color:#666}.gl-pc .p{margin:5px 0 9px}.gl-pc button{width:100%;border:1px solid #000;height:28px;font:400 9px ${F};transition:background .2s,color .2s}.gl-pc button:hover,.gl-pc button.ok{background:#000;color:#fff}
+.gl-ed{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:6px 11px 26px}.gl-ed .im{height:380px;overflow:hidden}.gl-ed svg{width:100%;height:100%;display:block}.gl-ed h5{margin:10px 0 6px;font:500 13px ${F}}
+.gl-ct{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;padding:0 11px 30px}.gl-ct a .im{aspect-ratio:1;border-radius:10px;overflow:hidden}.gl-ct a svg{width:100%;height:100%;display:block;transition:transform .45s}.gl-ct a:hover svg{transform:scale(1.04)}
+.gl-ct a span{display:block;margin-top:7px;font:500 7.6px ${F};text-transform:uppercase;letter-spacing:.04em}
+.gl-h2{font:500 17px ${F};padding:10px 11px 0;margin:0}
+.gl-ft{background:${PINK};padding:30px 11px 60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px;font:400 9px/1.9 ${F}}.gl-ft b{display:block;font-weight:600;margin-bottom:4px}
+.gl-mo{position:absolute;z-index:50;inset:0;background:#0006;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}.gl-mo.on{opacity:1;pointer-events:auto}
+.gl-mo .bx{width:533px;max-width:94%;height:356px;background:#fff;display:grid;grid-template-columns:1fr 1fr;position:relative;transform:translateY(14px);transition:transform .35s}.gl-mo.on .bx{transform:none}
+.gl-mo .bx>svg{width:100%;height:100%;display:block}.gl-mo .fm{padding:56px 12px 12px}.gl-mo h3{margin:0 0 8px;font:500 22px ${F}}.gl-mo p{margin:0 0 20px;font:400 9px/1.5 ${F}}
+.gl-mo input{width:100%;height:32px;border:1px solid #ccc;padding:0 10px;font:400 9px ${F};outline:none}.gl-mo input:focus{border-color:#000}.gl-mo .bt{display:flex;gap:6px;margin-top:12px}.gl-mo .bt button{border:1px solid #000;height:28px;padding:0 24px;font:400 9px ${F}}.gl-mo .bt button+button{background:#eee}
+.gl-mo .x{position:absolute;right:12px;top:10px;font-size:14px}
+.gl-mb,.gl-dr{display:none}
+@media (min-width:1200px){.gl{zoom:1.4}}
+@media (max-width:760px){.gl-nv,.gl-rt .t{display:none}.gl-mb{display:block;font-size:16px;margin-right:10px}.gl-hd{top:22px}.gl-hero{height:520px}.gl-wm{font-size:122px;bottom:-30px}.gl-card{width:auto;right:11px;top:16px}
+.gl-rail{grid-template-columns:1fr 1fr}.gl-ed{grid-template-columns:1fr}.gl-ed .im{height:300px}.gl-ct{grid-template-columns:repeat(5,42%);overflow-x:auto;scroll-snap-type:x mandatory}.gl-ct a{scroll-snap-align:start}.gl-ft{grid-template-columns:1fr 1fr}.gl-mo .bx{grid-template-columns:1fr;height:auto}.gl-mo .bx>svg{display:none}.gl-mo .fm{padding:40px 16px 16px}
+.gl-dr{display:block;position:absolute;z-index:45;inset:0;background:#fff;transform:translateX(-100%);transition:transform .4s cubic-bezier(.7,0,.2,1);padding:56px 18px;overflow:auto}.gl-dr.on{transform:none}.gl-dr a{display:block;font:500 15px/2.1 ${F};text-transform:uppercase;border-bottom:1px solid #eee}.gl-dr a.gg{font:500 24px/2 ${SC};text-transform:none}.gl-dr .x{position:absolute;right:16px;top:14px;font:500 12px ${F}}}
+`);
+  const el = h('div.gl'); root.append(el); const sc = h('div.gl-sc'); el.append(sc);
+  // ---- illustrated stand-ins
+  const checker = (rot = -28, sz = 150) => { let o = ''; for (let x = -8; x < 14; x++) for (let y = -8; y < 12; y++) if ((x + y) % 2 === 0) o += `<rect x="${x * sz}" y="${y * sz}" width="${sz}" height="${sz}" fill="#151515"/>`; return `<g transform="translate(700 420) rotate(${rot}) translate(-700 -420)"><rect x="-1400" y="-1400" width="4200" height="4200" fill="#f1f0ec"/>${o}</g>`; };
+  const bottle = (x, y, s = 1, cap = '#d8262f', body = '#f6dcd8') => `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-34" y="-40" width="68" height="120" rx="14" fill="${body}"/><rect x="-34" y="-40" width="68" height="120" rx="14" fill="url(#glS)" opacity=".5"/><rect x="-18" y="-86" width="36" height="50" rx="6" fill="${cap}"/><rect x="-12" y="-80" width="6" height="38" rx="3" fill="#fff" opacity=".35"/></g>`;
+  const heroSVG = () => `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="glS" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></linearGradient>
+<filter id="glB" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter><pattern id="glK" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M0 9q4.5-6 9 0t9 0" stroke="#8fa1b0" stroke-width="3" fill="none"/></pattern></defs>${checker()}
+<g opacity=".9"><path d="M640 80q160-40 330 20q140 50 300 30q120-10 180 60v520q-140 60-260 10q-160-60-310 0q-150 50-250-30q-80-70-60-250q20-200 70-360Z" fill="#a9b6c2"/><path d="M640 80q160-40 330 20q140 50 300 30q120-10 180 60v520q-140 60-260 10q-160-60-310 0q-150 50-250-30q-80-70-60-250q20-200 70-360Z" fill="url(#glK)" opacity=".55"/></g>
+<path d="M420 280q120-60 230-10l40 300q-90 60-210 20q-80-40-90-130q0-120 30-180Z" fill="#f7f4ef"/><path d="M450 330q60 30 160 0" stroke="#ddd6cc" stroke-width="10" fill="none"/>
+<g transform="translate(700 210) rotate(-14)"><rect width="300" height="340" rx="6" fill="#f3c9c4"/><rect x="18" y="18" width="264" height="304" rx="4" fill="#faf6ef"/><path d="M18 18h264v304H18Z" fill="none" stroke="#e8d6a8" stroke-width="10" stroke-dasharray="4 7"/><rect x="90" y="38" width="120" height="30" fill="#fff" stroke="#222" stroke-width="2"/><text x="150" y="60" text-anchor="middle" font-family="Plus Jakarta Sans Variable,Arial" font-weight="700" font-size="18" font-style="italic">Glossier.</text>${bottle(120, 190, 1.05)}${bottle(205, 180, .7, '#d8262f', '#f9e4e1')}</g>
+<path d="M60 470q140-70 330-40q160 30 240 120q40 50-20 80q-120 40-300 20q-150-20-230-80q-60-60-20-100Z" fill="#f6d5d6"/><path d="M120 480q120-30 260-10q120 20 180 80q-80 30-230 20q-140-10-210-90Z" fill="#fff6f2"/><path d="M60 470q-30 30-10 70l70 20q-30-50-10-90Z" fill="#8a5a3b"/><path d="M380 470q30 40 80 30" stroke="#e9b7b5" stroke-width="5" fill="none"/>
+<path d="M980 560q90-60 200-10q60 40 30 120q-60 70-170 40q-110-40-60-150Z" fill="#f2c7c4"/><path d="M1000 600q80-20 160 30" stroke="#fff" stroke-width="6" fill="none" opacity=".8"/>
+<path d="M0 0h1440v900H0Z" fill="#000" opacity=".04"/></svg>`;
+  const jars = () => `<svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice"><rect width="320" height="400" fill="#f4f4f2"/><rect y="300" width="320" height="100" fill="#3d8c74"/><rect y="300" width="320" height="10" fill="#2f6f5c"/><rect x="190" y="60" width="70" height="250" rx="10" fill="#f7d7d5"/><rect x="200" y="40" width="50" height="30" rx="5" fill="#e9b8b5"/><rect x="130" y="40" width="64" height="270" rx="10" fill="#fdfcfb" stroke="#ddd"/><rect x="40" y="200" width="150" height="70" rx="10" fill="#f7d7d5"/><rect x="34" y="150" width="160" height="56" rx="10" fill="#4f9d86"/><circle cx="74" cy="178" r="16" fill="#fff" opacity=".85"/><rect x="58" y="268" width="122" height="44" rx="8" fill="#e5d7ef"/></svg>`;
+  const prod = (hue, kind, n) => { const r = rng(n * 31 + 7); const bg = `hsl(${hue} 30% 94%)`; let o = `<svg viewBox="0 0 300 396" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="glS${n}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".15"/></linearGradient></defs><rect width="300" height="396" fill="${bg}"/>`;
+    if (kind === 'box') o += `<rect x="70" y="80" width="160" height="230" rx="4" fill="#f3d0cb"/><rect x="82" y="92" width="136" height="206" fill="#fbf7ef" stroke="#e5cf9a" stroke-width="6" stroke-dasharray="3 6"/><rect x="110" y="104" width="80" height="20" fill="#fff" stroke="#222"/><text x="150" y="119" text-anchor="middle" font-family="Plus Jakarta Sans Variable,Arial" font-weight="700" font-style="italic" font-size="12">Glossier.</text><rect x="104" y="170" width="44" height="100" rx="10" fill="#f6dcd8"/><rect x="113" y="142" width="26" height="34" rx="4" fill="#d8262f"/><rect x="164" y="160" width="26" height="110" rx="6" fill="#f9e4e1"/><rect x="164" y="146" width="26" height="22" rx="3" fill="#d8262f"/>`;
+    else if (kind === 'tube') o += `<g transform="rotate(${(r() * 30 - 15).toFixed(1)} 150 200)"><rect x="118" y="80" width="64" height="210" rx="22" fill="hsl(${hue} 60% 84%)"/><rect x="118" y="80" width="64" height="210" rx="22" fill="url(#glS${n})"/><rect x="126" y="270" width="48" height="50" rx="4" fill="#f3f3f3" stroke="#ddd"/><text x="150" y="190" text-anchor="middle" transform="rotate(-90 150 190)" font-family="Plus Jakarta Sans Variable,Arial" font-weight="700" font-style="italic" font-size="20" fill="#fff">Balm Dotcom</text></g>`;
+    else o += `<path d="M150 50q30 60 0 110" stroke="#f0b9be" stroke-width="10" fill="none"/><rect x="96" y="150" width="108" height="170" rx="8" fill="#fbf7ef" stroke="#e5cf9a" stroke-width="5"/><rect x="118" y="170" width="64" height="18" fill="#fff" stroke="#222"/><rect x="128" y="212" width="44" height="90" rx="8" fill="hsl(${hue} 50% 88%)"/><text x="80" y="90" transform="rotate(-38 80 90)" font-family="Plus Jakarta Sans Variable,Arial" font-weight="600" font-size="14" fill="#e48b97" letter-spacing="2">LIMITED EDITION!</text>`;
+    return o + '</svg>'; };
+  const scene = (hue, n, txt) => { const r = rng(n * 13 + 5); let o = `<svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="hsl(${hue} 40% 88%)"/><circle cx="${100 + r() * 200}" cy="${80 + r() * 100}" r="${90 + r() * 60}" fill="hsl(${hue} 55% 80%)"/>`;
+    for (let i = 0; i < 4; i++) { const x = 60 + i * 80 + r() * 20, hh = 90 + r() * 120; o += `<rect x="${x}" y="${330 - hh}" width="${46 + r() * 20}" height="${hh}" rx="10" fill="hsl(${(hue + i * 40) % 360} 55% ${78 - i * 6}%)"/><rect x="${x + 10}" y="${310 - hh}" width="26" height="24" rx="4" fill="${i % 2 ? '#d8262f' : '#fff'}"/>`; }
+    return o + `<rect y="330" width="400" height="70" fill="hsl(${hue} 30% 70%)"/>${txt ? `<text x="200" y="380" text-anchor="middle" font-family="Caveat" font-size="34" fill="#fff">${txt}</text>` : ''}</svg>`; };
+  // ---- announcement bar
+  const MSG = [() => h('span', {}, 'Free standard shipping on orders $40+'), () => h('span', {}, 'Our ', h('a', { href: '#', onclick: (e) => e.preventDefault() }, 'Glossier Gift Guide'), ' is now live \u2013 get a head start on gifting today!'), () => h('span', {}, 'Free Milky Jelly Cleanser when you spend $75+. ', h('a', { href: '#', onclick: (e) => e.preventDefault() }, 'Terms apply'))];
+  const vp = h('div.vp'); let mi = 0, paused = false, curM = h('div.m', {}, MSG[0]()); vp.append(curM);
+  const showMsg = (n, dir = 1) => { mi = (n + MSG.length) % MSG.length; const nx = h('div.m' + (dir > 0 ? '.dn' : '.up'), {}, MSG[mi]()); vp.append(nx); const old = curM; curM = nx; requestAnimationFrame(() => requestAnimationFrame(() => { nx.classList.remove('dn', 'up'); old.classList.add(dir > 0 ? 'up' : 'dn'); })); setTimeout(() => old.remove(), 500); };
+  const pz = h('button', { 'aria-label': 'Pause', html: '<svg width="7" height="8"><path d="M1 0v8M6 0v8" stroke="#fff" stroke-width="1.6"/></svg>', onclick: () => setPause(!paused) });
+  const setPause = (p) => { paused = p; pz.innerHTML = p ? '<svg width="7" height="8"><path d="M0 0l7 4-7 4Z" fill="#fff"/></svg>' : '<svg width="7" height="8"><path d="M1 0v8M6 0v8" stroke="#fff" stroke-width="1.6"/></svg>'; pz.setAttribute('aria-label', p ? 'Play' : 'Pause'); };
+  const tick = setInterval(() => { if (!paused && el.isConnected) showMsg(mi + 1, 1); }, 5000);
+  const ab = h('div.gl-ab', {}, vp, h('div.ct', {}, h('button', { 'aria-label': 'Previous', html: '<svg width="5" height="8"><path d="M4.5 .5 1 4l3.5 3.5" stroke="#fff" fill="none"/></svg>', onclick: () => showMsg(mi - 1, -1) }), h('button', { 'aria-label': 'Next', html: '<svg width="5" height="8"><path d="M.5 .5 4 4 .5 7.5" stroke="#fff" fill="none"/></svg>', onclick: () => showMsg(mi + 1, 1) }), pz));
+  // ---- header + mega
+  const CATS = { Fragrance: [['Glossier You Eau de Parfum', 'Solid Perfume', 'Body Hero Duo', 'Fragrance Sets', 'All Fragrance'], 'Glossier You, now in a travel-ready Rollerball', 28], Makeup: [['Face', 'Eyes', 'Lips', 'Cheeks', 'Brushes & Tools', 'All Makeup'], 'Find your Stretch Concealer shade in 30s', 350], Skincare: [['Moisturizers', 'Cleansers', 'Treatments', 'Sunscreen', 'Save with Sets', 'All Skincare'], 'Create a Custom Skincare Set to meet your skin goals', 160], Balms: [['Balm Dotcom', 'Lip Balms', 'Hand Balm', 'All Balms'], 'Six flavours of Balm Dotcom, one bag', 340], Body: [['Body Hero Wash', 'Body Hero Cream', 'Deodorant', 'All Body'], 'The Body Hero routine in two steps', 30], 'Glossier Goods': [['Pouches', 'Hoodies', 'Stickers', 'All Goods'], 'The pink pouch, restocked', 350], 'Save with Sets': [['Gift Sets', 'Skincare Sets', 'Makeup Sets'], 'Build a set, save 15%', 200], 'Shop All': [['Bestsellers', 'New', 'Gift Cards', 'Everything'], 'Everything Glossier in one place', 20] };
+  const mega = h('div.gl-mg', { role: 'region', 'aria-label': 'Menu' }); let megaCat = null, megaT = 0;
+  const navLinks = [];
+  const openMega = (cat) => { clearTimeout(megaT); megaCat = cat; navLinks.forEach((a) => a.classList.toggle('on', a.dataset.c === cat)); if (!cat) { mega.classList.remove('on'); return; }
+    const [subs, cap, hue] = CATS[cat]; mega.replaceChildren(h('div.c1', {}, ...['Shop All', 'Bestsellers', 'Digital Gift Card'].map((t) => h('a', { href: '#', onclick: (e) => e.preventDefault() }, t))), h('div.c2', {}, ...subs.map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(`${cat} → ${t} — demo`); } }, t))),
+      h('a.card', { href: '#', onclick: (e) => e.preventDefault() }, h('div.im', { html: cat === 'Skincare' ? jars() : scene(hue, subs.length) }), h('p', {}, h('span', {}, cap), h('span', {}, '\u2192')))); mega.classList.add('on'); };
+  const closeSoon = () => { clearTimeout(megaT); megaT = setTimeout(() => openMega(null), 150); };
+  mega.addEventListener('pointerenter', () => clearTimeout(megaT)); mega.addEventListener('pointerleave', closeSoon);
+  const nv = h('nav.gl-nv', {}, h('a.gg', { href: '#', onclick: (e) => { e.preventDefault(); toast('Gift Guide — demo'); }, onpointerenter: () => openMega(null) }, 'Gift Guide'),
+    ...Object.keys(CATS).map((c) => { const a = h('a', { href: '#', 'data-c': c, onclick: (e) => e.preventDefault(), onpointerenter: () => openMega(c), onpointerleave: closeSoon, onfocus: () => openMega(c) }, c); navLinks.push(a); return a; }));
+  let bag = 0; const bagEl = h('span', {}, 'BAG (0)'); const setBag = (n) => { bag = n; bagEl.textContent = `BAG (${n})`; };
+  const ico = { s: '<svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#000" stroke-width="1"><circle cx="4.2" cy="4.2" r="3.3"/><path d="m6.7 6.7 2.6 2.6"/></svg>', g: '<svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#000" stroke-width=".8"><circle cx="5" cy="5" r="4.2"/><path d="M.8 5h8.4M5 .8q-2.6 4.2 0 8.4q2.6-4.2 0-8.4"/></svg>' };
+  const dr = h('div.gl-dr', {}, h('button.x', { onclick: () => dr.classList.remove('on') }, 'CLOSE'), h('a.gg', { href: '#' }, 'Gift Guide'), ...Object.keys(CATS).map((c) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); dr.classList.remove('on'); } }, c)));
+  const mb = h('button.gl-mb', { 'aria-label': 'Menu', html: '<svg width="16" height="12"><path d="M0 1h16M0 6h16M0 11h16" stroke="#000" stroke-width="1.3"/></svg>', onclick: () => dr.classList.add('on') });
+  const hd = h('header.gl-hd', { onpointerleave: closeSoon }, mb, h('a.gl-logo', { href: '#', onclick: (e) => { e.preventDefault(); sc.scrollTo({ top: 0, behavior: 'smooth' }); } }, 'Glossier.'), nv,
+    h('div.gl-rt', {}, h('button', { 'aria-label': 'Search', html: ico.s, onclick: () => toast('Search — demo') }), h('button.t', { html: ico.g + ' US' }), h('button.t', {}, 'Stores'), h('button.t', {}, 'Log in'), h('button', { onclick: () => toast(`Bag: ${bag} item(s) — demo`) }, bagEl)));
+  // ---- hero
+  const ph = h('div.gl-ph', { html: heroSVG() }); const wm = h('div.gl-wm', { 'aria-hidden': 'true' }, h('span', {}, 'Glossier.'));
+  const hero = h('section.gl-hero', {}, ph, wm, h('div.gl-card', {}, h('small', {}, 'NEW!'), h('h3', {}, 'Glossier You Duo'), h('p', {}, 'For smelling good at every holiday plan, whether you\u2019re staying in or heading out.'), h('button.gl-ob', { onclick: () => toast('Gift now — demo') }, 'Gift now')));
+  const P = [['Glossier You Duo', 'Limited edition', 90, 'box', 350], ['Mini Glossier You Wardrobe Kit', 'Limited edition mini fragrance bottles', 64, 'box', 30], ['Black Cherry Lip Line + Balm Duo', 'Limited edition', 32, 'tube', 350], ['Balm Dotcom', 'Nourishing lip balm', 16, 'orn', 200]];
+  const rail = h('div.gl-rail', {}, ...P.map(([n, s2, p, k, hu], i) => h('div.gl-pc', {}, h('div.im', { html: prod(hu, k, i) }, h('div.tg', {}, h('i', {}, 'NEW'), h('i', {}, `$${p}`))), h('h4', {}, n), h('div.s', {}, s2), h('div.p', {}, `$${p}`),
+    h('button', { onclick: (e) => { setBag(bag + 1); const b = e.currentTarget; b.classList.add('ok'); b.textContent = 'Added \u2713'; setTimeout(() => { b.classList.remove('ok'); b.textContent = 'Add to bag'; }, 1400); } }, 'Add to bag'))));
+  const ed = h('div.gl-ed', {}, ...[['The fragrance gift', 'Glossier You, wrapped and ready.', 345], ['Stocking stuffers under $25', 'Balms, brows and tiny treats.', 15]].map(([t, p, hu], i) => h('div', {}, h('div.im', { html: scene(hu, i + 9, i ? 'under $25' : 'for you') }), h('h5', {}, t), h('p', { style: { margin: '0 0 10px', fontSize: '9px' } }, p), h('button.gl-ob', { onclick: () => toast(t + ' — demo') }, 'Shop now'))));
+  const ct = h('div.gl-ct', {}, ...[['Fragrance', 20], ['Best Sellers', 350], ['Makeup', 10], ['Skincare', 160], ['Sets', 300]].map(([t, hu], i) => h('a', { href: '#', onclick: (e) => e.preventDefault() }, h('div.im', { html: scene(hu, i + 20) }), h('span', {}, t))));
+  const ft = h('footer.gl-ft', {}, h('div', {}, h('b', {}, 'Glossier.'), 'Skin first. Makeup second. Smile always.'), ...[['Shop', 'Skincare', 'Makeup', 'Fragrance', 'Body'], ['Help', 'Shipping', 'Returns', 'Stores'], ['About', 'Careers', 'Glossier Pink', 'Accessibility']].map(([a, ...r]) => h('div', {}, h('b', {}, a), ...r.map((x) => h('div', {}, x)))));
+  sc.append(ab, hd, mega, hero, h('h2.gl-h2', {}, 'Gifts they\u2019ll actually use'), rail, ed, h('h2.gl-h2', { style: { paddingBottom: '12px' } }, 'Shop by category'), ct, ft);
+  el.append(dr);
+  // ---- join the list (once per session after 40% scroll)
+  const SK = 'tg-glossier-join'; const em = h('input', { type: 'email', placeholder: 'Email address', 'aria-label': 'Email address' });
+  const mo = h('div.gl-mo', { onclick: (e) => { if (e.target === mo) closeMo(); } }, h('div.bx', { role: 'dialog', 'aria-label': 'Join the list' }, h('div', { html: scene(20, 77) }), h('div.fm', {}, h('h3', {}, 'Join the list'), h('p', {}, 'Enter your email to be the first to know about offers, new product launches, and so much more! Plus, 15% off your first order.'), em,
+    h('div.bt', {}, h('button', { onclick: () => { toast(em.value.includes('@') ? 'Signed up \u2713 — demo' : 'Enter a valid email'); if (em.value.includes('@')) closeMo(); } }, 'Sign up'), h('button', { onclick: () => closeMo() }, 'No thanks'))), h('button.x', { 'aria-label': 'Close', onclick: () => closeMo() }, '\u00d7')));
+  el.append(mo); const closeMo = () => mo.classList.remove('on');
+  // ---- scroll: parallax + modal trigger
+  const onScroll = () => { const y = sc.scrollTop; ph.style.transform = `translateY(${(y * 0.25).toFixed(1)}px)`; wm.style.transform = `translateY(${(-y * 0.12).toFixed(1)}px)`; if (megaCat) openMega(null);
+    const max = sc.scrollHeight - sc.clientHeight; if (max > 0 && y / max > 0.4 && !sessionStorage.getItem(SK)) { sessionStorage.setItem(SK, '1'); mo.classList.add('on'); } };
+  sc.addEventListener('scroll', onScroll, { passive: true });
+  el.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMo(); openMega(null); dr.classList.remove('on'); } });
+  window.__demoProof = async () => {
+    const o = [], gs = getComputedStyle, sk0 = sessionStorage.getItem(SK);
+    const gg = nv.querySelector('.gg'); o.push(`nav "Gift Guide" font=${gs(gg).fontFamily.split(',')[0]} vs caps items ${gs(navLinks[0]).fontFamily.split(',')[0]} ${gs(navLinks[0]).textTransform}`);
+    const m0 = curM.textContent; ab.querySelectorAll('.ct button')[1].click(); await sleep(550); o.push(`announcement next → vertical slide "${m0.slice(0, 22)}…" → "${curM.textContent.slice(0, 22)}…" (msg ${mi + 1}/3)`);
+    setPause(true); o.push(`pause → ${pz.getAttribute('aria-label')} shown, auto-rotate halted`); setPause(false);
+    if (gs(nv).display !== 'none') { const sk = navLinks[2]; sk.dispatchEvent(new PointerEvent('pointerenter')); await sleep(260); o.push(`hover SKINCARE → mega panel ${mega.classList.contains('on') ? 'open' : 'closed'} h=${Math.round(mega.getBoundingClientRect().height)}px cols=${gs(mega).gridTemplateColumns.split(' ').length} [${[...mega.querySelectorAll('.c2 a')].slice(0, 3).map((a) => a.textContent).join(', ')}…] card "${mega.querySelector('.card p span').textContent}"`);
+      sk.dispatchEvent(new PointerEvent('pointerleave')); await sleep(80); o.push(`leave +80ms → still ${mega.classList.contains('on') ? 'open (150ms grace)' : 'closed'}`); await sleep(160); o.push(`+240ms → ${mega.classList.contains('on') ? 'open' : 'closed'}`); }
+    else { mb.click(); await sleep(450); o.push(`mobile ☰ → full-screen drawer transform=${gs(dr).transform} with script Gift Guide (${gs(dr.querySelector('.gg')).fontFamily.split(',')[0]})`); dr.classList.remove('on'); }
+    const wr = wm.getBoundingClientRect(), hr = hero.getBoundingClientRect(); o.push(`giant wordmark ${Math.round(wr.width)}px wide, ${Math.round(wr.bottom - hr.bottom)}px cropped below hero edge`);
+    sc.scrollTop = 200; onScroll(); await sleep(60); o.push(`scroll 200 → photo translateY ${ph.style.transform.match(/-?[\d.]+/)[0]}px vs wordmark ${wm.style.transform.match(/-?[\d.]+/)[0]}px (parallax)`);
+    sessionStorage.removeItem(SK); sc.scrollTop = (sc.scrollHeight - sc.clientHeight) * 0.45; onScroll(); await sleep(400); o.push(`scroll 45% → "Join the list" modal ${mo.classList.contains('on') ? 'shown' : 'hidden'} (opacity ${gs(mo).opacity}), session flag=${sessionStorage.getItem(SK)}`);
+    closeMo(); sc.scrollTop = 10; onScroll(); sc.scrollTop = (sc.scrollHeight - sc.clientHeight) * 0.5; onScroll(); await sleep(50); o.push(`re-scroll → modal ${mo.classList.contains('on') ? 'shown again (bug)' : 'stays closed (once per session)'}`);
+    sc.scrollTop = rail.offsetTop - 60; await sleep(50); rail.querySelector('button').click(); o.push(`Add to bag → ${bagEl.textContent}`);
+    const tile = ct.querySelector('a'); o.push(`category tile radius ${gs(tile.querySelector('.im')).borderRadius}`);
+    await sleep(300); setBag(0); rail.querySelectorAll('button').forEach((b) => { b.classList.remove('ok'); b.textContent = 'Add to bag'; });
+    if (sk0) sessionStorage.setItem(SK, sk0); else sessionStorage.removeItem(SK); closeMo(); openMega(null); sc.scrollTop = 0; onScroll(); if (mi !== 0) showMsg(0, -1); await sleep(500); document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + '; restored top/bag 0/msg 1/session flag · stand-ins: product + still-life photos are SVG illustrations, Plus Jakarta Sans (skewed) substitutes the Glossier wordmark, Caveat substitutes the Gift Guide script';
+  };
+};
+V['polene-serif-category-stack-cutout-bag-row'] = (root, T) => {
+  theme(root, T, { bg: '#FFFFFF', fg: '#111111', ac: '#9A5B32', ac2: '#EDE8E1', ac3: '#111111', dark: false });
+  import('@fontsource/bodoni-moda/400.css'); import('@fontsource/eb-garamond/400.css'); import('@fontsource-variable/inter');
+  const SR = "'Bodoni Moda','Didot',serif", BD = "'EB Garamond','Garamond',serif", F = "'Inter Variable',Helvetica,Arial,sans-serif", COG = '#9A5B32';
+  css(`
+.po{position:absolute;inset:0;background:#fff;color:#111;font:400 12px/1.4 ${BD}}.po *{box-sizing:border-box}
+:where(.po) button,:where(.po) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.po-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.po-hd{position:sticky;top:0;z-index:20;height:22px;margin-bottom:-22px;display:flex;align-items:center;padding:0 8px;color:#fff;transition:background .35s,color .35s,border-color .35s;border-bottom:1px solid transparent}
+.po.solid .po-hd{background:#fff;color:#111;border-bottom-color:#e6e6e6}
+.po-hd nav{display:flex;gap:28px;font:400 5.9px/1 ${F};letter-spacing:.15em;text-transform:uppercase}.po-hd nav a{position:relative}.po-hd nav a::after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transition:transform .25s}.po-hd nav a:hover::after{transform:scaleX(1)}
+.po-hd nav.r{margin-left:auto;gap:28px}.po-hd nav.r span{display:inline-flex;gap:3px;align-items:center;letter-spacing:.02em}
+.po-logo{position:absolute;left:50%;transform:translateX(-50%);font:400 19px/1 ${SR};letter-spacing:.06em;transition:font-size .35s}.po.solid .po-logo{font-size:14.5px}
+.po-hero{position:relative;height:100%;min-height:560px;overflow:hidden;background:#7d8f99}
+.po-hero .ph{position:absolute;inset:0;transform:scale(1.06);transition:transform 2.4s cubic-bezier(.2,.6,.2,1)}.po-hero .ph.in{transform:scale(1)}.po-hero svg{width:100%;height:100%;display:block}
+.po-card{position:absolute;left:8px;bottom:9px;width:246px;height:294px;background:#e7e4df;padding:8px 8px;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}.po-card:hover{transform:translateY(-6px);box-shadow:0 16px 30px -18px #0007}
+.po-card b{display:block;font:400 11.5px ${BD}}.po-card small{font:400 7.2px ${F};letter-spacing:.05em}.po-card .bg{position:absolute;right:18px;bottom:16px;width:150px;height:130px}
+.po-cs{text-align:center;padding:60px 0 0}.po-cs button{display:block;margin:0 auto;font:400 64px/.95 ${SR};letter-spacing:-.005em;text-transform:uppercase;transition:opacity .35s;padding:4px 0 14px}
+.po-cs.has button{opacity:.25}.po-cs.has button.on{opacity:1}
+.po-row{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:120px 30px 0;min-height:340px}
+.po-it{position:relative;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s}.po-it.in{opacity:1;transform:none}
+.po-it .im{position:relative;height:150px;display:flex;align-items:flex-end;justify-content:center}.po-it .im svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;transition:opacity .35s}.po-it .im .b{opacity:0}.po-it:hover .im .a{opacity:0}.po-it:hover .im .b{opacity:1}
+.po-it .nm{margin-top:12px;font:400 6.6px/1.6 ${F};letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .3s}.po-it:hover .nm,.po-it.f .nm{opacity:1}
+.po-it .ht{position:absolute;right:22%;top:0;font-size:12px;opacity:0;transition:opacity .25s}.po-it:hover .ht,.po-it .ht.on{opacity:1}.po-it .ht.on{color:${COG}}
+.po-bs{display:block;width:max-content;margin:30px auto 36px;font:400 6.6px ${F};letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #111;padding-bottom:2px}
+.po-ed{display:grid;grid-template-columns:1fr 1fr}.po-ed .c{position:relative;height:640px;overflow:hidden}.po-ed svg{width:100%;height:100%;display:block;transition:transform 1.2s}.po-ed .c:hover svg{transform:scale(1.03)}
+.po-ed span{position:absolute;left:14px;bottom:14px;color:#fff;font:400 6.6px ${F};letter-spacing:.16em;text-transform:uppercase}
+.po-q{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}.po-q .c{aspect-ratio:3/4;overflow:hidden}.po-q svg{width:100%;height:100%;display:block}
+.po-cr{max-width:520px;margin:0 auto;padding:60px 20px 80px;text-align:center;font:400 17px/1.5 ${BD}}.po-cr small{display:block;font:400 6.6px ${F};letter-spacing:.16em;margin-bottom:18px}
+.po-ft{background:#EDE8E1;padding:30px 20px 50px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font:400 7px/2 ${F};letter-spacing:.1em;text-transform:uppercase}
+.po-mo{position:absolute;z-index:50;inset:0;display:flex;justify-content:center;align-items:flex-start;padding-top:68px;background:#0000;transition:background .3s;pointer-events:none}.po-mo.on{background:#0003;pointer-events:auto}
+.po-mo .bx{width:427px;max-width:92%;background:#fff;border-radius:3px;padding:22px 20px 24px;text-align:center;font:400 10.5px/1.45 Helvetica,Arial,sans-serif;box-shadow:0 10px 30px #0003;opacity:0;transform:translateY(-10px);transition:opacity .3s,transform .3s}.po-mo.on .bx{opacity:1;transform:none}
+.po-mo h3{margin:0 0 20px;font:400 13px Helvetica,Arial,sans-serif}.po-mo .bt{display:flex;gap:8px;justify-content:center;margin-top:26px}.po-mo .bt button{height:30px;padding:0 11px;font:400 10px Helvetica,Arial,sans-serif;border-radius:2px;box-shadow:0 1px 4px #0002}.po-mo .bt button:first-child{background:#111;color:#fff}
+@media (min-width:1200px){.po{zoom:1.4}}
+@media (max-width:760px){.po-hd nav{display:none}.po-hd nav.r{display:flex;gap:12px}.po-hd nav.r a:not(.k){display:none}.po-hd .mn{display:block!important}.po-card{width:150px;height:190px}.po-card .bg{width:76px;height:72px;right:14px}
+.po-cs button{font-size:12vw}.po-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:60px 0 0;min-height:260px;scrollbar-width:none}.po-it{flex:0 0 62%;scroll-snap-align:center}.po-it .nm{opacity:1}
+.po-ed{grid-template-columns:1fr}.po-ed .c{height:460px}.po-q{grid-template-columns:1fr 1fr}.po-ft{grid-template-columns:1fr 1fr}}
+`);
+  const el = h('div.po'); root.append(el); const sc = h('div.po-sc'); el.append(sc);
+  // ---- cut-out products (SVG): leather bags, jewellery, small leather goods
+  const leather = (c, d) => `<defs><linearGradient id="pl${c.slice(1)}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs>`;
+  const bag = (kind, c, d, alt = false) => { const g = `url(#pl${c.slice(1)})`; let o = `<svg viewBox="0 0 200 160">${leather(c, d)}<ellipse cx="100" cy="156" rx="${alt ? 60 : 70}" ry="3.5" fill="#000" opacity=".12"/>`;
+    const tr = alt ? 'translate(100 0) scale(.86 1) translate(-100 0)' : '';
+    if (kind === 'tote') o += `<g transform="${tr}"><path d="M70 60q30-58 60 0" stroke="${d}" stroke-width="5" fill="none"/><path d="M30 62h140l-22 92H52Z" fill="${g}"/><path d="M60 62q40 60 80 0" stroke="${d}" stroke-width="2" fill="none" opacity=".6"/><path d="M30 62l-6 18M170 62l6 18" stroke="${d}" stroke-width="3"/></g>`;
+    else if (kind === 'bucket') o += `<g transform="${tr}"><path d="M78 70q22-62 44 0" stroke="${d}" stroke-width="4" fill="none"/><path d="M58 72q42-10 84 0l-6 82H64Z" fill="${g}"/><path d="M100 70v84" stroke="${d}" stroke-width="1.5" opacity=".5"/></g>`;
+    else if (kind === 'round') o += `<g transform="${tr}"><path d="M76 56q24-46 48 0" stroke="${d}" stroke-width="7" fill="none"/><path d="M50 70q50-28 100 0q14 50-6 82H56q-20-32-6-82Z" fill="${g}"/><path d="M50 70q50 12 100 0" stroke="${d}" stroke-width="2" fill="none" opacity=".5"/></g>`;
+    else if (kind === 'flap') o += `<g transform="${tr}"><path d="M72 58q28-44 56 0" stroke="${d}" stroke-width="4" fill="none"/><rect x="44" y="62" width="112" height="90" rx="8" fill="${g}"/><path d="M44 70q56-14 112 0v38q-56 18-112 0Z" fill="${d}" opacity=".55"/><rect x="92" y="104" width="16" height="6" rx="1" fill="#c9a24a"/></g>`;
+    else if (kind === 'ring') o += `<g transform="translate(100 96) ${alt ? 'rotate(35)' : ''}"><ellipse rx="34" ry="${alt ? 14 : 34}" fill="none" stroke="#d8b25c" stroke-width="9"/><ellipse rx="34" ry="${alt ? 14 : 34}" fill="none" stroke="#f3dc95" stroke-width="2.5" transform="translate(-2 -2)"/></g>`;
+    else if (kind === 'ear') o += `<g transform="translate(${alt ? 100 : 80} 60)"><circle r="5" fill="#d8b25c"/><path d="M0 5q-18 40 0 70q18-30 0-70" fill="none" stroke="#d8b25c" stroke-width="7"/></g>${alt ? '' : '<g transform="translate(124 60)"><circle r="5" fill="#d8b25c"/><path d="M0 5q-18 40 0 70q18-30 0-70" fill="none" stroke="#d8b25c" stroke-width="7"/></g>'}`;
+    else if (kind === 'chain') o += `<path d="M40 40q60 ${alt ? 80 : 120} 120 0" fill="none" stroke="#d8b25c" stroke-width="3" stroke-dasharray="7 3"/><circle cx="100" cy="${alt ? 100 : 120}" r="12" fill="#d8b25c"/><circle cx="100" cy="${alt ? 100 : 120}" r="6" fill="#f3dc95"/>`;
+    else if (kind === 'cuff') o += `<g transform="translate(100 98)"><path d="M-40 -6a40 30 0 1 1 80 0" fill="none" stroke="#d8b25c" stroke-width="14" transform="${alt ? 'rotate(180) scale(1 .5)' : ''}"/></g>`;
+    else if (kind === 'wallet') o += `<g transform="${tr}"><rect x="46" y="${alt ? 70 : 84}" width="108" height="${alt ? 82 : 68}" rx="6" fill="${g}"/><path d="M46 ${alt ? 96 : 104}h108" stroke="${d}" stroke-width="2"/><circle cx="140" cy="${alt ? 112 : 118}" r="4" fill="#c9a24a"/></g>`;
+    else if (kind === 'card') o += `<g transform="${alt ? 'rotate(-8 100 110)' : ''}"><rect x="58" y="92" width="84" height="60" rx="5" fill="${g}"/><path d="M58 108h84" stroke="${d}" stroke-width="2"/></g>`;
+    else if (kind === 'pouch') o += `<g transform="${tr}"><path d="M50 80q50-14 100 0l-4 72H54Z" fill="${g}"/><path d="M50 80q50 10 100 0" stroke="#c9a24a" stroke-width="2.5" fill="none"/></g>`;
+    else if (kind === 'key') o += `<circle cx="100" cy="70" r="14" fill="none" stroke="#c9a24a" stroke-width="4"/><path d="M90 84q10 4 20 0l6 66H84Z" fill="${g}" transform="${alt ? 'rotate(10 100 110)' : ''}"/>`;
+    return o + '</svg>'; };
+  const CAT = { SACS: [['Numéro Neuf', 'tote', '#a5643a', '#7a4424', '450 €'], ['Cyme Mini', 'bucket', '#7d5a48', '#5a3e30', '390 €'], ['Numéro Un', 'round', '#1c1c1c', '#000000', '420 €'], ['Numéro Sept', 'flap', '#4a2422', '#2e1514', '510 €']],
+    BIJOUX: [['Bague Iris', 'ring', '#d8b25c', '#b08a3c', '160 €'], ['Boucles Goutte', 'ear', '#d8b25c', '#b08a3c', '140 €'], ['Collier Lune', 'chain', '#d8b25c', '#b08a3c', '190 €'], ['Jonc Onde', 'cuff', '#d8b25c', '#b08a3c', '210 €']],
+    'PETITE MAROQUINERIE': [['Portefeuille Neuf', 'wallet', '#a5643a', '#7a4424', '195 €'], ['Porte-cartes Un', 'card', '#7d5a48', '#5a3e30', '95 €'], ['Pochette Cyme', 'pouch', '#cbb9a0', '#a8937a', '160 €'], ['Porte-clés Dix', 'key', '#1c1c1c', '#000000', '75 €']] };
+  // ---- landscape hero
+  const land = (seed = 1, fig = true) => `<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="psk${seed}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fb2bd"/><stop offset=".45" stop-color="#c9d3d6"/><stop offset="1" stop-color="#dfe2dd"/></linearGradient><linearGradient id="pgr${seed}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b4ac92"/><stop offset="1" stop-color="#e9e4d8"/></linearGradient><filter id="pbl${seed}"><feGaussianBlur stdDeviation="18"/></filter><filter id="pbs${seed}"><feGaussianBlur stdDeviation="3"/></filter></defs>
+<rect width="1440" height="900" fill="url(#psk${seed})"/><path d="M0 170q140-50 300-30t320 10q120-40 260 0t280 30q160-40 280 10v120H0Z" fill="#7e9592" opacity=".75"/><path d="M0 230q240-30 520-10t500 0 420 20v90H0Z" fill="#8aa3a8" opacity=".9"/><path d="M0 290h1440v40H0Z" fill="#a9bcc0"/>
+<path d="M800 140q120-60 300-40q180 20 340 60v150H780Z" fill="#6d8682"/><path d="M0 320q200-30 500-10t560 0 380 10v580H0Z" fill="url(#pgr${seed})"/>
+${fig ? `<g transform="translate(700 240)"><path d="M-260 140q170-150 360-110q140 40 240 120" fill="none" stroke="#5d6466" stroke-width="18"/><path d="M-20 -230v360" stroke="#7d7466" stroke-width="5"/><path d="M-30 -110l60 30-40 140z" fill="#9aa0a3" opacity=".7"/><circle cx="-20" cy="-70" r="22" fill="#1b1414"/><path d="M-60 -50q40-14 80 0l14 110q-50 20-110 0Z" fill="#3b2a3d"/><path d="M-80 0q20 30 50 30l10 50h-60Z" fill="#9a5b32"/></g>` : ''}
+<g filter="url(#pbl${seed})" opacity=".95"><path d="M0 520q300-60 720-30t720 20v390H0Z" fill="#d7d1c4"/><path d="M0 640q360-40 740 0t700-10v270H0Z" fill="#ece8df"/></g><g filter="url(#pbs${seed})" opacity=".55">${Array.from({ length: 40 }, (_, i) => `<path d="M${i * 37} 560q6-40 ${(i % 5) * 3 + 6} -${60 + (i * 13) % 50}" stroke="#a69d86" stroke-width="3" fill="none"/>`).join('')}</g></svg>`;
+  const portrait = (hue, seed, coat = '#d9c4a5', bagc = '#3a2420') => `<svg viewBox="0 0 700 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="pp${seed}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="hsl(${hue} 25% 80%)"/><stop offset="1" stop-color="hsl(${hue} 18% 66%)"/></linearGradient></defs><rect width="700" height="900" fill="url(#pp${seed})"/><path d="M0 640q200-40 420 0t280-20v280H0Z" fill="#9b8f6c" opacity=".7"/>
+<circle cx="330" cy="210" r="70" fill="#e2c3a8"/><path d="M262 200q10-110 140-80q40 40 10 80q-50-40-150 0Z" fill="#1e1715"/><path d="M180 900q-20-430 150-560q170 120 160 560Z" fill="${coat}"/><path d="M250 330q80 40 160 0l-20 60q-60 30-120 0Z" fill="${coat}" opacity=".7" stroke="#0001"/><path d="M230 380q60 260 210 300" stroke="${bagc}" stroke-width="10" fill="none"/><path d="M360 640q80-40 160 0q10 100-80 110q-90-10-80-110Z" fill="${bagc}"/></svg>`;
+  // ---- header
+  let likes = 0, bagN = 0; const lk = h('span', {}, '0'), bg = h('span', {}, '0');
+  const ico = { h: '<svg width="7" height="7" viewBox="0 0 10 10"><path d="M5 9 1.2 5.2A2.3 2.3 0 0 1 5 2.2a2.3 2.3 0 0 1 3.8 3Z" fill="none" stroke="currentColor"/></svg>', b: '<svg width="7" height="8" viewBox="0 0 10 11"><path d="M1 4h8l-.6 6H1.6Z M3.2 4V3a1.8 1.8 0 0 1 3.6 0v1" fill="none" stroke="currentColor"/></svg>' };
+  const hd = h('header.po-hd', {}, h('nav', {}, ...['Best-sellers', 'Sacs', 'Bijoux', 'Accessoires', 'Savoir-faire'].map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); const k = t.toUpperCase(); if (CAT[k]) { setCat(k); sc.scrollTo({ top: cs.offsetTop - 40, behavior: 'smooth' }); } else toast(t + ' — demo'); } }, t))),
+    h('a.po-logo', { href: '#', onclick: (e) => { e.preventDefault(); sc.scrollTo({ top: 0, behavior: 'smooth' }); } }, 'POLÈNE'),
+    h('nav.r', {}, ...['FR', 'Boutiques', 'Compte', 'Recherche'].map((t) => h('a', { href: '#', onclick: (e) => { e.preventDefault(); toast(t + ' — demo'); } }, t)), h('a.k', { href: '#', onclick: (e) => e.preventDefault() }, h('span', { html: ico.h }, lk), ' ', h('span', { html: ico.b }, bg))));
+  // ---- hero
+  const ph = h('div.ph', { html: land(1) });
+  const card = h('a.po-card', { href: '#', onclick: (e) => { e.preventDefault(); bagN++; bg.textContent = bagN; toast('Cyme Mini ajouté au panier — demo'); } }, h('b', {}, 'Cyme Mini'), h('small', {}, '390 €'), h('div.bg', { html: bag('bucket', '#a5643a', '#7a4424') }));
+  const hero = h('section.po-hero', {}, ph, card);
+  // ---- category stack + row
+  let cat = 'SACS'; const cs = h('div.po-cs'); const row = h('div.po-row');
+  const btns = Object.keys(CAT).map((k) => h('button', { 'data-k': k, onpointerenter: () => setCat(k), onfocus: () => setCat(k), onclick: () => setCat(k) }, k));
+  cs.append(...btns); cs.addEventListener('pointerleave', () => cs.classList.remove('has'));
+  const liked = new Set();
+  const drawRow = () => { const items = CAT[cat]; row.replaceChildren(...items.map(([n, k, c, d, p], i) => { const it = h('div.po-it', {}, h('div.im', { html: bag(k, c, d).replace('<svg', '<svg class="a"') + bag(k, c, d, true).replace('<svg', '<svg class="b"') }), h('div.nm', {}, n, h('br'), p),
+      h('button.ht' + (liked.has(n) ? '.on' : ''), { 'aria-label': 'Favori', onclick: (e) => { e.stopPropagation(); if (liked.has(n)) liked.delete(n); else liked.add(n); likes = liked.size; lk.textContent = likes; e.currentTarget.classList.toggle('on', liked.has(n)); e.currentTarget.textContent = liked.has(n) ? '♥' : '♡'; } }, liked.has(n) ? '♥' : '♡'));
+    setTimeout(() => it.classList.add('in'), 30 + i * 60); return it; })); };
+  const setCat = (k, force) => { cs.classList.add('has'); btns.forEach((b) => b.classList.toggle('on', b.dataset.k === k)); if (k === cat && !force && row.children.length) return; cat = k; drawRow(); };
+  setCat('SACS', true); cs.classList.remove('has');
+  const bs = h('a.po-bs', { href: '#', onclick: (e) => { e.preventDefault(); toast('Best-sellers — demo'); } }, 'Best-sellers');
+  const ed = h('div.po-ed', {}, h('div.c', { html: portrait(30, 1) }, h('span', {}, 'Numéro Dix · Cuir grainé')), h('div.c', { html: portrait(210, 2, '#f1ede4', '#151515') }, h('span', {}, 'Numéro Sept · Noir')));
+  const q = h('div.po-q', {}, ...[[40, '#c7a27e', '#6b3b22'], [200, '#e9e4da', '#1c1c1c'], [25, '#8e6f5a', '#a5643a'], [210, '#b7b9b4', '#4a2422']].map(([hu, c, b2], i) => h('div.c', { html: portrait(hu, 10 + i, c, b2) })));
+  const cr = h('div.po-cr', {}, h('small', {}, 'SAVOIR-FAIRE'), 'Nos sacs sont fabriqués à la main dans nos ateliers d’Ubrique, en Espagne, à partir de cuirs pleine fleur sélectionnés pour leur grain et leur tenue dans le temps.');
+  const ft = h('footer.po-ft', {}, ...[['Maison', 'Savoir-faire', 'Boutiques', 'Carrières'], ['Aide', 'Livraison', 'Retours', 'Contact'], ['Collections', 'Sacs', 'Bijoux', 'Petite maroquinerie'], ['Suivez-nous', 'Instagram', 'Pinterest', 'Newsletter']].map(([a, ...r]) => h('div', {}, h('b', {}, a), ...r.map((x) => h('div', {}, x)))));
+  sc.append(hd, hero, cs, row, bs, ed, q, cr, ft);
+  // ---- solid header after 80px
+  const onScroll = () => el.classList.toggle('solid', sc.scrollTop > 80); sc.addEventListener('scroll', onScroll, { passive: true });
+  requestAnimationFrame(() => requestAnimationFrame(() => ph.classList.add('in')));
+  // ---- country redirect modal (first visit, remembered)
+  const KEY = 'tg-polene-country';
+  const mo = h('div.po-mo', {}, h('div.bx', { role: 'dialog', 'aria-label': 'Country redirect' }, h('h3', {}, 'Hey! Great to See You Here'), h('div', {}, 'We have a local store that serves your country.', h('br'), 'Do you want to redirect there?'),
+    h('div.bt', {}, h('button', { onclick: () => answer('redirect') }, 'Yes Please!'), h('button', { onclick: () => answer('stay') }, 'No, Stay Here'))));
+  const answer = (v) => { try { localStorage.setItem(KEY, v); } catch {} mo.classList.remove('on'); if (v === 'redirect') toast('Redirecting to the local store — demo'); };
+  el.append(mo); let seen = null; try { seen = localStorage.getItem(KEY); } catch {} if (!seen) setTimeout(() => mo.classList.add('on'), 700);
+  window.__demoProof = async () => {
+    const o = [], gs = getComputedStyle; let k0 = null; try { k0 = localStorage.getItem(KEY); } catch {}
+    await sleep(800); o.push(`country modal "${mo.querySelector('h3').textContent}" ${mo.classList.contains('on') ? 'shown on first visit' : 'hidden (already answered)'}`);
+    mo.querySelectorAll('.bt button')[1].click(); await sleep(320); o.push(`"No, Stay Here" → modal ${mo.classList.contains('on') ? 'open' : 'closed'}, localStorage=${localStorage.getItem(KEY)}`);
+    o.push(`hero photo scale ${gs(ph).transform} · header bg ${gs(hd).backgroundColor}`);
+    card.dispatchEvent(new PointerEvent('pointerover', { bubbles: true })); o.push(`product card "Cyme Mini · 390 €" hover lift (css :hover translateY -6px)`);
+    sc.scrollTop = 140; onScroll(); await sleep(420); o.push(`scroll 140 → header turns white bg=${gs(hd).backgroundColor} ink=${gs(hd).color}`);
+    sc.scrollTop = cs.offsetTop - 30; await sleep(80);
+    o.push(`category stack ${btns.length} serif lines font=${gs(btns[0]).fontFamily.split(',')[0]} ${gs(btns[0]).fontSize}`);
+    btns[1].dispatchEvent(new PointerEvent('pointerenter')); await sleep(520); o.push(`hover BIJOUX → others opacity ${gs(btns[0]).opacity}/${gs(btns[2]).opacity}, active ${gs(btns[1]).opacity}; row → [${[...row.querySelectorAll('.nm')].map((n) => n.firstChild.textContent).join(', ')}] staggered in=${row.querySelectorAll('.in').length}`);
+    btns[2].click(); await sleep(520); o.push(`tap PETITE MAROQUINERIE → [${[...row.querySelectorAll('.nm')].map((n) => n.firstChild.textContent).join(', ')}]`);
+    const it = row.querySelector('.po-it'); it.classList.add('f'); await sleep(320); o.push(`product hover → name+price opacity ${gs(it.querySelector('.nm')).opacity} "${it.querySelector('.nm').textContent}"`); it.classList.remove('f');
+    it.querySelector('.ht').click(); o.push(`♡ → wishlist count ${lk.textContent}`); it.querySelector('.ht').click();
+    if (gs(row).display === 'flex') { row.scrollLeft = 400; await sleep(300); o.push(`mobile product row snap scroller scrollLeft=${Math.round(row.scrollLeft)} snap=${gs(row).scrollSnapType}`); row.scrollLeft = 0; }
+    setCat('SACS', true); cs.classList.remove('has'); sc.scrollTop = 0; onScroll(); likes = 0; lk.textContent = '0'; liked.clear(); bagN = 0; bg.textContent = '0';
+    try { if (k0) localStorage.setItem(KEY, k0); else localStorage.removeItem(KEY); } catch {}
+    await sleep(400); document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + '; restored SACS/top/counters/localStorage · stand-ins: landscape + portraits + product cut-outs are SVG illustrations, Bodoni Moda + EB Garamond substitute Polène’s faces';
+  };
+};
+V['porsche-model-overview-radio-filter-compare-tray'] = (root, T) => {
+  theme(root, T, { bg: '#F2F2F2', fg: '#010205', ac: '#010205', ac2: '#D8D8DB', ac3: '#FFFFFF', dark: false });
+  import('@fontsource-variable/inter'); import('@fontsource/michroma/400.css');
+  const F = "'Inter Variable',Helvetica,Arial,sans-serif", WD = "'Michroma','Arial Black',sans-serif";
+  css(`
+.pr{position:absolute;inset:0;background:#F2F2F2;color:#010205;font:400 9px/1.35 ${F}}.pr *{box-sizing:border-box}
+:where(.pr) button,:where(.pr) a{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.pr-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.pr-hd{height:58px;display:flex;align-items:center;padding:0 40px;position:relative}.pr-hd .mn{display:flex;gap:7px;align-items:center;font:400 10.5px ${F}}
+.pr-wm{position:absolute;left:50%;transform:translateX(-50%);font:400 12.5px/1 ${WD};letter-spacing:.34em;padding-left:.34em}
+.pr-hd .ic{margin-left:auto;display:flex;gap:18px}
+.pr-tt{display:flex;align-items:flex-start;padding:30px 40px 0}.pr-tt h1{margin:12px 0 0;font:300 29px/1 ${F};letter-spacing:-.01em}.pr-tt .r{margin-left:auto;text-align:right;font:400 9.5px ${F}}
+.pr-bk{background:#010205;color:#fff;border-radius:4px;height:24px;padding:0 11px;font:400 9.5px ${F};margin-top:7px;transition:background .2s}.pr-bk:hover{background:#323639}.pr-bk[disabled]{background:#959899;cursor:default}
+.pr-gy{background:#d8d8db;border-radius:4px;height:36px;padding:0 20px;font:400 10px ${F};transition:background .2s}.pr-gy:hover{background:#c9cacb}
+.pr-bd{display:grid;grid-template-columns:200px 1fr;gap:42px;padding:46px 40px 120px}
+.pr-fl{position:sticky;top:12px;align-self:start}.pr-fl h3{margin:0 0 6px;font:600 11px ${F}}
+.pr-rd{display:flex;align-items:center;gap:7px;height:25.6px;font:400 9.6px ${F};width:100%;text-align:left}.pr-rd i{width:19px;height:19px;border-radius:50%;background:#e2e2e4;border:1px solid #d3d3d6;position:relative;flex:none;transition:background .2s}
+.pr-rd:hover i{border-color:#010205}.pr-rd.on i{background:#010205;border-color:#010205}.pr-rd.on i::after{content:'';position:absolute;inset:4px;border-radius:50%;background:#fff}.pr-rd small{color:#6b6d70;font-size:9.6px}
+.pr-fl p{margin:24px 0 9px;font:400 8.6px/1.5 ${F}}
+.pr-ac{border-top:0}.pr-ac>button{display:flex;align-items:center;gap:10px;height:40px;font:600 10.5px ${F};width:100%;text-align:left}.pr-ac>button svg{transition:transform .25s}.pr-ac.on>button svg{transform:rotate(180deg)}
+.pr-ac .bd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}.pr-ac.on .bd{grid-template-rows:1fr}.pr-ac .bd>div{overflow:hidden}.pr-ac label{display:flex;gap:7px;align-items:center;height:22px;font:400 9px ${F};cursor:pointer;padding-left:16px}.pr-ac label small{color:#6b6d70}
+.pr-ac input{appearance:none;width:13px;height:13px;border:1px solid #6b6d70;border-radius:3px;margin:0;display:grid;place-content:center;cursor:pointer}.pr-ac input:checked{background:#010205;border-color:#010205}.pr-ac input:checked::after{content:'';width:6px;height:3px;border:solid #fff;border-width:0 0 1.5px 1.5px;transform:rotate(-45deg) translate(0,-1px)}
+.pr-rs{width:160px;height:28px;margin-top:20px}
+.pr-gh{margin:0 0 30px;font:400 14px ${F}}.pr-gh:not(:first-child){margin-top:30px}
+.pr-gr{display:grid;grid-template-columns:1fr 1fr;gap:22px;column-gap:22px;row-gap:50px;padding-top:56px;position:relative}
+.pr-cd{position:relative;background:#fff;border-radius:22px;padding:58px 22px 20px;transition:box-shadow .3s}.pr-cd:hover{box-shadow:0 8px 26px -14px #0003}
+.pr-car{position:absolute;left:50%;top:-62px;width:300px;height:100px;transform:translateX(-50%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}.pr-cd:hover .pr-car{transform:translateX(calc(-50% + 8px))}.pr-car svg{width:100%;height:100%;display:block;overflow:visible}
+.pr-cd h4{margin:0 0 8px;font:400 15.5px ${F}}.pr-ch{display:flex;gap:3px;flex-wrap:wrap}.pr-ch span{background:#d8d8db;border-radius:99px;padding:1px 6px;font:400 8px/14px ${F}}.pr-ch span:first-child{background:#010205;color:#fff}
+.pr-sp{margin:20px 0 0;display:grid;gap:12px}.pr-sp b{display:block;font:400 12.5px ${F}}.pr-sp small{font:400 7.6px ${F};color:#585a5d}
+.pr-fp{margin:22px 0 10px;font:400 6.4px/1.6 ${F};color:#585a5d}.pr-td{font:400 8.6px ${F};text-decoration:underline;text-underline-offset:2px}
+.pr-ct{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}.pr-ct button{height:38px;border-radius:4px;font:400 9.5px ${F}}.pr-ct .ex{background:#010205;color:#fff}.pr-ct .ex:hover{background:#323639}.pr-ct .cf{background:#d8d8db}.pr-ct .cf:hover{background:#c9cacb}
+.pr-cm{display:flex;gap:6px;align-items:center;margin-top:12px;font:400 8.6px ${F};cursor:pointer;width:max-content}.pr-cm i{width:11px;height:11px;border:1px solid #010205;border-radius:2px;display:grid;place-content:center}.pr-cm.on i{background:#010205}.pr-cm.on i::after{content:'';width:5px;height:2.5px;border:solid #fff;border-width:0 0 1.4px 1.4px;transform:rotate(-45deg) translate(0,-1px)}
+.pr-cd.out{opacity:0;transform:scale(.94);transition:opacity .22s,transform .22s}
+.pr-tr{position:absolute;z-index:30;left:0;right:0;bottom:0;height:58px;background:#fff;box-shadow:0 -6px 20px -14px #0004;display:flex;align-items:center;gap:9px;padding:0 40px;transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1)}.pr-tr.on{transform:none}
+.pr-pl{display:flex;align-items:center;gap:8px;height:38px;border:1px solid #b0b1b2;border-radius:99px;padding:0 10px 0 6px;font:400 9px ${F};background:#fff;animation:prIn .3s}.pr-pl svg.t{width:70px;height:24px}.pr-pl button{width:16px;height:16px;display:grid;place-content:center}
+@keyframes prIn{from{opacity:0;transform:translateY(8px)}}
+.pr-tr .go{margin-left:auto;background:#010205;color:#fff;height:38px;padding:0 20px;border-radius:4px;font:400 9.5px ${F}}
+.pr-ov{position:absolute;z-index:40;inset:0;background:#F2F2F2;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);overflow:auto;padding:30px 40px}.pr-ov.on{transform:none}
+.pr-ov h2{margin:0 0 20px;font:300 24px ${F}}.pr-ov .x{position:absolute;right:40px;top:30px;font:400 10px ${F};display:flex;gap:6px;align-items:center}
+.pr-ov table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:16px;overflow:hidden;font:400 9.5px ${F}}.pr-ov th,.pr-ov td{padding:11px 14px;text-align:left;border-bottom:1px solid #eee}.pr-ov th{font-weight:400;color:#585a5d;width:22%}
+.pr-ov td.best{font-weight:600;background:#eef6ef}.pr-ov td.best::after{content:' \u2605';color:#197e10}.pr-ov thead td{font:400 12px ${F};vertical-align:bottom}.pr-ov thead svg{width:150px;height:50px;display:block;margin-bottom:6px}
+.pr-dw{position:absolute;z-index:45;top:0;bottom:0;right:0;width:min(420px,100%);background:#fff;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);padding:58px 30px;overflow:auto;box-shadow:-10px 0 30px -20px #0005}.pr-dw.on{transform:none}
+.pr-dw h3{margin:0 0 16px;font:400 18px ${F}}.pr-dw .x{position:absolute;right:20px;top:20px;font-size:16px}.pr-dw dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;margin:0;font:400 9.5px/1.45 ${F}}.pr-dw dt{font-weight:600}.pr-dw dd{margin:0;color:#3b3d40}
+.pr-sh{position:absolute;inset:0;z-index:35;background:#0004;opacity:0;pointer-events:none;transition:opacity .3s}.pr-sh.on{opacity:1;pointer-events:auto}
+.pr-fb{display:none}
+@media (min-width:1200px){.pr{zoom:1.4}}
+@media (max-width:760px){.pr-hd{padding:0 16px}.pr-tt{padding:14px 16px 0;flex-direction:column}.pr-tt .r{margin:14px 0 0;text-align:left}.pr-bd{grid-template-columns:1fr;padding:24px 16px 120px}
+.pr-fb{display:flex;gap:8px;align-items:center;justify-content:center;height:36px;border:1px solid #010205;border-radius:4px;font:400 10px ${F};width:100%}
+.pr-fl{position:absolute;z-index:44;left:0;right:0;bottom:0;top:auto;max-height:78%;overflow:auto;background:#fff;border-radius:16px 16px 0 0;padding:24px 20px 30px;transform:translateY(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}.pr-fl.on{transform:none}
+.pr-gr{grid-template-columns:1fr;row-gap:70px}.pr-car{width:280px}.pr-tr{padding:0 12px;overflow-x:auto}.pr-pl span{display:none}.pr-ov{padding:20px 12px}.pr-ov table{font-size:8.5px}.pr-ov th,.pr-ov td{padding:8px 6px}.pr-ov thead svg{width:80px;height:28px}}
+`);
+  const el = h('div.pr'); root.append(el); const sc = h('div.pr-sc'); el.append(sc);
+  // ---- side-profile car SVG generator
+  const car = (kind, col, cls = '') => { const P = { coupe: 'M20 70Q20 58 40 56L110 50Q140 26 185 22Q235 22 280 46L318 54Q326 58 324 72L322 84H22Z', roadster: 'M18 72Q20 60 40 58L122 52L150 42L162 52L292 52L320 56Q328 60 326 72L324 84H20Z', sedan: 'M16 72Q18 58 40 56L100 50Q135 26 190 24Q245 24 285 46L320 52Q328 58 326 72L324 84H18Z', suv: 'M18 74Q16 54 40 50L90 46Q120 22 175 18Q240 18 278 42L316 48Q328 54 326 70L324 86H20Z' }[kind];
+    const W = { coupe: 'M122 49Q148 30 183 28Q222 28 255 46Z', roadster: 'M132 51L150 43L156 51Z', sedan: 'M112 49Q145 31 190 30Q235 30 270 47Z', suv: 'M104 45Q130 26 175 24Q228 24 262 43Z' }[kind];
+    const pil = kind === 'roadster' ? '' : `<path d="M${kind === 'suv' ? 180 : 186} 22v26" stroke="${col}" stroke-width="4"/>`;
+    const wy = kind === 'suv' ? 78 : 80, wr = kind === 'suv' ? 21 : 19; const wheel = (x) => `<g transform="translate(${x} ${wy})"><circle r="${wr}" fill="#1b1b1d"/><circle r="${wr - 5}" fill="#8d9196"/>${Array.from({ length: 5 }, (_, i) => `<path d="M0 0L${((wr - 6) * Math.cos(i * 1.2566)).toFixed(1)} ${((wr - 6) * Math.sin(i * 1.2566)).toFixed(1)}" stroke="#3a3c40" stroke-width="3.5"/>`).join('')}<circle r="4" fill="#2a2b2e"/></g>`;
+    return `<svg viewBox="0 0 340 108" class="${cls}"><defs><linearGradient id="pc${kind}${col.slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="170" cy="100" rx="150" ry="5" fill="#000" opacity=".22"/>
+<path d="${P}" fill="${col}"/><path d="${P}" fill="url(#pc${kind}${col.slice(1)})"/><path d="${W}" fill="#22262b" opacity=".92"/>${pil}<path d="M40 66h270" stroke="#000" stroke-opacity=".12"/><rect x="${kind === 'sedan' ? 300 : 296}" y="60" width="16" height="4" rx="2" fill="#c52127"/><path d="M24 62h14" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/>${wheel(kind === 'roadster' ? 80 : 76)}${wheel(kind === 'suv' ? 266 : 262)}</svg>`; };
+  // ---- mock data
+  const D = [
+    ['911', '911 Carrera', 'coupe', '#1f4fa5', 'Coupé', 4, 'Gasoline', 'Rear-wheel drive', 'Automatic', 3.9, 290, 394, 294, null, 129900, 'Acceleration 0 - 100 km/h with Sport Chrono Package'],
+    ['911', '911 Carrera T', 'coupe', '#f2f2f0', 'Coupé', 2, 'Gasoline', 'Rear-wheel drive', 'Manual', 4.5, 290, 394, 295, null, 139400],
+    ['911', '911 Carrera 4S Cabriolet', 'roadster', '#7a1f24', 'Cabriolet', 4, 'Gasoline', 'All-wheel drive', 'Automatic', 3.4, 353, 480, 306, null, 168200],
+    ['911', '911 GT3', 'coupe', '#9fb62a', 'Coupé', 2, 'Gasoline', 'Rear-wheel drive', 'Manual', 3.9, 375, 510, 311, null, 207300],
+    ['911', '911 Turbo S', 'coupe', '#3d3f43', 'Coupé', 4, 'Hybrid', 'All-wheel drive', 'Automatic', 2.5, 523, 711, 322, null, 268400],
+    ['718', '718 Cayman', 'coupe', '#c9b896', 'Coupé', 2, 'Gasoline', 'Rear-wheel drive', 'Manual', 5.1, 220, 300, 275, null, 72300],
+    ['718', '718 Boxster GTS 4.0', 'roadster', '#c6331f', 'Cabriolet', 2, 'Gasoline', 'Rear-wheel drive', 'Automatic', 4.0, 294, 400, 288, null, 108900],
+    ['718', '718 Cayman GT4 RS', 'coupe', '#55585d', 'Coupé', 2, 'Gasoline', 'Rear-wheel drive', 'Automatic', 3.4, 368, 500, 315, null, 161500],
+    ['Taycan', 'Taycan', 'sedan', '#7c8e8e', 'Sedan', 4, 'Electric', 'Rear-wheel drive', 'Automatic', 4.8, 300, 408, 230, '520 – 609 km', 101200, 'Acceleration 0 - 100 km/h with Launch Control'],
+    ['Taycan', 'Taycan 4', 'sedan', '#9aa3a6', 'Sedan', 4, 'Electric', 'All-wheel drive', 'Automatic', 4.6, 300, 408, 230, '500 – 586 km', 107300],
+    ['Taycan', 'Taycan Black Edition', 'sedan', '#18191b', 'Sedan', 4, 'Electric', 'Rear-wheel drive', 'Automatic', 4.8, 300, 408, 230, '512 – 600 km', 111900],
+    ['Taycan', 'Taycan 4S', 'sedan', '#5d4a5c', 'Sedan', 4, 'Electric', 'All-wheel drive', 'Automatic', 3.7, 400, 544, 250, '494 – 560 km', 123500],
+    ['Taycan', 'Taycan Turbo S Cross Turismo', 'sedan', '#a8a59b', 'Sport Turismo', 4, 'Electric', 'All-wheel drive', 'Automatic', 2.4, 700, 952, 260, '474 – 545 km', 199800],
+    ['Panamera', 'Panamera', 'sedan', '#2c3a52', 'Sedan', 4, 'Gasoline', 'Rear-wheel drive', 'Automatic', 5.1, 260, 353, 272, null, 108900],
+    ['Panamera', 'Panamera 4 E-Hybrid', 'sedan', '#d6d6d2', 'Sedan', 4, 'Hybrid', 'All-wheel drive', 'Automatic', 4.1, 346, 470, 280, '71 – 91 km', 124900],
+    ['Panamera', 'Panamera Turbo S E-Hybrid', 'sedan', '#4a4d52', 'Sedan', 4, 'Hybrid', 'All-wheel drive', 'Automatic', 2.9, 575, 782, 325, '69 – 81 km', 222500],
+    ['Macan', 'Macan Electric', 'suv', '#4f6a7a', 'SUV', 5, 'Electric', 'Rear-wheel drive', 'Automatic', 5.7, 300, 408, 220, '590 – 641 km', 78900],
+    ['Macan', 'Macan 4S Electric', 'suv', '#b4532d', 'SUV', 5, 'Electric', 'All-wheel drive', 'Automatic', 4.1, 380, 516, 240, '541 – 606 km', 93400],
+    ['Macan', 'Macan Turbo Electric', 'suv', '#202124', 'SUV', 5, 'Electric', 'All-wheel drive', 'Automatic', 3.3, 470, 639, 260, '518 – 591 km', 122400],
+    ['Cayenne', 'Cayenne', 'suv', '#e7e5df', 'SUV', 5, 'Gasoline', 'All-wheel drive', 'Automatic', 6.0, 260, 353, 248, null, 96500],
+    ['Cayenne', 'Cayenne S Coupé', 'suv', '#6c7a5a', 'SUV', 5, 'Gasoline', 'All-wheel drive', 'Automatic', 4.7, 349, 474, 275, null, 124800],
+    ['Cayenne', 'Cayenne Turbo E-Hybrid', 'suv', '#7a2c34', 'SUV', 5, 'Hybrid', 'All-wheel drive', 'Automatic', 3.7, 544, 739, 295, '76 – 83 km', 182900]
+  ].map(([series, name, kind, col, body, seats, fuel, drive, gear, acc, kw, ps, vmax, range, price, accLbl], i) => ({ id: i, series, name, kind, col, body, seats, fuel, drive, gear, acc, kw, ps, vmax, range, price, accLbl }));
+  const SERIES = ['All', '911', '718', 'Taycan', 'Panamera', 'Macan', 'Cayenne'];
+  const FACETS = [['Body Type', 'body', ['Coupé', 'Cabriolet', 'Sedan', 'Sport Turismo', 'SUV']], ['Seats', 'seats', [2, 4, 5]], ['Drive', 'drive', ['Rear-wheel drive', 'All-wheel drive']], ['Fuel Type', 'fuel', ['Gasoline', 'Hybrid', 'Electric']]];
+  const ABOUT = { '911': 'Rear-engined icon. Coupé, Cabriolet and Targa bodies; Carrera, GTS, Turbo and GT models.', '718': 'Mid-engined two-seaters: the Cayman coupé and Boxster roadster.', Taycan: 'All-electric sports saloon, plus Sport Turismo and Cross Turismo estates.', Panamera: 'Four-door gran turismo with petrol and plug-in hybrid drives.', Macan: 'Compact sports SUV, now all-electric.', Cayenne: 'Five-seat SUV and SUV-Coupé with petrol and E-Hybrid drives.' };
+  // ---- state
+  const st = { series: 'All', f: { body: new Set(), seats: new Set(), drive: new Set(), fuel: new Set() } }; const cmp = [];
+  const match = (c, skip) => (st.series === 'All' || c.series === st.series) && FACETS.every(([, k]) => k === skip || !st.f[k].size || st.f[k].has(c[k]));
+  const writeHash = () => { const p = new URLSearchParams(); if (st.series !== 'All') p.set('series', st.series); for (const [, k] of FACETS) if (st.f[k].size) p.set(k, [...st.f[k]].join('|')); const s2 = p.toString(); try { history.replaceState(null, '', s2 ? '#' + s2 : location.pathname + location.search); } catch {} };
+  const readHash = () => { const p = new URLSearchParams(location.hash.slice(1)); st.series = SERIES.includes(p.get('series')) ? p.get('series') : 'All'; for (const [, k] of FACETS) st.f[k] = new Set((p.get(k) || '').split('|').filter(Boolean).map((v) => (k === 'seats' ? +v : v))); };
+  // ---- header + title
+  const ico = { g: '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#010205" stroke-width=".9"><circle cx="6" cy="6" r="5.2"/><path d="M.8 6h10.4M6 .8q-3 5.2 0 10.4q3-5.2 0-10.4"/></svg>', u: '<svg width="11" height="12" viewBox="0 0 11 12" fill="none" stroke="#010205" stroke-width=".9"><circle cx="5.5" cy="3.6" r="2.6"/><path d="M1 11.4q0-4 4.5-4t4.5 4Z"/></svg>', ch: '<svg width="8" height="5" viewBox="0 0 8 5"><path d="M.5.5 4 4 7.5.5" stroke="#010205" fill="none"/></svg>' };
+  const hd = h('header.pr-hd', {}, h('button.mn', { onclick: () => toast('Menu — demo'), html: '<svg width="11" height="9"><path d="M0 1h11M0 4.5h11M0 8h11" stroke="#010205"/></svg> Menu' }), h('a.pr-wm', { href: '#', onclick: (e) => e.preventDefault() }, 'PORSCHE'), h('div.ic', {}, h('button', { 'aria-label': 'Language', html: ico.g }), h('button', { 'aria-label': 'Profile', html: ico.u })));
+  const tt = h('div.pr-tt', {}, h('h1', {}, 'Model overview'), h('div.r', {}, h('div', {}, 'Do you already have a configuration?'), h('button.pr-bk', { onclick: () => toast('Load saved configuration — demo (Porsche Code)') }, 'Load saved configuration')));
+  // ---- filter column
+  const rads = SERIES.map((s2) => h('button.pr-rd', { role: 'radio', 'data-s': s2, onclick: () => { st.series = s2; render(); } }, h('i'), h('span', {}, s2), h('small')));
+  const und = h('button.pr-bk', { onclick: () => openDw(true) }, 'Understand the differences'); const undP = h('p');
+  const accs = FACETS.map(([t, k, vals]) => { const box = h('div'); const a = h('div.pr-ac', {}, h('button', { onclick: () => a.classList.toggle('on'), html: ico.ch + ' ' + t }), h('div.bd', {}, box)); a._k = k; a._vals = vals; a._box = box; return a; });
+  const fl = h('aside.pr-fl', {}, h('h3', {}, 'Model series'), h('div', { role: 'radiogroup' }, ...rads), undP, und, ...accs, h('button.pr-gy.pr-rs', { onclick: () => reset() }, 'Reset Filter'));
+  const fb = h('button.pr-fb', { onclick: () => { fl.classList.add('on'); shade.classList.add('on'); }, html: '<svg width="12" height="10"><path d="M0 2h12M0 8h12" stroke="#010205"/><circle cx="4" cy="2" r="1.8" fill="#fff" stroke="#010205"/><circle cx="8" cy="8" r="1.8" fill="#fff" stroke="#010205"/></svg> Filter' });
+  const main = h('div.pr-mn');
+  const bd = h('div.pr-bd', {}, h('div', {}, fb, fl), main);
+  // ---- compare tray + overlay + drawer
+  const tray = h('div.pr-tr'); const ov = h('div.pr-ov'); const dw = h('div.pr-dw'); const shade = h('div.pr-sh', { onclick: () => { openDw(false); fl.classList.remove('on'); shade.classList.remove('on'); } });
+  const openDw = (on) => { if (on) { const s2 = st.series; dw.replaceChildren(h('button.x', { onclick: () => openDw(false), 'aria-label': 'Close' }, '\u00d7'), h('h3', {}, `${s2} body types & model designations`), h('dl', {}, h('dt', {}, s2), h('dd', {}, ABOUT[s2] || ''), ...[...new Set(D.filter((c) => c.series === s2).map((c) => c.body))].flatMap((b) => [h('dt', {}, b), h('dd', {}, D.filter((c) => c.series === s2 && c.body === b).map((c) => c.name).join(', '))]))); }
+    dw.classList.toggle('on', on); shade.classList.toggle('on', on); };
+  const toggleCmp = (c) => { const i = cmp.indexOf(c.id); if (i >= 0) cmp.splice(i, 1); else { if (cmp.length >= 3) { toast('You can compare up to 3 models'); return false; } cmp.push(c.id); } drawTray(); main.querySelectorAll('.pr-cm').forEach((x) => x.classList.toggle('on', cmp.includes(+x.dataset.id))); return true; };
+  const drawTray = () => { tray.replaceChildren(...cmp.map((id) => { const c = D[id]; return h('div.pr-pl', { html: car(c.kind, c.col, 't') }, h('span', {}, c.name), h('button', { 'aria-label': 'Remove ' + c.name, onclick: () => toggleCmp(c), html: '<svg width="8" height="8"><path d="M1 1l6 6M7 1 1 7" stroke="#010205" stroke-width="1.2"/></svg>' })); }), h('button.go', { onclick: () => openOv(true) }, 'Compare Models')); tray.classList.toggle('on', cmp.length > 0); };
+  const ROWS = [['Price from', (c) => c.price, -1, (v) => '\u20ac ' + v.toLocaleString('en-US')], ['Acceleration 0 - 100 km/h', (c) => c.acc, -1, (v) => v.toFixed(1) + ' s'], ['Power (kW) / Power (PS)', (c) => c.kw, 1, (v, c) => `${v} kW / ${c.ps} PS`], ['Top speed', (c) => c.vmax, 1, (v) => v + ' km/h'], ['Seats', (c) => c.seats, 1, (v) => v], ['Drive', (c) => c.drive, 0, (v) => v], ['Fuel type', (c) => c.fuel, 0, (v) => v], ['Body type', (c) => c.body, 0, (v) => v]];
+  const openOv = (on) => { if (on) { const cs2 = cmp.map((id) => D[id]); ov.replaceChildren(h('button.x', { onclick: () => openOv(false) }, '\u00d7 Close'), h('h2', {}, 'Compare models'), h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, ''), ...cs2.map((c) => h('td', { html: car(c.kind, c.col) + c.name })))),
+      h('tbody', {}, ...ROWS.map(([lbl, get, dir, fmt]) => { const vals = cs2.map(get); const best = dir ? (dir > 0 ? Math.max(...vals) : Math.min(...vals)) : null; return h('tr', {}, h('th', {}, lbl), ...cs2.map((c, i) => h('td' + (dir && cs2.length > 1 && vals[i] === best ? '.best' : ''), {}, String(fmt(vals[i], c))))); })))); }
+    ov.classList.toggle('on', on); };
+  // ---- card
+  const cardEl = (c) => h('article.pr-cd', { 'data-id': c.id }, h('div.pr-car', { html: car(c.kind, c.col) }), h('h4', {}, c.name), h('div.pr-ch', {}, h('span', {}, '2027'), h('span', {}, c.fuel), h('span', {}, c.drive), h('span', {}, c.gear)),
+    h('div.pr-sp', {}, h('div', {}, h('b', {}, c.acc.toFixed(1) + ' s'), h('small', {}, c.accLbl || 'Acceleration 0 - 100 km/h')), h('div', {}, h('b', {}, `${c.kw} kW / ${c.ps} PS`), h('small', {}, 'Power (kW) / Power (PS)')), h('div', {}, h('b', {}, c.range || c.vmax + ' km/h'), h('small', {}, c.range ? (c.fuel === 'Electric' ? 'Electric range combined (model range)' : 'Electric range (EAER) combined') : 'Top speed'))),
+    h('div.pr-fp', {}, c.fuel === 'Electric' ? 'Electric energy consumption combined (model range): 19.1 – 16.1 kWh/100 km, CO\u2082-emissions combined (model range): 0 g/km' : `Fuel consumption combined (model range): ${(9 + c.kw / 120).toFixed(1)} – ${(8 + c.kw / 140).toFixed(1)} l/100 km, CO\u2082-emissions combined (model range): ${Math.round(200 + c.kw / 6)} – ${Math.round(190 + c.kw / 7)} g/km`),
+    h('a.pr-td', { href: '#', onclick: (e) => { e.preventDefault(); toast(c.name + ' technical data — demo'); } }, 'Technical data and standard equipment'),
+    h('div.pr-ct', {}, h('button.ex', { onclick: () => toast('Explore ' + c.name + ' — demo') }, 'Explore in Detail'), h('button.cf', { onclick: () => toast('Configure ' + c.name + ' — demo') }, 'Configure')),
+    h('button.pr-cm' + (cmp.includes(c.id) ? '.on' : ''), { 'data-id': c.id, onclick: () => toggleCmp(c) }, h('i'), 'Compare'));
+  // ---- render with FLIP layout transition
+  let first = true;
+  const render = () => {
+    writeHash();
+    rads.forEach((r) => { const s2 = r.dataset.s; r.classList.toggle('on', s2 === st.series); r.setAttribute('aria-checked', String(s2 === st.series)); const n = D.filter((c) => (s2 === 'All' || c.series === s2) && FACETS.every(([, k]) => !st.f[k].size || st.f[k].has(c[k]))).length; r.querySelector('small').textContent = `(${n})`; });
+    und.disabled = st.series === 'All'; undP.textContent = st.series === 'All' ? 'To discover the differences between the body types, first select a model series.' : 'What are the differences in body types and model designations?';
+    accs.forEach((a) => { const k = a._k; a._box.replaceChildren(...a._vals.map((v) => { const n = D.filter((c) => c[k] === v && match(c, k)).length; const inp = h('input', { type: 'checkbox', checked: st.f[k].has(v), onchange: () => { if (inp.checked) st.f[k].add(v); else st.f[k].delete(v); render(); } }); return h('label', {}, inp, k === 'seats' ? `${v} seats` : v, h('small', {}, `(${n})`)); })); });
+    const vis = D.filter((c) => match(c)); const old = new Map([...main.querySelectorAll('.pr-cd')].map((n) => [+n.dataset.id, n.getBoundingClientRect()]));
+    const groups = []; for (const c of vis) { const g = c.series === 'All' ? c.series : (c.series === '911' ? (c.name.includes('Carrera') ? '911 Carrera' : '911') : c.series); let gg = groups.find((x) => x[0] === g); if (!gg) groups.push(gg = [g, []]); gg[1].push(c); }
+    const build = () => { main.replaceChildren(...(groups.length ? groups.flatMap(([g, cs2]) => [h('h2.pr-gh', {}, `${g} Model variants`), h('div.pr-gr', {}, ...cs2.map(cardEl))]) : [h('h2.pr-gh', {}, 'No model variants match your filters'), h('button.pr-gy', { onclick: () => reset() }, 'Reset Filter')]));
+      if (!first) main.querySelectorAll('.pr-cd').forEach((n) => { const r0 = old.get(+n.dataset.id); const r1 = n.getBoundingClientRect(); if (r0) { n.animate([{ transform: `translate(${r0.left - r1.left}px,${r0.top - r1.top}px)` }, { transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' }); } else n.animate([{ opacity: 0, transform: 'scale(.94)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'ease-out' }); }); first = false; };
+    const leaving = [...main.querySelectorAll('.pr-cd')].filter((n) => !vis.some((c) => c.id === +n.dataset.id));
+    if (!first && leaving.length) { leaving.forEach((n) => n.classList.add('out')); clearTimeout(render._t); render._t = setTimeout(build, 200); } else build();
+  };
+  const reset = () => { st.series = 'All'; for (const [, k] of FACETS) st.f[k].clear(); cmp.length = 0; drawTray(); render(); };
+  sc.append(hd, tt, bd); el.append(tray, shade, dw, ov);
+  const mq = matchMedia('(max-width:760px)'); const place = () => { if (mq.matches) { if (fl.parentNode !== el) el.append(fl); } else if (fl.parentNode !== bd.firstChild) bd.firstChild.append(fl); }; place(); mq.addEventListener('change', place);
+  readHash(); render(); drawTray();
+  el.addEventListener('keydown', (e) => { if (e.key === 'Escape') { openOv(false); openDw(false); fl.classList.remove('on'); shade.classList.remove('on'); } });
+  window.__demoProof = async () => {
+    const o = [], gs = getComputedStyle, h0 = location.hash;
+    o.push(`PORSCHE wordmark letter-spacing ${gs(hd.querySelector('.pr-wm')).letterSpacing}; ${main.querySelectorAll('.pr-cd').length} variant cards under All, "Understand the differences" disabled=${und.disabled}`);
+    const card0 = main.querySelector('.pr-cd'), ci = card0.querySelector('.pr-car'), cr0 = ci.getBoundingClientRect(), cdr = card0.getBoundingClientRect(); o.push(`car image overlaps card top edge by ${Math.round(cdr.top - cr0.top)}px of ${Math.round(cr0.height)}px; card radius ${gs(card0).borderRadius}`);
+    if (gs(fb).display !== 'none') { fb.click(); await sleep(450); o.push(`mobile Filter → bottom sheet transform=${gs(fl).transform}`); }
+    rads[3].click(); await sleep(520); o.push(`radio Taycan → aria-checked=${rads[3].getAttribute('aria-checked')} hash="${location.hash}" heading "${main.querySelector('.pr-gh').textContent}" cards=${main.querySelectorAll('.pr-cd').length}`);
+    accs[2].querySelector('button').click(); await sleep(320); const awd = [...accs[2].querySelectorAll('label')].find((l) => l.textContent.includes('All-wheel')); awd.querySelector('input').click(); await sleep(520);
+    o.push(`Drive ▸ All-wheel drive → cards=${main.querySelectorAll('.pr-cd').length} [${[...main.querySelectorAll('.pr-cd h4')].map((x) => x.textContent).join(', ')}] hash="${location.hash}"`);
+    und.click(); await sleep(500); o.push(`Understand the differences → drawer "${dw.querySelector('h3').textContent}" transform=${gs(dw).transform}`); openDw(false); fl.classList.remove('on'); shade.classList.remove('on');
+    const cms = [...main.querySelectorAll('.pr-cm')]; for (const c of cms.slice(0, 3)) c.click(); await sleep(400);
+    o.push(`Compare ×3 → tray ${tray.classList.contains('on') ? 'shown' : 'hidden'} chips=[${[...tray.querySelectorAll('.pr-pl')].map((p) => p.textContent).join(' | ')}]`);
+    st.series = 'All'; for (const [, k] of FACETS) st.f[k].clear(); render(); await sleep(500); const extra = [...main.querySelectorAll('.pr-cm')].find((x) => !cmp.includes(+x.dataset.id)); const ok4 = toggleCmp(D[+extra.dataset.id]); o.push(`4th compare blocked=${!ok4} (max 3), tray still ${cmp.length}`);
+    tray.querySelector('.go').click(); await sleep(520); const best = [...ov.querySelectorAll('td.best')].map((t) => t.textContent); o.push(`Compare Models → full-screen table ${ov.querySelectorAll('tbody tr').length} rows × ${ov.querySelectorAll('thead td').length} models, best-value cells: ${best.slice(0, 4).join(' / ')}`); openOv(false);
+    tray.querySelector('.pr-pl button').click(); await sleep(200); o.push(`chip × → ${cmp.length} left`);
+    reset(); await sleep(450); try { history.replaceState(null, '', h0 || location.pathname + location.search); } catch {} accs.forEach((a) => a.classList.remove('on')); sc.scrollTop = 0; document.querySelectorAll('.tg-toast').forEach((x) => x.classList.remove('on'));
+    return o.join('; ') + `; Reset → All (${main.querySelectorAll('.pr-cd').length} cards), compare cleared, hash restored · stand-ins: cars are SVG side profiles, mock data (22 variants), Michroma substitutes the Porsche wordmark, Inter substitutes Porsche Next`;
+  };
+};
 export function mount(root, variant, opts, T) { (V[variant] || V['pricing-tier-cards'])(root, T); }

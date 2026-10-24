@@ -1,5 +1,68 @@
 [
  {
+  "id": "clone-glossier-cropped-wordmark-hero-script-nav-mega",
+  "slug": "glossier-cropped-wordmark-hero-script-nav-mega",
+  "name": "Glossier home: black announcement ticker with prev/next/pause, handwritten GIFT GUIDE nav item, full-bleed checkerboard still-life hero with a giant white Glossier wordmark cropped off the bottom, floating white promo card, three-column hover mega menu with image card, editorial product rows",
+  "date": "2026-10-24",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.glossier.com/",
+  "domain": "glossier.com",
+  "product": "Glossier (beauty brand shop)",
+  "checkpoints": [
+   "Black announcement bar with underlined link and prev/next/pause controls (verified)",
+   "Header: Glossier. wordmark left, handwritten-script GIFT GUIDE then caps category links, search/US/STORES/LOG IN/BAG (0) right (verified)",
+   "Full-bleed photo hero with a giant white Glossier wordmark bleeding off the bottom edge + white NEW promo card top-left with outlined Gift now button (verified)",
+   "Hovering SKINCARE drops a white 3-column mega panel: link column, sub-category column, product image card with arrow caption (verified)",
+   "Lower page: 2-up editorial gift blocks, round-cornered product category image row (verified); email Join the list modal appears on scroll (verified)",
+   "Ticker auto-rotation and wordmark parallax (unverified frame-by-frame; build as practice)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a beauty-brand homepage inspired by Glossier in Next.js + Tailwind + Framer Motion. Fonts: 'Inter' or 'Apercu'-like grotesk 500 for UI at 11-12px caps, a bold rounded grotesk (e.g. 'Plus Jakarta Sans' 700) for the giant wordmark, and one handwritten script ('Caveat' or 'Reenie Beanie') used only for the GIFT GUIDE nav item. Colors: white, ink #000, Glossier pink #F7D7D5, soft grey #F5F5F5. (1) Black 36px announcement bar: one line of white text with an underlined link, right side prev / next / pause icon buttons; messages auto-rotate every 5s with a vertical slide, pause toggles it. (2) White sticky header: 'Glossier.' wordmark left, center nav with the handwritten 'Gift Guide' then caps FRAGRANCE / MAKEUP / SKINCARE / BALMS / BODY / GLOSSIER GOODS / SAVE WITH SETS / SHOP ALL, right search, globe US, STORES, LOG IN, BAG (0). Hovering a category underlines it and drops a full-width white mega panel (200ms height + fade): left column Shop All / Bestsellers / Digital Gift Card, middle column sub-categories, right a product image card with a two-line caption and → arrow. Panel closes on mouse leave with a 150ms grace delay. (3) Hero: full-bleed still-life photo; a giant white 'Glossier' wordmark (~26vw) positioned so its bottom third is cropped by the hero edge; on scroll the wordmark translates up slightly slower than the photo (parallax). Top-left a white card: 'NEW' tiny caps, product title, one-line copy, outlined 'Gift now' button. (4) Below: 2-up editorial gift blocks with caption + outlined Shop now, then a 5-up row of rounded-corner category images with tiny caps labels (Fragrance, Best Sellers, Makeup, Skincare, Sets) that zoom 1.04 on hover. (5) After 40% scroll show a centered 'Join the list' modal (image left, email field, Sign up / No thanks) once per session. Mobile: nav into a full-screen drawer, wordmark stays cropped."
+ },
+ {
+  "id": "clone-polene-serif-category-stack-cutout-bag-row",
+  "slug": "polene-serif-category-stack-cutout-bag-row",
+  "name": "Polène home: tiny-caps split nav around a centered serif logo, full-bleed landscape editorial hero with a small floating product card, huge stacked high-contrast serif category words (SACS / BIJOUX / PETITE MAROQUINERIE) over a row of cut-out bags, 2-up and 4-up editorial grids",
+  "date": "2026-10-24",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.polene-paris.com/",
+  "domain": "polene-paris.com",
+  "product": "Polène (Parisian leather goods)",
+  "checkpoints": [
+   "Thin header: tiny spaced caps BEST-SELLERS/SACS/BIJOUX/ACCESSOIRES/SAVOIR-FAIRE left, serif POLÈNE center, FR/BOUTIQUES/COMPTE/RECHERCHE + heart/bag counts right (verified)",
+   "Full-bleed landscape photo hero with a small white product card (name + price + bag cut-out) bottom-left (verified)",
+   "Centered stack of huge high-contrast serif words SACS / BIJOUX / PETITE MAROQUINERIE (verified)",
+   "Row of 4 cut-out bags on white with an underlined BEST-SELLERS caps link (verified)",
+   "2-up full-bleed editorial portraits then a 4-up image row with serif paragraph (verified)",
+   "Hovering a category word to swap the bag row (unverified: hover timed out headless; build as practice)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a luxury leather-goods homepage inspired by Polène in Next.js + Tailwind + Framer Motion. Fonts: a high-contrast didone serif ('Bodoni Moda' 400 or 'Playfair Display' 400) for the logo and category stack, 'Inter' 10px with 0.15em tracking caps for nav, a light serif ('Cormorant Garamond') for body. Colors: white, ink #111, warm stone #EDE8E1, cognac #9A5B32 accents. (1) 56px header that is transparent over the hero and turns white after 80px: tiny caps links left (BEST-SELLERS, SACS, BIJOUX, ACCESSOIRES, SAVOIR-FAIRE), serif 'POLÈNE' centered, right FR, BOUTIQUES, COMPTE, RECHERCHE, heart 0, bag 0. (2) Full-viewport landscape photo hero (slow 1.06 → 1.0 scale on load) with a small white card bottom-left: tiny product name, price, and a cut-out bag image; the card lifts on hover. (3) Category stack: three centered lines of huge serif caps (SACS / BIJOUX / PETITE MAROQUINERIE, ~8vw, line-height 0.95). Hovering or tapping a word sets it active (others fade to 25%) and cross-fades the row below to that category's 4 cut-out products (AnimatePresence, staggered 60ms, small y-rise). Under the row an underlined caps 'BEST-SELLERS' link. (4) Each product cut-out shows its name + price on hover and swaps to a second angle image. (5) 2-up full-bleed editorial portraits with caps captions, then a 4-up image row followed by a centered serif paragraph about craft. (6) Country redirect modal ('Hey! Great to See You Here', Yes Please! / No, Stay Here) on first visit, remembered in localStorage. Mobile: category words at 12vw, product row becomes a horizontal snap scroller."
+ },
+ {
+  "id": "clone-porsche-model-overview-radio-filter-compare-tray",
+  "slug": "porsche-model-overview-radio-filter-compare-tray",
+  "name": "Porsche model overview: spaced PORSCHE wordmark header, radio model-series filter with counts, collapsible Body Type/Seats/Drive/Fuel facets, white rounded variant cards with side-profile car overlapping the card top, tag chips, big spec numbers, Explore/Configure buttons, Compare checkboxes feeding a sticky bottom compare tray",
+  "date": "2026-10-24",
+  "slot": "12:00",
+  "lens": "aesthetic-interactive-craft",
+  "url": "https://www.porsche.com/international/models/",
+  "domain": "porsche.com",
+  "product": "Porsche (model overview / model finder)",
+  "checkpoints": [
+   "Header: Menu left, spaced PORSCHE wordmark center, globe + profile right; Model overview title + Load saved configuration button (verified)",
+   "Left filter: Model series radios with counts All(93)/911/718/Taycan/Panamera/Macan/Cayenne + Understand the differences + collapsible Body Type/Seats/Drive (verified)",
+   "Selecting Taycan swaps the grid to Taycan Model variants and updates the URL hash (verified)",
+   "Variant card: side-profile car image breaking the top of a white rounded card, year/fuel/drive/gearbox chips, 3 large specs, Explore in Detail / Configure (verified)",
+   "Ticking Compare on two cards shows a sticky bottom tray with car-thumb chips (removable ×) and a Compare Models button (verified)",
+   "Grid re-sort animation on filter change (unverified; build as practice)"
+  ],
+  "checkpoint_source": "ledger",
+  "prompt": "Build a car model-finder page inspired by Porsche's Model overview in Next.js + Tailwind + Framer Motion, using mock data for ~20 variants across 6 model series. Fonts: a wide spaced wordmark (letter-spacing 0.3em, 'Michroma' or a wide grotesk) for the logo, 'Inter' 400/500 for UI, specs at 22px. Colors: page #EEEFF2, cards white, ink #010205, chips #D8D8DB, black buttons. (1) Header: '≡ Menu' left, spaced PORSCHE wordmark center, globe + profile icons right. Big 'Model overview' title left; right 'Do you already have a configuration?' + black 'Load saved configuration' button. (2) Left sticky filter column: 'Model series' custom radio list with counts (All (93), 911 (22), 718 (10), Taycan (22), Panamera (9), Macan (5), Cayenne (25)); a short question + black 'Understand the differences' button that opens a side drawer; accordion facets Body Type / Seats / Drive / Fuel Type with checkboxes, and a 'Reset Filter' button. Filter state syncs to the URL hash. (3) Right: '<Series> Model variants' heading and a 2-col grid of white 24px-radius cards; a side-profile car PNG sits half above the card's top edge; name, chips (year in black, fuel, drive, gearbox), three spec blocks (0-100 time, kW/PS, top speed or range) with small grey labels, fine-print consumption text, underlined 'Technical data' link, black 'Explore in Detail' + grey 'Configure' buttons, and a 'Compare' checkbox. Filter changes animate the grid with layout transitions (cards fade/scale out, remaining slide into place). (4) Compare: up to 3 checked cards appear in a sticky bottom tray as pill chips (car thumb + name + ×) with a black 'Compare Models' button that opens a full-screen side-by-side spec table highlighting the best value per row. Car images nudge 8px right on card hover. Mobile: filters into a bottom sheet, 1-col cards, tray stays sticky."
+ },
+ {
   "id": "clone-standard-mirrored-logo-city-stack-fullscreen-slides",
   "slug": "standard-mirrored-logo-city-stack-fullscreen-slides",
   "name": "The Standard home: red tile with upside-down wordmark, condensed caps nav, giant stacked city-name list over a fullscreen night photo, vertical slide dots, tiny-caps HOTELS dropdown, floating red Book Now circle",

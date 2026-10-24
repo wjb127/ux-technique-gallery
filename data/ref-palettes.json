@@ -1,4 +1,34 @@
 {
+ "glossier-cropped-wordmark-hero-script-nav-mega": {
+  "bg": "#ffffff",
+  "fg": "#28281e",
+  "panel": "#d3d3d3",
+  "dark": false,
+  "ac": "#7c5cff",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.18
+ },
+ "polene-serif-category-stack-cutout-bag-row": {
+  "bg": "#4e7381",
+  "fg": "#f0f0f0",
+  "panel": "#86857c",
+  "dark": true,
+  "ac": "#4e7381",
+  "ac2": "#ff5c8a",
+  "ac3": "#ffc83d",
+  "coverage": 0.08
+ },
+ "porsche-model-overview-radio-filter-compare-tray": {
+  "bg": "#f1f1f4",
+  "fg": "#1c2a3c",
+  "panel": "#ffffff",
+  "dark": false,
+  "ac": "#1c2a3c",
+  "ac2": "#3b5874",
+  "ac3": "#ffc83d",
+  "coverage": 0.49
+ },
  "standard-mirrored-logo-city-stack-fullscreen-slides": {
   "bg": "#302d21",
   "fg": "#c1beb9",
