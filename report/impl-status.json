@@ -4732,5 +4732,32 @@
   "proof": "top: global floating nav visible=true sub-nav hidden=true; scroll to lineup → floating R2 sub-nav=true bg=rgb(255, 255, 255) radius=10px active=\"Lineup\" pill bg=rgb(218, 218, 218); segmented Standard→Premium: black pill 4px→138px bg=rgb(0, 0, 0); specs count-up → 330mi / 4.6s / 450 hp / Dual; Starting at $50,9901; paint swatch \"Rivian Blue\" ring=true outline=rgb(0, 0, 0) → body fill #2E4E78; wheel swatch → \"Premium · Rivian Blue · 21\" Sport wheels\"; tooltip \"Glacier White\" opacity=1; Compare drawer open translate=none highlighted col=\"Premium\" rows=6; scroll to \"Any road, any time\" → sub-nav active=\"Performance\" indicator left=72px; charging → active=\"Charging\"; restored Standard/Half Moon Grey/top (spec 275mi) · stand-ins: vehicle is an inline-SVG silhouette, photos are gradients, Inter Tight substitutes Rivian's typeface; non-Standard trim figures are illustrative",
   "demoNodes": 246,
   "errors": []
+ },
+ "pitchfork-score-ring-review-header-filter-pills": {
+  "url": "https://ux-technique-gallery.vercel.app/t/pitchfork-score-ring-review-header-filter-pills/",
+  "ok": true,
+  "at": "2026-10-24T00:02:57.989Z",
+  "http": 200,
+  "proof": "header bg=rgb(30, 30, 30) wordmark \"Pitchfork\" \"Playfair Display\" 34px; red SUBSCRIBE box rgb(255, 53, 48); index: \"Albums\" + 6 pills, 10 covers (3 with red BNM ribbon); circled-10 strip=true; pill \"8.0+ REVIEWS\" → 7 covers, active bg=rgb(0, 0, 0), URL ?filter=8-plus; \"BEST NEW REISSUES\" → Spirit of Eden (Deluxe), Raven (Remixes); scroll >100px → header compacts (row 62px, wordmark 17.1198px); open review \"Jazz dreams\" → red ring 8.7 (stroke #FF3530, dashoffset 32.8 of 251.3) crown=true URL ?review=jazz-dreams; READER SCORE 8.5 · Based on 27 readers; click ring → slider popover block value 10.0; submit → spring average 8.6 · Based on 28 readers; meta row \"Genre:Pop/R&BLabel:EschoRelease date:2026\" · drop cap font-size 58px · sticky subscribe bar visible; restored index/ALBUMS + URL · stand-ins: album covers are procedural SVG, Playfair Display / Libre Caslon / Archivo substitute Pitchfork’s licensed faces; reader-score slider and ring draw-in are practice additions",
+  "demoNodes": 204,
+  "errors": []
+ },
+ "standard-mirrored-logo-city-stack-fullscreen-slides": {
+  "url": "https://ux-technique-gallery.vercel.app/t/standard-mirrored-logo-city-stack-fullscreen-slides/",
+  "ok": true,
+  "at": "2026-10-24T00:02:57.974Z",
+  "http": 200,
+  "proof": "red logo tile bg=rgb(226, 35, 26) wordmark transform=matrix(-1, 0, 0, -1, 0, 0) (rotate 180°) font=Oswald; city stack 14 names, font-size 34.5px; hover \"Bangkok\" → others opacity 0.35, bg layer 3 visible (1); HOTELS ▾ → dropdown open with 14 caps cities (opacity 1); 2nd wheel 40ms later ignored by 900ms lock → still slide 2; mid-wipe clip=inset(58.7224% 0px 0px); wheel ↓ → slide 2/3 clip=inset(0px) dots=[○●○]; ArrowDown → slide 3 \"The StandardX\"; red Book Now circle (74px, 50%) → drawer transform=none guests=3 ; restored slide 1 · stand-ins: hotel photos are procedural SVG night facades, Oswald substitutes The Standard's condensed face",
+  "demoNodes": 2399,
+  "errors": []
+ },
+ "lego-gateway-split-modal-tile-rail-torn-edge": {
+  "url": "https://ux-technique-gallery.vercel.app/t/lego-gateway-split-modal-tile-rail-torn-edge/",
+  "ok": true,
+  "at": "2026-10-24T00:02:57.984Z",
+  "http": 200,
+  "proof": "gateway modal: blue half rgb(0, 89, 214) \"LEGO.com\" + yellow half rgb(255, 213, 0) \"THE PLAY ZONE\", red badge straddles top (top=-39px), page blurred=blur(6px) brightness(0.55); hover LEGO.com half widens 529→581px; Continue → modal closed=true localStorage=shop; Shop ▾ mega panel open with 6 themed icon tiles; hero mouse-move → gold disc parallax translate(12.8px, -12.4px) rotate(25.6deg); band tab \"Gifting\" → tiles: Gifts under $50 / Gifts for adults / Gifts for kids…; tile hover lift+tilt transform=matrix(0.999391, -0.0348995, 0.0348995, 0.999391, 0, -6); torn-paper edge path into white: true; Add to Bag → \"✓ Added\" bag 0→1 header=\"(1)\"; heart toggle on=true; carousel next → translateX(-274.109px); + hotspot → \"Wednesday Backpack$44.99  ›\" popover; restored (gateway + localStorage + bag) · stand-ins: set photos/art are SVG illustrations, Outfit substitutes the LEGO Cera typeface",
+  "demoNodes": 2456,
+  "errors": []
  }
 }
